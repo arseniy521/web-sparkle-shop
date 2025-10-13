@@ -35,7 +35,7 @@ export const Header = () => {
     { href: "#home", label: t('nav.home'), isHash: true },
     { href: "#workflow", label: t('nav.workflow'), isHash: true },
     { href: "#pricing", label: t('nav.pricing'), isHash: true },
-    { href: "#testimonials", label: t('testimonials.title'), isHash: true },
+    { href: "#testimonials", label: t('nav.testimonials'), isHash: true },
     { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];
 
