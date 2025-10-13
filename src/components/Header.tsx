@@ -33,7 +33,9 @@ export const Header = () => {
 
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
+    { href: "#team", label: "Team", isHash: true },
     { href: "#pricing", label: t('nav.pricing'), isHash: true },
+    { href: "#testimonials", label: "Reviews", isHash: true },
     { href: "/blog", label: "Blog", isHash: false },
     { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];
