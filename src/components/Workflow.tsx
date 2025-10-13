@@ -1,0 +1,71 @@
+import { Card } from "@/components/ui/card";
+import { PhoneCall, Calendar, UserCheck, Home } from "lucide-react";
+
+const steps = [
+  {
+    icon: PhoneCall,
+    title: "Contact Us",
+    description: "Call, message, or book online - we're available 24/7",
+  },
+  {
+    icon: Calendar,
+    title: "Schedule Visit",
+    description: "Choose a convenient time, same-day appointments available",
+  },
+  {
+    icon: UserCheck,
+    title: "Nurse Assigned",
+    description: "A qualified nurse is assigned to your case",
+  },
+  {
+    icon: Home,
+    title: "Home Care",
+    description: "Professional healthcare delivered at your location",
+  },
+];
+
+export const Workflow = () => {
+  return (
+    <section id="workflow" className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+            How It Works
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Our dedicated system allows you to access professional healthcare instantly - no tedious forms, long calls, or administrative hassle.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          {/* Connection Lines (Desktop) */}
+          <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-primary to-primary/20" />
+          
+          {steps.map((step, index) => (
+            <Card
+              key={index}
+              className="relative p-8 text-center hover:shadow-card transition-all duration-300 animate-slide-up"
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
+              {/* Step Number */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                {index + 1}
+              </div>
+
+              <div className="mb-6 flex justify-center">
+                <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                  <step.icon className="h-8 w-8 text-primary" />
+                </div>
+              </div>
+
+              <h3 className="text-xl font-semibold text-secondary mb-3">
+                {step.title}
+              </h3>
+              <p className="text-muted-foreground">{step.description}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
