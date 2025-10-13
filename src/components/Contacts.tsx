@@ -1,55 +1,58 @@
 import { Card } from "@/components/ui/card";
 import { Phone, Mail, Instagram, MessageCircle, Send } from "lucide-react";
-
-const contactMethods = [
-  {
-    icon: Phone,
-    title: "Phone",
-    value: "+420 773 629 123",
-    href: "tel:+420773629123",
-    color: "bg-blue-500/10 text-blue-600",
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp",
-    value: "+420 773 629 123",
-    href: "https://wa.me/420773629123",
-    color: "bg-green-500/10 text-green-600",
-  },
-  {
-    icon: Send,
-    title: "Telegram",
-    value: "@sestra_na_hodinu",
-    href: "https://t.me/sestra_na_hodinu",
-    color: "bg-sky-500/10 text-sky-600",
-  },
-  {
-    icon: Instagram,
-    title: "Instagram",
-    value: "@sestra_na_hodinu",
-    href: "https://www.instagram.com/sestra_na_hodinu/",
-    color: "bg-pink-500/10 text-pink-600",
-  },
-  {
-    icon: Mail,
-    title: "Email",
-    value: "sestranahodinu@gmail.com",
-    href: "mailto:sestranahodinu@gmail.com",
-    color: "bg-purple-500/10 text-purple-600",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export const Contacts = () => {
+  const { t } = useTranslation();
+
+  const contactMethods = [
+    {
+      icon: Phone,
+      title: t('contacts.phone'),
+      value: "+420 773 629 123",
+      href: "tel:+420773629123",
+      color: "bg-blue-500/10 text-blue-600",
+    },
+    {
+      icon: MessageCircle,
+      title: t('contacts.whatsapp'),
+      value: "+420 773 629 123",
+      href: "https://wa.me/420773629123",
+      color: "bg-green-500/10 text-green-600",
+    },
+    {
+      icon: Send,
+      title: t('contacts.telegram'),
+      value: "@sestra_na_hodinu",
+      href: "https://t.me/sestra_na_hodinu",
+      color: "bg-sky-500/10 text-sky-600",
+    },
+    {
+      icon: Instagram,
+      title: t('contacts.instagram'),
+      value: "@sestra_na_hodinu",
+      href: "https://www.instagram.com/sestra_na_hodinu/",
+      color: "bg-pink-500/10 text-pink-600",
+    },
+    {
+      icon: Mail,
+      title: t('contacts.email'),
+      value: "sestranahodinu@gmail.com",
+      href: "mailto:sestranahodinu@gmail.com",
+      color: "bg-purple-500/10 text-purple-600",
+    },
+  ];
+
   return (
     <section id="contacts" className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-              Contact Us
+              {t('contacts.title')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              We are available 7 days a week. Reach out in any way that suits you best.
+              {t('contacts.description')}
             </p>
           </div>
 
@@ -83,7 +86,7 @@ export const Contacts = () => {
 
           <div className="mt-12 p-8 rounded-2xl bg-primary/5 border border-primary/10 text-center animate-fade-in">
             <p className="text-lg text-foreground">
-              <strong>Available:</strong> 7 days a week, 8:00 AM - 10:00 PM
+              <strong>{t('contacts.availability')}:</strong> {t('contacts.availabilityHours')}
             </p>
             <p className="text-muted-foreground mt-2">
               For urgent cases outside standard hours, please call directly

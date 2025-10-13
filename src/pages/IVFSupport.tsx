@@ -5,17 +5,19 @@ import { ArrowRight, Clock, Shield, Phone, Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import ivDripIcon from "@/assets/drp-2.png";
+import { useTranslation } from "react-i18next";
 
 const IVFSupport = () => {
+  const { t } = useTranslation();
   const benefits = [
-    "Time-sensitive injection administration (any hour)",
-    "Experienced with fertility medications",
-    "English-speaking nurses familiar with IVF protocols",
-    "Hotel and Airbnb visits throughout Prague",
-    "Coordination with your fertility clinic",
-    "Discreet, professional service",
-    "Same-day availability",
-    "Evening and weekend appointments"
+    t('ivfSupport.benefits.timing'),
+    t('ivfSupport.benefits.experienced'),
+    t('ivfSupport.benefits.english'),
+    t('ivfSupport.benefits.location'),
+    t('ivfSupport.benefits.coordination'),
+    t('ivfSupport.benefits.discreet'),
+    t('ivfSupport.benefits.sameDay'),
+    t('ivfSupport.benefits.flexible')
   ];
 
   return (
@@ -28,26 +30,26 @@ const IVFSupport = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-                  Specialized IVF Care in Prague
+                  {t('ivfSupport.badge')}
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">
-                  Professional IVF Injection Support at Your Prague Hotel
+                  {t('ivfSupport.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  Time-sensitive fertility medication administration by experienced English-speaking nurses. We come to your hotel, Airbnb, or home anywhere in Prague - day or night.
+                  {t('ivfSupport.description')}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
                     <Button size="lg" className="w-full sm:w-auto group">
-                      Book IVF Support Now
+                      {t('ivfSupport.bookNow')}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </a>
                   <a href="tel:+420773629123">
                     <Button size="lg" variant="outline" className="w-full sm:w-auto">
                       <Phone className="mr-2 h-5 w-5" />
-                      Call 24/7: +420 773 629 123
+                      {t('ivfSupport.call247')}
                     </Button>
                   </a>
                 </div>
@@ -56,15 +58,15 @@ const IVFSupport = () => {
                 <div className="flex flex-wrap gap-6 pt-6 border-t border-border">
                   <div className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">24/7 Available</span>
+                    <span className="text-sm font-medium">{t('ivfSupport.available247')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Shield className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">Licensed Nurses</span>
+                    <span className="text-sm font-medium">{t('ivfSupport.licensedNurses')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">200+ IVF Patients Served</span>
+                    <span className="text-sm font-medium">{t('ivfSupport.patientsServed')}</span>
                   </div>
                 </div>
               </div>
@@ -87,7 +89,7 @@ const IVFSupport = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-              Why IVF Patients Flying to Prague Choose Our Service
+              {t('ivfSupport.whyChoose')}
             </h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {benefits.map((benefit, index) => (
@@ -105,47 +107,47 @@ const IVFSupport = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
-                IVF Injection Support Pricing
+                {t('ivfSupport.pricing.title')}
               </h2>
               
               <Card className="p-8">
                 <div className="space-y-6">
                   <div className="flex justify-between items-center pb-4 border-b">
                     <div>
-                      <h3 className="text-xl font-semibold text-secondary">Single Injection Visit</h3>
-                      <p className="text-muted-foreground">Perfect for scheduled fertility medication administration</p>
+                      <h3 className="text-xl font-semibold text-secondary">{t('ivfSupport.pricing.single')}</h3>
+                      <p className="text-muted-foreground">{t('ivfSupport.pricing.singleDesc')}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-3xl font-bold text-primary">1,500 CZK</div>
+                      <div className="text-3xl font-bold text-primary">{t('ivfSupport.pricing.singlePrice')}</div>
                       <div className="text-sm text-muted-foreground">per visit</div>
                     </div>
                   </div>
 
                   <div className="flex justify-between items-center pb-4 border-b">
                     <div>
-                      <h3 className="text-xl font-semibold text-secondary">Evening/Night Visit</h3>
-                      <p className="text-muted-foreground">Time-sensitive injections after 8 PM or weekends</p>
+                      <h3 className="text-xl font-semibold text-secondary">{t('ivfSupport.pricing.evening')}</h3>
+                      <p className="text-muted-foreground">{t('ivfSupport.pricing.eveningDesc')}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-3xl font-bold text-primary">2,000 CZK</div>
+                      <div className="text-3xl font-bold text-primary">{t('ivfSupport.pricing.eveningPrice')}</div>
                       <div className="text-sm text-muted-foreground">per visit</div>
                     </div>
                   </div>
 
                   <div className="flex justify-between items-center">
                     <div>
-                      <h3 className="text-xl font-semibold text-secondary">IVF Cycle Package</h3>
-                      <p className="text-muted-foreground">5 scheduled injections throughout your cycle</p>
+                      <h3 className="text-xl font-semibold text-secondary">{t('ivfSupport.pricing.package')}</h3>
+                      <p className="text-muted-foreground">{t('ivfSupport.pricing.packageDesc')}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-3xl font-bold text-primary">7,000 CZK</div>
-                      <div className="text-sm text-muted-foreground">save 500 CZK</div>
+                      <div className="text-3xl font-bold text-primary">{t('ivfSupport.pricing.packagePrice')}</div>
+                      <div className="text-sm text-muted-foreground">{t('ivfSupport.pricing.save')}</div>
                     </div>
                   </div>
 
                   <div className="pt-4 mt-4 border-t">
                     <p className="text-sm text-muted-foreground">
-                      <strong>Includes:</strong> All nursing supplies, travel to your location in Prague, professional administration, and coordination with your clinic if needed.
+                      <strong>Includes:</strong> {t('ivfSupport.pricing.includes')}
                     </p>
                   </div>
                 </div>
@@ -154,7 +156,7 @@ const IVFSupport = () => {
               <div className="text-center mt-8">
                 <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
                   <Button size="lg">
-                    Book Your IVF Support
+                    {t('ivfSupport.pricing.bookButton')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
@@ -167,16 +169,16 @@ const IVFSupport = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-              How IVF Injection Support Works
+              {t('ivfSupport.howItWorks.title')}
             </h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <Card className="p-6 text-center">
                 <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   1
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-3">Book Online or Call</h3>
+                <h3 className="text-xl font-semibold text-secondary mb-3">{t('ivfSupport.howItWorks.step1Title')}</h3>
                 <p className="text-muted-foreground">
-                  Schedule your injection time - even last-minute requests accepted. Provide your hotel/accommodation address.
+                  {t('ivfSupport.howItWorks.step1Desc')}
                 </p>
               </Card>
 
@@ -184,9 +186,9 @@ const IVFSupport = () => {
                 <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   2
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-3">Nurse Arrives at Your Location</h3>
+                <h3 className="text-xl font-semibold text-secondary mb-3">{t('ivfSupport.howItWorks.step2Title')}</h3>
                 <p className="text-muted-foreground">
-                  English-speaking nurse arrives with all supplies. We come to your hotel room, Airbnb, or home.
+                  {t('ivfSupport.howItWorks.step2Desc')}
                 </p>
               </Card>
 
@@ -194,9 +196,9 @@ const IVFSupport = () => {
                 <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   3
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-3">Professional Administration</h3>
+                <h3 className="text-xl font-semibold text-secondary mb-3">{t('ivfSupport.howItWorks.step3Title')}</h3>
                 <p className="text-muted-foreground">
-                  Nurse administers your fertility medication following your clinic's protocol. Typical visit: 15-20 minutes.
+                  {t('ivfSupport.howItWorks.step3Desc')}
                 </p>
               </Card>
             </div>
@@ -208,27 +210,27 @@ const IVFSupport = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-                IVF Patient Questions
+                {t('ivfSupport.faq.title')}
               </h2>
               <div className="space-y-6">
                 <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">Can you do injections at specific times like 8 PM?</h3>
-                  <p className="text-muted-foreground">Yes! We understand IVF timing is critical. We offer evening appointments and can accommodate specific timing requirements for trigger shots and other time-sensitive medications.</p>
+                  <h3 className="text-lg font-semibold text-secondary mb-2">{t('ivfSupport.faq.q1')}</h3>
+                  <p className="text-muted-foreground">{t('ivfSupport.faq.a1')}</p>
                 </Card>
 
                 <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">Do you work with major Prague IVF clinics?</h3>
-                  <p className="text-muted-foreground">Yes, we've worked with patients from Reprofit, ISCARE, Gennet, and other Prague fertility clinics. We're familiar with standard IVF protocols and can coordinate with your clinic if needed.</p>
+                  <h3 className="text-lg font-semibold text-secondary mb-2">{t('ivfSupport.faq.q2')}</h3>
+                  <p className="text-muted-foreground">{t('ivfSupport.faq.a2')}</p>
                 </Card>
 
                 <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">What if I'm staying in a hotel?</h3>
-                  <p className="text-muted-foreground">Perfect! We visit hotels and Airbnb accommodations throughout Prague. Just provide your hotel name and room number when booking.</p>
+                  <h3 className="text-lg font-semibold text-secondary mb-2">{t('ivfSupport.faq.q3')}</h3>
+                  <p className="text-muted-foreground">{t('ivfSupport.faq.a3')}</p>
                 </Card>
 
                 <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">How do I pay?</h3>
-                  <p className="text-muted-foreground">We accept cash (CZK or EUR), bank transfer, or card payment. Payment is collected after service.</p>
+                  <h3 className="text-lg font-semibold text-secondary mb-2">{t('ivfSupport.faq.q4')}</h3>
+                  <p className="text-muted-foreground">{t('ivfSupport.faq.a4')}</p>
                 </Card>
               </div>
             </div>
@@ -240,22 +242,22 @@ const IVFSupport = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                Ready to Book Your IVF Injection Support?
+                {t('ivfSupport.cta.title')}
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Don't stress about injection timing during your IVF cycle. Our experienced nurses are here to help.
+                {t('ivfSupport.cta.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="w-full sm:w-auto">
-                    Book Online Now
+                    {t('ivfSupport.cta.bookOnline')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />
-                    Call: +420 773 629 123
+                    {t('ivfSupport.cta.call')}
                   </Button>
                 </a>
               </div>

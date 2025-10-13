@@ -30,11 +30,11 @@ export const Footer = () => {
                     onClick={(e) => { e.preventDefault(); scrollToSection("#team"); }}
                     className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
-                    Our Team
+                    {t('team.title')}
                   </a>
                 ) : (
                   <Link to="/#team" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                    Our Team
+                    {t('team.title')}
                   </Link>
                 )}
               </li>
@@ -44,11 +44,11 @@ export const Footer = () => {
                     onClick={scrollToTop}
                     className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left"
                   >
-                    Blog
+                    {t('nav.blog')}
                   </button>
                 ) : (
                   <Link to="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                    Blog
+                    {t('nav.blog')}
                   </Link>
                 )}
               </li>

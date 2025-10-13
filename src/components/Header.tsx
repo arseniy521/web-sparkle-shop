@@ -33,16 +33,16 @@ export const Header = () => {
 
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
-    { href: "#workflow", label: "How It Works", isHash: true },
+    { href: "#workflow", label: t('nav.workflow'), isHash: true },
     { href: "#pricing", label: t('nav.pricing'), isHash: true },
-    { href: "#testimonials", label: "Reviews", isHash: true },
+    { href: "#testimonials", label: t('testimonials.title'), isHash: true },
     { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];
 
   const serviceLinks = [
-    { href: "/ivf-injection-support-prague", label: "IVF Injection Support" },
-    { href: "/post-surgery-recovery-care-prague", label: "Post-Surgery Recovery" },
-    { href: "/disabled-daily-care-prague", label: "Daily Assistance Care" },
+    { href: "/ivf-injection-support-prague", label: t('specializedServices.ivf') },
+    { href: "/post-surgery-recovery-care-prague", label: t('specializedServices.postSurgery') },
+    { href: "/disabled-daily-care-prague", label: t('specializedServices.disabled') },
   ];
 
   const scrollToSection = (href: string) => {

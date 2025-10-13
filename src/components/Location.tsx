@@ -1,7 +1,9 @@
 import { MapPin, Clock } from "lucide-react";
 import mapImage from "@/assets/map.png";
+import { useTranslation } from "react-i18next";
 
 export const Location = () => {
+  const { t } = useTranslation();
   return (
     <section id="location" className="py-20 bg-accent/50">
       <div className="container mx-auto px-4">
@@ -22,10 +24,10 @@ export const Location = () => {
           <div className="space-y-6 animate-slide-up">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                We Operate in Prague Area
+                {t('location.title')}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Providing professional home healthcare services throughout Prague and surrounding areas.
+                {t('location.description')}
               </p>
             </div>
 
@@ -38,10 +40,10 @@ export const Location = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-secondary mb-2">
-                    Service Area
+                    {t('location.serviceArea')}
                   </h3>
                   <p className="text-muted-foreground">
-                    All Prague districts and up to 30km from city center. Additional travel fee applies for areas outside Prague.
+                    {t('location.serviceAreaText')}
                   </p>
                 </div>
               </div>
@@ -54,10 +56,10 @@ export const Location = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-secondary mb-2">
-                    Response Time
+                    {t('location.responseTime')}
                   </h3>
                   <p className="text-muted-foreground">
-                    Typically 2-3 hours for same-day appointments. We recommend booking in advance for scheduled care.
+                    {t('location.responseTimeText')}
                   </p>
                 </div>
               </div>

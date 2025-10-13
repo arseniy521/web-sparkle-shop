@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
 
 const pricingData = [
   {
@@ -29,15 +30,16 @@ const pricingData = [
 ];
 
 export const Pricing = () => {
+  const { t } = useTranslation();
   return (
     <section id="pricing" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-            Transparent Pricing
+            {t('pricing.title')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Fair and honest pricing with no hidden fees. Add-on services receive a 30% discount.
+            {t('pricing.description')}
           </p>
         </div>
 
@@ -47,13 +49,13 @@ export const Pricing = () => {
             <thead>
               <tr className="bg-primary/5">
                 <th className="px-6 py-4 text-left font-semibold text-secondary">
-                  Service
+                  {t('pricing.table.service')}
                 </th>
                 <th className="px-6 py-4 text-center font-semibold text-secondary">
-                  1st Service
+                  {t('pricing.table.firstService')}
                 </th>
                 <th className="px-6 py-4 text-center font-semibold text-secondary">
-                  Add-on Service
+                  {t('pricing.table.addOn')}
                 </th>
               </tr>
             </thead>
@@ -137,7 +139,7 @@ export const Pricing = () => {
         <div className="text-center mt-12">
           <a href="#services">
             <Button size="lg" variant="outline">
-              Learn More About Our Services
+              {t('pricing.learnMore')}
             </Button>
           </a>
         </div>

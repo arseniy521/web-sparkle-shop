@@ -5,17 +5,19 @@ import { ArrowRight, Shield, Phone, Check, Heart } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import woundCareIcon from "@/assets/WoundDressingBandage.png";
+import { useTranslation } from "react-i18next";
 
 const PostSurgeryCare = () => {
+  const { t } = useTranslation();
   const services = [
-    "Wound care and bandage changes",
-    "Surgical drain management",
-    "Post-operative hygiene assistance",
-    "Pain medication administration",
-    "Hospital-to-hotel escort service",
-    "IV line management and removal",
-    "Compression garment assistance",
-    "Recovery monitoring and vital signs"
+    t('postSurgeryCare.services.woundCare'),
+    t('postSurgeryCare.services.drainManagement'),
+    t('postSurgeryCare.services.hygiene'),
+    t('postSurgeryCare.services.painMeds'),
+    t('postSurgeryCare.services.escort'),
+    t('postSurgeryCare.services.ivManagement'),
+    t('postSurgeryCare.services.compression'),
+    t('postSurgeryCare.services.monitoring')
   ];
 
   return (
@@ -28,26 +30,26 @@ const PostSurgeryCare = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-                  Medical Tourism Support in Prague
+                  {t('postSurgeryCare.badge')}
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">
-                  Post-Surgery Recovery Care at Your Prague Hotel
+                  {t('postSurgeryCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  Professional post-operative nursing care for medical tourists. English-speaking nurses provide wound care, hygiene support, and recovery assistance at your hotel or Airbnb.
+                  {t('postSurgeryCare.description')}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
                     <Button size="lg" className="w-full sm:w-auto group">
-                      Book Recovery Care
+                      {t('postSurgeryCare.bookNow')}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </a>
                   <a href="tel:+420773629123">
                     <Button size="lg" variant="outline" className="w-full sm:w-auto">
                       <Phone className="mr-2 h-5 w-5" />
-                      Call: +420 773 629 123
+                      {t('postSurgeryCare.call')}
                     </Button>
                   </a>
                 </div>
@@ -56,15 +58,15 @@ const PostSurgeryCare = () => {
                 <div className="flex flex-wrap gap-6 pt-6 border-t border-border">
                   <div className="flex items-center gap-2">
                     <Heart className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">Plastic Surgery Specialists</span>
+                    <span className="text-sm font-medium">{t('postSurgeryCare.plasticSurgery')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Shield className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">Licensed Nurses</span>
+                    <span className="text-sm font-medium">{t('postSurgeryCare.licensedNurses')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">100+ Medical Tourists Served</span>
+                    <span className="text-sm font-medium">{t('postSurgeryCare.touristsServed')}</span>
                   </div>
                 </div>
               </div>
@@ -87,7 +89,7 @@ const PostSurgeryCare = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-              Post-Operative Care Services
+              {t('postSurgeryCare.servicesTitle')}
             </h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {services.map((service, index) => (
@@ -105,15 +107,15 @@ const PostSurgeryCare = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
-                Post-Surgery Recovery Packages
+                {t('postSurgeryCare.pricing.title')}
               </h2>
               
               <div className="grid md:grid-cols-3 gap-6">
                 <Card className="p-8">
-                  <h3 className="text-2xl font-bold text-secondary mb-2">Hospital Escort</h3>
-                  <div className="text-4xl font-bold text-primary mb-4">2,500 CZK</div>
+                  <h3 className="text-2xl font-bold text-secondary mb-2">{t('postSurgeryCare.pricing.escort')}</h3>
+                  <div className="text-4xl font-bold text-primary mb-4">{t('postSurgeryCare.pricing.escortPrice')}</div>
                   <p className="text-muted-foreground mb-6">
-                    Safe transport from hospital/clinic to your hotel with professional nurse escort
+                    {t('postSurgeryCare.pricing.escortDesc')}
                   </p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex gap-2">
@@ -136,12 +138,12 @@ const PostSurgeryCare = () => {
 
                 <Card className="p-8 border-2 border-primary relative">
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Most Popular
+                    {t('postSurgeryCare.pricing.popular')}
                   </div>
-                  <h3 className="text-2xl font-bold text-secondary mb-2">First 48 Hours</h3>
-                  <div className="text-4xl font-bold text-primary mb-4">5,500 CZK</div>
+                  <h3 className="text-2xl font-bold text-secondary mb-2">{t('postSurgeryCare.pricing.first48')}</h3>
+                  <div className="text-4xl font-bold text-primary mb-4">{t('postSurgeryCare.pricing.first48Price')}</div>
                   <p className="text-muted-foreground mb-6">
-                    Hospital escort + 2 hours aftercare at your hotel on day of surgery
+                    {t('postSurgeryCare.pricing.first48Desc')}
                   </p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex gap-2">
@@ -167,10 +169,10 @@ const PostSurgeryCare = () => {
                 </Card>
 
                 <Card className="p-8">
-                  <h3 className="text-2xl font-bold text-secondary mb-2">5-Day Recovery</h3>
-                  <div className="text-4xl font-bold text-primary mb-4">25,000 CZK</div>
+                  <h3 className="text-2xl font-bold text-secondary mb-2">{t('postSurgeryCare.pricing.fiveDay')}</h3>
+                  <div className="text-4xl font-bold text-primary mb-4">{t('postSurgeryCare.pricing.fiveDayPrice')}</div>
                   <p className="text-muted-foreground mb-6">
-                    Complete recovery support for 5 days after surgery
+                    {t('postSurgeryCare.pricing.fiveDayDesc')}
                   </p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex gap-2">
@@ -202,7 +204,7 @@ const PostSurgeryCare = () => {
 
               <div className="text-center mt-8">
                 <p className="text-muted-foreground">
-                  <strong>Single visit pricing:</strong> 1,900 CZK per hour for wound care, bandage changes, or hygiene assistance
+                  <strong>{t('postSurgeryCare.pricing.singleVisit').split(':')[0]}:</strong> {t('postSurgeryCare.pricing.singleVisit').split(':')[1]}
                 </p>
               </div>
             </div>
@@ -213,11 +215,11 @@ const PostSurgeryCare = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-              Ideal for Medical Tourists Having
+              {t('postSurgeryCare.idealFor.title')}
             </h2>
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <Card className="p-6">
-                <h3 className="text-xl font-semibold text-secondary mb-3">Plastic Surgery</h3>
+                <h3 className="text-xl font-semibold text-secondary mb-3">{t('postSurgeryCare.idealFor.plastic')}</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• Breast augmentation/lift</li>
                   <li>• Liposuction</li>
@@ -228,7 +230,7 @@ const PostSurgeryCare = () => {
               </Card>
 
               <Card className="p-6">
-                <h3 className="text-xl font-semibold text-secondary mb-3">Dental Surgery</h3>
+                <h3 className="text-xl font-semibold text-secondary mb-3">{t('postSurgeryCare.idealFor.dental')}</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• Dental implants</li>
                   <li>• Full mouth reconstruction</li>
@@ -238,7 +240,7 @@ const PostSurgeryCare = () => {
               </Card>
 
               <Card className="p-6">
-                <h3 className="text-xl font-semibold text-secondary mb-3">Other Procedures</h3>
+                <h3 className="text-xl font-semibold text-secondary mb-3">{t('postSurgeryCare.idealFor.other')}</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• Orthopedic surgery</li>
                   <li>• Eye surgery</li>
@@ -254,29 +256,29 @@ const PostSurgeryCare = () => {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-                Medical Tourist Questions
-              </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+              {t('postSurgeryCare.faq.title')}
+            </h2>
               <div className="space-y-6">
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">I'm staying at a hotel/Airbnb. Can you visit there?</h3>
-                  <p className="text-muted-foreground">Absolutely! We visit hotels, Airbnb accommodations, and apartments throughout Prague. This is our specialty for medical tourists.</p>
-                </Card>
+              <Card className="p-6">
+                <h3 className="text-lg font-semibold text-secondary mb-2">{t('postSurgeryCare.faq.q1')}</h3>
+                <p className="text-muted-foreground">{t('postSurgeryCare.faq.a1')}</p>
+              </Card>
 
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">Do I need Czech health insurance?</h3>
-                  <p className="text-muted-foreground">No. Our service is private pay - you don't need Czech insurance. We accept cash (CZK/EUR), bank transfer, or card payment.</p>
-                </Card>
+              <Card className="p-6">
+                <h3 className="text-lg font-semibold text-secondary mb-2">{t('postSurgeryCare.faq.q2')}</h3>
+                <p className="text-muted-foreground">{t('postSurgeryCare.faq.a2')}</p>
+              </Card>
 
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">What if I have complications?</h3>
-                  <p className="text-muted-foreground">Our nurses are trained to recognize complications and will coordinate with your surgeon or recommend emergency care if needed. With recovery packages, you have 24/7 phone support.</p>
-                </Card>
+              <Card className="p-6">
+                <h3 className="text-lg font-semibold text-secondary mb-2">{t('postSurgeryCare.faq.q3')}</h3>
+                <p className="text-muted-foreground">{t('postSurgeryCare.faq.a3')}</p>
+              </Card>
 
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">Can you help me with showering after surgery?</h3>
-                  <p className="text-muted-foreground">Yes! Hygiene assistance is included in our packages. We help with safe showering, keeping surgical sites dry, and post-shower wound care.</p>
-                </Card>
+              <Card className="p-6">
+                <h3 className="text-lg font-semibold text-secondary mb-2">{t('postSurgeryCare.faq.q4')}</h3>
+                <p className="text-muted-foreground">{t('postSurgeryCare.faq.a4')}</p>
+              </Card>
               </div>
             </div>
           </div>

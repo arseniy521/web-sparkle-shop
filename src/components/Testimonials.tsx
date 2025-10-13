@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const testimonials = [
   {
@@ -24,6 +25,7 @@ const testimonials = [
 
 export const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { t } = useTranslation();
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -38,10 +40,10 @@ export const Testimonials = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-            What Our Clients Say
+            {t('testimonials.title')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Real experiences from people we've helped in Prague
+            {t('testimonials.description')}
           </p>
         </div>
 
