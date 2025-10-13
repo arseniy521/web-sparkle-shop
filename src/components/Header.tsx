@@ -33,10 +33,8 @@ export const Header = () => {
 
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
-    { href: "#team", label: "Team", isHash: true },
     { href: "#pricing", label: t('nav.pricing'), isHash: true },
     { href: "#testimonials", label: "Reviews", isHash: true },
-    { href: "/blog", label: "Blog", isHash: false },
     { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];
 
@@ -44,6 +42,11 @@ export const Header = () => {
     { href: "/ivf-injection-support-prague", label: "IVF Injection Support" },
     { href: "/post-surgery-recovery-care-prague", label: "Post-Surgery Recovery" },
     { href: "/disabled-daily-care-prague", label: "Daily Assistance Care" },
+  ];
+
+  const aboutLinks = [
+    { href: "#team", label: "Our Team", isHash: true },
+    { href: "/blog", label: "Blog", isHash: false },
   ];
 
   const scrollToSection = (href: string) => {
@@ -118,6 +121,45 @@ export const Header = () => {
                       >
                         {service.label}
                       </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+
+            {/* About Dropdown */}
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
+                  About
+                  <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-background border-border z-50">
+                  {aboutLinks.map((link) => (
+                    <DropdownMenuItem key={link.href} asChild>
+                      {link.isHash && location.pathname === "/" ? (
+                        <a
+                          href={link.href}
+                          onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                          className="cursor-pointer"
+                        >
+                          {link.label}
+                        </a>
+                      ) : link.isHash ? (
+                        <Link 
+                          to={`/${link.href}`}
+                          className="cursor-pointer"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <Link 
+                          to={link.href}
+                          className="cursor-pointer"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -224,6 +266,42 @@ export const Header = () => {
                       >
                         {service.label}
                       </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+
+              {/* Mobile About Section */}
+              <li className="pt-2 border-t border-border">
+                <div className="text-sm font-semibold text-foreground mb-2">About</div>
+                <ul className="pl-4 space-y-2">
+                  {aboutLinks.map((link) => (
+                    <li key={link.href}>
+                      {link.isHash && location.pathname === "/" ? (
+                        <a
+                          href={link.href}
+                          onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                          className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {link.label}
+                        </a>
+                      ) : link.isHash ? (
+                        <Link
+                          to={`/${link.href}`}
+                          className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <Link
+                          to={link.href}
+                          className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
