@@ -30,26 +30,26 @@ const DisabledCare = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-                  Compassionate Daily Care in Prague
+                  {t('disabledCare.badge')}
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">
-                  Daily Comfort Care for Disabled & Chronic Patients in Prague
+                  {t('disabledCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  Professional nursing care for disabled patients and expats needing daily assistance. English-speaking nurses provide compassionate hygiene, medication, and mobility support at your home.
+                  {t('disabledCare.description')}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
                     <Button size="lg" className="w-full sm:w-auto group">
-                      Book Care Visit
+                      {t('disabledCare.bookVisit')}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </a>
                   <a href="tel:+420773629123">
                     <Button size="lg" variant="outline" className="w-full sm:w-auto">
                       <Phone className="mr-2 h-5 w-5" />
-                      Call: +420 773 629 123
+                      {t('disabledCare.call')}
                     </Button>
                   </a>
                 </div>
@@ -58,15 +58,15 @@ const DisabledCare = () => {
                 <div className="flex flex-wrap gap-6 pt-6 border-t border-border">
                   <div className="flex items-center gap-2">
                     <Heart className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">Compassionate Care</span>
+                    <span className="text-sm font-medium">{t('disabledCare.compassionate')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">Flexible Scheduling</span>
+                    <span className="text-sm font-medium">{t('disabledCare.flexible')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">English Speaking</span>
+                    <span className="text-sm font-medium">{t('disabledCare.englishSpeaking')}</span>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@ const DisabledCare = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-              Daily Comfort Care Services
+              {t('disabledCare.servicesTitle')}
             </h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {services.map((service, index) => (
@@ -107,72 +107,27 @@ const DisabledCare = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
-                Daily Care Pricing & Packages
+                {t('disabledCare.pricing.title')}
               </h2>
               
               <div className="grid md:grid-cols-3 gap-6">
                 <Card className="p-8">
-                  <h3 className="text-2xl font-bold text-secondary mb-2">Single Visit</h3>
-                  <div className="text-4xl font-bold text-primary mb-4">1,900 CZK</div>
+                  <h3 className="text-2xl font-bold text-secondary mb-2">{t('disabledCare.pricing.single')}</h3>
+                  <div className="text-4xl font-bold text-primary mb-4">{t('disabledCare.pricing.singlePrice')}</div>
                   <p className="text-muted-foreground mb-6">
-                    Per hour for hygiene assistance, medication, or daily care needs
+                    {t('disabledCare.pricing.singleDesc')}
                   </p>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Hygiene & bathing</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Medication administration</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Mobility assistance</span>
-                    </li>
-                  </ul>
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full">Book Visit</Button>
-                  </a>
-                </Card>
-
-                <Card className="p-8">
-                  <h3 className="text-2xl font-bold text-secondary mb-2">10-Visit Package</h3>
-                  <div className="text-4xl font-bold text-primary mb-4">18,000 CZK</div>
-                  <p className="text-muted-foreground mb-6">
-                    10 hours of care (save 1,000 CZK) - perfect for weekly visits
-                  </p>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">All single visit services</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Flexible scheduling</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Priority booking</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Save 1,000 CZK</span>
-                    </li>
-                  </ul>
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full">Buy Package</Button>
-                  </a>
+...
                 </Card>
 
                 <Card className="p-8 border-2 border-primary relative">
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Best Value
+                    {t('disabledCare.pricing.bestValue')}
                   </div>
-                  <h3 className="text-2xl font-bold text-secondary mb-2">Monthly Subscription</h3>
-                  <div className="text-4xl font-bold text-primary mb-4">38,000 CZK</div>
+                  <h3 className="text-2xl font-bold text-secondary mb-2">{t('disabledCare.pricing.monthly')}</h3>
+                  <div className="text-4xl font-bold text-primary mb-4">{t('disabledCare.pricing.monthlyPrice')}</div>
                   <p className="text-muted-foreground mb-6">
-                    20 hours per month - ideal for daily or regular care needs
+                    {t('disabledCare.pricing.monthlyDesc')}
                   </p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex gap-2">

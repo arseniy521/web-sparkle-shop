@@ -252,5 +252,183 @@
     "ivf": "Podpora IVF injekcí",
     "postSurgery": "Rekonvalescence po operaci",
     "disabled": "Denní komfortní péče"
+  },
+  "ivfSupport": {
+    "badge": "Podpora IVF v Praze",
+    "title": "Profesionální podpora injekcí IVF ve vašem pražském hotelu",
+    "description": "Včasné podání léků pro léčbu neplodnosti anglicky mluvícími sestrami. Dostupnost 24/7 pro pacienty IVF během léčby v Praze.",
+    "bookNow": "Rezervovat nyní",
+    "call247": "Volat 24/7",
+    "available247": "Dostupné 24/7",
+    "licensedNurses": "Licencované sestry",
+    "patientsServed": "Přes 500 pacientů IVF",
+    "whyChoose": "Proč si pacienti IVF vybírají nás",
+    "benefits": {
+      "timing": "Přesné podání ve správný čas - kritické pro úspěch IVF",
+      "experienced": "Zkušené sestry specializující se na injekce pro léčbu neplodnosti",
+      "english": "Anglicky mluvící sestry rozumí protokolům mezinárodních klinik",
+      "location": "Přijíždíme do vašeho hotelu - žádný stres z cestování",
+      "coordination": "Koordinace s vaší klinikou IVF pro správný timing",
+      "discreet": "Diskrétní a soucitná péče",
+      "sameDay": "Dostupnost tentýž den pro neočekávané změny harmonogramu",
+      "flexible": "Flexibilní rozvrh - časné ranní a pozdní večerní návštěvy"
+    },
+    "pricing": {
+      "title": "Ceny podpory IVF",
+      "single": "Jedna injekce",
+      "singleDesc": "Jedna podkožní nebo intramuskulární injekce",
+      "singlePrice": "1500 Kč",
+      "evening": "Večerní/Víkendová",
+      "eveningDesc": "Po 20:00 nebo o víkendu/svátcích",
+      "eveningPrice": "2000 Kč",
+      "package": "Balíček celého cyklu",
+      "packageDesc": "5+ injekcí během cyklu IVF",
+      "packagePrice": "7000 Kč",
+      "save": "Ušetřete 500+ Kč",
+      "includes": "Profesionální podání, všechny pomůcky, kontrola léků, likvidace, podpora 24/7",
+      "bookButton": "Rezervovat podporu IVF"
+    },
+    "howItWorks": {
+      "title": "Jak to funguje",
+      "step1Title": "Rezervujte online",
+      "step1Desc": "Sdělte nám harmonogram vašich injekcí a místo pobytu v Praze. Potvrdíme všechny detaily.",
+      "step2Title": "Sestra dorazí",
+      "step2Desc": "Naše zkušená sestra dorazí do vašeho hotelu přesně včas s potřebnými pomůckami.",
+      "step3Title": "Bezpečné podání",
+      "step3Desc": "Profesionální podání s kontrolou léků, správnou technikou a soucitnou péčí."
+    },
+    "faq": {
+      "title": "Často kladené otázky",
+      "q1": "Můžete přijet brzy ráno pro trigger injekce?",
+      "a1": "Ano! Jsme dostupní 24/7, včetně časných ranních trigger injekcí v 6-7 hodin ráno, které jsou kritické pro IVF.",
+      "q2": "Co když se můj harmonogram změní na poslední chvíli?",
+      "a2": "Chápeme, že protokoly IVF se mohou upravovat. Kontaktujte nás co nejdříve a přizpůsobíme se vašemu novému harmonogramu.",
+      "q3": "Musím poskytnout své léky?",
+      "a3": "Ano, přinesete své předepsané léky pro IVF. My poskytujeme stříkačky, jehly, alkoholové tampony a likvidaci.",
+      "q4": "Děláte injekce progesteronu v oleji (IM)?",
+      "a4": "Samozřejmě. Naše sestry jsou zkušené ve všech injekcích IVF - podkožních (Gonal-F, Menopur) i intramuskulárních (progesteron v oleji)."
+    },
+    "cta": {
+      "title": "Začínáte léčbu IVF v Praze?",
+      "description": "Rezervujte si podporu injekcí předem. Jsme tu, abychom vám pomohli v každém kroku.",
+      "bookOnline": "Rezervovat online",
+      "call": "Volat: +420 773 629 123"
+    }
+  },
+  "postSurgeryCare": {
+    "badge": "Pooperační péče v Praze",
+    "title": "Pooperační péče pro zdravotní turisty v Praze",
+    "description": "Profesionální pooperační péče o rány, hygienická pomoc a služby doprovodu do nemocnice ve vašem hotelu. Anglicky mluvící sestry pro plastickou chirurgii, stomatologii a další zákroky.",
+    "bookNow": "Rezervovat péči",
+    "call": "Zavolat nám",
+    "plasticSurgery": "Specialisté na plastickou chirurgii",
+    "licensedNurses": "Licencované sestry",
+    "touristsServed": "Přes 300 turistů",
+    "servicesTitle": "Zahrnuté služby zotavení",
+    "services": {
+      "woundCare": "Péče o rány a výměna obvazů (chirurgické řezy, drény)",
+      "drainManagement": "Správa drénů a péče",
+      "hygiene": "Pomoc s hygienou a koupáním (když je sprchování zakázáno)",
+      "painMeds": "Pomoc s léky proti bolesti a předepsanými léky",
+      "escort": "Doprovod do/z nemocnice pro následné návštěvy",
+      "ivManagement": "Správa IV a podávání léků",
+      "compression": "Pomoc s kompresním oblečením",
+      "monitoring": "Monitorování vitálních funkcí a komplikací"
+    },
+    "pricing": {
+      "title": "Balíčky pooperační péče",
+      "escort": "Doprovod do nemocnice",
+      "escortPrice": "2500 Kč",
+      "escortDesc": "Sestra vás doprovází z nemocnice do vašeho hotelu po zákroku",
+      "popular": "Nejoblíbenější",
+      "first48": "První 48 hodin",
+      "first48Price": "8500 Kč",
+      "first48Desc": "Doprovod + péče po dobu 2 hodin první den po operaci",
+      "fiveDay": "5denní zotavení",
+      "fiveDayPrice": "25000 Kč",
+      "fiveDayDesc": "Doprovod + denní 2hodinové návštěvy po dobu 5 dnů",
+      "singleVisit": "Jednotlivé návštěvy: 1900 Kč za hodinu pro péči o rány, hygienu nebo jiné potřeby"
+    },
+    "idealFor": {
+      "title": "Ideální pro pacienty po",
+      "plastic": "Plastické chirurgii",
+      "dental": "Stomatologických zákrocích",
+      "other": "Jiných zákrocích"
+    },
+    "faq": {
+      "title": "Často kladené otázky",
+      "q1": "Mohu si rezervovat před mou operací?",
+      "a1": "Ano! Důrazně doporučujeme rezervovat si pooperační péči předem. Koordinujeme s vaší nemocnicí přesný čas vyzvednutí a potřeby péče.",
+      "q2": "Co když budu potřebovat více dnů zotavení?",
+      "a2": "Žádný problém. Můžeme prodloužit vaši péči denně. Stačí nás kontaktovat a upravíme váš harmonogram.",
+      "q3": "Je to pokryto pojištěním?",
+      "a3": "Záleží na vašem pojištění. Poskytujeme detailní faktury, které můžete podat k náhradě. Mnoho mezinárodních pojišťoven pokrývá pooperační péči.",
+      "q4": "Mluví sestry anglicky?",
+      "a4": "Ano! Všechny naše sestry mluví anglicky, což je kritické pro zdravotní turisty. Můžeme také koordinovat v ruštině nebo ukrajinštině."
+    }
+  },
+  "disabledCare": {
+    "badge": "Soucitná denní péče v Praze",
+    "title": "Denní komfortní péče pro handicapované a chronické pacienty v Praze",
+    "description": "Profesionální ošetřovatelská péče pro handicapované pacienty a expatrioty potřebující denní pomoc. Anglicky mluvící sestry poskytují soucitnou pomoc s hygienou, léky a podporou mobility doma.",
+    "bookVisit": "Rezervovat návštěvu",
+    "call": "Volat: +420 773 629 123",
+    "compassionate": "Soucitná péče",
+    "flexible": "Flexibilní plánování",
+    "englishSpeaking": "Anglicky mluvící",
+    "servicesTitle": "Služby denní komfortní péče",
+    "services": {
+      "hygiene": "Pomoc s osobní hygienou a koupáním",
+      "dressing": "Podpora oblékání a péče o vzhled",
+      "medication": "Podávání léků",
+      "suppository": "Péče o čípky a katétry",
+      "mobility": "Pomoc s mobilitou a přesuny",
+      "meals": "Podpora přípravy jídel",
+      "vitals": "Monitorování vitálních funkcí",
+      "companionship": "Společnost a emoční podpora"
+    },
+    "pricing": {
+      "title": "Ceny a balíčky denní péče",
+      "single": "Jednotlivá návštěva",
+      "singlePrice": "1900 Kč",
+      "singleDesc": "Za hodinu pomoci s hygienou, léky nebo potřebami denní péče",
+      "package10": "Balíček 10 návštěv",
+      "package10Price": "18000 Kč",
+      "package10Desc": "10 hodin péče (ušetříte 1000 Kč) - ideální pro týdenní návštěvy",
+      "monthly": "Měsíční předplatné",
+      "monthlyPrice": "38000 Kč",
+      "monthlyDesc": "20 hodin měsíčně - ideální pro denní nebo pravidelné potřeby péče",
+      "bestValue": "Nejlepší hodnota",
+      "extended": "Rozšířená péče k dispozici: 40 hodin/měsíc = 72000 Kč | 60 hodin/měsíc = 105000 Kč",
+      "includes": "Všechny balíčky zahrnují dopravu v rámci Prahy, pomůcky a anglicky mluvící sestry"
+    },
+    "whoWeHelp": {
+      "title": "Poskytujeme soucitnou péči pro",
+      "disabled": "Handicapované pacienty",
+      "disabledDesc": "Komplexní pomoc s každodenními aktivitami, mobilitou a osobní péčí.",
+      "expats": "Expatrioty a cizince",
+      "expatsDesc": "Anglicky mluvící péče pro expatrioty bez rodinné podpory nebo znalosti češtiny.",
+      "chronic": "Chronická onemocnění",
+      "chronicDesc": "Pravidelná podpora pro pacienty zvládající pokračující zdravotní stavy vyžadující denní péči."
+    },
+    "faq": {
+      "title": "Často kladené otázky",
+      "q1": "Mohu mít stejnou sestru při každé návštěvě?",
+      "a1": "Ano! S našim měsíčním předplatným přiřadíme konzistentního pečovatele, který pozná vaše potřeby a preference. To vytváří kontinuitu a pohodlí.",
+      "q2": "Co když potřebuji pomoc s intimní péčí?",
+      "a2": "Naše sestry jsou profesionálně vyškoleny ve všech aspektech osobní péče, včetně koupání, toalety, zavádění čípků a péče o katétry. Poskytujeme důstojnou, respektující pomoc.",
+      "q3": "Mluvíte anglicky?",
+      "a3": "Ano! Všechny naše sestry mluví anglicky, což je zvláště důležité pro expatrioty a cizince bez znalosti češtiny nebo rodinné podpory v Praze.",
+      "q4": "Mohu upravit své měsíční hodiny?",
+      "a4": "Absolutně. Měsíční předplatné je flexibilní. Pokud potřebujete více nebo méně hodin, můžeme upravit váš plán. Nevyužité hodiny mohou být převedeny nebo připsány.",
+      "q5": "Které oblasti Prahy obsluhujete?",
+      "a5": "Obsluhujeme všechny pražské čtvrti a okolní oblasti až do 30 km od centra města. Doprava je zahrnuta ve všech cenách."
+    },
+    "cta": {
+      "title": "Jste připraveni naplánovat denní péči?",
+      "description": "Zažijte soucitnou, profesionální ošetřovatelskou péči v pohodlí vašeho domova. Jsme tu, abychom pomohli.",
+      "bookVisit": "Rezervovat návštěvu",
+      "discussSubscription": "Diskutovat o předplatném"
+    }
   }
 }
