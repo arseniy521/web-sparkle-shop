@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -12,6 +13,7 @@ import { useTranslation } from "react-i18next";
 
 export const Header = () => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -24,11 +26,12 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: t('nav.home') },
-    { href: "#services", label: t('nav.services') },
-    { href: "#workflow", label: t('nav.workflow') },
-    { href: "#pricing", label: t('nav.pricing') },
-    { href: "#contacts", label: t('nav.contacts') },
+    { href: "#home", label: t('nav.home'), isHash: true },
+    { href: "#services", label: t('nav.services'), isHash: true },
+    { href: "#workflow", label: t('nav.workflow'), isHash: true },
+    { href: "#pricing", label: t('nav.pricing'), isHash: true },
+    { href: "/blog", label: "Blog", isHash: false },
+    { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];
 
   const scrollToSection = (href: string) => {
@@ -48,26 +51,42 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 group" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}>
+          <Link to="/" className="flex items-center gap-2 group">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg transition-transform group-hover:scale-105">
               N
             </div>
             <span className="font-bold text-lg text-foreground hidden sm:inline-block">
               Nurse in Prague
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
+                {link.isHash && location.pathname === "/" ? (
+                  <a
+                    href={link.href}
+                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ) : link.isHash ? (
+                  <Link
+                    to={`/${link.href}`}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -130,13 +149,31 @@ export const Header = () => {
             <ul className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </a>
+                  {link.isHash && location.pathname === "/" ? (
+                    <a
+                      href={link.href}
+                      onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                      className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : link.isHash ? (
+                    <Link
+                      to={`/${link.href}`}
+                      className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
               <li className="pt-2 space-y-2">
