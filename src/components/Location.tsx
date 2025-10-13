@@ -1,4 +1,5 @@
 import { MapPin, Clock } from "lucide-react";
+import mapImage from "@/assets/map.png";
 
 export const Location = () => {
   return (
@@ -10,7 +11,7 @@ export const Location = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-3xl" />
             <div className="relative rounded-3xl overflow-hidden shadow-card">
               <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074"
+                src={mapImage}
                 alt="Prague service area map showing home nursing coverage"
                 className="w-full h-auto object-cover"
               />

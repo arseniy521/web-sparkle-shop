@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
-import ivDripIcon from "@/assets/drp.png";
-import injectionIcon from "@/assets/drp.png";
+import ivDripIcon from "@/assets/drips_cl2.png";
+import injectionIcon from "@/assets/injection.png";
 import woundCareIcon from "@/assets/WoundDressingBandage.png";
 import hygieneIcon from "@/assets/HygieneAssistance.png";
 import escortIcon from "@/assets/escort.png";
@@ -17,7 +17,7 @@ export const Services = () => {
       description: t('services.ivInfusion.description'),
     },
     {
-      image: ivDripIcon,
+      image: injectionIcon,
       title: t('services.injection.title'),
       description: t('services.injection.description'),
     },
