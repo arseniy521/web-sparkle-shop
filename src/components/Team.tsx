@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import milanImage from "@/assets/milan.jpg";
 import niginImage from "@/assets/nigin.jpg";
+import ivanaImage from "@/assets/ivana.jpg";
 
 const nurses = [
   {
@@ -13,7 +14,7 @@ const nurses = [
   {
     name: "Jana Králová",
     role: "Internal Medicine Nurse",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070",
+    image: ivanaImage,
     description:
       "She spent 10 years working in internal medicine at Thomayer Hospital, where she gained deep knowledge in managing chronic and acute conditions.",
   },
