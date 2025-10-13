@@ -5,17 +5,19 @@ import { ArrowRight, Calendar, Phone, Check, Heart } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import hygieneIcon from "@/assets/HygieneAssistance.png";
+import { useTranslation } from "react-i18next";
 
 const DisabledCare = () => {
+  const { t } = useTranslation();
   const services = [
-    "Personal hygiene and bathing assistance",
-    "Dressing and grooming support",
-    "Medication administration",
-    "Suppository and catheter care",
-    "Mobility assistance and transfers",
-    "Meal preparation support",
-    "Vital signs monitoring",
-    "Companionship and emotional support"
+    t('disabledCare.services.hygiene'),
+    t('disabledCare.services.dressing'),
+    t('disabledCare.services.medication'),
+    t('disabledCare.services.suppository'),
+    t('disabledCare.services.mobility'),
+    t('disabledCare.services.meals'),
+    t('disabledCare.services.vitals'),
+    t('disabledCare.services.companionship')
   ];
 
   return (
