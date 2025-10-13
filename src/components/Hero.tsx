@@ -92,19 +92,19 @@ export const Hero = () => {
 
             {/* Medical Tourism Highlights */}
             <div className="bg-muted/50 rounded-2xl p-6 mt-6">
-              <h3 className="font-semibold text-foreground mb-3">Specialized Services for International Patients</h3>
+              <h3 className="font-semibold text-foreground mb-3">{t('specializedServices.title')}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
                 <Link to="/ivf-injection-support-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <span>💉</span>
-                  <span>IVF Injection Support</span>
+                  <span>{t('specializedServices.ivf')}</span>
                 </Link>
                 <Link to="/post-surgery-recovery-care-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <span>🏥</span>
-                  <span>Post-Surgery Recovery</span>
+                  <span>{t('specializedServices.postSurgery')}</span>
                 </Link>
                 <Link to="/disabled-daily-care-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <span>🤝</span>
-                  <span>Daily Assistance Care</span>
+                  <span>{t('specializedServices.disabled')}</span>
                 </Link>
               </div>
             </div>

@@ -3,104 +3,104 @@
     "home": "Domů",
     "services": "Služby",
     "workflow": "Jak to funguje",
-    "pricing": "Ceny",
+    "pricing": "Ceník",
     "team": "Tým",
     "contacts": "Kontakty",
-    "bookNow": "Objednat"
+    "bookNow": "Rezervovat"
   },
   "hero": {
     "phrases": {
-      "0": "Předepsané infuze",
+      "0": "Předepsané IV kapačky",
       "1": "Předepsané injekce",
-      "2": "Péče o rány",
+      "2": "Ošetření ran",
       "3": "Podpora IVF",
-      "4": "Zotavení po operaci"
+      "4": "Rekonvalescence po operaci"
     },
-    "performedBy": "provádí zdravotní sestra",
+    "performedBy": "prováděná zdravotní sestrou",
     "inYourHome": "u vás doma",
-    "description": "Rychlá, spolehlivá a profesionální zdravotní péče doma. Česky mluvící sestry dostupné 24/7 v Praze.",
-    "bookNurse": "Objednat sestru",
+    "description": "Rychlá, spolehlivá a profesionální zdravotní péče doma. Anglicky mluvící sestry k dispozici 24/7 v Praze.",
+    "bookNurse": "Rezervovat sestru",
     "ourServices": "Naše služby",
     "certifiedNurses": "Certifikované sestry",
-    "licensedProfessionals": "Licencovaní odborníci",
-    "available247": "Dostupné 24/7",
+    "licensedProfessionals": "Licencované profesionálky",
+    "available247": "K dispozici 24/7",
     "sameDayService": "Služba tentýž den"
   },
   "services": {
     "title": "Naše služby",
-    "description": "Poskytujeme profesionální domácí zdravotní péči přizpůsobenou vašim potřebám. Všechny služby jsou prováděny kvalifikovanými sestrami pod řádným lékařským dohledem.",
+    "description": "Poskytujeme profesionální zdravotní péči na míru vašim potřebám. Všechny služby provádějí kvalifikované sestry pod řádným lékařským dohledem.",
     "ivInfusion": {
-      "title": "Intravenózní infuze",
-      "description": "💡 Pro hydrataci, vitamínovou terapii nebo předepsané nitrožilní léčby. 👉 Infuze podávaná sestrou s monitorováním u vás doma nebo v hotelu."
+      "title": "IV Infuze",
+      "description": "💡 Pro hydrataci, vitaminovou terapii nebo předepsané IV léčby. 👉 Podání IV sestrou s monitorováním u vás doma nebo v hotelu."
     },
     "injection": {
       "title": "Injekce",
-      "description": "💡 Pro IVF, antibiotika, inzulín nebo vitamínovou terapii. 👉 Včasné, přesné podání předepsaných injekcí."
+      "description": "💡 Pro IVF, antibiotika, inzulín nebo vitaminovou terapii. 👉 Včasné, přesné podání předepsaných injekcí."
     },
     "woundCare": {
-      "title": "Obvaz a péče o rány",
-      "description": "💡 Pro pacienty zotavující se z operace nebo zranění. 👉 Sterilní výměna obvazu, čištění rány a kontrola infekce."
+      "title": "Převazy a ošetření ran",
+      "description": "💡 Pro pacienty, kteří se zotavují z operace nebo po úrazech. 👉 Sterilní výměna obvazu, čištění ran a kontrola infekce."
     },
     "hygiene": {
-      "title": "Pomoc s hygienou",
+      "title": "Asistence s hygienou",
       "description": "💡 Pro starší nebo zdravotně postižené klienty potřebující denní péči. 👉 Jemná podpora s osobní hygienou a pohodlím."
     },
     "escort": {
       "title": "Doprovod do/z nemocnice",
-      "description": "💡 Pro pacienty potřebující podporu během cesty nebo návštěvy nemocnice. 👉 Doprovod sestrou s pomocí při pohybu a překladem."
+      "description": "💡 Pro pacienty potřebující podporu při cestě nebo návštěvě nemocnice. 👉 Doprovod sestry s pomocí při pohybu a tlumočením."
     },
     "massage": {
       "title": "Terapeutická masáž",
-      "description": "💡 Pro klienty s bolestí, otoky nebo omezenou mobilitou. 👉 Léčebná masáž ke zmírnění bolesti a zlepšení cirkulace."
+      "description": "💡 Pro klienty s bolestí, otoky nebo omezenou pohyblivostí. 👉 Léčebná masáž pro zmírnění bolesti a zlepšení cirkulace."
     }
   },
   "workflow": {
     "title": "Jak to funguje",
-    "description": "Jednoduchý 3krokový proces pro získání profesionální ošetřovatelské péče doma",
+    "description": "Jednoduchý 3krokový proces k získání profesionální ošetřovatelské péče u vás doma",
     "step1": {
-      "title": "Online objednávka",
+      "title": "Rezervujte online",
       "description": "Vyberte si službu a preferovaný čas prostřednictvím našeho jednoduchého rezervačního systému"
     },
     "step2": {
-      "title": "Příjezd sestry",
-      "description": "Certifikovaná sestra přijede na vaši adresu se vším potřebným vybavením"
+      "title": "Sestra dorazí",
+      "description": "Certifikovaná sestra dorazí na vaši adresu se vším potřebným vybavením"
     },
     "step3": {
-      "title": "Poskytnutí služby",
+      "title": "Služba poskytnuta",
       "description": "Získejte profesionální péči v pohodlí svého domova nebo hotelu"
     }
   },
   "benefits": {
-    "title": "Proč si nás vybrat",
+    "title": "Proč si vybrat nás",
     "description": "Profesionální zdravotní služby poskytované s péčí a odborností",
     "benefit1": {
-      "title": "Certifikovaní odborníci",
-      "description": "Všechny naše sestry mají plnou licenci a zkušenosti s domácí zdravotní péčí"
+      "title": "Certifikované profesionálky",
+      "description": "Všechny naše sestry jsou plně licencované a zkušené v domácí zdravotní péči"
     },
     "benefit2": {
-      "title": "Dostupnost 24/7",
+      "title": "K dispozici 24/7",
       "description": "Služba tentýž den k dispozici, včetně víkendů a svátků"
     },
     "benefit3": {
-      "title": "Česky mluvící",
-      "description": "Jasná komunikace v češtině pro české pacienty"
+      "title": "Anglicky mluvící",
+      "description": "Jasná komunikace v angličtině pro mezinárodní pacienty"
     },
     "benefit4": {
-      "title": "Domácí pohodlí",
+      "title": "Pohodlí domova",
       "description": "Žádné čekárny - získejte péči ve svém vlastním prostředí"
     }
   },
   "team": {
     "title": "Náš tým",
-    "description": "Poznejte naše zkušené a pečující zdravotní sestry",
+    "description": "Seznamte se s našimi zkušenými a pečujícími ošetřovatelskými profesionálkami",
     "member": {
       "title": "Registrovaná sestra",
       "experience": "let zkušeností"
     }
   },
   "pricing": {
-    "title": "Transparentní ceny",
-    "description": "Jasné, předem známé ceny bez skrytých poplatků. Všechny ceny zahrnují dopravu v Praze.",
+    "title": "Transparentní ceník",
+    "description": "Jasné, předem stanovené ceny bez skrytých poplatků. Všechny ceny zahrnují cestu po Praze.",
     "table": {
       "service": "Služba",
       "example": "Příklad použití",
@@ -108,20 +108,20 @@
       "addOn": "Přídavná (stejná návštěva)"
     },
     "services": {
-      "ivInfusion": "Intravenózní infuze / Kapačka",
-      "ivInfusionExample": "Vitamínová kapačka, hydratační terapie, předepsané i.v. léky",
-      "injection": "Injekce (jakéhokoli typu)",
-      "injectionExample": "IVF injekce, inzulín, antibiotika, vitamín B12, Ozempic",
-      "woundCare": "Obvaz a péče o rány",
-      "woundCareExample": "Pooperační péče, léčba zranění, sterilní výměna obvazu",
-      "hygiene": "Pomoc s hygienou",
-      "hygieneExample": "Denní pomoc s hygienou pro starší nebo zdravotně postižené pacienty",
+      "ivInfusion": "IV Infuze / IV kapačka",
+      "ivInfusionExample": "Vitaminová kapačka, hydratační terapie, předepsané IV léky",
+      "injection": "Injekce (jakýkoli typ)",
+      "injectionExample": "IVF injekce, inzulín, antibiotika, vitamin B12, Ozempic",
+      "woundCare": "Převazy a ošetření ran",
+      "woundCareExample": "Péče po operaci, ošetření úrazu, sterilní výměna obvazu",
+      "hygiene": "Asistence s hygienou",
+      "hygieneExample": "Denní hygienická podpora pro starší nebo zdravotně postižené pacienty",
       "escort": "Doprovod do/z nemocnice",
-      "escortExample": "Doprovod pacienta na vyšetření, překladatelská podpora",
+      "escortExample": "Doprovod pacienta na schůzku, podpora s tlumočením",
       "massage": "Terapeutická masáž",
-      "massageExample": "Léčebná masáž ke zmírnění bolesti, lymfatická drenáž"
+      "massageExample": "Léčebná masáž pro zmírnění bolesti, lymfatická drenáž"
     },
-    "note": "💡 Ušetřete 30 % při přidání služeb do stejné návštěvy!",
+    "note": "💡 Ušetřete 30 % při přidání služeb ke stejné návštěvě!",
     "learnMore": "Zjistit více o našich službách"
   },
   "testimonials": {
@@ -129,21 +129,21 @@
     "description": "Skutečné zpětné vazby od pacientů, kterým jsme pomohli"
   },
   "location": {
-    "title": "Oblast působnosti",
-    "description": "Působíme v Praze a okolí",
-    "serviceArea": "Oblast působnosti",
-    "serviceAreaText": "Praha a okolí (do 20 km)",
-    "responseTime": "Reakční doba",
-    "responseTimeText": "Obvykle 2-4 hodiny pro objednávky tentýž den"
+    "title": "Oblast služeb",
+    "description": "Obsluhujeme Prahu a okolí",
+    "serviceArea": "Oblast služeb",
+    "serviceAreaText": "Praha a okolí (až 20 km)",
+    "responseTime": "Reakční čas",
+    "responseTimeText": "Obvykle 2-4 hodiny pro rezervace tentýž den"
   },
   "contacts": {
     "title": "Kontaktujte nás",
-    "description": "Několik způsobů, jak nás kontaktovat - vyberte si, co vám vyhovuje",
+    "description": "Více způsobů, jak nás kontaktovat - vyberte si, co vám vyhovuje",
     "phone": "Telefon",
     "whatsapp": "WhatsApp",
     "telegram": "Telegram",
     "instagram": "Instagram",
-    "email": "Email",
+    "email": "E-mail",
     "availability": "Dostupnost",
     "availabilityHours": "Každý den 8:00 - 20:00"
   },
@@ -151,27 +151,27 @@
     "title": "Často kladené otázky",
     "description": "Najděte odpovědi na běžné otázky o našich službách",
     "q1": {
-      "question": "Jak si objednat sestru?",
-      "answer": "Můžete si objednat prostřednictvím našeho online systému, WhatsApp (+420 773 629 123) nebo telefonicky. Obvykle odpovídáme během několika minut a můžeme zařídit návštěvu tentýž den."
+      "question": "Jak si rezervuji sestru?",
+      "answer": "Můžete si rezervovat přes náš online systém, WhatsApp (+420 773 629 123) nebo telefonicky. Obvykle odpovídáme do několika minut a můžeme zorganizovat návštěvy tentýž den."
     },
     "q2": {
       "question": "Jsou vaše sestry kvalifikované?",
-      "answer": "Ano, všechny naše sestry jsou plně licencované zdravotnické pracovnice s příslušnou kvalifikací a mnohaletými zkušenostmi v klinickém prostředí a domácí péči."
+      "answer": "Ano, všechny naše sestry jsou plně licencované zdravotnické profesionálky s řádnou kvalifikací a lety zkušeností v klinických a domácích zdravotních zařízeních."
     },
     "q3": {
-      "question": "Mluvíte česky?",
-      "answer": "Ano! Všechny naše sestry plynně mluví česky pro zajištění jasné komunikace s českými pacienty. Mluvíme také anglicky, rusky a ukrajinsky."
+      "question": "Mluvíte anglicky?",
+      "answer": "Ano! Všechny naše sestry plynně mluví anglicky, aby zajistily jasnou komunikaci s mezinárodními pacienty. Mluvíme také česky, rusky a ukrajinsky."
     },
     "q4": {
-      "question": "Jaké oblasti pokrýváte?",
-      "answer": "Působíme v celé Praze a okolí v okruhu přibližně 20 km. Kontaktujte nás pro potvrzení, zda působíme ve vaší konkrétní lokalitě."
+      "question": "Které oblasti pokrýváte?",
+      "answer": "Obsluhujeme celou Prahu a okolí v rámci přibližně 20 km poloměru. Kontaktujte nás pro potvrzení, zda obsluhujeme vaši konkrétní lokalitu."
     },
     "q5": {
       "question": "Jak mohu zaplatit?",
       "answer": "Přijímáme hotovost, bankovní převod a platby kartou. Platba se provádí po dokončení služby k vaší spokojenosti."
     },
     "q6": {
-      "question": "Mohu si objednat na tentýž den?",
+      "question": "Mohu si rezervovat na tentýž den?",
       "answer": "Ano! Nabízíme službu tentýž den v závislosti na dostupnosti. Naše obvyklá reakční doba je 2-4 hodiny od potvrzení objednávky."
     }
   },
@@ -183,5 +183,11 @@
     "vat": "IČO",
     "registered": "Registrováno v Praze, Česká republika",
     "rights": "Všechna práva vyhrazena"
+  },
+  "specializedServices": {
+    "title": "Specializované služby pro mezinárodní pacienty",
+    "ivf": "Podpora IVF injekcí",
+    "postSurgery": "Rekonvalescence po operaci",
+    "disabled": "Denní komfortní péče"
   }
 }

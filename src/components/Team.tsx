@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
 import milanImage from "@/assets/milan.jpg";
 import niginImage from "@/assets/nigin.jpg";
 import ivanaImage from "@/assets/ivana.jpg";
@@ -28,15 +29,17 @@ const nurses = [
 ];
 
 export const Team = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="team" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-            Meet Our Nurses
+            {t('team.title')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our team of professional and experienced nurses is here to provide you with the best care possible.
+            {t('team.description')}
           </p>
         </div>
 

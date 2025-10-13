@@ -183,5 +183,191 @@
     "vat": "VAT",
     "registered": "Registered in Prague, Czech Republic",
     "rights": "All rights reserved"
+  },
+  "specializedServices": {
+    "title": "Specialized Services for International Patients",
+    "ivf": "IVF Injection Support",
+    "postSurgery": "Post-Surgery Recovery",
+    "disabled": "Daily Comfort Care"
+  },
+  "ivfSupport": {
+    "badge": "Specialized IVF Care in Prague",
+    "title": "Professional IVF Injection Support at Your Prague Hotel",
+    "description": "Time-sensitive fertility medication administration by experienced English-speaking nurses. We come to your hotel, Airbnb, or home anywhere in Prague - day or night.",
+    "bookNow": "Book IVF Support Now",
+    "call247": "Call 24/7: +420 773 629 123",
+    "available247": "24/7 Available",
+    "licensedNurses": "Licensed Nurses",
+    "patientsServed": "200+ IVF Patients Served",
+    "whyChoose": "Why IVF Patients Flying to Prague Choose Our Service",
+    "benefits": {
+      "timing": "Time-sensitive injection administration (any hour)",
+      "experienced": "Experienced with fertility medications",
+      "english": "English-speaking nurses familiar with IVF protocols",
+      "location": "Hotel and Airbnb visits throughout Prague",
+      "coordination": "Coordination with your fertility clinic",
+      "discreet": "Discreet, professional service",
+      "sameDay": "Same-day availability",
+      "flexible": "Evening and weekend appointments"
+    },
+    "pricing": {
+      "title": "IVF Injection Support Pricing",
+      "single": "Single Injection Visit",
+      "singleDesc": "Perfect for scheduled fertility medication administration",
+      "singlePrice": "1,500 CZK",
+      "evening": "Evening/Night Visit",
+      "eveningDesc": "Time-sensitive injections after 8 PM or weekends",
+      "eveningPrice": "2,000 CZK",
+      "package": "IVF Cycle Package",
+      "packageDesc": "5 scheduled injections throughout your cycle",
+      "packagePrice": "7,000 CZK",
+      "save": "save 500 CZK",
+      "includes": "All nursing supplies, travel to your location in Prague, professional administration, and coordination with your clinic if needed.",
+      "bookButton": "Book Your IVF Support"
+    },
+    "howItWorks": {
+      "title": "How IVF Injection Support Works",
+      "step1Title": "Book Online or Call",
+      "step1Desc": "Schedule your injection time - even last-minute requests accepted. Provide your hotel/accommodation address.",
+      "step2Title": "Nurse Arrives at Your Location",
+      "step2Desc": "English-speaking nurse arrives with all supplies. We come to your hotel room, Airbnb, or home.",
+      "step3Title": "Professional Administration",
+      "step3Desc": "Nurse administers your fertility medication following your clinic's protocol. Typical visit: 15-20 minutes."
+    },
+    "faq": {
+      "title": "IVF Patient Questions",
+      "q1": "Can you do injections at specific times like 8 PM?",
+      "a1": "Yes! We understand IVF timing is critical. We offer evening appointments and can accommodate specific timing requirements for trigger shots and other time-sensitive medications.",
+      "q2": "Do you work with major Prague IVF clinics?",
+      "a2": "Yes, we've worked with patients from Reprofit, ISCARE, Gennet, and other Prague fertility clinics. We're familiar with standard IVF protocols and can coordinate with your clinic if needed.",
+      "q3": "What if I'm staying in a hotel?",
+      "a3": "Perfect! We visit hotels and Airbnb accommodations throughout Prague. Just provide your hotel name and room number when booking.",
+      "q4": "How do I pay?",
+      "a4": "We accept cash (CZK or EUR), bank transfer, or card payment. Payment is collected after service."
+    },
+    "cta": {
+      "title": "Ready to Book Your IVF Injection Support?",
+      "description": "Don't stress about injection timing during your IVF cycle. Our experienced nurses are here to help.",
+      "bookOnline": "Book Online Now",
+      "call": "Call: +420 773 629 123"
+    }
+  },
+  "postSurgeryCare": {
+    "badge": "Medical Tourism Support in Prague",
+    "title": "Post-Surgery Recovery Care at Your Prague Hotel",
+    "description": "Professional post-operative nursing care for medical tourists. English-speaking nurses provide wound care, hygiene support, and recovery assistance at your hotel or Airbnb.",
+    "bookNow": "Book Recovery Care",
+    "call": "Call: +420 773 629 123",
+    "plasticSurgery": "Plastic Surgery Specialists",
+    "licensedNurses": "Licensed Nurses",
+    "touristsServed": "100+ Medical Tourists Served",
+    "servicesTitle": "Post-Operative Care Services",
+    "services": {
+      "woundCare": "Wound care and bandage changes",
+      "drainManagement": "Surgical drain management",
+      "hygiene": "Post-operative hygiene assistance",
+      "painMeds": "Pain medication administration",
+      "escort": "Hospital-to-hotel escort service",
+      "ivManagement": "IV line management and removal",
+      "compression": "Compression garment assistance",
+      "monitoring": "Recovery monitoring and vital signs"
+    },
+    "pricing": {
+      "title": "Post-Surgery Recovery Packages",
+      "escort": "Hospital Escort",
+      "escortPrice": "2,500 CZK",
+      "escortDesc": "Safe transport from hospital/clinic to your hotel with professional nurse escort",
+      "first48": "First 48 Hours",
+      "first48Price": "5,500 CZK",
+      "first48Desc": "Hospital escort + 2 hours aftercare at your hotel on day of surgery",
+      "popular": "Most Popular",
+      "fiveDay": "5-Day Recovery",
+      "fiveDayPrice": "25,000 CZK",
+      "fiveDayDesc": "Complete recovery support for 5 days after surgery",
+      "singleVisit": "Single visit pricing: 1,900 CZK per hour for wound care, bandage changes, or hygiene assistance"
+    },
+    "idealFor": {
+      "title": "Ideal for Medical Tourists Having",
+      "plastic": "Plastic Surgery",
+      "dental": "Dental Surgery",
+      "other": "Other Procedures"
+    },
+    "faq": {
+      "title": "Medical Tourist Questions",
+      "q1": "I'm staying at a hotel/Airbnb. Can you visit there?",
+      "a1": "Absolutely! We visit hotels, Airbnb accommodations, and apartments throughout Prague. This is our specialty for medical tourists.",
+      "q2": "Do I need Czech health insurance?",
+      "a2": "No. Our service is private pay - you don't need Czech insurance. We accept cash (CZK/EUR), bank transfer, or card payment.",
+      "q3": "What if I have complications?",
+      "a3": "Our nurses are trained to recognize complications and will coordinate with your surgeon or recommend emergency care if needed. With recovery packages, you have 24/7 phone support.",
+      "q4": "Can you help me with showering after surgery?",
+      "a4": "Yes! Hygiene assistance is included in our packages. We help with safe showering, keeping surgical sites dry, and post-shower wound care."
+    },
+    "cta": {
+      "title": "Planning Surgery in Prague?",
+      "description": "Book your post-operative care in advance for peace of mind. We're here to support your recovery."
+    }
+  },
+  "disabledCare": {
+    "badge": "Compassionate Daily Care in Prague",
+    "title": "Daily Comfort Care for Disabled & Chronic Patients in Prague",
+    "description": "Professional nursing care for disabled patients and expats needing daily assistance. English-speaking nurses provide compassionate hygiene, medication, and mobility support at your home.",
+    "bookNow": "Book Care Visit",
+    "call": "Call: +420 773 629 123",
+    "compassionate": "Compassionate Care",
+    "flexible": "Flexible Scheduling",
+    "englishSpeaking": "English Speaking",
+    "servicesTitle": "Daily Comfort Care Services",
+    "services": {
+      "hygiene": "Personal hygiene and bathing assistance",
+      "dressing": "Dressing and grooming support",
+      "medication": "Medication administration",
+      "catheter": "Suppository and catheter care",
+      "mobility": "Mobility assistance and transfers",
+      "meals": "Meal preparation support",
+      "vitals": "Vital signs monitoring",
+      "companionship": "Companionship and emotional support"
+    },
+    "pricing": {
+      "title": "Daily Care Pricing & Packages",
+      "single": "Single Visit",
+      "singlePrice": "1,900 CZK",
+      "singleDesc": "Per hour for hygiene assistance, medication, or daily care needs",
+      "package10": "10-Visit Package",
+      "package10Price": "18,000 CZK",
+      "package10Desc": "10 hours of care (save 1,000 CZK) - perfect for weekly visits",
+      "monthly": "Monthly Subscription",
+      "monthlyPrice": "38,000 CZK",
+      "monthlyDesc": "20 hours per month - ideal for daily or regular care needs",
+      "bestValue": "Best Value",
+      "extended": "Extended care available: 40 hours/month = 72,000 CZK | 60 hours/month = 105,000 CZK",
+      "includes": "All packages include travel within Prague, supplies, and English-speaking nurses"
+    },
+    "whoWeHelp": {
+      "title": "We Provide Compassionate Care For",
+      "disabled": "Disabled Patients",
+      "disabledDesc": "Comprehensive assistance with daily living activities, mobility, and personal care needs.",
+      "expats": "Expats & Foreigners",
+      "expatsDesc": "English-speaking care for expats without family support or Czech language skills.",
+      "chronic": "Chronic Conditions",
+      "chronicDesc": "Regular support for patients managing ongoing health conditions requiring daily care."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "Can I have the same nurse each visit?",
+      "a1": "Yes! With our monthly subscription, we assign a consistent caregiver who gets to know your needs and preferences. This creates continuity and comfort.",
+      "q2": "What if I need help with intimate care?",
+      "a2": "Our nurses are professionally trained in all aspects of personal care, including bathing, toileting, suppository insertion, and catheter care. We provide dignified, respectful assistance.",
+      "q3": "Do you speak English?",
+      "a3": "Yes! All our nurses speak English, which is especially important for expats and foreigners without Czech language skills or family support in Prague.",
+      "q4": "Can I adjust my monthly hours?",
+      "a4": "Absolutely. Monthly subscriptions are flexible. If you need more or fewer hours, we can adjust your plan. Unused hours can roll over or be credited.",
+      "q5": "What areas of Prague do you serve?",
+      "a5": "We serve all Prague districts and surrounding areas up to 30km from city center. Travel is included in all pricing."
+    },
+    "cta": {
+      "title": "Ready to Schedule Daily Care?",
+      "description": "Experience compassionate, professional nursing care in the comfort of your home. We're here to help."
+    }
   }
 }
