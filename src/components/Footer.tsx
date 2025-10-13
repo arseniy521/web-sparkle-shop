@@ -1,7 +1,16 @@
 import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router-dom";
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const location = useLocation();
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   
   return (
     <footer className="bg-gradient-to-br from-primary via-primary-dark to-primary text-primary-foreground py-12">
@@ -11,9 +20,24 @@ export const Footer = () => {
             <h3 className="font-bold text-lg mb-4">{t('footer.company')}</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#services" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  {t('footer.services')}
-                </a>
+                {location.pathname === "/" ? (
+                  <a 
+                    href="#team" 
+                    onClick={(e) => { e.preventDefault(); scrollToSection("#team"); }}
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  >
+                    Our Team
+                  </a>
+                ) : (
+                  <Link to="/#team" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                    Our Team
+                  </Link>
+                )}
+              </li>
+              <li>
+                <Link to="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Blog
+                </Link>
               </li>
             </ul>
           </div>
