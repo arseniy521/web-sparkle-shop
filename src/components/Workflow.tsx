@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { PhoneCall, Calendar, UserCheck, Home } from "lucide-react";
+import { PhoneCall, Calendar, Home } from "lucide-react";
 import workflowImage from "@/assets/workflow1.png";
 import { useTranslation } from "react-i18next";
 
@@ -16,11 +16,6 @@ export const Workflow = () => {
       icon: Calendar,
       title: t('workflow.step2.title'),
       description: t('workflow.step2.description'),
-    },
-    {
-      icon: UserCheck,
-      title: t('workflow.step3.title'),
-      description: t('workflow.step3.description'),
     },
     {
       icon: Home,
@@ -51,7 +46,7 @@ export const Workflow = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
           <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-primary to-primary/20" />
           
           {steps.map((step, index) => (
