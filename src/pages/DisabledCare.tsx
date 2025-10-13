@@ -335,7 +335,7 @@ const DisabledCare = () => {
           "@type": "MedicalBusiness",
           "name": "Disabled Daily Care Prague - Home Nursing for Expats",
           "description": "Daily comfort care for disabled patients and expats in Prague. English-speaking nurses provide hygiene assistance, medication management, and compassionate home support.",
-          "url": "https://www.sestranahodinu.cz/disabled-daily-care-prague",
+          "url": "https://www.nius.cz/disabled-daily-care-prague",
           "telephone": "+420773629123",
           "address": {
             "@type": "PostalAddress",

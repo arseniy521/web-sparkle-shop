@@ -39,7 +39,7 @@ const Index = () => {
           "name": "Nurse in Prague",
           "alternateName": "Home Healthcare Prague",
           "legalName": "Nius Services s.r.o.",
-          "url": "https://www.sestranahodinu.cz/en/",
+          "url": "https://www.nius.cz/en/",
           "description": "Professional home healthcare services in Prague: IV infusions, injections, wound care and nursing services directly at your home.",
           "slogan": "Fast, reliable and professional healthcare in the comfort of your home",
           "foundingDate": "2024",

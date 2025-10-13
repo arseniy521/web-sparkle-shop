@@ -4,55 +4,55 @@
   
   <!-- Homepage - English version -->
   <url>
-    <loc>https://www.sestranahodinu.cz/en/</loc>
+    <loc>https://www.nius.cz/en/</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sestranahodinu.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.sestranahodinu.cz/cs/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.sestranahodinu.cz/ru/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.sestranahodinu.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
   </url>
 
   <!-- Homepage - Czech version -->
   <url>
-    <loc>https://www.sestranahodinu.cz/cs/</loc>
+    <loc>https://www.nius.cz/cs/</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sestranahodinu.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.sestranahodinu.cz/cs/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.sestranahodinu.cz/ru/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.sestranahodinu.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
   </url>
 
   <!-- Homepage - Russian version -->
   <url>
-    <loc>https://www.sestranahodinu.cz/ru/</loc>
+    <loc>https://www.nius.cz/ru/</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sestranahodinu.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.sestranahodinu.cz/cs/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.sestranahodinu.cz/ru/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.sestranahodinu.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
   </url>
 
   <!-- Homepage - Ukrainian version -->
   <url>
-    <loc>https://www.sestranahodinu.cz/uk/</loc>
+    <loc>https://www.nius.cz/uk/</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sestranahodinu.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.sestranahodinu.cz/cs/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.sestranahodinu.cz/ru/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.sestranahodinu.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
   </url>
 
   <!-- Blog listing page -->
   <url>
-    <loc>https://www.sestranahodinu.cz/blog</loc>
+    <loc>https://www.nius.cz/blog</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -60,7 +60,7 @@
 
   <!-- Blog Post: IV Therapy Guide -->
   <url>
-    <loc>https://www.sestranahodinu.cz/blog/iv-therapy-at-home-prague-guide</loc>
+    <loc>https://www.nius.cz/blog/iv-therapy-at-home-prague-guide</loc>
     <lastmod>2025-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -68,7 +68,7 @@
 
   <!-- Blog Post: When to Call Home Nurse -->
   <url>
-    <loc>https://www.sestranahodinu.cz/blog/when-to-call-home-nurse-prague</loc>
+    <loc>https://www.nius.cz/blog/when-to-call-home-nurse-prague</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -76,7 +76,7 @@
 
   <!-- Blog Post: Wound Care -->
   <url>
-    <loc>https://www.sestranahodinu.cz/blog/wound-care-dressing-changes-prague</loc>
+    <loc>https://www.nius.cz/blog/wound-care-dressing-changes-prague</loc>
     <lastmod>2025-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -84,7 +84,7 @@
 
   <!-- Blog Post: Elderly Care -->
   <url>
-    <loc>https://www.sestranahodinu.cz/blog/elderly-care-nursing-services-prague</loc>
+    <loc>https://www.nius.cz/blog/elderly-care-nursing-services-prague</loc>
     <lastmod>2025-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -92,7 +92,7 @@
 
   <!-- Blog Post: Medical Injections -->
   <url>
-    <loc>https://www.sestranahodinu.cz/blog/medical-injections-home-service-prague</loc>
+    <loc>https://www.nius.cz/blog/medical-injections-home-service-prague</loc>
     <lastmod>2025-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -100,21 +100,21 @@
 
   <!-- Landing Pages -->
   <url>
-    <loc>https://www.sestranahodinu.cz/ivf-injection-support-prague</loc>
+    <loc>https://www.nius.cz/ivf-injection-support-prague</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.sestranahodinu.cz/post-surgery-recovery-care-prague</loc>
+    <loc>https://www.nius.cz/post-surgery-recovery-care-prague</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.sestranahodinu.cz/disabled-daily-care-prague</loc>
+    <loc>https://www.nius.cz/disabled-daily-care-prague</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

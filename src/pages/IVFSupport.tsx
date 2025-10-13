@@ -272,7 +272,7 @@ const IVFSupport = () => {
           "@type": "MedicalBusiness",
           "name": "IVF Injection Support Prague - Nurse in Prague",
           "description": "Professional IVF injection support at your Prague hotel. Time-sensitive fertility medication administration by English-speaking nurses. 24/7 availability for IVF patients.",
-          "url": "https://www.sestranahodinu.cz/ivf-injection-support-prague",
+          "url": "https://www.nius.cz/ivf-injection-support-prague",
           "telephone": "+420773629123",
           "address": {
             "@type": "PostalAddress",

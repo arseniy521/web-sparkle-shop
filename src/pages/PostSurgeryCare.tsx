@@ -319,7 +319,7 @@ const PostSurgeryCare = () => {
           "@type": "MedicalBusiness",
           "name": "Post-Surgery Recovery Care Prague - Medical Tourism Support",
           "description": "Professional post-operative nursing care for medical tourists in Prague. Wound care, hygiene assistance, hospital escort service at your hotel. English-speaking nurses.",
-          "url": "https://www.sestranahodinu.cz/post-surgery-recovery-care-prague",
+          "url": "https://www.nius.cz/post-surgery-recovery-care-prague",
           "telephone": "+420773629123",
           "address": {
             "@type": "PostalAddress",
