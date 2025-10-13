@@ -11,6 +11,10 @@ export const Footer = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   
   return (
     <footer className="bg-gradient-to-br from-primary via-primary-dark to-primary text-primary-foreground py-12">
@@ -28,6 +32,13 @@ export const Footer = () => {
                   >
                     Our Team
                   </a>
+                ) : location.pathname === "/blog" ? (
+                  <button 
+                    onClick={scrollToTop}
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left"
+                  >
+                    Our Team
+                  </button>
                 ) : (
                   <Link to="/#team" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                     Our Team
@@ -35,9 +46,18 @@ export const Footer = () => {
                 )}
               </li>
               <li>
-                <Link to="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Blog
-                </Link>
+                {location.pathname === "/blog" ? (
+                  <button 
+                    onClick={scrollToTop}
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left"
+                  >
+                    Blog
+                  </button>
+                ) : (
+                  <Link to="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                    Blog
+                  </Link>
+                )}
               </li>
             </ul>
           </div>
