@@ -10,6 +10,7 @@ import { Contacts } from "@/components/Contacts";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { StickyBookNow } from "@/components/StickyBookNow";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
         <FAQ />
       </main>
       <Footer />
+      <StickyBookNow />
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
