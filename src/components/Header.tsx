@@ -34,7 +34,6 @@ export const Header = () => {
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
     { href: "#contacts", label: t('nav.contacts'), isHash: true },
-    { href: "#pricing", label: t('nav.pricing'), isHash: true },
   ];
 
   const serviceLinks = [
@@ -164,6 +163,26 @@ export const Header = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+            </li>
+
+            {/* Pricing - last item */}
+            <li>
+              {location.pathname === "/" ? (
+                <a
+                  href="#pricing"
+                  onClick={(e) => { e.preventDefault(); scrollToSection('#pricing'); }}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {t('nav.pricing')}
+                </a>
+              ) : (
+                <Link
+                  to="/#pricing"
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {t('nav.pricing')}
+                </Link>
+              )}
             </li>
           </ul>
 
@@ -305,6 +324,27 @@ export const Header = () => {
                     </li>
                   ))}
                 </ul>
+              </li>
+
+              {/* Mobile Pricing - last item */}
+              <li className="pt-2 border-t border-border">
+                {location.pathname === "/" ? (
+                  <a
+                    href="#pricing"
+                    onClick={(e) => { e.preventDefault(); scrollToSection('#pricing'); }}
+                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {t('nav.pricing')}
+                  </a>
+                ) : (
+                  <Link
+                    to="/#pricing"
+                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {t('nav.pricing')}
+                  </Link>
+                )}
               </li>
               
               <li className="pt-2 space-y-2">
