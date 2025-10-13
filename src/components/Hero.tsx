@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import mainImage from "@/assets/main.png";
+import mainImage from "@/assets/drips_cl2.png";
 import { useTranslation } from "react-i18next";
 
 export const Hero = () => {

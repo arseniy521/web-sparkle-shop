@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import ivDripIcon from "@/assets/drips_cl2.png";
+import ivDripIcon from "@/assets/drp-2.png";
 import injectionIcon from "@/assets/injection.png";
 import woundCareIcon from "@/assets/WoundDressingBandage.png";
 import hygieneIcon from "@/assets/HygieneAssistance.png";
