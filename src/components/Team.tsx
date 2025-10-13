@@ -5,27 +5,9 @@ import niginImage from "@/assets/nigin.jpg";
 import ivanaImage from "@/assets/ivana.jpg";
 
 const nurses = [
-  {
-    name: "Nigina Jebrak",
-    role: "Managing Nurse",
-    image: niginImage,
-    description:
-      "With unwavering dedication to patient care, Nigina stands as our most senior nurse, celebrated for her clinical acumen and visionary leadership.",
-  },
-  {
-    name: "Jana Králová",
-    role: "Internal Medicine Nurse",
-    image: ivanaImage,
-    description:
-      "She spent 10 years working in internal medicine at Thomayer Hospital, where she gained deep knowledge in managing chronic and acute conditions.",
-  },
-  {
-    name: "Tomáš Dvořák",
-    role: "Emergency Nurse",
-    image: milanImage,
-    description:
-      "An experienced nurse with a strong background in emergency care. He worked for 8 years in emergency departments, handling critical situations with precision.",
-  },
+  { key: "nigina", image: niginImage },
+  { key: "jana", image: ivanaImage },
+  { key: "tomas", image: milanImage },
 ];
 
 export const Team = () => {
@@ -53,19 +35,19 @@ export const Team = () => {
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={nurse.image}
-                  alt={`${nurse.name} - ${nurse.role}`}
+                  alt={`${t(`team.members.${nurse.key}.name`)} - ${t(`team.members.${nurse.key}.role`)}`}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
               <div className="p-6 space-y-3">
                 <div>
                   <h3 className="text-xl font-semibold text-secondary">
-                    {nurse.name}
+                    {t(`team.members.${nurse.key}.name`)}
                   </h3>
-                  <p className="text-primary font-medium">{nurse.role}</p>
+                  <p className="text-primary font-medium">{t(`team.members.${nurse.key}.role`)}</p>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  {nurse.description}
+                  {t(`team.members.${nurse.key}.description`)}
                 </p>
               </div>
             </Card>

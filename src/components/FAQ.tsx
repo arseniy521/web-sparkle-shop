@@ -4,8 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useTranslation } from "react-i18next";
 
-const faqs = [
+const faqKeys = [
   {
     question: "How can I book a nurse?",
     answer:
@@ -69,31 +70,33 @@ const faqs = [
 ];
 
 export const FAQ = () => {
+  const { t } = useTranslation();
+  
   return (
     <section id="faq" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-              Frequently Asked Questions
+              {t('faq.title')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Everything you need to know about our home nursing services
+              {t('faq.description')}
             </p>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4 animate-slide-up">
-            {faqs.map((faq, index) => (
+            {faqKeys.map((key, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
                 className="bg-card rounded-2xl px-6 border-0 shadow-sm hover:shadow-card transition-shadow"
               >
                 <AccordionTrigger className="text-left font-semibold text-secondary hover:text-primary">
-                  {faq.question}
+                  {t(`faq.items.${key}.question`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {faq.answer}
+                  {t(`faq.items.${key}.answer`)}
                 </AccordionContent>
               </AccordionItem>
             ))}

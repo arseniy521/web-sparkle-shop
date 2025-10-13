@@ -4,24 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const testimonials = [
-  {
-    text: "I needed a nurse for my elderly mother after surgery. The service was fast, professional, and kind. We didn't expect such comfort and care at home.",
-    author: "Petra M.",
-  },
-  {
-    text: "Great communication and quick response. The nurse was on time, explained everything clearly, and handled the injection smoothly. Highly recommended!",
-    author: "Martin K.",
-  },
-  {
-    text: "After my knee surgery, having a nurse come to my hotel made recovery so much easier. Professional, caring, and no hospital visits needed.",
-    author: "Sarah L.",
-  },
-  {
-    text: "The IVF injections were administered perfectly every time. The nurse was gentle, understanding, and always punctual. Thank you!",
-    author: "Anna V.",
-  },
-];
+const testimonials = ["testimonial1", "testimonial2", "testimonial3", "testimonial4"];
 
 export const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,10 +40,10 @@ export const Testimonials = () => {
             {/* Testimonial Content */}
             <div className="relative z-10 mb-8">
               <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-6 italic">
-                "{testimonials[currentIndex].text}"
+                "{t(`testimonials.items.${testimonials[currentIndex]}.text`)}"
               </p>
               <p className="text-lg font-semibold text-primary">
-                — {testimonials[currentIndex].author}
+                — {t(`testimonials.items.${testimonials[currentIndex]}.author`)}
               </p>
             </div>
 

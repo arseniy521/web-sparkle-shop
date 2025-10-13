@@ -91,42 +91,78 @@
     }
   },
   "team": {
-    "title": "Náš tým",
-    "description": "Seznamte se s našimi zkušenými a pečujícími ošetřovatelskými profesionálkami",
+    "title": "Poznejte náš ošetřovatelský tým",
+    "description": "Certifikovaní profesionálové s dlouholetými zkušenostmi v oblasti zdravotní péče.",
     "member": {
-      "title": "Registrovaná sestra",
-      "experience": "let zkušeností"
+      "title": "Zdravotní sestra"
+    },
+    "members": {
+      "nigina": {
+        "name": "Nigina Jebrak",
+        "role": "Vedoucí sestra",
+        "description": "S neochvějným odhodláním k péči o pacienty je Nigina naší nejzkušenější sestrou, oceňovanou pro svou klinickou bystrost a vizionářské vedení."
+      },
+      "jana": {
+        "name": "Jana Králová",
+        "role": "Sestra interního oddělení",
+        "description": "10 let pracovala na interním oddělení Thomayerovy nemocnice, kde získala hluboké znalosti v oblasti léčby chronických a akutních stavů."
+      },
+      "tomas": {
+        "name": "Tomáš Dvořák",
+        "role": "Sestra na pohotovosti",
+        "description": "Zkušená sestra se silným zázemím v urgentní péči. 8 let pracoval na pohotovostních odděleních a zvládal kritické situace s přesností."
+      }
     }
   },
   "pricing": {
-    "title": "Transparentní ceník",
-    "description": "Jasné, předem stanovené ceny bez skrytých poplatků. Všechny ceny zahrnují cestu po Praze.",
+    "title": "Jasné a jednoduché ceny",
+    "description": "Profesionální ošetřovatelská péče za transparentní ceny. Slevy při objednání více služeb.",
     "table": {
       "service": "Služba",
-      "example": "Příklad použití",
-      "firstService": "První služba",
-      "addOn": "Přídavná (stejná návštěva)"
+      "firstService": "1. služba",
+      "addOn": "Další služba (týž den)"
     },
-    "services": {
-      "ivInfusion": "IV Infuze / IV kapačka",
-      "ivInfusionExample": "Vitaminová kapačka, hydratační terapie, předepsané IV léky",
-      "injection": "Injekce (jakýkoli typ)",
-      "injectionExample": "IVF injekce, inzulín, antibiotika, vitamin B12, Ozempic",
-      "woundCare": "Převazy a ošetření ran",
-      "woundCareExample": "Péče po operaci, ošetření úrazu, sterilní výměna obvazu",
-      "hygiene": "Asistence s hygienou",
-      "hygieneExample": "Denní hygienická podpora pro starší nebo zdravotně postižené pacienty",
-      "escort": "Doprovod do/z nemocnice",
-      "escortExample": "Doprovod pacienta na schůzku, podpora s tlumočením",
-      "massage": "Terapeutická masáž",
-      "massageExample": "Léčebná masáž pro zmírnění bolesti, lymfatická drenáž"
+    "items": {
+      "imInjection": {
+        "name": "Intramuskulární injekce",
+        "example": "Vitamin B, antibiotika"
+      },
+      "scInjection": {
+        "name": "Podkožní injekce",
+        "example": "inzulin, antikoagulancia"
+      },
+      "ivStandard": {
+        "name": "IV kapačka (Standardní)",
+        "example": "hydratace, vitamíny"
+      },
+      "ivCustom": {
+        "name": "IV kapačka (Na zakázku)",
+        "example": "přinesete vlastní léky"
+      }
     },
-    "note": "💡 Ušetřete 30 % při přidání služeb ke stejné návštěvě!",
     "learnMore": "Zjistit více o našich službách"
   },
   "testimonials": {
-    "title": "Co říkají naši klienti",
-    "description": "Skutečné zpětné vazby od pacientů, kterým jsme pomohli"
+    "title": "Recenze klientů",
+    "description": "Slyšte od těch, kteří zažili naši profesionální ošetřovatelskou péči.",
+    "items": {
+      "testimonial1": {
+        "text": "Potřebovala jsem sestru pro svou starší matku po operaci. Služba byla rychlá, profesionální a laskavá. Nečekali jsme takový komfort a péči doma.",
+        "author": "Petra M."
+      },
+      "testimonial2": {
+        "text": "Skvělá komunikace a rychlá odezva. Sestra přišla včas, vše jasně vysvětlila a injekci provedla hladce. Velmi doporučuji!",
+        "author": "Martin K."
+      },
+      "testimonial3": {
+        "text": "Po operaci kolena mi příchod sestry do hotelu velmi usnadnil rekonvalescenci. Profesionální, pečlivá a žádné návštěvy nemocnice.",
+        "author": "Sarah L."
+      },
+      "testimonial4": {
+        "text": "IVF injekce byly pokaždé podány dokonale. Sestra byla jemná, chápavá a vždy přesná. Děkuji!",
+        "author": "Anna V."
+      }
+    }
   },
   "location": {
     "title": "Oblast služeb",
@@ -149,30 +185,56 @@
   },
   "faq": {
     "title": "Často kladené otázky",
-    "description": "Najděte odpovědi na běžné otázky o našich službách",
-    "q1": {
-      "question": "Jak si rezervuji sestru?",
-      "answer": "Můžete si rezervovat přes náš online systém, WhatsApp (+420 773 629 123) nebo telefonicky. Obvykle odpovídáme do několika minut a můžeme zorganizovat návštěvy tentýž den."
-    },
-    "q2": {
-      "question": "Jsou vaše sestry kvalifikované?",
-      "answer": "Ano, všechny naše sestry jsou plně licencované zdravotnické profesionálky s řádnou kvalifikací a lety zkušeností v klinických a domácích zdravotních zařízeních."
-    },
-    "q3": {
-      "question": "Mluvíte anglicky?",
-      "answer": "Ano! Všechny naše sestry plynně mluví anglicky, aby zajistily jasnou komunikaci s mezinárodními pacienty. Mluvíme také česky, rusky a ukrajinsky."
-    },
-    "q4": {
-      "question": "Které oblasti pokrýváte?",
-      "answer": "Obsluhujeme celou Prahu a okolí v rámci přibližně 20 km poloměru. Kontaktujte nás pro potvrzení, zda obsluhujeme vaši konkrétní lokalitu."
-    },
-    "q5": {
-      "question": "Jak mohu zaplatit?",
-      "answer": "Přijímáme hotovost, bankovní převod a platby kartou. Platba se provádí po dokončení služby k vaší spokojenosti."
-    },
-    "q6": {
-      "question": "Mohu si rezervovat na tentýž den?",
-      "answer": "Ano! Nabízíme službu tentýž den v závislosti na dostupnosti. Naše obvyklá reakční doba je 2-4 hodiny od potvrzení objednávky."
+    "description": "Vše, co potřebujete vědět o našich ošetřovatelských službách",
+    "items": {
+      "q1": {
+        "question": "Jak si mohu objednat sestru?",
+        "answer": "Sestru si můžete objednat několika způsoby: vyplněním online formuláře, telefonicky na čísle +420 773 629 123, e-mailem na sestranahodinu@gmail.com nebo přes WhatsApp/Telegram. Po objednání vás budeme kontaktovat pro potvrzení termínu návštěvy."
+      },
+      "q2": {
+        "question": "Jak rychle může sestra dorazit?",
+        "answer": "Snažíme se poskytnout péči co nejrychleji. V závislosti na vaší lokalitě v Praze a aktuální dostupnosti sester můžeme typicky dorazit do 2-3 hodin od potvrzení objednávky. Pro plánované návštěvy doporučujeme objednat sestru alespoň jeden den předem."
+      },
+      "q3": {
+        "question": "Navštěvujete hotely a Airbnb ubytování?",
+        "answer": "Ano! Pravidelně navštěvujeme mezinárodní pacienty ubytované v hotelech, Airbnb a krátkodobých pronájmech po celé Praze. To je obzvláště časté u pacientů s IVF a zdravotních turistů potřebujících péči po operaci. Stačí uvést adresu vašeho ubytování při objednávání."
+      },
+      "q4": {
+        "question": "Pracujete s pacienty s IVF a klinkami plodnosti?",
+        "answer": "Rozhodně. Máme rozsáhlé zkušenosti s pacienty s IVF, včetně časově citlivých hormonálních injekcí a trigger shots. Jsme obeznámeni s protokoly hlavních pražských klinik plodnosti jako Reprofit, ISCARE a Gennet. Nabízíme večerní a víkendové schůzky pro přesné časové požadavky."
+      },
+      "q5": {
+        "question": "Můžete pomoci s rekonvalescencí po operaci pro zdravotní turisty?",
+        "answer": "Ano, to je jedna z našich specialit. Poskytujeme péči o rány, výměnu obvazů, správu drénů, pomoc s hygienou a doprovodné služby pro pacienty, kteří se zotavují z plastické chirurgie, zubních zákroků nebo jiných lékařských ošetření v Praze. Rozumíme jedinečným potřebám mezinárodních pacientů."
+      },
+      "q6": {
+        "question": "Potřebuji lékařský předpis pro IV terapii?",
+        "answer": "Ano, předepsané IV terapie vyžadují lékařský předpis. Naše sestry mohou podávat pouze léky předepsané lékařem. Pokud máte zájem o vitamínové nebo hydratační IV, ty lze podávat bez předpisu, protože jsou považovány za doplňky stravy."
+      },
+      "q7": {
+        "question": "Jaké platební metody přijímáte?",
+        "answer": "Přijímáme hotovost (CZK nebo EUR), bankovní převody a platby kartou. Platba je vybrána po poskytnutí služby. Pro balíčkové nabídky a předplatitelské služby můžeme fakturovat měsíčně. Většina pojišťoven nehradí domácí ošetřovatelství, ale poskytujeme účtenky pro případnou náhradu."
+      },
+      "q8": {
+        "question": "Poskytujete služby mimo Prahu?",
+        "answer": "Primárně působíme v Praze, ale můžeme poskytovat služby v okolních oblastech (až 30 km) po individuální dohodě. Pro cestování mimo Prahu účtujeme dodatečný poplatek 10 CZK/km nad základní sazbu."
+      },
+      "q9": {
+        "question": "Jaká je vaše provozní doba?",
+        "answer": "Jsme k dispozici 7 dní v týdnu od 8:00 do 22:00. Pro naléhavé případy a IVF injekce vyžadující specifické načasování nabízíme také večerní/noční návštěvy po dohodě. Volejte +420 773 629 123 kdykoli pro rezervace 24/7."
+      },
+      "q10": {
+        "question": "Nabízíte dlouhodobou péči pro zdravotně postižené pacienty?",
+        "answer": "Ano, poskytujeme denní asistenční péči pro zdravotně postižené a chronické pacienty, včetně hygienické podpory, podávání léků, pomoci s pohyblivostí a společnosti. Nabízíme flexibilní předplatitelské balíčky pro průběžné potřeby péče."
+      },
+      "q11": {
+        "question": "Jsou vaše služby hrazeny pojišťovnou?",
+        "answer": "V současné době naše služby nejsou hrazeny zdravotní pojišťovnou. Jedná se o přímou platbu klientem. Na vyžádání vystavíme potvrzení o platbě, které můžete použít pro případné nároky u vaší pojišťovny, pokud máte připojištění pro prémiovou zdravotní péči."
+      },
+      "q12": {
+        "question": "Potřebuji něco připravit před příjezdem sestry?",
+        "answer": "Pro co nejhladší možnou návštěvu doporučujeme: mít připravený lékařský předpis (pokud je vyžadován), zajistit klidný a čistý prostor pro proceduru, informovat nás předem o vašem zdravotním stavu a alergiích a mít po ruce kontakt na vašeho lékaře."
+      }
     }
   },
   "footer": {

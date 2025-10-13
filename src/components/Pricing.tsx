@@ -3,30 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 
 const pricingData = [
-  {
-    service: "Intramuscular Injection",
-    example: "Vitamin B, antibiotics",
-    firstPrice: 699,
-    addOnPrice: 499,
-  },
-  {
-    service: "Subcutaneous Injection",
-    example: "insulin, anticoagulants",
-    firstPrice: 699,
-    addOnPrice: 499,
-  },
-  {
-    service: "IV Drip (Standard)",
-    example: "hydration, vitamins",
-    firstPrice: 1199,
-    addOnPrice: 849,
-  },
-  {
-    service: "IV Drip (Custom)",
-    example: "you provide medication",
-    firstPrice: 1499,
-    addOnPrice: 1049,
-  },
+  { key: "imInjection", firstPrice: 699, addOnPrice: 499 },
+  { key: "scInjection", firstPrice: 699, addOnPrice: 499 },
+  { key: "ivStandard", firstPrice: 1199, addOnPrice: 849 },
+  { key: "ivCustom", firstPrice: 1499, addOnPrice: 1049 },
 ];
 
 export const Pricing = () => {
@@ -68,10 +48,10 @@ export const Pricing = () => {
                   <td className="px-6 py-4">
                     <div>
                       <div className="font-medium text-foreground">
-                        {item.service}
+                        {t(`pricing.items.${item.key}.name`)}
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        {item.example}
+                        {t(`pricing.items.${item.key}.example`)}
                       </div>
                     </div>
                   </td>
@@ -105,9 +85,9 @@ export const Pricing = () => {
             >
               <div>
                 <h3 className="font-semibold text-lg text-foreground mb-1">
-                  {item.service}
+                  {t(`pricing.items.${item.key}.name`)}
                 </h3>
-                <p className="text-sm text-muted-foreground">{item.example}</p>
+                <p className="text-sm text-muted-foreground">{t(`pricing.items.${item.key}.example`)}</p>
               </div>
               <div className="flex justify-between items-center pt-3 border-t border-border">
                 <div>
