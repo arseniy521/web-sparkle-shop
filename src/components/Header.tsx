@@ -30,6 +30,9 @@ export const Header = () => {
     { href: "#services", label: t('nav.services'), isHash: true },
     { href: "#workflow", label: t('nav.workflow'), isHash: true },
     { href: "#pricing", label: t('nav.pricing'), isHash: true },
+    { href: "/ivf-injection-support-prague", label: "IVF Support", isHash: false },
+    { href: "/post-surgery-recovery-care-prague", label: "Post-Surgery", isHash: false },
+    { href: "/disabled-daily-care-prague", label: "Daily Care", isHash: false },
     { href: "/blog", label: "Blog", isHash: false },
     { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];

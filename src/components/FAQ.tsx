@@ -17,6 +17,21 @@ const faqs = [
       "We strive to provide care as quickly as possible. Depending on your location in Prague and current nurse availability, we can typically arrive within 2-3 hours of confirming your booking. For planned visits, we recommend booking a nurse at least one day in advance.",
   },
   {
+    question: "Do you visit hotels and Airbnb accommodations?",
+    answer:
+      "Yes! We regularly visit international patients staying in hotels, Airbnb, and short-term rentals throughout Prague. This is especially common for IVF patients and medical tourists needing post-surgery care. Just provide your accommodation address when booking.",
+  },
+  {
+    question: "Do you work with IVF patients and fertility clinics?",
+    answer:
+      "Absolutely. We have extensive experience with IVF patients, including time-sensitive hormone injections and trigger shots. We're familiar with protocols from major Prague fertility clinics like Reprofit, ISCARE, and Gennet. We offer evening and weekend appointments for precise timing requirements.",
+  },
+  {
+    question: "Can you help with post-surgery recovery for medical tourists?",
+    answer:
+      "Yes, this is one of our specialties. We provide wound care, bandage changes, drain management, hygiene assistance, and escort services for patients recovering from plastic surgery, dental procedures, or other medical treatments in Prague. We understand the unique needs of international patients.",
+  },
+  {
     question: "Do I need a medical prescription for IV therapy?",
     answer:
       "Yes, prescribed IV therapies require a medical prescription. Our nurses can only administer medications prescribed by a doctor. If you're interested in vitamin or hydration IVs, these can be administered without a prescription as they are considered dietary supplements.",
@@ -24,7 +39,7 @@ const faqs = [
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept cash payments and bank transfers. Payment is due after the service is completed. For regular clients, we offer the option of invoicing and paying a total amount at the end of the month.",
+      "We accept cash (CZK or EUR), bank transfers, and card payments. Payment is collected after service. For package deals and subscription services, we can invoice monthly. Most insurance companies do not cover home nursing, but we provide receipts for potential reimbursement.",
   },
   {
     question: "Do you provide services outside of Prague?",
@@ -34,7 +49,12 @@ const faqs = [
   {
     question: "What are your operating hours?",
     answer:
-      "We are available 7 days a week, including weekends and holidays, from 8:00 AM to 10:00 PM. For urgent cases, we also offer the possibility of visits outside standard operating hours by prior arrangement.",
+      "We are available 7 days a week from 8:00 AM to 10:00 PM. For urgent cases and IVF injections requiring specific timing, we also offer evening/night visits by arrangement. Call +420 773 629 123 anytime for 24/7 booking.",
+  },
+  {
+    question: "Do you offer long-term care for disabled patients?",
+    answer:
+      "Yes, we provide daily assistance care for disabled and chronic patients, including hygiene support, medication administration, mobility assistance, and companionship. We offer flexible subscription packages for ongoing care needs.",
   },
   {
     question: "Are your services covered by insurance?",
