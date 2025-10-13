@@ -33,7 +33,6 @@ export const Header = () => {
 
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
-    { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];
 
   const serviceLinks = [
@@ -163,6 +162,26 @@ export const Header = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+            </li>
+
+            {/* Contacts */}
+            <li>
+              {location.pathname === "/" ? (
+                <a
+                  href="#contacts"
+                  onClick={(e) => { e.preventDefault(); scrollToSection('#contacts'); }}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {t('nav.contacts')}
+                </a>
+              ) : (
+                <Link
+                  to="/#contacts"
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {t('nav.contacts')}
+                </Link>
+              )}
             </li>
 
             {/* Pricing - last item */}
@@ -324,6 +343,27 @@ export const Header = () => {
                     </li>
                   ))}
                 </ul>
+              </li>
+
+              {/* Mobile Contacts */}
+              <li className="pt-2 border-t border-border">
+                {location.pathname === "/" ? (
+                  <a
+                    href="#contacts"
+                    onClick={(e) => { e.preventDefault(); scrollToSection('#contacts'); }}
+                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {t('nav.contacts')}
+                  </a>
+                ) : (
+                  <Link
+                    to="/#contacts"
+                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {t('nav.contacts')}
+                  </Link>
+                )}
               </li>
 
               {/* Mobile Pricing - last item */}
