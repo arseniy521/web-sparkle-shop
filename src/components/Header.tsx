@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import {
   Select,
@@ -9,6 +9,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useTranslation } from "react-i18next";
 
 export const Header = () => {
@@ -27,14 +33,15 @@ export const Header = () => {
 
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
-    { href: "#services", label: t('nav.services'), isHash: true },
-    { href: "#workflow", label: t('nav.workflow'), isHash: true },
     { href: "#pricing", label: t('nav.pricing'), isHash: true },
-    { href: "/ivf-injection-support-prague", label: "IVF Support", isHash: false },
-    { href: "/post-surgery-recovery-care-prague", label: "Post-Surgery", isHash: false },
-    { href: "/disabled-daily-care-prague", label: "Daily Care", isHash: false },
     { href: "/blog", label: "Blog", isHash: false },
     { href: "#contacts", label: t('nav.contacts'), isHash: true },
+  ];
+
+  const serviceLinks = [
+    { href: "/ivf-injection-support-prague", label: "IVF Injection Support" },
+    { href: "/post-surgery-recovery-care-prague", label: "Post-Surgery Recovery" },
+    { href: "/disabled-daily-care-prague", label: "Daily Assistance Care" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -92,6 +99,28 @@ export const Header = () => {
                 )}
               </li>
             ))}
+            
+            {/* Services Dropdown */}
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
+                  {t('nav.services')}
+                  <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-background border-border z-50">
+                  {serviceLinks.map((service) => (
+                    <DropdownMenuItem key={service.href} asChild>
+                      <Link 
+                        to={service.href}
+                        className="cursor-pointer"
+                      >
+                        {service.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
           </ul>
 
           {/* Right Side Actions */}
@@ -179,6 +208,25 @@ export const Header = () => {
                   )}
                 </li>
               ))}
+              
+              {/* Mobile Services Section */}
+              <li className="pt-2 border-t border-border">
+                <div className="text-sm font-semibold text-foreground mb-2">{t('nav.services')}</div>
+                <ul className="pl-4 space-y-2">
+                  {serviceLinks.map((service) => (
+                    <li key={service.href}>
+                      <Link
+                        to={service.href}
+                        className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {service.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              
               <li className="pt-2 space-y-2">
                 <a href="tel:+420773629123" className="block">
                   <Button variant="outline" size="sm" className="w-full justify-start">
