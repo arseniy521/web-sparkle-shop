@@ -62,7 +62,16 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link 
+            to="/" 
+            className="flex items-center gap-2 group"
+            onClick={(e) => {
+              if (location.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg transition-transform group-hover:scale-105">
               N
             </div>
