@@ -33,18 +33,16 @@ export const Header = () => {
 
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
+    { href: "#workflow", label: "How It Works", isHash: true },
+    { href: "#pricing", label: t('nav.pricing'), isHash: true },
+    { href: "#testimonials", label: "Reviews", isHash: true },
+    { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];
 
   const serviceLinks = [
     { href: "/ivf-injection-support-prague", label: "IVF Injection Support" },
     { href: "/post-surgery-recovery-care-prague", label: "Post-Surgery Recovery" },
     { href: "/disabled-daily-care-prague", label: "Daily Assistance Care" },
-  ];
-
-  const aboutLinks = [
-    { href: "#team", label: "Our Team", isHash: true },
-    { href: "#testimonials", label: "Reviews", isHash: true },
-    { href: "/blog", label: "Blog", isHash: false },
   ];
 
   const scrollToSection = (href: string) => {
@@ -75,7 +73,30 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {/* Services Dropdown - First */}
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
+                  {t('nav.services')}
+                  <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-background border-border z-50">
+                  {serviceLinks.map((service) => (
+                    <DropdownMenuItem key={service.href} asChild>
+                      <Link 
+                        to={service.href}
+                        className="cursor-pointer"
+                      >
+                        {service.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+
+            {/* Regular Nav Links */}
+            {navLinks.slice(1).map((link) => (
               <li key={link.href}>
                 {link.isHash && location.pathname === "/" ? (
                   <a
@@ -102,107 +123,7 @@ export const Header = () => {
                 )}
               </li>
             ))}
-            
-            {/* Services Dropdown */}
-            <li>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
-                  {t('nav.services')}
-                  <ChevronDown className="h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-background border-border z-50">
-                  {serviceLinks.map((service) => (
-                    <DropdownMenuItem key={service.href} asChild>
-                      <Link 
-                        to={service.href}
-                        className="cursor-pointer"
-                      >
-                        {service.label}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
 
-            {/* About Dropdown */}
-            <li>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
-                  About
-                  <ChevronDown className="h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-background border-border z-50">
-                  {aboutLinks.map((link) => (
-                    <DropdownMenuItem key={link.href} asChild>
-                      {link.isHash && location.pathname === "/" ? (
-                        <a
-                          href={link.href}
-                          onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                          className="cursor-pointer"
-                        >
-                          {link.label}
-                        </a>
-                      ) : link.isHash ? (
-                        <Link 
-                          to={`/${link.href}`}
-                          className="cursor-pointer"
-                        >
-                          {link.label}
-                        </Link>
-                      ) : (
-                        <Link 
-                          to={link.href}
-                          className="cursor-pointer"
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
-
-            {/* Contacts */}
-            <li>
-              {location.pathname === "/" ? (
-                <a
-                  href="#contacts"
-                  onClick={(e) => { e.preventDefault(); scrollToSection('#contacts'); }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t('nav.contacts')}
-                </a>
-              ) : (
-                <Link
-                  to="/#contacts"
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t('nav.contacts')}
-                </Link>
-              )}
-            </li>
-
-            {/* Pricing - last item */}
-            <li>
-              {location.pathname === "/" ? (
-                <a
-                  href="#pricing"
-                  onClick={(e) => { e.preventDefault(); scrollToSection('#pricing'); }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t('nav.pricing')}
-                </a>
-              ) : (
-                <Link
-                  to="/#pricing"
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t('nav.pricing')}
-                </Link>
-              )}
-            </li>
           </ul>
 
           {/* Right Side Actions */}
@@ -261,7 +182,26 @@ export const Header = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden pb-4 animate-fade-in">
             <ul className="flex flex-col gap-3">
-              {navLinks.map((link) => (
+              {/* Mobile Services Section */}
+              <li className="border-b border-border pb-3">
+                <div className="text-sm font-semibold text-foreground mb-2">{t('nav.services')}</div>
+                <ul className="pl-4 space-y-2">
+                  {serviceLinks.map((service) => (
+                    <li key={service.href}>
+                      <Link
+                        to={service.href}
+                        className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {service.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+
+              {/* Mobile Regular Links */}
+              {navLinks.slice(1).map((link) => (
                 <li key={link.href}>
                   {link.isHash && location.pathname === "/" ? (
                     <a
@@ -291,103 +231,7 @@ export const Header = () => {
                 </li>
               ))}
               
-              {/* Mobile Services Section */}
-              <li className="pt-2 border-t border-border">
-                <div className="text-sm font-semibold text-foreground mb-2">{t('nav.services')}</div>
-                <ul className="pl-4 space-y-2">
-                  {serviceLinks.map((service) => (
-                    <li key={service.href}>
-                      <Link
-                        to={service.href}
-                        className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {service.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-
-              {/* Mobile About Section */}
-              <li className="pt-2 border-t border-border">
-                <div className="text-sm font-semibold text-foreground mb-2">About</div>
-                <ul className="pl-4 space-y-2">
-                  {aboutLinks.map((link) => (
-                    <li key={link.href}>
-                      {link.isHash && location.pathname === "/" ? (
-                        <a
-                          href={link.href}
-                          onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                          className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          {link.label}
-                        </a>
-                      ) : link.isHash ? (
-                        <Link
-                          to={`/${link.href}`}
-                          className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {link.label}
-                        </Link>
-                      ) : (
-                        <Link
-                          to={link.href}
-                          className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </li>
-
-              {/* Mobile Contacts */}
-              <li className="pt-2 border-t border-border">
-                {location.pathname === "/" ? (
-                  <a
-                    href="#contacts"
-                    onClick={(e) => { e.preventDefault(); scrollToSection('#contacts'); }}
-                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {t('nav.contacts')}
-                  </a>
-                ) : (
-                  <Link
-                    to="/#contacts"
-                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t('nav.contacts')}
-                  </Link>
-                )}
-              </li>
-
-              {/* Mobile Pricing - last item */}
-              <li className="pt-2 border-t border-border">
-                {location.pathname === "/" ? (
-                  <a
-                    href="#pricing"
-                    onClick={(e) => { e.preventDefault(); scrollToSection('#pricing'); }}
-                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {t('nav.pricing')}
-                  </a>
-                ) : (
-                  <Link
-                    to="/#pricing"
-                    className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t('nav.pricing')}
-                  </Link>
-                )}
-              </li>
-              
-              <li className="pt-2 space-y-2">
+              <li className="pt-2 border-t border-border space-y-2">
                 <a href="tel:+420773629123" className="block">
                   <Button variant="outline" size="sm" className="w-full justify-start">
                     <Phone className="h-4 w-4 mr-2" />
