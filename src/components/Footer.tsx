@@ -32,13 +32,6 @@ export const Footer = () => {
                   >
                     Our Team
                   </a>
-                ) : location.pathname === "/blog" ? (
-                  <button 
-                    onClick={scrollToTop}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left"
-                  >
-                    Our Team
-                  </button>
                 ) : (
                   <Link to="/#team" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                     Our Team
