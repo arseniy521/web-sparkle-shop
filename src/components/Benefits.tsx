@@ -1,28 +1,25 @@
 import { CheckCircle } from "lucide-react";
 import benefitsImage from "@/assets/nurse-benefits.png";
-import { useTranslation } from "react-i18next";
+
+const benefits = [
+  {
+    emoji: "🏠",
+    title: "Comfort at Home, No Lines",
+    description: "Receive professional care in the comfort of your own home or hotel",
+  },
+  {
+    emoji: "⏰",
+    title: "Book Now, Get Care Today",
+    description: "Same-day appointments available with quick response times",
+  },
+  {
+    emoji: "👩‍⚕️",
+    title: "Certified Home Nurses",
+    description: "All our nurses are licensed professionals with years of experience",
+  },
+];
 
 export const Benefits = () => {
-  const { t } = useTranslation();
-  
-  const benefits = [
-    {
-      emoji: "🏠",
-      title: t('benefits.comfort.title'),
-      description: t('benefits.comfort.description'),
-    },
-    {
-      emoji: "⏰",
-      title: t('benefits.speed.title'),
-      description: t('benefits.speed.description'),
-    },
-    {
-      emoji: "👩‍⚕️",
-      title: t('benefits.professional.title'),
-      description: t('benefits.professional.description'),
-    },
-  ];
-
   return (
     <section id="why-us" className="py-20 bg-accent/50">
       <div className="container mx-auto px-4">
@@ -43,10 +40,10 @@ export const Benefits = () => {
           <div className="space-y-8 animate-slide-up">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                {t('benefits.title')}
+                Why Choose Us
               </h2>
               <p className="text-lg text-muted-foreground">
-                {t('benefits.description')}
+                We make professional healthcare accessible and convenient for everyone in Prague.
               </p>
             </div>
 

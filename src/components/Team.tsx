@@ -2,41 +2,41 @@ import { Card } from "@/components/ui/card";
 import milanImage from "@/assets/milan.jpg";
 import niginImage from "@/assets/nigin.jpg";
 import ivanaImage from "@/assets/ivana.jpg";
-import { useTranslation } from "react-i18next";
+
+const nurses = [
+  {
+    name: "Nigina Jebrak",
+    role: "Managing Nurse",
+    image: niginImage,
+    description:
+      "With unwavering dedication to patient care, Nigina stands as our most senior nurse, celebrated for her clinical acumen and visionary leadership.",
+  },
+  {
+    name: "Jana Králová",
+    role: "Internal Medicine Nurse",
+    image: ivanaImage,
+    description:
+      "She spent 10 years working in internal medicine at Thomayer Hospital, where she gained deep knowledge in managing chronic and acute conditions.",
+  },
+  {
+    name: "Tomáš Dvořák",
+    role: "Emergency Nurse",
+    image: milanImage,
+    description:
+      "An experienced nurse with a strong background in emergency care. He worked for 8 years in emergency departments, handling critical situations with precision.",
+  },
+];
 
 export const Team = () => {
-  const { t } = useTranslation();
-  
-  const nurses = [
-    {
-      name: t('team.nurse1.name'),
-      role: t('team.nurse1.role'),
-      image: niginImage,
-      description: t('team.nurse1.description'),
-    },
-    {
-      name: t('team.nurse2.name'),
-      role: t('team.nurse2.role'),
-      image: ivanaImage,
-      description: t('team.nurse2.description'),
-    },
-    {
-      name: t('team.nurse3.name'),
-      role: t('team.nurse3.role'),
-      image: milanImage,
-      description: t('team.nurse3.description'),
-    },
-  ];
-
   return (
     <section id="team" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-            {t('team.title')}
+            Meet Our Nurses
           </h2>
           <p className="text-lg text-muted-foreground">
-            {t('team.description')}
+            Our team of professional and experienced nurses is here to provide you with the best care possible.
           </p>
         </div>
 
