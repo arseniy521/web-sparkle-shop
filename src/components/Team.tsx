@@ -1,11 +1,12 @@
 import { Card } from "@/components/ui/card";
 import milanImage from "@/assets/milan.jpg";
+import niginImage from "@/assets/nigin.jpg";
 
 const nurses = [
   {
     name: "Nigina Jebrak",
     role: "Managing Nurse",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=687",
+    image: niginImage,
     description:
       "With unwavering dedication to patient care, Nigina stands as our most senior nurse, celebrated for her clinical acumen and visionary leadership.",
   },
