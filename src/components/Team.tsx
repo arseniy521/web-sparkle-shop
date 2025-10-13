@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import milanImage from "@/assets/milan.jpg";
 
 const nurses = [
   {
@@ -18,7 +19,7 @@ const nurses = [
   {
     name: "Tomáš Dvořák",
     role: "Emergency Nurse",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=764",
+    image: milanImage,
     description:
       "An experienced nurse with a strong background in emergency care. He worked for 8 years in emergency departments, handling critical situations with precision.",
   },

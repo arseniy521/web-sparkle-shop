@@ -1,4 +1,5 @@
 import { CheckCircle } from "lucide-react";
+import benefitsImage from "@/assets/nurse-benefits.png";
 
 const benefits = [
   {
@@ -26,11 +27,11 @@ export const Benefits = () => {
           {/* Image */}
           <div className="relative animate-fade-in">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-3xl" />
-            <div className="relative rounded-3xl overflow-hidden shadow-card">
+            <div className="relative rounded-3xl overflow-hidden shadow-card bg-white p-8">
               <img
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070"
-                alt="Nurse providing home care benefits"
-                className="w-full h-auto object-cover"
+                src={benefitsImage}
+                alt="Patient receiving IV therapy at home - comfortable home healthcare"
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>

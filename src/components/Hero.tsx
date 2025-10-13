@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import mainImage from "@/assets/main.png";
 
 const dynamicPhrases = [
   "Prescribed IV Drips",
@@ -90,11 +91,11 @@ export const Hero = () => {
           {/* Image */}
           <div className="relative animate-scale-in">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
-            <div className="relative rounded-3xl overflow-hidden shadow-soft">
+            <div className="relative rounded-3xl overflow-hidden shadow-soft bg-white p-8">
               <img
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070"
+                src={mainImage}
                 alt="Professional nurse administering IV drip at patient's home in Prague"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>

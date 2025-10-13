@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { PhoneCall, Calendar, UserCheck, Home } from "lucide-react";
+import workflowImage from "@/assets/workflow1.png";
 
 const steps = [
   {
@@ -35,6 +36,17 @@ export const Workflow = () => {
           <p className="text-lg text-muted-foreground">
             Our dedicated system allows you to access professional healthcare instantly - no tedious forms, long calls, or administrative hassle.
           </p>
+        </div>
+
+        {/* Workflow Diagram */}
+        <div className="mb-12 animate-fade-in">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-card p-8">
+            <img
+              src={workflowImage}
+              alt="Step-by-step workflow diagram showing our home nursing service process"
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">

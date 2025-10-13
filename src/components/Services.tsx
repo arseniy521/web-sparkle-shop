@@ -1,39 +1,44 @@
 import { Card } from "@/components/ui/card";
-import { Droplet, Syringe, Bandage, Heart, Ambulance, Activity } from "lucide-react";
+import ivDripIcon from "@/assets/drp.png";
+import injectionIcon from "@/assets/drp.png";
+import woundCareIcon from "@/assets/WoundDressingBandage.png";
+import hygieneIcon from "@/assets/HygieneAssistance.png";
+import escortIcon from "@/assets/escort.png";
+import massageIcon from "@/assets/massage.png";
 
 const services = [
   {
-    icon: Droplet,
+    image: ivDripIcon,
     title: "IV Infusion",
     description:
       "💡 For hydration, vitamin therapy, or prescribed IV treatments. 👉 Nurse-administered IV with monitoring at your home or hotel.",
   },
   {
-    icon: Syringe,
+    image: ivDripIcon,
     title: "Injection",
     description:
       "💡 For IVF, antibiotics, insulin, or vitamin therapy. 👉 Timely, precise administration of prescribed injections.",
   },
   {
-    icon: Bandage,
+    image: woundCareIcon,
     title: "Wound Dressing & Bandage",
     description:
       "💡 For patients recovering from surgery or injuries. 👉 Sterile dressing change, wound cleaning, and infection check.",
   },
   {
-    icon: Heart,
+    image: hygieneIcon,
     title: "Hygiene Assistance",
     description:
       "💡 For elderly or disabled clients needing daily care. 👉 Gentle support with personal hygiene and comfort.",
   },
   {
-    icon: Ambulance,
+    image: escortIcon,
     title: "Escort to/from Hospital",
     description:
       "💡 For patients needing support during travel or hospital visits. 👉 Nurse escort with mobility help and translation.",
   },
   {
-    icon: Activity,
+    image: massageIcon,
     title: "Therapeutic Massage",
     description:
       "💡 For clients with pain, swelling, or limited mobility. 👉 Medical massage to relieve pain and improve circulation.",
@@ -60,9 +65,13 @@ export const Services = () => {
               className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 animate-slide-up group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="mb-4">
-                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="h-7 w-7 text-primary" />
+              <div className="mb-4 flex justify-center">
+                <div className="h-32 w-32 flex items-center justify-center">
+                  <img 
+                    src={service.image} 
+                    alt={`${service.title} icon`}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
               <h3 className="text-xl font-semibold text-secondary mb-3">
