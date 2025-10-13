@@ -1,0 +1,186 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "workflow": "How It Works",
+    "pricing": "Pricing",
+    "team": "Team",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "phrases": {
+      "0": "Prescribed IV Drips",
+      "1": "Prescribed Injections",
+      "2": "Wound Care",
+      "3": "IVF Support",
+      "4": "Post-Surgery Recovery"
+    },
+    "performedBy": "performed by a nurse",
+    "inYourHome": "in your home",
+    "description": "Fast, reliable, and professional healthcare at home. English-speaking nurses available 24/7 in Prague.",
+    "bookNurse": "Book a Nurse",
+    "ourServices": "Our Services",
+    "certifiedNurses": "Certified Nurses",
+    "licensedProfessionals": "Licensed professionals",
+    "available247": "24/7 Available",
+    "sameDayService": "Same-day service"
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "We provide professional home healthcare services tailored to your needs. All services are performed by qualified nurses with proper medical oversight.",
+    "ivInfusion": {
+      "title": "IV Infusion",
+      "description": "💡 For hydration, vitamin therapy, or prescribed IV treatments. 👉 Nurse-administered IV with monitoring at your home or hotel."
+    },
+    "injection": {
+      "title": "Injection",
+      "description": "💡 For IVF, antibiotics, insulin, or vitamin therapy. 👉 Timely, precise administration of prescribed injections."
+    },
+    "woundCare": {
+      "title": "Wound Dressing & Bandage",
+      "description": "💡 For patients recovering from surgery or injuries. 👉 Sterile dressing change, wound cleaning, and infection check."
+    },
+    "hygiene": {
+      "title": "Hygiene Assistance",
+      "description": "💡 For elderly or disabled clients needing daily care. 👉 Gentle support with personal hygiene and comfort."
+    },
+    "escort": {
+      "title": "Escort to/from Hospital",
+      "description": "💡 For patients needing support during travel or hospital visits. 👉 Nurse escort with mobility help and translation."
+    },
+    "massage": {
+      "title": "Therapeutic Massage",
+      "description": "💡 For clients with pain, swelling, or limited mobility. 👉 Medical massage to relieve pain and improve circulation."
+    }
+  },
+  "workflow": {
+    "title": "How It Works",
+    "description": "Simple 3-step process to get professional nursing care at your home",
+    "step1": {
+      "title": "Book Online",
+      "description": "Choose your service and preferred time slot through our easy booking system"
+    },
+    "step2": {
+      "title": "Nurse Arrives",
+      "description": "A certified nurse arrives at your location with all necessary equipment"
+    },
+    "step3": {
+      "title": "Service Delivered",
+      "description": "Receive professional care in the comfort of your home or hotel"
+    }
+  },
+  "benefits": {
+    "title": "Why Choose Us",
+    "description": "Professional healthcare services delivered with care and expertise",
+    "benefit1": {
+      "title": "Certified Professionals",
+      "description": "All our nurses are fully licensed and experienced in home healthcare"
+    },
+    "benefit2": {
+      "title": "24/7 Availability",
+      "description": "Same-day service available, including weekends and holidays"
+    },
+    "benefit3": {
+      "title": "English Speaking",
+      "description": "Clear communication in English for international patients"
+    },
+    "benefit4": {
+      "title": "Home Comfort",
+      "description": "No waiting rooms - receive care in your own environment"
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "description": "Meet our experienced and caring nursing professionals",
+    "member": {
+      "title": "Registered Nurse",
+      "experience": "years of experience"
+    }
+  },
+  "pricing": {
+    "title": "Transparent Pricing",
+    "description": "Clear, upfront pricing with no hidden fees. All prices include travel within Prague.",
+    "table": {
+      "service": "Service",
+      "example": "Example Usage",
+      "firstService": "First Service",
+      "addOn": "Add-on (same visit)"
+    },
+    "services": {
+      "ivInfusion": "IV Infusion / IV Drip",
+      "ivInfusionExample": "Vitamin drip, hydration therapy, prescribed IV medication",
+      "injection": "Injection (any type)",
+      "injectionExample": "IVF injections, insulin, antibiotics, vitamin B12, Ozempic",
+      "woundCare": "Wound Dressing & Bandage",
+      "woundCareExample": "Post-surgery care, injury treatment, sterile dressing change",
+      "hygiene": "Hygiene Assistance",
+      "hygieneExample": "Daily hygiene support for elderly or disabled patients",
+      "escort": "Escort to/from Hospital",
+      "escortExample": "Accompany patient to appointment, translation support",
+      "massage": "Therapeutic Massage",
+      "massageExample": "Medical massage for pain relief, lymphatic drainage"
+    },
+    "note": "💡 Save 30% when adding services to the same visit!",
+    "learnMore": "Learn More About Our Services"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "description": "Real feedback from patients we've helped"
+  },
+  "location": {
+    "title": "Service Area",
+    "description": "We serve Prague and surrounding areas",
+    "serviceArea": "Service Area",
+    "serviceAreaText": "Prague and surrounding areas (up to 20km)",
+    "responseTime": "Response Time",
+    "responseTimeText": "Typically 2-4 hours for same-day bookings"
+  },
+  "contacts": {
+    "title": "Get in Touch",
+    "description": "Multiple ways to reach us - choose what works best for you",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "Email",
+    "availability": "Availability",
+    "availabilityHours": "Every day 8:00 - 20:00"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to common questions about our services",
+    "q1": {
+      "question": "How do I book a nurse?",
+      "answer": "You can book through our online system, WhatsApp (+420 773 629 123), or by phone. We typically respond within minutes and can arrange same-day visits."
+    },
+    "q2": {
+      "question": "Are your nurses qualified?",
+      "answer": "Yes, all our nurses are fully licensed healthcare professionals with proper qualifications and years of experience in clinical and home healthcare settings."
+    },
+    "q3": {
+      "question": "Do you speak English?",
+      "answer": "Yes! All our nurses are fluent in English to ensure clear communication with international patients. We also speak Czech, Russian, and Ukrainian."
+    },
+    "q4": {
+      "question": "What areas do you cover?",
+      "answer": "We serve all of Prague and surrounding areas within approximately 20km radius. Contact us to confirm if we serve your specific location."
+    },
+    "q5": {
+      "question": "How do I pay?",
+      "answer": "We accept cash, bank transfer, and card payments. Payment is made after the service is completed to your satisfaction."
+    },
+    "q6": {
+      "question": "Can I book for the same day?",
+      "answer": "Yes! We offer same-day service based on availability. Our typical response time is 2-4 hours from booking confirmation."
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "services": "Services",
+    "contact": "Contact",
+    "companyName": "Nius Services s.r.o.",
+    "vat": "VAT",
+    "registered": "Registered in Prague, Czech Republic",
+    "rights": "All rights reserved"
+  }
+}

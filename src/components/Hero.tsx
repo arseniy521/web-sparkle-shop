@@ -2,18 +2,20 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import mainImage from "@/assets/main.png";
-
-const dynamicPhrases = [
-  "Prescribed IV Drips",
-  "Prescribed Injections",
-  "Wound Care",
-  "IVF Support",
-  "Post-Surgery Recovery",
-];
+import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
+  const { t } = useTranslation();
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  
+  const dynamicPhrases = [
+    t('hero.phrases.0'),
+    t('hero.phrases.1'),
+    t('hero.phrases.2'),
+    t('hero.phrases.3'),
+    t('hero.phrases.4'),
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,25 +44,25 @@ export const Hero = () => {
                 {dynamicPhrases[currentPhraseIndex]}
               </span>
               <br />
-              <span className="text-secondary">performed by a nurse</span>
+              <span className="text-secondary">{t('hero.performedBy')}</span>
               <br />
-              <span className="text-foreground">in your home</span>
+              <span className="text-foreground">{t('hero.inYourHome')}</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-              Fast, reliable, and professional healthcare at home. English-speaking nurses available 24/7 in Prague.
+              {t('hero.description')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="w-full sm:w-auto group">
-                  Book a Nurse
+                  {t('hero.bookNurse')}
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
               <a href="#services">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                  Our Services
+                  {t('hero.ourServices')}
                 </Button>
               </a>
             </div>
@@ -72,8 +74,8 @@ export const Hero = () => {
                   <span className="text-2xl">⚕️</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-foreground">Certified Nurses</div>
-                  <div className="text-sm text-muted-foreground">Licensed professionals</div>
+                  <div className="font-semibold text-foreground">{t('hero.certifiedNurses')}</div>
+                  <div className="text-sm text-muted-foreground">{t('hero.licensedProfessionals')}</div>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -81,8 +83,8 @@ export const Hero = () => {
                   <span className="text-2xl">⏰</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-foreground">24/7 Available</div>
-                  <div className="text-sm text-muted-foreground">Same-day service</div>
+                  <div className="font-semibold text-foreground">{t('hero.available247')}</div>
+                  <div className="text-sm text-muted-foreground">{t('hero.sameDayService')}</div>
                 </div>
               </div>
             </div>

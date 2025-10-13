@@ -8,8 +8,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useTranslation } from "react-i18next";
 
 export const Header = () => {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,11 +24,11 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#services", label: "Services" },
-    { href: "#workflow", label: "Workflow" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#contacts", label: "Contacts" },
+    { href: "#home", label: t('nav.home') },
+    { href: "#services", label: t('nav.services') },
+    { href: "#workflow", label: t('nav.workflow') },
+    { href: "#pricing", label: t('nav.pricing') },
+    { href: "#contacts", label: t('nav.contacts') },
   ];
 
   const scrollToSection = (href: string) => {
@@ -73,7 +75,7 @@ export const Header = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             {/* Language Selector */}
-            <Select defaultValue="en">
+            <Select value={i18n.language} onValueChange={(lang) => i18n.changeLanguage(lang)}>
               <SelectTrigger className="w-[100px] hidden sm:flex">
                 <SelectValue />
               </SelectTrigger>

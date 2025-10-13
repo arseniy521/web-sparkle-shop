@@ -5,56 +5,52 @@ import woundCareIcon from "@/assets/WoundDressingBandage.png";
 import hygieneIcon from "@/assets/HygieneAssistance.png";
 import escortIcon from "@/assets/escort.png";
 import massageIcon from "@/assets/massage.png";
-
-const services = [
-  {
-    image: ivDripIcon,
-    title: "IV Infusion",
-    description:
-      "💡 For hydration, vitamin therapy, or prescribed IV treatments. 👉 Nurse-administered IV with monitoring at your home or hotel.",
-  },
-  {
-    image: ivDripIcon,
-    title: "Injection",
-    description:
-      "💡 For IVF, antibiotics, insulin, or vitamin therapy. 👉 Timely, precise administration of prescribed injections.",
-  },
-  {
-    image: woundCareIcon,
-    title: "Wound Dressing & Bandage",
-    description:
-      "💡 For patients recovering from surgery or injuries. 👉 Sterile dressing change, wound cleaning, and infection check.",
-  },
-  {
-    image: hygieneIcon,
-    title: "Hygiene Assistance",
-    description:
-      "💡 For elderly or disabled clients needing daily care. 👉 Gentle support with personal hygiene and comfort.",
-  },
-  {
-    image: escortIcon,
-    title: "Escort to/from Hospital",
-    description:
-      "💡 For patients needing support during travel or hospital visits. 👉 Nurse escort with mobility help and translation.",
-  },
-  {
-    image: massageIcon,
-    title: "Therapeutic Massage",
-    description:
-      "💡 For clients with pain, swelling, or limited mobility. 👉 Medical massage to relieve pain and improve circulation.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export const Services = () => {
+  const { t } = useTranslation();
+  
+  const services = [
+    {
+      image: ivDripIcon,
+      title: t('services.ivInfusion.title'),
+      description: t('services.ivInfusion.description'),
+    },
+    {
+      image: ivDripIcon,
+      title: t('services.injection.title'),
+      description: t('services.injection.description'),
+    },
+    {
+      image: woundCareIcon,
+      title: t('services.woundCare.title'),
+      description: t('services.woundCare.description'),
+    },
+    {
+      image: hygieneIcon,
+      title: t('services.hygiene.title'),
+      description: t('services.hygiene.description'),
+    },
+    {
+      image: escortIcon,
+      title: t('services.escort.title'),
+      description: t('services.escort.description'),
+    },
+    {
+      image: massageIcon,
+      title: t('services.massage.title'),
+      description: t('services.massage.description'),
+    },
+  ];
   return (
     <section id="services" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-            Our Services
+            {t('services.title')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            We provide professional home healthcare services tailored to your needs. All services are performed by qualified nurses with proper medical oversight.
+            {t('services.description')}
           </p>
         </div>
 
