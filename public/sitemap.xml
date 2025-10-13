@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- English version -->
+  <url>
+    <loc>https://www.sestranahodinu.cz/en/</loc>
+    <lastmod>2025-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sestranahodinu.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.sestranahodinu.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.sestranahodinu.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.sestranahodinu.cz/uk/"/>
+  </url>
+
+  <!-- Czech version -->
+  <url>
+    <loc>https://www.sestranahodinu.cz/cs/</loc>
+    <lastmod>2025-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sestranahodinu.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.sestranahodinu.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.sestranahodinu.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.sestranahodinu.cz/uk/"/>
+  </url>
+
+  <!-- Russian version -->
+  <url>
+    <loc>https://www.sestranahodinu.cz/ru/</loc>
+    <lastmod>2025-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sestranahodinu.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.sestranahodinu.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.sestranahodinu.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.sestranahodinu.cz/uk/"/>
+  </url>
+
+  <!-- Ukrainian version -->
+  <url>
+    <loc>https://www.sestranahodinu.cz/uk/</loc>
+    <lastmod>2025-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sestranahodinu.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.sestranahodinu.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.sestranahodinu.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.sestranahodinu.cz/uk/"/>
+  </url>
+
+</urlset>
