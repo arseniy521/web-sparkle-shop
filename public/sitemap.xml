@@ -2,52 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <!-- Homepage - English version -->
+  <!-- Homepage - English (Default) -->
   <url>
-    <loc>https://www.nius.cz/en/</loc>
-    <lastmod>2025-10-13</lastmod>
+    <loc>https://www.nius.cz/</loc>
+    <lastmod>2025-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+  </url>
+  
+  <!-- Homepage - English version -->
+  <url>
+    <loc>https://www.nius.cz/en/</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <!-- Homepage - Czech version -->
   <url>
     <loc>https://www.nius.cz/cs/</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cs/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <priority>0.9</priority>
   </url>
 
   <!-- Homepage - Russian version -->
   <url>
     <loc>https://www.nius.cz/ru/</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cs/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <priority>0.9</priority>
   </url>
 
   <!-- Homepage - Ukrainian version -->
   <url>
     <loc>https://www.nius.cz/uk/</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cs/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <priority>0.9</priority>
   </url>
 
   <!-- Blog listing page -->
@@ -98,26 +94,26 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Landing Pages -->
+  <!-- Specialized Service Pages -->
   <url>
     <loc>https://www.nius.cz/ivf-injection-support-prague</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://www.nius.cz/post-surgery-recovery-care-prague</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://www.nius.cz/disabled-daily-care-prague</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
 
 </urlset>
