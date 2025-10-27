@@ -9,7 +9,15 @@
     "contacts": "Kontakty",
     "bookNow": "Rezervovat"
   },
+  "seo": {
+    "home": {
+      "title": "Sestra v Praze | IV Infuze & Domácí Zdravotní Péče",
+      "description": "Profesionální sestra v Praze nabízí IV infuzní terapii, injekce, péči o rány a domácí zdravotní péči. Certifikované anglicky mluvící sestry dostupné 24/7. Služba ve stejný den po celé Praze."
+    }
+  },
   "hero": {
+    "mainTitle": "Sestra v Praze",
+    "subtitle": "IV Infuzní Terapie & Domácí Zdravotní Péče",
     "phrases": {
       "0": "Předepsané IV kapačky",
       "1": "Předepsané injekce",

@@ -9,7 +9,15 @@
     "contacts": "Contacts",
     "bookNow": "Book Now"
   },
+  "seo": {
+    "home": {
+      "title": "Nurse in Prague | IV Drip Therapy & Home Healthcare Services",
+      "description": "Professional nurse in Prague offering IV drip therapy, injections, wound care & home healthcare. Certified English-speaking nurses available 24/7. Same-day service across Prague."
+    }
+  },
   "hero": {
+    "mainTitle": "Nurse in Prague",
+    "subtitle": "IV Drip Therapy & Home Healthcare Services",
     "phrases": {
       "0": "Prescribed IV Drips",
       "1": "Prescribed Injections",
