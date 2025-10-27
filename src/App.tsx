@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import IVFSupport from "./pages/IVFSupport";
+import IVDripTherapy from "./pages/IVDripTherapy";
 import PostSurgeryCare from "./pages/PostSurgeryCare";
 import DisabledCare from "./pages/DisabledCare";
 import NotFound from "./pages/NotFound";
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/ivf-injection-support-prague" element={<IVFSupport />} />
+            <Route path="/iv-drip-therapy-prague" element={<IVDripTherapy />} />
             <Route path="/post-surgery-recovery-care-prague" element={<PostSurgeryCare />} />
             <Route path="/disabled-daily-care-prague" element={<DisabledCare />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
