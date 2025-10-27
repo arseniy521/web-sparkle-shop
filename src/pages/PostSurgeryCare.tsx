@@ -5,6 +5,7 @@ import { ArrowRight, Shield, Phone, Check, Heart } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { SEO } from "@/components/SEO";
 import woundCareIcon from "@/assets/WoundDressingBandage.png";
 import { useTranslation } from "react-i18next";
 
@@ -26,6 +27,44 @@ const PostSurgeryCare = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <SEO 
+        title={pageTitle}
+        description={pageDescription}
+        canonical="https://www.nius.cz/post-surgery-recovery-care-prague"
+        ogImage="https://www.nius.cz/og-postsurgery.jpg"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalBusiness",
+          "name": "Post-Surgery Recovery Care Prague - Medical Tourism Support",
+          "description": pageDescription,
+          "url": "https://www.nius.cz/post-surgery-recovery-care-prague",
+          "telephone": "+420773629123",
+          "image": "https://www.nius.cz/og-postsurgery.jpg",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Prague",
+            "addressCountry": "CZ"
+          },
+          "priceRange": "2500-25000 CZK",
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "Post-Operative Wound Care",
+              "description": "Professional wound dressing and monitoring for surgical recovery"
+            },
+            {
+              "@type": "Service",
+              "name": "Hospital Escort Service",
+              "description": "Safe transportation and settlement assistance for medical tourists"
+            },
+            {
+              "@type": "Service",
+              "name": "Recovery Care Packages",
+              "description": "Comprehensive post-surgery care from 2 days to 2 weeks"
+            }
+          ]
+        }}
+      />
       <Header />
       <Breadcrumbs items={[
         { label: "Services" },
@@ -322,51 +361,6 @@ const PostSurgeryCare = () => {
         </section>
       </main>
       <Footer />
-
-      {/* Enhanced JSON-LD Schema */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "MedicalBusiness",
-          "name": "Post-Surgery Recovery Care Prague - Medical Tourism Support",
-          "description": pageDescription,
-          "url": "https://www.nius.cz/post-surgery-recovery-care-prague",
-          "telephone": "+420773629123",
-          "image": "https://www.nius.cz/og-postsurgery.jpg",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Prague",
-            "addressCountry": "CZ"
-          },
-          "priceRange": "2500-25000 CZK",
-          "availableService": [
-            {
-              "@type": "MedicalProcedure",
-              "name": "Post-Operative Wound Care",
-              "description": "Professional wound dressing and monitoring for surgical recovery"
-            },
-            {
-              "@type": "Service",
-              "name": "Hospital Escort Service",
-              "description": "Safe transportation and settlement assistance for medical tourists"
-            },
-            {
-              "@type": "Service",
-              "name": "Recovery Care Packages",
-              "description": "Comprehensive post-surgery care from 2 days to 2 weeks"
-            }
-          ]
-        })
-      }} />
-      
-      {/* Meta tags update */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          document.title = "${pageTitle}";
-          document.querySelector('meta[name="description"]')?.setAttribute('content', "${pageDescription}");
-          document.querySelector('link[rel="canonical"]')?.setAttribute('href', "https://www.nius.cz/post-surgery-recovery-care-prague");
-        `
-      }} />
     </div>
   );
 };

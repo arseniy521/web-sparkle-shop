@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { SEO } from "@/components/SEO";
 import { useTranslation } from "react-i18next";
 
 const Blog = () => {
@@ -12,8 +14,15 @@ const Blog = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <SEO 
+        title="Healthcare Blog | Nurse in Prague - Home Nursing Tips & Guides"
+        description="Expert insights on home healthcare, nursing services, IV therapy, wound care, elderly care, and medical services in Prague. Professional nursing advice and guides."
+        canonical="https://www.nius.cz/blog"
+        ogImage="https://www.nius.cz/og-blog.jpg"
+      />
       <Header />
-      <main className="flex-1">
+      <Breadcrumbs items={[{ label: "Blog" }]} />
+      <main className="flex-1" role="main">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
           <div className="container mx-auto px-4">
@@ -44,6 +53,7 @@ const Blog = () => {
                         src={post.image}
                         alt={post.title}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-6">

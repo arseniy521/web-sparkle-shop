@@ -5,6 +5,8 @@ import { Card } from "@/components/ui/card";
 import { getBlogPost, getRecentPosts } from "@/data/blogPosts";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { SEO } from "@/components/SEO";
 import { useEffect } from "react";
 
 const BlogPost = () => {
@@ -39,8 +41,45 @@ const BlogPost = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      {post && (
+        <SEO 
+          title={`${post.title} | Nurse in Prague Blog`}
+          description={post.excerpt}
+          canonical={`https://www.nius.cz/blog/${post.slug}`}
+          ogImage="https://www.nius.cz/og-blog.jpg"
+          ogType="article"
+          schema={{
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "image": `https://www.nius.cz${post.image}`,
+            "author": {
+              "@type": "Organization",
+              "name": post.author
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Nurse in Prague",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.nius.cz/og-image.jpg"
+              }
+            },
+            "datePublished": post.date,
+            "dateModified": post.date,
+            "keywords": post.keywords.join(", "),
+            "articleSection": post.category,
+            "wordCount": post.content.split(/\s+/).length
+          }}
+        />
+      )}
       <Header />
-      <main className="flex-1">
+      <Breadcrumbs items={[
+        { label: "Blog", href: "/blog" },
+        { label: post?.title || "Post" }
+      ]} />
+      <main className="flex-1" role="main">
         {/* Back Button */}
         <div className="py-8 bg-muted/30">
           <div className="container mx-auto px-4">
@@ -89,6 +128,7 @@ const BlogPost = () => {
                   src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
 
@@ -152,6 +192,7 @@ const BlogPost = () => {
                             src={relatedPost.image}
                             alt={relatedPost.title}
                             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
                           />
                         </div>
                         <div className="p-6">
@@ -174,34 +215,6 @@ const BlogPost = () => {
         </section>
       </main>
       <Footer />
-
-      {/* JSON-LD Structured Data for Blog Post */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "headline": post.title,
-          "description": post.excerpt,
-          "image": `https://www.sestranahodinu.cz${post.image}`,
-          "author": {
-            "@type": "Organization",
-            "name": post.author
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Nurse in Prague",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://www.sestranahodinu.cz/logo.png"
-            }
-          },
-          "datePublished": post.date,
-          "dateModified": post.date,
-          "keywords": post.keywords.join(", "),
-          "articleSection": post.category,
-          "wordCount": post.content.split(/\s+/).length
-        })
-      }} />
     </div>
   );
 };

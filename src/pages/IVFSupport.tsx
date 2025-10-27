@@ -5,6 +5,7 @@ import { ArrowRight, Clock, Shield, Phone, Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { SEO } from "@/components/SEO";
 import ivDripIcon from "@/assets/drp-2.png";
 import { useTranslation } from "react-i18next";
 
@@ -27,6 +28,40 @@ const IVFSupport = () => {
   
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <SEO 
+        title={pageTitle}
+        description={pageDescription}
+        canonical="https://www.nius.cz/ivf-injection-support-prague"
+        ogImage="https://www.nius.cz/og-ivf.jpg"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalBusiness",
+          "name": "IVF Injection Support Prague - Nurse in Prague",
+          "description": pageDescription,
+          "url": "https://www.nius.cz/ivf-injection-support-prague",
+          "telephone": "+420773629123",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Prague",
+            "addressCountry": "CZ"
+          },
+          "priceRange": "1500-2000 CZK",
+          "image": "https://www.nius.cz/og-ivf.jpg",
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "IVF Injection Administration",
+              "description": "Professional fertility medication injection service at patient location",
+              "serviceType": "Home Healthcare"
+            },
+            {
+              "@type": "Service",
+              "name": "Evening & Weekend IVF Support",
+              "description": "Flexible scheduling for time-sensitive fertility medications"
+            }
+          ]
+        }}
+      />
       <Header />
       <Breadcrumbs items={[
         { label: "Services" },
@@ -276,47 +311,6 @@ const IVFSupport = () => {
         </section>
       </main>
       <Footer />
-
-      {/* Enhanced JSON-LD Schema with Service and FAQ */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "MedicalBusiness",
-          "name": "IVF Injection Support Prague - Nurse in Prague",
-          "description": pageDescription,
-          "url": "https://www.nius.cz/ivf-injection-support-prague",
-          "telephone": "+420773629123",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Prague",
-            "addressCountry": "CZ"
-          },
-          "priceRange": "1500-2000 CZK",
-          "image": "https://www.nius.cz/og-ivf.jpg",
-          "availableService": [
-            {
-              "@type": "MedicalProcedure",
-              "name": "IVF Injection Administration",
-              "description": "Professional fertility medication injection service at patient location",
-              "serviceType": "Home Healthcare"
-            },
-            {
-              "@type": "Service",
-              "name": "Evening & Weekend IVF Support",
-              "description": "Flexible scheduling for time-sensitive fertility medications"
-            }
-          ]
-        })
-      }} />
-      
-      {/* Meta tags update */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          document.title = "${pageTitle}";
-          document.querySelector('meta[name="description"]')?.setAttribute('content', "${pageDescription}");
-          document.querySelector('link[rel="canonical"]')?.setAttribute('href', "https://www.nius.cz/ivf-injection-support-prague");
-        `
-      }} />
     </div>
   );
 };

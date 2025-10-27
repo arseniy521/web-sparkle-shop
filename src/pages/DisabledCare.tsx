@@ -5,6 +5,7 @@ import { ArrowRight, Calendar, Phone, Check, Heart } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { SEO } from "@/components/SEO";
 import hygieneIcon from "@/assets/HygieneAssistance.png";
 import { useTranslation } from "react-i18next";
 
@@ -27,6 +28,44 @@ const DisabledCare = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <SEO 
+        title={pageTitle}
+        description={pageDescription}
+        canonical="https://www.nius.cz/disabled-daily-care-prague"
+        ogImage="https://www.nius.cz/og-disabled.jpg"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalBusiness",
+          "name": "Disabled Daily Care Prague - Home Nursing for Expats",
+          "description": pageDescription,
+          "url": "https://www.nius.cz/disabled-daily-care-prague",
+          "telephone": "+420773629123",
+          "image": "https://www.nius.cz/og-disabled.jpg",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Prague",
+            "addressCountry": "CZ"
+          },
+          "priceRange": "1900-38000 CZK",
+          "availableService": [
+            {
+              "@type": "Service",
+              "name": "Personal Hygiene Assistance",
+              "description": "Bathing, grooming, and personal care for disabled patients"
+            },
+            {
+              "@type": "Service",
+              "name": "Mobility Support",
+              "description": "Safe transfers and positioning assistance"
+            },
+            {
+              "@type": "Service",
+              "name": "Medication Management",
+              "description": "Timely medication administration and monitoring"
+            }
+          ]
+        }}
+      />
       <Header />
       <Breadcrumbs items={[
         { label: "Services" },
@@ -294,51 +333,6 @@ const DisabledCare = () => {
         </section>
       </main>
       <Footer />
-
-      {/* Enhanced JSON-LD Schema */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "MedicalBusiness",
-          "name": "Disabled Daily Care Prague - Home Nursing for Expats",
-          "description": pageDescription,
-          "url": "https://www.nius.cz/disabled-daily-care-prague",
-          "telephone": "+420773629123",
-          "image": "https://www.nius.cz/og-disabled.jpg",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Prague",
-            "addressCountry": "CZ"
-          },
-          "priceRange": "1900-38000 CZK",
-          "availableService": [
-            {
-              "@type": "Service",
-              "name": "Personal Hygiene Assistance",
-              "description": "Bathing, grooming, and personal care for disabled patients"
-            },
-            {
-              "@type": "Service",
-              "name": "Mobility Support",
-              "description": "Safe transfers and positioning assistance"
-            },
-            {
-              "@type": "Service",
-              "name": "Medication Management",
-              "description": "Timely medication administration and monitoring"
-            }
-          ]
-        })
-      }} />
-      
-      {/* Meta tags update */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          document.title = "${pageTitle}";
-          document.querySelector('meta[name="description"]')?.setAttribute('content', "${pageDescription}");
-          document.querySelector('link[rel="canonical"]')?.setAttribute('href', "https://www.nius.cz/disabled-daily-care-prague");
-        `
-      }} />
     </div>
   );
 };
