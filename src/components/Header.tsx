@@ -36,7 +36,6 @@ export const Header = () => {
     { href: "#workflow", label: t('nav.workflow'), isHash: true },
     { href: "#pricing", label: t('nav.pricing'), isHash: true },
     { href: "#testimonials", label: t('nav.testimonials'), isHash: true },
-    { href: "#contacts", label: t('nav.contacts'), isHash: true },
   ];
 
   const serviceLinks = [
