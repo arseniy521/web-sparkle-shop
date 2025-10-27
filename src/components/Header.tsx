@@ -133,16 +133,6 @@ export const Header = () => {
                 )}
               </li>
             ))}
-            
-            {/* Blog Link */}
-            <li>
-              <Link
-                to="/blog"
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
-                Blog
-              </Link>
-            </li>
 
           </ul>
 
@@ -250,17 +240,6 @@ export const Header = () => {
                   )}
                 </li>
               ))}
-              
-              {/* Blog Link */}
-              <li>
-                <Link
-                  to="/blog"
-                  className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Blog
-                </Link>
-              </li>
               
               {/* Language Selector */}
               <li className="pt-2 border-t border-border">
