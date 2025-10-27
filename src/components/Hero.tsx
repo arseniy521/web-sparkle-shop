@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,28 +6,6 @@ import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
   const { t } = useTranslation();
-  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  
-  const dynamicPhrases = [
-    t('hero.phrases.0'),
-    t('hero.phrases.1'),
-    t('hero.phrases.2'),
-    t('hero.phrases.3'),
-    t('hero.phrases.4'),
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentPhraseIndex((prev) => (prev + 1) % dynamicPhrases.length);
-        setIsAnimating(false);
-      }, 300);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section id="home" className="relative py-20 md:py-32 overflow-hidden" aria-label="Hero section">
@@ -37,17 +14,11 @@ export const Hero = () => {
           {/* Content */}
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground" itemProp="headline">
-              <span
-                className={`inline-block text-primary transition-all duration-300 ${
-                  isAnimating ? "opacity-0 transform -translate-y-2" : "opacity-100"
-                }`}
-              >
-                {dynamicPhrases[currentPhraseIndex]}
+              <span className="inline-block">
+                Professional Nurse in Prague
               </span>
               <br />
-              <span className="text-secondary">{t('hero.performedBy')}</span>
-              <br />
-              <span className="text-foreground">{t('hero.inYourHome')}</span>
+              <span className="text-primary">IV Drip Therapy & Home Healthcare</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
