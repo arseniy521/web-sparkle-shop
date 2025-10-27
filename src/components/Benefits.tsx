@@ -35,6 +35,7 @@ export const Benefits = () => {
                 src={benefitsImage}
                 alt="Patient receiving IV therapy at home - comfortable home healthcare"
                 className="w-full h-auto object-contain"
+                loading="lazy"
               />
             </div>
           </div>

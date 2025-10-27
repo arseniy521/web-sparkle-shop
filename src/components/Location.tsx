@@ -16,6 +16,7 @@ export const Location = () => {
                 src={mapImage}
                 alt="Prague service area map showing home nursing coverage"
                 className="w-full h-auto object-cover"
+                loading="lazy"
               />
             </div>
           </div>

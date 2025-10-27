@@ -67,6 +67,7 @@ export const Services = () => {
                     src={service.image} 
                     alt={`${service.title} icon`}
                     className="w-full h-full object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>

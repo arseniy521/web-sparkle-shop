@@ -42,6 +42,7 @@ export const Workflow = () => {
               src={workflowImage}
               alt="Step-by-step workflow diagram showing our home nursing service process"
               className="w-full h-auto object-contain"
+              loading="lazy"
             />
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Shield, Phone, Check, Heart } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import woundCareIcon from "@/assets/WoundDressingBandage.png";
 import { useTranslation } from "react-i18next";
 
@@ -20,10 +21,17 @@ const PostSurgeryCare = () => {
     t('postSurgeryCare.services.monitoring')
   ];
 
+  const pageTitle = "Post-Surgery Recovery Care Prague | Medical Tourism Nursing Support";
+  const pageDescription = "Professional post-operative nursing care for medical tourists in Prague. Wound care, hygiene assistance, hospital escort at your hotel. English-speaking nurses for plastic surgery, dental, orthopedic recovery.";
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <main className="flex-1">
+      <Breadcrumbs items={[
+        { label: "Services" },
+        { label: "Post-Surgery Care" }
+      ]} />
+      <main className="flex-1" role="main">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
           <div className="container mx-auto px-4">
@@ -32,7 +40,7 @@ const PostSurgeryCare = () => {
                 <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
                   {t('postSurgeryCare.badge')}
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight" itemProp="headline">
                   {t('postSurgeryCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
@@ -78,6 +86,7 @@ const PostSurgeryCare = () => {
                     src={woundCareIcon}
                     alt="Post-surgery wound care nurse in Prague"
                     className="w-full h-auto object-contain"
+                    loading="eager"
                   />
                 </div>
               </div>
@@ -314,22 +323,49 @@ const PostSurgeryCare = () => {
       </main>
       <Footer />
 
-      {/* JSON-LD Schema */}
+      {/* Enhanced JSON-LD Schema */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalBusiness",
           "name": "Post-Surgery Recovery Care Prague - Medical Tourism Support",
-          "description": "Professional post-operative nursing care for medical tourists in Prague. Wound care, hygiene assistance, hospital escort service at your hotel. English-speaking nurses.",
+          "description": pageDescription,
           "url": "https://www.nius.cz/post-surgery-recovery-care-prague",
           "telephone": "+420773629123",
+          "image": "https://www.nius.cz/og-postsurgery.jpg",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Prague",
             "addressCountry": "CZ"
           },
-          "priceRange": "2500-25000 CZK"
+          "priceRange": "2500-25000 CZK",
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "Post-Operative Wound Care",
+              "description": "Professional wound dressing and monitoring for surgical recovery"
+            },
+            {
+              "@type": "Service",
+              "name": "Hospital Escort Service",
+              "description": "Safe transportation and settlement assistance for medical tourists"
+            },
+            {
+              "@type": "Service",
+              "name": "Recovery Care Packages",
+              "description": "Comprehensive post-surgery care from 2 days to 2 weeks"
+            }
+          ]
         })
+      }} />
+      
+      {/* Meta tags update */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          document.title = "${pageTitle}";
+          document.querySelector('meta[name="description"]')?.setAttribute('content', "${pageDescription}");
+          document.querySelector('link[rel="canonical"]')?.setAttribute('href', "https://www.nius.cz/post-surgery-recovery-care-prague");
+        `
       }} />
     </div>
   );

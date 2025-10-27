@@ -31,12 +31,12 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative py-20 md:py-32 overflow-hidden">
+    <section id="home" className="relative py-20 md:py-32 overflow-hidden" aria-label="Hero section">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground" itemProp="headline">
               <span
                 className={`inline-block text-primary transition-all duration-300 ${
                   isAnimating ? "opacity-0 transform -translate-y-2" : "opacity-100"
@@ -114,11 +114,12 @@ export const Hero = () => {
           <div className="relative animate-scale-in">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
             <div className="relative rounded-3xl overflow-hidden shadow-soft bg-white p-8">
-              <img
-                src={mainImage}
-                alt="Professional nurse administering IV drip at patient's home in Prague"
-                className="w-full h-auto object-contain"
-              />
+                <img
+                  src={mainImage}
+                  alt="Professional nurse administering IV drip at patient's home in Prague"
+                  className="w-full h-auto object-contain"
+                  loading="eager"
+                />
             </div>
           </div>
         </div>

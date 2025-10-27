@@ -37,6 +37,7 @@ export const Team = () => {
                   src={nurse.image}
                   alt={`${t(`team.members.${nurse.key}.name`)} - ${t(`team.members.${nurse.key}.role`)}`}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
                 />
               </div>
               <div className="p-6 space-y-3">

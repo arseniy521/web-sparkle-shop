@@ -55,12 +55,13 @@ export const Header = () => {
 
   return (
     <header
+      role="banner"
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled ? "bg-background/95 backdrop-blur-sm shadow-sm" : "bg-background"
       }`}
     >
       <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between py-4">
+        <nav role="navigation" aria-label="Main navigation" className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link 
             to="/" 

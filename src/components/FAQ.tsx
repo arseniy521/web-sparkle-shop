@@ -11,6 +11,19 @@ const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q
 export const FAQ = () => {
   const { t } = useTranslation();
   
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqKeys.map(key => ({
+      "@type": "Question",
+      "name": t(`faq.items.${key}.question`),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t(`faq.items.${key}.answer`)
+      }
+    }))
+  };
+  
   return (
     <section id="faq" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -42,6 +55,11 @@ export const FAQ = () => {
           </Accordion>
         </div>
       </div>
+      
+      {/* FAQ Schema */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify(faqSchema)
+      }} />
     </section>
   );
 };

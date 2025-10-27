@@ -4,11 +4,16 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Calendar, Phone, Check, Heart } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import hygieneIcon from "@/assets/HygieneAssistance.png";
 import { useTranslation } from "react-i18next";
 
 const DisabledCare = () => {
   const { t } = useTranslation();
+  
+  const pageTitle = "Disabled Care Prague | Daily Comfort Nursing for Chronic Patients";
+  const pageDescription = "Professional daily care for disabled and chronic patients in Prague. Personal hygiene, mobility support, medication management, meal assistance. Compassionate English-speaking nurses at home.";
+  
   const services = [
     t('disabledCare.services.hygiene'),
     t('disabledCare.services.dressing'),
@@ -23,7 +28,11 @@ const DisabledCare = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <main className="flex-1">
+      <Breadcrumbs items={[
+        { label: "Services" },
+        { label: "Disabled Care" }
+      ]} />
+      <main className="flex-1" role="main">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
           <div className="container mx-auto px-4">
@@ -32,7 +41,7 @@ const DisabledCare = () => {
                 <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
                   {t('disabledCare.badge')}
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight" itemProp="headline">
                   {t('disabledCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
@@ -78,6 +87,7 @@ const DisabledCare = () => {
                     src={hygieneIcon}
                     alt="Disabled care and hygiene assistance nurse in Prague"
                     className="w-full h-auto object-contain"
+                    loading="eager"
                   />
                 </div>
               </div>
@@ -285,22 +295,49 @@ const DisabledCare = () => {
       </main>
       <Footer />
 
-      {/* JSON-LD Schema */}
+      {/* Enhanced JSON-LD Schema */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalBusiness",
           "name": "Disabled Daily Care Prague - Home Nursing for Expats",
-          "description": "Daily comfort care for disabled patients and expats in Prague. English-speaking nurses provide hygiene assistance, medication management, and compassionate home support.",
+          "description": pageDescription,
           "url": "https://www.nius.cz/disabled-daily-care-prague",
           "telephone": "+420773629123",
+          "image": "https://www.nius.cz/og-disabled.jpg",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Prague",
             "addressCountry": "CZ"
           },
-          "priceRange": "1900-38000 CZK"
+          "priceRange": "1900-38000 CZK",
+          "availableService": [
+            {
+              "@type": "Service",
+              "name": "Personal Hygiene Assistance",
+              "description": "Bathing, grooming, and personal care for disabled patients"
+            },
+            {
+              "@type": "Service",
+              "name": "Mobility Support",
+              "description": "Safe transfers and positioning assistance"
+            },
+            {
+              "@type": "Service",
+              "name": "Medication Management",
+              "description": "Timely medication administration and monitoring"
+            }
+          ]
         })
+      }} />
+      
+      {/* Meta tags update */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          document.title = "${pageTitle}";
+          document.querySelector('meta[name="description"]')?.setAttribute('content', "${pageDescription}");
+          document.querySelector('link[rel="canonical"]')?.setAttribute('href', "https://www.nius.cz/disabled-daily-care-prague");
+        `
       }} />
     </div>
   );

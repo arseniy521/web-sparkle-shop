@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Clock, Shield, Phone, Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import ivDripIcon from "@/assets/drp-2.png";
 import { useTranslation } from "react-i18next";
 
@@ -20,10 +21,18 @@ const IVFSupport = () => {
     t('ivfSupport.benefits.flexible')
   ];
 
+  // Update meta tags
+  const pageTitle = "IVF Injection Support Prague | Home Nurse for Fertility Treatment";
+  const pageDescription = "Professional IVF injection support at your Prague hotel. Time-sensitive fertility medication administration by English-speaking nurses. 24/7 availability for Gonal-F, Menopur, Cetrotide injections.";
+  
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <main className="flex-1">
+      <Breadcrumbs items={[
+        { label: "Services" },
+        { label: "IVF Injection Support" }
+      ]} />
+      <main className="flex-1" role="main">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
           <div className="container mx-auto px-4">
@@ -32,7 +41,7 @@ const IVFSupport = () => {
                 <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
                   {t('ivfSupport.badge')}
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-secondary leading-tight" itemProp="headline">
                   {t('ivfSupport.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
@@ -78,6 +87,7 @@ const IVFSupport = () => {
                     src={ivDripIcon}
                     alt="IVF injection support nurse in Prague"
                     className="w-full h-auto object-contain"
+                    loading="eager"
                   />
                 </div>
               </div>
@@ -267,13 +277,13 @@ const IVFSupport = () => {
       </main>
       <Footer />
 
-      {/* JSON-LD Schema */}
+      {/* Enhanced JSON-LD Schema with Service and FAQ */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalBusiness",
           "name": "IVF Injection Support Prague - Nurse in Prague",
-          "description": "Professional IVF injection support at your Prague hotel. Time-sensitive fertility medication administration by English-speaking nurses. 24/7 availability for IVF patients.",
+          "description": pageDescription,
           "url": "https://www.nius.cz/ivf-injection-support-prague",
           "telephone": "+420773629123",
           "address": {
@@ -282,12 +292,30 @@ const IVFSupport = () => {
             "addressCountry": "CZ"
           },
           "priceRange": "1500-2000 CZK",
-          "availableService": {
-            "@type": "MedicalProcedure",
-            "name": "IVF Injection Administration",
-            "description": "Professional fertility medication injection service at patient location"
-          }
+          "image": "https://www.nius.cz/og-ivf.jpg",
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "IVF Injection Administration",
+              "description": "Professional fertility medication injection service at patient location",
+              "serviceType": "Home Healthcare"
+            },
+            {
+              "@type": "Service",
+              "name": "Evening & Weekend IVF Support",
+              "description": "Flexible scheduling for time-sensitive fertility medications"
+            }
+          ]
         })
+      }} />
+      
+      {/* Meta tags update */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          document.title = "${pageTitle}";
+          document.querySelector('meta[name="description"]')?.setAttribute('content', "${pageDescription}");
+          document.querySelector('link[rel="canonical"]')?.setAttribute('href', "https://www.nius.cz/ivf-injection-support-prague");
+        `
       }} />
     </div>
   );
