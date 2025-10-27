@@ -250,6 +250,7 @@
   "specializedServices": {
     "title": "Specializované služby pro mezinárodní pacienty",
     "ivf": "Podpora IVF injekcí",
+    "ivDrip": "IV Kapačková terapie",
     "postSurgery": "Rekonvalescence po operaci",
     "disabled": "Denní komfortní péče"
   },

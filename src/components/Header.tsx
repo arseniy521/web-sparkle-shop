@@ -40,6 +40,7 @@ export const Header = () => {
 
   const serviceLinks = [
     { href: "/ivf-injection-support-prague", label: t('specializedServices.ivf') },
+    { href: "/iv-drip-therapy-prague", label: t('specializedServices.ivDrip') },
     { href: "/post-surgery-recovery-care-prague", label: t('specializedServices.postSurgery') },
     { href: "/disabled-daily-care-prague", label: t('specializedServices.disabled') },
   ];

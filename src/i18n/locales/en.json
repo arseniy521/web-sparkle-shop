@@ -250,6 +250,7 @@
   "specializedServices": {
     "title": "Specialized Services for International Patients",
     "ivf": "IVF Injection Support",
+    "ivDrip": "IV Drip Therapy",
     "postSurgery": "Post-Surgery Recovery",
     "disabled": "Daily Comfort Care"
   },
