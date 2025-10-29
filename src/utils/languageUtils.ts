@@ -1,7 +1,7 @@
 // Language prefix mapping
 export const languagePrefix: Record<string, string> = {
-  en: '',
-  cs: '/cz',
+  cs: '',
+  en: '/en',
   ru: '/ru',
   uk: '/uk',
 };
@@ -14,8 +14,8 @@ export const getLanguagePrefix = (lang: string): string => {
 // Get the base path without language prefix
 export const getBasePath = (pathname: string): string => {
   // Remove language prefix from pathname
-  if (pathname.startsWith('/cz/') || pathname.startsWith('/cz')) {
-    return pathname.replace('/cz', '');
+  if (pathname.startsWith('/en/') || pathname.startsWith('/en')) {
+    return pathname.replace('/en', '');
   }
   if (pathname.startsWith('/ru/') || pathname.startsWith('/ru')) {
     return pathname.replace('/ru', '');
@@ -28,10 +28,10 @@ export const getBasePath = (pathname: string): string => {
 
 // Get the current language from pathname
 export const getLanguageFromPath = (pathname: string): string => {
-  if (pathname.startsWith('/cz')) return 'cs';
+  if (pathname.startsWith('/en')) return 'en';
   if (pathname.startsWith('/ru')) return 'ru';
   if (pathname.startsWith('/uk')) return 'uk';
-  return 'en';
+  return 'cs';
 };
 
 // Build URL with language prefix

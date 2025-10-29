@@ -27,30 +27,27 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            {/* English (default) */}
-            <Route path="/" element={<LanguageWrapper language="en"><Index /></LanguageWrapper>} />
-            <Route path="/blog" element={<LanguageWrapper language="en"><Blog /></LanguageWrapper>} />
-            <Route path="/blog/:slug" element={<LanguageWrapper language="en"><BlogPost /></LanguageWrapper>} />
-            <Route path="/ivf-injection-support-prague" element={<LanguageWrapper language="en"><IVFSupport /></LanguageWrapper>} />
-            <Route path="/iv-drip-therapy-prague" element={<LanguageWrapper language="en"><IVDripTherapy /></LanguageWrapper>} />
-            <Route path="/post-surgery-recovery-care-prague" element={<LanguageWrapper language="en"><PostSurgeryCare /></LanguageWrapper>} />
-            <Route path="/disabled-daily-care-prague" element={<LanguageWrapper language="en"><DisabledCare /></LanguageWrapper>} />
-            
-            {/* Czech */}
-            <Route path="/cz" element={<LanguageWrapper language="cs"><Index /></LanguageWrapper>} />
-            <Route path="/cz/blog" element={<LanguageWrapper language="cs"><Blog /></LanguageWrapper>} />
-            <Route path="/cz/blog/:slug" element={<LanguageWrapper language="cs"><BlogPost /></LanguageWrapper>} />
-            <Route path="/cz/ivf-injection-support-prague" element={<LanguageWrapper language="cs"><IVFSupport /></LanguageWrapper>} />
-            <Route path="/cz/iv-drip-therapy-prague" element={<LanguageWrapper language="cs"><IVDripTherapy /></LanguageWrapper>} />
-            <Route path="/cz/post-surgery-recovery-care-prague" element={<LanguageWrapper language="cs"><PostSurgeryCare /></LanguageWrapper>} />
-            <Route path="/cz/disabled-daily-care-prague" element={<LanguageWrapper language="cs"><DisabledCare /></LanguageWrapper>} />
+            {/* Czech (default) */}
+            <Route path="/" element={<LanguageWrapper language="cs"><Index /></LanguageWrapper>} />
+            <Route path="/blog" element={<LanguageWrapper language="cs"><Blog /></LanguageWrapper>} />
+            <Route path="/blog/:slug" element={<LanguageWrapper language="cs"><BlogPost /></LanguageWrapper>} />
+            <Route path="/ivf-injection-support-prague" element={<LanguageWrapper language="cs"><IVFSupport /></LanguageWrapper>} />
+            <Route path="/iv-drip-therapy-prague" element={<LanguageWrapper language="cs"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/post-surgery-recovery-care-prague" element={<LanguageWrapper language="cs"><PostSurgeryCare /></LanguageWrapper>} />
+            <Route path="/disabled-daily-care-prague" element={<LanguageWrapper language="cs"><DisabledCare /></LanguageWrapper>} />
             {/* Czech Neighborhood Pages */}
-            <Route path="/cz/sestricka-praha-vinohrady" element={<LanguageWrapper language="cs"><SestrickaPrahaVinohrady /></LanguageWrapper>} />
             <Route path="/sestricka-praha-vinohrady" element={<LanguageWrapper language="cs"><SestrickaPrahaVinohrady /></LanguageWrapper>} />
-            <Route path="/cz/sestricka-praha-1" element={<LanguageWrapper language="cs"><SestrickaPraha1 /></LanguageWrapper>} />
             <Route path="/sestricka-praha-1" element={<LanguageWrapper language="cs"><SestrickaPraha1 /></LanguageWrapper>} />
-            <Route path="/cz/sestricka-praha-zizkov" element={<LanguageWrapper language="cs"><SestrickaPrahaZizkov /></LanguageWrapper>} />
             <Route path="/sestricka-praha-zizkov" element={<LanguageWrapper language="cs"><SestrickaPrahaZizkov /></LanguageWrapper>} />
+            
+            {/* English */}
+            <Route path="/en" element={<LanguageWrapper language="en"><Index /></LanguageWrapper>} />
+            <Route path="/en/blog" element={<LanguageWrapper language="en"><Blog /></LanguageWrapper>} />
+            <Route path="/en/blog/:slug" element={<LanguageWrapper language="en"><BlogPost /></LanguageWrapper>} />
+            <Route path="/en/ivf-injection-support-prague" element={<LanguageWrapper language="en"><IVFSupport /></LanguageWrapper>} />
+            <Route path="/en/iv-drip-therapy-prague" element={<LanguageWrapper language="en"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/en/post-surgery-recovery-care-prague" element={<LanguageWrapper language="en"><PostSurgeryCare /></LanguageWrapper>} />
+            <Route path="/en/disabled-daily-care-prague" element={<LanguageWrapper language="en"><DisabledCare /></LanguageWrapper>} />
             
             {/* Russian */}
             <Route path="/ru" element={<LanguageWrapper language="ru"><Index /></LanguageWrapper>} />

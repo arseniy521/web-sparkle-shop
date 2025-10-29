@@ -4,27 +4,27 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
-  <!-- Homepage - English (Default) -->
+  <!-- Homepage - Czech (Default) -->
   <url>
     <loc>https://www.nius.cz/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
   </url>
   
-  <!-- Homepage - Czech version -->
+  <!-- Homepage - English version -->
   <url>
-    <loc>https://www.nius.cz/cz/</loc>
+    <loc>https://www.nius.cz/en/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
@@ -36,8 +36,8 @@
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
@@ -49,8 +49,8 @@
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
@@ -66,13 +66,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/sestricka-praha-vinohrady"/>
   </url>
 
-  <url>
-    <loc>https://www.nius.cz/cz/sestricka-praha-vinohrady</loc>
-    <lastmod>2025-10-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
   <!-- Prague 1 - Old Town Landing Page -->
   <url>
     <loc>https://www.nius.cz/sestricka-praha-1</loc>
@@ -81,13 +74,6 @@
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-1"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/sestricka-praha-1"/>
-  </url>
-
-  <url>
-    <loc>https://www.nius.cz/cz/sestricka-praha-1</loc>
-    <lastmod>2025-10-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
   </url>
 
   <!-- Žižkov Landing Page -->
@@ -100,20 +86,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/sestricka-praha-zizkov"/>
   </url>
 
-  <url>
-    <loc>https://www.nius.cz/cz/sestricka-praha-zizkov</loc>
-    <lastmod>2025-10-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
   <!-- IV Drip Therapy Prague - PRIMARY TARGET KEYWORD PAGE -->
   <url>
     <loc>https://www.nius.cz/iv-drip-therapy-prague</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/iv-drip-therapy-prague"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/iv-drip-therapy-prague"/>
     <image:image>
       <image:loc>https://www.nius.cz/og-image.jpg</image:loc>
@@ -128,7 +110,10 @@
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/ivf-injection-support-prague"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/ivf-injection-support-prague"/>
     <image:image>
       <image:loc>https://www.nius.cz/og-ivf.jpg</image:loc>
@@ -142,7 +127,10 @@
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/post-surgery-recovery-care-prague"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
     <image:image>
       <image:loc>https://www.nius.cz/og-postsurgery.jpg</image:loc>
@@ -156,7 +144,10 @@
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/disabled-daily-care-prague"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/disabled-daily-care-prague"/>
     <image:image>
       <image:loc>https://www.nius.cz/og-disabled.jpg</image:loc>
@@ -170,6 +161,10 @@
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
     <image:image>
       <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
       <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
