@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "home": {
+      "title": "Sestra v Praze | IV Kapačky & Domácí Zdravotní Péče 24/7",
+      "description": "Profesionální sestra v Praze pro IV kapačky, IV infuze, pooperační péči a domácí zdravotní péči. Anglicky mluvící sestry ve vašem hotelu/domě. Rezervujte 24/7 pro IV kapačky, ošetření ran, IVF injekce a péči o zdravotně postižené."
+    }
+  },
   "nav": {
     "home": "Domů",
     "services": "Služby",

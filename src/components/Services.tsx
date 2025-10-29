@@ -65,7 +65,7 @@ export const Services = () => {
                 <div className="h-32 w-32 flex items-center justify-center">
                   <img 
                     src={service.image} 
-                    alt={`${service.title} icon`}
+                    alt={`${service.title} - Professional nursing service in Prague`}
                     className="w-full h-full object-contain"
                     loading="lazy"
                   />

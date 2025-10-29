@@ -120,7 +120,7 @@ export const Hero = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-soft bg-white p-8">
                 <img
                   src={mainImage}
-                  alt="Professional nurse administering IV drip at patient's home in Prague"
+                  alt="Professional nurse in Prague administering IV drip therapy at patient's home - home healthcare services"
                   className="w-full h-auto object-contain"
                   loading="eager"
                 />
