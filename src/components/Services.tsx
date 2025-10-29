@@ -67,13 +67,16 @@ export const Services = () => {
               className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 animate-slide-up group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="mb-4 flex justify-center">
+               <div className="mb-4 flex justify-center">
                 <div className="h-32 w-32 flex items-center justify-center">
                   <img 
                     src={service.image} 
                     alt={service.alt}
                     className="w-full h-full object-contain"
                     loading="lazy"
+                    decoding="async"
+                    width="128"
+                    height="128"
                   />
                 </div>
               </div>

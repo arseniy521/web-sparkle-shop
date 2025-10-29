@@ -245,6 +245,13 @@
       }
     }
   },
+  "notFound": {
+    "title": "Stránka nebyla nalezena",
+    "description": "Omlouváme se, ale stránku, kterou hledáte, jsme nenašli. Možná byla přesunuta nebo neexistuje.",
+    "goHome": "Přejít na hlavní stránku",
+    "goBack": "Jít zpět",
+    "help": "Hledáte naše služby? Zkuste tyto oblíbené stránky:"
+  },
   "footer": {
     "company": "Společnost",
     "services": "Služby",

@@ -38,6 +38,9 @@ export const Team = () => {
                   alt={`${t(`team.members.${nurse.key}.name`)} - Professional ${t(`team.members.${nurse.key}.role`)} providing home healthcare services in Prague`}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div className="p-6 space-y-3">

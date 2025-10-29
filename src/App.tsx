@@ -12,6 +12,7 @@ import IVFSupport from "./pages/IVFSupport";
 import IVDripTherapy from "./pages/IVDripTherapy";
 import PostSurgeryCare from "./pages/PostSurgeryCare";
 import DisabledCare from "./pages/DisabledCare";
+import SestrickaPrahaVinohrady from "./pages/SestrickaPrahaVinohrady";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,9 @@ const App = () => (
             <Route path="/cz/iv-drip-therapy-prague" element={<LanguageWrapper language="cs"><IVDripTherapy /></LanguageWrapper>} />
             <Route path="/cz/post-surgery-recovery-care-prague" element={<LanguageWrapper language="cs"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/cz/disabled-daily-care-prague" element={<LanguageWrapper language="cs"><DisabledCare /></LanguageWrapper>} />
+            {/* Czech Neighborhood Pages */}
+            <Route path="/cz/sestricka-praha-vinohrady" element={<LanguageWrapper language="cs"><SestrickaPrahaVinohrady /></LanguageWrapper>} />
+            <Route path="/sestricka-praha-vinohrady" element={<LanguageWrapper language="cs"><SestrickaPrahaVinohrady /></LanguageWrapper>} />
             
             {/* Russian */}
             <Route path="/ru" element={<LanguageWrapper language="ru"><Index /></LanguageWrapper>} />
