@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 interface SEOProps {
   title: string;
@@ -9,6 +10,13 @@ interface SEOProps {
   schema?: object | object[];
 }
 
+const languageMap: Record<string, string> = {
+  en: 'en_US',
+  cs: 'cs_CZ',
+  ru: 'ru_RU',
+  uk: 'uk_UA',
+};
+
 export const SEO = ({ 
   title, 
   description, 
@@ -17,12 +25,25 @@ export const SEO = ({
   ogType = "website",
   schema
 }: SEOProps) => {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
+  const ogLocale = languageMap[currentLang] || 'en_US';
+  const alternateLanguages = Object.keys(languageMap).filter(lang => lang !== currentLang);
+
   return (
     <>
       <Helmet>
+        <html lang={currentLang} />
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonical} />
+        
+        {/* Hreflang tags for multilingual SEO */}
+        <link rel="alternate" hrefLang="x-default" href={canonical} />
+        <link rel="alternate" hrefLang="en" href={canonical} />
+        <link rel="alternate" hrefLang="cs" href={canonical} />
+        <link rel="alternate" hrefLang="ru" href={canonical} />
+        <link rel="alternate" hrefLang="uk" href={canonical} />
         
         {/* Open Graph */}
         <meta property="og:title" content={title} />
@@ -31,6 +52,10 @@ export const SEO = ({
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:site_name" content="Nurse in Prague" />
+        <meta property="og:locale" content={ogLocale} />
+        {alternateLanguages.map(lang => (
+          <meta key={lang} property="og:locale:alternate" content={languageMap[lang]} />
+        ))}
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
