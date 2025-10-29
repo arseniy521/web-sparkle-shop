@@ -20,25 +20,25 @@ const Index = () => {
   const enhancedSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "name": "Nurse in Prague",
-    "alternateName": ["Home Healthcare Prague", "IV Drips Prague", "Sestřička Praha"],
-    "legalName": "Nius Services s.r.o.",
+    "name": t('schema.businessName'),
+    "alternateName": [t('schema.services.homeNurse.alternateName'), t('schema.services.ivDrip.alternateName')],
+    "legalName": t('schema.businessLegalName'),
     "url": "https://www.nius.cz/",
-    "description": "Professional home healthcare services in Prague: IV drip therapy, IV drips, IV infusions, injections, wound care and nursing services directly at your home or hotel throughout Prague.",
-    "slogan": "Fast, reliable and professional healthcare in the comfort of your home",
+    "description": t('schema.businessDescription'),
+    "slogan": t('schema.businessSlogan'),
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Prague City Center",
-      "addressLocality": "Prague",
-      "addressRegion": "Prague",
+      "addressLocality": t('schema.areaServed'),
+      "addressRegion": t('schema.areaServed'),
       "addressCountry": "CZ",
       "postalCode": "110 00"
     },
     "areaServed": [
       {
         "@type": "City",
-        "name": "Prague",
+        "name": t('schema.areaServed'),
         "containsPlace": [
           {"@type": "Place", "name": "Prague 1"},
           {"@type": "Place", "name": "Prague 2"},
@@ -87,7 +87,7 @@ const Index = () => {
       },
       "result": {
         "@type": "Reservation",
-        "name": "Book Nurse Service"
+        "name": t('schema.bookingAction')
       }
     },
     "hasOfferCatalog": {
@@ -98,10 +98,10 @@ const Index = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "IV Drip Therapy Prague",
-            "alternateName": "IV Drips Prague",
-            "description": "Professional IV drip therapy and vitamin infusions at your Prague location - hotels, homes, Airbnb",
-            "serviceType": "IV Drips Prague",
+            "name": t('schema.services.ivDrip.name'),
+            "alternateName": t('schema.services.ivDrip.alternateName'),
+            "description": t('schema.services.ivDrip.description'),
+            "serviceType": t('schema.services.ivDrip.type'),
             "areaServed": "Prague and surrounding areas"
           }
         },
@@ -109,10 +109,10 @@ const Index = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Home Nurse Prague",
-            "alternateName": "Sestřička Praha",
-            "description": "Professional nursing care at your home or hotel in Prague - English and Czech speaking nurses",
-            "serviceType": "Home Nurse Prague",
+            "name": t('schema.services.homeNurse.name'),
+            "alternateName": t('schema.services.homeNurse.alternateName'),
+            "description": t('schema.services.homeNurse.description'),
+            "serviceType": t('schema.services.homeNurse.type'),
             "areaServed": "Prague 1-10, Vinohrady, Old Town"
           }
         },
@@ -120,16 +120,16 @@ const Index = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "IVF Injection Support",
-            "description": "Specialized IVF medication administration for fertility patients at Prague hotels"
+            "name": t('schema.services.ivf.name'),
+            "description": t('schema.services.ivf.description')
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Post-Surgery Recovery Care",
-            "description": "Professional post-operative care for medical tourists in Prague"
+            "name": t('schema.services.postSurgery.name'),
+            "description": t('schema.services.postSurgery.description')
           }
         }
       ]

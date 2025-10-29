@@ -35,6 +35,15 @@ const SestrickaPrahaVinohrady = () => {
           "name": "Sestřička Praha - Vinohrady",
           "description": pageDescription,
           "telephone": "+420773629123",
+          "email": "nius.prague@gmail.com",
+          "url": "https://www.nius.cz/cz/sestricka-praha-vinohrady",
+          "priceRange": "699-2000 CZK",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "50.0755",
+            "longitude": "14.4378"
+          },
+          "openingHours": "Mo-Su 08:00-22:00",
           "areaServed": {
             "@type": "Place",
             "name": "Vinohrady, Prague 2, Prague 3"
@@ -44,6 +53,32 @@ const SestrickaPrahaVinohrady = () => {
             "addressLocality": "Vinohrady",
             "addressRegion": "Prague",
             "addressCountry": "CZ"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Služby na Vinohradech",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "IV Kapačky Vinohrady",
+                  "description": "Profesionální IV kapačky a vitamínové infuze na Vinohradech",
+                  "price": "1299",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Injekce Vinohrady",
+                  "description": "IVF injekce, antibiotika, vitamíny",
+                  "price": "699",
+                  "priceCurrency": "CZK"
+                }
+              }
+            ]
           }
         }}
       />

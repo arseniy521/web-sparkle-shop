@@ -6,6 +6,36 @@
       "keywords": "sestřička praha, domácí sestra praha, iv kapačky praha, iv terapie praha, ošetřovatelka praha, sestra na doma praha, zdravotní péče doma praha, ivf injekce praha"
     }
   },
+  "schema": {
+    "businessName": "Sestřička Praha",
+    "businessLegalName": "Nius Services s.r.o.",
+    "businessDescription": "Profesionální domácí zdravotní péče v Praze: IV kapačky, IV infuze, injekce, ošetření ran a ošetřovatelské služby přímo u vás doma nebo v hotelu po celé Praze.",
+    "businessSlogan": "Rychlá, spolehlivá a profesionální zdravotní péče v pohodlí vašeho domova",
+    "areaServed": "Praha",
+    "bookingAction": "Objednat zdravotní sestru",
+    "services": {
+      "ivDrip": {
+        "name": "IV kapačky Praha",
+        "alternateName": "Kapačky Praha",
+        "description": "Profesionální IV kapačky a vitamínové infuze na vaší adrese v Praze - hotely, domovy, Airbnb",
+        "type": "IV kapačky Praha"
+      },
+      "homeNurse": {
+        "name": "Domácí sestra Praha",
+        "alternateName": "Sestřička Praha",
+        "description": "Profesionální ošetřovatelská péče u vás doma nebo v hotelu v Praze - sestry mluvící anglicky a česky",
+        "type": "Domácí sestra Praha"
+      },
+      "ivf": {
+        "name": "Podpora IVF injekcí",
+        "description": "Specializovaná aplikace léků pro IVF pacienty v pražských hotelech"
+      },
+      "postSurgery": {
+        "name": "Pooperační péče",
+        "description": "Profesionální pooperační péče pro zdravotní turisty v Praze"
+      }
+    }
+  },
   "nav": {
     "home": "Domů",
     "services": "Služby",

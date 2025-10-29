@@ -34,6 +34,15 @@ const SestrickaPraha1 = () => {
           "name": "Sestřička Praha 1 - Staré & Nové Město",
           "description": pageDescription,
           "telephone": "+420773629123",
+          "email": "nius.prague@gmail.com",
+          "url": "https://www.nius.cz/cz/sestricka-praha-1",
+          "priceRange": "699-2000 CZK",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "50.0875",
+            "longitude": "14.4208"
+          },
+          "openingHours": "Mo-Su 08:00-22:00",
           "areaServed": {
             "@type": "Place",
             "name": "Prague 1 - Old Town, New Town, Lesser Town"
@@ -43,6 +52,32 @@ const SestrickaPraha1 = () => {
             "addressLocality": "Prague 1",
             "addressRegion": "Prague",
             "addressCountry": "CZ"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Služby v centru Prahy",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "IV Kapačky Praha 1",
+                  "description": "IV kapačky v hotelích a domech v centru Prahy",
+                  "price": "1299",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "IVF Injekce pro turisty",
+                  "description": "Specializované IVF injekce v hotelích",
+                  "price": "1500",
+                  "priceCurrency": "CZK"
+                }
+              }
+            ]
           }
         }}
       />

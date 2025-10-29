@@ -6,6 +6,36 @@
       "keywords": "home nurse prague, nurse in prague, iv drip therapy prague, iv drips prague, iv infusion prague, iv therapy prague, private nurse prague, medical tourism prague"
     }
   },
+  "schema": {
+    "businessName": "Nurse in Prague",
+    "businessLegalName": "Nius Services s.r.o.",
+    "businessDescription": "Professional home healthcare services in Prague: IV drip therapy, IV drips, IV infusions, injections, wound care and nursing services directly at your home or hotel throughout Prague.",
+    "businessSlogan": "Fast, reliable and professional healthcare in the comfort of your home",
+    "areaServed": "Prague",
+    "bookingAction": "Book Nurse Service",
+    "services": {
+      "ivDrip": {
+        "name": "IV Drip Therapy Prague",
+        "alternateName": "IV Drips Prague",
+        "description": "Professional IV drip therapy and vitamin infusions at your Prague location - hotels, homes, Airbnb",
+        "type": "IV Drips Prague"
+      },
+      "homeNurse": {
+        "name": "Home Nurse Prague",
+        "alternateName": "Sestřička Praha",
+        "description": "Professional nursing care at your home or hotel in Prague - English and Czech speaking nurses",
+        "type": "Home Nurse Prague"
+      },
+      "ivf": {
+        "name": "IVF Injection Support",
+        "description": "Specialized IVF medication administration for fertility patients at Prague hotels"
+      },
+      "postSurgery": {
+        "name": "Post-Surgery Recovery Care",
+        "description": "Professional post-operative care for medical tourists in Prague"
+      }
+    }
+  },
   "nav": {
     "home": "Home",
     "services": "Services",

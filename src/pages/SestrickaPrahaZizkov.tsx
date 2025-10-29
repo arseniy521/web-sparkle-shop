@@ -34,6 +34,15 @@ const SestrickaPrahaZizkov = () => {
           "name": "Sestřička Praha - Žižkov",
           "description": pageDescription,
           "telephone": "+420773629123",
+          "email": "nius.prague@gmail.com",
+          "url": "https://www.nius.cz/cz/sestricka-praha-zizkov",
+          "priceRange": "699-2000 CZK",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "50.0837",
+            "longitude": "14.4508"
+          },
+          "openingHours": "Mo-Su 08:00-22:00",
           "areaServed": {
             "@type": "Place",
             "name": "Žižkov, Prague 3"
@@ -43,6 +52,32 @@ const SestrickaPrahaZizkov = () => {
             "addressLocality": "Žižkov",
             "addressRegion": "Prague 3",
             "addressCountry": "CZ"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Služby na Žižkově",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "IV Kapačky Žižkov",
+                  "description": "Profesionální IV kapačky na Žižkově",
+                  "price": "1299",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Injekce Žižkov",
+                  "description": "Aplikace injekcí a léků na Žižkově",
+                  "price": "699",
+                  "priceCurrency": "CZK"
+                }
+              }
+            ]
           }
         }}
       />
