@@ -35,7 +35,7 @@ export const Team = () => {
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={nurse.image}
-                  alt={`${t(`team.members.${nurse.key}.name`)} - ${t(`team.members.${nurse.key}.role`)}`}
+                  alt={`${t(`team.members.${nurse.key}.name`)} - Professional ${t(`team.members.${nurse.key}.role`)} providing home healthcare services in Prague`}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   loading="lazy"
                 />

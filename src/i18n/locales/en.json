@@ -1,8 +1,9 @@
 {
   "seo": {
     "home": {
-      "title": "Nurse in Prague | IV Drip Therapy & Home Healthcare Services 24/7",
-      "description": "Professional nurse in Prague for IV drip therapy, IV infusions, post-surgery care, and home healthcare. English-speaking nurses at your hotel/home. Book 24/7 for IV drips, wound care, IVF injections, and disabled care."
+      "title": "Home Nurse Prague | IV Drip Therapy & IV Drips Prague 24/7",
+      "description": "Professional home nurse in Prague for IV drip therapy, IV drips Prague, IV infusions, post-surgery care at your hotel/home. English-speaking nurses available 24/7. Book now for IV drips in Prague, wound care, IVF injections throughout Prague 1-10, Vinohrady, Old Town.",
+      "keywords": "home nurse prague, nurse in prague, iv drip therapy prague, iv drips prague, iv infusion prague, iv therapy prague, private nurse prague, medical tourism prague"
     }
   },
   "nav": {
@@ -172,12 +173,12 @@
     }
   },
   "location": {
-    "title": "Service Area",
-    "description": "We serve Prague and surrounding areas",
+    "title": "Service Area in Prague",
+    "description": "We serve all Prague districts including Prague 1-10, Vinohrady, Žižkov, Old Town, New Town and surrounding areas",
     "serviceArea": "Service Area",
-    "serviceAreaText": "Prague and surrounding areas (up to 20km)",
+    "serviceAreaText": "Prague 1-10, Vinohrady, Žižkov, Old Town, New Town and surrounding areas (up to 20km from city center)",
     "responseTime": "Response Time",
-    "responseTimeText": "Typically 2-4 hours for same-day bookings"
+    "responseTimeText": "Typically 2-4 hours for same-day bookings throughout Prague"
   },
   "contacts": {
     "title": "Get in Touch",

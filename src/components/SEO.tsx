@@ -8,6 +8,7 @@ interface SEOProps {
   ogImage?: string;
   ogType?: string;
   schema?: object | object[];
+  keywords?: string;
 }
 
 const languageMap: Record<string, string> = {
@@ -23,7 +24,8 @@ export const SEO = ({
   canonical, 
   ogImage = "https://www.nius.cz/og-image.jpg",
   ogType = "website",
-  schema
+  schema,
+  keywords
 }: SEOProps) => {
   const { i18n } = useTranslation();
   const currentLang = i18n.language;
@@ -36,6 +38,7 @@ export const SEO = ({
         <html lang={currentLang} />
         <title>{title}</title>
         <meta name="description" content={description} />
+        {keywords && <meta name="keywords" content={keywords} />}
         <link rel="canonical" href={canonical} />
         
         {/* Hreflang tags for multilingual SEO */}

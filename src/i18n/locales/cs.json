@@ -1,8 +1,9 @@
 {
   "seo": {
     "home": {
-      "title": "Sestra v Praze | IV Kapačky & Domácí Zdravotní Péče 24/7",
-      "description": "Profesionální sestra v Praze pro IV kapačky, IV infuze, pooperační péči a domácí zdravotní péči. Anglicky mluvící sestry ve vašem hotelu/domě. Rezervujte 24/7 pro IV kapačky, ošetření ran, IVF injekce a péči o zdravotně postižené."
+      "title": "Sestřička Praha | Domácí Sestra - IV Kapačky Praha & Injekce 24/7",
+      "description": "Sestřička Praha na zavolání! Profesionální domácí sestra v Praze pro IV kapačky Praha, IV infuze, pooperační péči a zdravotní péči doma. Anglicky mluvící sestřička ve vašem hotelu/domě. Rezervujte 24/7 pro IV terapii, ošetření ran, IVF injekce a péči o zdravotně postižené.",
+      "keywords": "sestřička praha, domácí sestra praha, iv kapačky praha, iv terapie praha, ošetřovatelka praha, sestra na doma praha, zdravotní péče doma praha, ivf injekce praha"
     }
   },
   "nav": {
@@ -172,12 +173,12 @@
     }
   },
   "location": {
-    "title": "Oblast služeb",
-    "description": "Obsluhujeme Prahu a okolí",
+    "title": "Oblast služeb sestřičky Praha",
+    "description": "Obsluhujeme všechny pražské okresy včetně Praha 1-10, Vinohrady, Žižkov, Staré Město, Nové Město a okolí",
     "serviceArea": "Oblast služeb",
-    "serviceAreaText": "Praha a okolí (až 20 km)",
+    "serviceAreaText": "Praha 1-10, Vinohrady, Žižkov, Staré Město, Nové Město a okolí (až 20 km od centra)",
     "responseTime": "Reakční čas",
-    "responseTimeText": "Obvykle 2-4 hodiny pro rezervace tentýž den"
+    "responseTimeText": "Obvykle 2-4 hodiny pro rezervace tentýž den po celé Praze"
   },
   "contacts": {
     "title": "Kontaktujte nás",

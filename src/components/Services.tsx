@@ -15,31 +15,37 @@ export const Services = () => {
       image: ivDripIcon,
       title: t('services.ivInfusion.title'),
       description: t('services.ivInfusion.description'),
+      alt: 'IV drip therapy Prague - nurse administering IV infusion at home',
     },
     {
       image: injectionIcon,
       title: t('services.injection.title'),
       description: t('services.injection.description'),
+      alt: 'Home nurse Prague providing injections - IVF, insulin, antibiotics',
     },
     {
       image: woundCareIcon,
       title: t('services.woundCare.title'),
       description: t('services.woundCare.description'),
+      alt: 'Wound care and bandage service Prague - post-surgery nursing care',
     },
     {
       image: hygieneIcon,
       title: t('services.hygiene.title'),
       description: t('services.hygiene.description'),
+      alt: 'Hygiene assistance Prague - daily care for elderly and disabled patients',
     },
     {
       image: escortIcon,
       title: t('services.escort.title'),
       description: t('services.escort.description'),
+      alt: 'Hospital escort service Prague - nurse accompanying patients to medical appointments',
     },
     {
       image: massageIcon,
       title: t('services.massage.title'),
       description: t('services.massage.description'),
+      alt: 'Therapeutic massage Prague - medical massage for pain relief at home',
     },
   ];
   return (
@@ -65,7 +71,7 @@ export const Services = () => {
                 <div className="h-32 w-32 flex items-center justify-center">
                   <img 
                     src={service.image} 
-                    alt={`${service.title} - Professional nursing service in Prague`}
+                    alt={service.alt}
                     className="w-full h-full object-contain"
                     loading="lazy"
                   />
