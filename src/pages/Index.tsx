@@ -11,103 +11,66 @@ import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { StickyBookNow } from "@/components/StickyBookNow";
-import { SEO } from "@/components/SEO";
-import { useTranslation } from "react-i18next";
 
 const Index = () => {
-  const { t } = useTranslation();
-  
-  const getCanonicalUrl = () => {
-    const currentLang = localStorage.getItem('i18nextLng') || 'en';
-    const baseUrl = 'https://www.nius.cz';
-    return currentLang === 'en' ? `${baseUrl}/` : `${baseUrl}/${currentLang}/`;
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "Nurse in Prague",
-    "alternateName": "Home Healthcare Prague",
-    "legalName": "Nius Services s.r.o.",
-    "url": "https://www.nius.cz/",
-    "description": t('seo.home.description'),
-    "slogan": "Fast, reliable and professional healthcare in the comfort of your home",
-    "foundingDate": "2024",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Prague",
-      "addressRegion": "Prague",
-      "addressCountry": "CZ",
-      "postalCode": "110 00"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 50.0755,
-      "longitude": 14.4378
-    },
-    "telephone": "+420773629123",
-    "email": "sestranahodinu@gmail.com",
-    "priceRange": "699-1499 CZK",
-    "currenciesAccepted": "CZK",
-    "paymentAccepted": ["Cash", "Bank Transfer", "Card"],
-    "openingHours": "Mo-Su 08:00-20:00",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "47",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Healthcare Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "IV Drip Therapy Prague",
-            "description": "Professional IV drip therapy administered by certified nurses in your home in Prague"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Home Nurse Prague",
-            "description": "Licensed nurses providing medical care at your home in Prague - injections, wound care, IVF support"
-          }
-        }
-      ]
-    }
-  };
-
   return (
-    <>
-      <SEO 
-        title={t('seo.home.title')}
-        description={t('seo.home.description')}
-        canonical={getCanonicalUrl()}
-        schema={localBusinessSchema}
-      />
-      <div className="flex min-h-screen flex-col bg-background">
-        <Header />
-        <main role="main">
-          <Hero />
-          <Services />
-          <Workflow />
-          <Benefits />
-          <Team />
-          <Pricing />
-          <Testimonials />
-          <Location />
-          <Contacts />
-          <FAQ />
-        </main>
-        <Footer />
-        <StickyBookNow />
-      </div>
-    </>
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header />
+      <main role="main">
+        <Hero />
+        <Services />
+        <Workflow />
+        <Benefits />
+        <Team />
+        <Pricing />
+        <Testimonials />
+        <Location />
+        <Contacts />
+        <FAQ />
+      </main>
+      <Footer />
+      <StickyBookNow />
+
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalBusiness",
+          "name": "Nurse in Prague",
+          "alternateName": "Home Healthcare Prague",
+          "legalName": "Nius Services s.r.o.",
+          "url": "https://www.nius.cz/en/",
+          "description": "Professional home healthcare services in Prague: IV infusions, injections, wound care and nursing services directly at your home.",
+          "slogan": "Fast, reliable and professional healthcare in the comfort of your home",
+          "foundingDate": "2024",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Prague",
+            "addressRegion": "Prague",
+            "addressCountry": "CZ",
+            "postalCode": "110 00"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 50.0755,
+            "longitude": 14.4378
+          },
+          "telephone": "+420773629123",
+          "email": "sestranahodinu@gmail.com",
+          "priceRange": "699-1499 CZK",
+          "currenciesAccepted": "CZK",
+          "paymentAccepted": ["Cash", "Bank Transfer", "Card"],
+          "openingHours": "Mo-Su 08:00-20:00",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "47",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        })
+      }} />
+    </div>
   );
 };
 
