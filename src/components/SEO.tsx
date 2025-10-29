@@ -1,10 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { getCanonicalUrl, getLanguagePrefix } from '@/utils/languageUtils';
 
 interface SEOProps {
   title: string;
   description: string;
-  canonical: string;
+  canonical?: string;
   ogImage?: string;
   ogType?: string;
   schema?: object | object[];
@@ -31,6 +32,17 @@ export const SEO = ({
   const currentLang = i18n.language;
   const ogLocale = languageMap[currentLang] || 'en_US';
   const alternateLanguages = Object.keys(languageMap).filter(lang => lang !== currentLang);
+  
+  // Generate canonical URL if not provided
+  const canonicalUrl = canonical || getCanonicalUrl(currentLang);
+  
+  // Generate alternate URLs for all languages
+  const alternateUrls = {
+    en: 'https://www.nius.cz/',
+    cs: 'https://www.nius.cz/cz/',
+    ru: 'https://www.nius.cz/ru/',
+    uk: 'https://www.nius.cz/uk/',
+  };
 
   return (
     <>
@@ -39,20 +51,20 @@ export const SEO = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         {keywords && <meta name="keywords" content={keywords} />}
-        <link rel="canonical" href={canonical} />
+        <link rel="canonical" href={canonicalUrl} />
         
         {/* Hreflang tags for multilingual SEO */}
-        <link rel="alternate" hrefLang="x-default" href={canonical} />
-        <link rel="alternate" hrefLang="en" href={canonical} />
-        <link rel="alternate" hrefLang="cs" href={canonical} />
-        <link rel="alternate" hrefLang="ru" href={canonical} />
-        <link rel="alternate" hrefLang="uk" href={canonical} />
+        <link rel="alternate" hrefLang="x-default" href={alternateUrls.en} />
+        <link rel="alternate" hrefLang="en" href={alternateUrls.en} />
+        <link rel="alternate" hrefLang="cs" href={alternateUrls.cs} />
+        <link rel="alternate" hrefLang="ru" href={alternateUrls.ru} />
+        <link rel="alternate" hrefLang="uk" href={alternateUrls.uk} />
         
         {/* Open Graph */}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content={ogType} />
-        <meta property="og:url" content={canonical} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:site_name" content="Nurse in Prague" />
         <meta property="og:locale" content={ogLocale} />

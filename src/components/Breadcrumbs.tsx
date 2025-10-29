@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronRight, Home } from "lucide-react";
+import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 
 interface BreadcrumbItem {
   label: string;
@@ -11,6 +12,11 @@ interface BreadcrumbsProps {
 }
 
 export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
+  const location = useLocation();
+  const currentLang = getLanguageFromPath(location.pathname);
+  const langPrefix = getLanguagePrefix(currentLang);
+  const homeUrl = langPrefix || '/';
+  
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -19,7 +25,7 @@ export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.nius.cz/"
+        "item": `https://www.nius.cz${langPrefix}/`
       },
       ...items.map((item, index) => ({
         "@type": "ListItem",
@@ -34,7 +40,7 @@ export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
     <nav aria-label="Breadcrumb" className="py-4">
       <ol className="flex items-center gap-2 text-sm text-muted-foreground container mx-auto px-4">
         <li>
-          <Link to="/" className="flex items-center hover:text-primary transition-colors">
+          <Link to={homeUrl} className="flex items-center hover:text-primary transition-colors">
             <Home className="h-4 w-4" />
             <span className="sr-only">Home</span>
           </Link>

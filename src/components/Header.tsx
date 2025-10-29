@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -16,12 +16,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTranslation } from "react-i18next";
+import { getBasePath, buildLanguageUrl, getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 
 export const Header = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const currentLang = getLanguageFromPath(location.pathname);
+  const langPrefix = getLanguagePrefix(currentLang);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +36,13 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleLanguageChange = (newLang: string) => {
+    const basePath = getBasePath(location.pathname);
+    const newUrl = buildLanguageUrl(basePath, newLang);
+    navigate(newUrl);
+    setIsMobileMenuOpen(false);
+  };
+
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
     { href: "#workflow", label: t('nav.workflow'), isHash: true },
@@ -39,10 +51,10 @@ export const Header = () => {
   ];
 
   const serviceLinks = [
-    { href: "/ivf-injection-support-prague", label: t('specializedServices.ivf') },
-    { href: "/iv-drip-therapy-prague", label: t('specializedServices.ivDrip') },
-    { href: "/post-surgery-recovery-care-prague", label: t('specializedServices.postSurgery') },
-    { href: "/disabled-daily-care-prague", label: t('specializedServices.disabled') },
+    { href: `${langPrefix}/ivf-injection-support-prague`, label: t('specializedServices.ivf') },
+    { href: `${langPrefix}/iv-drip-therapy-prague`, label: t('specializedServices.ivDrip') },
+    { href: `${langPrefix}/post-surgery-recovery-care-prague`, label: t('specializedServices.postSurgery') },
+    { href: `${langPrefix}/disabled-daily-care-prague`, label: t('specializedServices.disabled') },
   ];
 
   const scrollToSection = (href: string) => {
@@ -64,10 +76,12 @@ export const Header = () => {
         <nav role="navigation" aria-label="Main navigation" className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link 
-            to="/" 
+            to={langPrefix || "/"} 
             className="flex items-center gap-2 group"
             onClick={(e) => {
-              if (location.pathname === "/") {
+              const isHomePage = (langPrefix === '' && location.pathname === '/') || 
+                                 (langPrefix !== '' && location.pathname === langPrefix);
+              if (isHomePage) {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }
@@ -108,7 +122,7 @@ export const Header = () => {
             {/* Regular Nav Links */}
             {navLinks.slice(1).map((link) => (
               <li key={link.href}>
-                {link.isHash && location.pathname === "/" ? (
+                {link.isHash && (location.pathname === "/" || location.pathname === langPrefix || location.pathname === `${langPrefix}/`) ? (
                   <a
                     href={link.href}
                     onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
@@ -118,7 +132,7 @@ export const Header = () => {
                   </a>
                 ) : link.isHash ? (
                   <Link
-                    to={`/${link.href}`}
+                    to={`${langPrefix || '/'}${link.href}`}
                     className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
@@ -139,7 +153,7 @@ export const Header = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             {/* Language Selector */}
-            <Select value={i18n.language} onValueChange={(lang) => i18n.changeLanguage(lang)}>
+            <Select value={currentLang} onValueChange={handleLanguageChange}>
               <SelectTrigger className="w-[100px] hidden sm:flex">
                 <SelectValue />
               </SelectTrigger>
@@ -213,7 +227,7 @@ export const Header = () => {
               {/* Mobile Regular Links */}
               {navLinks.slice(1).map((link) => (
                 <li key={link.href}>
-                  {link.isHash && location.pathname === "/" ? (
+                  {link.isHash && (location.pathname === "/" || location.pathname === langPrefix || location.pathname === `${langPrefix}/`) ? (
                     <a
                       href={link.href}
                       onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
@@ -223,7 +237,7 @@ export const Header = () => {
                     </a>
                   ) : link.isHash ? (
                     <Link
-                      to={`/${link.href}`}
+                      to={`${langPrefix || '/'}${link.href}`}
                       className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -244,10 +258,7 @@ export const Header = () => {
               {/* Language Selector */}
               <li className="pt-2 border-t border-border">
                 <div className="text-sm font-semibold text-foreground mb-2">Language</div>
-                <Select value={i18n.language} onValueChange={(lang) => {
-                  i18n.changeLanguage(lang);
-                  setIsMobileMenuOpen(false);
-                }}>
+                <Select value={currentLang} onValueChange={handleLanguageChange}>
                   <SelectTrigger className="w-full">
                     <SelectValue />
                   </SelectTrigger>

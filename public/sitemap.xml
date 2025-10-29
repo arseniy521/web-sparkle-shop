@@ -4,33 +4,30 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
-  <!-- Homepage - Default -->
+  <!-- Homepage - English (Default) -->
   <url>
     <loc>https://www.nius.cz/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cz/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
   </url>
   
-  <!-- Homepage - English version -->
+  <!-- Homepage - Czech version -->
   <url>
-    <loc>https://www.nius.cz/en/</loc>
+    <loc>https://www.nius.cz/cz/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-
-  <!-- Homepage - Czech version -->
-  <url>
-    <loc>https://www.nius.cz/cs/</loc>
-    <lastmod>2025-10-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
   </url>
 
   <!-- Homepage - Russian version -->
@@ -38,7 +35,12 @@
     <loc>https://www.nius.cz/ru/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
   </url>
 
   <!-- Homepage - Ukrainian version -->
@@ -46,7 +48,12 @@
     <loc>https://www.nius.cz/uk/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/cz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
   </url>
 
   <!-- IV Drip Therapy Prague - PRIMARY TARGET KEYWORD PAGE -->

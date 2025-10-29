@@ -141,7 +141,6 @@ const Index = () => {
       <SEO 
         title={t('seo.home.title')}
         description={t('seo.home.description')}
-        canonical="https://www.nius.cz/"
         ogImage="https://www.nius.cz/og-image.jpg"
         schema={enhancedSchema}
         keywords={t('seo.home.keywords')}
