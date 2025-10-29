@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { getCanonicalUrl, getLanguagePrefix } from '@/utils/languageUtils';
+import { useLocation } from 'react-router-dom';
+import { getCanonicalUrl, getLanguagePrefix, getBasePath, buildLanguageUrl } from '@/utils/languageUtils';
 
 interface SEOProps {
   title: string;
@@ -29,19 +30,24 @@ export const SEO = ({
   keywords
 }: SEOProps) => {
   const { i18n } = useTranslation();
+  const location = useLocation();
   const currentLang = i18n.language;
   const ogLocale = languageMap[currentLang] || 'en_US';
   const alternateLanguages = Object.keys(languageMap).filter(lang => lang !== currentLang);
   
-  // Generate canonical URL if not provided
-  const canonicalUrl = canonical || getCanonicalUrl(currentLang);
+  // Get base path without language prefix
+  const basePath = getBasePath(location.pathname);
   
-  // Generate alternate URLs for all languages
+  // Generate canonical URL if not provided
+  const canonicalUrl = canonical || getCanonicalUrl(currentLang, basePath);
+  
+  // Generate alternate URLs for all languages dynamically
+  const baseUrl = 'https://www.nius.cz';
   const alternateUrls = {
-    en: 'https://www.nius.cz/',
-    cs: 'https://www.nius.cz/cz/',
-    ru: 'https://www.nius.cz/ru/',
-    uk: 'https://www.nius.cz/uk/',
+    en: `${baseUrl}${buildLanguageUrl(basePath, 'en')}`,
+    cs: `${baseUrl}${buildLanguageUrl(basePath, 'cs')}`,
+    ru: `${baseUrl}${buildLanguageUrl(basePath, 'ru')}`,
+    uk: `${baseUrl}${buildLanguageUrl(basePath, 'uk')}`,
   };
 
   return (
