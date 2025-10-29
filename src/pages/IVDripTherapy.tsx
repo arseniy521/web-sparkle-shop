@@ -141,10 +141,10 @@ const IVDripTherapy = () => {
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center pt-4">
                   <Button size="lg" asChild>
-                    <a href="https://wa.me/420775595769">Book IV Therapy</a>
+                    <a href="https://wa.me/420773629123">Book IV Therapy</a>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
-                    <a href="mailto:info@nius.cz">Email Us</a>
+                    <a href="mailto:nius.prague@gmail.com">Email Us</a>
                   </Button>
                 </div>
               </div>
@@ -341,10 +341,10 @@ const IVDripTherapy = () => {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" asChild>
-                  <a href="https://wa.me/420775595769">Book on WhatsApp</a>
+                  <a href="https://wa.me/420773629123">Book on WhatsApp</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="mailto:info@nius.cz">Email for Consultation</a>
+                  <a href="mailto:nius.prague@gmail.com">Email for Consultation</a>
                 </Button>
               </div>
             </div>

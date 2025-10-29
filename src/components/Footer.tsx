@@ -77,10 +77,10 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:sestranahodinu@gmail.com"
+                  href="mailto:nius.prague@gmail.com"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  sestranahodinu@gmail.com
+                  nius.prague@gmail.com
                 </a>
               </li>
             </ul>

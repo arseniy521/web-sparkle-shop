@@ -37,8 +37,8 @@ export const Contacts = () => {
     {
       icon: Mail,
       title: t('contacts.email'),
-      value: "sestranahodinu@gmail.com",
-      href: "mailto:sestranahodinu@gmail.com",
+      value: "nius.prague@gmail.com",
+      href: "mailto:nius.prague@gmail.com",
       color: "bg-purple-500/10 text-purple-600",
     },
   ];
