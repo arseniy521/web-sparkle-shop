@@ -42,14 +42,14 @@ const LanguageWrapper = ({ children }: { children: React.ReactNode }) => {
 // Route configuration for all pages
 const AppRoutes = () => (
   <Routes>
-    <Route path="/" element={<Index />} />
-    <Route path="/blog" element={<Blog />} />
-    <Route path="/blog/:slug" element={<BlogPost />} />
-    <Route path="/ivf-injection-support-prague" element={<IVFSupport />} />
-    <Route path="/iv-drip-therapy-prague" element={<IVDripTherapy />} />
-    <Route path="/post-surgery-recovery-care-prague" element={<PostSurgeryCare />} />
-    <Route path="/disabled-daily-care-prague" element={<DisabledCare />} />
-    <Route path="/specialized-services" element={<SpecializedServices />} />
+    <Route index element={<Index />} />
+    <Route path="blog" element={<Blog />} />
+    <Route path="blog/:slug" element={<BlogPost />} />
+    <Route path="ivf-injection-support-prague" element={<IVFSupport />} />
+    <Route path="iv-drip-therapy-prague" element={<IVDripTherapy />} />
+    <Route path="post-surgery-recovery-care-prague" element={<PostSurgeryCare />} />
+    <Route path="disabled-daily-care-prague" element={<DisabledCare />} />
+    <Route path="specialized-services" element={<SpecializedServices />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

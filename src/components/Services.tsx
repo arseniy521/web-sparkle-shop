@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { Link } from "react-router-dom";
 import ivDripIcon from "@/assets/drp-2.png";
 import injectionIcon from "@/assets/injection.png";
 import woundCareIcon from "@/assets/WoundDressingBandage.png";
@@ -18,37 +17,37 @@ export const Services = () => {
       image: ivDripIcon,
       title: t('services.ivInfusion.title'),
       description: t('services.ivInfusion.description'),
-      link: `${langPrefix}/iv-drip-therapy-prague`,
+      link: currentLang === 'en' ? '/iv-drip-therapy-prague' : `/${currentLang}/iv-drip-therapy-prague`,
     },
     {
       image: injectionIcon,
       title: t('services.injection.title'),
       description: t('services.injection.description'),
-      link: `${langPrefix}/ivf-injection-support-prague`,
+      link: currentLang === 'en' ? '/ivf-injection-support-prague' : `/${currentLang}/ivf-injection-support-prague`,
     },
     {
       image: woundCareIcon,
       title: t('services.woundCare.title'),
       description: t('services.woundCare.description'),
-      link: `${langPrefix}/post-surgery-recovery-care-prague`,
+      link: currentLang === 'en' ? '/post-surgery-recovery-care-prague' : `/${currentLang}/post-surgery-recovery-care-prague`,
     },
     {
       image: hygieneIcon,
       title: t('services.hygiene.title'),
       description: t('services.hygiene.description'),
-      link: `${langPrefix}/disabled-daily-care-prague`,
+      link: currentLang === 'en' ? '/disabled-daily-care-prague' : `/${currentLang}/disabled-daily-care-prague`,
     },
     {
       image: escortIcon,
       title: t('services.escort.title'),
       description: t('services.escort.description'),
-      link: `${langPrefix}/specialized-services`,
+      link: currentLang === 'en' ? '/specialized-services' : `/${currentLang}/specialized-services`,
     },
     {
       image: massageIcon,
       title: t('services.massage.title'),
       description: t('services.massage.description'),
-      link: `${langPrefix}/specialized-services`,
+      link: currentLang === 'en' ? '/specialized-services' : `/${currentLang}/specialized-services`,
     },
   ];
   return (
@@ -65,9 +64,13 @@ export const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Link key={index} to={service.link}>
+            <div
+              key={index}
+              onClick={() => window.location.href = service.link}
+              className="block h-full cursor-pointer"
+            >
               <Card
-                className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 animate-slide-up group cursor-pointer h-full"
+                className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 animate-slide-up group h-full"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="mb-4 flex justify-center">
@@ -87,7 +90,7 @@ export const Services = () => {
                   {service.description}
                 </p>
               </Card>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
