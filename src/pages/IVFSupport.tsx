@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEO } from "@/components/SEO";
+import { RelatedServices } from "@/components/RelatedServices";
 import ivDripIcon from "@/assets/drp-2.png";
 import { useTranslation } from "react-i18next";
 
@@ -280,7 +281,52 @@ const IVFSupport = () => {
               </div>
             </div>
           </div>
+          
+          {/* FAQ Schema */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": t('ivfSupport.faq.q1'),
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": t('ivfSupport.faq.a1')
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": t('ivfSupport.faq.q2'),
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": t('ivfSupport.faq.a2')
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": t('ivfSupport.faq.q3'),
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": t('ivfSupport.faq.a3')
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": t('ivfSupport.faq.q4'),
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": t('ivfSupport.faq.a4')
+                  }
+                }
+              ]
+            })
+          }} />
         </section>
+
+        {/* Related Services */}
+        <RelatedServices />
 
         {/* CTA */}
         <section className="py-16">

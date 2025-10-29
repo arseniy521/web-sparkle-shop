@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEO } from "@/components/SEO";
+import { RelatedServices } from "@/components/RelatedServices";
 import hygieneIcon from "@/assets/HygieneAssistance.png";
 import { useTranslation } from "react-i18next";
 
@@ -332,6 +333,7 @@ const DisabledCare = () => {
           </div>
         </section>
       </main>
+      <RelatedServices />
       <Footer />
     </div>
   );

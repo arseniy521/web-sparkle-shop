@@ -73,6 +73,40 @@
     <priority>0.95</priority>
   </url>
 
+  <!-- Prague 1 - Old Town Landing Page -->
+  <url>
+    <loc>https://www.nius.cz/sestricka-praha-1</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-1"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/sestricka-praha-1"/>
+  </url>
+
+  <url>
+    <loc>https://www.nius.cz/cz/sestricka-praha-1</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Žižkov Landing Page -->
+  <url>
+    <loc>https://www.nius.cz/sestricka-praha-zizkov</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-zizkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/sestricka-praha-zizkov"/>
+  </url>
+
+  <url>
+    <loc>https://www.nius.cz/cz/sestricka-praha-zizkov</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- IV Drip Therapy Prague - PRIMARY TARGET KEYWORD PAGE -->
   <url>
     <loc>https://www.nius.cz/iv-drip-therapy-prague</loc>

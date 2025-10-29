@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StickyBookNow } from "@/components/StickyBookNow";
+import { RelatedServices } from "@/components/RelatedServices";
 import { useTranslation } from "react-i18next";
 import { Droplets, Sparkles, Shield, Zap, Heart, Activity } from "lucide-react";
 
@@ -328,7 +329,60 @@ const IVDripTherapy = () => {
                 </Card>
               </div>
             </div>
+            
+            {/* FAQ Schema */}
+            <script type="application/ld+json" dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "Is IV therapy safe?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Yes, IV therapy is safe when administered by trained medical professionals. All our nurses are registered and experienced in IV administration. We use sterile equipment and pharmaceutical-grade nutrients."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How long does a session take?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Most IV drip sessions take 30-60 minutes depending on the formula. The nurse will stay with you throughout the entire treatment."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Which IV drip is right for me?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "It depends on your goals. Vitamin C for immunity, Glutathione for detox and skin, Biotin for hair/nails, Cold & Flu for illness recovery, All-in-One for general wellness, and MEGA RECOVERY for intensive needs."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "When will I feel the effects?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Many people feel energized and refreshed within a few hours. Some benefits like improved skin or hair health develop over time with regular treatments."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Do you come to hotels?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Yes! We provide IV therapy at your home, hotel, Airbnb, or office anywhere in Prague. Perfect for travelers and busy professionals."
+                    }
+                  }
+                ]
+              })
+            }} />
           </section>
+
+          {/* Related Services */}
+          <RelatedServices />
 
           {/* CTA Section */}
           <section className="py-20 px-4">

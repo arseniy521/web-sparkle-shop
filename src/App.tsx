@@ -13,6 +13,8 @@ import IVDripTherapy from "./pages/IVDripTherapy";
 import PostSurgeryCare from "./pages/PostSurgeryCare";
 import DisabledCare from "./pages/DisabledCare";
 import SestrickaPrahaVinohrady from "./pages/SestrickaPrahaVinohrady";
+import SestrickaPraha1 from "./pages/SestrickaPraha1";
+import SestrickaPrahaZizkov from "./pages/SestrickaPrahaZizkov";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +47,10 @@ const App = () => (
             {/* Czech Neighborhood Pages */}
             <Route path="/cz/sestricka-praha-vinohrady" element={<LanguageWrapper language="cs"><SestrickaPrahaVinohrady /></LanguageWrapper>} />
             <Route path="/sestricka-praha-vinohrady" element={<LanguageWrapper language="cs"><SestrickaPrahaVinohrady /></LanguageWrapper>} />
+            <Route path="/cz/sestricka-praha-1" element={<LanguageWrapper language="cs"><SestrickaPraha1 /></LanguageWrapper>} />
+            <Route path="/sestricka-praha-1" element={<LanguageWrapper language="cs"><SestrickaPraha1 /></LanguageWrapper>} />
+            <Route path="/cz/sestricka-praha-zizkov" element={<LanguageWrapper language="cs"><SestrickaPrahaZizkov /></LanguageWrapper>} />
+            <Route path="/sestricka-praha-zizkov" element={<LanguageWrapper language="cs"><SestrickaPrahaZizkov /></LanguageWrapper>} />
             
             {/* Russian */}
             <Route path="/ru" element={<LanguageWrapper language="ru"><Index /></LanguageWrapper>} />
