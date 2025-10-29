@@ -1,8 +1,8 @@
 {
   "seo": {
     "home": {
-      "title": "Sestra v Praze | IV Kapačky & Domácí Zdravotní Péče 24/7",
-      "description": "Profesionální sestra v Praze pro IV kapačky, IV infuze, pooperační péči a domácí zdravotní péči. Anglicky mluvící sestry ve vašem hotelu/domě. Rezervujte 24/7 pro IV kapačky, ošetření ran, IVF injekce a péči o zdravotně postižené."
+      "title": "Sestřička Praha | Domácí sestra Praha | IV kapačky 24/7",
+      "description": "Profesionální sestřička Praha pro IV kapačky, IV terapii a domácí ošetřovatelskou péči. Anglicky mluvící zdravotní sestra přijede k vám domů nebo do hotelu 24/7."
     }
   },
   "nav": {
@@ -258,7 +258,48 @@
     "ivf": "Podpora IVF injekcí",
     "ivDrip": "IV Kapačková terapie",
     "postSurgery": "Rekonvalescence po operaci",
-    "disabled": "Denní komfortní péče"
+    "disabled": "Denní komfortní péče",
+    "seo": {
+      "title": "Specializované služby pro mezinárodní pacienty v Praze | Domácí ošetřovatelství",
+      "description": "Profesionální ošetřovatelské služby pro mezinárodní pacienty v Praze: podpora IVF injekcí, IV kapačková terapie, pooperační péče a denní asistence pro hendikepované pacienty."
+    },
+    "heroDescription": "Odborná ošetřovatelská péče navržená speciálně pro mezinárodní pacienty navštěvující Prahu. Anglicky mluvící sestry dostupné 24/7 pro podporu IVF, pooperační rekonvalescenci, IV terapii a denní péči.",
+    "ourServices": "Naše specializované služby",
+    "servicesDescription": "Profesionální lékařská péče přizpůsobená jedinečným potřebám mezinárodních pacientů",
+    "ivfDesc": "Časově citlivé podávání IVF léků ve vašem hotelu. Zkušenosti s protokoly plodnosti předních pražských klinik.",
+    "ivDripDesc": "Profesionální vitamínové a nutriční infuze: Biotin, Glutathion, Vitamín C a specializované regenerační formule dodávané na vaše místo.",
+    "postSurgeryDesc": "Komplexní pooperační péče pro zdravotní turisty: péče o rány, výměna obvazů, hygienická asistence a doprovodné služby do nemocnice.",
+    "disabledDesc": "Soucitná denní péče pro hendikepované a chronické pacienty: hygienická asistence, správa léků, podpora mobility.",
+    "learnMore": "Zjistit více",
+    "whyChoose": "Proč si nás mezinárodní pacienti vybírají",
+    "international": "Zaměření na mezinárodní pacienty",
+    "internationalDesc": "Anglicky mluvící sestry se zkušenostmi s mezinárodními pacienty a protokoly zdravotního cestovního ruchu",
+    "flexible": "Dostupnost 24/7",
+    "flexibleDesc": "Služba tentýž den k dispozici, včetně večerů, víkendů a svátků. Přizpůsobíme se vašemu harmonogramu.",
+    "experienced": "Specializované odborné znalosti",
+    "experiencedDesc": "Rozsáhlé zkušenosti s IVF klinikami, centry plastické chirurgie a potřebami mezinárodních pacientů",
+    "ctaTitle": "Připraveni rezervovat specializovanou péči?",
+    "ctaDescription": "Kontaktujte nás ještě dnes a projednáme vaše specifické potřeby. Jsme tu, abychom vaši lékařskou zkušenost v Praze učinili hladkou a pohodlnou.",
+    "bookWhatsApp": "Rezervovat na WhatsApp",
+    "emailUs": "Napište nám e-mail",
+    "call": "Zavolat nyní"
+  },
+  "blog": {
+    "title": "Blog o zdravotní péči",
+    "subtitle": "Odborné poznatky o domácí zdravotní péči, ošetřovatelských službách a lékařské péči v Praze",
+    "readMore": "Číst více",
+    "readTime": "min čtení",
+    "allPosts": "Všechny příspěvky",
+    "recentPosts": "Nedávné příspěvky",
+    "seo": {
+      "title": "Blog o zdravotní péči | Sestra v Praze - Tipy a průvodci domácím ošetřovatelstvím",
+      "description": "Odborné poznatky o domácí zdravotní péči, ošetřovatelských službách, IV terapii, péči o rány, péči o seniory a lékařských službách v Praze. Profesionální ošetřovatelské rady a průvodci."
+    },
+    "cta": {
+      "title": "Potřebujete profesionální domácí ošetřovatelskou péči?",
+      "description": "Objednejte si kvalifikovanou sestru k návštěvě vašeho domova v Praze. K dispozici schůzky tentýž den.",
+      "button": "Rezervovat sestru nyní"
+    }
   },
   "ivfSupport": {
     "badge": "Podpora IVF v Praze",

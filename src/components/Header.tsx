@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -20,6 +20,7 @@ import { useTranslation } from "react-i18next";
 export const Header = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -31,6 +32,21 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle language change with URL navigation
+  const handleLanguageChange = (newLang: string) => {
+    // Get current path without language prefix
+    const pathWithoutLang = location.pathname.replace(/^\/(cs|ru|uk)/, '');
+    
+    // Navigate to new language URL
+    if (newLang === 'en') {
+      navigate(pathWithoutLang || '/');
+    } else {
+      navigate(`/${newLang}${pathWithoutLang || '/'}`);
+    }
+    
+    i18n.changeLanguage(newLang);
+  };
+
   const navLinks = [
     { href: "#home", label: t('nav.home'), isHash: true },
     { href: "#workflow", label: t('nav.workflow'), isHash: true },
@@ -39,6 +55,7 @@ export const Header = () => {
   ];
 
   const serviceLinks = [
+    { href: "/specialized-services", label: t('specializedServices.title'), isBold: true },
     { href: "/ivf-injection-support-prague", label: t('specializedServices.ivf') },
     { href: "/iv-drip-therapy-prague", label: t('specializedServices.ivDrip') },
     { href: "/post-surgery-recovery-care-prague", label: t('specializedServices.postSurgery') },
@@ -91,11 +108,11 @@ export const Header = () => {
                   <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-background border-border z-50">
-                  {serviceLinks.map((service) => (
+                  {serviceLinks.map((service, index) => (
                     <DropdownMenuItem key={service.href} asChild>
                       <Link 
                         to={service.href}
-                        className="cursor-pointer"
+                        className={`cursor-pointer ${service.isBold ? 'font-semibold' : ''} ${index === 0 ? 'border-b border-border' : ''}`}
                       >
                         {service.label}
                       </Link>
@@ -103,6 +120,16 @@ export const Header = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+            </li>
+
+            {/* Blog Link */}
+            <li>
+              <Link
+                to="/blog"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                {t('blog.title')}
+              </Link>
             </li>
 
             {/* Regular Nav Links */}
@@ -139,7 +166,7 @@ export const Header = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             {/* Language Selector */}
-            <Select value={i18n.language} onValueChange={(lang) => i18n.changeLanguage(lang)}>
+            <Select value={i18n.language} onValueChange={handleLanguageChange}>
               <SelectTrigger className="w-[100px] hidden sm:flex">
                 <SelectValue />
               </SelectTrigger>
@@ -196,11 +223,11 @@ export const Header = () => {
               <li className="border-b border-border pb-3">
                 <div className="text-sm font-semibold text-foreground mb-2">{t('nav.services')}</div>
                 <ul className="pl-4 space-y-2">
-                  {serviceLinks.map((service) => (
+                  {serviceLinks.map((service, index) => (
                     <li key={service.href}>
                       <Link
                         to={service.href}
-                        className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        className={`block py-1 text-sm text-muted-foreground hover:text-primary transition-colors ${service.isBold ? 'font-semibold' : ''} ${index === 0 ? 'pb-2 mb-2 border-b border-border' : ''}`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {service.label}
@@ -208,6 +235,17 @@ export const Header = () => {
                     </li>
                   ))}
                 </ul>
+              </li>
+
+              {/* Mobile Blog Link */}
+              <li>
+                <Link
+                  to="/blog"
+                  className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {t('blog.title')}
+                </Link>
               </li>
 
               {/* Mobile Regular Links */}
@@ -245,7 +283,7 @@ export const Header = () => {
               <li className="pt-2 border-t border-border">
                 <div className="text-sm font-semibold text-foreground mb-2">Language</div>
                 <Select value={i18n.language} onValueChange={(lang) => {
-                  i18n.changeLanguage(lang);
+                  handleLanguageChange(lang);
                   setIsMobileMenuOpen(false);
                 }}>
                   <SelectTrigger className="w-full">

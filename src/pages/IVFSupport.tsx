@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEO } from "@/components/SEO";
+import { HreflangTags } from "@/components/HreflangTags";
 import ivDripIcon from "@/assets/drp-2.png";
 import { useTranslation } from "react-i18next";
 
@@ -62,6 +63,7 @@ const IVFSupport = () => {
           ]
         }}
       />
+      <HreflangTags />
       <Header />
       <Breadcrumbs items={[
         { label: "Services" },

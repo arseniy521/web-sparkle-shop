@@ -1,8 +1,8 @@
 {
   "seo": {
     "home": {
-      "title": "Nurse in Prague | IV Drip Therapy & Home Healthcare Services 24/7",
-      "description": "Professional nurse in Prague for IV drip therapy, IV infusions, post-surgery care, and home healthcare. English-speaking nurses at your hotel/home. Book 24/7 for IV drips, wound care, IVF injections, and disabled care."
+      "title": "Home Nurse Prague | IV Therapy & IV Drips Prague 24/7",
+      "description": "Home nurse Prague for IV therapy, IV drips and IV infusions at your hotel/home. Professional nursing care, wound care, IVF injections. English-speaking nurses 24/7."
     }
   },
   "nav": {
@@ -258,7 +258,48 @@
     "ivf": "IVF Injection Support",
     "ivDrip": "IV Drip Therapy",
     "postSurgery": "Post-Surgery Recovery",
-    "disabled": "Daily Comfort Care"
+    "disabled": "Daily Comfort Care",
+    "seo": {
+      "title": "Specialized Services for International Patients in Prague | Home Nursing",
+      "description": "Professional nursing services for international patients in Prague: IVF injection support, IV drip therapy, post-surgery recovery care, and daily assistance for disabled patients."
+    },
+    "heroDescription": "Expert nursing care designed specifically for international patients visiting Prague. English-speaking nurses available 24/7 for IVF support, post-surgery recovery, IV therapy, and daily care.",
+    "ourServices": "Our Specialized Services",
+    "servicesDescription": "Professional medical care tailored to the unique needs of international patients",
+    "ivfDesc": "Time-sensitive IVF medication administration at your hotel. Experienced with fertility protocols from Prague's leading clinics.",
+    "ivDripDesc": "Professional vitamin and nutrient infusions: Biotin, Glutathione, Vitamin C, and specialized recovery formulas delivered to your location.",
+    "postSurgeryDesc": "Complete post-operative care for medical tourists: wound care, bandage changes, hygiene assistance, and hospital escort services.",
+    "disabledDesc": "Compassionate daily care for disabled and chronic patients: hygiene assistance, medication management, mobility support.",
+    "learnMore": "Learn More",
+    "whyChoose": "Why International Patients Choose Us",
+    "international": "International Focused",
+    "internationalDesc": "English-speaking nurses experienced with international patients and medical tourism protocols",
+    "flexible": "24/7 Availability",
+    "flexibleDesc": "Same-day service available, including evenings, weekends, and holidays. We accommodate your schedule.",
+    "experienced": "Specialized Expertise",
+    "experiencedDesc": "Extensive experience with IVF clinics, plastic surgery centers, and international patient needs",
+    "ctaTitle": "Ready to Book Specialized Care?",
+    "ctaDescription": "Contact us today to discuss your specific needs. We're here to make your medical experience in Prague smooth and comfortable.",
+    "bookWhatsApp": "Book on WhatsApp",
+    "emailUs": "Email Us",
+    "call": "Call Now"
+  },
+  "blog": {
+    "title": "Healthcare Blog",
+    "subtitle": "Expert insights on home healthcare, nursing services, and medical care in Prague",
+    "readMore": "Read More",
+    "readTime": "min read",
+    "allPosts": "All Posts",
+    "recentPosts": "Recent Posts",
+    "seo": {
+      "title": "Healthcare Blog | Nurse in Prague - Home Nursing Tips & Guides",
+      "description": "Expert insights on home healthcare, nursing services, IV therapy, wound care, elderly care, and medical services in Prague. Professional nursing advice and guides."
+    },
+    "cta": {
+      "title": "Need Professional Home Nursing Care?",
+      "description": "Book a qualified nurse to visit your home in Prague. Same-day appointments available.",
+      "button": "Book a Nurse Now"
+    }
   },
   "ivfSupport": {
     "badge": "Specialized IVF Care in Prague",

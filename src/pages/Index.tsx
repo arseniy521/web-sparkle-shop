@@ -12,6 +12,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { StickyBookNow } from "@/components/StickyBookNow";
 import { SEO } from "@/components/SEO";
+import { HreflangTags } from "@/components/HreflangTags";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
@@ -103,6 +104,7 @@ const Index = () => {
         ogImage="https://www.nius.cz/og-image.jpg"
         schema={enhancedSchema}
       />
+      <HreflangTags />
       <Header />
       <main role="main">
         <Hero />

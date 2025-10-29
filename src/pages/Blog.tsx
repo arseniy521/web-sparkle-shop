@@ -10,30 +10,32 @@ import { SEO } from "@/components/SEO";
 import { useTranslation } from "react-i18next";
 
 const Blog = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language;
+  const langPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SEO 
-        title="Healthcare Blog | Nurse in Prague - Home Nursing Tips & Guides"
-        description="Expert insights on home healthcare, nursing services, IV therapy, wound care, elderly care, and medical services in Prague. Professional nursing advice and guides."
-        canonical="https://www.nius.cz/blog"
+        title={t('blog.seo.title')}
+        description={t('blog.seo.description')}
+        canonical={`https://www.nius.cz${langPrefix}/blog`}
         ogImage="https://www.nius.cz/og-blog.jpg"
       />
       <Header />
-      <Breadcrumbs items={[{ label: "Blog" }]} />
+      <Breadcrumbs items={[{ label: t('blog.title') }]} />
       <main className="flex-1" role="main">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-4">
-                Healthcare Blog
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Expert insights on home healthcare, nursing services, and medical care in Prague
-              </p>
-            </div>
+          <div className="max-w-3xl mx-auto text-center animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4">
+              {t('blog.title')}
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              {t('blog.subtitle')}
+            </p>
+          </div>
           </div>
         </section>
 
@@ -47,7 +49,7 @@ const Blog = () => {
                   className="overflow-hidden hover:shadow-card transition-all duration-300 hover:-translate-y-1 animate-slide-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <Link to={`/blog/${post.slug}`}>
+                  <Link to={`${langPrefix}/blog/${post.slug}`}>
                     <div className="aspect-video bg-muted overflow-hidden">
                       <img
                         src={post.image}
@@ -82,7 +84,7 @@ const Blog = () => {
                           {post.readTime}
                         </div>
                         <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all">
-                          Read more
+                          {t('blog.readMore')}
                           <ArrowRight className="h-4 w-4" />
                         </div>
                       </div>
@@ -97,20 +99,20 @@ const Blog = () => {
         {/* CTA Section */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                Need Professional Home Nursing Care?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Book a qualified nurse to visit your home in Prague. Same-day appointments available.
-              </p>
-              <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="group">
-                  Book a Nurse Now
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </a>
-            </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              {t('blog.cta.title')}
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              {t('blog.cta.description')}
+            </p>
+            <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="group">
+                {t('blog.cta.button')}
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </a>
+          </div>
           </div>
         </section>
       </main>
