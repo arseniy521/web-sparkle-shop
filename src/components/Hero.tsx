@@ -36,19 +36,27 @@ export const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-6 animate-fade-in">
+            {/* Static H1 for SEO with primary keywords */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground" itemProp="headline">
+              <span className="text-primary">{t('hero.mainTitle')}</span>
+              <br />
+              <span className="text-secondary">{t('hero.subtitle')}</span>
+            </h1>
+            
+            {/* Animated H2 with service keywords */}
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
               <span
-                className={`inline-block text-primary transition-all duration-300 ${
+                className={`inline-block text-accent transition-all duration-300 ${
                   isAnimating ? "opacity-0 transform -translate-y-2" : "opacity-100"
                 }`}
               >
                 {dynamicPhrases[currentPhraseIndex]}
               </span>
               <br />
-              <span className="text-secondary">{t('hero.performedBy')}</span>
+              <span className="text-muted-foreground">{t('hero.performedBy')}</span>
               <br />
               <span className="text-foreground">{t('hero.inYourHome')}</span>
-            </h1>
+            </h2>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
               {t('hero.description')}
