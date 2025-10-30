@@ -154,7 +154,7 @@ export const Header = () => {
           <div className="flex items-center gap-3">
             {/* Language Selector */}
             <Select value={currentLang} onValueChange={handleLanguageChange}>
-              <SelectTrigger className="w-[100px] hidden sm:flex">
+              <SelectTrigger className="w-[100px]">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -254,22 +254,6 @@ export const Header = () => {
                   )}
                 </li>
               ))}
-              
-              {/* Language Selector */}
-              <li className="pt-2 border-t border-border">
-                <div className="text-sm font-semibold text-foreground mb-2">Language</div>
-                <Select value={currentLang} onValueChange={handleLanguageChange}>
-                  <SelectTrigger className="w-full">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="cs">Čeština</SelectItem>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="ru">Русский</SelectItem>
-                    <SelectItem value="uk">Українська</SelectItem>
-                  </SelectContent>
-                </Select>
-              </li>
               
               <li className="pt-2 border-t border-border space-y-2">
                 <a href="tel:+420773629123" className="block">
