@@ -84,7 +84,7 @@ const PostSurgeryCare = () => {
                   {t('postSurgeryCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  {t('postSurgeryCare.description')}
+                  {t('postSurgeryCare.description')} Our comprehensive care includes <Link to="/iv-drip-therapy-prague" className="text-primary hover:underline font-medium">IV drip therapy for faster recovery</Link> and specialized wound management to ensure optimal healing.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -288,7 +288,7 @@ const PostSurgeryCare = () => {
                 </ul>
               </Card>
 
-              <Card className="p-6">
+               <Card className="p-6">
                 <h3 className="text-xl font-semibold text-secondary mb-3">{t('postSurgeryCare.idealFor.other')}</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• Orthopedic surgery</li>
@@ -296,6 +296,9 @@ const PostSurgeryCare = () => {
                   <li>• Bariatric surgery</li>
                   <li>• Any procedure requiring aftercare</li>
                 </ul>
+                <p className="text-sm text-muted-foreground mt-4">
+                  Need specialized support? We also offer <Link to="/disabled-daily-care-prague" className="text-primary hover:underline">daily care for disabled patients</Link> and <Link to="/ivf-injection-support-prague" className="text-primary hover:underline">IVF injection support Prague</Link>.
+                </p>
               </Card>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StickyBookNow } from "@/components/StickyBookNow";
 import { RelatedServices } from "@/components/RelatedServices";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Droplets, Sparkles, Shield, Zap, Heart, Activity } from "lucide-react";
 
 const IVDripTherapy = () => {
@@ -138,7 +139,7 @@ const IVDripTherapy = () => {
                   IV Drip Therapy in Prague
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Professional vitamin infusions delivered by registered nurses. Biotin, Glutathione, Vitamin C, and specialized recovery formulas for optimal wellness.
+                  Professional vitamin infusions delivered by registered nurses. Biotin, Glutathione, Vitamin C, and specialized recovery formulas for optimal wellness. Perfect for <Link to="/post-surgery-recovery-care-prague" className="text-primary hover:underline font-medium">post-surgery recovery in Prague</Link> and general health optimization.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center pt-4">
                   <Button size="lg" asChild>
@@ -212,7 +213,7 @@ const IVDripTherapy = () => {
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-4">Professional Care</h3>
                   <p className="text-muted-foreground">
-                    All IV drips administered by registered nurses in the comfort of your home, hotel, or office. Safe, sterile, and professional.
+                    All IV drips administered by registered nurses in the comfort of your home, hotel, or office. Safe, sterile, and professional. Our nurses also provide <Link to="/ivf-injection-support-prague" className="text-primary hover:underline">IVF injection support</Link> and <Link to="/disabled-daily-care-prague" className="text-primary hover:underline">disabled patient care Prague</Link>.
                   </p>
                 </Card>
                 

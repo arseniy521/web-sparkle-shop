@@ -81,7 +81,7 @@ const IVFSupport = () => {
                   {t('ivfSupport.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  {t('ivfSupport.description')}
+                  {t('ivfSupport.description')} Our experienced nurses also provide <Link to="/iv-drip-therapy-prague" className="text-primary hover:underline font-medium">vitamin IV drip therapy Prague</Link> to support your overall wellness during treatment.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
