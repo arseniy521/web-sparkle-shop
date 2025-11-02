@@ -83,7 +83,7 @@ const SestrickaPraha1 = () => {
       />
       <Header />
       <Breadcrumbs items={[
-        { label: "Služby" },
+        { label: "Služby", href: "/#services" },
         { label: "Sestřička Praha 1" }
       ]} />
       <main className="flex-1" role="main">

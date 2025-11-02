@@ -84,7 +84,7 @@ const SestrickaPrahaVinohrady = () => {
       />
       <Header />
       <Breadcrumbs items={[
-        { label: "Služby" },
+        { label: "Služby", href: "/#services" },
         { label: "Sestřička Praha Vinohrady" }
       ]} />
       <main className="flex-1" role="main">
