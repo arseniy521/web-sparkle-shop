@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nius — Русский</title>
+  <link rel="canonical" href="https://www.nius.cz/ru/" />
+  <meta name="robots" content="index,follow" />
+  <script>
+    // Serve 200 OK for /ru/ and then load the SPA at root while keeping the /ru path
+    sessionStorage.setItem('redirectPath', '/ru' + window.location.search + window.location.hash);
+    window.location.replace('/');
+  </script>
+</head>
+<body></body>
+</html>
