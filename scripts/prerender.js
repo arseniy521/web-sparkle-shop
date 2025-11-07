@@ -61,7 +61,10 @@ async function prerender() {
     const server = http.createServer((request, response) => {
       return handler(request, response, {
         public: distDir,
-        cleanUrls: false
+        cleanUrls: false,
+        rewrites: [
+          { source: '**', destination: '/index.html' }
+        ]
       });
     });
     
