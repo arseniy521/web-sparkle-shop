@@ -5,6 +5,15 @@ import ru from './locales/ru.json';
 import uk from './locales/uk.json';
 import cs from './locales/cs.json';
 
+// Detect initial language from URL path for react-snap pre-rendering
+const getInitialLanguage = (): string => {
+  const path = window.location.pathname;
+  if (path.startsWith('/en')) return 'en';
+  if (path.startsWith('/ru')) return 'ru';
+  if (path.startsWith('/uk')) return 'uk';
+  return 'cs';
+};
+
 i18n
   .use(initReactI18next)
   .init({
@@ -14,7 +23,7 @@ i18n
       uk: { translation: uk },
       cs: { translation: cs },
     },
-    lng: 'en',
+    lng: getInitialLanguage(),
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,
