@@ -54,15 +54,23 @@ async function prerender() {
   try {
     const page = await browser.newPage();
     
-    // Start a local server pointing to dist
-    const { createServer } = await import('vite');
-    const server = await createServer({
-      root: distDir,
-      server: { port: 3000 }
-    });
-    await server.listen();
+    // Start a static file server pointing to dist
+    const handler = (await import('serve-handler')).default;
+    const http = await import('http');
     
-    console.log('Local server started on http://localhost:3000');
+    const server = http.createServer((request, response) => {
+      return handler(request, response, {
+        public: distDir,
+        cleanUrls: false
+      });
+    });
+    
+    await new Promise((resolve) => {
+      server.listen(3000, () => {
+        console.log('Static server started on http://localhost:3000');
+        resolve();
+      });
+    });
 
     for (const route of routes) {
       console.log(`Pre-rendering: ${route}`);
@@ -102,7 +110,7 @@ async function prerender() {
       }
     }
 
-    await server.close();
+    await new Promise((resolve) => server.close(resolve));
   } catch (error) {
     console.error('Pre-rendering failed:', error);
     process.exit(1);
