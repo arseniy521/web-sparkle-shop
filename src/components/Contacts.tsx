@@ -30,8 +30,8 @@ export const Contacts = () => {
     {
       icon: Instagram,
       title: t('contacts.instagram'),
-      value: "@sestra_na_hodinu",
-      href: "https://www.instagram.com/sestra_na_hodinu/",
+      value: "@nius_services",
+      href: "https://www.instagram.com/nius_services/",
       color: "bg-pink-500/10 text-pink-600",
     },
     {
