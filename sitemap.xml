@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage - Czech (Default) -->
+  <url>
+    <loc>https://www.nius.cz/</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
+  </url>
+  
+  <!-- Homepage - English version -->
+  <url>
+    <loc>https://www.nius.cz/en/</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
+  </url>
+
+  <!-- Homepage - Russian version -->
+  <url>
+    <loc>https://www.nius.cz/ru/</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
+  </url>
+
+  <!-- Homepage - Ukrainian version -->
+  <url>
+    <loc>https://www.nius.cz/uk/</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/"/>
+  </url>
+
+  <!-- Neighborhood Landing Pages - Czech -->
+  <url>
+    <loc>https://www.nius.cz/sestricka-praha-vinohrady</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-vinohrady"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/sestricka-praha-vinohrady"/>
+  </url>
+
+  <!-- Prague 1 - Old Town Landing Page -->
+  <url>
+    <loc>https://www.nius.cz/sestricka-praha-1</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-1"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/sestricka-praha-1"/>
+  </url>
+
+  <!-- Žižkov Landing Page -->
+  <url>
+    <loc>https://www.nius.cz/sestricka-praha-zizkov</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-zizkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/sestricka-praha-zizkov"/>
+  </url>
+
+  <!-- IV Drip Therapy Prague - Czech (PRIMARY TARGET KEYWORD PAGE) -->
+  <url>
+    <loc>https://www.nius.cz/iv-drip-therapy-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-image.jpg</image:loc>
+      <image:title>IV Drip Therapy Prague - Professional Vitamin Infusions</image:title>
+      <image:caption>Professional IV drip therapy in Prague by certified nurses</image:caption>
+    </image:image>
+  </url>
+
+  <!-- IV Drip Therapy Prague - English -->
+  <url>
+    <loc>https://www.nius.cz/en/iv-drip-therapy-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-image.jpg</image:loc>
+      <image:title>IV Drip Therapy Prague - Professional Vitamin Infusions</image:title>
+      <image:caption>Professional IV drip therapy in Prague by certified nurses</image:caption>
+    </image:image>
+  </url>
+
+  <!-- IV Drip Therapy Prague - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/iv-drip-therapy-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-image.jpg</image:loc>
+      <image:title>IV Drip Therapy Prague - Professional Vitamin Infusions</image:title>
+      <image:caption>Professional IV drip therapy in Prague by certified nurses</image:caption>
+    </image:image>
+  </url>
+
+  <!-- IV Drip Therapy Prague - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/iv-drip-therapy-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/iv-drip-therapy-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/iv-drip-therapy-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-image.jpg</image:loc>
+      <image:title>IV Drip Therapy Prague - Professional Vitamin Infusions</image:title>
+      <image:caption>Professional IV drip therapy in Prague by certified nurses</image:caption>
+    </image:image>
+  </url>
+
+  <!-- IVF Injection Support Prague - Czech -->
+  <url>
+    <loc>https://www.nius.cz/ivf-injection-support-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-ivf.jpg</image:loc>
+      <image:title>IVF Injection Support Prague - Fertility Medication Administration</image:title>
+    </image:image>
+  </url>
+
+  <!-- IVF Injection Support Prague - English -->
+  <url>
+    <loc>https://www.nius.cz/en/ivf-injection-support-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-ivf.jpg</image:loc>
+      <image:title>IVF Injection Support Prague - Fertility Medication Administration</image:title>
+    </image:image>
+  </url>
+
+  <!-- IVF Injection Support Prague - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/ivf-injection-support-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-ivf.jpg</image:loc>
+      <image:title>IVF Injection Support Prague - Fertility Medication Administration</image:title>
+    </image:image>
+  </url>
+
+  <!-- IVF Injection Support Prague - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/ivf-injection-support-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/ivf-injection-support-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/ivf-injection-support-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-ivf.jpg</image:loc>
+      <image:title>IVF Injection Support Prague - Fertility Medication Administration</image:title>
+    </image:image>
+  </url>
+
+  <!-- Post-Surgery Recovery Care Prague - Czech -->
+  <url>
+    <loc>https://www.nius.cz/post-surgery-recovery-care-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-postsurgery.jpg</image:loc>
+      <image:title>Post-Surgery Recovery Care Prague - Medical Tourism Nursing</image:title>
+    </image:image>
+  </url>
+
+  <!-- Post-Surgery Recovery Care Prague - English -->
+  <url>
+    <loc>https://www.nius.cz/en/post-surgery-recovery-care-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-postsurgery.jpg</image:loc>
+      <image:title>Post-Surgery Recovery Care Prague - Medical Tourism Nursing</image:title>
+    </image:image>
+  </url>
+
+  <!-- Post-Surgery Recovery Care Prague - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/post-surgery-recovery-care-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-postsurgery.jpg</image:loc>
+      <image:title>Post-Surgery Recovery Care Prague - Medical Tourism Nursing</image:title>
+    </image:image>
+  </url>
+
+  <!-- Post-Surgery Recovery Care Prague - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/post-surgery-recovery-care-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/post-surgery-recovery-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-postsurgery.jpg</image:loc>
+      <image:title>Post-Surgery Recovery Care Prague - Medical Tourism Nursing</image:title>
+    </image:image>
+  </url>
+
+  <!-- Disabled Daily Care Prague - Czech -->
+  <url>
+    <loc>https://www.nius.cz/disabled-daily-care-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-disabled.jpg</image:loc>
+      <image:title>Disabled Care Prague - Daily Nursing Support for Chronic Patients</image:title>
+    </image:image>
+  </url>
+
+  <!-- Disabled Daily Care Prague - English -->
+  <url>
+    <loc>https://www.nius.cz/en/disabled-daily-care-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-disabled.jpg</image:loc>
+      <image:title>Disabled Care Prague - Daily Nursing Support for Chronic Patients</image:title>
+    </image:image>
+  </url>
+
+  <!-- Disabled Daily Care Prague - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/disabled-daily-care-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-disabled.jpg</image:loc>
+      <image:title>Disabled Care Prague - Daily Nursing Support for Chronic Patients</image:title>
+    </image:image>
+  </url>
+
+  <!-- Disabled Daily Care Prague - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/disabled-daily-care-prague</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/disabled-daily-care-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/disabled-daily-care-prague"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-disabled.jpg</image:loc>
+      <image:title>Disabled Care Prague - Daily Nursing Support for Chronic Patients</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog listing page - Czech -->
+  <url>
+    <loc>https://www.nius.cz/blog</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
+      <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog listing page - English -->
+  <url>
+    <loc>https://www.nius.cz/en/blog</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
+      <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog listing page - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/blog</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
+      <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog listing page - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/blog</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
+      <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog Post: IV Therapy Guide - Czech -->
+  <url>
+    <loc>https://www.nius.cz/blog/iv-therapy-at-home-prague-guide</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
+  </url>
+
+  <!-- Blog Post: IV Therapy Guide - English -->
+  <url>
+    <loc>https://www.nius.cz/en/blog/iv-therapy-at-home-prague-guide</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
+  </url>
+
+  <!-- Blog Post: IV Therapy Guide - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/blog/iv-therapy-at-home-prague-guide</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
+  </url>
+
+  <!-- Blog Post: IV Therapy Guide - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/blog/iv-therapy-at-home-prague-guide</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/iv-therapy-at-home-prague-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
+  </url>
+
+  <!-- Blog Post: When to Call Home Nurse - Czech -->
+  <url>
+    <loc>https://www.nius.cz/blog/when-to-call-home-nurse-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
+  </url>
+
+  <!-- Blog Post: When to Call Home Nurse - English -->
+  <url>
+    <loc>https://www.nius.cz/en/blog/when-to-call-home-nurse-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
+  </url>
+
+  <!-- Blog Post: When to Call Home Nurse - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/blog/when-to-call-home-nurse-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
+  </url>
+
+  <!-- Blog Post: When to Call Home Nurse - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/blog/when-to-call-home-nurse-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/when-to-call-home-nurse-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
+  </url>
+
+  <!-- Blog Post: Wound Care - Czech -->
+  <url>
+    <loc>https://www.nius.cz/blog/wound-care-dressing-changes-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
+  </url>
+
+  <!-- Blog Post: Wound Care - English -->
+  <url>
+    <loc>https://www.nius.cz/en/blog/wound-care-dressing-changes-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
+  </url>
+
+  <!-- Blog Post: Wound Care - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/blog/wound-care-dressing-changes-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
+  </url>
+
+  <!-- Blog Post: Wound Care - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/blog/wound-care-dressing-changes-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/wound-care-dressing-changes-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
+  </url>
+
+  <!-- Blog Post: Elderly Care - Czech -->
+  <url>
+    <loc>https://www.nius.cz/blog/elderly-care-nursing-services-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
+  </url>
+
+  <!-- Blog Post: Elderly Care - English -->
+  <url>
+    <loc>https://www.nius.cz/en/blog/elderly-care-nursing-services-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
+  </url>
+
+  <!-- Blog Post: Elderly Care - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/blog/elderly-care-nursing-services-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
+  </url>
+
+  <!-- Blog Post: Elderly Care - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/blog/elderly-care-nursing-services-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/elderly-care-nursing-services-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
+  </url>
+
+  <!-- Blog Post: Medical Injections - Czech -->
+  <url>
+    <loc>https://www.nius.cz/blog/medical-injections-home-service-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
+  </url>
+
+  <!-- Blog Post: Medical Injections - English -->
+  <url>
+    <loc>https://www.nius.cz/en/blog/medical-injections-home-service-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
+  </url>
+
+  <!-- Blog Post: Medical Injections - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/blog/medical-injections-home-service-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
+  </url>
+
+  <!-- Blog Post: Medical Injections - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/blog/medical-injections-home-service-prague</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog/medical-injections-home-service-prague"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
+  </url>
+
+</urlset>
