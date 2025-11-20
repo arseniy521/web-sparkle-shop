@@ -39,6 +39,27 @@ const routes = [
   "/blog/wound-care-dressing-changes-prague",
   "/blog/elderly-care-nursing-services-prague",
   "/blog/medical-injections-home-service-prague",
+  
+  // English blog posts
+  "/en/blog/iv-therapy-at-home-prague-guide",
+  "/en/blog/when-to-call-home-nurse-prague",
+  "/en/blog/wound-care-dressing-changes-prague",
+  "/en/blog/elderly-care-nursing-services-prague",
+  "/en/blog/medical-injections-home-service-prague",
+
+  // Russian blog posts
+  "/ru/blog/iv-therapy-at-home-prague-guide",
+  "/ru/blog/when-to-call-home-nurse-prague",
+  "/ru/blog/wound-care-dressing-changes-prague",
+  "/ru/blog/elderly-care-nursing-services-prague",
+  "/ru/blog/medical-injections-home-service-prague",
+
+  // Ukrainian blog posts
+  "/uk/blog/iv-therapy-at-home-prague-guide",
+  "/uk/blog/when-to-call-home-nurse-prague",
+  "/uk/blog/wound-care-dressing-changes-prague",
+  "/uk/blog/elderly-care-nursing-services-prague",
+  "/uk/blog/medical-injections-home-service-prague",
 ];
 
 const distDir = path.join(__dirname, '..', 'dist');
