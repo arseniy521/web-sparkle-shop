@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -8,9 +8,13 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEO } from "@/components/SEO";
 import { useEffect } from "react";
+import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const location = useLocation();
+  const currentLang = getLanguageFromPath(location.pathname);
+  const langPrefix = getLanguagePrefix(currentLang);
   const post = slug ? getBlogPost(slug) : undefined;
   const recentPosts = getRecentPosts(3);
 
@@ -45,7 +49,6 @@ const BlogPost = () => {
         <SEO 
           title={`${post.title} | Nurse in Prague Blog`}
           description={post.excerpt}
-          canonical={`https://www.nius.cz/blog/${post.slug}`}
           ogImage="https://www.nius.cz/og-blog.jpg"
           ogType="article"
           schema={{
@@ -76,14 +79,14 @@ const BlogPost = () => {
       )}
       <Header />
       <Breadcrumbs items={[
-        { label: "Blog", href: "/blog" },
+        { label: "Blog", href: `${langPrefix}/blog` },
         { label: post?.title || "Post" }
       ]} />
       <main className="flex-1" role="main">
         {/* Back Button */}
         <div className="py-8 bg-muted/30">
           <div className="container mx-auto px-4">
-            <Link to="/blog">
+            <Link to={`${langPrefix}/blog`}>
               <Button variant="ghost" className="group">
                 <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 Back to Blog
@@ -186,7 +189,7 @@ const BlogPost = () => {
                   .slice(0, 3)
                   .map((relatedPost) => (
                     <Card key={relatedPost.id} className="overflow-hidden hover:shadow-card transition-all duration-300">
-                      <Link to={`/blog/${relatedPost.slug}`}>
+                      <Link to={`${langPrefix}/blog/${relatedPost.slug}`}>
                         <div className="aspect-video bg-muted overflow-hidden">
                           <img
                             src={relatedPost.image}

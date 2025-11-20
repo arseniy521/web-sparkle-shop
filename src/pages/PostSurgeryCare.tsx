@@ -31,7 +31,6 @@ const PostSurgeryCare = () => {
       <SEO 
         title={pageTitle}
         description={pageDescription}
-        canonical="https://www.nius.cz/post-surgery-recovery-care-prague"
         ogImage="https://www.nius.cz/og-postsurgery.jpg"
         schema={{
           "@context": "https://schema.org",

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,16 +8,19 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEO } from "@/components/SEO";
 import { useTranslation } from "react-i18next";
+import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 
 const Blog = () => {
   const { t } = useTranslation();
+  const location = useLocation();
+  const currentLang = getLanguageFromPath(location.pathname);
+  const langPrefix = getLanguagePrefix(currentLang);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SEO 
         title="Healthcare Blog | Nurse in Prague - Home Nursing Tips & Guides"
         description="Expert insights on home healthcare, nursing services, IV therapy, wound care, elderly care, and medical services in Prague. Professional nursing advice and guides."
-        canonical="https://www.nius.cz/blog"
         ogImage="https://www.nius.cz/og-blog.jpg"
       />
       <Header />
@@ -47,7 +50,7 @@ const Blog = () => {
                   className="overflow-hidden hover:shadow-card transition-all duration-300 hover:-translate-y-1 animate-slide-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <Link to={`/blog/${post.slug}`}>
+                  <Link to={`${langPrefix}/blog/${post.slug}`}>
                     <div className="aspect-video bg-muted overflow-hidden">
                       <img
                         src={post.image}

@@ -32,7 +32,6 @@ const DisabledCare = () => {
       <SEO 
         title={pageTitle}
         description={pageDescription}
-        canonical="https://www.nius.cz/disabled-daily-care-prague"
         ogImage="https://www.nius.cz/og-disabled.jpg"
         schema={{
           "@context": "https://schema.org",

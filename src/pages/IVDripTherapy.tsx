@@ -117,7 +117,6 @@ const IVDripTherapy = () => {
       <SEO 
         title={pageTitle}
         description={pageDescription}
-        canonical="https://www.nius.cz/iv-drip-therapy-prague"
         ogImage="https://www.nius.cz/og-image.jpg"
         ogType="website"
         schema={schema}
