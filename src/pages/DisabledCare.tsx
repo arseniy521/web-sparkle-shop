@@ -47,7 +47,7 @@ const DisabledCare = () => {
             "addressLocality": "Prague",
             "addressCountry": "CZ"
           },
-          "priceRange": "1900-38000 CZK",
+          "priceRange": "2190-118200 CZK",
           "availableService": [
             {
               "@type": "Service",
