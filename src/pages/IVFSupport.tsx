@@ -32,7 +32,6 @@ const IVFSupport = () => {
       <SEO 
         title={pageTitle}
         description={pageDescription}
-        canonical="https://www.nius.cz/ivf-injection-support-prague"
         ogImage="https://www.nius.cz/og-ivf.jpg"
         schema={{
           "@context": "https://schema.org",
