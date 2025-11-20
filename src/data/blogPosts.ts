@@ -89,7 +89,7 @@ Pricing varies based on:
 - Time of service (regular hours vs. emergency)
 - Location within Prague
 
-Standard pricing typically ranges from 699 CZK to 1,499 CZK for the nursing service, with medication costs additional.
+Standard pricing typically ranges from 1,890 CZK to 2,680 CZK for the nursing service, with medication costs additional. Multi-visit packages offer 10% discount.
 
 ## How to Book IV Therapy at Home
 
@@ -254,8 +254,8 @@ Ensure your home nurse has:
 ## Cost Considerations
 
 Home nursing services in Prague typically cost:
-- Basic nursing procedures: 699-999 CZK
-- Complex care: 1,199-1,499 CZK
+- Basic nursing procedures: 1,890-1,970 CZK
+- Complex care: 2,190-2,680 CZK
 - Extended visits: Custom pricing
 - Travel fees may apply outside central Prague
 
@@ -599,8 +599,8 @@ As we age, maintaining independence while receiving proper medical care becomes 
 - Additional services
 
 ### Typical Costs
-- Basic nursing visits: 699-999 CZK
-- Extended care sessions: 1,199-1,499 CZK
+- Basic nursing visits: 1,890-1,970 CZK
+- Extended care sessions: 2,190-2,410 CZK
 - 24-hour care: Custom pricing
 - Package deals available
 
@@ -867,8 +867,8 @@ Medical injections don't require a trip to the clinic anymore. Professional home
 - Frequency of visits
 
 ### Typical Costs
-- Simple injections: 699-899 CZK
-- Complex medications: 999-1,299 CZK
+- Simple injections: 1,890 CZK
+- Complex medications: 2,190-2,380 CZK
 - Series packages: Discounted rates
 - Medication costs additional
 
