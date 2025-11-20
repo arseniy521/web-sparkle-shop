@@ -172,7 +172,7 @@ const SestrickaPraha1 = () => {
                   <p className="text-muted-foreground mb-4">
                     Rychlé podání IV kapačky v hotelu nebo apartmánu. Vitamíny, hydratace, hangover terapie.
                   </p>
-                  <p className="text-sm font-semibold">Od 1299 Kč</p>
+                  <p className="text-sm font-semibold">Od 2 380 Kč</p>
                 </Card>
 
                 <Card className="p-6">
@@ -180,7 +180,7 @@ const SestrickaPraha1 = () => {
                   <p className="text-muted-foreground mb-4">
                     Specializujeme se na injekce pro IVF pacienty v pražských hotelech. Anglicky mluvící personál.
                   </p>
-                  <p className="text-sm font-semibold">Od 1500 Kč</p>
+                  <p className="text-sm font-semibold">Od 1 890 Kč</p>
                 </Card>
 
                 <Card className="p-6">
@@ -196,7 +196,7 @@ const SestrickaPraha1 = () => {
                   <p className="text-muted-foreground mb-4">
                     Inzulín, antibiotika, antikoagulancia, vitaminová terapia. Bezpečné podání v hotelu.
                   </p>
-                  <p className="text-sm font-semibold">Od 699 Kč</p>
+                  <p className="text-sm font-semibold">Od 2 190 Kč</p>
                 </Card>
               </div>
             </div>

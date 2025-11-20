@@ -165,7 +165,7 @@ const SestrickaPrahaZizkov = () => {
                   <p className="text-muted-foreground mb-4">
                     Profesionální podání IV kapačky u vás doma. Vitamíny, hydratace, předepsané léky.
                   </p>
-                  <p className="text-sm font-semibold">Od 1299 Kč</p>
+                  <p className="text-sm font-semibold">Od 2 380 Kč</p>
                 </Card>
 
                 <Card className="p-6">
@@ -173,7 +173,7 @@ const SestrickaPrahaZizkov = () => {
                   <p className="text-muted-foreground mb-4">
                     Inzulín, antibiotika, vitaminová terapie. Přesné a bezpečné podání na Žižkově.
                   </p>
-                  <p className="text-sm font-semibold">Od 699 Kč</p>
+                  <p className="text-sm font-semibold">Od 1 890 Kč</p>
                 </Card>
 
                 <Card className="p-6">
