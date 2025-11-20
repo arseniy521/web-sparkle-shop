@@ -3,10 +3,15 @@ import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 
 const pricingData = [
-  { key: "imInjection", firstPrice: 699, addOnPrice: 499 },
-  { key: "scInjection", firstPrice: 699, addOnPrice: 499 },
-  { key: "ivStandard", firstPrice: 1199, addOnPrice: 849 },
-  { key: "ivCustom", firstPrice: 1499, addOnPrice: 1049 },
+  { key: "imInjection", firstPrice: 1890, addOnPrice: 1700 },
+  { key: "vitaminInjection", firstPrice: 1890, addOnPrice: 1700 },
+  { key: "vitaminIvDrip", firstPrice: 2190, addOnPrice: 1970 },
+  { key: "standardIvDrip", firstPrice: 2380, addOnPrice: 2140 },
+  { key: "complexIvDrip", firstPrice: 2680, addOnPrice: 2410 },
+  { key: "woundCare", firstPrice: 2190, addOnPrice: 1970 },
+  { key: "hygieneAssistance", firstPrice: 2190, addOnPrice: 1970 },
+  { key: "nurseEscort", firstPrice: 1900, addOnPrice: 1710 },
+  { key: "extra30min", firstPrice: 490, addOnPrice: 440 },
 ];
 
 export const Pricing = () => {
@@ -21,6 +26,9 @@ export const Pricing = () => {
           <p className="text-lg text-muted-foreground">
             {t('pricing.description')}
           </p>
+          <p className="text-sm text-muted-foreground mt-2">
+            {t('pricing.prescriptionNote')}
+          </p>
         </div>
 
         {/* Desktop Table */}
@@ -32,10 +40,10 @@ export const Pricing = () => {
                   {t('pricing.table.service')}
                 </th>
                 <th className="px-6 py-4 text-center font-semibold text-secondary">
-                  {t('pricing.table.firstService')}
+                  {t('pricing.table.singleVisit')}
                 </th>
                 <th className="px-6 py-4 text-center font-semibold text-secondary">
-                  {t('pricing.table.addOn')}
+                  {t('pricing.table.multipleVisits')}
                 </th>
               </tr>
             </thead>
@@ -66,7 +74,7 @@ export const Pricing = () => {
                         {item.addOnPrice} CZK
                       </span>
                       <Badge variant="secondary" className="bg-primary/10 text-primary">
-                        -30%
+                        10% off
                       </Badge>
                     </div>
                   </td>
@@ -92,7 +100,7 @@ export const Pricing = () => {
               <div className="flex justify-between items-center pt-3 border-t border-border">
                 <div>
                   <div className="text-xs text-muted-foreground mb-1">
-                    1st Service
+                    {t('pricing.table.singleVisit')}
                   </div>
                   <div className="font-semibold text-lg text-foreground">
                     {item.firstPrice} CZK
@@ -100,14 +108,14 @@ export const Pricing = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-muted-foreground mb-1">
-                    Add-on
+                    {t('pricing.table.multipleVisits')}
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-lg text-foreground">
                       {item.addOnPrice} CZK
                     </span>
                     <Badge variant="secondary" className="bg-primary/10 text-primary text-xs">
-                      -30%
+                      10% off
                     </Badge>
                   </div>
                 </div>
