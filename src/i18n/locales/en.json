@@ -154,28 +154,49 @@
   },
   "pricing": {
     "title": "Clear & Simple Pricing",
-    "description": "Professional nursing care at transparent rates. Same-day discounts available.",
+    "description": "Professional nursing care at transparent rates. 10% discount for 2+ visits.",
+    "prescriptionNote": "Doctor's prescription if needed: +900 CZK",
     "table": {
       "service": "Service",
-      "firstService": "1st Service",
-      "addOn": "Add-on (Same Day)"
+      "singleVisit": "Single Visit",
+      "multipleVisits": "2+ Visits (10% off)"
     },
     "items": {
       "imInjection": {
-        "name": "Intramuscular Injection",
-        "example": "Vitamin B, antibiotics"
+        "name": "Intramuscular / Subcutaneous Injection",
+        "example": "Vitamin B, antibiotics, insulin"
       },
-      "scInjection": {
-        "name": "Subcutaneous Injection",
-        "example": "insulin, anticoagulants"
+      "vitaminInjection": {
+        "name": "Vitamin Injection",
+        "example": "B12, B-complex, vitamin C"
       },
-      "ivStandard": {
-        "name": "IV Drip (Standard)",
-        "example": "hydration, vitamins"
+      "vitaminIvDrip": {
+        "name": "Vitamin IV Drip",
+        "example": "Vitamin infusions (prescription required)"
       },
-      "ivCustom": {
-        "name": "IV Drip (Custom)",
-        "example": "you provide medication"
+      "standardIvDrip": {
+        "name": "Standard Medical IV Drip",
+        "example": "Prescribed medical drips"
+      },
+      "complexIvDrip": {
+        "name": "Complex / Long IV Drip",
+        "example": "Extended infusion therapy"
+      },
+      "woundCare": {
+        "name": "Post-Operation Wound Dressing",
+        "example": "Sterile dressing changes"
+      },
+      "hygieneAssistance": {
+        "name": "Hygiene Assistance (1 hour)",
+        "example": "Personal care support"
+      },
+      "nurseEscort": {
+        "name": "Nurse Escort After Surgery",
+        "example": "Hospital accompaniment"
+      },
+      "extra30min": {
+        "name": "Extra 30 Minutes",
+        "example": "Additional time needed"
       }
     },
     "learnMore": "Learn More About Our Services"
@@ -319,17 +340,17 @@
       "flexible": "Evening and weekend appointments"
     },
     "pricing": {
-      "title": "IVF Injection Support Pricing",
-      "single": "Single Injection Visit",
-      "singleDesc": "Perfect for scheduled fertility medication administration",
-      "singlePrice": "1,500 CZK",
-      "evening": "Evening/Night Visit",
-      "eveningDesc": "Time-sensitive injections after 8 PM or weekends",
-      "eveningPrice": "2,000 CZK",
-      "package": "IVF Cycle Package",
-      "packageDesc": "5 scheduled injections throughout your cycle",
-      "packagePrice": "7,000 CZK",
-      "save": "save 500 CZK",
+      "title": "Прозрачные цены",
+      "singlePrice": "1 890 CZK",
+      "single": "Разовая инъекция",
+      "singleDesc": "Идеально для разовых потребностей или пробы услуги",
+      "eveningPrice": "1 700 CZK",
+      "evening": "2+ инъекций (скидка 10%)",
+      "eveningDesc": "Льготная цена для нескольких инъекций в течение цикла",
+      "packagePrice": "8 450 CZK",
+      "package": "Пакет из 5 инъекций",
+      "packageDesc": "Для полного цикла ЭКО (фаза стимуляции)",
+      "save": "сэкономьте 1 000 CZK",
       "includes": "All nursing supplies, travel to your location in Prague, professional administration, and coordination with your clinic if needed.",
       "bookButton": "Book Your IVF Support"
     },
@@ -383,16 +404,16 @@
     "pricing": {
       "title": "Post-Surgery Recovery Packages",
       "escort": "Hospital Escort",
-      "escortPrice": "2,500 CZK",
+      "escortPrice": "1,900 CZK",
       "escortDesc": "Safe transport from hospital/clinic to your hotel with professional nurse escort",
       "first48": "First 48 Hours",
-      "first48Price": "5,500 CZK",
-      "first48Desc": "Hospital escort + 2 hours aftercare at your hotel on day of surgery",
+      "first48Price": "6,280 CZK",
+      "first48Desc": "Escort + 2x visits for wound checks and pain management",
       "popular": "Most Popular",
       "fiveDay": "5-Day Recovery",
-      "fiveDayPrice": "25,000 CZK",
-      "fiveDayDesc": "Complete recovery support for 5 days after surgery",
-      "singleVisit": "Single visit pricing: 1,900 CZK per hour for wound care, bandage changes, or hygiene assistance"
+      "fiveDayPrice": "28,900 CZK",
+      "fiveDayDesc": "Daily visits, medication tracking, drain management if needed",
+      "singleVisit": "à la carte: Single visit 2,190 CZK | 2+ visits 1,970 CZK"
     },
     "idealFor": {
       "title": "Ideal for Medical Tourists Having",

@@ -154,28 +154,49 @@
   },
   "pricing": {
     "title": "Jasné a jednoduché ceny",
-    "description": "Profesionální ošetřovatelská péče za transparentní ceny. Slevy při objednání více služeb.",
+    "description": "Profesionální ošetřovatelská péče za transparentní ceny. Sleva 10% pro 2+ návštěvy.",
+    "prescriptionNote": "Lékařský předpis v případě potřeby: +900 CZK",
     "table": {
       "service": "Služba",
-      "firstService": "1. služba",
-      "addOn": "Další služba (týž den)"
+      "singleVisit": "Jednorázová návštěva",
+      "multipleVisits": "2+ návštěvy (sleva 10%)"
     },
     "items": {
       "imInjection": {
-        "name": "Intramuskulární injekce",
-        "example": "Vitamin B, antibiotika"
+        "name": "Intramuskulární / Podkožní injekce",
+        "example": "Vitamin B, antibiotika, inzulin"
       },
-      "scInjection": {
-        "name": "Podkožní injekce",
-        "example": "inzulin, antikoagulancia"
+      "vitaminInjection": {
+        "name": "Vitaminová injekce",
+        "example": "B12, B-komplex, vitamin C"
       },
-      "ivStandard": {
-        "name": "IV kapačka (Standardní)",
-        "example": "hydratace, vitamíny"
+      "vitaminIvDrip": {
+        "name": "Vitaminová IV kapačka",
+        "example": "Vitaminové infuze (vyžaduje předpis)"
       },
-      "ivCustom": {
-        "name": "IV kapačka (Na zakázku)",
-        "example": "přinesete vlastní léky"
+      "standardIvDrip": {
+        "name": "Standardní lékařská IV kapačka",
+        "example": "Předepsané lékařské infuze"
+      },
+      "complexIvDrip": {
+        "name": "Komplexní / Dlouhá IV kapačka",
+        "example": "Prodloužená infuzní terapie"
+      },
+      "woundCare": {
+        "name": "Pooperační převaz rány",
+        "example": "Sterilní výměna obvazu"
+      },
+      "hygieneAssistance": {
+        "name": "Asistence s hygienou (1 hodina)",
+        "example": "Podpora osobní péče"
+      },
+      "nurseEscort": {
+        "name": "Doprovod sestry po operaci",
+        "example": "Doprovod do nemocnice"
+      },
+      "extra30min": {
+        "name": "Extra 30 minut",
+        "example": "Potřebný další čas"
       }
     },
     "learnMore": "Zjistit více o našich službách"
@@ -320,16 +341,16 @@
     },
     "pricing": {
       "title": "Ceny podpory IVF",
-      "single": "Jedna injekce",
-      "singleDesc": "Jedna podkožní nebo intramuskulární injekce",
-      "singlePrice": "1500 Kč",
-      "evening": "Večerní/Víkendová",
-      "eveningDesc": "Po 20:00 nebo o víkendu/svátcích",
-      "eveningPrice": "2000 Kč",
-      "package": "Balíček celého cyklu",
-      "packageDesc": "5+ injekcí během cyklu IVF",
-      "packagePrice": "7000 Kč",
-      "save": "Ušetřete 500+ Kč",
+      "singlePrice": "1 890 Kč",
+      "single": "Jednorázová injekce",
+      "singleDesc": "Perfektní pro jednorázové potřeby nebo vyzkoušení služby",
+      "eveningPrice": "1 700 Kč",
+      "evening": "2+ injekce (sleva 10%)",
+      "eveningDesc": "Zvýhodněná cena pro více injekcí během cyklu",
+      "packagePrice": "8 450 Kč",
+      "package": "Balíček 5 injekcí",
+      "packageDesc": "Pro kompletní IVF cyklus (fáze stimulace)",
+      "save": "ušetříte 1 000 Kč",
       "includes": "Profesionální podání, všechny pomůcky, kontrola léků, likvidace, podpora 24/7",
       "bookButton": "Rezervovat podporu IVF"
     },
@@ -383,7 +404,7 @@
     "pricing": {
       "title": "Balíčky pooperační péče",
       "escort": "Doprovod do nemocnice",
-      "escortPrice": "2500 Kč",
+      "escortPrice": "1 900 Kč",
       "escortDesc": "Sestra vás doprovází z nemocnice do vašeho hotelu po zákroku",
       "popular": "Nejoblíbenější",
       "first48": "První 48 hodin",
@@ -435,11 +456,11 @@
     "pricing": {
       "title": "Ceny a balíčky denní péče",
       "single": "Jednotlivá návštěva",
-      "singlePrice": "1900 Kč",
+      "singlePrice": "2 190 Kč",
       "singleDesc": "Za hodinu pomoci s hygienou, léky nebo potřebami denní péče",
       "package10": "Balíček 10 návštěv",
-      "package10Price": "18000 Kč",
-      "package10Desc": "10 hodin péče (ušetříte 1000 Kč) - ideální pro týdenní návštěvy",
+      "package10Price": "19 700 Kč",
+      "package10Desc": "10 hodin péče - nejlepší pro týdenní návštěvy, ušetříte 2 200 Kč",
       "monthly": "Měsíční předplatné",
       "monthlyPrice": "38000 Kč",
       "monthlyDesc": "20 hodin měsíčně - ideální pro denní nebo pravidelné potřeby péče",
