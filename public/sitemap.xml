@@ -155,7 +155,7 @@
     </image:image>
   </url>
 
-  <!-- Blog listing page -->
+  <!-- Blog listing page - Czech -->
   <url>
     <loc>https://www.nius.cz/blog</loc>
     <lastmod>2025-10-29</lastmod>
@@ -165,6 +165,58 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
+      <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog listing page - English -->
+  <url>
+    <loc>https://www.nius.cz/en/blog</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
+      <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog listing page - Russian -->
+  <url>
+    <loc>https://www.nius.cz/ru/blog</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog"/>
+    <image:image>
+      <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
+      <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog listing page - Ukrainian -->
+  <url>
+    <loc>https://www.nius.cz/uk/blog</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nius.cz/uk/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nius.cz/blog"/>
     <image:image>
       <image:loc>https://www.nius.cz/og-blog.jpg</image:loc>
       <image:title>Nurse in Prague Blog - Healthcare Tips and Medical Tourism Guide</image:title>
