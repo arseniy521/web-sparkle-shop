@@ -46,7 +46,7 @@ const PostSurgeryCare = () => {
             "addressLocality": "Prague",
             "addressCountry": "CZ"
           },
-          "priceRange": "2500-25000 CZK",
+          "priceRange": "1900-28900 CZK",
           "availableService": [
             {
               "@type": "MedicalProcedure",

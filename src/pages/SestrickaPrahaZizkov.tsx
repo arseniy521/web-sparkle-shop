@@ -36,7 +36,7 @@ const SestrickaPrahaZizkov = () => {
           "telephone": "+420773629123",
           "email": "nius.prague@gmail.com",
           "url": "https://www.nius.cz/cz/sestricka-praha-zizkov",
-          "priceRange": "699-2000 CZK",
+          "priceRange": "1890-2680 CZK",
           "geo": {
             "@type": "GeoCoordinates",
             "latitude": "50.0837",
@@ -63,7 +63,7 @@ const SestrickaPrahaZizkov = () => {
                   "@type": "Service",
                   "name": "IV Kapačky Žižkov",
                   "description": "Profesionální IV kapačky na Žižkově",
-                  "price": "1299",
+                  "price": "2380",
                   "priceCurrency": "CZK"
                 }
               },
@@ -73,7 +73,7 @@ const SestrickaPrahaZizkov = () => {
                   "@type": "Service",
                   "name": "Injekce Žižkov",
                   "description": "Aplikace injekcí a léků na Žižkově",
-                  "price": "699",
+                  "price": "1890",
                   "priceCurrency": "CZK"
                 }
               }

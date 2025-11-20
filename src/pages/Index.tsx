@@ -64,7 +64,7 @@ const Index = () => {
     },
     "telephone": "+420773629123",
     "email": "nius.prague@gmail.com",
-    "priceRange": "699-2000 CZK",
+    "priceRange": "1890-2680 CZK",
     "currenciesAccepted": "CZK, EUR",
     "paymentAccepted": ["Cash", "Bank Transfer", "Card"],
     "openingHours": "Mo-Su 08:00-22:00",

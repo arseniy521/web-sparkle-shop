@@ -36,7 +36,7 @@ const SestrickaPraha1 = () => {
           "telephone": "+420773629123",
           "email": "nius.prague@gmail.com",
           "url": "https://www.nius.cz/cz/sestricka-praha-1",
-          "priceRange": "699-2000 CZK",
+          "priceRange": "1890-2680 CZK",
           "geo": {
             "@type": "GeoCoordinates",
             "latitude": "50.0875",
@@ -63,7 +63,7 @@ const SestrickaPraha1 = () => {
                   "@type": "Service",
                   "name": "IV Kapačky Praha 1",
                   "description": "IV kapačky v hotelích a domech v centru Prahy",
-                  "price": "1299",
+                  "price": "2380",
                   "priceCurrency": "CZK"
                 }
               },
@@ -73,7 +73,7 @@ const SestrickaPraha1 = () => {
                   "@type": "Service",
                   "name": "IVF Injekce pro turisty",
                   "description": "Specializované IVF injekce v hotelích",
-                  "price": "1500",
+                  "price": "1890",
                   "priceCurrency": "CZK"
                 }
               }

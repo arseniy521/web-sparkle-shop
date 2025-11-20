@@ -46,7 +46,7 @@ const IVFSupport = () => {
             "addressLocality": "Prague",
             "addressCountry": "CZ"
           },
-          "priceRange": "1500-2000 CZK",
+          "priceRange": "1890-8450 CZK",
           "image": "https://www.nius.cz/og-ivf.jpg",
           "availableService": [
             {
