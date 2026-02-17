@@ -83,7 +83,7 @@ const PostSurgeryCare = () => {
                   {t('postSurgeryCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  {t('postSurgeryCare.description')} Our comprehensive care includes <Link to="/iv-drip-therapy-prague" className="text-primary hover:underline font-medium">IV drip therapy for faster recovery</Link> and specialized wound management to ensure optimal healing.
+                  {t('postSurgeryCare.description')} Our comprehensive care includes <Link to="/iv-drips-prague" className="text-primary hover:underline font-medium">IV drip therapy for faster recovery</Link> and specialized wound management to ensure optimal healing.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">

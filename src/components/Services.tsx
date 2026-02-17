@@ -21,7 +21,7 @@ export const Services = () => {
       title: t('services.ivInfusion.title'),
       description: t('services.ivInfusion.description'),
       alt: 'IV drip therapy Prague - nurse administering IV infusion at home',
-      href: `${langPrefix}/iv-drip-therapy-prague`
+      href: `${langPrefix}/iv-drips-prague`
     },
     {
       image: injectionIcon,

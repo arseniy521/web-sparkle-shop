@@ -84,7 +84,7 @@ const DisabledCare = () => {
                   {t('disabledCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  {t('disabledCare.description')} We also offer specialized services including <Link to="/post-surgery-recovery-care-prague" className="text-primary hover:underline font-medium">post-surgery care Prague</Link> and <Link to="/iv-drip-therapy-prague" className="text-primary hover:underline font-medium">IV vitamin therapy</Link>.
+                  {t('disabledCare.description')} We also offer specialized services including <Link to="/post-surgery-recovery-care-prague" className="text-primary hover:underline font-medium">post-surgery care Prague</Link> and <Link to="/iv-drips-prague" className="text-primary hover:underline font-medium">IV vitamin therapy</Link>.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -166,7 +166,9 @@ const DisabledCare = () => {
                   <p className="text-muted-foreground mb-6">
                     {t('disabledCare.pricing.singleDesc')}
                   </p>
-...
+                  <a href="tel:+420773629123">
+                    <Button className="w-full">{t('disabledCare.pricing.subscribe')}</Button>
+                  </a>
                 </Card>
 
                 <Card className="p-8 border-2 border-primary relative">

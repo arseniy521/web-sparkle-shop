@@ -32,7 +32,7 @@ const App = () => (
             <Route path="/blog" element={<LanguageWrapper language="cs"><Blog /></LanguageWrapper>} />
             <Route path="/blog/:slug" element={<LanguageWrapper language="cs"><BlogPost /></LanguageWrapper>} />
             <Route path="/ivf-injection-support-prague" element={<LanguageWrapper language="cs"><IVFSupport /></LanguageWrapper>} />
-            <Route path="/iv-drip-therapy-prague" element={<LanguageWrapper language="cs"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/iv-drips-prague" element={<LanguageWrapper language="cs"><IVDripTherapy /></LanguageWrapper>} />
             <Route path="/post-surgery-recovery-care-prague" element={<LanguageWrapper language="cs"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/disabled-daily-care-prague" element={<LanguageWrapper language="cs"><DisabledCare /></LanguageWrapper>} />
             {/* Czech Neighborhood Pages */}
@@ -45,7 +45,7 @@ const App = () => (
             <Route path="/en/blog" element={<LanguageWrapper language="en"><Blog /></LanguageWrapper>} />
             <Route path="/en/blog/:slug" element={<LanguageWrapper language="en"><BlogPost /></LanguageWrapper>} />
             <Route path="/en/ivf-injection-support-prague" element={<LanguageWrapper language="en"><IVFSupport /></LanguageWrapper>} />
-            <Route path="/en/iv-drip-therapy-prague" element={<LanguageWrapper language="en"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/en/iv-drips-prague" element={<LanguageWrapper language="en"><IVDripTherapy /></LanguageWrapper>} />
             <Route path="/en/post-surgery-recovery-care-prague" element={<LanguageWrapper language="en"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/en/disabled-daily-care-prague" element={<LanguageWrapper language="en"><DisabledCare /></LanguageWrapper>} />
             
@@ -54,7 +54,7 @@ const App = () => (
             <Route path="/ru/blog" element={<LanguageWrapper language="ru"><Blog /></LanguageWrapper>} />
             <Route path="/ru/blog/:slug" element={<LanguageWrapper language="ru"><BlogPost /></LanguageWrapper>} />
             <Route path="/ru/ivf-injection-support-prague" element={<LanguageWrapper language="ru"><IVFSupport /></LanguageWrapper>} />
-            <Route path="/ru/iv-drip-therapy-prague" element={<LanguageWrapper language="ru"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/ru/iv-drips-prague" element={<LanguageWrapper language="ru"><IVDripTherapy /></LanguageWrapper>} />
             <Route path="/ru/post-surgery-recovery-care-prague" element={<LanguageWrapper language="ru"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/ru/disabled-daily-care-prague" element={<LanguageWrapper language="ru"><DisabledCare /></LanguageWrapper>} />
             
@@ -63,7 +63,7 @@ const App = () => (
             <Route path="/uk/blog" element={<LanguageWrapper language="uk"><Blog /></LanguageWrapper>} />
             <Route path="/uk/blog/:slug" element={<LanguageWrapper language="uk"><BlogPost /></LanguageWrapper>} />
             <Route path="/uk/ivf-injection-support-prague" element={<LanguageWrapper language="uk"><IVFSupport /></LanguageWrapper>} />
-            <Route path="/uk/iv-drip-therapy-prague" element={<LanguageWrapper language="uk"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/uk/iv-drips-prague" element={<LanguageWrapper language="uk"><IVDripTherapy /></LanguageWrapper>} />
             <Route path="/uk/post-surgery-recovery-care-prague" element={<LanguageWrapper language="uk"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/uk/disabled-daily-care-prague" element={<LanguageWrapper language="uk"><DisabledCare /></LanguageWrapper>} />
             

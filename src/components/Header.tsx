@@ -52,7 +52,7 @@ export const Header = () => {
 
   const serviceLinks = [
     { href: `${langPrefix}/ivf-injection-support-prague`, label: t('specializedServices.ivf') },
-    { href: `${langPrefix}/iv-drip-therapy-prague`, label: t('specializedServices.ivDrip') },
+    { href: `${langPrefix}/iv-drips-prague`, label: t('specializedServices.ivDrip') },
     { href: `${langPrefix}/post-surgery-recovery-care-prague`, label: t('specializedServices.postSurgery') },
     { href: `${langPrefix}/disabled-daily-care-prague`, label: t('specializedServices.disabled') },
   ];

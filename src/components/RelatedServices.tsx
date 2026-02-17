@@ -25,7 +25,7 @@ export const RelatedServices = () => {
     {
       titleKey: "specializedServices.ivDrip",
       descKey: "services.ivInfusion.description",
-      href: `${langPrefix}/iv-drip-therapy-prague`
+      href: `${langPrefix}/iv-drips-prague`
     },
     {
       titleKey: "specializedServices.postSurgery",

@@ -59,7 +59,7 @@ const NotFound = () => {
               <Link to={`${langPrefix}/ivf-injection-support-prague`} className="text-primary hover:underline">
                 {t('specializedServices.ivf')}
               </Link>
-              <Link to={`${langPrefix}/iv-drip-therapy-prague`} className="text-primary hover:underline">
+              <Link to={`${langPrefix}/iv-drips-prague`} className="text-primary hover:underline">
                 {t('specializedServices.ivDrip')}
               </Link>
               <Link to={`${langPrefix}/post-surgery-recovery-care-prague`} className="text-primary hover:underline">

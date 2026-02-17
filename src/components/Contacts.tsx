@@ -23,15 +23,15 @@ export const Contacts = () => {
     {
       icon: Send,
       title: t('contacts.telegram'),
-      value: "@sestra_na_hodinu",
-      href: "https://t.me/sestra_na_hodinu",
+      value: "nius_prague",
+      href: "https://t.me/nius_prague",
       color: "bg-sky-500/10 text-sky-600",
     },
     {
       icon: Instagram,
       title: t('contacts.instagram'),
-      value: "@nius_services",
-      href: "https://www.instagram.com/nius_services/",
+      value: "@nius.prague",
+      href: "https://www.instagram.com/nius.prague/",
       color: "bg-pink-500/10 text-pink-600",
     },
     {

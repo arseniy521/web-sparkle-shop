@@ -7,7 +7,7 @@
   <!-- Homepage - Czech (Default) -->
   <url>
     <loc>https://www.nius.cz/</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
@@ -20,7 +20,7 @@
   <!-- Homepage - English version -->
   <url>
     <loc>https://www.nius.cz/en/</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
@@ -33,7 +33,7 @@
   <!-- Homepage - Russian version -->
   <url>
     <loc>https://www.nius.cz/ru/</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
@@ -46,7 +46,7 @@
   <!-- Homepage - Ukrainian version -->
   <url>
     <loc>https://www.nius.cz/uk/</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
@@ -59,7 +59,7 @@
   <!-- Neighborhood Landing Pages - Czech -->
   <url>
     <loc>https://www.nius.cz/sestricka-praha-vinohrady</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-vinohrady"/>
@@ -69,7 +69,7 @@
   <!-- Prague 1 - Old Town Landing Page -->
   <url>
     <loc>https://www.nius.cz/sestricka-praha-1</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-1"/>
@@ -79,7 +79,7 @@
   <!-- Žižkov Landing Page -->
   <url>
     <loc>https://www.nius.cz/sestricka-praha-zizkov</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-zizkov"/>
@@ -89,7 +89,7 @@
   <!-- IV Drip Therapy Prague - Czech (PRIMARY TARGET KEYWORD PAGE) -->
   <url>
     <loc>https://www.nius.cz/iv-drip-therapy-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-drip-therapy-prague"/>
@@ -161,7 +161,7 @@
   <!-- IVF Injection Support Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/ivf-injection-support-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-injection-support-prague"/>
@@ -229,7 +229,7 @@
   <!-- Post-Surgery Recovery Care Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/post-surgery-recovery-care-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague"/>
@@ -297,7 +297,7 @@
   <!-- Disabled Daily Care Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/disabled-daily-care-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague"/>
@@ -365,7 +365,7 @@
   <!-- Blog listing page - Czech -->
   <url>
     <loc>https://www.nius.cz/blog</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
@@ -382,7 +382,7 @@
   <!-- Blog listing page - English -->
   <url>
     <loc>https://www.nius.cz/en/blog</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
@@ -399,7 +399,7 @@
   <!-- Blog listing page - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/blog</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
@@ -416,7 +416,7 @@
   <!-- Blog listing page - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/blog</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog"/>
@@ -433,7 +433,7 @@
   <!-- Blog Post: IV Therapy Guide - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/iv-therapy-at-home-prague-guide</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
@@ -446,7 +446,7 @@
   <!-- Blog Post: IV Therapy Guide - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/iv-therapy-at-home-prague-guide</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
@@ -459,7 +459,7 @@
   <!-- Blog Post: IV Therapy Guide - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/blog/iv-therapy-at-home-prague-guide</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
@@ -472,7 +472,7 @@
   <!-- Blog Post: IV Therapy Guide - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/blog/iv-therapy-at-home-prague-guide</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide"/>
@@ -485,7 +485,7 @@
   <!-- Blog Post: When to Call Home Nurse - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/when-to-call-home-nurse-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
@@ -498,7 +498,7 @@
   <!-- Blog Post: When to Call Home Nurse - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/when-to-call-home-nurse-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
@@ -511,7 +511,7 @@
   <!-- Blog Post: When to Call Home Nurse - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/blog/when-to-call-home-nurse-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
@@ -524,7 +524,7 @@
   <!-- Blog Post: When to Call Home Nurse - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/blog/when-to-call-home-nurse-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague"/>
@@ -537,7 +537,7 @@
   <!-- Blog Post: Wound Care - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/wound-care-dressing-changes-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
@@ -550,7 +550,7 @@
   <!-- Blog Post: Wound Care - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/wound-care-dressing-changes-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
@@ -563,7 +563,7 @@
   <!-- Blog Post: Wound Care - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/blog/wound-care-dressing-changes-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
@@ -576,7 +576,7 @@
   <!-- Blog Post: Wound Care - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/blog/wound-care-dressing-changes-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague"/>
@@ -589,7 +589,7 @@
   <!-- Blog Post: Elderly Care - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/elderly-care-nursing-services-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
@@ -602,7 +602,7 @@
   <!-- Blog Post: Elderly Care - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/elderly-care-nursing-services-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
@@ -615,7 +615,7 @@
   <!-- Blog Post: Elderly Care - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/blog/elderly-care-nursing-services-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
@@ -628,7 +628,7 @@
   <!-- Blog Post: Elderly Care - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/blog/elderly-care-nursing-services-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague"/>
@@ -641,7 +641,7 @@
   <!-- Blog Post: Medical Injections - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/medical-injections-home-service-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
@@ -654,7 +654,7 @@
   <!-- Blog Post: Medical Injections - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/medical-injections-home-service-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
@@ -667,7 +667,7 @@
   <!-- Blog Post: Medical Injections - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/blog/medical-injections-home-service-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>
@@ -680,7 +680,7 @@
   <!-- Blog Post: Medical Injections - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/blog/medical-injections-home-service-prague</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague"/>

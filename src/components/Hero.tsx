@@ -98,7 +98,7 @@ export const Hero = () => {
                   <span>💉</span>
                   <span>{t('specializedServices.ivf')}</span>
                 </Link>
-                <Link to="/iv-drip-therapy-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/iv-drips-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <span>💧</span>
                   <span>{t('specializedServices.ivDrip')}</span>
                 </Link>
