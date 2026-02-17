@@ -1,9 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
+import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 
 export const Footer = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const currentLang = getLanguageFromPath(location.pathname);
+  const langPrefix = getLanguagePrefix(currentLang);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -58,9 +61,26 @@ export const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">{t('footer.services')}</h3>
             <ul className="space-y-2">
-              <li className="text-primary-foreground/80">{t('services.ivInfusion.title')}</li>
-              <li className="text-primary-foreground/80">{t('services.injection.title')}</li>
-              <li className="text-primary-foreground/80">{t('services.woundCare.title')}</li>
+              <li>
+                <Link to={`${langPrefix}/iv-drips-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  IV Drips Prague
+                </Link>
+              </li>
+              <li>
+                <Link to={`${langPrefix}/ivf-injection-support-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  {t('services.injection.title')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`${langPrefix}/post-surgery-recovery-care-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  {t('services.woundCare.title')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`${langPrefix}/disabled-daily-care-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  {t('services.hygiene.title')}
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -34,6 +34,12 @@ const routes = [
   "/sestricka-praha-1",
   "/sestricka-praha-vinohrady",
   "/sestricka-praha-zizkov",
+
+  // Old URL redirects (pre-render so crawlers get redirect signal)
+  "/iv-drip-therapy-prague",
+  "/en/iv-drip-therapy-prague",
+  "/ru/iv-drip-therapy-prague",
+  "/uk/iv-drip-therapy-prague",
   "/blog/iv-therapy-at-home-prague-guide",
   "/blog/when-to-call-home-nurse-prague",
   "/blog/wound-care-dressing-changes-prague",
