@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageWrapper } from "./components/LanguageWrapper";
 import Index from "./pages/Index";
@@ -67,6 +67,12 @@ const App = () => (
             <Route path="/uk/post-surgery-recovery-care-prague" element={<LanguageWrapper language="uk"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/uk/disabled-daily-care-prague" element={<LanguageWrapper language="uk"><DisabledCare /></LanguageWrapper>} />
             
+            {/* 301-style redirects: old IV drip therapy URL → new IV drips URL */}
+            <Route path="/iv-drip-therapy-prague" element={<Navigate to="/iv-drips-prague" replace />} />
+            <Route path="/en/iv-drip-therapy-prague" element={<Navigate to="/en/iv-drips-prague" replace />} />
+            <Route path="/ru/iv-drip-therapy-prague" element={<Navigate to="/ru/iv-drips-prague" replace />} />
+            <Route path="/uk/iv-drip-therapy-prague" element={<Navigate to="/uk/iv-drips-prague" replace />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
