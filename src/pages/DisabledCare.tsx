@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEO } from "@/components/SEO";
 import { RelatedServices } from "@/components/RelatedServices";
-import hygieneIcon from "@/assets/HygieneAssistance.png";
+import hygieneIcon from "@/assets/HygieneAssistance.webp";
 import { useTranslation } from "react-i18next";
 
 const DisabledCare = () => {
@@ -127,6 +127,10 @@ const DisabledCare = () => {
                     alt="Disabled care and hygiene assistance nurse in Prague"
                     className="w-full h-auto object-contain"
                     loading="eager"
+                    fetchPriority="high"
+                    width="500"
+                    height="500"
+                    decoding="async"
                   />
                 </div>
               </div>

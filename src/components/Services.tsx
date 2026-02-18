@@ -1,11 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Link, useLocation } from "react-router-dom";
-import ivDripIcon from "@/assets/drp-2.png";
-import injectionIcon from "@/assets/injection.png";
-import woundCareIcon from "@/assets/WoundDressingBandage.png";
-import hygieneIcon from "@/assets/HygieneAssistance.png";
-import escortIcon from "@/assets/escort.png";
-import massageIcon from "@/assets/massage.png";
+import ivDripIcon from "@/assets/drp-2.webp";
+import injectionIcon from "@/assets/injection.webp";
+import woundCareIcon from "@/assets/WoundDressingBandage.webp";
+import hygieneIcon from "@/assets/HygieneAssistance.webp";
+import escortIcon from "@/assets/escort.webp";
+import massageIcon from "@/assets/massage.webp";
 import { useTranslation } from "react-i18next";
 import { getLanguagePrefix, getLanguageFromPath } from "@/utils/languageUtils";
 
