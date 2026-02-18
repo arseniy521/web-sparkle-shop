@@ -46,11 +46,13 @@ const BlogPost = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       {post && (
-        <SEO 
+        <SEO
           title={`${post.title} | Nurse in Prague Blog`}
           description={post.excerpt}
           ogImage="https://www.nius.cz/og-blog.jpg"
           ogType="article"
+          noindex={currentLang === 'ru' || currentLang === 'uk'}
+          hreflangLanguages={['cs', 'en']}
           schema={{
             "@context": "https://schema.org",
             "@type": "BlogPosting",

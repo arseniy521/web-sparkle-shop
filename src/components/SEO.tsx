@@ -11,6 +11,8 @@ interface SEOProps {
   ogType?: string;
   schema?: object | object[];
   keywords?: string;
+  noindex?: boolean;
+  hreflangLanguages?: string[];
 }
 
 const languageMap: Record<string, string> = {
@@ -27,7 +29,9 @@ export const SEO = ({
   ogImage = "https://www.nius.cz/og-image.jpg",
   ogType = "website",
   schema,
-  keywords
+  keywords,
+  noindex = false,
+  hreflangLanguages
 }: SEOProps) => {
   const { i18n } = useTranslation();
   const location = useLocation();
@@ -41,14 +45,14 @@ export const SEO = ({
   // Generate canonical URL if not provided
   const canonicalUrl = canonical || getCanonicalUrl(currentLang, basePath);
   
-  // Generate alternate URLs for all languages dynamically
+  // Generate alternate URLs for specified languages (or all by default)
   const baseUrl = 'https://www.nius.cz';
-  const alternateUrls = {
-    en: `${baseUrl}${buildLanguageUrl(basePath, 'en')}`,
-    cs: `${baseUrl}${buildLanguageUrl(basePath, 'cs')}`,
-    ru: `${baseUrl}${buildLanguageUrl(basePath, 'ru')}`,
-    uk: `${baseUrl}${buildLanguageUrl(basePath, 'uk')}`,
-  };
+  const allLanguages = ['en', 'cs', 'ru', 'uk'];
+  const activeLanguages = hreflangLanguages || allLanguages;
+  const alternateUrls: Record<string, string> = {};
+  for (const lang of activeLanguages) {
+    alternateUrls[lang] = `${baseUrl}${buildLanguageUrl(basePath, lang)}`;
+  }
 
   return (
     <>
@@ -57,14 +61,14 @@ export const SEO = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         {keywords && <meta name="keywords" content={keywords} />}
+        {noindex && <meta name="robots" content="noindex, follow" />}
         <link rel="canonical" href={canonicalUrl} />
-        
+
         {/* Hreflang tags for multilingual SEO */}
-        <link rel="alternate" hrefLang="x-default" href={alternateUrls.en} />
-        <link rel="alternate" hrefLang="en" href={alternateUrls.en} />
-        <link rel="alternate" hrefLang="cs" href={alternateUrls.cs} />
-        <link rel="alternate" hrefLang="ru" href={alternateUrls.ru} />
-        <link rel="alternate" hrefLang="uk" href={alternateUrls.uk} />
+        {alternateUrls.en && <link rel="alternate" hrefLang="x-default" href={alternateUrls.en} />}
+        {activeLanguages.map(lang => (
+          <link key={lang} rel="alternate" hrefLang={lang} href={alternateUrls[lang]} />
+        ))}
         
         {/* Open Graph */}
         <meta property="og:title" content={title} />

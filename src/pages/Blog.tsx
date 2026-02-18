@@ -18,10 +18,12 @@ const Blog = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SEO 
+      <SEO
         title="Healthcare Blog | Nurse in Prague - Home Nursing Tips & Guides"
         description="Expert insights on home healthcare, nursing services, IV therapy, wound care, elderly care, and medical services in Prague. Professional nursing advice and guides."
         ogImage="https://www.nius.cz/og-blog.jpg"
+        noindex={currentLang === 'ru' || currentLang === 'uk'}
+        hreflangLanguages={['cs', 'en']}
       />
       <Header />
       <Breadcrumbs items={[{ label: "Blog" }]} />
