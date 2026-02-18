@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTranslation } from "react-i18next";
-import { getBasePath, buildLanguageUrl, getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
+import { getBasePath, buildLanguageUrl, getLanguageFromPath, getLanguagePrefix, getLocalizedUrl } from "@/utils/languageUtils";
 
 export const Header = () => {
   const { t, i18n } = useTranslation();
@@ -37,9 +37,14 @@ export const Header = () => {
   }, []);
 
   const handleLanguageChange = (newLang: string) => {
-    const basePath = getBasePath(location.pathname);
-    const newUrl = buildLanguageUrl(basePath, newLang);
-    navigate(newUrl);
+    const localizedUrl = getLocalizedUrl(location.pathname, newLang);
+    if (localizedUrl) {
+      navigate(localizedUrl);
+    } else {
+      const basePath = getBasePath(location.pathname);
+      const newUrl = buildLanguageUrl(basePath, newLang);
+      navigate(newUrl);
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -50,11 +55,14 @@ export const Header = () => {
     { href: "#testimonials", label: t('nav.testimonials'), isHash: true },
   ];
 
+  const womensDayGiftHref = getLocalizedUrl('/womens-day-gift-prague', currentLang) || '/en/womens-day-gift-prague';
+
   const serviceLinks = [
     { href: `${langPrefix}/ivf-injection-support-prague`, label: t('specializedServices.ivf') },
     { href: `${langPrefix}/iv-drips-prague`, label: t('specializedServices.ivDrip') },
     { href: `${langPrefix}/post-surgery-recovery-care-prague`, label: t('specializedServices.postSurgery') },
     { href: `${langPrefix}/disabled-daily-care-prague`, label: t('specializedServices.disabled') },
+    { href: womensDayGiftHref, label: t('specializedServices.womensDayGift') },
   ];
 
   const scrollToSection = (href: string) => {

@@ -317,7 +317,8 @@
     "ivf": "Podpora IVF injekcí",
     "ivDrip": "IV Kapačková terapie",
     "postSurgery": "Rekonvalescence po operaci",
-    "disabled": "Denní komfortní péče"
+    "disabled": "Denní komfortní péče",
+    "womensDayGift": "Dárek na 8. března"
   },
   "ivfSupport": {
     "badge": "Podpora IVF v Praze",
@@ -495,6 +496,203 @@
       "description": "Zažijte soucitnou, profesionální ošetřovatelskou péči v pohodlí vašeho domova. Jsme tu, abychom pomohli.",
       "bookVisit": "Rezervovat návštěvu",
       "discussSubscription": "Diskutovat o předplatném"
+    }
+  },
+  "womensDayGift": {
+    "seo": {
+      "title": "Dárek na 8. března Praha | Luxusní wellness zážitek 2026",
+      "description": "Nejlepší dárek na 8. března v Praze — Glow IV infuze za 3 650 Kč. Luxusní wellness zážitek s registrovanou zdravotní sestrou u vás doma nebo v hotelu. Objednejte dárkový voucher.",
+      "keywords": "dárek na 8. března Praha, originální dárek pro ženu Praha, wellness dárek Praha, luxusní zážitek pro ženu, dárek pro manželku Praha, dárek pro přítelkyni Praha"
+    },
+    "breadcrumb": "Dárek na 8. března",
+    "hero": {
+      "badge": "Prémiový dárkový zážitek",
+      "title": "Perfektní dárek na 8. března v Praze",
+      "subtitle": "Darujte jí zář a vitalitu — luxusní IV infuze s registrovanou zdravotní sestrou",
+      "description": "Hledáte originální dárek na 8. března v Praze? Glow IV infuze je prémiový wellness zážitek, který kombinuje živiny pro krásu pleti s podporou imunity. Registrovaná sestra přijede k ní do hotelu, domů nebo Airbnb — nejpromyšlenější dárek pro ženu v Praze.",
+      "cta": "Objednat dárkový voucher",
+      "ctaSecondary": "Co je zahrnuto",
+      "trustBadges": {
+        "nurses": "Registrované sestry",
+        "rating": "4.9★ Google hodnocení",
+        "available": "7 dní v týdnu",
+        "districts": "Celá Praha"
+      }
+    },
+    "countdown": {
+      "title": "Do Mezinárodního dne žen",
+      "days": "Dní",
+      "hours": "Hodin",
+      "minutes": "Min",
+      "seconds": "Sek",
+      "expired": "Dárkové vouchery stále dostupné — potěšte ji kdykoliv!"
+    },
+    "benefits": {
+      "title": "Proč je to nejlepší dárek na 8. března v Praze",
+      "subtitle": "Ne květiny. Ne čokoláda. Prémiový wellness zážitek, na který nezapomene.",
+      "items": {
+        "unique": {
+          "title": "Skutečně originální",
+          "description": "Vynikněte originálním dárkem — luxusní IV infuze, která kombinuje krásu a zdraví."
+        },
+        "luxury": {
+          "title": "Luxusní zážitek",
+          "description": "Profesionální IV terapie s živinami pro zářivou pleť, v pohodlí jejího domova nebo hotelového pokoje."
+        },
+        "health": {
+          "title": "Zdraví a krása",
+          "description": "Mikroelementy pro zářivou pleť a vlasy v kombinaci s vitamíny pro podporu imunity."
+        },
+        "professional": {
+          "title": "Registrovaná sestra",
+          "description": "Podáváno certifikovanou zdravotní sestrou. Bezpečné, pohodlné a profesionální."
+        },
+        "convenient": {
+          "title": "Přijedeme k ní",
+          "description": "Mobilní služba po celé Praze. Hotel, domov nebo Airbnb — sestra přijede za ní."
+        },
+        "voucher": {
+          "title": "Dárkový voucher",
+          "description": "Krásný digitální voucher, který může využít dle svého. Platnost 3 měsíce od nákupu."
+        }
+      }
+    },
+    "included": {
+      "title": "Co je zahrnuto v Glow IV infuzi",
+      "subtitle": "Kompletní prémiový wellness zážitek — vše v ceně, žádné skryté poplatky.",
+      "items": [
+        "Glow & Post-Flu IV infuze (60 minut)",
+        "Mikroelementy pro regeneraci pleti a vlasů",
+        "Podpůrné živiny pro imunitu a stopové vitamíny",
+        "Návštěva registrované sestry u vás",
+        "Veškerý sterilní zdravotnický materiál",
+        "Zdravotní screening před procedurou",
+        "Pokyny pro péči po ošetření",
+        "Krásný digitální dárkový voucher"
+      ],
+      "learnMore": "Prohlédněte si celé menu IV infuzí"
+    },
+    "experience": {
+      "title": "Originální dárek pro ženu v Praze",
+      "subtitle": "Představte si její překvapení, když zjistí, že na ni čeká prémiový wellness zážitek.",
+      "steps": {
+        "step1": {
+          "title": "Obdrží voucher",
+          "description": "Krásná digitální dárková karta s vaším osobním vzkazem."
+        },
+        "step2": {
+          "title": "Rezervuje si termín",
+          "description": "Vybere si preferovaný datum, čas a místo kdekoliv v Praze."
+        },
+        "step3": {
+          "title": "Přijede sestra",
+          "description": "Registrovaná sestra přijede s veškerým potřebným vybavením."
+        },
+        "step4": {
+          "title": "60 minut záře",
+          "description": "Relaxuje, zatímco živiny obnovují její pleť, vlasy a imunitní systém."
+        }
+      }
+    },
+    "voucher": {
+      "title": "Detaily dárkového voucheru",
+      "validity": "Platnost 3 měsíce od nákupu",
+      "redeemable": "Využitelný každý den, 8:00–22:00",
+      "transferable": "Plně přenosný na jinou osobu",
+      "personalized": "Přidejte svůj osobní vzkaz",
+      "instant": "Doručen okamžitě e-mailem"
+    },
+    "pricing": {
+      "title": "Prémiový dárek na 8. března",
+      "subtitle": "Nejlepší dárek pro přítelkyni, manželku nebo jakoukoli výjimečnou ženu ve vašem životě.",
+      "price": "3 650",
+      "currency": "Kč",
+      "approximateEur": "~148 €",
+      "perSession": "za sezení",
+      "cta": "Objednat dárek",
+      "ctaWhatsApp": "Objednat přes WhatsApp",
+      "ctaCall": "Zavolat a objednat",
+      "includes": "Vše zahrnuto v ceně. Žádné skryté poplatky.",
+      "guarantee": "Garance spokojenosti"
+    },
+    "testimonials": {
+      "title": "Co říkají dárci",
+      "items": {
+        "t1": {
+          "text": "Přítelkyně byla úplně překvapená! Řekla, že to byl nejpromyšlenější dárek, jaký kdy dostala. Mnohem lepší než květiny.",
+          "author": "David M.",
+          "location": "Praha 2"
+        },
+        "t2": {
+          "text": "Chtěl jsem něco speciálního k MDŽ, ne obvyklé dárky. Bylo to perfektní — stále o tom mluví.",
+          "author": "Marek T.",
+          "location": "Vinohrady"
+        },
+        "t3": {
+          "text": "Byla po chřipce unavená. Tento dárek byl zároveň starostlivý i luxusní. Sestra byla skvělá a profesionální.",
+          "author": "Aleš K.",
+          "location": "Praha 1"
+        }
+      }
+    },
+    "howToOrder": {
+      "title": "Jak objednat",
+      "subtitle": "Tři jednoduché kroky k perfektnímu dárku na 8. března.",
+      "steps": {
+        "step1": {
+          "title": "Kontaktujte nás",
+          "description": "WhatsApp, telefon nebo e-mail — řekněte nám, že je to dárek."
+        },
+        "step2": {
+          "title": "Obdržíte voucher",
+          "description": "Pošleme vám krásný digitální dárkový voucher k předání."
+        },
+        "step3": {
+          "title": "Ona si rezervuje a užije si",
+          "description": "Vybere si datum a užije si prémiový wellness zážitek."
+        }
+      }
+    },
+    "faq": {
+      "title": "Často kladené dotazy",
+      "items": {
+        "q1": {
+          "question": "Je Glow IV infuze skutečný lékařský zákrok?",
+          "answer": "Ano. Glow & Post-Flu IV infuze je profesionální intravenózní infuze podávaná registrovanou zdravotní sestrou. Obsahuje lékařsky schválené mikroelementy, stopové vitamíny a živiny pro podporu imunity."
+        },
+        "q2": {
+          "question": "Jak funguje dárkový voucher?",
+          "answer": "Po objednávce vám zašleme digitální dárkový voucher s unikátním kódem. Předáte ho obdarované. Ona nás kontaktuje a rezervuje si preferovaný datum, čas a místo v Praze."
+        },
+        "q3": {
+          "question": "Mohu rezervovat přímo na 8. března?",
+          "answer": "Samozřejmě. Můžete buď předrezervovat na 8. března, nebo zakoupit otevřený voucher využitelný do 3 měsíců."
+        },
+        "q4": {
+          "question": "Je IV infuze bezpečná?",
+          "answer": "Zcela. Všechny procedury provádějí certifikované registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každým sezením provádíme krátký zdravotní screening."
+        },
+        "q5": {
+          "question": "Co když nikdy neměla IV infuzi?",
+          "answer": "Žádný problém! Naše sestry jsou zkušené a jemné. Procedura je velmi pohodlná a trvá asi 60 minut, během kterých může relaxovat."
+        },
+        "q6": {
+          "question": "Lze voucher použít po 8. březnu?",
+          "answer": "Ano, voucher platí 3 měsíce od data nákupu. Může ho využít, kdy jí to bude vyhovovat."
+        },
+        "q7": {
+          "question": "Přijedete i do hotelu nebo Airbnb?",
+          "answer": "Ano! Obsluhujeme všechny pražské obvody včetně hotelů, Airbnb, soukromých bytů a kanceláří. Sestra přiveze veškeré potřebné vybavení."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Udělejte letošní 8. března nezapomenutelným",
+      "description": "Objednejte prémiový wellness dárkový voucher. Omezená dostupnost kolem 8. března.",
+      "cta": "Objednat dárkový voucher",
+      "phone": "+420773629123",
+      "whatsapp": "Objednat přes WhatsApp",
+      "email": "info@nius.cz"
     }
   }
 }

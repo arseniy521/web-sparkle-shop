@@ -35,6 +35,11 @@ const routes = [
   "/sestricka-praha-vinohrady",
   "/sestricka-praha-zizkov",
 
+  // Women's Day Gift - Localized slugs
+  "/darek-8-brezna",
+  "/en/womens-day-gift-prague",
+  "/ru/podarok-na-8-marta",
+
   // Old URL redirects (pre-render so crawlers get redirect signal)
   "/iv-drip-therapy-prague",
   "/en/iv-drip-therapy-prague",

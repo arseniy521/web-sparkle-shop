@@ -42,6 +42,19 @@ export const buildLanguageUrl = (basePath: string, language: string): string => 
   return prefix ? `${prefix}${cleanPath}` : cleanPath;
 };
 
+// Localized slug mappings for pages with different slugs per language
+const localizedSlugMap: Record<string, Record<string, string>> = {
+  '/womens-day-gift-prague': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
+  '/darek-8-brezna': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
+  '/podarok-na-8-marta': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
+};
+
+// Get localized URL for pages with different slugs per language
+export const getLocalizedUrl = (currentPath: string, targetLang: string): string | null => {
+  const basePath = getBasePath(currentPath);
+  return localizedSlugMap[basePath]?.[targetLang] ?? null;
+};
+
 // Get canonical URL based on language
 export const getCanonicalUrl = (language: string, path: string = '/'): string => {
   const baseUrl = 'https://www.nius.cz';

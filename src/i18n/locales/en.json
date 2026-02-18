@@ -317,7 +317,8 @@
     "ivf": "IVF Injection Support",
     "ivDrip": "IV Drip Therapy",
     "postSurgery": "Post-Surgery Recovery",
-    "disabled": "Daily Comfort Care"
+    "disabled": "Daily Comfort Care",
+    "womensDayGift": "Women's Day Gift"
   },
   "ivfSupport": {
     "badge": "Specialized IVF Care in Prague",
@@ -497,6 +498,203 @@
     "cta": {
       "title": "Ready to Schedule Daily Care?",
       "description": "Experience compassionate, professional nursing care in the comfort of your home. We're here to help."
+    }
+  },
+  "womensDayGift": {
+    "seo": {
+      "title": "Women's Day Gift Prague | Premium Wellness Experience 2026",
+      "description": "The best Women's Day gift in Prague — Glow IV Drip wellness experience at 3,650 CZK. Luxury IV therapy delivered by a registered nurse to her hotel or home. Order gift voucher now.",
+      "keywords": "gift for women's day Prague, best women's day gift Prague, women's day gift for girlfriend Prague, unique women's day experience Prague, premium wellness gift Prague, IV drip gift Prague, 8 march gift Prague"
+    },
+    "breadcrumb": "Women's Day Gift",
+    "hero": {
+      "badge": "Premium Gift Experience",
+      "title": "The Perfect Women's Day Gift in Prague",
+      "subtitle": "Give her the gift of radiance — a luxury IV drip wellness experience delivered by a registered nurse",
+      "description": "Looking for a unique Women's Day gift in Prague? The Glow IV Drip is a premium wellness experience that combines beauty-boosting nutrients with immune recovery support. A registered nurse comes to her hotel, home, or Airbnb — the most thoughtful and original gift for women's day in Prague.",
+      "cta": "Order Gift Voucher",
+      "ctaSecondary": "See What's Included",
+      "trustBadges": {
+        "nurses": "Licensed Nurses",
+        "rating": "4.9★ Google Rating",
+        "available": "7 Days a Week",
+        "districts": "All Prague Districts"
+      }
+    },
+    "countdown": {
+      "title": "Until Women's Day",
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Min",
+      "seconds": "Sec",
+      "expired": "Gift vouchers still available — treat her anytime!"
+    },
+    "benefits": {
+      "title": "Why This Is the Best Women's Day Gift in Prague",
+      "subtitle": "Not flowers. Not chocolate. A premium wellness experience she'll never forget.",
+      "items": {
+        "unique": {
+          "title": "Truly Unique Gift",
+          "description": "Stand out from the crowd with an original Women's Day experience — a luxury IV drip that combines beauty and health."
+        },
+        "luxury": {
+          "title": "Luxury Experience",
+          "description": "Professional IV therapy with skin-glow nutrients, delivered in the comfort of her home or hotel room."
+        },
+        "health": {
+          "title": "Health & Beauty",
+          "description": "Microelements for radiant skin and hair, combined with immune support vitamins and trace elements."
+        },
+        "professional": {
+          "title": "Registered Nurse",
+          "description": "Administered by a certified medical professional. Safe, comfortable, and expertly done."
+        },
+        "convenient": {
+          "title": "We Come to Her",
+          "description": "Mobile service across all Prague districts. Hotel, home, or Airbnb — the nurse comes to her."
+        },
+        "voucher": {
+          "title": "Gift Voucher",
+          "description": "Beautiful digital voucher she can redeem at her convenience. Valid for 3 months from purchase."
+        }
+      }
+    },
+    "included": {
+      "title": "What's Included in the Glow IV Drip",
+      "subtitle": "A complete premium wellness experience — everything included, no hidden fees.",
+      "items": [
+        "Glow & Post-Flu IV drip session (60 minutes)",
+        "Microelements for skin & hair rejuvenation",
+        "Immune support nutrients and trace vitamins",
+        "Registered nurse visit to her location",
+        "All sterile medical equipment included",
+        "Pre-session health screening",
+        "Post-treatment wellness guidance",
+        "Beautiful digital gift voucher"
+      ],
+      "learnMore": "See our full IV drips menu"
+    },
+    "experience": {
+      "title": "A Unique Women's Day Experience in Prague",
+      "subtitle": "Imagine her surprise when she discovers a premium wellness session waiting for her.",
+      "steps": {
+        "step1": {
+          "title": "She receives the voucher",
+          "description": "A beautiful digital gift card arrives with your personal message."
+        },
+        "step2": {
+          "title": "She books her session",
+          "description": "She chooses her preferred date, time, and location anywhere in Prague."
+        },
+        "step3": {
+          "title": "A nurse arrives",
+          "description": "A registered nurse comes to her with everything needed for the session."
+        },
+        "step4": {
+          "title": "60 minutes of glow",
+          "description": "She relaxes while nutrients replenish her skin, hair, and immune system."
+        }
+      }
+    },
+    "voucher": {
+      "title": "Gift Voucher Details",
+      "validity": "Valid for 3 months from purchase",
+      "redeemable": "Redeemable any day, 8:00–22:00",
+      "transferable": "Fully transferable to another person",
+      "personalized": "Add your personal message",
+      "instant": "Delivered instantly via email"
+    },
+    "pricing": {
+      "title": "Premium Women's Day Gift",
+      "subtitle": "The best women's day gift for girlfriend, wife, or any special woman in your life.",
+      "price": "3,650",
+      "currency": "CZK",
+      "approximateEur": "~€148",
+      "perSession": "per session",
+      "cta": "Order Gift Now",
+      "ctaWhatsApp": "Order via WhatsApp",
+      "ctaCall": "Call to Order",
+      "includes": "Everything included. No hidden fees.",
+      "guarantee": "Satisfaction guaranteed"
+    },
+    "testimonials": {
+      "title": "What Gift-Givers Say",
+      "items": {
+        "t1": {
+          "text": "My girlfriend was so surprised! She said it was the most thoughtful gift she ever received. Much better than flowers.",
+          "author": "David M.",
+          "location": "Prague 2"
+        },
+        "t2": {
+          "text": "I wanted something special for Women's Day, not the usual gifts. This was perfect — she's still talking about it weeks later.",
+          "author": "Mark T.",
+          "location": "Vinohrady"
+        },
+        "t3": {
+          "text": "She had been feeling run-down after the flu. This gift was both caring and luxurious. The nurse was amazing and professional.",
+          "author": "Alex K.",
+          "location": "Prague 1"
+        }
+      }
+    },
+    "howToOrder": {
+      "title": "How to Order",
+      "subtitle": "Three simple steps to the perfect Women's Day gift.",
+      "steps": {
+        "step1": {
+          "title": "Contact us",
+          "description": "WhatsApp, call, or email — tell us it's a Women's Day gift."
+        },
+        "step2": {
+          "title": "Receive the voucher",
+          "description": "We send you a beautiful digital gift voucher to forward to her."
+        },
+        "step3": {
+          "title": "She books & enjoys",
+          "description": "She chooses her date and enjoys the premium wellness experience."
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "q1": {
+          "question": "Is the Glow IV Drip a real medical treatment?",
+          "answer": "Yes. The Glow & Post-Flu IV drip is a professional IV infusion administered by a registered nurse. It contains medically-approved microelements, trace vitamins, and immune support nutrients. All treatments follow strict medical protocols."
+        },
+        "q2": {
+          "question": "How does the Women's Day gift voucher work?",
+          "answer": "After you place your order, we send you a digital gift voucher with a unique code. You forward it to the recipient. She contacts us to book her preferred date, time, and location in Prague. It's that simple."
+        },
+        "q3": {
+          "question": "Can I book for March 8 specifically?",
+          "answer": "Absolutely. You can either pre-book for March 8 or purchase an open voucher she can redeem anytime within 3 months."
+        },
+        "q4": {
+          "question": "Is the IV drip safe?",
+          "answer": "Completely. All treatments are administered by certified registered nurses using sterile, single-use medical equipment. We conduct a brief health screening before every session."
+        },
+        "q5": {
+          "question": "What if she's never had an IV before?",
+          "answer": "No problem! Our nurses are experienced and gentle. The procedure is very comfortable and takes about 60 minutes while she can relax, read, or watch something."
+        },
+        "q6": {
+          "question": "Can the voucher be used after March 8?",
+          "answer": "Yes, the voucher is valid for 3 months from the date of purchase. She can use it whenever it's convenient for her."
+        },
+        "q7": {
+          "question": "Do you deliver to hotels and Airbnbs?",
+          "answer": "Yes! We serve all Prague districts including hotels, Airbnbs, private homes, and offices. The nurse brings all necessary equipment."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Make This Women's Day Unforgettable",
+      "description": "Order the premium wellness gift voucher now. Limited availability around March 8.",
+      "cta": "Order Gift Voucher",
+      "phone": "+420773629123",
+      "whatsapp": "Order via WhatsApp",
+      "email": "info@nius.cz"
     }
   }
 }

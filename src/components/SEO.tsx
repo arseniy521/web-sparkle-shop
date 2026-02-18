@@ -13,6 +13,7 @@ interface SEOProps {
   keywords?: string;
   noindex?: boolean;
   hreflangLanguages?: string[];
+  hreflangOverrides?: Record<string, string>;
 }
 
 const languageMap: Record<string, string> = {
@@ -31,7 +32,8 @@ export const SEO = ({
   schema,
   keywords,
   noindex = false,
-  hreflangLanguages
+  hreflangLanguages,
+  hreflangOverrides
 }: SEOProps) => {
   const { i18n } = useTranslation();
   const location = useLocation();
@@ -42,8 +44,8 @@ export const SEO = ({
   // Get base path without language prefix
   const basePath = getBasePath(location.pathname);
   
-  // Generate canonical URL if not provided
-  const canonicalUrl = canonical || getCanonicalUrl(currentLang, basePath);
+  // Generate canonical URL if not provided (prefer hreflangOverride for current lang)
+  const canonicalUrl = canonical || hreflangOverrides?.[currentLang] || getCanonicalUrl(currentLang, basePath);
   
   // Generate alternate URLs for specified languages (or all by default)
   const baseUrl = 'https://www.nius.cz';
@@ -51,7 +53,7 @@ export const SEO = ({
   const activeLanguages = hreflangLanguages || allLanguages;
   const alternateUrls: Record<string, string> = {};
   for (const lang of activeLanguages) {
-    alternateUrls[lang] = `${baseUrl}${buildLanguageUrl(basePath, lang)}`;
+    alternateUrls[lang] = hreflangOverrides?.[lang] || `${baseUrl}${buildLanguageUrl(basePath, lang)}`;
   }
 
   return (
