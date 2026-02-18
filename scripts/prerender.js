@@ -113,7 +113,20 @@ async function prerender() {
 
         // Wait for React to fully render
         await page.waitForSelector('#root', { timeout: 5000 });
-        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // Wait for react-helmet-async to inject SEO tags into <head>
+        // This ensures canonical, meta description, hreflang, and OG tags are in the pre-rendered HTML
+        try {
+          await page.waitForFunction(
+            () => !!document.querySelector('link[rel="canonical"]') || !!document.querySelector('meta[name="description"]'),
+            { timeout: 5000 }
+          );
+        } catch {
+          console.warn(`  ⚠ Helmet tags not detected for ${route} (redirect page or timeout)`);
+        }
+
+        // Extra wait to ensure all async helmet updates are flushed
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         const html = await page.content();
         
