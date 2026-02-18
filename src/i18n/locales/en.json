@@ -317,7 +317,8 @@
     "ivf": "IVF Injection Support",
     "ivDrip": "IV Drip Therapy",
     "postSurgery": "Post-Surgery Recovery",
-    "disabled": "Daily Comfort Care"
+    "disabled": "Daily Comfort Care",
+    "womensDayGift": "Women's Day Gift"
   },
   "ivfSupport": {
     "badge": "Specialized IVF Care in Prague",
