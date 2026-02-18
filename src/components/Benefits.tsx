@@ -1,6 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import benefitsImage from "@/assets/nurse-benefits.png";
+import benefitsImage from "@/assets/nurse-benefits.webp";
 
 export const Benefits = () => {
   const { t } = useTranslation();

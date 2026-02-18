@@ -1,5 +1,5 @@
 import { MapPin, Clock } from "lucide-react";
-import mapImage from "@/assets/map.png";
+import mapImage from "@/assets/map.webp";
 import { useTranslation } from "react-i18next";
 
 export const Location = () => {

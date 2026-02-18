@@ -1,8 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
-import milanImage from "@/assets/milan.jpg";
-import niginImage from "@/assets/nigin.jpg";
-import ivanaImage from "@/assets/ivana.jpg";
+import milanImage from "@/assets/milan.webp";
+import niginImage from "@/assets/nigin.webp";
+import ivanaImage from "@/assets/ivana.webp";
 
 const nurses = [
   { key: "nigina", image: niginImage },

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import mainImage from "@/assets/drips_cl2.png";
+import mainImage from "@/assets/drips_cl2.webp";
 import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
@@ -123,6 +123,10 @@ export const Hero = () => {
                   alt="Professional nurse in Prague administering IV drip therapy at patient's home - home healthcare services"
                   className="w-full h-auto object-contain"
                   loading="eager"
+                  fetchPriority="high"
+                  width="600"
+                  height="600"
+                  decoding="async"
                 />
             </div>
           </div>

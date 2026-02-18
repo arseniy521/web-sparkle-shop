@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEO } from "@/components/SEO";
 import { RelatedServices } from "@/components/RelatedServices";
-import ivDripIcon from "@/assets/drp-2.png";
+import ivDripIcon from "@/assets/drp-2.webp";
 import { useTranslation } from "react-i18next";
 
 const IVFSupport = () => {
@@ -123,6 +123,10 @@ const IVFSupport = () => {
                     alt="IVF injection support nurse in Prague"
                     className="w-full h-auto object-contain"
                     loading="eager"
+                    fetchPriority="high"
+                    width="500"
+                    height="500"
+                    decoding="async"
                   />
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { PhoneCall, Calendar, Home } from "lucide-react";
-import workflowImage from "@/assets/workflow1.png";
+import workflowImage from "@/assets/workflow1.webp";
 import { useTranslation } from "react-i18next";
 
 export const Workflow = () => {
