@@ -90,6 +90,7 @@ const WomensDayGift = () => {
       "@type": "Product",
       name: "Glow & Post-Flu IV Drip Gift Voucher — Women's Day Prague",
       description: t("womensDayGift.seo.description"),
+      image: "https://www.nius.cz/og-image.jpg",
       brand: { "@type": "Brand", name: "NIUS — Nurse in Prague" },
       offers: {
         "@type": "Offer",

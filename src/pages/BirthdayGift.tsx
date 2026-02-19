@@ -66,6 +66,7 @@ const BirthdayGift = () => {
       "@type": "Product",
       name: "Glow & Post-Flu IV Drip Birthday Gift Voucher — Prague",
       description: t("birthdayGift.seo.description"),
+      image: "https://www.nius.cz/og-image.jpg",
       brand: { "@type": "Brand", name: "NIUS — Nurse in Prague" },
       offers: {
         "@type": "Offer",
