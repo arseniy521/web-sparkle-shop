@@ -40,6 +40,11 @@ const routes = [
   "/en/womens-day-gift-prague",
   "/ru/podarok-na-8-marta",
 
+  // Birthday Gift - Localized slugs
+  "/narozeninovy-darek-praha",
+  "/en/birthday-gift-prague",
+  "/ru/podatok-k-dnju-rozhdenija-praga",
+
   // Old URL redirects (pre-render so crawlers get redirect signal)
   "/iv-drip-therapy-prague",
   "/en/iv-drip-therapy-prague",

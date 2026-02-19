@@ -318,7 +318,8 @@
     "ivDrip": "IV Drip Therapy",
     "postSurgery": "Post-Surgery Recovery",
     "disabled": "Daily Comfort Care",
-    "womensDayGift": "Women's Day Gift"
+    "womensDayGift": "Women's Day Gift",
+    "birthdayGift": "Birthday Gift"
   },
   "ivfSupport": {
     "seo": {
@@ -810,6 +811,204 @@
       "description": "Order the premium wellness gift voucher now. Limited availability around March 8.",
       "cta": "Order Gift Voucher",
       "phone": "+420773629123",
+      "whatsapp": "Order via WhatsApp",
+      "email": "info@nius.cz"
+    }
+  },
+  "birthdayGift": {
+    "seo": {
+      "title": "Birthday Gift Prague | Premium IV Drip Wellness Experience",
+      "description": "The best birthday gift in Prague — Glow IV Drip wellness experience at 3,650 CZK. Luxury IV therapy delivered by a registered nurse to her hotel or home. Order birthday gift voucher now.",
+      "keywords": "birthday gift Prague, best birthday gift Prague, unique birthday experience Prague, premium wellness gift Prague, IV drip gift Prague, birthday gift for girlfriend Prague, birthday gift for wife Prague"
+    },
+    "breadcrumb": "Birthday Gift",
+    "hero": {
+      "badge": "Premium Birthday Experience",
+      "title": "The Best Birthday Gift in Prague",
+      "subtitle": "Give her the gift of radiance — a luxury IV drip wellness experience delivered by a registered nurse",
+      "description": "Looking for a unique birthday gift in Prague? The Glow IV Drip is a premium wellness experience that combines beauty-boosting nutrients with immune recovery support. A registered nurse comes to her hotel, home, or Airbnb — the most thoughtful and original birthday gift in Prague. Perfect for girlfriends, wives, mothers, and colleagues.",
+      "cta": "Order Birthday Voucher",
+      "ctaSecondary": "See What's Included",
+      "trustBadges": {
+        "nurses": "Licensed Nurses",
+        "rating": "4.9★ Google Rating",
+        "available": "7 Days a Week",
+        "districts": "All Prague Districts"
+      }
+    },
+    "benefits": {
+      "title": "Why This Is the Best Birthday Gift in Prague",
+      "subtitle": "Not flowers. Not chocolate. A premium wellness experience she'll never forget.",
+      "items": {
+        "unique": {
+          "title": "Truly Unique Gift",
+          "description": "Stand out with an original birthday experience — a luxury IV drip that combines beauty and health. Unlike anything she's received before."
+        },
+        "luxury": {
+          "title": "Luxury Experience",
+          "description": "Professional IV therapy with skin-glow nutrients, delivered in the comfort of her home or hotel room. A birthday spa without leaving home."
+        },
+        "health": {
+          "title": "Health & Beauty",
+          "description": "Microelements for radiant skin and hair, combined with immune support vitamins and trace elements. She'll feel and look amazing."
+        },
+        "professional": {
+          "title": "Registered Nurse",
+          "description": "Administered by a certified medical professional. Safe, comfortable, and expertly done. Full health screening included."
+        },
+        "convenient": {
+          "title": "We Come to Her",
+          "description": "Mobile service across all Prague districts. Hotel, home, or Airbnb — the nurse comes to her at a time that suits her schedule."
+        },
+        "voucher": {
+          "title": "Gift Voucher",
+          "description": "Beautiful digital voucher she can redeem at her convenience. Valid for 3 months from purchase. Add a personal birthday message."
+        }
+      }
+    },
+    "included": {
+      "title": "What's Included in the Glow IV Drip",
+      "subtitle": "A complete premium wellness experience — everything included, no hidden fees.",
+      "items": [
+        "Glow & Post-Flu IV drip session (60 minutes)",
+        "Microelements for skin & hair rejuvenation",
+        "Immune support nutrients and trace vitamins",
+        "Registered nurse visit to her location",
+        "All sterile medical equipment included",
+        "Pre-session health screening",
+        "Post-treatment wellness guidance",
+        "Beautiful digital birthday gift voucher"
+      ],
+      "learnMore": "See our full IV drips menu"
+    },
+    "experience": {
+      "title": "A Unique Birthday Experience in Prague",
+      "subtitle": "Imagine her surprise when she discovers a premium wellness session waiting for her.",
+      "steps": {
+        "step1": {
+          "title": "She receives the voucher",
+          "description": "A beautiful digital birthday gift card arrives with your personal message."
+        },
+        "step2": {
+          "title": "She books her session",
+          "description": "She chooses her preferred date, time, and location anywhere in Prague."
+        },
+        "step3": {
+          "title": "A nurse arrives",
+          "description": "A registered nurse comes to her with everything needed for the session."
+        },
+        "step4": {
+          "title": "60 minutes of glow",
+          "description": "She relaxes while nutrients replenish her skin, hair, and immune system."
+        }
+      }
+    },
+    "voucher": {
+      "title": "Birthday Gift Voucher Details",
+      "validity": "Valid for 3 months from purchase",
+      "redeemable": "Redeemable any day, 8:00–22:00",
+      "transferable": "Fully transferable to another person",
+      "personalized": "Add your personal birthday message",
+      "instant": "Delivered instantly via email"
+    },
+    "pricing": {
+      "title": "Premium Birthday Gift",
+      "subtitle": "The best birthday gift for girlfriend, wife, mother, or any special woman in your life.",
+      "price": "3,650",
+      "currency": "CZK",
+      "approximateEur": "~€148",
+      "perSession": "per session",
+      "ctaWhatsApp": "Order via WhatsApp",
+      "ctaCall": "Call to Order",
+      "includes": "Everything included. No hidden fees.",
+      "guarantee": "Satisfaction guaranteed"
+    },
+    "testimonials": {
+      "title": "What Birthday Gift-Givers Say",
+      "items": {
+        "t1": {
+          "text": "I ordered this for my girlfriend's birthday and she absolutely loved it. She said it was the most original and thoughtful gift she ever received.",
+          "author": "Tomáš H.",
+          "location": "Prague 3"
+        },
+        "t2": {
+          "text": "Wanted something special for my wife's 40th birthday. This was perfect — she felt pampered and refreshed. Way better than another piece of jewelry.",
+          "author": "James R.",
+          "location": "Prague 6"
+        },
+        "t3": {
+          "text": "Bought this for my colleague's birthday from our team. She was blown away. The nurse was professional and the whole experience was first-class.",
+          "author": "Lucie M.",
+          "location": "Vinohrady"
+        }
+      }
+    },
+    "corporate": {
+      "title": "Corporate & Team Birthday Gifts",
+      "subtitle": "Looking for a unique way to celebrate team members' birthdays? Our Glow IV Drip vouchers make the perfect corporate wellness benefit.",
+      "benefits": [
+        "Bulk voucher discounts for 5+ orders",
+        "Branded digital vouchers with your company logo",
+        "Flexible redemption — employees choose their date",
+        "Wellness benefit that shows you care about your team",
+        "Invoice billing available for companies"
+      ],
+      "cta": "Contact Us for Corporate Orders"
+    },
+    "howToOrder": {
+      "title": "How to Order",
+      "subtitle": "Three simple steps to the perfect birthday gift.",
+      "steps": {
+        "step1": {
+          "title": "Contact us",
+          "description": "WhatsApp, call, or email — tell us it's a birthday gift and share any personal message."
+        },
+        "step2": {
+          "title": "Receive the voucher",
+          "description": "We send you a beautiful digital birthday gift voucher to forward to the birthday person."
+        },
+        "step3": {
+          "title": "She books & enjoys",
+          "description": "She chooses her date and enjoys the premium wellness experience at her convenience."
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "q1": {
+          "question": "Is the Glow IV Drip a real medical treatment?",
+          "answer": "Yes. The Glow & Post-Flu IV drip is a professional IV infusion administered by a registered nurse. It contains medically-approved microelements, trace vitamins, and immune support nutrients. All treatments follow strict medical protocols."
+        },
+        "q2": {
+          "question": "How does the birthday gift voucher work?",
+          "answer": "After you place your order, we send you a digital gift voucher with a unique code and your personal birthday message. You forward it to the recipient. She contacts us to book her preferred date, time, and location in Prague. It's that simple."
+        },
+        "q3": {
+          "question": "Can I book for a specific birthday date?",
+          "answer": "Absolutely. You can either pre-book for the exact birthday date or purchase an open voucher she can redeem anytime within 3 months."
+        },
+        "q4": {
+          "question": "Is the IV drip safe?",
+          "answer": "Completely. All treatments are administered by certified registered nurses using sterile, single-use medical equipment. We conduct a brief health screening before every session."
+        },
+        "q5": {
+          "question": "What if she's never had an IV before?",
+          "answer": "No problem! Our nurses are experienced and gentle. The procedure is very comfortable and takes about 60 minutes while she can relax, read, or watch something."
+        },
+        "q6": {
+          "question": "Can I add extras to the birthday gift?",
+          "answer": "The Glow IV Drip is a complete experience on its own, but we can coordinate with local flower delivery or champagne services to make it even more special. Just ask when ordering."
+        },
+        "q7": {
+          "question": "Do you deliver to hotels and Airbnbs?",
+          "answer": "Yes! We serve all Prague districts including hotels, Airbnbs, private homes, and offices. The nurse brings all necessary equipment."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Make Her Birthday Unforgettable",
+      "description": "Order the premium birthday wellness gift voucher now. Available year-round, 7 days a week.",
       "whatsapp": "Order via WhatsApp",
       "email": "info@nius.cz"
     }

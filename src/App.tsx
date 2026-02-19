@@ -16,6 +16,7 @@ import SestrickaPrahaVinohrady from "./pages/SestrickaPrahaVinohrady";
 import SestrickaPraha1 from "./pages/SestrickaPraha1";
 import SestrickaPrahaZizkov from "./pages/SestrickaPrahaZizkov";
 import WomensDayGift from "./pages/WomensDayGift";
+import BirthdayGift from "./pages/BirthdayGift";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -72,6 +73,11 @@ const App = () => (
             <Route path="/darek-8-brezna" element={<LanguageWrapper language="cs"><WomensDayGift /></LanguageWrapper>} />
             <Route path="/en/womens-day-gift-prague" element={<LanguageWrapper language="en"><WomensDayGift /></LanguageWrapper>} />
             <Route path="/ru/podarok-na-8-marta" element={<LanguageWrapper language="ru"><WomensDayGift /></LanguageWrapper>} />
+
+            {/* Birthday Gift - Localized slugs */}
+            <Route path="/narozeninovy-darek-praha" element={<LanguageWrapper language="cs"><BirthdayGift /></LanguageWrapper>} />
+            <Route path="/en/birthday-gift-prague" element={<LanguageWrapper language="en"><BirthdayGift /></LanguageWrapper>} />
+            <Route path="/ru/podatok-k-dnju-rozhdenija-praga" element={<LanguageWrapper language="ru"><BirthdayGift /></LanguageWrapper>} />
 
             {/* 301-style redirects: old IV drip therapy URL → new IV drips URL */}
             <Route path="/iv-drip-therapy-prague" element={<Navigate to="/iv-drips-prague" replace />} />

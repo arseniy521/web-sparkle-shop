@@ -318,7 +318,8 @@
     "ivDrip": "IV Kapačková terapie",
     "postSurgery": "Rekonvalescence po operaci",
     "disabled": "Denní komfortní péče",
-    "womensDayGift": "Dárek na 8. března"
+    "womensDayGift": "Dárek na 8. března",
+    "birthdayGift": "Dárek k narozeninám"
   },
   "ivfSupport": {
     "seo": {
@@ -808,6 +809,204 @@
       "description": "Objednejte prémiový wellness dárkový voucher. Omezená dostupnost kolem 8. března.",
       "cta": "Objednat dárkový voucher",
       "phone": "+420773629123",
+      "whatsapp": "Objednat přes WhatsApp",
+      "email": "info@nius.cz"
+    }
+  },
+  "birthdayGift": {
+    "seo": {
+      "title": "Dárek k narozeninám Praha | Prémiový wellness zážitek s IV kapačkou",
+      "description": "Nejlepší narozeninový dárek v Praze — wellness zážitek Glow IV Drip za 3 650 Kč. Luxusní IV terapie aplikovaná registrovanou sestrou v hotelu nebo doma. Objednejte narozeninový dárkový voucher.",
+      "keywords": "dárek k narozeninám Praha, nejlepší narozeninový dárek Praha, unikátní narozeninový zážitek Praha, prémiový wellness dárek Praha, IV kapačka dárek Praha, dárek k narozeninám pro přítelkyni Praha, dárek k narozeninám pro manželku Praha"
+    },
+    "breadcrumb": "Dárek k narozeninám",
+    "hero": {
+      "badge": "Prémiový narozeninový zážitek",
+      "title": "Nejlepší narozeninový dárek v Praze",
+      "subtitle": "Darujte jí dar zářivé krásy — luxusní wellness zážitek s IV kapačkou aplikovanou registrovanou sestrou",
+      "description": "Hledáte unikátní narozeninový dárek v Praze? Glow IV Drip je prémiový wellness zážitek, který kombinuje živiny pro krásu s podporou imunity. Registrovaná sestra přijede do hotelu, bytu nebo Airbnb — ten nejpozornější a nejoriginálnější narozeninový dárek v Praze. Ideální pro přítelkyně, manželky, maminky i kolegyně.",
+      "cta": "Objednat narozeninový voucher",
+      "ctaSecondary": "Co je zahrnuto",
+      "trustBadges": {
+        "nurses": "Licencované sestry",
+        "rating": "4.9★ hodnocení na Google",
+        "available": "7 dní v týdnu",
+        "districts": "Všechny pražské obvody"
+      }
+    },
+    "benefits": {
+      "title": "Proč je to nejlepší narozeninový dárek v Praze",
+      "subtitle": "Žádné květiny. Žádná čokoláda. Prémiový wellness zážitek, na který nikdy nezapomene.",
+      "items": {
+        "unique": {
+          "title": "Skutečně originální dárek",
+          "description": "Vynikněte s originálním narozeninovým zážitkem — luxusní IV kapačka, která spojuje krásu a zdraví. Něco, co ještě nikdy nedostala."
+        },
+        "luxury": {
+          "title": "Luxusní zážitek",
+          "description": "Profesionální IV terapie s živinami pro zářivou pleť, aplikovaná v pohodlí jejího domova nebo hotelového pokoje. Narozeninové lázně bez odchodu z domu."
+        },
+        "health": {
+          "title": "Zdraví a krása",
+          "description": "Mikroelementy pro zářivou pleť a vlasy v kombinaci s vitamíny a stopovými prvky pro podporu imunity. Bude se cítit i vypadat úžasně."
+        },
+        "professional": {
+          "title": "Registrovaná sestra",
+          "description": "Aplikováno certifikovanou zdravotní sestrou. Bezpečně, pohodlně a odborně. Včetně vstupního zdravotního screeningu."
+        },
+        "convenient": {
+          "title": "Přijedeme za ní",
+          "description": "Mobilní služba po celé Praze. Hotel, byt nebo Airbnb — sestra přijede v čase, který jí vyhovuje."
+        },
+        "voucher": {
+          "title": "Dárkový voucher",
+          "description": "Krásný digitální voucher, který může využít, kdy se jí to hodí. Platnost 3 měsíce od zakoupení. Přidejte osobní narozeninové přání."
+        }
+      }
+    },
+    "included": {
+      "title": "Co zahrnuje Glow IV Drip",
+      "subtitle": "Kompletní prémiový wellness zážitek — vše v ceně, žádné skryté poplatky.",
+      "items": [
+        "Glow & Post-Flu IV kapačka (60 minut)",
+        "Mikroelementy pro omlazení pleti a vlasů",
+        "Živiny pro podporu imunity a stopové vitamíny",
+        "Návštěva registrované sestry na vámi zvoleném místě",
+        "Veškerý sterilní zdravotnický materiál v ceně",
+        "Zdravotní screening před zahájením",
+        "Poradenství pro zdravý životní styl po ošetření",
+        "Krásný digitální narozeninový dárkový voucher"
+      ],
+      "learnMore": "Prohlédněte si naši kompletní nabídku IV kapačkek"
+    },
+    "experience": {
+      "title": "Unikátní narozeninový zážitek v Praze",
+      "subtitle": "Představte si její překvapení, když zjistí, že na ni čeká prémiová wellness procedura.",
+      "steps": {
+        "step1": {
+          "title": "Obdrží voucher",
+          "description": "Krásná digitální narozeninová dárková karta dorazí s vaším osobním přáním."
+        },
+        "step2": {
+          "title": "Rezervuje si termín",
+          "description": "Vybere si preferované datum, čas a místo kdekoli v Praze."
+        },
+        "step3": {
+          "title": "Přijede sestra",
+          "description": "Registrovaná sestra dorazí se vším potřebným pro proceduru."
+        },
+        "step4": {
+          "title": "60 minut záře",
+          "description": "Relaxuje, zatímco živiny obnovují její pleť, vlasy a imunitní systém."
+        }
+      }
+    },
+    "voucher": {
+      "title": "Podrobnosti o narozeninovém dárkovém voucheru",
+      "validity": "Platnost 3 měsíce od zakoupení",
+      "redeemable": "Využitelný každý den, 8:00–22:00",
+      "transferable": "Plně přenosný na jinou osobu",
+      "personalized": "Přidejte své osobní narozeninové přání",
+      "instant": "Doručen okamžitě e-mailem"
+    },
+    "pricing": {
+      "title": "Prémiový narozeninový dárek",
+      "subtitle": "Nejlepší narozeninový dárek pro přítelkyni, manželku, maminku nebo jakoukoli výjimečnou ženu ve vašem životě.",
+      "price": "3,650",
+      "currency": "CZK",
+      "approximateEur": "~€148",
+      "perSession": "za proceduru",
+      "ctaWhatsApp": "Objednat přes WhatsApp",
+      "ctaCall": "Zavolat a objednat",
+      "includes": "Vše v ceně. Žádné skryté poplatky.",
+      "guarantee": "Garance spokojenosti"
+    },
+    "testimonials": {
+      "title": "Co říkají ti, kdo darovali narozeninový dárek",
+      "items": {
+        "t1": {
+          "text": "Objednal jsem to pro svou přítelkyni k narozeninám a byla nadšená. Řekla, že je to ten nejoriginálnější a nejpozornější dárek, jaký kdy dostala.",
+          "author": "Tomáš H.",
+          "location": "Praha 3"
+        },
+        "t2": {
+          "text": "Chtěl jsem něco výjimečného ke čtyřicátinám mé ženy. Tohle bylo perfektní — cítila se hýčkaná a odpočatá. Mnohem lepší než další šperk.",
+          "author": "James R.",
+          "location": "Praha 6"
+        },
+        "t3": {
+          "text": "Koupili jsme to kolegyni k narozeninám od celého týmu. Byla u vytržení. Sestra byla profesionální a celý zážitek byl prvotřídní.",
+          "author": "Lucie M.",
+          "location": "Vinohrady"
+        }
+      }
+    },
+    "corporate": {
+      "title": "Firemní a týmové narozeninové dárky",
+      "subtitle": "Hledáte originální způsob, jak oslavit narozeniny členů týmu? Naše vouchery na Glow IV Drip jsou ideálním firemním wellness benefitem.",
+      "benefits": [
+        "Množstevní slevy na vouchery při objednávce 5 a více",
+        "Digitální vouchery s logem vaší společnosti",
+        "Flexibilní využití — zaměstnanci si zvolí svůj termín",
+        "Wellness benefit, který ukazuje, že vám na vašem týmu záleží",
+        "Fakturace pro firmy k dispozici"
+      ],
+      "cta": "Kontaktujte nás ohledně firemních objednávek"
+    },
+    "howToOrder": {
+      "title": "Jak objednat",
+      "subtitle": "Tři jednoduché kroky k dokonalému narozeninovému dárku.",
+      "steps": {
+        "step1": {
+          "title": "Kontaktujte nás",
+          "description": "WhatsApp, telefon nebo e-mail — řekněte nám, že jde o narozeninový dárek, a sdělte nám případné osobní přání."
+        },
+        "step2": {
+          "title": "Obdržíte voucher",
+          "description": "Pošleme vám krásný digitální narozeninový dárkový voucher, který předáte oslavenci."
+        },
+        "step3": {
+          "title": "Rezervuje si a užije si to",
+          "description": "Vybere si termín a užije si prémiový wellness zážitek, kdy se jí to hodí."
+        }
+      }
+    },
+    "faq": {
+      "title": "Často kladené dotazy",
+      "items": {
+        "q1": {
+          "question": "Je Glow IV Drip skutečný lékařský zákrok?",
+          "answer": "Ano. Glow & Post-Flu IV kapačka je profesionální infuze aplikovaná registrovanou sestrou. Obsahuje lékařsky schválené mikroelementy, stopové vitamíny a živiny pro podporu imunity. Všechny procedury probíhají podle přísných zdravotnických protokolů."
+        },
+        "q2": {
+          "question": "Jak funguje narozeninový dárkový voucher?",
+          "answer": "Po zadání objednávky vám pošleme digitální dárkový voucher s unikátním kódem a vaším osobním narozeninovým přáním. Voucher předáte obdarované. Ta nás kontaktuje a zarezervuje si preferované datum, čas a místo v Praze. Je to tak jednoduché."
+        },
+        "q3": {
+          "question": "Mohu rezervovat na konkrétní den narozenin?",
+          "answer": "Samozřejmě. Můžete buď předem zarezervovat přímo na den narozenin, nebo zakoupit otevřený voucher, který lze využít kdykoli do 3 měsíců."
+        },
+        "q4": {
+          "question": "Je IV kapačka bezpečná?",
+          "answer": "Naprosto. Všechny procedury provádějí certifikované registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každou procedurou provádíme krátký zdravotní screening."
+        },
+        "q5": {
+          "question": "Co když nikdy neměla IV kapačku?",
+          "answer": "Žádný problém! Naše sestry jsou zkušené a šetrné. Procedura je velmi příjemná a trvá přibližně 60 minut, během kterých si může číst, relaxovat nebo sledovat něco na mobilu."
+        },
+        "q6": {
+          "question": "Mohu k narozeninovému dárku přidat něco navíc?",
+          "answer": "Glow IV Drip je sám o sobě kompletní zážitek, ale můžeme zajistit koordinaci s místní donáškovou službou květin nebo šampaňského, aby byl dárek ještě výjimečnější. Stačí zmínit při objednávce."
+        },
+        "q7": {
+          "question": "Přijedete i do hotelu nebo Airbnb?",
+          "answer": "Ano! Obsluhujeme všechny pražské obvody včetně hotelů, Airbnb, soukromých bytů a kanceláří. Sestra přiveze veškeré potřebné vybavení."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Udělejte její narozeniny nezapomenutelné",
+      "description": "Objednejte prémiový narozeninový wellness dárkový voucher. K dispozici celoročně, 7 dní v týdnu.",
       "whatsapp": "Objednat přes WhatsApp",
       "email": "info@nius.cz"
     }

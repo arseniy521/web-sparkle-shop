@@ -47,6 +47,9 @@ const localizedSlugMap: Record<string, Record<string, string>> = {
   '/womens-day-gift-prague': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
   '/darek-8-brezna': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
   '/podarok-na-8-marta': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
+  '/birthday-gift-prague': { cs: '/narozeninovy-darek-praha', en: '/en/birthday-gift-prague', ru: '/ru/podatok-k-dnju-rozhdenija-praga' },
+  '/narozeninovy-darek-praha': { cs: '/narozeninovy-darek-praha', en: '/en/birthday-gift-prague', ru: '/ru/podatok-k-dnju-rozhdenija-praga' },
+  '/podatok-k-dnju-rozhdenija-praga': { cs: '/narozeninovy-darek-praha', en: '/en/birthday-gift-prague', ru: '/ru/podatok-k-dnju-rozhdenija-praga' },
 };
 
 // Get localized URL for pages with different slugs per language
