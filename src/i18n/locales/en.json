@@ -321,66 +321,183 @@
     "womensDayGift": "Women's Day Gift"
   },
   "ivfSupport": {
-    "badge": "Specialized IVF Care in Prague",
-    "title": "Professional IVF Injection Support at Your Prague Hotel",
-    "description": "Time-sensitive fertility medication administration by experienced English-speaking nurses. We come to your hotel, Airbnb, or home anywhere in Prague - day or night.",
-    "bookNow": "Book IVF Support Now",
+    "seo": {
+      "title": "IVF Support Prague | Injections, Intralipid & NK Cell Treatment",
+      "description": "Professional IVF support in Prague: fertility injections, Intralipid infusions, NK cell treatment, and wellness IV drips at your hotel. English-speaking nurses available 24/7. Trusted by 500+ IVF patients from Reprofit, ISCARE, Gennet.",
+      "keywords": "ivf prague, ivf support prague, ivf injections prague, intralipid prague, nk cell treatment prague, fertility injections prague, ivf nurse prague"
+    },
+    "badge": "Trusted IVF Support in Prague",
+    "title": "IVF Support Prague — Injections, Intralipid & Wellness IV Drips",
+    "subtitle": "Your fertility journey deserves expert nursing support",
+    "description": "Professional IVF support in Prague by experienced English-speaking nurses. We administer fertility injections, Intralipid infusions for NK cell treatment, and wellness IV drips — at your hotel, Airbnb, or home, day or night.",
+    "bookNow": "Book IVF Support",
     "call247": "Call 24/7: +420 773 629 123",
+    "whatsapp": "WhatsApp Us",
     "available247": "24/7 Available",
     "licensedNurses": "Licensed Nurses",
-    "patientsServed": "200+ IVF Patients Served",
-    "whyChoose": "Why IVF Patients Flying to Prague Choose Our Service",
-    "benefits": {
-      "timing": "Time-sensitive injection administration (any hour)",
-      "experienced": "Experienced with fertility medications",
-      "english": "English-speaking nurses familiar with IVF protocols",
-      "location": "Hotel and Airbnb visits throughout Prague",
-      "coordination": "Coordination with your fertility clinic",
-      "discreet": "Discreet, professional service",
-      "sameDay": "Same-day availability",
-      "flexible": "Evening and weekend appointments"
+    "patientsServed": "500+ IVF Patients Served",
+    "whyMatters": {
+      "title": "Why Professional IVF Support Matters in Prague",
+      "description": "Thousands of women travel to Prague each year for IVF treatment at world-class clinics like Reprofit, ISCARE, and Gennet. But once you leave the clinic, you still need a qualified nurse to administer daily injections, Intralipid infusions, and other medications — on time, every time.",
+      "points": [
+        "Fertility medications like Gonal-F, Menopur, and Cetrotide require precise timing and correct technique",
+        "Intralipid infusions for NK cell treatment must be administered by a trained nurse with IV experience",
+        "Trigger shots often need to be given at exact times — including 5 AM or late at night",
+        "Having a nurse come to your hotel removes stress and lets you focus on your treatment"
+      ]
     },
-    "pricing": {
-      "title": "Прозрачные цены",
-      "singlePrice": "1 890 CZK",
-      "single": "Разовая инъекция",
-      "singleDesc": "Идеально для разовых потребностей или пробы услуги",
-      "eveningPrice": "1 700 CZK",
-      "evening": "2+ инъекций (скидка 10%)",
-      "eveningDesc": "Льготная цена для нескольких инъекций в течение цикла",
-      "packagePrice": "8 450 CZK",
-      "package": "Пакет из 5 инъекций",
-      "packageDesc": "Для полного цикла ЭКО (фаза стимуляции)",
-      "save": "сэкономьте 1 000 CZK",
-      "includes": "All nursing supplies, travel to your location in Prague, professional administration, and coordination with your clinic if needed.",
-      "bookButton": "Book Your IVF Support"
+    "services": {
+      "title": "Our IVF Support Services in Prague",
+      "medication": {
+        "name": "Medication Administration",
+        "subtitle": "Stimulation & Progesterone Injections",
+        "description": "Subcutaneous and intramuscular injections of all IVF medications: Gonal-F, Menopur, Cetrotide, Orgalutran, trigger shots (Ovitrelle, Decapeptyl), and progesterone in oil. Precise timing guaranteed.",
+        "price": "1,890 CZK",
+        "duration": "~15 min",
+        "benefits": [
+          "All subcutaneous & intramuscular injections",
+          "Trigger shots at any hour (including 5 AM)",
+          "Medication verification & correct dosage",
+          "Sterile supplies & sharps disposal included"
+        ],
+        "cta": "Book Injection Visit"
+      },
+      "intralipid": {
+        "name": "Intralipid Infusions",
+        "subtitle": "NK Cell Support for Implantation",
+        "description": "Intralipid IV infusion is used to suppress elevated Natural Killer (NK) cells that may interfere with embryo implantation. Our nurses are experienced with fertility clinic protocols for Intralipid therapy in Prague.",
+        "price": "Contact for quote",
+        "duration": "30–45 min",
+        "benefits": [
+          "NK cell suppression for improved implantation",
+          "Administered by IV-experienced nurses",
+          "Coordinated with your fertility clinic protocol",
+          "Comfortable administration at your location"
+        ],
+        "cta": "Inquire About Intralipid"
+      },
+      "wellness": {
+        "name": "Wellness IV Drips",
+        "subtitle": "Fertility-Focused: Glutathione, NAD+, Vitamin C",
+        "description": "Support your body during IVF with targeted IV drip therapy. Glutathione for egg quality, NAD+ for cellular energy, and Vitamin C for immune support — all administered at your hotel or home in Prague.",
+        "price": "from 1,290 CZK",
+        "duration": "20–30 min",
+        "benefits": [
+          "Glutathione for antioxidant & egg quality support",
+          "NAD+ for cellular energy and recovery",
+          "Vitamin C & B-complex for immune support",
+          "Combine with your IVF injection visit"
+        ],
+        "cta": "See IV Drip Menu"
+      }
+    },
+    "benefits": {
+      "title": "Why Choose Our IVF Support in Prague",
+      "items": [
+        "Precise, time-sensitive injection administration — any hour, any day",
+        "Experienced with all IVF medications: Gonal-F, Menopur, Cetrotide, progesterone",
+        "English-speaking nurses familiar with international IVF clinic protocols",
+        "Intralipid infusions and NK cell treatment support",
+        "Hotel, Airbnb, and home visits throughout Prague",
+        "Direct coordination with Reprofit, ISCARE, Gennet, and other clinics",
+        "Discreet, compassionate service for fertility patients",
+        "Same-day and emergency availability",
+        "Wellness IV drips (Glutathione, NAD+, Vitamin C) to complement your cycle",
+        "Flexible evening, weekend, and early morning appointments"
+      ]
     },
     "howItWorks": {
-      "title": "How IVF Injection Support Works",
-      "step1Title": "Book Online or Call",
-      "step1Desc": "Schedule your injection time - even last-minute requests accepted. Provide your hotel/accommodation address.",
-      "step2Title": "Nurse Arrives at Your Location",
-      "step2Desc": "English-speaking nurse arrives with all supplies. We come to your hotel room, Airbnb, or home.",
-      "step3Title": "Professional Administration",
-      "step3Desc": "Nurse administers your fertility medication following your clinic's protocol. Typical visit: 15-20 minutes."
+      "title": "How IVF Support Works in Prague",
+      "step1": {
+        "title": "Book Online, Call, or WhatsApp",
+        "description": "Share your injection schedule, medication details, and Prague accommodation address. We confirm everything within minutes."
+      },
+      "step2": {
+        "title": "Nurse Arrives at Your Location",
+        "description": "An experienced, English-speaking nurse arrives at your hotel room, Airbnb, or home with all sterile supplies — on time, every time."
+      },
+      "step3": {
+        "title": "Professional Administration & Support",
+        "description": "Your nurse administers medication following your clinic's exact protocol, verifies dosage, and disposes of sharps safely. Typical visit: 15–20 minutes."
+      }
+    },
+    "testimonials": {
+      "title": "What IVF Patients Say About Us",
+      "items": [
+        {
+          "text": "I was so nervous about doing my own injections at the hotel. The nurse came every evening at exactly the right time and was incredibly gentle. I could finally relax and focus on my treatment.",
+          "author": "Emily R.",
+          "context": "IVF cycle at ISCARE, stayed at hotel in Prague 2"
+        },
+        {
+          "text": "My clinic prescribed Intralipid infusions for elevated NK cells. Finding a nurse in Prague who could do this at my Airbnb was a lifesaver. Professional, kind, and punctual.",
+          "author": "Sarah M.",
+          "context": "Intralipid treatment, Reprofit patient"
+        },
+        {
+          "text": "Needed a 5 AM trigger shot and they actually showed up at 4:55. That level of reliability during IVF is priceless. I've recommended them to everyone in my fertility group.",
+          "author": "Jessica K.",
+          "context": "IVF cycle at Gennet, early morning trigger shot"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "IVF Support Pricing in Prague",
+      "note": "All prices include travel within Prague, sterile supplies, sharps disposal, and coordination with your clinic. No hidden fees."
     },
     "faq": {
-      "title": "IVF Patient Questions",
-      "q1": "Can you do injections at specific times like 8 PM?",
-      "a1": "Yes! We understand IVF timing is critical. We offer evening appointments and can accommodate specific timing requirements for trigger shots and other time-sensitive medications.",
-      "q2": "Do you work with major Prague IVF clinics?",
-      "a2": "Yes, we've worked with patients from Reprofit, ISCARE, Gennet, and other Prague fertility clinics. We're familiar with standard IVF protocols and can coordinate with your clinic if needed.",
-      "q3": "What if I'm staying in a hotel?",
-      "a3": "Perfect! We visit hotels and Airbnb accommodations throughout Prague. Just provide your hotel name and room number when booking.",
-      "q4": "How do I pay?",
-      "a4": "We accept cash (CZK or EUR), bank transfer, or card payment. Payment is collected after service."
+      "title": "IVF Support in Prague — Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What is Intralipid infusion and why is it used in IVF?",
+          "answer": "Intralipid is an intravenous fat emulsion used to suppress elevated Natural Killer (NK) cells in the uterus. Some fertility specialists in Prague prescribe Intralipid infusions before embryo transfer to improve implantation rates. Our nurses are experienced in administering Intralipid therapy at your hotel or home in Prague, following your clinic's protocol."
+        },
+        {
+          "question": "What is NK cell treatment for fertility?",
+          "answer": "NK (Natural Killer) cell treatment aims to reduce overactive immune cells that may attack an implanting embryo. The most common treatment is Intralipid infusion, which is administered intravenously. Prague fertility clinics like Reprofit and ISCARE may prescribe NK cell testing and subsequent Intralipid therapy as part of your IVF protocol. We administer these infusions at your location in Prague."
+        },
+        {
+          "question": "Why is injection timing critical during IVF?",
+          "answer": "IVF medications must be administered at precise times to synchronize follicle growth and ovulation. Even a 30-minute deviation can affect your cycle. Trigger shots (Ovitrelle, Decapeptyl) are particularly time-sensitive, often prescribed at unusual hours. Our nurses guarantee on-time arrival for every injection."
+        },
+        {
+          "question": "Can you come at 5 AM for a trigger shot?",
+          "answer": "Yes! We offer 24/7 availability specifically because IVF timing demands it. Whether your trigger shot is at 5 AM, 11 PM, or any other time, our nurse will be at your door on time. We've done thousands of early-morning and late-night IVF visits."
+        },
+        {
+          "question": "Do you work with Prague IVF clinics like Reprofit, ISCARE, Gennet?",
+          "answer": "Yes. We regularly support patients from Reprofit, ISCARE, Gennet, Pronatal, and other Prague fertility clinics. We're familiar with their standard protocols for stimulation, trigger shots, and Intralipid therapy. We can coordinate directly with your clinic if needed."
+        },
+        {
+          "question": "What fertility medications can you administer?",
+          "answer": "We administer all common IVF medications: Gonal-F, Menopur, Cetrotide, Orgalutran, Decapeptyl, Ovitrelle (trigger shots), progesterone in oil (intramuscular), Clexane, and more. Both subcutaneous and intramuscular injections. We verify medication, dosage, and timing before every administration."
+        },
+        {
+          "question": "What IVF support services do you offer in Prague?",
+          "answer": "We offer three core IVF support services: (1) Medication administration — all fertility injections including stimulation drugs and trigger shots; (2) Intralipid infusions — IV therapy for NK cell suppression before embryo transfer; (3) Wellness IV drips — Glutathione, NAD+, and Vitamin C drips to support your body during IVF. All services are available at your hotel, Airbnb, or home in Prague."
+        },
+        {
+          "question": "How much do IVF injections cost in Prague?",
+          "answer": "A single IVF injection visit costs 1,890 CZK, which includes the nurse visit, all sterile supplies, sharps disposal, and travel anywhere in Prague. For multiple injections during your cycle, we offer a 10% discount (1,700 CZK per visit). Intralipid infusions are quoted individually based on your clinic's protocol. Contact us for a personalized quote."
+        },
+        {
+          "question": "Can you administer Glutathione or NAD+ IV drips during IVF?",
+          "answer": "Yes! Many IVF patients add wellness IV drips to support their cycle. Glutathione is popular for its antioxidant properties and potential egg quality benefits. NAD+ supports cellular energy. Vitamin C boosts immunity. These can be combined with your injection visit for convenience. See our full IV drip menu for options and pricing."
+        },
+        {
+          "question": "What if I'm staying at a hotel?",
+          "answer": "Hotel visits are our specialty! We serve all Prague hotels, Airbnb apartments, and short-term rentals. Simply provide your hotel name, room number, and preferred time. The nurse arrives discreetly with all necessary supplies. No need to leave your room or arrange transport to a clinic."
+        }
+      ]
     },
     "cta": {
-      "title": "Ready to Book Your IVF Injection Support?",
-      "description": "Don't stress about injection timing during your IVF cycle. Our experienced nurses are here to help.",
+      "title": "Ready to Book Your IVF Support in Prague?",
+      "description": "Don't stress about injection timing, Intralipid infusions, or finding a nurse in Prague. We're here for you — 24/7, at your location.",
       "bookOnline": "Book Online Now",
-      "call": "Call: +420 773 629 123"
-    }
+      "call": "Call: +420 773 629 123",
+      "whatsapp": "WhatsApp: +420 773 629 123"
+    },
+    "breadcrumb": "IVF Support Prague"
   },
   "postSurgeryCare": {
     "badge": "Medical Tourism Support in Prague",

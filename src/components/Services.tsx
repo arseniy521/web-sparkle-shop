@@ -28,7 +28,7 @@ export const Services = () => {
       title: t('services.injection.title'),
       description: t('services.injection.description'),
       alt: 'Home nurse Prague providing injections - IVF, insulin, antibiotics',
-      href: `${langPrefix}/ivf-injection-support-prague`
+      href: `${langPrefix}/ivf-support-prague`
     },
     {
       image: woundCareIcon,

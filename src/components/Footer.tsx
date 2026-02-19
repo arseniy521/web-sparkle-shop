@@ -67,7 +67,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to={`${langPrefix}/ivf-injection-support-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to={`${langPrefix}/ivf-support-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   {t('services.injection.title')}
                 </Link>
               </li>

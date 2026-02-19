@@ -56,7 +56,7 @@ const NotFound = () => {
               {t('notFound.help')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center text-sm">
-              <Link to={`${langPrefix}/ivf-injection-support-prague`} className="text-primary hover:underline">
+              <Link to={`${langPrefix}/ivf-support-prague`} className="text-primary hover:underline">
                 {t('specializedServices.ivf')}
               </Link>
               <Link to={`${langPrefix}/iv-drips-prague`} className="text-primary hover:underline">

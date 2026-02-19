@@ -785,7 +785,7 @@ const IVDripsPrague = () => {
                     <p className="text-muted-foreground leading-relaxed">
                       All IV drips in Prague administered by <strong>registered nurses with hospital experience</strong>.
                       Sterile equipment, proper monitoring, medical protocols. We also provide{" "}
-                      <Link to="/ivf-injection-support-prague" className="text-primary hover:underline font-medium">
+                      <Link to="/ivf-support-prague" className="text-primary hover:underline font-medium">
                         IVF injection support
                       </Link>{" "}
                       and{" "}

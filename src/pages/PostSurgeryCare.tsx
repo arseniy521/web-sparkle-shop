@@ -300,7 +300,7 @@ const PostSurgeryCare = () => {
                   <li>• Any procedure requiring aftercare</li>
                 </ul>
                 <p className="text-sm text-muted-foreground mt-4">
-                  Need specialized support? We also offer <Link to="/disabled-daily-care-prague" className="text-primary hover:underline">daily care for disabled patients</Link> and <Link to="/ivf-injection-support-prague" className="text-primary hover:underline">IVF injection support Prague</Link>.
+                  Need specialized support? We also offer <Link to="/disabled-daily-care-prague" className="text-primary hover:underline">daily care for disabled patients</Link> and <Link to="/ivf-support-prague" className="text-primary hover:underline">IVF support Prague</Link>.
                 </p>
               </Card>
             </div>

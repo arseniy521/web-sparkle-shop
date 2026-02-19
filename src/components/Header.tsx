@@ -58,7 +58,7 @@ export const Header = () => {
   const womensDayGiftHref = getLocalizedUrl('/womens-day-gift-prague', currentLang) || '/en/womens-day-gift-prague';
 
   const serviceLinks = [
-    { href: `${langPrefix}/ivf-injection-support-prague`, label: t('specializedServices.ivf') },
+    { href: `${langPrefix}/ivf-support-prague`, label: t('specializedServices.ivf') },
     { href: `${langPrefix}/iv-drips-prague`, label: t('specializedServices.ivDrip') },
     { href: `${langPrefix}/post-surgery-recovery-care-prague`, label: t('specializedServices.postSurgery') },
     { href: `${langPrefix}/disabled-daily-care-prague`, label: t('specializedServices.disabled') },

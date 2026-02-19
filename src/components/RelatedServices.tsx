@@ -20,7 +20,7 @@ export const RelatedServices = () => {
     {
       titleKey: "specializedServices.ivf",
       descKey: "services.injection.description",
-      href: `${langPrefix}/ivf-injection-support-prague`
+      href: `${langPrefix}/ivf-support-prague`
     },
     {
       titleKey: "specializedServices.ivDrip",

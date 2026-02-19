@@ -321,66 +321,183 @@
     "womensDayGift": "Dárek na 8. března"
   },
   "ivfSupport": {
-    "badge": "Podpora IVF v Praze",
-    "title": "Profesionální podpora injekcí IVF ve vašem pražském hotelu",
-    "description": "Včasné podání léků pro léčbu neplodnosti anglicky mluvícími sestrami. Dostupnost 24/7 pro pacienty IVF během léčby v Praze.",
-    "bookNow": "Rezervovat nyní",
-    "call247": "Volat 24/7",
+    "seo": {
+      "title": "IVF podpora Praha | Injekce, Intralipid a léčba NK buněk",
+      "description": "Profesionální podpora IVF v Praze: injekce pro plodnost, Intralipid infuze, léčba NK buněk a wellness IV kapačky ve vašem hotelu. Anglicky mluvící sestry dostupné 24/7. Důvěřuje nám přes 500 IVF pacientek z Reprofit, ISCARE, Gennet.",
+      "keywords": "ivf praha, ivf podpora praha, ivf injekce praha, intralipid praha, léčba nk buněk praha, injekce plodnosti praha, ivf sestra praha"
+    },
+    "badge": "Důvěryhodná IVF podpora v Praze",
+    "title": "IVF podpora Praha — Injekce, Intralipid a wellness IV kapačky",
+    "subtitle": "Vaše cesta k plodnosti si zaslouží odbornou ošetřovatelskou péči",
+    "description": "Profesionální podpora IVF v Praze od zkušených anglicky mluvících sester. Aplikujeme injekce pro plodnost, Intralipid infuze pro léčbu NK buněk a wellness IV kapačky — ve vašem hotelu, Airbnb nebo doma, ve dne i v noci.",
+    "bookNow": "Rezervovat IVF podporu",
+    "call247": "Volat 24/7: +420 773 629 123",
+    "whatsapp": "Napište nám na WhatsApp",
     "available247": "Dostupné 24/7",
     "licensedNurses": "Licencované sestry",
-    "patientsServed": "Přes 500 pacientů IVF",
-    "whyChoose": "Proč si pacienti IVF vybírají nás",
-    "benefits": {
-      "timing": "Přesné podání ve správný čas - kritické pro úspěch IVF",
-      "experienced": "Zkušené sestry specializující se na injekce pro léčbu neplodnosti",
-      "english": "Anglicky mluvící sestry rozumí protokolům mezinárodních klinik",
-      "location": "Přijíždíme do vašeho hotelu - žádný stres z cestování",
-      "coordination": "Koordinace s vaší klinikou IVF pro správný timing",
-      "discreet": "Diskrétní a soucitná péče",
-      "sameDay": "Dostupnost tentýž den pro neočekávané změny harmonogramu",
-      "flexible": "Flexibilní rozvrh - časné ranní a pozdní večerní návštěvy"
+    "patientsServed": "Přes 500 IVF pacientek",
+    "whyMatters": {
+      "title": "Proč je profesionální podpora IVF v Praze důležitá",
+      "description": "Tisíce žen každoročně cestují do Prahy za IVF léčbou na špičkových klinikách jako Reprofit, ISCARE a Gennet. Ale po odchodu z kliniky stále potřebujete kvalifikovanou sestru pro aplikaci denních injekcí, Intralipid infuzí a dalších léků — včas, pokaždé.",
+      "points": [
+        "Léky na plodnost jako Gonal-F, Menopur a Cetrotide vyžadují přesné načasování a správnou techniku",
+        "Intralipid infuze pro léčbu NK buněk musí být aplikovány vyškolenou sestrou se zkušenostmi s IV",
+        "Trigger injekce je často třeba podat v přesný čas — včetně 5 ráno nebo pozdě v noci",
+        "Příjezd sestry do vašeho hotelu eliminuje stres a umožní vám soustředit se na léčbu"
+      ]
     },
-    "pricing": {
-      "title": "Ceny podpory IVF",
-      "singlePrice": "1 890 Kč",
-      "single": "Jednorázová injekce",
-      "singleDesc": "Perfektní pro jednorázové potřeby nebo vyzkoušení služby",
-      "eveningPrice": "1 700 Kč",
-      "evening": "2+ injekce (sleva 10%)",
-      "eveningDesc": "Zvýhodněná cena pro více injekcí během cyklu",
-      "packagePrice": "8 450 Kč",
-      "package": "Balíček 5 injekcí",
-      "packageDesc": "Pro kompletní IVF cyklus (fáze stimulace)",
-      "save": "ušetříte 1 000 Kč",
-      "includes": "Profesionální podání, všechny pomůcky, kontrola léků, likvidace, podpora 24/7",
-      "bookButton": "Rezervovat podporu IVF"
+    "services": {
+      "title": "Naše IVF podpůrné služby v Praze",
+      "medication": {
+        "name": "Aplikace léků",
+        "subtitle": "Stimulační a progesteronové injekce",
+        "description": "Podkožní a intramuskulární injekce všech IVF léků: Gonal-F, Menopur, Cetrotide, Orgalutran, trigger injekce (Ovitrelle, Decapeptyl) a progesteron v oleji. Garantované přesné načasování.",
+        "price": "1 890 Kč",
+        "duration": "~15 min",
+        "benefits": [
+          "Všechny podkožní a intramuskulární injekce",
+          "Trigger injekce v kteroukoli hodinu (včetně 5 ráno)",
+          "Ověření léků a správného dávkování",
+          "Sterilní pomůcky a likvidace ostrých předmětů v ceně"
+        ],
+        "cta": "Rezervovat návštěvu pro injekci"
+      },
+      "intralipid": {
+        "name": "Intralipid infuze",
+        "subtitle": "Podpora NK buněk pro implantaci",
+        "description": "Intralipid IV infuze se používá k potlačení zvýšených přirozených zabíječských (NK) buněk, které mohou narušit implantaci embrya. Naše sestry mají zkušenosti s protokoly klinik plodnosti pro Intralipid terapii v Praze.",
+        "price": "Kontaktujte nás pro cenovou nabídku",
+        "duration": "30–45 min",
+        "benefits": [
+          "Potlačení NK buněk pro lepší implantaci",
+          "Aplikace sestrami se zkušenostmi s IV",
+          "Koordinace s protokolem vaší kliniky plodnosti",
+          "Komfortní aplikace na vaší adrese"
+        ],
+        "cta": "Dotaz na Intralipid"
+      },
+      "wellness": {
+        "name": "Wellness IV kapačky",
+        "subtitle": "Zaměřené na plodnost: Glutathion, NAD+, Vitamin C",
+        "description": "Podpořte své tělo během IVF cílenou IV kapačkovou terapií. Glutathion pro kvalitu vajíček, NAD+ pro buněčnou energii a Vitamin C pro podporu imunity — vše aplikováno ve vašem hotelu nebo doma v Praze.",
+        "price": "od 1 290 Kč",
+        "duration": "20–30 min",
+        "benefits": [
+          "Glutathion pro antioxidační podporu a kvalitu vajíček",
+          "NAD+ pro buněčnou energii a regeneraci",
+          "Vitamin C a B-komplex pro podporu imunity",
+          "Kombinujte s vaší IVF injekční návštěvou"
+        ],
+        "cta": "Zobrazit menu IV kapačků"
+      }
+    },
+    "benefits": {
+      "title": "Proč si vybrat naši IVF podporu v Praze",
+      "items": [
+        "Přesná, časově citlivá aplikace injekcí — v kteroukoli hodinu, kterýkoli den",
+        "Zkušenosti se všemi IVF léky: Gonal-F, Menopur, Cetrotide, progesteron",
+        "Anglicky mluvící sestry obeznámené s protokoly mezinárodních IVF klinik",
+        "Intralipid infuze a podpora léčby NK buněk",
+        "Návštěvy hotelu, Airbnb a domova po celé Praze",
+        "Přímá koordinace s Reprofit, ISCARE, Gennet a dalšími klinikami",
+        "Diskrétní, soucitná péče pro pacientky s plodností",
+        "Dostupnost ve stejný den a v naléhavých případech",
+        "Wellness IV kapačky (Glutathion, NAD+, Vitamin C) pro doplnění vašeho cyklu",
+        "Flexibilní večerní, víkendové a ranní termíny"
+      ]
     },
     "howItWorks": {
-      "title": "Jak to funguje",
-      "step1Title": "Rezervujte online",
-      "step1Desc": "Sdělte nám harmonogram vašich injekcí a místo pobytu v Praze. Potvrdíme všechny detaily.",
-      "step2Title": "Sestra dorazí",
-      "step2Desc": "Naše zkušená sestra dorazí do vašeho hotelu přesně včas s potřebnými pomůckami.",
-      "step3Title": "Bezpečné podání",
-      "step3Desc": "Profesionální podání s kontrolou léků, správnou technikou a soucitnou péčí."
+      "title": "Jak funguje IVF podpora v Praze",
+      "step1": {
+        "title": "Rezervujte online, zavolejte nebo napište na WhatsApp",
+        "description": "Sdělte nám svůj harmonogram injekcí, detaily léků a adresu ubytování v Praze. Vše potvrdíme během několika minut."
+      },
+      "step2": {
+        "title": "Sestra dorazí na vaši adresu",
+        "description": "Zkušená anglicky mluvící sestra dorazí do vašeho hotelového pokoje, Airbnb nebo domova se všemi sterilními pomůckami — včas, pokaždé."
+      },
+      "step3": {
+        "title": "Profesionální aplikace a podpora",
+        "description": "Vaše sestra aplikuje léky podle přesného protokolu vaší kliniky, ověří dávkování a bezpečně zlikviduje ostré předměty. Typická návštěva: 15–20 minut."
+      }
+    },
+    "testimonials": {
+      "title": "Co říkají IVF pacientky o nás",
+      "items": [
+        {
+          "text": "Měla jsem velký strach z vlastních injekcí v hotelu. Sestra přijížděla každý večer přesně ve správný čas a byla neuvěřitelně jemná. Konečně jsem se mohla uvolnit a soustředit na léčbu.",
+          "author": "Emily R.",
+          "context": "IVF cyklus na ISCARE, pobyt v hotelu v Praze 2"
+        },
+        {
+          "text": "Moje klinika předepsala Intralipid infuze kvůli zvýšeným NK buňkám. Najít sestru v Praze, která to mohla udělat v mém Airbnb, bylo záchranou. Profesionální, laskavá a dochvilná.",
+          "author": "Sarah M.",
+          "context": "Intralipid léčba, pacientka Reprofit"
+        },
+        {
+          "text": "Potřebovala jsem trigger injekci v 5 ráno a skutečně přijely v 4:55. Taková spolehlivost během IVF je k nezaplacení. Doporučila jsem je všem ve své skupině pro plodnost.",
+          "author": "Jessica K.",
+          "context": "IVF cyklus na Gennet, ranní trigger injekce"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Ceník IVF podpory v Praze",
+      "note": "Všechny ceny zahrnují dopravu po Praze, sterilní pomůcky, likvidaci ostrých předmětů a koordinaci s vaší klinikou. Žádné skryté poplatky."
     },
     "faq": {
-      "title": "Často kladené otázky",
-      "q1": "Můžete přijet brzy ráno pro trigger injekce?",
-      "a1": "Ano! Jsme dostupní 24/7, včetně časných ranních trigger injekcí v 6-7 hodin ráno, které jsou kritické pro IVF.",
-      "q2": "Co když se můj harmonogram změní na poslední chvíli?",
-      "a2": "Chápeme, že protokoly IVF se mohou upravovat. Kontaktujte nás co nejdříve a přizpůsobíme se vašemu novému harmonogramu.",
-      "q3": "Musím poskytnout své léky?",
-      "a3": "Ano, přinesete své předepsané léky pro IVF. My poskytujeme stříkačky, jehly, alkoholové tampony a likvidaci.",
-      "q4": "Děláte injekce progesteronu v oleji (IM)?",
-      "a4": "Samozřejmě. Naše sestry jsou zkušené ve všech injekcích IVF - podkožních (Gonal-F, Menopur) i intramuskulárních (progesteron v oleji)."
+      "title": "IVF podpora v Praze — Často kladené otázky",
+      "items": [
+        {
+          "question": "Co je Intralipid infuze a proč se používá při IVF?",
+          "answer": "Intralipid je intravenózní tuková emulze používaná k potlačení zvýšených přirozených zabíječských (NK) buněk v děloze. Někteří specialisté na plodnost v Praze předepisují Intralipid infuze před přenosem embrya pro zlepšení míry implantace. Naše sestry mají zkušenosti s aplikací Intralipid terapie ve vašem hotelu nebo doma v Praze podle protokolu vaší kliniky."
+        },
+        {
+          "question": "Co je léčba NK buněk pro plodnost?",
+          "answer": "Léčba NK (přirozených zabíječských) buněk má za cíl snížit nadměrně aktivní imunitní buňky, které mohou napadat implantující se embryo. Nejběžnější léčbou je Intralipid infuze, která se podává intravenózně. Pražské kliniky plodnosti jako Reprofit a ISCARE mohou předepsat testování NK buněk a následnou Intralipid terapii jako součást vašeho IVF protokolu. Tyto infuze aplikujeme na vaší adrese v Praze."
+        },
+        {
+          "question": "Proč je načasování injekcí během IVF kritické?",
+          "answer": "IVF léky musí být podávány v přesných časech pro synchronizaci růstu folikulů a ovulace. I 30minutová odchylka může ovlivnit váš cyklus. Trigger injekce (Ovitrelle, Decapeptyl) jsou obzvláště časově citlivé, často předepsané v neobvyklých hodinách. Naše sestry garantují příjezd včas pro každou injekci."
+        },
+        {
+          "question": "Můžete přijet v 5 ráno na trigger injekci?",
+          "answer": "Ano! Nabízíme dostupnost 24/7 právě proto, že načasování IVF to vyžaduje. Ať je vaše trigger injekce v 5 ráno, v 23 hodin nebo v jakýkoli jiný čas, naše sestra bude u vašich dveří včas. Provedli jsme tisíce ranních a nočních IVF návštěv."
+        },
+        {
+          "question": "Spolupracujete s pražskými IVF klinikami jako Reprofit, ISCARE, Gennet?",
+          "answer": "Ano. Pravidelně podporujeme pacientky z Reprofit, ISCARE, Gennet, Pronatal a dalších pražských klinik plodnosti. Jsme obeznámeni s jejich standardními protokoly pro stimulaci, trigger injekce a Intralipid terapii. Na vyžádání můžeme koordinovat přímo s vaší klinikou."
+        },
+        {
+          "question": "Jaké léky na plodnost můžete aplikovat?",
+          "answer": "Aplikujeme všechny běžné IVF léky: Gonal-F, Menopur, Cetrotide, Orgalutran, Decapeptyl, Ovitrelle (trigger injekce), progesteron v oleji (intramuskulárně), Clexane a další. Podkožní i intramuskulární injekce. Před každou aplikací ověříme lék, dávkování a načasování."
+        },
+        {
+          "question": "Jaké IVF podpůrné služby nabízíte v Praze?",
+          "answer": "Nabízíme tři hlavní IVF podpůrné služby: (1) Aplikace léků — všechny injekce pro plodnost včetně stimulačních léků a trigger injekcí; (2) Intralipid infuze — IV terapie pro potlačení NK buněk před přenosem embrya; (3) Wellness IV kapačky — Glutathion, NAD+ a Vitamin C kapačky pro podporu vašeho těla během IVF. Všechny služby jsou dostupné ve vašem hotelu, Airbnb nebo doma v Praze."
+        },
+        {
+          "question": "Kolik stojí IVF injekce v Praze?",
+          "answer": "Jedna návštěva pro IVF injekci stojí 1 890 Kč, což zahrnuje návštěvu sestry, všechny sterilní pomůcky, likvidaci ostrých předmětů a dopravu kamkoli v Praze. Pro více injekcí během vašeho cyklu nabízíme 10% slevu (1 700 Kč za návštěvu). Intralipid infuze jsou ceněny individuálně podle protokolu vaší kliniky. Kontaktujte nás pro cenovou nabídku."
+        },
+        {
+          "question": "Můžete aplikovat Glutathion nebo NAD+ IV kapačky během IVF?",
+          "answer": "Ano! Mnoho IVF pacientek přidává wellness IV kapačky na podporu svého cyklu. Glutathion je oblíbený pro své antioxidační vlastnosti a potenciální přínosy pro kvalitu vajíček. NAD+ podporuje buněčnou energii. Vitamin C posiluje imunitu. Tyto kapačky lze kombinovat s vaší injekční návštěvou pro pohodlí. Prohlédněte si naše kompletní menu IV kapačkek pro možnosti a ceny."
+        },
+        {
+          "question": "Co když bydlím v hotelu?",
+          "answer": "Návštěvy hotelů jsou naše specialita! Obsluhujeme všechny pražské hotely, Airbnb apartmány a krátkodobé pronájmy. Stačí uvést název hotelu, číslo pokoje a preferovaný čas. Sestra dorazí diskrétně se všemi potřebnými pomůckami. Není třeba opouštět pokoj nebo zajišťovat dopravu na kliniku."
+        }
+      ]
     },
     "cta": {
-      "title": "Začínáte léčbu IVF v Praze?",
-      "description": "Rezervujte si podporu injekcí předem. Jsme tu, abychom vám pomohli v každém kroku.",
+      "title": "Jste připraveni rezervovat IVF podporu v Praze?",
+      "description": "Nestresujte se načasováním injekcí, Intralipid infuzemi nebo hledáním sestry v Praze. Jsme tu pro vás — 24/7, na vaší adrese.",
       "bookOnline": "Rezervovat online",
-      "call": "Volat: +420 773 629 123"
-    }
+      "call": "Volat: +420 773 629 123",
+      "whatsapp": "WhatsApp: +420 773 629 123"
+    },
+    "breadcrumb": "IVF podpora Praha"
   },
   "postSurgeryCare": {
     "badge": "Pooperační péče v Praze",
