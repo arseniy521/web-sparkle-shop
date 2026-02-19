@@ -332,20 +332,35 @@
     "subtitle": "Vaše cesta k plodnosti si zaslouží odbornou ošetřovatelskou péči",
     "description": "Profesionální podpora IVF v Praze od zkušených anglicky mluvících sester. Aplikujeme injekce pro plodnost, Intralipid infuze pro léčbu NK buněk a wellness IV kapačky — ve vašem hotelu, Airbnb nebo doma, ve dne i v noci.",
     "bookNow": "Rezervovat IVF podporu",
-    "call247": "Volat 24/7: +420 773 629 123",
+    "call247": "Volat 24/7",
     "whatsapp": "Napište nám na WhatsApp",
-    "available247": "Dostupné 24/7",
-    "licensedNurses": "Licencované sestry",
-    "patientsServed": "Přes 500 IVF pacientek",
+    "trustBadges": {
+      "available": "Dostupné 24/7",
+      "nurses": "Licencované sestry",
+      "patients": "Přes 500 IVF pacientek",
+      "rating": "4.9★ Hodnocení Google"
+    },
     "whyMatters": {
       "title": "Proč je profesionální podpora IVF v Praze důležitá",
       "description": "Tisíce žen každoročně cestují do Prahy za IVF léčbou na špičkových klinikách jako Reprofit, ISCARE a Gennet. Ale po odchodu z kliniky stále potřebujete kvalifikovanou sestru pro aplikaci denních injekcí, Intralipid infuzí a dalších léků — včas, pokaždé.",
-      "points": [
-        "Léky na plodnost jako Gonal-F, Menopur a Cetrotide vyžadují přesné načasování a správnou techniku",
-        "Intralipid infuze pro léčbu NK buněk musí být aplikovány vyškolenou sestrou se zkušenostmi s IV",
-        "Trigger injekce je často třeba podat v přesný čas — včetně 5 ráno nebo pozdě v noci",
-        "Příjezd sestry do vašeho hotelu eliminuje stres a umožní vám soustředit se na léčbu"
-      ]
+      "items": {
+        "timing": {
+          "title": "Garantované přesné načasování",
+          "description": "Léky na plodnost jako Gonal-F, Menopur a Cetrotide vyžadují přesné načasování. I 30minutová odchylka může ovlivnit váš cyklus. Garantujeme příjezd včas — včetně trigger injekcí v 5 ráno."
+        },
+        "expertise": {
+          "title": "Specializované zkušenosti s IVF",
+          "description": "Naše sestry jsou vyškoleny ve všech IVF lécích: podkožní a intramuskulární injekce, Intralipid infuze pro léčbu NK buněk a progesteron v oleji. Dodržujeme přesný protokol vaší kliniky."
+        },
+        "comfort": {
+          "title": "Pohodlí na vaší adrese",
+          "description": "Nemusíte jezdit na kliniku kvůli denním injekcím. Přijedeme do vašeho hotelu, Airbnb nebo domova kdekoli v Praze — diskrétně a profesionálně. Soustřeďte se na léčbu, ne na logistiku."
+        },
+        "safety": {
+          "title": "Licencované a bezpečné",
+          "description": "Všechny sestry jsou licencované zdravotní profesionálky. Přivážíme sterilní pomůcky, před každou injekcí ověřujeme lék a dávkování a bezpečně likvidujeme ostré předměty."
+        }
+      }
     },
     "services": {
       "title": "Naše IVF podpůrné služby v Praze",
@@ -392,35 +407,61 @@
         "cta": "Zobrazit menu IV kapačků"
       }
     },
-    "benefits": {
-      "title": "Proč si vybrat naši IVF podporu v Praze",
+    "included": {
+      "title": "Co je zahrnuto v každé IVF návštěvě",
+      "subtitle": "Vše, co potřebujete, doručeno až k vašim dveřím — žádné skryté poplatky",
       "items": [
-        "Přesná, časově citlivá aplikace injekcí — v kteroukoli hodinu, kterýkoli den",
-        "Zkušenosti se všemi IVF léky: Gonal-F, Menopur, Cetrotide, progesteron",
-        "Anglicky mluvící sestry obeznámené s protokoly mezinárodních IVF klinik",
-        "Intralipid infuze a podpora léčby NK buněk",
-        "Návštěvy hotelu, Airbnb a domova po celé Praze",
-        "Přímá koordinace s Reprofit, ISCARE, Gennet a dalšími klinikami",
-        "Diskrétní, soucitná péče pro pacientky s plodností",
-        "Dostupnost ve stejný den a v naléhavých případech",
-        "Wellness IV kapačky (Glutathion, NAD+, Vitamin C) pro doplnění vašeho cyklu",
-        "Flexibilní večerní, víkendové a ranní termíny"
+        "Sterilní injekční pomůcky a alkoholové tampóny",
+        "Kontejner na ostré předměty a bezpečná likvidace",
+        "Ověření léků a kontrola dávkování",
+        "Doprava na jakoukoli adresu v Praze",
+        "Přímá koordinace s vaší klinikou plodnosti",
+        "Dostupnost 24/7 včetně víkendů a svátků"
       ]
     },
-    "howItWorks": {
-      "title": "Jak funguje IVF podpora v Praze",
-      "step1": {
-        "title": "Rezervujte online, zavolejte nebo napište na WhatsApp",
-        "description": "Sdělte nám svůj harmonogram injekcí, detaily léků a adresu ubytování v Praze. Vše potvrdíme během několika minut."
-      },
-      "step2": {
-        "title": "Sestra dorazí na vaši adresu",
-        "description": "Zkušená anglicky mluvící sestra dorazí do vašeho hotelového pokoje, Airbnb nebo domova se všemi sterilními pomůckami — včas, pokaždé."
-      },
-      "step3": {
-        "title": "Profesionální aplikace a podpora",
-        "description": "Vaše sestra aplikuje léky podle přesného protokolu vaší kliniky, ověří dávkování a bezpečně zlikviduje ostré předměty. Typická návštěva: 15–20 minut."
+    "experience": {
+      "title": "Průběh IVF návštěvy",
+      "subtitle": "Od prvního kontaktu po profesionální péči — co můžete očekávat",
+      "steps": {
+        "step1": {
+          "title": "Kontaktujte nás",
+          "description": "Ozvěte se přes WhatsApp, telefon nebo online rezervaci. Sdělte nám svůj harmonogram injekcí, detaily léků a adresu ubytování v Praze."
+        },
+        "step2": {
+          "title": "Potvrzení harmonogramu",
+          "description": "Potvrdíme načasování, léky a místo. Vícedenní harmonogramy nastavíme předem, takže se nikdy nemusíte starat o přeobjednání."
+        },
+        "step3": {
+          "title": "Sestra dorazí včas",
+          "description": "Anglicky mluvící sestra dorazí do vašeho hotelu, Airbnb nebo domova se všemi sterilními pomůckami — přesně podle plánu, i v 5 ráno."
+        },
+        "step4": {
+          "title": "Profesionální péče",
+          "description": "Lék aplikován podle přesného protokolu vaší kliniky. Dávkování ověřeno, injekce podána jemně, ostré předměty bezpečně zlikvidovány. Typická návštěva: 15–20 minut."
+        }
       }
+    },
+    "pricingCard": {
+      "title": "Ceník IVF podpory",
+      "subtitle": "Transparentní ceny se vším v ceně",
+      "price": "1 890",
+      "currency": "Kč",
+      "perVisit": "za návštěvu · ~15 min",
+      "multiVisit": "Sleva při více návštěvách: 1 700 Kč/návštěva (10% sleva)",
+      "ctaWhatsApp": "Získat cenovou nabídku na WhatsApp",
+      "ctaCall": "Zavolat a rezervovat",
+      "includes": "Zahrnuje dopravu, sterilní pomůcky, likvidaci ostrých předmětů a koordinaci s klinikou."
+    },
+    "clinics": {
+      "title": "Spolupracujeme s předními pražskými IVF klinikami",
+      "description": "Naše sestry pravidelně podporují pacientky z předních klinik plodnosti v Praze. Známe jejich protokoly a můžeme koordinovat přímo s vaším lékařským týmem.",
+      "items": [
+        "Reprofit International — stimulační protokoly, trigger injekce, Intralipid terapie",
+        "ISCARE — kompletní podpora IVF cyklu včetně progesteronových injekcí",
+        "Gennet — aplikace léků a ranní trigger injekce",
+        "Pronatal — podpora injekcí a přímá koordinace s klinikou"
+      ],
+      "cta": "Zeptejte se na vaši kliniku"
     },
     "testimonials": {
       "title": "Co říkají IVF pacientky o nás",
@@ -443,7 +484,6 @@
       ]
     },
     "pricing": {
-      "title": "Ceník IVF podpory v Praze",
       "note": "Všechny ceny zahrnují dopravu po Praze, sterilní pomůcky, likvidaci ostrých předmětů a koordinaci s vaší klinikou. Žádné skryté poplatky."
     },
     "faq": {
@@ -491,12 +531,12 @@
         }
       ]
     },
-    "cta": {
+    "finalCta": {
       "title": "Jste připraveni rezervovat IVF podporu v Praze?",
       "description": "Nestresujte se načasováním injekcí, Intralipid infuzemi nebo hledáním sestry v Praze. Jsme tu pro vás — 24/7, na vaší adrese.",
-      "bookOnline": "Rezervovat online",
-      "call": "Volat: +420 773 629 123",
-      "whatsapp": "WhatsApp: +420 773 629 123"
+      "whatsapp": "Napište nám na WhatsApp",
+      "call": "Zavolejte nám",
+      "email": "Napište nám e-mail"
     },
     "breadcrumb": "IVF podpora Praha"
   },
@@ -557,7 +597,7 @@
     "title": "Denní komfortní péče pro handicapované a chronické pacienty v Praze",
     "description": "Profesionální ošetřovatelská péče pro handicapované pacienty a expatrioty potřebující denní pomoc. Anglicky mluvící sestry poskytují soucitnou pomoc s hygienou, léky a podporou mobility doma.",
     "bookVisit": "Rezervovat návštěvu",
-    "call": "Volat: +420 773 629 123",
+    "call": "Zavolat nám",
     "compassionate": "Soucitná péče",
     "flexible": "Flexibilní plánování",
     "englishSpeaking": "Anglicky mluvící",

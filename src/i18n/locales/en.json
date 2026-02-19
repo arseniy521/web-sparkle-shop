@@ -325,27 +325,42 @@
     "seo": {
       "title": "IVF Support Prague | Injections, Intralipid & NK Cell Treatment",
       "description": "Professional IVF support in Prague: fertility injections, Intralipid infusions, NK cell treatment, and wellness IV drips at your hotel. English-speaking nurses available 24/7. Trusted by 500+ IVF patients from Reprofit, ISCARE, Gennet.",
-      "keywords": "ivf prague, ivf support prague, ivf injections prague, intralipid prague, nk cell treatment prague, fertility injections prague, ivf nurse prague"
+      "keywords": "ivf prague, ivf support prague, ivf injections prague, intralipid prague, nk cell treatment prague, fertility injections prague, ivf nurse prague, reprofit nurse, iscare nurse, gennet nurse"
     },
     "badge": "Trusted IVF Support in Prague",
     "title": "IVF Support Prague — Injections, Intralipid & Wellness IV Drips",
     "subtitle": "Your fertility journey deserves expert nursing support",
     "description": "Professional IVF support in Prague by experienced English-speaking nurses. We administer fertility injections, Intralipid infusions for NK cell treatment, and wellness IV drips — at your hotel, Airbnb, or home, day or night.",
     "bookNow": "Book IVF Support",
-    "call247": "Call 24/7: +420 773 629 123",
+    "call247": "Call 24/7",
     "whatsapp": "WhatsApp Us",
-    "available247": "24/7 Available",
-    "licensedNurses": "Licensed Nurses",
-    "patientsServed": "500+ IVF Patients Served",
+    "trustBadges": {
+      "available": "24/7 Available",
+      "nurses": "Licensed Nurses",
+      "patients": "500+ IVF Patients",
+      "rating": "4.9★ Google Rating"
+    },
     "whyMatters": {
       "title": "Why Professional IVF Support Matters in Prague",
       "description": "Thousands of women travel to Prague each year for IVF treatment at world-class clinics like Reprofit, ISCARE, and Gennet. But once you leave the clinic, you still need a qualified nurse to administer daily injections, Intralipid infusions, and other medications — on time, every time.",
-      "points": [
-        "Fertility medications like Gonal-F, Menopur, and Cetrotide require precise timing and correct technique",
-        "Intralipid infusions for NK cell treatment must be administered by a trained nurse with IV experience",
-        "Trigger shots often need to be given at exact times — including 5 AM or late at night",
-        "Having a nurse come to your hotel removes stress and lets you focus on your treatment"
-      ]
+      "items": {
+        "timing": {
+          "title": "Precise Timing Guaranteed",
+          "description": "Fertility medications like Gonal-F, Menopur, and Cetrotide require exact timing. Even a 30-minute deviation can affect your cycle. We guarantee on-time arrival — including 5 AM trigger shots."
+        },
+        "expertise": {
+          "title": "Specialized IVF Experience",
+          "description": "Our nurses are trained in all IVF medications: subcutaneous and intramuscular injections, Intralipid infusions for NK cell treatment, and progesterone in oil. We follow your clinic's exact protocol."
+        },
+        "comfort": {
+          "title": "Comfort at Your Location",
+          "description": "No need to travel to a clinic for daily injections. We come to your hotel, Airbnb, or home anywhere in Prague — discreetly and professionally. Focus on your treatment, not logistics."
+        },
+        "safety": {
+          "title": "Licensed & Safe",
+          "description": "All nurses are licensed healthcare professionals. We bring sterile supplies, verify medication and dosage before every injection, and handle sharps disposal safely."
+        }
+      }
     },
     "services": {
       "title": "Our IVF Support Services in Prague",
@@ -392,35 +407,61 @@
         "cta": "See IV Drip Menu"
       }
     },
-    "benefits": {
-      "title": "Why Choose Our IVF Support in Prague",
+    "included": {
+      "title": "What's Included in Every IVF Visit",
+      "subtitle": "Everything you need, delivered to your door — no hidden fees",
       "items": [
-        "Precise, time-sensitive injection administration — any hour, any day",
-        "Experienced with all IVF medications: Gonal-F, Menopur, Cetrotide, progesterone",
-        "English-speaking nurses familiar with international IVF clinic protocols",
-        "Intralipid infusions and NK cell treatment support",
-        "Hotel, Airbnb, and home visits throughout Prague",
-        "Direct coordination with Reprofit, ISCARE, Gennet, and other clinics",
-        "Discreet, compassionate service for fertility patients",
-        "Same-day and emergency availability",
-        "Wellness IV drips (Glutathione, NAD+, Vitamin C) to complement your cycle",
-        "Flexible evening, weekend, and early morning appointments"
+        "Sterile injection supplies & alcohol swabs",
+        "Sharps container & safe disposal",
+        "Medication verification & dosage check",
+        "Travel to any location within Prague",
+        "Direct coordination with your fertility clinic",
+        "24/7 availability including weekends & holidays"
       ]
     },
-    "howItWorks": {
-      "title": "How IVF Support Works in Prague",
-      "step1": {
-        "title": "Book Online, Call, or WhatsApp",
-        "description": "Share your injection schedule, medication details, and Prague accommodation address. We confirm everything within minutes."
-      },
-      "step2": {
-        "title": "Nurse Arrives at Your Location",
-        "description": "An experienced, English-speaking nurse arrives at your hotel room, Airbnb, or home with all sterile supplies — on time, every time."
-      },
-      "step3": {
-        "title": "Professional Administration & Support",
-        "description": "Your nurse administers medication following your clinic's exact protocol, verifies dosage, and disposes of sharps safely. Typical visit: 15–20 minutes."
+    "experience": {
+      "title": "The IVF Visit Experience",
+      "subtitle": "From first contact to professional care — here's what to expect",
+      "steps": {
+        "step1": {
+          "title": "Contact Us",
+          "description": "Reach out via WhatsApp, phone, or online booking. Share your injection schedule, medication details, and Prague accommodation address."
+        },
+        "step2": {
+          "title": "Confirm Your Schedule",
+          "description": "We confirm timing, medications, and location. Multi-day schedules are set up in advance so you never have to worry about rebooking."
+        },
+        "step3": {
+          "title": "Nurse Arrives On Time",
+          "description": "An English-speaking nurse arrives at your hotel, Airbnb, or home with all sterile supplies — precisely when scheduled, even at 5 AM."
+        },
+        "step4": {
+          "title": "Professional Care",
+          "description": "Medication administered per your clinic's exact protocol. Dosage verified, injection given gently, sharps disposed safely. Typical visit: 15–20 minutes."
+        }
       }
+    },
+    "pricingCard": {
+      "title": "IVF Support Pricing",
+      "subtitle": "Transparent pricing with everything included",
+      "price": "1,890",
+      "currency": "CZK",
+      "perVisit": "per visit · ~15 min",
+      "multiVisit": "Multi-visit discount: 1,700 CZK/visit (10% off)",
+      "ctaWhatsApp": "Get a Quote on WhatsApp",
+      "ctaCall": "Call to Book",
+      "includes": "Includes travel, sterile supplies, sharps disposal, and clinic coordination."
+    },
+    "clinics": {
+      "title": "We Work With Prague's Top IVF Clinics",
+      "description": "Our nurses regularly support patients from the leading fertility clinics in Prague. We're familiar with their protocols and can coordinate directly with your medical team.",
+      "items": [
+        "Reprofit International — stimulation protocols, trigger shots, Intralipid therapy",
+        "ISCARE — full IVF cycle support including progesterone injections",
+        "Gennet — medication administration and early-morning trigger shots",
+        "Pronatal — injection support and direct clinic coordination"
+      ],
+      "cta": "Ask About Your Clinic"
     },
     "testimonials": {
       "title": "What IVF Patients Say About Us",
@@ -443,7 +484,6 @@
       ]
     },
     "pricing": {
-      "title": "IVF Support Pricing in Prague",
       "note": "All prices include travel within Prague, sterile supplies, sharps disposal, and coordination with your clinic. No hidden fees."
     },
     "faq": {
@@ -491,12 +531,12 @@
         }
       ]
     },
-    "cta": {
+    "finalCta": {
       "title": "Ready to Book Your IVF Support in Prague?",
       "description": "Don't stress about injection timing, Intralipid infusions, or finding a nurse in Prague. We're here for you — 24/7, at your location.",
-      "bookOnline": "Book Online Now",
-      "call": "Call: +420 773 629 123",
-      "whatsapp": "WhatsApp: +420 773 629 123"
+      "whatsapp": "WhatsApp Us",
+      "call": "Call Us",
+      "email": "Email Us"
     },
     "breadcrumb": "IVF Support Prague"
   },
@@ -505,7 +545,7 @@
     "title": "Post-Surgery Recovery Care at Your Prague Hotel",
     "description": "Professional post-operative nursing care for medical tourists. English-speaking nurses provide wound care, hygiene support, and recovery assistance at your hotel or Airbnb.",
     "bookNow": "Book Recovery Care",
-    "call": "Call: +420 773 629 123",
+    "call": "Call Us",
     "plasticSurgery": "Plastic Surgery Specialists",
     "licensedNurses": "Licensed Nurses",
     "touristsServed": "100+ Medical Tourists Served",
@@ -561,7 +601,7 @@
     "title": "Daily Comfort Care for Disabled & Chronic Patients in Prague",
     "description": "Professional nursing care for disabled patients and expats needing daily assistance. English-speaking nurses provide compassionate hygiene, medication, and mobility support at your home.",
     "bookNow": "Book Care Visit",
-    "call": "Call: +420 773 629 123",
+    "call": "Call Us",
     "compassionate": "Compassionate Care",
     "flexible": "Flexible Scheduling",
     "englishSpeaking": "English Speaking",

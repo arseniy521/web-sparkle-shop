@@ -359,7 +359,7 @@ const PostSurgeryCare = () => {
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />
-                    Call: +420 773 629 123
+                    {t('postSurgeryCare.call')}
                   </Button>
                 </a>
               </div>
