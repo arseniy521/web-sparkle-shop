@@ -79,7 +79,7 @@ const SpecializedServices = () => {
       <SEO 
         title={pageTitle}
         description={pageDescription}
-        canonical={`https://www.nius.cz${langPrefix}/specialized-services`}
+        canonical={`https://www.nius.cz${langPrefix}/specialized-services/`}
         ogImage="https://www.nius.cz/og-image.jpg"
         ogType="website"
         schema={schema}

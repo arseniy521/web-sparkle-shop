@@ -47,9 +47,9 @@ const BirthdayGift = () => {
   )}`;
 
   const hreflangMap: Record<string, string> = {
-    cs: "https://www.nius.cz/narozeninovy-darek-praha",
-    en: "https://www.nius.cz/en/birthday-gift-prague",
-    ru: "https://www.nius.cz/ru/podatok-k-dnju-rozhdenija-praga",
+    cs: "https://www.nius.cz/narozeninovy-darek-praha/",
+    en: "https://www.nius.cz/en/birthday-gift-prague/",
+    ru: "https://www.nius.cz/ru/podatok-k-dnju-rozhdenija-praga/",
   };
 
   // FAQ data for schema

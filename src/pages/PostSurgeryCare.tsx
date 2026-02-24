@@ -37,7 +37,7 @@ const PostSurgeryCare = () => {
           "@type": "MedicalBusiness",
           "name": "Post-Surgery Recovery Care Prague - Medical Tourism Support",
           "description": pageDescription,
-          "url": "https://www.nius.cz/post-surgery-recovery-care-prague",
+          "url": "https://www.nius.cz/post-surgery-recovery-care-prague/",
           "telephone": "+420773629123",
           "image": "https://www.nius.cz/og-postsurgery.jpg",
           "address": {

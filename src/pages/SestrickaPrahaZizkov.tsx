@@ -35,7 +35,7 @@ const SestrickaPrahaZizkov = () => {
           "description": pageDescription,
           "telephone": "+420773629123",
           "email": "nius.prague@gmail.com",
-          "url": "https://www.nius.cz/cz/sestricka-praha-zizkov",
+          "url": "https://www.nius.cz/sestricka-praha-zizkov/",
           "priceRange": "1890-2680 CZK",
           "geo": {
             "@type": "GeoCoordinates",

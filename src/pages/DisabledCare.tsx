@@ -38,7 +38,7 @@ const DisabledCare = () => {
           "@type": "MedicalBusiness",
           "name": "Disabled Daily Care Prague - Home Nursing for Expats",
           "description": pageDescription,
-          "url": "https://www.nius.cz/disabled-daily-care-prague",
+          "url": "https://www.nius.cz/disabled-daily-care-prague/",
           "telephone": "+420773629123",
           "image": "https://www.nius.cz/og-disabled.jpg",
           "address": {

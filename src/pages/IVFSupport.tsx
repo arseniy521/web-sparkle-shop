@@ -36,10 +36,10 @@ const IVFSupport = () => {
 
   // Hreflang map for SEO
   const hreflangMap: Record<string, string> = {
-    cs: "https://www.nius.cz/ivf-support-prague",
-    en: "https://www.nius.cz/en/ivf-support-prague",
-    ru: "https://www.nius.cz/ru/ivf-support-prague",
-    uk: "https://www.nius.cz/uk/ivf-support-prague",
+    cs: "https://www.nius.cz/ivf-support-prague/",
+    en: "https://www.nius.cz/en/ivf-support-prague/",
+    ru: "https://www.nius.cz/ru/ivf-support-prague/",
+    uk: "https://www.nius.cz/uk/ivf-support-prague/",
   };
 
   // Data from translations
@@ -65,7 +65,7 @@ const IVFSupport = () => {
       "@type": "MedicalBusiness",
       "name": "IVF Support Prague — Nurse in Prague",
       "description": t('ivfSupport.seo.description'),
-      "url": "https://www.nius.cz/ivf-support-prague",
+      "url": "https://www.nius.cz/ivf-support-prague/",
       "telephone": "+420773629123",
       "address": {
         "@type": "PostalAddress",

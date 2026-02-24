@@ -39,17 +39,18 @@ export const buildLanguageUrl = (basePath: string, language: string): string => 
   const prefix = getLanguagePrefix(language);
   // Ensure basePath starts with / but not //
   const cleanPath = basePath.startsWith('/') ? basePath : `/${basePath}`;
-  return prefix ? `${prefix}${cleanPath}` : cleanPath;
+  const url = prefix ? `${prefix}${cleanPath}` : cleanPath;
+  return url.endsWith('/') ? url : `${url}/`;
 };
 
 // Localized slug mappings for pages with different slugs per language
 const localizedSlugMap: Record<string, Record<string, string>> = {
-  '/womens-day-gift-prague': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
-  '/darek-8-brezna': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
-  '/podarok-na-8-marta': { cs: '/darek-8-brezna', en: '/en/womens-day-gift-prague', ru: '/ru/podarok-na-8-marta' },
-  '/birthday-gift-prague': { cs: '/narozeninovy-darek-praha', en: '/en/birthday-gift-prague', ru: '/ru/podatok-k-dnju-rozhdenija-praga' },
-  '/narozeninovy-darek-praha': { cs: '/narozeninovy-darek-praha', en: '/en/birthday-gift-prague', ru: '/ru/podatok-k-dnju-rozhdenija-praga' },
-  '/podatok-k-dnju-rozhdenija-praga': { cs: '/narozeninovy-darek-praha', en: '/en/birthday-gift-prague', ru: '/ru/podatok-k-dnju-rozhdenija-praga' },
+  '/womens-day-gift-prague': { cs: '/darek-8-brezna/', en: '/en/womens-day-gift-prague/', ru: '/ru/podarok-na-8-marta/' },
+  '/darek-8-brezna': { cs: '/darek-8-brezna/', en: '/en/womens-day-gift-prague/', ru: '/ru/podarok-na-8-marta/' },
+  '/podarok-na-8-marta': { cs: '/darek-8-brezna/', en: '/en/womens-day-gift-prague/', ru: '/ru/podarok-na-8-marta/' },
+  '/birthday-gift-prague': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
+  '/narozeninovy-darek-praha': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
+  '/podatok-k-dnju-rozhdenija-praga': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
 };
 
 // Get localized URL for pages with different slugs per language
@@ -58,10 +59,15 @@ export const getLocalizedUrl = (currentPath: string, targetLang: string): string
   return localizedSlugMap[basePath]?.[targetLang] ?? null;
 };
 
+// Ensure a path ends with a trailing slash (required for GitHub Pages)
+export const ensureTrailingSlash = (url: string): string => {
+  return url.endsWith('/') ? url : `${url}/`;
+};
+
 // Get canonical URL based on language
 export const getCanonicalUrl = (language: string, path: string = '/'): string => {
   const baseUrl = 'https://www.nius.cz';
   const prefix = getLanguagePrefix(language);
   const cleanPath = path === '/' ? '' : path;
-  return `${baseUrl}${prefix}${cleanPath}`;
+  return ensureTrailingSlash(`${baseUrl}${prefix}${cleanPath}`);
 };

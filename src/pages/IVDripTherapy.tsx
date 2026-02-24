@@ -255,7 +255,7 @@ const IVDripsPrague = () => {
         "@type": "MedicalBusiness",
         "name": "NIUS – IV Drips Prague",
         "description": pageDescription,
-        "url": "https://www.nius.cz/iv-drips-prague",
+        "url": "https://www.nius.cz/iv-drips-prague/",
         "image": "https://www.nius.cz/og-image.jpg",
         "telephone": phone,
         "priceRange": "1550-6350 CZK",
@@ -300,7 +300,7 @@ const IVDripsPrague = () => {
                   "price": i.priceCZK,
                   "priceCurrency": "CZK",
                   "description": i.short,
-                  "url": "https://www.nius.cz/iv-drips-prague#menu",
+                  "url": "https://www.nius.cz/iv-drips-prague/#menu",
                   "availability": "https://schema.org/InStock",
                   "itemOffered": {
                     "@type": "Service",
@@ -324,7 +324,7 @@ const IVDripsPrague = () => {
             ogImage="https://www.nius.cz/og-image.jpg"
             ogType="website"
             schema={schema}
-            canonical="https://www.nius.cz/iv-drips-prague"
+            canonical="https://www.nius.cz/iv-drips-prague/"
         />
 
         <div className="min-h-screen flex flex-col">

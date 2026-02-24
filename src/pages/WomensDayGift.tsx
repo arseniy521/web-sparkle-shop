@@ -46,9 +46,9 @@ const WomensDayGift = () => {
   )}`;
 
   const hreflangMap: Record<string, string> = {
-    cs: "https://www.nius.cz/darek-8-brezna",
-    en: "https://www.nius.cz/en/womens-day-gift-prague",
-    ru: "https://www.nius.cz/ru/podarok-na-8-marta",
+    cs: "https://www.nius.cz/darek-8-brezna/",
+    en: "https://www.nius.cz/en/womens-day-gift-prague/",
+    ru: "https://www.nius.cz/ru/podarok-na-8-marta/",
   };
 
   // Countdown timer

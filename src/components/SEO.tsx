@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { getCanonicalUrl, getLanguagePrefix, getBasePath, buildLanguageUrl } from '@/utils/languageUtils';
+import { getCanonicalUrl, getLanguagePrefix, getBasePath, buildLanguageUrl, ensureTrailingSlash } from '@/utils/languageUtils';
 
 interface SEOProps {
   title: string;
@@ -45,7 +45,7 @@ export const SEO = ({
   const basePath = getBasePath(location.pathname);
   
   // Generate canonical URL if not provided (prefer hreflangOverride for current lang)
-  const canonicalUrl = canonical || hreflangOverrides?.[currentLang] || getCanonicalUrl(currentLang, basePath);
+  const canonicalUrl = ensureTrailingSlash(canonical || hreflangOverrides?.[currentLang] || getCanonicalUrl(currentLang, basePath));
   
   // Generate alternate URLs for specified languages (or all by default)
   const baseUrl = 'https://www.nius.cz';
@@ -53,7 +53,7 @@ export const SEO = ({
   const activeLanguages = hreflangLanguages || allLanguages;
   const alternateUrls: Record<string, string> = {};
   for (const lang of activeLanguages) {
-    alternateUrls[lang] = hreflangOverrides?.[lang] || `${baseUrl}${buildLanguageUrl(basePath, lang)}`;
+    alternateUrls[lang] = ensureTrailingSlash(hreflangOverrides?.[lang] || `${baseUrl}${buildLanguageUrl(basePath, lang)}`);
   }
 
   return (
