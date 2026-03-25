@@ -171,17 +171,10 @@
         "name": "Vitaminová injekce",
         "example": "B12, B-komplex, vitamin C"
       },
-      "vitaminIvDrip": {
-        "name": "Vitaminová IV kapačka",
-        "example": "Vitaminové infuze (vyžaduje předpis)"
-      },
-      "standardIvDrip": {
-        "name": "Standardní lékařská IV kapačka",
-        "example": "Předepsané lékařské infuze"
-      },
-      "complexIvDrip": {
-        "name": "Komplexní / Dlouhá IV kapačka",
-        "example": "Prodloužená infuzní terapie"
+      "ivDrips": {
+        "name": "IV kapačky a infuze",
+        "example": "Imunita, energie, hydratace, železo a další.",
+        "menuLink": "Zobrazit celé menu IV kapačky"
       },
       "woundCare": {
         "name": "Pooperační převaz rány",
@@ -311,7 +304,8 @@
     "companyName": "Nius Services s.r.o.",
     "vat": "IČO",
     "registered": "Registrováno v Praze, Česká republika",
-    "rights": "Všechna práva vyhrazena"
+    "rights": "Všechna práva vyhrazena",
+    "licensed": "Licencovaný poskytovatel zdravotní péče · Pojištění profesní odpovědnosti"
   },
   "specializedServices": {
     "title": "Specializované služby pro mezinárodní pacienty",

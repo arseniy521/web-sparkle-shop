@@ -26,44 +26,62 @@ const PostSurgeryCare = () => {
   const pageTitle = "Post-Surgery Recovery Care Prague | Medical Tourism Nursing Support";
   const pageDescription = "Professional post-operative nursing care for medical tourists in Prague. Wound care, hygiene assistance, hospital escort at your hotel. English-speaking nurses for plastic surgery, dental, orthopedic recovery.";
 
+  const faqKeys = ['1', '2', '3', '4'] as const;
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Post-Surgery Recovery Care Prague - Medical Tourism Support",
+      "description": pageDescription,
+      "url": "https://www.nius.cz/post-surgery-recovery-care-prague/",
+      "telephone": "+420773629123",
+      "email": "info@nius.cz",
+      "image": "https://www.nius.cz/og-postsurgery.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Prague",
+        "addressCountry": "CZ"
+      },
+      "priceRange": "1900-28900 CZK",
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "Post-Operative Wound Care",
+          "description": "Professional wound dressing and monitoring for surgical recovery"
+        },
+        {
+          "@type": "Service",
+          "name": "Hospital Escort Service",
+          "description": "Safe transportation and settlement assistance for medical tourists"
+        },
+        {
+          "@type": "Service",
+          "name": "Recovery Care Packages",
+          "description": "Comprehensive post-surgery care from 2 days to 2 weeks"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqKeys.map(key => ({
+        "@type": "Question",
+        "name": t(`postSurgeryCare.faq.q${key}`),
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": t(`postSurgeryCare.faq.a${key}`)
+        }
+      }))
+    }
+  ];
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SEO 
+      <SEO
         title={pageTitle}
         description={pageDescription}
         ogImage="https://www.nius.cz/og-postsurgery.jpg"
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "MedicalBusiness",
-          "name": "Post-Surgery Recovery Care Prague - Medical Tourism Support",
-          "description": pageDescription,
-          "url": "https://www.nius.cz/post-surgery-recovery-care-prague/",
-          "telephone": "+420773629123",
-          "image": "https://www.nius.cz/og-postsurgery.jpg",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Prague",
-            "addressCountry": "CZ"
-          },
-          "priceRange": "1900-28900 CZK",
-          "availableService": [
-            {
-              "@type": "MedicalProcedure",
-              "name": "Post-Operative Wound Care",
-              "description": "Professional wound dressing and monitoring for surgical recovery"
-            },
-            {
-              "@type": "Service",
-              "name": "Hospital Escort Service",
-              "description": "Safe transportation and settlement assistance for medical tourists"
-            },
-            {
-              "@type": "Service",
-              "name": "Recovery Care Packages",
-              "description": "Comprehensive post-surgery care from 2 days to 2 weeks"
-            }
-          ]
-        }}
+        schema={schema}
       />
       <Header />
       <Breadcrumbs items={[

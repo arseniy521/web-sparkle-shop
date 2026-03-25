@@ -171,17 +171,10 @@
         "name": "Vitamin Injection",
         "example": "B12, B-complex, vitamin C"
       },
-      "vitaminIvDrip": {
-        "name": "Vitamin IV Drip",
-        "example": "Vitamin infusions (prescription required)"
-      },
-      "standardIvDrip": {
-        "name": "Standard Medical IV Drip",
-        "example": "Prescribed medical drips"
-      },
-      "complexIvDrip": {
-        "name": "Complex / Long IV Drip",
-        "example": "Extended infusion therapy"
+      "ivDrips": {
+        "name": "IV Drips & Infusions",
+        "example": "Immunity, energy, hydration, iron & more.",
+        "menuLink": "See Full IV Drip Menu"
       },
       "woundCare": {
         "name": "Post-Operation Wound Dressing",
@@ -311,7 +304,8 @@
     "companyName": "Nius Services s.r.o.",
     "vat": "VAT",
     "registered": "Registered in Prague, Czech Republic",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "licensed": "Licensed healthcare provider · Professional liability insured"
   },
   "specializedServices": {
     "title": "Specialized Services for International Patients",

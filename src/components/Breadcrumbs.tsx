@@ -27,12 +27,15 @@ export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
         "name": "Home",
         "item": `https://www.nius.cz${langPrefix}/`
       },
-      ...items.map((item, index) => ({
-        "@type": "ListItem",
-        "position": index + 2,
-        "name": item.label,
-        "item": item.href ? `https://www.nius.cz${item.href}` : undefined
-      }))
+      ...items.map((item, index) => {
+        const resolvedHref = item.href && item.href.startsWith('/#') ? `${langPrefix}${item.href}` : item.href;
+        return {
+          "@type": "ListItem",
+          "position": index + 2,
+          "name": item.label,
+          "item": resolvedHref ? `https://www.nius.cz${resolvedHref}` : undefined
+        };
+      })
     ]
   };
 
@@ -49,7 +52,7 @@ export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
           <li key={index} className="flex items-center gap-2">
             <ChevronRight className="h-4 w-4" />
             {item.href ? (
-              <Link to={item.href} className="hover:text-primary transition-colors">
+              <Link to={item.href.startsWith('/#') ? `${langPrefix}${item.href}` : item.href} className="hover:text-primary transition-colors">
                 {item.label}
               </Link>
             ) : (

@@ -27,16 +27,16 @@ export const Footer = () => {
             <h3 className="font-bold text-lg mb-4">{t('footer.company')}</h3>
             <ul className="space-y-2">
               <li>
-                {location.pathname === "/" ? (
-                  <a 
-                    href="#team" 
+                {location.pathname === `${langPrefix}/` || location.pathname === "/" ? (
+                  <a
+                    href="#team"
                     onClick={(e) => { e.preventDefault(); scrollToSection("#team"); }}
                     className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {t('team.title')}
                   </a>
                 ) : (
-                  <Link to="/#team" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  <Link to={`${langPrefix}/#team`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                     {t('team.title')}
                   </Link>
                 )}
@@ -110,6 +110,9 @@ export const Footer = () => {
         <div className="border-t border-primary-foreground/20 pt-8 text-center">
           <p className="text-primary-foreground/80">
             © {new Date().getFullYear()} {t('footer.companyName')}. {t('footer.rights')}
+          </p>
+          <p className="text-primary-foreground/50 text-xs mt-2">
+            NIUS Services s.r.o. | IČO: 21908494 | {t('footer.licensed')}
           </p>
         </div>
       </div>

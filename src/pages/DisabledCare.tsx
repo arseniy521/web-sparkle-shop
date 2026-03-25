@@ -27,44 +27,62 @@ const DisabledCare = () => {
     t('disabledCare.services.companionship')
   ];
 
+  const faqKeys = ['1', '2', '3', '4', '5'] as const;
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Disabled Daily Care Prague - Home Nursing for Expats",
+      "description": pageDescription,
+      "url": "https://www.nius.cz/disabled-daily-care-prague/",
+      "telephone": "+420773629123",
+      "email": "info@nius.cz",
+      "image": "https://www.nius.cz/og-disabled.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Prague",
+        "addressCountry": "CZ"
+      },
+      "priceRange": "2190-118200 CZK",
+      "availableService": [
+        {
+          "@type": "Service",
+          "name": "Personal Hygiene Assistance",
+          "description": "Bathing, grooming, and personal care for disabled patients"
+        },
+        {
+          "@type": "Service",
+          "name": "Mobility Support",
+          "description": "Safe transfers and positioning assistance"
+        },
+        {
+          "@type": "Service",
+          "name": "Medication Management",
+          "description": "Timely medication administration and monitoring"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqKeys.map(key => ({
+        "@type": "Question",
+        "name": t(`disabledCare.faq.q${key}`),
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": t(`disabledCare.faq.a${key}`)
+        }
+      }))
+    }
+  ];
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SEO 
+      <SEO
         title={pageTitle}
         description={pageDescription}
         ogImage="https://www.nius.cz/og-disabled.jpg"
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "MedicalBusiness",
-          "name": "Disabled Daily Care Prague - Home Nursing for Expats",
-          "description": pageDescription,
-          "url": "https://www.nius.cz/disabled-daily-care-prague/",
-          "telephone": "+420773629123",
-          "image": "https://www.nius.cz/og-disabled.jpg",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Prague",
-            "addressCountry": "CZ"
-          },
-          "priceRange": "2190-118200 CZK",
-          "availableService": [
-            {
-              "@type": "Service",
-              "name": "Personal Hygiene Assistance",
-              "description": "Bathing, grooming, and personal care for disabled patients"
-            },
-            {
-              "@type": "Service",
-              "name": "Mobility Support",
-              "description": "Safe transfers and positioning assistance"
-            },
-            {
-              "@type": "Service",
-              "name": "Medication Management",
-              "description": "Timely medication administration and monitoring"
-            }
-          ]
-        }}
+        schema={schema}
       />
       <Header />
       <Breadcrumbs items={[
@@ -278,33 +296,15 @@ const DisabledCare = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-                Frequently Asked Questions
+                {t('disabledCare.faq.title')}
               </h2>
               <div className="space-y-6">
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">Can I have the same nurse each visit?</h3>
-                  <p className="text-muted-foreground">Yes! With our monthly subscription, we assign a consistent caregiver who gets to know your needs and preferences. This creates continuity and comfort.</p>
-                </Card>
-
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">What if I need help with intimate care?</h3>
-                  <p className="text-muted-foreground">Our nurses are professionally trained in all aspects of personal care, including bathing, toileting, suppository insertion, and catheter care. We provide dignified, respectful assistance.</p>
-                </Card>
-
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">Do you speak English?</h3>
-                  <p className="text-muted-foreground">Yes! All our nurses speak English, which is especially important for expats and foreigners without Czech language skills or family support in Prague.</p>
-                </Card>
-
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">Can I adjust my monthly hours?</h3>
-                  <p className="text-muted-foreground">Absolutely. Monthly subscriptions are flexible. If you need more or fewer hours, we can adjust your plan. Unused hours can roll over or be credited.</p>
-                </Card>
-
-                <Card className="p-6">
-                  <h3 className="text-lg font-semibold text-secondary mb-2">What areas of Prague do you serve?</h3>
-                  <p className="text-muted-foreground">We serve all Prague districts and surrounding areas up to 30km from city center. Travel is included in all pricing.</p>
-                </Card>
+                {faqKeys.map(key => (
+                  <Card key={key} className="p-6">
+                    <h3 className="text-lg font-semibold text-secondary mb-2">{t(`disabledCare.faq.q${key}`)}</h3>
+                    <p className="text-muted-foreground">{t(`disabledCare.faq.a${key}`)}</p>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>
