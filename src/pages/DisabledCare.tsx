@@ -13,8 +13,8 @@ import { useTranslation } from "react-i18next";
 const DisabledCare = () => {
   const { t } = useTranslation();
   
-  const pageTitle = "Disabled Care Prague | Daily Comfort Nursing for Chronic Patients";
-  const pageDescription = "Professional daily care for disabled and chronic patients in Prague. Personal hygiene, mobility support, medication management, meal assistance. Compassionate English-speaking nurses at home.";
+  const pageTitle = "Home Nursing Care Prague | Daily Support for Your Loved One";
+  const pageDescription = "Professional daily nursing care in Prague for elderly, disabled, and chronic patients. Give your loved one compassionate hygiene, medication, and mobility support by English-speaking nurses — at home.";
   
   const services = [
     t('disabledCare.services.hygiene'),
@@ -203,39 +203,25 @@ const DisabledCare = () => {
                     {t('disabledCare.pricing.monthlyDesc')}
                   </p>
                   <ul className="space-y-3 mb-6">
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">20 hours of care monthly</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Consistent caregiver</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Flexible daily scheduling</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Priority phone support</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Save 10% vs single visits</span>
-                    </li>
+                    {(t('disabledCare.pricing.monthlyFeatures', { returnObjects: true, defaultValue: ['20 hours of care monthly', 'Consistent caregiver', 'Flexible daily scheduling', 'Priority phone support', 'Save 10% vs single visits'] }) as string[]).map((feature, i) => (
+                      <li key={i} className="flex gap-2">
+                        <Check className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                   <a href="tel:+420773629123">
-                    <Button className="w-full">Call to Subscribe</Button>
+                    <Button className="w-full">{t('disabledCare.pricing.subscribe')}</Button>
                   </a>
                 </Card>
               </div>
 
               <div className="text-center mt-8 space-y-2">
                 <p className="text-muted-foreground">
-                  <strong>Extended care available:</strong> 40 hours/month = 72,000 CZK | 60 hours/month = 105,000 CZK
+                  <strong>{t('disabledCare.pricing.extended')}</strong>
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  All packages include travel within Prague, supplies, and English-speaking nurses
+                  {t('disabledCare.pricing.includes')}
                 </p>
               </div>
             </div>
@@ -246,47 +232,24 @@ const DisabledCare = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
-              We Provide Compassionate Care For
+              {t('disabledCare.whoWeHelp.title')}
             </h2>
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <Card className="p-6">
-                <h3 className="text-xl font-semibold text-secondary mb-3">Disabled Patients</h3>
-                <p className="text-muted-foreground mb-4">
-                  Comprehensive assistance with daily living activities, mobility, and personal care needs.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Bathing and hygiene</li>
-                  <li>• Dressing assistance</li>
-                  <li>• Mobility support</li>
-                  <li>• Medication management</li>
-                </ul>
-              </Card>
-
-              <Card className="p-6">
-                <h3 className="text-xl font-semibold text-secondary mb-3">Expats & Foreigners</h3>
-                <p className="text-muted-foreground mb-4">
-                  English-speaking care for expats without family support or Czech language skills.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• English communication</li>
-                  <li>• Cultural sensitivity</li>
-                  <li>• Insurance navigation</li>
-                  <li>• Doctor coordination</li>
-                </ul>
-              </Card>
-
-              <Card className="p-6">
-                <h3 className="text-xl font-semibold text-secondary mb-3">Chronic Conditions</h3>
-                <p className="text-muted-foreground mb-4">
-                  Regular support for patients managing ongoing health conditions requiring daily care.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Diabetes management</li>
-                  <li>• Wound care</li>
-                  <li>• Catheter care</li>
-                  <li>• Pain management</li>
-                </ul>
-              </Card>
+              {(['disabled', 'expats', 'chronic'] as const).map(key => (
+                <Card key={key} className="p-6">
+                  <h3 className="text-xl font-semibold text-secondary mb-3">
+                    {t(`disabledCare.whoWeHelp.${key}.title`)}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    {t(`disabledCare.whoWeHelp.${key}.description`)}
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {(t(`disabledCare.whoWeHelp.${key}.items`, { returnObjects: true }) as string[]).map((item, i) => (
+                      <li key={i}>• {item}</li>
+                    ))}
+                  </ul>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
@@ -340,22 +303,22 @@ const DisabledCare = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                Ready to Schedule Daily Care?
+                {t('disabledCare.cta.title')}
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Experience compassionate, professional nursing care in the comfort of your home. We're here to help.
+                {t('disabledCare.cta.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="w-full sm:w-auto">
-                    Book Care Visit
+                    {t('disabledCare.bookVisit')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />
-                    Discuss Subscription
+                    {t('disabledCare.call')}
                   </Button>
                 </a>
               </div>

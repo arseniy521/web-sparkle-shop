@@ -45,7 +45,8 @@
     "team": "Team",
     "contacts": "Contacts",
     "bookNow": "Book Now",
-    "blog": "Blog"
+    "blog": "Blog",
+    "allServices": "All Services"
   },
   "hero": {
     "phrases": {
@@ -652,16 +653,16 @@
     }
   },
   "disabledCare": {
-    "badge": "Compassionate Daily Care in Prague",
-    "title": "Daily Comfort Care for Disabled & Chronic Patients in Prague",
-    "description": "Professional nursing care for disabled patients and expats needing daily assistance. English-speaking nurses provide compassionate hygiene, medication, and mobility support at your home.",
-    "bookNow": "Book Care Visit",
-    "bookVisit": "Book Care Visit",
-    "call": "Call Us",
+    "badge": "Trusted Daily Care in Prague",
+    "title": "Your Loved One Deserves Compassionate Daily Care",
+    "description": "You can't always be there — but we can. Our English-speaking nurses provide gentle daily support with hygiene, medication, and mobility. Give your parent, partner, or family member the care they deserve, right at home in Prague.",
+    "bookNow": "Arrange Care Now",
+    "bookVisit": "Arrange Care Now",
+    "call": "Call to Discuss",
     "compassionate": "Compassionate Care",
     "flexible": "Flexible Scheduling",
     "englishSpeaking": "English Speaking",
-    "servicesTitle": "Daily Comfort Care Services",
+    "servicesTitle": "What Your Nurse Will Help With",
     "services": {
       "hygiene": "Personal hygiene and bathing assistance",
       "dressing": "Dressing and grooming support",
@@ -683,19 +684,29 @@
       "monthly": "Monthly Subscription",
       "monthlyPrice": "38,000 CZK",
       "monthlyDesc": "20 hours per month - ideal for daily or regular care needs",
+      "monthlyFeatures": ["20 hours of care monthly", "Consistent caregiver", "Flexible daily scheduling", "Priority phone support", "Save 10% vs single visits"],
       "bestValue": "Best Value",
       "extended": "Extended care available: 40 hours/month = 72,000 CZK | 60 hours/month = 105,000 CZK",
       "includes": "All packages include travel within Prague, supplies, and English-speaking nurses",
       "subscribe": "Call to Subscribe"
     },
     "whoWeHelp": {
-      "title": "We Provide Compassionate Care For",
-      "disabled": "Disabled Patients",
-      "disabledDesc": "Comprehensive assistance with daily living activities, mobility, and personal care needs.",
-      "expats": "Expats & Foreigners",
-      "expatsDesc": "English-speaking care for expats without family support or Czech language skills.",
-      "chronic": "Chronic Conditions",
-      "chronicDesc": "Regular support for patients managing ongoing health conditions requiring daily care."
+      "title": "Families Trust Us With Their Loved Ones",
+      "disabled": {
+        "title": "Aging Parents",
+        "description": "Your parent needs daily help but wants to stay at home. We provide the care that keeps them safe, comfortable, and independent.",
+        "items": ["Bathing and hygiene", "Dressing assistance", "Mobility support", "Medication management"]
+      },
+      "expats": {
+        "title": "Expat Families",
+        "description": "You're abroad and can't be there for your loved one in Prague. We bridge the gap with English-speaking care and regular updates.",
+        "items": ["English communication", "Regular family updates", "Doctor coordination", "Cultural sensitivity"]
+      },
+      "chronic": {
+        "title": "Chronic Conditions",
+        "description": "Managing a long-term condition is exhausting for the whole family. Let our nurses handle the daily medical routine.",
+        "items": ["Diabetes management", "Wound care", "Catheter care", "Pain management"]
+      }
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -726,8 +737,8 @@
       ]
     },
     "cta": {
-      "title": "Ready to Schedule Daily Care?",
-      "description": "Experience compassionate, professional nursing care in the comfort of your home. We're here to help."
+      "title": "Give Your Loved One the Care They Deserve",
+      "description": "You don't have to do it alone. Let us handle the daily medical care while you focus on being family."
     }
   },
   "womensDayGift": {

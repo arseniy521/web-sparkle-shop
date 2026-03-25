@@ -45,7 +45,8 @@
     "team": "Tým",
     "contacts": "Kontakty",
     "bookNow": "Rezervovat",
-    "blog": "Blog"
+    "blog": "Blog",
+    "allServices": "Všechny služby"
   },
   "hero": {
     "phrases": {
@@ -648,15 +649,15 @@
     }
   },
   "disabledCare": {
-    "badge": "Soucitná denní péče v Praze",
-    "title": "Denní komfortní péče pro handicapované a chronické pacienty v Praze",
-    "description": "Profesionální ošetřovatelská péče pro handicapované pacienty a expatrioty potřebující denní pomoc. Anglicky mluvící sestry poskytují soucitnou pomoc s hygienou, léky a podporou mobility doma.",
-    "bookVisit": "Rezervovat návštěvu",
-    "call": "Zavolat nám",
+    "badge": "Důvěryhodná denní péče v Praze",
+    "title": "Váš blízký si zaslouží soucitnou každodenní péči",
+    "description": "Nemůžete být vždy přítomni — ale my ano. Naše anglicky mluvící sestry poskytují šetrnou denní podporu s hygienou, léky a pohyblivostí. Dopřejte svému rodiči nebo partnerovi péči, kterou si zaslouží, přímo doma v Praze.",
+    "bookVisit": "Domluvit péči",
+    "call": "Zavolejte k diskuzi",
     "compassionate": "Soucitná péče",
     "flexible": "Flexibilní plánování",
     "englishSpeaking": "Anglicky mluvící",
-    "servicesTitle": "Služby denní komfortní péče",
+    "servicesTitle": "S čím vaše sestra pomůže",
     "services": {
       "hygiene": "Pomoc s osobní hygienou a koupáním",
       "dressing": "Podpora oblékání a péče o vzhled",
@@ -678,19 +679,29 @@
       "monthly": "Měsíční předplatné",
       "monthlyPrice": "39 400 Kč",
       "monthlyDesc": "20 hodin měsíčně - ideální pro denní nebo pravidelné potřeby péče",
+      "monthlyFeatures": ["20 hodin péče měsíčně", "Stálá pečovatelka", "Flexibilní denní plánování", "Prioritní telefonická podpora", "Ušetřete 10% oproti jednotlivým návštěvám"],
       "bestValue": "Nejlepší hodnota",
       "extended": "Rozšířená péče k dispozici: 40 hodin/měsíc = 78 800 Kč | 60 hodin/měsíc = 118 200 Kč",
       "includes": "Všechny balíčky zahrnují dopravu v rámci Prahy, pomůcky a anglicky mluvící sestry",
       "subscribe": "Zavolat pro předplatné"
     },
     "whoWeHelp": {
-      "title": "Poskytujeme soucitnou péči pro",
-      "disabled": "Handicapované pacienty",
-      "disabledDesc": "Komplexní pomoc s každodenními aktivitami, mobilitou a osobní péčí.",
-      "expats": "Expatrioty a cizince",
-      "expatsDesc": "Anglicky mluvící péče pro expatrioty bez rodinné podpory nebo znalosti češtiny.",
-      "chronic": "Chronická onemocnění",
-      "chronicDesc": "Pravidelná podpora pro pacienty zvládající pokračující zdravotní stavy vyžadující denní péči."
+      "title": "Rodiny nám svěřují své blízké",
+      "disabled": {
+        "title": "Stárnoucí rodiče",
+        "description": "Váš rodič potřebuje denní pomoc, ale chce zůstat doma. Poskytujeme péči, která je udržuje v bezpečí, pohodlí a nezávislosti.",
+        "items": ["Koupání a hygiena", "Pomoc s oblékáním", "Podpora mobility", "Správa léků"]
+      },
+      "expats": {
+        "title": "Expatriotské rodiny",
+        "description": "Jste v zahraničí a nemůžete být u svého blízkého v Praze. Překlenujeme tuto mezeru anglicky mluvící péčí a pravidelnými aktualizacemi.",
+        "items": ["Anglická komunikace", "Pravidelné aktualizace pro rodinu", "Koordinace s lékařem", "Kulturní citlivost"]
+      },
+      "chronic": {
+        "title": "Chronická onemocnění",
+        "description": "Zvládání dlouhodobého stavu je vyčerpávající pro celou rodinu. Nechte naše sestry zvládat denní lékařskou rutinu.",
+        "items": ["Péče o diabetes", "Péče o rány", "Péče o katétr", "Léčba bolesti"]
+      }
     },
     "faq": {
       "title": "Často kladené otázky",
@@ -721,10 +732,8 @@
       ]
     },
     "cta": {
-      "title": "Jste připraveni naplánovat denní péči?",
-      "description": "Zažijte soucitnou, profesionální ošetřovatelskou péči v pohodlí vašeho domova. Jsme tu, abychom pomohli.",
-      "bookVisit": "Rezervovat návštěvu",
-      "discussSubscription": "Diskutovat o předplatném"
+      "title": "Dopřejte svým blízkým péči, kterou si zaslouží",
+      "description": "Nemusíte to zvládat sami. Nechte nás postarat se o denní zdravotní péči, zatímco se soustředíte na to být rodina."
     }
   },
   "womensDayGift": {
