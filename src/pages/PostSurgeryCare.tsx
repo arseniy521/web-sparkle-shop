@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Shield, Phone, Check, Heart, Star } from "lucide-react";
+import { ArrowRight, Shield, Phone, Check, Heart, Star, Clock, Building2 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -281,8 +281,45 @@ const PostSurgeryCare = () => {
           </div>
         </section>
 
-        {/* Ideal For */}
+        {/* Recovery Timeline */}
         <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 text-center">
+                {t('postSurgeryCare.timeline.title')}
+              </h2>
+              <p className="text-lg text-muted-foreground mb-12 text-center">
+                {t('postSurgeryCare.timeline.subtitle')}
+              </p>
+              <div className="space-y-0">
+                {(['day0', 'day1', 'day3', 'day7'] as const).map((dayKey, index) => (
+                  <div key={dayKey} className="flex gap-6 relative">
+                    {index < 3 && (
+                      <div className="absolute left-[19px] top-12 w-0.5 h-full bg-primary/20" />
+                    )}
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center z-10">
+                      <Clock className="h-5 w-5" />
+                    </div>
+                    <div className="flex-1 pb-10">
+                      <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+                        {t(`postSurgeryCare.timeline.${dayKey}.label`)}
+                      </span>
+                      <h3 className="text-xl font-semibold text-secondary mt-1 mb-2">
+                        {t(`postSurgeryCare.timeline.${dayKey}.title`)}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {t(`postSurgeryCare.timeline.${dayKey}.description`)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Ideal For */}
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
               {t('postSurgeryCare.idealFor.title')}
@@ -322,6 +359,32 @@ const PostSurgeryCare = () => {
                 </p>
               </Card>
             </div>
+          </div>
+        </section>
+
+        {/* Clinic Partnerships */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 text-center">
+              {t('postSurgeryCare.clinics.title')}
+            </h2>
+            <p className="text-lg text-muted-foreground mb-12 text-center">
+              {t('postSurgeryCare.clinics.subtitle')}
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {(t('postSurgeryCare.clinics.items', { returnObjects: true }) as { name: string; specialty: string }[]).map((clinic, index) => (
+                <Card key={index} className="p-4 flex items-center gap-3">
+                  <Building2 className="h-8 w-8 text-primary flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-secondary">{clinic.name}</p>
+                    <p className="text-sm text-muted-foreground">{clinic.specialty}</p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground text-center mt-6">
+              {t('postSurgeryCare.clinics.note')}
+            </p>
           </div>
         </section>
 
