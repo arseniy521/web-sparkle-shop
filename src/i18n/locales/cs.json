@@ -583,6 +583,43 @@
       "dental": "Stomatologických zákrocích",
       "other": "Jiných zákrocích"
     },
+    "timeline": {
+      "title": "Váš plán zotavení",
+      "subtitle": "Co očekávat den po dni po zákroku",
+      "day0": {
+        "label": "Den operace",
+        "title": "Doprovod z nemocnice a ubytování",
+        "description": "Doprovodíme vás z kliniky do hotelu, sledujeme životní funkce, řídíme léky proti bolesti a zajistíme bezpečné ubytování."
+      },
+      "day1": {
+        "label": "Den 1–2",
+        "title": "Kritické období sledování",
+        "description": "Kontrola rány, výměna obvazu, léčba bolesti, pomoc s hygienou. Sledujeme případné známky komplikací."
+      },
+      "day3": {
+        "label": "Den 3–5",
+        "title": "Aktivní zotavení",
+        "description": "Každodenní péče o rány, péče o drény v případě potřeby, šetrná podpora pohyblivosti. Otoky vrcholí a začínají ustupovat."
+      },
+      "day7": {
+        "label": "Den 5–7",
+        "title": "Přechod k samostatnosti",
+        "description": "Závěrečné posouzení rány, koordinace odstranění stehů/drénů s chirurgem, pokyny k péči pro cestu domů."
+      }
+    },
+    "clinics": {
+      "title": "Spolupracujeme s předními klinikami v Praze",
+      "subtitle": "Naše sestry přímo koordinují s vaším chirurgickým týmem pro bezproblémovou následnou péči",
+      "items": [
+        { "name": "Beaute Clinic", "specialty": "Plastická chirurgie" },
+        { "name": "Praga Medica", "specialty": "Plastická a estetická chirurgie" },
+        { "name": "Canadian Medical", "specialty": "Stomatologie a estetika" },
+        { "name": "Prague Medical Institute", "specialty": "Ortopedická chirurgie" },
+        { "name": "Motol University Hospital", "specialty": "Obecná chirurgie" },
+        { "name": "Na Homolce Hospital", "specialty": "Kardiochirurgie" }
+      ],
+      "note": "Nevidíte svou kliniku? Spolupracujeme s jakýmkoli chirurgem nebo nemocnicí v Praze. Kontaktujte nás pro koordinaci."
+    },
     "faq": {
       "title": "Často kladené otázky",
       "q1": "Mohu si rezervovat před mou operací?",
@@ -1176,6 +1213,8 @@
       "title": "IV kapačky Praha: Nabídka a transparentní ceník",
       "subtitle": "Všechny ceny v CZK zahrnují návštěvu registrované sestry, monitoring, vybavení a poradenství po proceduře. Objednejte si <strong>IV kapačky v Praze 1, Vinohradech, Starém Městě</strong> nebo jakémkoli pražském obvodu ve stejný den.",
       "mostPopular": "Nejoblíbenější",
+      "bestForLabel": "Nejlepší pro",
+      "filterAll": "Všechny kapačky",
       "minutes": "minut",
       "book": "Objednat",
       "bookMessage": "Dobrý den! Chtěl/a bych objednat kapačku {{drip}} v Praze. Kdy je nejbližší volný termín?",
@@ -1192,7 +1231,8 @@
               "duration": 45,
               "short": "Základní posílení vitaminem C pro podporu imunity a prevenci.",
               "includes": ["Infuze vitaminu C", "Podpora hydratace", "Návštěva registrované sestry", "Veškerý materiál v ceně"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Prevence"
             },
             "immunityPower": {
               "name": "Immunity Power",
@@ -1200,7 +1240,8 @@
               "duration": 60,
               "short": "Vysokodávkový vitamin C (15 g) pro obranu proti virům a intenzivní podporu imunity.",
               "includes": ["Vysokodávkový vitamin C 15 g", "Podpůrná hydratace", "Monitoring registrovanou sestrou", "Veškerý sterilní materiál"],
-              "popular": true
+              "popular": true,
+              "bestFor": "Nachlazení a chřipka"
             },
             "defenseShield": {
               "name": "Defense Shield (Hero)",
@@ -1208,7 +1249,8 @@
               "duration": 60,
               "short": "Ultimátní regenerace po chřipce a virech s vitaminem C a stopovými prvky.",
               "includes": ["Vitamin C + stopové prvky", "Esenciální mikroelementy", "Hydratační terapie", "Návštěva registrované sestry"],
-              "popular": true
+              "popular": true,
+              "bestFor": "Posílení imunity"
             },
             "glowPostFlu": {
               "name": "Glow & Post-Flu",
@@ -1216,7 +1258,8 @@
               "duration": 60,
               "short": "Podpora regenerace pleti, vlasů a imunitní odolnosti po nemoci.",
               "includes": ["Mikroelementy pro pleť a vlasy", "Živiny pro podporu imunity", "Stopové prvky a vitamíny", "Návštěva registrované sestry"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Zotavení po nemoci"
             }
           }
         },
@@ -1229,7 +1272,8 @@
               "duration": 60,
               "short": "Maximální soustředění a mentální jasnost s B-komplexem, minerály a hořčíkem pro náročné profesionály.",
               "includes": ["Vitamíny B-komplexu", "Esenciální minerály", "2000 mg hořčíku", "Návštěva registrované sestry"],
-              "popular": true
+              "popular": true,
+              "bestFor": "Soustředění a produktivita"
             },
             "metabolicReset": {
               "name": "Metabolic Reset",
@@ -1237,7 +1281,8 @@
               "duration": 60,
               "short": "Podpora energetického metabolismu a detoxikace pro celkovou vitalitu.",
               "includes": ["Metabolické živiny", "Detoxikační prvky", "Komplex vitamínů B", "Návštěva registrované sestry"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Detox a metabolismus"
             },
             "bPowerShot": {
               "name": "B-Power Shot",
@@ -1245,7 +1290,8 @@
               "duration": 10,
               "short": "Rychlá energetická injekce B12 900 mcg (intramuskulárně, pouze 10 minut).",
               "includes": ["Vitamín B12 900 mcg IM", "Rychlá 10minutová procedura", "Návštěva registrované sestry", "Okamžitý nárůst energie"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Rychlá energie"
             }
           }
         },
@@ -1258,7 +1304,8 @@
               "duration": 45,
               "short": "Rychlá rehydratace 500 ml–1000 ml fyziologického roztoku při dehydrataci.",
               "includes": ["0,9% NaCl fyziologický roztok (500 ml–1000 ml)", "Rychlá rehydratace", "Návštěva registrované sestry", "Veškerý materiál v ceně"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Dehydratace"
             },
             "electrolyteReset": {
               "name": "Electrolyte Reset",
@@ -1266,7 +1313,8 @@
               "duration": 45,
               "short": "Hydratace s 2000 mg hořčíku pro svalovou regeneraci a lepší spánek.",
               "includes": ["Vyvážené elektrolytové roztoky", "2000 mg hořčíku", "Podpora svalů a spánku", "Návštěva registrované sestry"],
-              "popular": true
+              "popular": true,
+              "bestFor": "Sportovní regenerace"
             },
             "nauseaRelief": {
               "name": "Nausea Relief",
@@ -1274,7 +1322,8 @@
               "duration": 45,
               "short": "Rychlá pomoc při otravě jídlem, těžké kocovině nebo zažívacích potížích.",
               "includes": ["Lék proti nevolnosti", "Podpora hydratace", "Rovnováha elektrolytů", "Návštěva registrované sestry"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Kocovina a nevolnost"
             }
           }
         },
@@ -1287,7 +1336,8 @@
               "duration": 45,
               "short": "Šetrné doplnění železa přípravkem Ferrlecit při mírné anémii.",
               "includes": ["Infuze železa Ferrlecit", "Šetrné složení", "Monitoring registrovanou sestrou", "Veškerý materiál v ceně"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Nedostatek železa"
             },
             "premiumIron": {
               "name": "Premium Iron",
@@ -1295,7 +1345,8 @@
               "duration": 60,
               "short": "Vysoce účinná infuze železa (Ferinject) při chronické únavě a těžké anémii.",
               "includes": ["Vysoce účinné železo Ferinject", "Prodloužený monitoring", "Návštěva registrované sestry", "Pokyny po proceduře"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Těžká anémie"
             },
             "nerveRegen": {
               "name": "Nerve Regen",
@@ -1303,7 +1354,8 @@
               "duration": 45,
               "short": "Podpora při bolestech zad a neurologické regeneraci intramuskulární injekcí B-komplexu.",
               "includes": ["Intramuskulární injekce B-komplexu", "Živiny pro podporu nervů", "Podpora úlevy od bolesti", "Návštěva registrované sestry"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Zdraví nervů"
             },
             "backacheRelief": {
               "name": "🦴 Backache Relief",
@@ -1311,7 +1363,8 @@
               "duration": 45,
               "short": "Akutní úleva od svalové a nervové bolesti zad a kloubů.",
               "includes": ["Léky proti bolesti", "Protizánětlivá podpora", "Svalová relaxace", "Návštěva registrované sestry"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Úleva od bolesti"
             },
             "allergyStop": {
               "name": "🌸 Allergy Stop",
@@ -1319,7 +1372,8 @@
               "duration": 45,
               "short": "Rychlá úleva od alergických reakcí a příznaků sezónních alergií.",
               "includes": ["Antihistaminická podpora", "Protizánětlivé látky", "Úleva od příznaků", "Návštěva registrované sestry"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Alergie"
             }
           }
         }

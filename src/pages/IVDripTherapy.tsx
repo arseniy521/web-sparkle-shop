@@ -25,12 +25,14 @@ import {
   Calendar
 } from "lucide-react";
 import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
+import { useState } from "react";
 
 const IVDripsPrague = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const currentLang = getLanguageFromPath(location.pathname);
   const langPrefix = getLanguagePrefix(currentLang);
+  const [activeFilter, setActiveFilter] = useState<string>('all');
   const phone = "+420773629123";
   const whatsappMessage = t('ivDripTherapy.whatsappMessage');
   const whatsappLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -56,6 +58,7 @@ const IVDripsPrague = () => {
 
   const menu = categoryKeys.map(catKey => ({
     category: t(`ivDripTherapy.menu.categories.${catKey}.name`),
+    catKey,
     items: categoryItemKeys[catKey].map(itemKey => ({
       name: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.name`),
       priceCZK: Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.price`)),
@@ -63,8 +66,13 @@ const IVDripsPrague = () => {
       short: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.short`),
       includes: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.includes`, { returnObjects: true }) as string[],
       popular: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.popular`) === 'true' || t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.popular`) === true as any,
+      bestFor: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.bestFor`, { defaultValue: '' }),
     })),
   }));
+
+  const filteredMenu = activeFilter === 'all'
+    ? menu
+    : menu.filter(cat => cat.catKey === activeFilter);
 
   const treatmentKeys = ['vitaminC', 'ceo', 'hydration', 'iron', 'defense', 'glow'] as const;
   const treatmentIcons = { vitaminC: Shield, ceo: Zap, hydration: Droplets, iron: Heart, defense: Activity, glow: Sparkles };
@@ -403,10 +411,30 @@ const IVDripsPrague = () => {
                     {t('ivDripTherapy.menu.title')}
                   </h2>
                   <p className="text-lg text-muted-foreground max-w-3xl mx-auto" dangerouslySetInnerHTML={{ __html: t('ivDripTherapy.menu.subtitle') }} />
+
+                  {/* Filter Buttons */}
+                  <div className="flex flex-wrap gap-3 justify-center mt-8">
+                    {[
+                      { key: 'all', label: t('ivDripTherapy.menu.filterAll') },
+                      ...categoryKeys.map(k => ({ key: k, label: t(`ivDripTherapy.menu.categories.${k}.name`) }))
+                    ].map(f => (
+                      <button
+                        key={f.key}
+                        onClick={() => setActiveFilter(f.key)}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                          activeFilter === f.key
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted hover:bg-muted/80 text-muted-foreground'
+                        }`}
+                      >
+                        {f.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="space-y-12">
-                  {menu.map((cat) => (
+                  {filteredMenu.map((cat) => (
                       <div key={cat.category} className="space-y-6">
                         <h3 className="text-2xl md:text-3xl font-semibold text-center">{cat.category}</h3>
 
@@ -442,7 +470,15 @@ const IVDripsPrague = () => {
                                   </div>
                                 </div>
 
-                                <p className="text-muted-foreground mb-4 leading-relaxed">{item.short}</p>
+                                <p className="text-muted-foreground mb-3 leading-relaxed">{item.short}</p>
+
+                                {item.bestFor && (
+                                  <div className="mb-4">
+                                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                                      {t('ivDripTherapy.menu.bestForLabel')}: {item.bestFor}
+                                    </span>
+                                  </div>
+                                )}
 
                                 {item.includes?.length ? (
                                     <ul className="space-y-2 mb-6">

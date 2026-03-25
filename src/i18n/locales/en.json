@@ -583,6 +583,43 @@
       "dental": "Dental Surgery",
       "other": "Other Procedures"
     },
+    "timeline": {
+      "title": "Your Recovery Timeline",
+      "subtitle": "What to expect day by day after your procedure",
+      "day0": {
+        "label": "Surgery Day",
+        "title": "Hospital Escort & Settlement",
+        "description": "We escort you from the clinic to your hotel, monitor vitals, manage pain medication, and ensure you're safely settled."
+      },
+      "day1": {
+        "label": "Day 1–2",
+        "title": "Critical Monitoring Period",
+        "description": "Wound check, dressing change, pain management, hygiene assistance. We watch for any signs of complications."
+      },
+      "day3": {
+        "label": "Day 3–5",
+        "title": "Active Recovery",
+        "description": "Daily wound care, drain management if needed, gentle mobility support. Most swelling peaks and begins to reduce."
+      },
+      "day7": {
+        "label": "Day 5–7",
+        "title": "Transition to Independence",
+        "description": "Final wound assessment, stitch/drain removal coordination with surgeon, discharge care instructions for travel home."
+      }
+    },
+    "clinics": {
+      "title": "We Work With Prague's Top Clinics",
+      "subtitle": "Our nurses coordinate directly with your surgical team for seamless aftercare",
+      "items": [
+        { "name": "Beaute Clinic", "specialty": "Plastic Surgery" },
+        { "name": "Praga Medica", "specialty": "Plastic & Cosmetic Surgery" },
+        { "name": "Canadian Medical", "specialty": "Dental & Cosmetic" },
+        { "name": "Prague Medical Institute", "specialty": "Orthopedic Surgery" },
+        { "name": "Motol University Hospital", "specialty": "General Surgery" },
+        { "name": "Na Homolce Hospital", "specialty": "Cardiac & General" }
+      ],
+      "note": "Don't see your clinic? We work with any surgeon or hospital in Prague. Contact us for coordination."
+    },
     "faq": {
       "title": "Medical Tourist Questions",
       "q1": "I'm staying at a hotel/Airbnb. Can you visit there?",
@@ -590,7 +627,7 @@
       "q2": "Do I need Czech health insurance?",
       "a2": "No. Our service is private pay - you don't need Czech insurance. We accept cash (CZK/EUR), bank transfer, or card payment.",
       "q3": "What if I have complications?",
-      "a3": "Our nurses are trained to recognize complications and will coordinate with your surgeon or recommend emergency care if needed. With recovery packages, you have 24/7 phone support.",
+      "a3": "Our nurses are trained to recognize complications and will coordinate with your surgeon or recommend emergency care if needed. With recovery packages, you have daily phone support.",
       "q4": "Can you help me with showering after surgery?",
       "a4": "Yes! Hygiene assistance is included in our packages. We help with safe showering, keeping surgical sites dry, and post-shower wound care."
     },
@@ -1179,6 +1216,8 @@
       "title": "IV Drips Prague: Menu & Transparent Pricing",
       "subtitle": "All prices in CZK include registered nurse visit, monitoring, equipment, and aftercare guidance. Book same-day <strong>IV drips in Prague 1, Vinohrady, Old Town</strong>, or any Prague district.",
       "mostPopular": "Most Popular",
+      "bestForLabel": "Best for",
+      "filterAll": "All Drips",
       "minutes": "minutes",
       "book": "Book",
       "bookMessage": "Hi! I'd like to book the {{drip}} IV drip in Prague. When is the earliest available time?",
@@ -1195,7 +1234,8 @@
               "duration": 45,
               "short": "Baseline Vitamin C boost for immune support and prevention.",
               "includes": ["Vitamin C infusion", "Hydration support", "Registered nurse visit", "All equipment included"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Prevention"
             },
             "immunityPower": {
               "name": "Immunity Power",
@@ -1203,7 +1243,8 @@
               "duration": 60,
               "short": "High-dose Vitamin C (15g) for viral defense and intensive immune support.",
               "includes": ["Vitamin C 15g high-dose", "Supportive hydration", "Registered nurse monitoring", "All sterile equipment"],
-              "popular": true
+              "popular": true,
+              "bestFor": "Cold & Flu"
             },
             "defenseShield": {
               "name": "Defense Shield (Hero)",
@@ -1211,7 +1252,8 @@
               "duration": 60,
               "short": "The ultimate flu & virus recovery with Vitamin C and trace elements.",
               "includes": ["Vitamin C + trace elements", "Essential microelements", "Hydration therapy", "Registered nurse visit"],
-              "popular": true
+              "popular": true,
+              "bestFor": "Immune Boost"
             },
             "glowPostFlu": {
               "name": "Glow & Post-Flu",
@@ -1219,7 +1261,8 @@
               "duration": 60,
               "short": "Recovery support for skin, hair, and immune resilience after illness.",
               "includes": ["Microelements for skin & hair", "Immune support nutrients", "Trace elements & vitamins", "Registered nurse visit"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Post-Illness Recovery"
             }
           }
         },
@@ -1232,7 +1275,8 @@
               "duration": 60,
               "short": "Peak focus & mental clarity with B-Complex, minerals, and magnesium for high performers.",
               "includes": ["B-Complex vitamins", "Essential minerals", "2000mg Magnesium", "Registered nurse visit"],
-              "popular": true
+              "popular": true,
+              "bestFor": "Focus & Productivity"
             },
             "metabolicReset": {
               "name": "Metabolic Reset",
@@ -1240,7 +1284,8 @@
               "duration": 60,
               "short": "Energy metabolism boost and detox support for overall vitality.",
               "includes": ["Metabolic nutrients", "Detox support elements", "B-vitamins complex", "Registered nurse visit"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Detox & Metabolism"
             },
             "bPowerShot": {
               "name": "B-Power Shot",
@@ -1248,7 +1293,8 @@
               "duration": 10,
               "short": "Quick 900mcg B12 energy injection (intramuscular, 10 minutes only).",
               "includes": ["Vitamin B12 900mcg IM", "Quick 10-minute procedure", "Registered nurse visit", "Immediate energy boost"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Quick Energy"
             }
           }
         },
@@ -1261,7 +1307,8 @@
               "duration": 45,
               "short": "Rapid rehydration with 500ml–1000ml saline for dehydration relief.",
               "includes": ["0.9% NaCl saline (500ml–1000ml)", "Rapid rehydration", "Registered nurse visit", "All equipment included"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Dehydration"
             },
             "electrolyteReset": {
               "name": "Electrolyte Reset",
@@ -1269,7 +1316,8 @@
               "duration": 45,
               "short": "Hydration plus 2000mg Magnesium for muscle recovery and better sleep.",
               "includes": ["Balanced electrolyte fluids", "2000mg Magnesium", "Muscle & sleep support", "Registered nurse visit"],
-              "popular": true
+              "popular": true,
+              "bestFor": "Sports Recovery"
             },
             "nauseaRelief": {
               "name": "Nausea Relief",
@@ -1277,7 +1325,8 @@
               "duration": 45,
               "short": "Rapid help for food poisoning, severe hangovers, or digestive distress.",
               "includes": ["Anti-nausea medication", "Hydration support", "Electrolyte balance", "Registered nurse visit"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Hangover & Nausea"
             }
           }
         },
@@ -1290,7 +1339,8 @@
               "duration": 45,
               "short": "Gentle iron replenishment with Ferrlecit for mild anemia.",
               "includes": ["Ferrlecit iron infusion", "Gentle formula", "Registered nurse monitoring", "All equipment included"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Iron Deficiency"
             },
             "premiumIron": {
               "name": "Premium Iron",
@@ -1298,7 +1348,8 @@
               "duration": 60,
               "short": "High-potency iron infusion (Ferinject) for chronic fatigue and severe anemia.",
               "includes": ["Ferinject high-potency iron", "Extended monitoring", "Registered nurse visit", "Post-treatment guidance"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Severe Anemia"
             },
             "nerveRegen": {
               "name": "Nerve Regen",
@@ -1306,7 +1357,8 @@
               "duration": 45,
               "short": "Back pain & neurological recovery support with B-Complex intramuscular injection.",
               "includes": ["B-Complex IM injection", "Nerve support nutrients", "Pain relief support", "Registered nurse visit"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Nerve Health"
             },
             "backacheRelief": {
               "name": "🦴 Backache Relief",
@@ -1314,7 +1366,8 @@
               "duration": 45,
               "short": "Acute muscle & nerve pain relief for back and joint discomfort.",
               "includes": ["Pain relief medication", "Anti-inflammatory support", "Muscle relaxation", "Registered nurse visit"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Pain Relief"
             },
             "allergyStop": {
               "name": "🌸 Allergy Stop",
@@ -1322,7 +1375,8 @@
               "duration": 45,
               "short": "Rapid relief from allergic reactions and seasonal allergy symptoms.",
               "includes": ["Antihistamine support", "Anti-inflammatory agents", "Symptom relief", "Registered nurse visit"],
-              "popular": false
+              "popular": false,
+              "bestFor": "Allergies"
             }
           }
         }
