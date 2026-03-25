@@ -52,7 +52,7 @@ const Blog = () => {
                   className="overflow-hidden hover:shadow-card transition-all duration-300 hover:-translate-y-1 animate-slide-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <Link to={`${langPrefix}/blog/${post.slug}`}>
+                  <Link to={`${langPrefix}/blog/${post.slug}/`}>
                     <div className="aspect-video bg-muted overflow-hidden">
                       <img
                         src={post.image}

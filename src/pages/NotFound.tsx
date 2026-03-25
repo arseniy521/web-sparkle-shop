@@ -1,5 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft } from "lucide-react";
@@ -20,6 +21,10 @@ const NotFound = () => {
   }, [location.pathname, currentLang, i18n]);
 
   return (
+    <>
+    <Helmet>
+      <meta name="robots" content="noindex, nofollow" />
+    </Helmet>
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary/5 to-background">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center space-y-8">
@@ -34,7 +39,7 @@ const NotFound = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Link to={langPrefix || '/'}>
+            <Link to={langPrefix ? `${langPrefix}/` : '/'}>
               <Button size="lg" className="w-full sm:w-auto">
                 <Home className="mr-2 h-5 w-5" />
                 {t('notFound.goHome')}
@@ -56,16 +61,16 @@ const NotFound = () => {
               {t('notFound.help')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center text-sm">
-              <Link to={`${langPrefix}/ivf-support-prague`} className="text-primary hover:underline">
+              <Link to={`${langPrefix}/ivf-support-prague/`} className="text-primary hover:underline">
                 {t('specializedServices.ivf')}
               </Link>
-              <Link to={`${langPrefix}/iv-drips-prague`} className="text-primary hover:underline">
+              <Link to={`${langPrefix}/iv-drips-prague/`} className="text-primary hover:underline">
                 {t('specializedServices.ivDrip')}
               </Link>
-              <Link to={`${langPrefix}/post-surgery-recovery-care-prague`} className="text-primary hover:underline">
+              <Link to={`${langPrefix}/post-surgery-recovery-care-prague/`} className="text-primary hover:underline">
                 {t('specializedServices.postSurgery')}
               </Link>
-              <Link to={`${langPrefix}/disabled-daily-care-prague`} className="text-primary hover:underline">
+              <Link to={`${langPrefix}/disabled-daily-care-prague/`} className="text-primary hover:underline">
                 {t('specializedServices.disabled')}
               </Link>
             </div>
@@ -73,6 +78,7 @@ const NotFound = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Redirecting...</title>
-  <script>
-    // Store the path and redirect to index.html
-    // This allows React Router to handle the routing
-    sessionStorage.setItem('redirectPath', window.location.pathname + window.location.search + window.location.hash);
-    window.location.replace('/');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Page Not Found - Nurse in Prague</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #f9fafb; color: #374151; }
+    .container { text-align: center; padding: 2rem; }
+    h1 { font-size: 3rem; margin-bottom: 0.5rem; color: #0d9488; }
+    p { font-size: 1.125rem; margin-bottom: 1.5rem; }
+    a { color: #0d9488; text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>404</h1>
+    <p>The page you're looking for doesn't exist.</p>
+    <a href="/">Go to Homepage</a>
+  </div>
 </body>
 </html>

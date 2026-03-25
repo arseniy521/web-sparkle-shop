@@ -334,7 +334,7 @@ const IVDripsPrague = () => {
             <Breadcrumbs
                 items={[
                   { label: "Services", href: "/#services" },
-                  { label: "IV Drips Prague", href: "/iv-drips-prague" },
+                  { label: "IV Drips Prague", href: "/iv-drips-prague/" },
                 ]}
             />
 
@@ -378,7 +378,7 @@ const IVDripsPrague = () => {
                     Choose from hydration, immunity, beauty, and recovery <strong>IV drips in Prague</strong> with same-day availability.
                     Perfect for medical tourists, expats, and travelers seeking{" "}
                     <Link
-                        to="/post-surgery-recovery-care-prague"
+                        to="/post-surgery-recovery-care-prague/"
                         className="text-primary hover:underline font-medium"
                     >
                       post-surgery recovery care in Prague
@@ -785,11 +785,11 @@ const IVDripsPrague = () => {
                     <p className="text-muted-foreground leading-relaxed">
                       All IV drips in Prague administered by <strong>registered nurses with hospital experience</strong>.
                       Sterile equipment, proper monitoring, medical protocols. We also provide{" "}
-                      <Link to="/ivf-support-prague" className="text-primary hover:underline font-medium">
+                      <Link to="/ivf-support-prague/" className="text-primary hover:underline font-medium">
                         IVF injection support
                       </Link>{" "}
                       and{" "}
-                      <Link to="/disabled-daily-care-prague" className="text-primary hover:underline font-medium">
+                      <Link to="/disabled-daily-care-prague/" className="text-primary hover:underline font-medium">
                         long-term nursing care
                       </Link>.
                     </p>

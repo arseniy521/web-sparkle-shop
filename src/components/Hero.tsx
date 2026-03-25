@@ -94,19 +94,19 @@ export const Hero = () => {
             <div className="bg-muted/50 rounded-2xl p-6 mt-6">
               <h3 className="font-semibold text-foreground mb-3">{t('specializedServices.title')}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
-                <Link to="/ivf-support-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/ivf-support-prague/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <span>💉</span>
                   <span>{t('specializedServices.ivf')}</span>
                 </Link>
-                <Link to="/iv-drips-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/iv-drips-prague/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <span>💧</span>
                   <span>{t('specializedServices.ivDrip')}</span>
                 </Link>
-                <Link to="/post-surgery-recovery-care-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/post-surgery-recovery-care-prague/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <span>🏥</span>
                   <span>{t('specializedServices.postSurgery')}</span>
                 </Link>
-                <Link to="/disabled-daily-care-prague" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/disabled-daily-care-prague/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <span>🤝</span>
                   <span>{t('specializedServices.disabled')}</span>
                 </Link>

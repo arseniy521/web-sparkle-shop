@@ -45,15 +45,7 @@ const routes = [
   "/en/birthday-gift-prague",
   "/ru/podatok-k-dnju-rozhdenija-praga",
 
-  // Old URL redirects (pre-render so crawlers get redirect signal)
-  "/iv-drip-therapy-prague",
-  "/en/iv-drip-therapy-prague",
-  "/ru/iv-drip-therapy-prague",
-  "/uk/iv-drip-therapy-prague",
-  "/ivf-injection-support-prague",
-  "/en/ivf-injection-support-prague",
-  "/ru/ivf-injection-support-prague",
-  "/uk/ivf-injection-support-prague",
+  // Old URL redirects are handled separately below (not pre-rendered)
   "/blog/iv-therapy-at-home-prague-guide",
   "/blog/when-to-call-home-nurse-prague",
   "/blog/wound-care-dressing-changes-prague",
@@ -173,6 +165,47 @@ async function prerender() {
     process.exit(1);
   } finally {
     await browser.close();
+  }
+
+  // Generate static redirect HTML files for old URLs
+  // These use <meta http-equiv="refresh"> so Google sees a proper redirect signal
+  const baseUrl = 'https://www.nius.cz';
+  const redirects = [
+    { from: '/iv-drip-therapy-prague', to: '/iv-drips-prague/' },
+    { from: '/en/iv-drip-therapy-prague', to: '/en/iv-drips-prague/' },
+    { from: '/ru/iv-drip-therapy-prague', to: '/ru/iv-drips-prague/' },
+    { from: '/uk/iv-drip-therapy-prague', to: '/uk/iv-drips-prague/' },
+    { from: '/ivf-injection-support-prague', to: '/ivf-support-prague/' },
+    { from: '/en/ivf-injection-support-prague', to: '/en/ivf-support-prague/' },
+    { from: '/ru/ivf-injection-support-prague', to: '/ru/ivf-support-prague/' },
+    { from: '/uk/ivf-injection-support-prague', to: '/uk/ivf-support-prague/' },
+  ];
+
+  for (const { from, to } of redirects) {
+    const targetUrl = `${baseUrl}${to}`;
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0;url=${targetUrl}">
+  <link rel="canonical" href="${targetUrl}">
+  <meta name="robots" content="noindex">
+  <title>Redirecting...</title>
+  <script>window.location.replace("${targetUrl}");</script>
+</head>
+<body>
+  <p>This page has moved. <a href="${targetUrl}">Click here</a> if you are not redirected.</p>
+</body>
+</html>`;
+
+    const routePath = from.startsWith('/') ? from.slice(1) : from;
+    const outputPath = path.join(distDir, routePath, 'index.html');
+    const dir = path.dirname(outputPath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(outputPath, html);
+    console.log(`✓ Redirect: ${from} → ${to}`);
   }
 
   console.log('Pre-rendering complete!');

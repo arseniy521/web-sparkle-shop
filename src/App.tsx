@@ -79,17 +79,21 @@ const App = () => (
             <Route path="/en/birthday-gift-prague" element={<LanguageWrapper language="en"><BirthdayGift /></LanguageWrapper>} />
             <Route path="/ru/podatok-k-dnju-rozhdenija-praga" element={<LanguageWrapper language="ru"><BirthdayGift /></LanguageWrapper>} />
 
+            {/* Redirect invalid /cs/ and /cz/ prefixes to homepage (Czech is the default, no prefix) */}
+            <Route path="/cs/*" element={<Navigate to="/" replace />} />
+            <Route path="/cz/*" element={<Navigate to="/" replace />} />
+
             {/* 301-style redirects: old IV drip therapy URL → new IV drips URL */}
-            <Route path="/iv-drip-therapy-prague" element={<Navigate to="/iv-drips-prague" replace />} />
-            <Route path="/en/iv-drip-therapy-prague" element={<Navigate to="/en/iv-drips-prague" replace />} />
-            <Route path="/ru/iv-drip-therapy-prague" element={<Navigate to="/ru/iv-drips-prague" replace />} />
-            <Route path="/uk/iv-drip-therapy-prague" element={<Navigate to="/uk/iv-drips-prague" replace />} />
+            <Route path="/iv-drip-therapy-prague" element={<Navigate to="/iv-drips-prague/" replace />} />
+            <Route path="/en/iv-drip-therapy-prague" element={<Navigate to="/en/iv-drips-prague/" replace />} />
+            <Route path="/ru/iv-drip-therapy-prague" element={<Navigate to="/ru/iv-drips-prague/" replace />} />
+            <Route path="/uk/iv-drip-therapy-prague" element={<Navigate to="/uk/iv-drips-prague/" replace />} />
 
             {/* 301-style redirects: old IVF injection support URL → new IVF support URL */}
-            <Route path="/ivf-injection-support-prague" element={<Navigate to="/ivf-support-prague" replace />} />
-            <Route path="/en/ivf-injection-support-prague" element={<Navigate to="/en/ivf-support-prague" replace />} />
-            <Route path="/ru/ivf-injection-support-prague" element={<Navigate to="/ru/ivf-support-prague" replace />} />
-            <Route path="/uk/ivf-injection-support-prague" element={<Navigate to="/uk/ivf-support-prague" replace />} />
+            <Route path="/ivf-injection-support-prague" element={<Navigate to="/ivf-support-prague/" replace />} />
+            <Route path="/en/ivf-injection-support-prague" element={<Navigate to="/en/ivf-support-prague/" replace />} />
+            <Route path="/ru/ivf-injection-support-prague" element={<Navigate to="/ru/ivf-support-prague/" replace />} />
+            <Route path="/uk/ivf-injection-support-prague" element={<Navigate to="/uk/ivf-support-prague/" replace />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
