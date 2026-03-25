@@ -320,7 +320,7 @@ const WomensDayGift = () => {
                 ))}
               </div>
               <div className="text-center">
-                <Link to={`${langPrefix}/iv-drips-prague`}>
+                <Link to={`${langPrefix}/iv-drips-prague/`}>
                   <Button variant="link" className="text-rose-600 hover:text-rose-700">
                     {t("womensDayGift.included.learnMore")}
                     <ArrowRight className="ml-1 h-4 w-4" />

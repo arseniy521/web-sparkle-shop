@@ -23,11 +23,12 @@ const SestrickaPrahaZizkov = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SEO 
+      <SEO
         title={pageTitle}
         description={pageDescription}
         keywords="sestřička žižkov, sestra praha 3, iv kapačky žižkov, domácí péče žižkov, zdravotní péče praha 3"
         ogImage="https://www.nius.cz/og-image.jpg"
+        hreflangLanguages={['cs']}
         schema={{
           "@context": "https://schema.org",
           "@type": "MedicalBusiness",

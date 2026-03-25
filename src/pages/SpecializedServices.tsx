@@ -7,11 +7,12 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StickyBookNow } from "@/components/StickyBookNow";
 import { useTranslation } from "react-i18next";
 import { Syringe, Droplets, Heart, User, ArrowRight } from "lucide-react";
+import { getLanguagePrefix } from "@/utils/languageUtils";
 
 const SpecializedServices = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
-  const langPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+  const langPrefix = getLanguagePrefix(currentLang);
 
   const pageTitle = t('specializedServices.seo.title');
   const pageDescription = t('specializedServices.seo.description');
@@ -48,28 +49,28 @@ const SpecializedServices = () => {
       icon: Syringe,
       title: t('specializedServices.ivf'),
       description: t('specializedServices.ivfDesc'),
-      link: currentLang === 'en' ? '/ivf-support-prague' : `/${currentLang}/ivf-support-prague`,
+      link: `${langPrefix}/ivf-support-prague/`,
       image: "/assets/injection.png"
     },
     {
       icon: Droplets,
       title: t('specializedServices.ivDrip'),
       description: t('specializedServices.ivDripDesc'),
-      link: currentLang === 'en' ? '/iv-drips-prague' : `/${currentLang}/iv-drips-prague`,
+      link: `${langPrefix}/iv-drips-prague/`,
       image: "/assets/drips_cl2.png"
     },
     {
       icon: Heart,
       title: t('specializedServices.postSurgery'),
       description: t('specializedServices.postSurgeryDesc'),
-      link: currentLang === 'en' ? '/post-surgery-recovery-care-prague' : `/${currentLang}/post-surgery-recovery-care-prague`,
+      link: `${langPrefix}/post-surgery-recovery-care-prague/`,
       image: "/assets/WoundDressingBandage.png"
     },
     {
       icon: User,
       title: t('specializedServices.disabled'),
       description: t('specializedServices.disabledDesc'),
-      link: currentLang === 'en' ? '/disabled-daily-care-prague' : `/${currentLang}/disabled-daily-care-prague`,
+      link: `${langPrefix}/disabled-daily-care-prague/`,
       image: "/assets/HygieneAssistance.png"
     }
   ];

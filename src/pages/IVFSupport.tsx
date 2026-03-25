@@ -159,7 +159,7 @@ const IVFSupport = () => {
           "@type": "ListItem",
           "position": 2,
           "name": t('ivfSupport.breadcrumb'),
-          "item": `https://www.nius.cz${langPrefix}/ivf-support-prague`
+          "item": `https://www.nius.cz${langPrefix}/ivf-support-prague/`
         }
       ]
     }
@@ -344,7 +344,7 @@ const IVFSupport = () => {
                         </span>
                       </div>
                       {key === 'wellness' ? (
-                        <Link to={`${langPrefix}/iv-drips-prague`}>
+                        <Link to={`${langPrefix}/iv-drips-prague/`}>
                           <Button variant="outline" className="w-full group border-teal-300 text-teal-700 hover:bg-teal-50">
                             {t(`ivfSupport.services.${key}.cta`)}
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

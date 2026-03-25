@@ -20,22 +20,22 @@ export const RelatedServices = () => {
     {
       titleKey: "specializedServices.ivf",
       descKey: "services.injection.description",
-      href: `${langPrefix}/ivf-support-prague`
+      href: `${langPrefix}/ivf-support-prague/`
     },
     {
       titleKey: "specializedServices.ivDrip",
       descKey: "services.ivInfusion.description",
-      href: `${langPrefix}/iv-drips-prague`
+      href: `${langPrefix}/iv-drips-prague/`
     },
     {
       titleKey: "specializedServices.postSurgery",
       descKey: "services.woundCare.description",
-      href: `${langPrefix}/post-surgery-recovery-care-prague`
+      href: `${langPrefix}/post-surgery-recovery-care-prague/`
     },
     {
       titleKey: "specializedServices.disabled",
       descKey: "services.hygiene.description",
-      href: `${langPrefix}/disabled-daily-care-prague`
+      href: `${langPrefix}/disabled-daily-care-prague/`
     }
   ];
 

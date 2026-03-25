@@ -83,7 +83,7 @@ const PostSurgeryCare = () => {
                   {t('postSurgeryCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  {t('postSurgeryCare.description')} Our comprehensive care includes <Link to="/iv-drips-prague" className="text-primary hover:underline font-medium">IV drip therapy for faster recovery</Link> and specialized wound management to ensure optimal healing.
+                  {t('postSurgeryCare.description')} Our comprehensive care includes <Link to="/iv-drips-prague/" className="text-primary hover:underline font-medium">IV drip therapy for faster recovery</Link> and specialized wound management to ensure optimal healing.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -300,7 +300,7 @@ const PostSurgeryCare = () => {
                   <li>• Any procedure requiring aftercare</li>
                 </ul>
                 <p className="text-sm text-muted-foreground mt-4">
-                  Need specialized support? We also offer <Link to="/disabled-daily-care-prague" className="text-primary hover:underline">daily care for disabled patients</Link> and <Link to="/ivf-support-prague" className="text-primary hover:underline">IVF support Prague</Link>.
+                  Need specialized support? We also offer <Link to="/disabled-daily-care-prague/" className="text-primary hover:underline">daily care for disabled patients</Link> and <Link to="/ivf-support-prague/" className="text-primary hover:underline">IVF support Prague</Link>.
                 </p>
               </Card>
             </div>

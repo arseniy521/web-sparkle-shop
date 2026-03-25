@@ -266,7 +266,7 @@ const BirthdayGift = () => {
                 ))}
               </div>
               <div className="text-center">
-                <Link to={`${langPrefix}/iv-drips-prague`}>
+                <Link to={`${langPrefix}/iv-drips-prague/`}>
                   <Button variant="link" className="text-amber-600 hover:text-amber-700">
                     {t("birthdayGift.included.learnMore")}
                     <ArrowRight className="ml-1 h-4 w-4" />

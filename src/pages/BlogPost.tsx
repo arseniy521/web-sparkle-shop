@@ -30,7 +30,7 @@ const BlogPost = () => {
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl font-bold text-secondary mb-4">Post Not Found</h1>
             <p className="text-muted-foreground mb-8">The blog post you're looking for doesn't exist.</p>
-            <Link to="/blog">
+            <Link to="/blog/">
               <Button>
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Blog
@@ -81,14 +81,14 @@ const BlogPost = () => {
       )}
       <Header />
       <Breadcrumbs items={[
-        { label: "Blog", href: `${langPrefix}/blog` },
+        { label: "Blog", href: `${langPrefix}/blog/` },
         { label: post?.title || "Post" }
       ]} />
       <main className="flex-1" role="main">
         {/* Back Button */}
         <div className="py-8 bg-muted/30">
           <div className="container mx-auto px-4">
-            <Link to={`${langPrefix}/blog`}>
+            <Link to={`${langPrefix}/blog/`}>
               <Button variant="ghost" className="group">
                 <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 Back to Blog
@@ -191,7 +191,7 @@ const BlogPost = () => {
                   .slice(0, 3)
                   .map((relatedPost) => (
                     <Card key={relatedPost.id} className="overflow-hidden hover:shadow-card transition-all duration-300">
-                      <Link to={`${langPrefix}/blog/${relatedPost.slug}`}>
+                      <Link to={`${langPrefix}/blog/${relatedPost.slug}/`}>
                         <div className="aspect-video bg-muted overflow-hidden">
                           <img
                             src={relatedPost.image}

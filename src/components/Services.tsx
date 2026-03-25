@@ -21,35 +21,35 @@ export const Services = () => {
       title: t('services.ivInfusion.title'),
       description: t('services.ivInfusion.description'),
       alt: 'IV drip therapy Prague - nurse administering IV infusion at home',
-      href: `${langPrefix}/iv-drips-prague`
+      href: `${langPrefix}/iv-drips-prague/`
     },
     {
       image: injectionIcon,
       title: t('services.injection.title'),
       description: t('services.injection.description'),
       alt: 'Home nurse Prague providing injections - IVF, insulin, antibiotics',
-      href: `${langPrefix}/ivf-support-prague`
+      href: `${langPrefix}/ivf-support-prague/`
     },
     {
       image: woundCareIcon,
       title: t('services.woundCare.title'),
       description: t('services.woundCare.description'),
       alt: 'Wound care and bandage service Prague - post-surgery nursing care',
-      href: `${langPrefix}/post-surgery-recovery-care-prague`
+      href: `${langPrefix}/post-surgery-recovery-care-prague/`
     },
     {
       image: hygieneIcon,
       title: t('services.hygiene.title'),
       description: t('services.hygiene.description'),
       alt: 'Hygiene assistance Prague - daily care for elderly and disabled patients',
-      href: `${langPrefix}/disabled-daily-care-prague`
+      href: `${langPrefix}/disabled-daily-care-prague/`
     },
     {
       image: escortIcon,
       title: t('services.escort.title'),
       description: t('services.escort.description'),
       alt: 'Hospital escort service Prague - nurse accompanying patients to medical appointments',
-      href: `${langPrefix}/post-surgery-recovery-care-prague`
+      href: `${langPrefix}/post-surgery-recovery-care-prague/`
     },
     {
       image: massageIcon,

@@ -15,7 +15,7 @@ export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   const location = useLocation();
   const currentLang = getLanguageFromPath(location.pathname);
   const langPrefix = getLanguagePrefix(currentLang);
-  const homeUrl = langPrefix || '/';
+  const homeUrl = langPrefix ? `${langPrefix}/` : '/';
   
   const schema = {
     "@context": "https://schema.org",

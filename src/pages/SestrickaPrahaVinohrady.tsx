@@ -24,11 +24,12 @@ const SestrickaPrahaVinohrady = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SEO 
+      <SEO
         title={pageTitle}
         description={pageDescription}
         keywords="sestřička vinohrady, sestra vinohrady praha, iv kapačky vinohrady, domácí péče vinohrady, zdravotní péče vinohrady"
         ogImage="https://www.nius.cz/og-image.jpg"
+        hreflangLanguages={['cs']}
         schema={{
           "@context": "https://schema.org",
           "@type": "MedicalBusiness",

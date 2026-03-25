@@ -36,14 +36,24 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Czech-only pages that don't have language variants
+  const czechOnlyPages = ['/sestricka-praha-vinohrady', '/sestricka-praha-1', '/sestricka-praha-zizkov'];
+
   const handleLanguageChange = (newLang: string) => {
     const localizedUrl = getLocalizedUrl(location.pathname, newLang);
     if (localizedUrl) {
       navigate(localizedUrl);
     } else {
       const basePath = getBasePath(location.pathname);
-      const newUrl = buildLanguageUrl(basePath, newLang);
-      navigate(newUrl);
+      // If on a Czech-only page and switching to another language, go to that language's homepage
+      const cleanBase = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+      if (czechOnlyPages.includes(cleanBase) && newLang !== 'cs') {
+        const prefix = getLanguagePrefix(newLang);
+        navigate(prefix ? `${prefix}/` : '/');
+      } else {
+        const newUrl = buildLanguageUrl(basePath, newLang);
+        navigate(newUrl);
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -55,14 +65,14 @@ export const Header = () => {
     { href: "#testimonials", label: t('nav.testimonials'), isHash: true },
   ];
 
-  const womensDayGiftHref = getLocalizedUrl('/womens-day-gift-prague', currentLang) || '/en/womens-day-gift-prague';
-  const birthdayGiftHref = getLocalizedUrl('/birthday-gift-prague', currentLang) || '/en/birthday-gift-prague';
+  const womensDayGiftHref = getLocalizedUrl('/womens-day-gift-prague', currentLang) || '/en/womens-day-gift-prague/';
+  const birthdayGiftHref = getLocalizedUrl('/birthday-gift-prague', currentLang) || '/en/birthday-gift-prague/';
 
   const serviceLinks = [
-    { href: `${langPrefix}/ivf-support-prague`, label: t('specializedServices.ivf') },
-    { href: `${langPrefix}/iv-drips-prague`, label: t('specializedServices.ivDrip') },
-    { href: `${langPrefix}/post-surgery-recovery-care-prague`, label: t('specializedServices.postSurgery') },
-    { href: `${langPrefix}/disabled-daily-care-prague`, label: t('specializedServices.disabled') },
+    { href: `${langPrefix}/ivf-support-prague/`, label: t('specializedServices.ivf') },
+    { href: `${langPrefix}/iv-drips-prague/`, label: t('specializedServices.ivDrip') },
+    { href: `${langPrefix}/post-surgery-recovery-care-prague/`, label: t('specializedServices.postSurgery') },
+    { href: `${langPrefix}/disabled-daily-care-prague/`, label: t('specializedServices.disabled') },
     { href: womensDayGiftHref, label: t('specializedServices.womensDayGift') },
     { href: birthdayGiftHref, label: t('specializedServices.birthdayGift') },
   ];
@@ -86,7 +96,7 @@ export const Header = () => {
         <nav role="navigation" aria-label="Main navigation" className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link 
-            to={langPrefix || "/"} 
+            to={langPrefix ? `${langPrefix}/` : "/"}
             className="flex items-center gap-2 group"
             onClick={(e) => {
               const isHomePage = (langPrefix === '' && location.pathname === '/') || 
@@ -142,7 +152,7 @@ export const Header = () => {
                   </a>
                 ) : link.isHash ? (
                   <Link
-                    to={`${langPrefix || '/'}${link.href}`}
+                    to={`${langPrefix ? `${langPrefix}/` : '/'}${link.href}`}
                     className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
@@ -247,7 +257,7 @@ export const Header = () => {
                     </a>
                   ) : link.isHash ? (
                     <Link
-                      to={`${langPrefix || '/'}${link.href}`}
+                      to={`${langPrefix ? `${langPrefix}/` : '/'}${link.href}`}
                       className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >

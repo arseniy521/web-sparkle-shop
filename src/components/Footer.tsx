@@ -50,7 +50,7 @@ export const Footer = () => {
                     {t('nav.blog')}
                   </button>
                 ) : (
-                  <Link to="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  <Link to="/blog/" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                     {t('nav.blog')}
                   </Link>
                 )}
@@ -62,22 +62,22 @@ export const Footer = () => {
             <h3 className="font-bold text-lg mb-4">{t('footer.services')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to={`${langPrefix}/iv-drips-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to={`${langPrefix}/iv-drips-prague/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   IV Drips Prague
                 </Link>
               </li>
               <li>
-                <Link to={`${langPrefix}/ivf-support-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to={`${langPrefix}/ivf-support-prague/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   {t('services.injection.title')}
                 </Link>
               </li>
               <li>
-                <Link to={`${langPrefix}/post-surgery-recovery-care-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to={`${langPrefix}/post-surgery-recovery-care-prague/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   {t('services.woundCare.title')}
                 </Link>
               </li>
               <li>
-                <Link to={`${langPrefix}/disabled-daily-care-prague`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to={`${langPrefix}/disabled-daily-care-prague/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   {t('services.hygiene.title')}
                 </Link>
               </li>
