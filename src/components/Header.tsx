@@ -125,9 +125,25 @@ export const Header = () => {
                   <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-background border-border z-50">
+                  <DropdownMenuItem asChild>
+                    {location.pathname === "/" || location.pathname === langPrefix || location.pathname === `${langPrefix}/` ? (
+                      <a
+                        href="#services"
+                        onClick={(e) => { e.preventDefault(); scrollToSection("#services"); }}
+                        className="cursor-pointer font-medium"
+                      >
+                        {t('nav.allServices')}
+                      </a>
+                    ) : (
+                      <Link to={`${langPrefix ? `${langPrefix}/` : '/'}#services`} className="cursor-pointer font-medium">
+                        {t('nav.allServices')}
+                      </Link>
+                    )}
+                  </DropdownMenuItem>
+                  <div className="h-px bg-border my-1" />
                   {serviceLinks.map((service) => (
                     <DropdownMenuItem key={service.href} asChild>
-                      <Link 
+                      <Link
                         to={service.href}
                         className="cursor-pointer"
                       >
@@ -174,14 +190,14 @@ export const Header = () => {
           <div className="flex items-center gap-3">
             {/* Language Selector */}
             <Select value={currentLang} onValueChange={handleLanguageChange}>
-              <SelectTrigger className="w-[100px]">
+              <SelectTrigger className="w-[120px]">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="cs">Čeština</SelectItem>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="ru">Русский</SelectItem>
-                <SelectItem value="uk">Українська</SelectItem>
+                <SelectItem value="cs">🇨🇿 Čeština</SelectItem>
+                <SelectItem value="en">🇬🇧 English</SelectItem>
+                <SelectItem value="ru">🇷🇺 Русский</SelectItem>
+                <SelectItem value="uk">🇺🇦 Українська</SelectItem>
               </SelectContent>
             </Select>
 

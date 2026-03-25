@@ -42,18 +42,24 @@ export const Footer = () => {
                 )}
               </li>
               <li>
-                {location.pathname === `${langPrefix}/blog` || location.pathname === "/blog" ? (
-                  <button
-                    onClick={scrollToTop}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left"
+                {location.pathname === `${langPrefix}/` || location.pathname === "/" ? (
+                  <a
+                    href="#pricing"
+                    onClick={(e) => { e.preventDefault(); scrollToSection("#pricing"); }}
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
-                    {t('nav.blog')}
-                  </button>
+                    {t('nav.pricing')}
+                  </a>
                 ) : (
-                  <Link to={`${langPrefix}/blog/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                    {t('nav.blog')}
+                  <Link to={`${langPrefix}/#pricing`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                    {t('nav.pricing')}
                   </Link>
                 )}
+              </li>
+              <li>
+                <Link to={`${langPrefix}/blog/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  {t('nav.blog')}
+                </Link>
               </li>
             </ul>
           </div>
@@ -79,6 +85,11 @@ export const Footer = () => {
               <li>
                 <Link to={`${langPrefix}/disabled-daily-care-prague/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   {t('services.hygiene.title')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`${langPrefix}/post-surgery-recovery-care-prague/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  {t('services.escort.title')}
                 </Link>
               </li>
             </ul>
