@@ -217,7 +217,7 @@ const DisabledCare = () => {
                     </li>
                     <li className="flex gap-2">
                       <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Priority 24/7 support</span>
+                      <span className="text-sm">Priority phone support</span>
                     </li>
                     <li className="flex gap-2">
                       <Check className="h-5 w-5 text-primary flex-shrink-0" />

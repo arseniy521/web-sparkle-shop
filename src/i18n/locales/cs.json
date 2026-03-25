@@ -57,12 +57,12 @@
     },
     "performedBy": "prováděná zdravotní sestrou",
     "inYourHome": "u vás doma",
-    "description": "Rychlá, spolehlivá a profesionální zdravotní péče doma. Anglicky mluvící sestry k dispozici 24/7 v Praze.",
+    "description": "Rychlá, spolehlivá a profesionální zdravotní péče doma. Anglicky mluvící sestry k dispozici denně v Praze.",
     "bookNurse": "Rezervovat sestru",
     "ourServices": "Naše služby",
     "certifiedNurses": "Certifikované sestry",
     "licensedProfessionals": "Licencované profesionálky",
-    "available247": "K dispozici 24/7",
+    "available247": "Denně 8:00–20:00",
     "sameDayService": "Služba tentýž den"
   },
   "services": {
@@ -117,8 +117,8 @@
       "description": "Všechny naše sestry jsou plně licencované a zkušené v domácí zdravotní péči"
     },
     "benefit2": {
-      "title": "K dispozici 24/7",
-      "description": "Služba tentýž den k dispozici, včetně víkendů a svátků"
+      "title": "Dostupnost ve stejný den",
+      "description": "K dispozici denně 8:00–20:00, včetně víkendů a svátků"
     },
     "benefit3": {
       "title": "Anglicky mluvící",
@@ -327,10 +327,10 @@
     "subtitle": "Vaše cesta k plodnosti si zaslouží odbornou ošetřovatelskou péči",
     "description": "Profesionální podpora IVF v Praze od zkušených anglicky mluvících sester. Aplikujeme injekce pro plodnost, Intralipid infuze pro léčbu NK buněk a wellness IV kapačky — ve vašem hotelu, Airbnb nebo doma, ve dne i v noci.",
     "bookNow": "Rezervovat IVF podporu",
-    "call247": "Volat 24/7",
+    "call247": "Zavolejte nám",
     "whatsapp": "Napište nám na WhatsApp",
     "trustBadges": {
-      "available": "Dostupné 24/7",
+      "available": "Denně 8:00–20:00",
       "nurses": "Licencované sestry",
       "patients": "Přes 500 IVF pacientek",
       "rating": "4.9★ Hodnocení Google"
@@ -1079,14 +1079,14 @@
   },
   "ivDripTherapy": {
     "seo": {
-      "title": "IV kapačky Praha | Mobilní IV terapie u vás v hotelu/doma 24/7",
-      "description": "Profesionální IV kapačky v Praze s dojezdem do hotelu, domů nebo Airbnb od registrovaných sester. Vitamin C, Glutathion, Biotin, hydratační a regenerační IV kapačky. Služba ve stejný den v Praze 1, Vinohradech, Starém Městě. Rezervujte 24/7."
+      "title": "IV kapačky Praha | Mobilní IV terapie u vás v hotelu/doma",
+      "description": "Profesionální IV kapačky v Praze s dojezdem do hotelu, domů nebo Airbnb od registrovaných sester. Vitamin C, Glutathion, Biotin, hydratační a regenerační IV kapačky. Služba ve stejný den v Praze 1, Vinohradech, Starém Městě."
     },
     "whatsappMessage": "Dobrý den! Chtěl/a bych objednat IV kapačku v Praze.",
     "trustBadges": {
       "licensedNurses": "Licencované sestry",
       "rating": "Hodnocení 4.9/5",
-      "available": "Dostupné 24/7",
+      "available": "Denně 8:00–20:00",
       "allDistricts": "Všechny pražské obvody"
     },
     "hero": {
@@ -1094,7 +1094,7 @@
       "subtitle": "Mobilní IV terapie s dojezdem do hotelu, domů nebo Airbnb",
       "paragraph": "Profesionální <strong>IV kapačky v Praze</strong> aplikované registrovanými sestrami na vámi zvoleném místě. Obsluhujeme <strong>Prahu 1, Prahu 2, Vinohrady, Staré Město, Nové Město</strong> a všechny okolní obvody. Vyberte si z hydratačních, imunitních, beauty a regeneračních <strong>IV kapačkek v Praze</strong> s dostupností ve stejný den. Ideální pro zdravotní turisty, expaty a cestovatele hledající",
       "postSurgeryLink": "pooperační regenerační péči v Praze",
-      "socialProof": "<strong>{{count}} lidí</strong> si dnes objednalo IV kapačky v Praze",
+      "socialProof": "Důvěřuje nám <strong>100+ pacientů</strong> v Praze",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervovat přes WhatsApp",
       "bookBtn": "Rezervovat online",
@@ -1170,6 +1170,7 @@
       "mostPopular": "Nejoblíbenější",
       "minutes": "minut",
       "book": "Objednat",
+      "bookMessage": "Dobrý den! Chtěl/a bych objednat kapačku {{drip}} v Praze. Kdy je nejbližší volný termín?",
       "onRequest": "Na vyžádání",
       "medicalScreening": "<strong>Nutný zdravotní screening:</strong> Všechny IV kapačky v Praze vyžadují krátký zdravotní screening. Konečné složení se může lišit na základě zdravotní indikace a konzultace s lékařem (v případě potřeby).",
       "pricingNote": "<strong>Ceník:</strong> 10% sleva na balíčky 2 a více návštěv. Lékařský předpis (pokud je vyžadován): +900 CZK",

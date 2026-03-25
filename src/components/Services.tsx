@@ -5,7 +5,6 @@ import injectionIcon from "@/assets/injection.webp";
 import woundCareIcon from "@/assets/WoundDressingBandage.webp";
 import hygieneIcon from "@/assets/HygieneAssistance.webp";
 import escortIcon from "@/assets/escort.webp";
-import massageIcon from "@/assets/massage.webp";
 import { useTranslation } from "react-i18next";
 import { getLanguagePrefix, getLanguageFromPath } from "@/utils/languageUtils";
 
@@ -50,13 +49,6 @@ export const Services = () => {
       description: t('services.escort.description'),
       alt: 'Hospital escort service Prague - nurse accompanying patients to medical appointments',
       href: `${langPrefix}/post-surgery-recovery-care-prague/`
-    },
-    {
-      image: massageIcon,
-      title: t('services.massage.title'),
-      description: t('services.massage.description'),
-      alt: 'Therapeutic massage Prague - medical massage for pain relief at home',
-      href: `${langPrefix}/#services`
     },
   ];
   return (

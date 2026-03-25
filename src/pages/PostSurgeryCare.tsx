@@ -263,7 +263,7 @@ const PostSurgeryCare = () => {
                     </li>
                     <li className="flex gap-2">
                       <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">24/7 phone support</span>
+                      <span className="text-sm">Daily phone support</span>
                     </li>
                   </ul>
                   <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">

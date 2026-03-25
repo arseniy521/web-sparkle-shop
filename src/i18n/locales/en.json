@@ -1,8 +1,8 @@
 {
   "seo": {
     "home": {
-      "title": "Home Nurse Prague | IV Drip Therapy & IV Drips Prague 24/7",
-      "description": "Professional home nurse in Prague for IV drip therapy, IV drips Prague, IV infusions, post-surgery care at your hotel/home. English-speaking nurses available 24/7. Book now for IV drips in Prague, wound care, IVF injections throughout Prague 1-10, Vinohrady, Old Town.",
+      "title": "Home Nurse Prague | IV Drip Therapy & IV Drips Prague",
+      "description": "Professional home nurse in Prague for IV drip therapy, IV drips Prague, IV infusions, post-surgery care at your hotel/home. English-speaking nurses available daily. Book now for IV drips in Prague, wound care, IVF injections throughout Prague 1-10, Vinohrady, Old Town.",
       "keywords": "home nurse prague, nurse in prague, iv drip therapy prague, iv drips prague, iv infusion prague, iv therapy prague, private nurse prague, medical tourism prague"
     }
   },
@@ -57,12 +57,12 @@
     },
     "performedBy": "performed by a nurse",
     "inYourHome": "in your home",
-    "description": "Fast, reliable, and professional healthcare at home. English-speaking nurses available 24/7 in Prague.",
+    "description": "Fast, reliable, and professional healthcare at home. English-speaking nurses available daily in Prague.",
     "bookNurse": "Book a Nurse",
     "ourServices": "Our Services",
     "certifiedNurses": "Certified Nurses",
     "licensedProfessionals": "Licensed professionals",
-    "available247": "24/7 Available",
+    "available247": "Daily 8 AM – 8 PM",
     "sameDayService": "Same-day service"
   },
   "services": {
@@ -117,8 +117,8 @@
       "description": "All our nurses are fully licensed and experienced in home healthcare"
     },
     "benefit2": {
-      "title": "24/7 Availability",
-      "description": "Same-day service available, including weekends and holidays"
+      "title": "Same-Day Availability",
+      "description": "Available daily 8 AM – 8 PM, including weekends and holidays"
     },
     "benefit3": {
       "title": "English Speaking",
@@ -327,10 +327,10 @@
     "subtitle": "Your fertility journey deserves expert nursing support",
     "description": "Professional IVF support in Prague by experienced English-speaking nurses. We administer fertility injections, Intralipid infusions for NK cell treatment, and wellness IV drips — at your hotel, Airbnb, or home, day or night.",
     "bookNow": "Book IVF Support",
-    "call247": "Call 24/7",
+    "call247": "Call Us",
     "whatsapp": "WhatsApp Us",
     "trustBadges": {
-      "available": "24/7 Available",
+      "available": "Daily 8 AM – 8 PM",
       "nurses": "Licensed Nurses",
       "patients": "500+ IVF Patients",
       "rating": "4.9★ Google Rating"
@@ -1082,14 +1082,14 @@
   },
   "ivDripTherapy": {
     "seo": {
-      "title": "IV Drips Prague | Mobile IV Therapy at Your Hotel/Home 24/7",
-      "description": "Professional IV drips in Prague delivered to your hotel, home, or Airbnb by registered nurses. Vitamin C, Glutathione, Biotin, hydration & recovery IVs. Same-day service in Prague 1, Vinohrady, Old Town. Book 24/7."
+      "title": "IV Drips Prague | Mobile IV Therapy at Your Hotel/Home",
+      "description": "Professional IV drips in Prague delivered to your hotel, home, or Airbnb by registered nurses. Vitamin C, Glutathione, Biotin, hydration & recovery IVs. Same-day service in Prague 1, Vinohrady, Old Town."
     },
     "whatsappMessage": "Hi! I'd like to book an IV drip in Prague.",
     "trustBadges": {
       "licensedNurses": "Licensed Nurses",
       "rating": "4.9/5 Rating",
-      "available": "24/7 Available",
+      "available": "Daily 8 AM – 8 PM",
       "allDistricts": "All Prague Districts"
     },
     "hero": {
@@ -1097,7 +1097,7 @@
       "subtitle": "Mobile IV Therapy Delivered to Your Hotel, Home, or Airbnb",
       "paragraph": "Professional <strong>IV drips in Prague</strong> administered by registered nurses at your location. We serve <strong>Prague 1, Prague 2, Vinohrady, Old Town, New Town</strong>, and all surrounding districts. Choose from hydration, immunity, beauty, and recovery <strong>IV drips in Prague</strong> with same-day availability. Perfect for medical tourists, expats, and travelers seeking",
       "postSurgeryLink": "post-surgery recovery care in Prague",
-      "socialProof": "<strong>{{count}} people</strong> booked IV drips in Prague today",
+      "socialProof": "Trusted by <strong>100+ patients</strong> in Prague",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "Book on WhatsApp",
       "bookBtn": "Book Online",
@@ -1115,8 +1115,8 @@
           "description": "Unlike other providers, we offer <strong>IV drips + IVF injection support + wound care + post-surgery recovery</strong>. Complete medical care at your location."
         },
         "availability": {
-          "title": "True 24/7 Availability",
-          "description": "Actual round-the-clock service, not just \"business hours\". <strong>Same-day IV drips in Prague</strong> available 365 days a year, including weekends and holidays."
+          "title": "Same-Day Availability",
+          "description": "Available <strong>daily 8 AM – 8 PM</strong>, including weekends and holidays. <strong>Same-day IV drips in Prague</strong> available 365 days a year."
         },
         "nurses": {
           "title": "Registered Nurses, Not Technicians",
@@ -1145,7 +1145,7 @@
       "hospitalClinic": "Hospital/Clinic",
       "rows": {
         "mobile": "Mobile Service (Hotel/Home)",
-        "availability": "True 24/7 Availability",
+        "availability": "Same-Day Availability",
         "nurses": "Registered Nurses (Not Technicians)",
         "ivf": "IVF Injection Support",
         "postSurgery": "Post-Surgery Care",
@@ -1173,6 +1173,7 @@
       "mostPopular": "Most Popular",
       "minutes": "minutes",
       "book": "Book",
+      "bookMessage": "Hi! I'd like to book the {{drip}} IV drip in Prague. When is the earliest available time?",
       "onRequest": "On Request",
       "medicalScreening": "<strong>Medical Screening Required:</strong> All IV drips in Prague require brief health screening. Final composition may vary based on medical indication and doctor consultation (when needed).",
       "pricingNote": "<strong>Pricing:</strong> 10% discount on packages of 2+ visits. Doctor prescription (if required): +900 CZK",
@@ -1472,7 +1473,7 @@
         },
         "sameDay": {
           "question": "Can I get same-day IV drips in Prague?",
-          "answer": "Yes! We offer <strong>same-day IV drip service in Prague</strong> with typical arrival within 1–3 hours. Available 24/7 including weekends and holidays. Book in advance for exact scheduling."
+          "answer": "Yes! We offer <strong>same-day IV drip service in Prague</strong> with typical arrival within 1–3 hours. Available daily 8 AM – 8 PM including weekends and holidays. Book in advance for exact scheduling."
         },
         "districts": {
           "question": "Which Prague districts do you serve?",
@@ -1504,7 +1505,7 @@
     },
     "cta": {
       "title": "Ready to Book Your IV Drip in Prague?",
-      "subtitle": "Same-day mobile IV therapy available 24/7 at your hotel, home, or Airbnb",
+      "subtitle": "Same-day mobile IV therapy at your hotel, home, or Airbnb",
       "description": "Serving Prague 1, Vinohrady, Old Town, and all Prague districts • Registered nurses • 4.9★ rating",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "WhatsApp Booking",

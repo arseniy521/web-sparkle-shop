@@ -24,7 +24,6 @@ import {
   MessageCircle,
   Calendar
 } from "lucide-react";
-import { useEffect, useState } from "react";
 import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 
 const IVDripsPrague = () => {
@@ -32,8 +31,6 @@ const IVDripsPrague = () => {
   const location = useLocation();
   const currentLang = getLanguageFromPath(location.pathname);
   const langPrefix = getLanguagePrefix(currentLang);
-  const [recentBookings, setRecentBookings] = useState(3);
-
   const phone = "+420773629123";
   const whatsappMessage = t('ivDripTherapy.whatsappMessage');
   const whatsappLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -48,12 +45,6 @@ const IVDripsPrague = () => {
     uk: "https://www.nius.cz/uk/iv-drips-prague/",
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRecentBookings(prev => (prev >= 8 ? 2 : prev + 1));
-    }, 45000);
-    return () => clearInterval(interval);
-  }, []);
 
   const categoryKeys = ['immunity', 'energy', 'hydration', 'specialized'] as const;
   const categoryItemKeys: Record<string, string[]> = {
@@ -131,7 +122,7 @@ const IVDripsPrague = () => {
           "latitude": "50.0755",
           "longitude": "14.4378",
         },
-        "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 00:00-23:59",
+        "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 08:00-20:00",
         "medicalSpecialty": ["IV Therapy", "Vitamin Infusion", "Mobile Nursing", "IV Drip Therapy"],
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -239,7 +230,7 @@ const IVDripsPrague = () => {
                       <div className="w-8 h-8 rounded-full bg-primary/30 border-2 border-background" />
                       <div className="w-8 h-8 rounded-full bg-primary/40 border-2 border-background" />
                     </div>
-                    <span className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('ivDripTherapy.hero.socialProof', { count: recentBookings }) }} />
+                    <span className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('ivDripTherapy.hero.socialProof') }} />
                   </div>
 
                   <div className="flex flex-wrap gap-4 justify-center pt-4">
@@ -465,7 +456,9 @@ const IVDripsPrague = () => {
                                 ) : null}
 
                                 <Button className="w-full" size="lg" asChild>
-                                  <a href={whatsappLink}>{t('ivDripTherapy.menu.book')} {item.name}</a>
+                                  <a href={`https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(t('ivDripTherapy.menu.bookMessage', { drip: item.name }))}`}>
+                                    {t('ivDripTherapy.menu.book')} {item.name}
+                                  </a>
                                 </Button>
                               </Card>
                           ))}
