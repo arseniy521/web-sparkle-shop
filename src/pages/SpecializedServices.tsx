@@ -213,7 +213,7 @@ const SpecializedServices = () => {
                   <a href="https://wa.me/420773629123">{t('specializedServices.bookWhatsApp')}</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="mailto:nius.prague@gmail.com">{t('specializedServices.emailUs')}</a>
+                  <a href="mailto:info@nius.cz">{t('specializedServices.emailUs')}</a>
                 </Button>
               </div>
             </div>

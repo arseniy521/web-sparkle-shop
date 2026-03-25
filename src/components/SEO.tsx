@@ -67,7 +67,7 @@ export const SEO = ({
         <link rel="canonical" href={canonicalUrl} />
 
         {/* Hreflang tags for multilingual SEO */}
-        {alternateUrls.en && <link rel="alternate" hrefLang="x-default" href={alternateUrls.en} />}
+        {alternateUrls.cs && <link rel="alternate" hrefLang="x-default" href={alternateUrls.cs} />}
         {activeLanguages.map(lang => (
           <link key={lang} rel="alternate" hrefLang={lang} href={alternateUrls[lang]} />
         ))}

@@ -37,8 +37,8 @@ export const Contacts = () => {
     {
       icon: Mail,
       title: t('contacts.email'),
-      value: "nius.prague@gmail.com",
-      href: "mailto:nius.prague@gmail.com",
+      value: "info@nius.cz",
+      href: "mailto:info@nius.cz",
       color: "bg-purple-500/10 text-purple-600",
     },
   ];

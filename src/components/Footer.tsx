@@ -42,15 +42,15 @@ export const Footer = () => {
                 )}
               </li>
               <li>
-                {location.pathname === "/blog" ? (
-                  <button 
+                {location.pathname === `${langPrefix}/blog` || location.pathname === "/blog" ? (
+                  <button
                     onClick={scrollToTop}
                     className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left"
                   >
                     {t('nav.blog')}
                   </button>
                 ) : (
-                  <Link to="/blog/" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  <Link to={`${langPrefix}/blog/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                     {t('nav.blog')}
                   </Link>
                 )}
@@ -97,10 +97,10 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:nius.prague@gmail.com"
+                  href="mailto:info@nius.cz"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  nius.prague@gmail.com
+                  info@nius.cz
                 </a>
               </li>
             </ul>

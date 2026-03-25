@@ -36,7 +36,7 @@ const SestrickaPrahaVinohrady = () => {
           "name": "Sestřička Praha - Vinohrady",
           "description": pageDescription,
           "telephone": "+420773629123",
-          "email": "nius.prague@gmail.com",
+          "email": "info@nius.cz",
           "url": "https://www.nius.cz/sestricka-praha-vinohrady/",
           "priceRange": "1890-2680 CZK",
           "geo": {

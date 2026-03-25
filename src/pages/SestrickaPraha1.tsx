@@ -35,7 +35,7 @@ const SestrickaPraha1 = () => {
           "name": "Sestřička Praha 1 - Staré & Nové Město",
           "description": pageDescription,
           "telephone": "+420773629123",
-          "email": "nius.prague@gmail.com",
+          "email": "info@nius.cz",
           "url": "https://www.nius.cz/sestricka-praha-1/",
           "priceRange": "1890-2680 CZK",
           "geo": {

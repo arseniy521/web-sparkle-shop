@@ -134,8 +134,22 @@ async function prerender() {
         // Extra wait to ensure all async helmet updates are flushed
         await new Promise(resolve => setTimeout(resolve, 500));
 
-        const html = await page.content();
-        
+        let html = await page.content();
+
+        // Remove duplicate meta tags: index.html has default title/description,
+        // but React Helmet injects page-specific ones (marked with data-rh="true").
+        // Google uses the first one it finds, so we must remove the originals.
+        if (html.includes('data-rh="true"')) {
+          // Remove original title (without data-rh) if Helmet set one
+          if (/<title[^>]*data-rh="true"/.test(html)) {
+            html = html.replace(/<title>(?:(?!data-rh)[^<])*<\/title>\s*/, '');
+          }
+          // Remove original meta description (without data-rh) if Helmet set one
+          if (/<meta name="description"[^>]*data-rh="true"/.test(html)) {
+            html = html.replace(/<meta name="description" content="[^"]*">\s*/, '');
+          }
+        }
+
         // Determine output path
         let outputPath;
         if (route === '/') {

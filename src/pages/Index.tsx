@@ -63,7 +63,7 @@ const Index = () => {
       "longitude": 14.4378
     },
     "telephone": "+420773629123",
-    "email": "nius.prague@gmail.com",
+    "email": "info@nius.cz",
     "priceRange": "1890-2680 CZK",
     "currenciesAccepted": "CZK, EUR",
     "paymentAccepted": ["Cash", "Bank Transfer", "Card"],
