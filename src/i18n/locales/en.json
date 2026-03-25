@@ -243,7 +243,8 @@
     "instagram": "Instagram",
     "email": "Email",
     "availability": "Availability",
-    "availabilityHours": "Every day 8:00 - 20:00"
+    "availabilityHours": "Every day 8:00 - 20:00",
+    "urgentNote": "For urgent cases outside standard hours, please call directly"
   },
   "faq": {
     "title": "Frequently Asked Questions",

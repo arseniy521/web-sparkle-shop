@@ -1,23 +1,23 @@
-import { CheckCircle } from "lucide-react";
+import { Home, Clock, ShieldCheck } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
-import benefitsImage from "@/assets/nurse-benefits.webp";
 
 export const Benefits = () => {
   const { t } = useTranslation();
 
   const benefits = [
     {
-      emoji: "🏠",
+      icon: Home,
       title: t('benefits.benefit4.title'),
       description: t('benefits.benefit4.description'),
     },
     {
-      emoji: "⏰",
+      icon: Clock,
       title: t('benefits.benefit2.title'),
       description: t('benefits.benefit2.description'),
     },
     {
-      emoji: "👩‍⚕️",
+      icon: ShieldCheck,
       title: t('benefits.benefit1.title'),
       description: t('benefits.benefit1.description'),
     },
@@ -25,54 +25,22 @@ export const Benefits = () => {
 
   return (
     <section id="why-us" className="py-20 bg-accent/50">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative animate-fade-in">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-3xl" />
-            <div className="relative rounded-3xl overflow-hidden shadow-card bg-white p-8">
-              <img
-                src={benefitsImage}
-                alt="Patient receiving IV therapy at home - comfortable home healthcare"
-                className="w-full h-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-          </div>
+      <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+          {t('benefits.title')}
+        </h2>
+        <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+          {t('benefits.description')}
+        </p>
 
-          {/* Benefits */}
-          <div className="space-y-8 animate-slide-up">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                {t('benefits.title')}
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                {t('benefits.description')}
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 p-6 rounded-2xl bg-card hover:shadow-card transition-all duration-300"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center text-3xl">
-                      {benefit.emoji}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-secondary mb-2 flex items-center gap-2">
-                      {benefit.title}
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                    </h3>
-                    <p className="text-muted-foreground">{benefit.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => (
+            <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
+              <benefit.icon className="w-10 h-10 text-primary mb-4" />
+              <h3 className="text-2xl font-semibold mb-4">{benefit.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

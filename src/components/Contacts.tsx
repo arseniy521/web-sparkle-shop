@@ -89,7 +89,7 @@ export const Contacts = () => {
               <strong>{t('contacts.availability')}:</strong> {t('contacts.availabilityHours')}
             </p>
             <p className="text-muted-foreground mt-2">
-              For urgent cases outside standard hours, please call directly
+              {t('contacts.urgentNote')}
             </p>
           </div>
         </div>

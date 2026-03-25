@@ -149,8 +149,8 @@
       },
       "tomas": {
         "name": "Tomáš Dvořák",
-        "role": "Sestra na pohotovosti",
-        "description": "Zkušená sestra se silným zázemím v urgentní péči. 8 let pracoval na pohotovostních odděleních a zvládal kritické situace s přesností."
+        "role": "Bratr na pohotovosti",
+        "description": "Zkušený bratr se silným zázemím v urgentní péči. 8 let pracoval na pohotovostních odděleních a zvládal kritické situace s přesností."
       }
     }
   },
@@ -243,7 +243,8 @@
     "instagram": "Instagram",
     "email": "E-mail",
     "availability": "Dostupnost",
-    "availabilityHours": "Každý den 8:00 - 20:00"
+    "availabilityHours": "Každý den 8:00 - 20:00",
+    "urgentNote": "V naléhavých případech mimo standardní hodiny prosím volejte přímo"
   },
   "faq": {
     "title": "Často kladené otázky",

@@ -213,7 +213,8 @@
     "instagram": "Instagram",
     "email": "Email",
     "availability": "Доступність",
-    "availabilityHours": "Щодня 8:00 - 20:00"
+    "availabilityHours": "Щодня 8:00 - 20:00",
+    "urgentNote": "У термінових випадках поза робочим часом, будь ласка, телефонуйте напряму"
   },
   "faq": {
     "title": "Часті питання",
