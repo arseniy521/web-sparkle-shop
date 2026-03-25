@@ -49,15 +49,15 @@
   },
   "hero": {
     "phrases": {
-      "0": "Předepsané IV kapačky",
-      "1": "Předepsané injekce",
-      "2": "Ošetření ran",
-      "3": "Podpora IVF",
-      "4": "Rekonvalescence po operaci"
+      "0": "IV kapačky u vás doma",
+      "1": "IVF injekce včas",
+      "2": "Ošetření ran po operaci",
+      "3": "Podpora zotavení doma",
+      "4": "Každodenní ošetřovatelství"
     },
-    "performedBy": "prováděná zdravotní sestrou",
-    "inYourHome": "u vás doma",
-    "description": "Rychlá, spolehlivá a profesionální zdravotní péče doma. Anglicky mluvící sestry k dispozici denně v Praze.",
+    "performedBy": "registrovanou sestrou",
+    "inYourHome": "na vaší pražské adrese",
+    "description": "Návštěvy tentýž den anglicky mluvícími sestrami. IV kapačky, injekce, péče o rány a více — v hotelu, doma i v Airbnb.",
     "bookNurse": "Rezervovat sestru",
     "ourServices": "Naše služby",
     "certifiedNurses": "Certifikované sestry",
@@ -95,38 +95,38 @@
   },
   "workflow": {
     "title": "Jak to funguje",
-    "description": "Jednoduchý 3krokový proces k získání profesionální ošetřovatelské péče u vás doma",
+    "description": "Od objednávky k ošetření ve 3 krocích — většina pacientů ošetřena během hodin",
     "step1": {
-      "title": "Rezervujte online",
-      "description": "Vyberte si službu a preferovaný čas prostřednictvím našeho jednoduchého rezervačního systému"
+      "title": "Zavolejte, napište WhatsApp nebo rezervujte online",
+      "description": "Řekněte nám, co potřebujete a kdy. Potvrdíme sestřičku a čas příjezdu během minut."
     },
     "step2": {
-      "title": "Sestra dorazí",
-      "description": "Certifikovaná sestra dorazí na vaši adresu se vším potřebným vybavením"
+      "title": "Sestřička přijede k vám",
+      "description": "Registrovaná sestřička přijede se vším sterilním vybavením, připravena vás ošetřit doma, v hotelu nebo Airbnb."
     },
     "step3": {
-      "title": "Služba poskytnuta",
-      "description": "Získejte profesionální péči v pohodlí svého domova nebo hotelu"
+      "title": "Odpočívejte, my se postaráme",
+      "description": "Profesionální ošetření ve vašem prostředí — žádné fronty v nemocnici, žádné čekárny, žádné jazykové bariéry."
     }
   },
   "benefits": {
-    "title": "Proč si vybrat nás",
-    "description": "Profesionální zdravotní služby poskytované s péčí a odborností",
+    "title": "Proč si pacienti vybírají NIUS",
+    "description": "Důvěřují nám cizinci, zdravotní turisté i rodiny po celé Praze",
     "benefit1": {
-      "title": "Certifikované profesionálky",
-      "description": "Všechny naše sestry jsou plně licencované a zkušené v domácí zdravotní péči"
+      "title": "Licencované nemocniční sestry",
+      "description": "Každá sestra má českou zdravotnickou licenci a 5+ let nemocniční praxe"
     },
     "benefit2": {
-      "title": "Dostupnost ve stejný den",
-      "description": "K dispozici denně 8:00–20:00, včetně víkendů a svátků"
+      "title": "Návštěvy tentýž den, 7 dní v týdnu",
+      "description": "K dispozici denně 8:00–20:00 včetně víkendů a svátků. Většina pacientů ošetřena do 2–4 hodin."
     },
     "benefit3": {
-      "title": "Anglicky mluvící",
-      "description": "Jasná komunikace v angličtině pro mezinárodní pacienty"
+      "title": "Anglicky, česky, rusky, ukrajinsky",
+      "description": "Žádné jazykové bariéry — komunikujte pohodlně ve svém jazyce"
     },
     "benefit4": {
-      "title": "Pohodlí domova",
-      "description": "Žádné čekárny - získejte péči ve svém vlastním prostředí"
+      "title": "Přijedeme za vámi",
+      "description": "Hotely, Airbnb, domovy — vynechte nemocniční frontu a léčte se tam, kde je vám pohodlně"
     }
   },
   "team": {
@@ -196,8 +196,8 @@
     "learnMore": "Zjistit více o našich službách"
   },
   "testimonials": {
-    "title": "Recenze klientů",
-    "description": "Slyšte od těch, kteří zažili naši profesionální ošetřovatelskou péči.",
+    "title": "Co říkají naši pacienti",
+    "description": "Zkušenosti cizinců, zdravotních turistů a obyvatel Prahy.",
     "items": {
       "testimonial1": {
         "text": "Potřebovala jsem sestru pro svou starší matku po operaci. Služba byla rychlá, profesionální a laskavá. Nečekali jsme takový komfort a péči doma.",
@@ -214,6 +214,14 @@
       "testimonial4": {
         "text": "IVF injekce byly pokaždé podány dokonale. Sestra byla jemná, chápavá a vždy přesná. Děkuji!",
         "author": "Anna V."
+      },
+      "testimonial5": {
+        "text": "Objednal jsem si IV kapačku na kocovinu do svého Airbnb — sestřička přijela za 2 hodiny a cítil jsem se jako nový člověk. Stálo to za to.",
+        "author": "James T."
+      },
+      "testimonial6": {
+        "text": "Jako cizinka bez češtiny bylo hledání anglicky mluvící lékařské péče noční můra, dokud jsem nenašla NIUS. Postarají se o vše od objednávky po následnou péči.",
+        "author": "Rebecca S."
       }
     }
   },

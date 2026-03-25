@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const testimonials = ["testimonial1", "testimonial2", "testimonial3", "testimonial4"];
+const testimonials = ["testimonial1", "testimonial2", "testimonial3", "testimonial4", "testimonial5", "testimonial6"];
 
 // Rating data for each testimonial
 const testimonialRatings = {
@@ -12,6 +12,8 @@ const testimonialRatings = {
   testimonial2: 5,
   testimonial3: 5,
   testimonial4: 5,
+  testimonial5: 5,
+  testimonial6: 5,
 };
 
 export const Testimonials = () => {

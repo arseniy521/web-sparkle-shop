@@ -29,9 +29,9 @@ export const Pricing = () => {
           <p className="text-lg text-muted-foreground">
             {t('pricing.description')}
           </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            {t('pricing.prescriptionNote')}
-          </p>
+          <div className="mt-4 inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg px-4 py-2 text-sm text-amber-800 dark:text-amber-200">
+            <span className="font-medium">⚕️ {t('pricing.prescriptionNote')}</span>
+          </div>
         </div>
 
         {/* Desktop Table */}

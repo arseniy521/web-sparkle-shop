@@ -49,15 +49,15 @@
   },
   "hero": {
     "phrases": {
-      "0": "Prescribed IV Drips",
-      "1": "Prescribed Injections",
-      "2": "Wound Care",
-      "3": "IVF Support",
-      "4": "Post-Surgery Recovery"
+      "0": "IV Drips at Your Door",
+      "1": "IVF Injections on Time",
+      "2": "Post-Surgery Wound Care",
+      "3": "Recovery Support at Home",
+      "4": "Daily Nursing Care"
     },
-    "performedBy": "performed by a nurse",
-    "inYourHome": "in your home",
-    "description": "Fast, reliable, and professional healthcare at home. English-speaking nurses available daily in Prague.",
+    "performedBy": "by a registered nurse",
+    "inYourHome": "at your Prague location",
+    "description": "Same-day home visits by English-speaking nurses. IV drips, injections, wound care, and more — at your hotel, home, or Airbnb.",
     "bookNurse": "Book a Nurse",
     "ourServices": "Our Services",
     "certifiedNurses": "Certified Nurses",
@@ -95,38 +95,38 @@
   },
   "workflow": {
     "title": "How It Works",
-    "description": "Simple 3-step process to get professional nursing care at your home",
+    "description": "From booking to treatment in 3 simple steps — most patients receive care within hours",
     "step1": {
-      "title": "Book Online",
-      "description": "Choose your service and preferred time slot through our easy booking system"
+      "title": "Call, WhatsApp, or Book Online",
+      "description": "Tell us what you need and when. We'll confirm your nurse and arrival time within minutes."
     },
     "step2": {
-      "title": "Nurse Arrives",
-      "description": "A certified nurse arrives at your location with all necessary equipment"
+      "title": "Nurse Arrives at Your Door",
+      "description": "Your registered nurse arrives with all sterile equipment, ready to treat you at home, hotel, or Airbnb."
     },
     "step3": {
-      "title": "Service Delivered",
-      "description": "Receive professional care in the comfort of your home or hotel"
+      "title": "Relax While We Take Care of You",
+      "description": "Professional treatment in your own space — no hospital queues, no waiting rooms, no language barriers."
     }
   },
   "benefits": {
-    "title": "Why Choose Us",
-    "description": "Professional healthcare services delivered with care and expertise",
+    "title": "Why Patients Choose NIUS",
+    "description": "Trusted by expats, medical tourists, and families across Prague",
     "benefit1": {
-      "title": "Certified Professionals",
-      "description": "All our nurses are fully licensed and experienced in home healthcare"
+      "title": "Licensed Hospital Nurses",
+      "description": "Every nurse holds a Czech medical license and has 5+ years of hospital experience"
     },
     "benefit2": {
-      "title": "Same-Day Availability",
-      "description": "Available daily 8 AM – 8 PM, including weekends and holidays"
+      "title": "Same-Day Visits, 7 Days a Week",
+      "description": "Available daily 8 AM – 8 PM including weekends and holidays. Most patients seen within 2–4 hours."
     },
     "benefit3": {
-      "title": "English Speaking",
-      "description": "Clear communication in English for international patients"
+      "title": "English, Czech, Russian, Ukrainian",
+      "description": "No language barriers — communicate comfortably in your own language"
     },
     "benefit4": {
-      "title": "Home Comfort",
-      "description": "No waiting rooms - receive care in your own environment"
+      "title": "We Come to You",
+      "description": "Hotels, Airbnbs, homes — skip the hospital queue and heal where you're comfortable"
     }
   },
   "team": {
@@ -196,8 +196,8 @@
     "learnMore": "Learn More About Our Services"
   },
   "testimonials": {
-    "title": "Client Reviews",
-    "description": "Hear from those who have experienced our professional nursing care.",
+    "title": "What Our Patients Say",
+    "description": "Real experiences from expats, medical tourists, and Prague residents.",
     "items": {
       "testimonial1": {
         "text": "I needed a nurse for my elderly mother after surgery. The service was fast, professional, and kind. We didn't expect such comfort and care at home.",
@@ -214,6 +214,14 @@
       "testimonial4": {
         "text": "The IVF injections were administered perfectly every time. The nurse was gentle, understanding, and always punctual. Thank you!",
         "author": "Anna V."
+      },
+      "testimonial5": {
+        "text": "Booked an IV drip for a hangover at my Airbnb — the nurse arrived in 2 hours and I felt like a new person. Worth every crown.",
+        "author": "James T."
+      },
+      "testimonial6": {
+        "text": "As an expat with no Czech, finding English-speaking medical care was a nightmare until I found NIUS. They handle everything from booking to aftercare.",
+        "author": "Rebecca S."
       }
     }
   },
