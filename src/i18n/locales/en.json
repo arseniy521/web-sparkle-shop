@@ -586,6 +586,21 @@
       "q4": "Can you help me with showering after surgery?",
       "a4": "Yes! Hygiene assistance is included in our packages. We help with safe showering, keeping surgical sites dry, and post-shower wound care."
     },
+    "testimonials": {
+      "title": "Patient Experiences",
+      "items": [
+        {
+          "text": "After my rhinoplasty at a Prague clinic, having a nurse come to my hotel for daily wound checks gave me so much peace of mind. I could focus on recovering instead of worrying.",
+          "author": "Maria L.",
+          "context": "Rhinoplasty patient, Prague 1"
+        },
+        {
+          "text": "The nurse helped me with drain management and showering after my tummy tuck. She was gentle, professional, and spoke perfect English.",
+          "author": "Anna K.",
+          "context": "Plastic surgery recovery, stayed at Airbnb in Vinohrady"
+        }
+      ]
+    },
     "cta": {
       "title": "Planning Surgery in Prague?",
       "description": "Book your post-operative care in advance for peace of mind. We're here to support your recovery."
@@ -649,6 +664,21 @@
       "a4": "Absolutely. Monthly subscriptions are flexible. If you need more or fewer hours, we can adjust your plan. Unused hours can roll over or be credited.",
       "q5": "What areas of Prague do you serve?",
       "a5": "We serve all Prague districts and surrounding areas up to 30km from city center. Travel is included in all pricing."
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "items": [
+        {
+          "text": "Finding English-speaking care for my father in Prague was impossible until we found NIUS. The nurse comes every morning and has become part of our routine.",
+          "author": "David R.",
+          "context": "Son of elderly care patient"
+        },
+        {
+          "text": "Consistent, reliable, and compassionate. The same nurse comes every day and truly understands my needs.",
+          "author": "Eva M.",
+          "context": "Long-term care client, Prague 6"
+        }
+      ]
     },
     "cta": {
       "title": "Ready to Schedule Daily Care?",

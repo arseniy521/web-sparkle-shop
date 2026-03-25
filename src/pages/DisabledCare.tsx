@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Calendar, Phone, Check, Heart } from "lucide-react";
+import { ArrowRight, Calendar, Phone, Check, Heart, Star } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -287,6 +287,31 @@ const DisabledCare = () => {
                   <li>• Pain management</li>
                 </ul>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+              {t('disabledCare.testimonials.title')}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {(t('disabledCare.testimonials.items', { returnObjects: true }) as { text: string; author: string; context: string }[]).map((item, index) => (
+                <Card key={index} className="p-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4 italic">"{item.text}"</p>
+                  <div>
+                    <p className="font-semibold text-secondary">{item.author}</p>
+                    <p className="text-sm text-muted-foreground">{item.context}</p>
+                  </div>
+                </Card>
+              ))}
             </div>
           </div>
         </section>

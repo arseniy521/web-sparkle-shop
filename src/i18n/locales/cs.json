@@ -585,6 +585,21 @@
       "a3": "Záleží na vašem pojištění. Poskytujeme detailní faktury, které můžete podat k náhradě. Mnoho mezinárodních pojišťoven pokrývá pooperační péči.",
       "q4": "Mluví sestry anglicky?",
       "a4": "Ano! Všechny naše sestry mluví anglicky, což je kritické pro zdravotní turisty. Můžeme také koordinovat v ruštině nebo ukrajinštině."
+    },
+    "testimonials": {
+      "title": "Zkušenosti pacientů",
+      "items": [
+        {
+          "text": "Po mé rhinoplastice v pražské klinice mi příchod sestřičky do hotelu na denní kontrolu ran dal obrovský klid. Mohla jsem se soustředit na zotavení místo starostí.",
+          "author": "Maria L.",
+          "context": "Pacientka po rhinoplastice, Praha 1"
+        },
+        {
+          "text": "Sestřička mi pomáhala s péčí o drény a sprchováním po abdominoplastice. Byla jemná, profesionální a mluvila perfektně anglicky.",
+          "author": "Anna K.",
+          "context": "Zotavení po plastické operaci, Airbnb na Vinohradech"
+        }
+      ]
     }
   },
   "disabledCare": {
@@ -644,6 +659,21 @@
       "a4": "Absolutně. Měsíční předplatné je flexibilní. Pokud potřebujete více nebo méně hodin, můžeme upravit váš plán. Nevyužité hodiny mohou být převedeny nebo připsány.",
       "q5": "Které oblasti Prahy obsluhujete?",
       "a5": "Obsluhujeme všechny pražské čtvrti a okolní oblasti až do 30 km od centra města. Doprava je zahrnuta ve všech cenách."
+    },
+    "testimonials": {
+      "title": "Co říkají naši klienti",
+      "items": [
+        {
+          "text": "Najít anglicky mluvící péči pro mého otce v Praze bylo nemožné, dokud jsme nenašli NIUS. Sestřička přichází každé ráno a stala se součástí naší rutiny.",
+          "author": "David R.",
+          "context": "Syn pacienta vyžadujícího péči o seniory"
+        },
+        {
+          "text": "Konzistentní, spolehlivá a soucitná. Stejná sestřička přichází každý den a skutečně rozumí mým potřebám.",
+          "author": "Eva M.",
+          "context": "Klientka dlouhodobé péče, Praha 6"
+        }
+      ]
     },
     "cta": {
       "title": "Jste připraveni naplánovat denní péči?",
