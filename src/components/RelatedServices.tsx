@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { getLanguagePrefix, getLanguageFromPath } from "@/utils/languageUtils";
+import { getLanguagePrefix, getLanguageFromPath, getLocalizedUrl } from "@/utils/languageUtils";
 
 interface RelatedService {
   titleKey: string;
@@ -16,6 +16,8 @@ export const RelatedServices = () => {
   const currentLang = getLanguageFromPath(location.pathname);
   const langPrefix = getLanguagePrefix(currentLang);
 
+  const hangoverHref = getLocalizedUrl('/hangover-iv-drip-prague', currentLang) || `${langPrefix}/hangover-iv-drip-prague/`;
+
   const services: RelatedService[] = [
     {
       titleKey: "specializedServices.ivf",
@@ -26,6 +28,11 @@ export const RelatedServices = () => {
       titleKey: "specializedServices.ivDrip",
       descKey: "services.ivInfusion.description",
       href: `${langPrefix}/iv-drips-prague/`
+    },
+    {
+      titleKey: "specializedServices.hangover",
+      descKey: "specializedServices.hangoverDesc",
+      href: hangoverHref
     },
     {
       titleKey: "specializedServices.postSurgery",

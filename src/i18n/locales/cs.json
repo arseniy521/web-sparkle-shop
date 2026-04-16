@@ -323,6 +323,8 @@
     "ivDrip": "IV Kapačková terapie",
     "postSurgery": "Rekonvalescence po operaci",
     "disabled": "Denní komfortní péče",
+    "hangover": "Kapačka na kocovinu",
+    "hangoverDesc": "Mobilní kapačka na kocovinu — sestra přijede do vašeho hotelu, Airbnb nebo domů v Praze do 60 minut. Lék proti nevolnosti, rehydratace a elektrolyty od 2 450 Kč.",
     "womensDayGift": "Dárek na 8. března",
     "birthdayGift": "Dárek k narozeninám"
   },
@@ -1526,7 +1528,7 @@
         },
         "hangover": {
           "question": "Jaká je nejlepší IV kapačka na kocovinu?",
-          "answer": "Při kocovině doporučujeme <strong>Nausea Relief (2 850 CZK)</strong> pro okamžitou úlevu od příznaků, nebo <strong>Electrolyte Reset (2 950 CZK)</strong> s 2000 mg hořčíku pro hydrataci a svalovou regeneraci. Pure Hydrate (2 450 CZK) je také účinný pro rychlou rehydrataci."
+          "answer": "Při kocovině doporučujeme <strong><a href='/kapacka-na-kocovinu-praha/'>Nausea Relief (2 850 CZK)</a></strong> pro okamžitou úlevu od příznaků, nebo <strong>Electrolyte Reset (2 950 CZK)</strong> s 2000 mg hořčíku pro hydrataci a svalovou regeneraci. Pure Hydrate (2 450 CZK) je také účinný pro rychlou rehydrataci. <a href='/kapacka-na-kocovinu-praha/'>Zjistěte více o naší kapačce na kocovinu →</a>"
         },
         "vitaminC": {
           "question": "Mohu dostat IV kapačku s vitaminem C v Praze?",
@@ -1585,6 +1587,216 @@
     "breadcrumbs": {
       "services": "Služby",
       "ivDripsPrague": "IV kapačky Praha"
+    }
+  },
+  "hangoverIVDrip": {
+    "seo": {
+      "title": "Kapačka na kocovinu Praha | Sestra k vám do hotelu | NIUS",
+      "description": "Kapačka na kocovinu v Praze — sestra přijede do hotelu nebo Airbnb do ~60 minut. Infuze proti nevolnosti, rehydratace a vitaminy od 2 450 Kč. Registrované sestry.",
+      "keywords": "kapačka na kocovinu praha, kapačka kocovina praha, infuze kocovina praha, kapačka hotel praha, mobilní infuze praha, léčba kocoviny praha, kapačka proti kocovině, infuze po alkoholu praha, nejlepší lék na kocovinu praha"
+    },
+    "breadcrumbs": {
+      "services": "Služby",
+      "ivDrips": "IV kapačky Praha",
+      "hangover": "Kapačka na kocovinu"
+    },
+    "whatsappMessage": "Dobrý den! Chtěl/a bych si objednat kapačku na kocovinu v Praze. Můžete přijet k nám?",
+    "hero": {
+      "h1": "Kapačka na kocovinu v Praze — Sestra u vás do 60 minut",
+      "subtitle": "Registrovaná sestra přijede přímo k vám do hotelu, Airbnb nebo domů se vším potřebným, abyste se rychle postavili na nohy.",
+      "callBtn": "Volat {{phone}}",
+      "whatsappBtn": "Napsat na WhatsApp",
+      "bookBtn": "Objednat online"
+    },
+    "trustBadges": {
+      "licensedNurses": "Registrované sestry",
+      "rating": "Hodnocení 4.9/5",
+      "available": "Denně 8:00 – 20:00",
+      "allDistricts": "Celá Praha"
+    },
+    "symptoms": {
+      "title": "Rychlá úleva od příznaků",
+      "subtitle": "Naše kapačka na kocovinu cílí na všechny příznaky najednou — takto jednotlivé složky fungují.",
+      "items": {
+        "dehydration": {
+          "title": "Dehydratace",
+          "symptom": "Sucho v ústech, závratě, únava",
+          "solution": "1l fyziologického roztoku — doplní tekutiny přímo do krevního oběhu, mnohem rychleji než pití vody"
+        },
+        "nausea": {
+          "title": "Bolest hlavy a nevolnost",
+          "symptom": "Tupá bolest hlavy, žaludeční nevolnost",
+          "solution": "Lék proti nevolnosti + analgetika — zastaví zvracení a bolesti hlavy, abyste mohli normálně fungovat"
+        },
+        "fatigue": {
+          "title": "Únava a slabost",
+          "symptom": "Žádná energie, bolest svalů",
+          "solution": "Vitaminy skupiny B + hořčík — doplní to, co alkohol přes noc vyčerpal"
+        },
+        "brainFog": {
+          "title": "Zamlžené myšlení",
+          "symptom": "Nemůžete se soustředit, pomalé myšlení",
+          "solution": "Vyrovnání elektrolytů — obnoví minerální rovnováhu, kterou váš mozek potřebuje k jasnému myšlení"
+        }
+      }
+    },
+    "featured": {
+      "title": "Kapačka na kocovinu — Co obsahuje",
+      "name": "Infuze proti nevolnosti",
+      "price": 2850,
+      "currency": "Kč",
+      "duration": "~60 minut",
+      "short": "Naše nejdoporučovanější kapačka na kocovinu — rychlá úleva od nevolnosti, bolesti hlavy a dehydratace.",
+      "includes": [
+        "Lék proti nevolnosti",
+        "Hydratační podpora (infuze fyziologického roztoku)",
+        "Vyrovnání elektrolytů",
+        "Návštěva registrované sestry u vás",
+        "Veškerý sterilní materiál v ceně"
+      ],
+      "bestFor": "Kocovina a nevolnost",
+      "bookMessage": "Dobrý den! Chtěl/a bych si objednat infuzi proti nevolnosti na kocovinu v Praze.",
+      "bookBtn": "Objednat tuto kapačku",
+      "priceNote": "Cena zahrnuje vše — žádné skryté poplatky"
+    },
+    "alternatives": {
+      "title": "Další varianty kapačky na kocovinu",
+      "subtitle": "Nevíte, která kapačka je pro vás ta pravá? Zde jsou všechny naše varianty vhodné při kocovině — každá s příjezdem sestry až k vám.",
+      "items": {
+        "pureHydrate": {
+          "name": "Čistá hydratace",
+          "price": 2450,
+          "currency": "Kč",
+          "duration": "~60 minut",
+          "short": "Rychlá rehydratace 500ml–1000ml fyziologického roztoku. Ideální při lehčí kocovině, kdy je hlavním problémem dehydratace.",
+          "includes": ["0,9% NaCl fyziologický roztok (500ml–1000ml)", "Rychlá rehydratace", "Návštěva registrované sestry", "Veškerý materiál v ceně"],
+          "bestFor": "Lehká kocovina a dehydratace",
+          "tag": "Cenově výhodná",
+          "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Čistá hydratace na kocovinu v Praze."
+        },
+        "electrolyteReset": {
+          "name": "Elektrolytový reset",
+          "price": 2950,
+          "currency": "Kč",
+          "duration": "~60 minut",
+          "short": "Hydratace plus 2000mg hořčíku pro svalovou regeneraci, úlevu od bolesti hlavy a lepší spánek po náročné noci.",
+          "includes": ["Vyvážené elektrolytové roztoky", "2000mg hořčíku", "Podpora svalů a spánku", "Návštěva registrované sestry"],
+          "bestFor": "Kocovina + bolest svalů",
+          "tag": "Oblíbená",
+          "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Elektrolytový reset na kocovinu v Praze."
+        },
+        "immunityLite": {
+          "name": "Imunita Lite",
+          "price": 2800,
+          "currency": "Kč",
+          "duration": "~60 minut",
+          "short": "Vitamin C s hydratací — ideální, pokud máte kocovinu a zároveň cítíte, že se na vás řítí nachlazení.",
+          "includes": ["Infuze vitaminu C", "Hydratační podpora", "Návštěva registrované sestry", "Veškerý materiál v ceně"],
+          "bestFor": "Kocovina + začínající nachlazení",
+          "tag": "Posílení imunity",
+          "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Imunita Lite na kocovinu v Praze."
+        }
+      },
+      "bookBtn": "Objednat tuto kapačku",
+      "compareNote": "Všechny ceny jsou konečné — zahrnují návštěvu sestry, materiál a léky. Žádné skryté poplatky."
+    },
+    "llmSummary": {
+      "title": "O službě kapačky na kocovinu v Praze",
+      "content": "NIUS poskytuje mobilní kapačky na kocovinu v Praze, Česká republika. Registrovaná sestra přijede k vám do hotelu, Airbnb nebo domů přibližně do 60 minut od objednání. Služba je dostupná denně od 8:00 do 20:00, včetně víkendů a svátků. Všechny léčby jsou pod dohledem předepisujícího lékaře. NIUS obsluhuje všechny pražské obvody včetně Starého Města, Nového Města, Vinohrad, Karlína, Smíchova, Holešovic a Žižkova. K dispozici jsou čtyři varianty kapačky na kocovinu: Infuze proti nevolnosti (2 850 Kč) s lékem proti nevolnosti a rehydratací — nejoblíbenější volba při těžké kocovině; Čistá hydratace (2 450 Kč) pro základní rehydrataci; Elektrolytový reset (2 950 Kč) s 2000mg hořčíku pro svalovou regeneraci; a Imunita Lite (2 800 Kč) s vitaminem C při kocovině kombinované s nachlazením. Všechny ceny jsou konečné bez skrytých poplatků. Infuze trvá přibližně 60 minut. Kontakt: +420 773 629 123 (telefon/WhatsApp). Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz."
+    },
+    "howItWorks": {
+      "title": "Jak to funguje",
+      "subtitle": "Od objednávky po úlevu — je to jednoduché.",
+      "steps": {
+        "step1": {
+          "title": "Objednejte se online nebo zavolejte",
+          "description": "Sdělte nám svou adresu (název hotelu, adresu) a kdy vás potřebujete. Objednávky na stejný den k dispozici."
+        },
+        "step2": {
+          "title": "Sestra přijede k vám",
+          "description": "Registrovaná sestra dorazí do vašeho hotelu, Airbnb nebo domů do ~60 minut — se vším vybavením a léky."
+        },
+        "step3": {
+          "title": "Rychlá zdravotní kontrola a zavedení kapačky",
+          "description": "Krátký zdravotní screening, poté pohodlné zavedení infuze. Můžete relaxovat, sledovat TV nebo si zdřímnout."
+        },
+        "step4": {
+          "title": "Odpočívejte — za chvíli budete v pořádku",
+          "description": "Kapačka trvá přibližně 60 minut. Většina klientů se cítí výrazně lépe ještě před koncem infuze."
+        }
+      }
+    },
+    "whereWeCome": {
+      "title": "Přijedeme kamkoli v Praze",
+      "description": "Obsluhujeme celou Prahu — <strong>Staré Město, Nové Město, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong> a všechny hlavní hotely včetně Four Seasons, Mandarin Oriental, Hilton a stovek dalších. Ať jste kdekoli, přijedeme za vámi."
+    },
+    "testimonials": {
+      "title": "Co říkají naši klienti",
+      "items": {
+        "t1": {
+          "text": "Měl jsem nejhorší kocovinu v životě po rozlučce se svobodou v Praze. Sestra dorazila do hotelu za méně než hodinu a do 30 minut jsem se cítil jako nový člověk. Rozhodně to stálo za to.",
+          "author": "Jakub R.",
+          "context": "Hotelový host, Praha 1"
+        },
+        "t2": {
+          "text": "Objednali jsme kapačku pro celou skupinu po velkém večírku. Profesionální, rychlé a neuvěřitelně účinné. Nejlepší peníze, které jsem na výletě v Praze utratil.",
+          "author": "Šárka M.",
+          "context": "Host Airbnb, Vinohrady"
+        },
+        "t3": {
+          "text": "Byl jsem skeptický, ale zoufalý. Kapačka mi opravdu zachránila den — z neschopnosti se pohnout jsem šel na prohlídku města ještě před obědem. Sestra byla milá a profesionální.",
+          "author": "Tomáš K.",
+          "context": "Turista, Staré Město"
+        }
+      }
+    },
+    "faq": {
+      "title": "Kapačka na kocovinu — Časté dotazy",
+      "subtitle": "Vše, co potřebujete vědět před objednáním.",
+      "items": {
+        "howFast": {
+          "question": "Jak rychle může sestra přijet?",
+          "answer": "Obvykle <strong>do 60 minut</strong> od objednání, v závislosti na vaší poloze v Praze a aktuální dostupnosti. Objednávky na stejný den jsou k dispozici denně od 8:00 do 20:00."
+        },
+        "cost": {
+          "question": "Kolik stojí kapačka na kocovinu v Praze?",
+          "answer": "Naše doporučená kapačka na kocovinu (Infuze proti nevolnosti) stojí <strong>2 850 Kč (≈114 €)</strong>, vše v ceně. Alternativy: Elektrolytový reset za 2 950 Kč nebo Čistá hydratace za 2 450 Kč. Cena zahrnuje návštěvu sestry, veškerý materiál a léky."
+        },
+        "safe": {
+          "question": "Je to bezpečné? Kdo kapačku podává?",
+          "answer": "Samozřejmě. Všechny infuze podávají <strong>registrované zdravotní sestry</strong> za použití sterilního jednorázového zdravotnického materiálu. Všechny léčby jsou pod dohledem předepisujícího lékaře. Každého pacienta před zahájením vyšetříme."
+        },
+        "hotels": {
+          "question": "Přijedete i do hotelů a Airbnb?",
+          "answer": "Ano — přijedeme do <strong>jakéhokoli hotelu, Airbnb, bytu nebo soukromého domu</strong> v Praze. Pravidelně navštěvujeme všechny hlavní hotely v Praze 1, Vinohradech, Karlíně a dalších čtvrtích."
+        },
+        "whatsInside": {
+          "question": "Co kapačka na kocovinu obsahuje?",
+          "answer": "Infuze proti nevolnosti obsahuje <strong>lék proti nevolnosti, fyziologický roztok pro hydrataci a elektrolyty</strong>. Cílí na hlavní příznaky kocoviny: dehydrataci, nevolnost, bolest hlavy a únavu. Všechny složky jsou v lékařské kvalitě."
+        },
+        "howLong": {
+          "question": "Jak dlouho kapačka trvá?",
+          "answer": "Infuze trvá <strong>přibližně 60 minut</strong> včetně zdravotní kontroly a přípravy. Většina klientů se cítí výrazně lépe ještě před koncem kapačky."
+        },
+        "prescription": {
+          "question": "Potřebuji recept?",
+          "answer": "Ne — <strong>o vše se postará náš předepisující lékař</strong>. Konzultace a předpis jsou zahrnuty v ceně. Stačí si objednat a o zbytek se postaráme my."
+        },
+        "hours": {
+          "question": "Můžete přijet v noci nebo o víkendu?",
+          "answer": "Jsme k dispozici <strong>denně od 8:00 do 20:00</strong>, včetně víkendů a svátků. Pro naléhavé požadavky mimo tuto dobu nám prosím zavolejte přímo a uděláme maximum, abychom vám vyhověli."
+        }
+      }
+    },
+    "cta": {
+      "title": "Chcete se cítit lépe?",
+      "subtitle": "Objednejte si kapačku na kocovinu — sestra u vás do ~60 minut.",
+      "callBtn": "Volat {{phone}}",
+      "whatsappBtn": "Rezervace přes WhatsApp",
+      "bookBtn": "Objednat online",
+      "emailBtn": "Napište nám",
+      "reassurance": "Registrované sestry • Celá Praha • Denně 8:00 – 20:00",
+      "hours": "K dispozici každý den 8:00–20:00 • Pro urgentní případy mimo pracovní dobu prosím volejte přímo"
     }
   }
 }

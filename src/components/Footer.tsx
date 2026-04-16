@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
-import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
+import { getLanguageFromPath, getLanguagePrefix, getLocalizedUrl } from "@/utils/languageUtils";
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -70,6 +70,11 @@ export const Footer = () => {
               <li>
                 <Link to={`${langPrefix}/iv-drips-prague/`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   IV Drips Prague
+                </Link>
+              </li>
+              <li>
+                <Link to={getLocalizedUrl('/hangover-iv-drip-prague', currentLang) || '/en/hangover-iv-drip-prague/'} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  {t('specializedServices.hangover')}
                 </Link>
               </li>
               <li>

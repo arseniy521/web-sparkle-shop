@@ -51,6 +51,10 @@ const localizedSlugMap: Record<string, Record<string, string>> = {
   '/birthday-gift-prague': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
   '/narozeninovy-darek-praha': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
   '/podatok-k-dnju-rozhdenija-praga': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
+  '/hangover-iv-drip-prague': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
+  '/kapacka-na-kocovinu-praha': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
+  '/kapelnica-ot-pokhmelya-praga': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
+  '/krapelnytsia-vid-pokhmellia-praga': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
 };
 
 // Get localized URL for pages with different slugs per language

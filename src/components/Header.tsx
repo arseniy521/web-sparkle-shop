@@ -67,10 +67,12 @@ export const Header = () => {
 
   const womensDayGiftHref = getLocalizedUrl('/womens-day-gift-prague', currentLang) || '/en/womens-day-gift-prague/';
   const birthdayGiftHref = getLocalizedUrl('/birthday-gift-prague', currentLang) || '/en/birthday-gift-prague/';
+  const hangoverHref = getLocalizedUrl('/hangover-iv-drip-prague', currentLang) || '/en/hangover-iv-drip-prague/';
 
   const serviceLinks = [
     { href: `${langPrefix}/ivf-support-prague/`, label: t('specializedServices.ivf') },
     { href: `${langPrefix}/iv-drips-prague/`, label: t('specializedServices.ivDrip') },
+    { href: hangoverHref, label: t('specializedServices.hangover') },
     { href: `${langPrefix}/post-surgery-recovery-care-prague/`, label: t('specializedServices.postSurgery') },
     { href: `${langPrefix}/disabled-daily-care-prague/`, label: t('specializedServices.disabled') },
     { href: womensDayGiftHref, label: t('specializedServices.womensDayGift') },

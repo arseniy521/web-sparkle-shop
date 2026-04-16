@@ -17,6 +17,7 @@ import SestrickaPraha1 from "./pages/SestrickaPraha1";
 import SestrickaPrahaZizkov from "./pages/SestrickaPrahaZizkov";
 import WomensDayGift from "./pages/WomensDayGift";
 import BirthdayGift from "./pages/BirthdayGift";
+import HangoverIVDripPrague from "./pages/HangoverIVDripPrague";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -78,6 +79,12 @@ const App = () => (
             <Route path="/narozeninovy-darek-praha" element={<LanguageWrapper language="cs"><BirthdayGift /></LanguageWrapper>} />
             <Route path="/en/birthday-gift-prague" element={<LanguageWrapper language="en"><BirthdayGift /></LanguageWrapper>} />
             <Route path="/ru/podatok-k-dnju-rozhdenija-praga" element={<LanguageWrapper language="ru"><BirthdayGift /></LanguageWrapper>} />
+
+            {/* Hangover IV Drip - Localized slugs */}
+            <Route path="/kapacka-na-kocovinu-praha" element={<LanguageWrapper language="cs"><HangoverIVDripPrague /></LanguageWrapper>} />
+            <Route path="/en/hangover-iv-drip-prague" element={<LanguageWrapper language="en"><HangoverIVDripPrague /></LanguageWrapper>} />
+            <Route path="/ru/kapelnica-ot-pokhmelya-praga" element={<LanguageWrapper language="ru"><HangoverIVDripPrague /></LanguageWrapper>} />
+            <Route path="/uk/krapelnytsia-vid-pokhmellia-praga" element={<LanguageWrapper language="uk"><HangoverIVDripPrague /></LanguageWrapper>} />
 
             {/* Redirect invalid /cs/ and /cz/ prefixes to homepage (Czech is the default, no prefix) */}
             <Route path="/cs/*" element={<Navigate to="/" replace />} />

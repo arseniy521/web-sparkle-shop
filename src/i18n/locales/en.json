@@ -323,6 +323,8 @@
     "ivDrip": "IV Drip Therapy",
     "postSurgery": "Post-Surgery Recovery",
     "disabled": "Daily Comfort Care",
+    "hangover": "Hangover IV Drip",
+    "hangoverDesc": "Mobile hangover IV drip delivered to your hotel, Airbnb, or home in Prague within 60 minutes. Anti-nausea medication, rehydration, and electrolytes from 2,450 CZK.",
     "womensDayGift": "Women's Day Gift",
     "birthdayGift": "Birthday Gift"
   },
@@ -1531,7 +1533,7 @@
         },
         "hangover": {
           "question": "What's the best IV drip for hangovers?",
-          "answer": "For hangovers, try our <strong>Nausea Relief (2,850 CZK)</strong> for immediate symptom relief, or <strong>Electrolyte Reset (2,950 CZK)</strong> with 2000mg Magnesium for hydration and muscle recovery. Pure Hydrate (2,450 CZK) is also effective for rapid rehydration."
+          "answer": "For hangovers, try our <strong><a href='/en/hangover-iv-drip-prague/'>Nausea Relief (2,850 CZK)</a></strong> for immediate symptom relief, or <strong>Electrolyte Reset (2,950 CZK)</strong> with 2000mg Magnesium for hydration and muscle recovery. Pure Hydrate (2,450 CZK) is also effective for rapid rehydration. <a href='/en/hangover-iv-drip-prague/'>Learn more about our hangover IV drip service →</a>"
         },
         "vitaminC": {
           "question": "Can I get Vitamin C IV drips in Prague?",
@@ -1590,6 +1592,216 @@
     "breadcrumbs": {
       "services": "Services",
       "ivDripsPrague": "IV Drips Prague"
+    }
+  },
+  "hangoverIVDrip": {
+    "seo": {
+      "title": "Hangover IV Drip Prague | Mobile Nurse to Your Hotel | NIUS",
+      "description": "Hangover IV drip in Prague delivered to your hotel or Airbnb in ~60 min. Anti-nausea, rehydration & vitamins from 2,450 CZK. Licensed nurses, same-day booking.",
+      "keywords": "hangover iv drip prague, hangover drip prague, hangover cure prague, iv drip hotel prague, mobile iv therapy prague, hangover treatment prague, iv hangover drip, hangover infusion prague, best hangover cure prague"
+    },
+    "breadcrumbs": {
+      "services": "Services",
+      "ivDrips": "IV Drips Prague",
+      "hangover": "Hangover IV Drip"
+    },
+    "whatsappMessage": "Hi! I'd like to book a Hangover IV Drip in Prague. Can you come to my location?",
+    "hero": {
+      "h1": "Hangover IV Drip in Prague — Delivered to Your Hotel in 60 Minutes",
+      "subtitle": "Mobile nurse comes to your hotel, Airbnb, or home with everything needed to get you back on your feet.",
+      "callBtn": "Call {{phone}}",
+      "whatsappBtn": "WhatsApp Us",
+      "bookBtn": "Book Online"
+    },
+    "trustBadges": {
+      "licensedNurses": "Licensed Nurses",
+      "rating": "4.9/5 Rating",
+      "available": "Daily 8 AM – 8 PM",
+      "allDistricts": "All Prague Districts"
+    },
+    "symptoms": {
+      "title": "Feel Better Fast",
+      "subtitle": "Our hangover IV drip targets every symptom at once — here's how each ingredient works for you.",
+      "items": {
+        "dehydration": {
+          "title": "Dehydration",
+          "symptom": "Dry mouth, dizziness, fatigue",
+          "solution": "1L saline rehydration — restores fluids directly into your bloodstream, faster than drinking water"
+        },
+        "nausea": {
+          "title": "Headache & Nausea",
+          "symptom": "Pounding head, upset stomach",
+          "solution": "Anti-nausea + pain relief medication — stops vomiting and headaches so you can function again"
+        },
+        "fatigue": {
+          "title": "Fatigue & Weakness",
+          "symptom": "No energy, muscle aches",
+          "solution": "B-complex vitamins + magnesium — replenish what alcohol depleted overnight"
+        },
+        "brainFog": {
+          "title": "Brain Fog",
+          "symptom": "Can't focus, sluggish thinking",
+          "solution": "Electrolyte rebalance — restores the mineral balance your brain needs to function clearly"
+        }
+      }
+    },
+    "featured": {
+      "title": "The Hangover Drip — What's Inside",
+      "name": "Nausea Relief IV Drip",
+      "price": 2850,
+      "currency": "CZK",
+      "duration": "~60 minutes",
+      "short": "Our #1 recommended drip for hangovers — rapid relief from nausea, headache, and dehydration.",
+      "includes": [
+        "Anti-nausea medication",
+        "Hydration support (saline infusion)",
+        "Electrolyte balance",
+        "Registered nurse visit at your location",
+        "All sterile equipment included"
+      ],
+      "bestFor": "Hangover & Nausea",
+      "bookMessage": "Hi! I'd like to book the Nausea Relief IV Drip for a hangover in Prague.",
+      "bookBtn": "Book This Drip",
+      "priceNote": "All-inclusive price — no hidden fees"
+    },
+    "alternatives": {
+      "title": "More Hangover IV Drip Options",
+      "subtitle": "Not sure which drip is right for you? Here are all our hangover-friendly options — each delivered to your door by a registered nurse.",
+      "items": {
+        "pureHydrate": {
+          "name": "Pure Hydrate",
+          "price": 2450,
+          "currency": "CZK",
+          "duration": "~60 minutes",
+          "short": "Fast rehydration with 500ml–1000ml saline. Best for mild hangovers where dehydration is the main issue.",
+          "includes": ["0.9% NaCl saline (500ml–1000ml)", "Rapid rehydration", "Registered nurse visit", "All equipment included"],
+          "bestFor": "Mild Hangover & Dehydration",
+          "tag": "Budget-Friendly",
+          "bookMessage": "Hi! I'd like to book the Pure Hydrate IV Drip for a hangover in Prague."
+        },
+        "electrolyteReset": {
+          "name": "Electrolyte Reset",
+          "price": 2950,
+          "currency": "CZK",
+          "duration": "~60 minutes",
+          "short": "Hydration plus 2000mg Magnesium for muscle recovery, headache relief, and better sleep after a rough night.",
+          "includes": ["Balanced electrolyte fluids", "2000mg Magnesium", "Muscle & sleep support", "Registered nurse visit"],
+          "bestFor": "Hangover + Muscle Aches",
+          "tag": "Popular",
+          "bookMessage": "Hi! I'd like to book the Electrolyte Reset IV Drip for a hangover in Prague."
+        },
+        "immunityLite": {
+          "name": "Immunity Lite",
+          "price": 2800,
+          "currency": "CZK",
+          "duration": "~60 minutes",
+          "short": "Vitamin C boost with hydration — ideal if you're hungover and feel a cold coming on at the same time.",
+          "includes": ["Vitamin C infusion", "Hydration support", "Registered nurse visit", "All equipment included"],
+          "bestFor": "Hangover + Feeling Under the Weather",
+          "tag": "Immunity Boost",
+          "bookMessage": "Hi! I'd like to book the Immunity Lite IV Drip for a hangover in Prague."
+        }
+      },
+      "bookBtn": "Book This Drip",
+      "compareNote": "All prices are all-inclusive — nurse visit, equipment, and medication included. No hidden fees."
+    },
+    "llmSummary": {
+      "title": "About Hangover IV Drip Service in Prague",
+      "content": "NIUS provides mobile hangover IV drip therapy in Prague, Czech Republic. A registered nurse travels to your hotel, Airbnb, or home within approximately 60 minutes of booking. The service is available daily from 8:00 AM to 8:00 PM, including weekends and holidays. All treatments are overseen by a prescribing doctor. NIUS serves all Prague districts including Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, and Žižkov. Four hangover IV drip options are available: Nausea Relief (2,850 CZK) with anti-nausea medication and rehydration — the most popular choice for severe hangovers; Pure Hydrate (2,450 CZK) for basic saline rehydration; Electrolyte Reset (2,950 CZK) with 2000mg Magnesium for muscle recovery; and Immunity Lite (2,800 CZK) with Vitamin C for hangover combined with cold symptoms. All prices are all-inclusive with no hidden fees. The infusion takes approximately 60 minutes. Contact: +420 773 629 123 (phone/WhatsApp). Online booking: nurseinprague.setmore.com/book. Website: www.nius.cz."
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "From booking to feeling human again — it's simple.",
+      "steps": {
+        "step1": {
+          "title": "Book Online or Call Us",
+          "description": "Tell us your location (hotel name, address) and when you need us. Same-day bookings available."
+        },
+        "step2": {
+          "title": "Nurse Arrives at Your Location",
+          "description": "A registered nurse comes to your hotel, Airbnb, or home within ~60 minutes — with all equipment and medication."
+        },
+        "step3": {
+          "title": "Quick Health Check & IV Setup",
+          "description": "Brief health screening, then comfortable IV insertion. You can relax, watch TV, or even nap."
+        },
+        "step4": {
+          "title": "Relax — Feel Human Again",
+          "description": "The drip takes about 60 minutes. Most clients feel dramatically better before the session even ends."
+        }
+      }
+    },
+    "whereWeCome": {
+      "title": "We Come to You — Anywhere in Prague",
+      "description": "We serve all of Prague — <strong>Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong>, and all major hotels including Four Seasons, Mandarin Oriental, Hilton, and hundreds more. Wherever you're staying, we'll be there."
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "items": {
+        "t1": {
+          "text": "Had the worst hangover of my life after a stag do in Prague. The nurse arrived at our hotel in under an hour and I felt like a new person within 30 minutes. Absolutely worth it.",
+          "author": "James R.",
+          "context": "Hotel guest, Prague 1"
+        },
+        "t2": {
+          "text": "We booked for the whole group after a big night out. Professional, quick, and incredibly effective. Best money I've spent on a trip to Prague.",
+          "author": "Sarah M.",
+          "context": "Airbnb guest, Vinohrady"
+        },
+        "t3": {
+          "text": "I was skeptical but desperate. The IV drip genuinely turned my day around — went from unable to move to sightseeing by lunch. The nurse was friendly and professional.",
+          "author": "Tom K.",
+          "context": "Tourist, Old Town"
+        }
+      }
+    },
+    "faq": {
+      "title": "Hangover IV Drip — Frequently Asked Questions",
+      "subtitle": "Everything you need to know before booking.",
+      "items": {
+        "howFast": {
+          "question": "How fast can a nurse arrive?",
+          "answer": "Typically <strong>within 60 minutes</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 8 PM."
+        },
+        "cost": {
+          "question": "How much does a hangover IV drip cost in Prague?",
+          "answer": "Our recommended hangover drip (Nausea Relief) is <strong>2,850 CZK (≈€114)</strong>, all-inclusive. Alternatives: Electrolyte Reset at 2,950 CZK or Pure Hydrate at 2,450 CZK. Price includes nurse visit, all equipment, and medication."
+        },
+        "safe": {
+          "question": "Is it safe? Who administers it?",
+          "answer": "Absolutely. All IV drips are administered by <strong>registered, licensed nurses</strong> using sterile, single-use medical equipment. A prescribing doctor oversees all treatments. We screen every patient before starting."
+        },
+        "hotels": {
+          "question": "Do you come to hotels and Airbnbs?",
+          "answer": "Yes — we come to <strong>any hotel, Airbnb, apartment, or private home</strong> in Prague. We regularly visit all major hotels in Prague 1, Vinohrady, Karlín, and beyond."
+        },
+        "whatsInside": {
+          "question": "What's in the hangover IV drip?",
+          "answer": "The Nausea Relief drip includes <strong>anti-nausea medication, saline hydration, and electrolyte balance</strong>. It targets the main hangover symptoms: dehydration, nausea, headache, and fatigue. All ingredients are medical-grade."
+        },
+        "howLong": {
+          "question": "How long does the IV drip take?",
+          "answer": "The infusion takes <strong>approximately 60 minutes</strong> including the health check and setup. Most clients feel significantly better before the drip even finishes."
+        },
+        "prescription": {
+          "question": "Do I need a prescription?",
+          "answer": "No — <strong>our prescribing doctor handles everything</strong>. The consultation and prescription are included in the price. You just book, and we take care of the rest."
+        },
+        "hours": {
+          "question": "Can you come at night or on weekends?",
+          "answer": "We're available <strong>daily from 8 AM to 8 PM</strong>, including weekends and holidays. For urgent requests outside these hours, please call us directly and we'll do our best to accommodate."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Feel Better?",
+      "subtitle": "Book your hangover IV drip now — nurse at your door in ~60 minutes.",
+      "callBtn": "Call {{phone}}",
+      "whatsappBtn": "WhatsApp Booking",
+      "bookBtn": "Book Online",
+      "emailBtn": "Email Us",
+      "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 8 PM",
+      "hours": "Available every day 8:00–20:00 • For urgent cases outside hours, please call directly"
     }
   }
 }

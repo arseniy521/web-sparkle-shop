@@ -6,8 +6,8 @@ import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StickyBookNow } from "@/components/StickyBookNow";
 import { useTranslation } from "react-i18next";
-import { Syringe, Droplets, Heart, User, ArrowRight } from "lucide-react";
-import { getLanguagePrefix } from "@/utils/languageUtils";
+import { Syringe, Droplets, Heart, User, ArrowRight, AlertCircle } from "lucide-react";
+import { getLanguagePrefix, getLocalizedUrl } from "@/utils/languageUtils";
 
 const SpecializedServices = () => {
   const { t, i18n } = useTranslation();
@@ -38,11 +38,14 @@ const SpecializedServices = () => {
     "medicalSpecialty": [
       "IVF Support",
       "IV Therapy",
+      "Hangover IV Drip",
       "Post-Surgery Care",
       "Disabled Care",
       "Home Nursing"
     ]
   };
+
+  const hangoverHref = getLocalizedUrl('/hangover-iv-drip-prague', currentLang) || `${langPrefix}/hangover-iv-drip-prague/`;
 
   const services = [
     {
@@ -57,6 +60,13 @@ const SpecializedServices = () => {
       title: t('specializedServices.ivDrip'),
       description: t('specializedServices.ivDripDesc'),
       link: `${langPrefix}/iv-drips-prague/`,
+      image: "/assets/drips_cl2.png"
+    },
+    {
+      icon: AlertCircle,
+      title: t('specializedServices.hangover'),
+      description: t('specializedServices.hangoverDesc'),
+      link: hangoverHref,
       image: "/assets/drips_cl2.png"
     },
     {

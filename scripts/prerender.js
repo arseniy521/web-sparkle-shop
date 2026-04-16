@@ -45,6 +45,12 @@ const routes = [
   "/en/birthday-gift-prague",
   "/ru/podatok-k-dnju-rozhdenija-praga",
 
+  // Hangover IV Drip - Localized slugs
+  "/kapacka-na-kocovinu-praha",
+  "/en/hangover-iv-drip-prague",
+  "/ru/kapelnica-ot-pokhmelya-praga",
+  "/uk/krapelnytsia-vid-pokhmellia-praga",
+
   // Old URL redirects are handled separately below (not pre-rendered)
   "/blog/iv-therapy-at-home-prague-guide",
   "/blog/when-to-call-home-nurse-prague",
