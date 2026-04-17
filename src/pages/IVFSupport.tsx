@@ -74,6 +74,12 @@ const IVFSupport = () => {
       },
       "areaServed": { "@type": "City", "name": "Prague" },
       "priceRange": "1290-8450 CZK",
+      "availableLanguage": ["en", "cs", "ru", "uk"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "50.0755",
+        "longitude": "14.4378"
+      },
       "image": "https://www.nius.cz/og-ivf.jpg",
       "openingHours": "Mo-Su 00:00-23:59",
       "aggregateRating": {

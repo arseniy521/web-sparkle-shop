@@ -81,6 +81,7 @@ const Index = () => {
       "bestRating": "5",
       "worstRating": "4"
     },
+    "availableLanguage": ["en", "cs", "ru", "uk"],
     "potentialAction": {
       "@type": "ReserveAction",
       "target": {
@@ -141,14 +142,44 @@ const Index = () => {
       ]
     }
   };
-  
+
+  const schemaArray = [
+    enhancedSchema,
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Nurse in Prague",
+      "legalName": "Nius Services s.r.o.",
+      "url": "https://www.nius.cz/",
+      "logo": "https://www.nius.cz/favicon.png",
+      "foundingDate": "2024",
+      "founders": [{ "@type": "Person", "name": "Nigina Jebrak" }],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Prague",
+        "addressCountry": "CZ"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+420773629123",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Czech", "Russian", "Ukrainian"],
+        "areaServed": "Prague"
+      },
+      "sameAs": [
+        "https://www.instagram.com/nius.prague/",
+        "https://t.me/nius_prague"
+      ]
+    }
+  ];
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SEO 
         title={t('seo.home.title')}
         description={t('seo.home.description')}
         ogImage="https://www.nius.cz/og-image.jpg"
-        schema={enhancedSchema}
+        schema={schemaArray}
         keywords={t('seo.home.keywords')}
       />
       <Header />

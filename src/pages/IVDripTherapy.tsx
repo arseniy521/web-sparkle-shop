@@ -132,6 +132,7 @@ const IVDripsPrague = () => {
         },
         "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 08:00-20:00",
         "medicalSpecialty": ["IV Therapy", "Vitamin Infusion", "Mobile Nursing", "IV Drip Therapy"],
+        "availableLanguage": ["en", "cs", "ru", "uk"],
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
@@ -706,7 +707,7 @@ const IVDripsPrague = () => {
                     __html: JSON.stringify({
                       "@context": "https://schema.org",
                       "@type": "FAQPage",
-                      "mainEntity": faqKeys.slice(0, 5).map(key => ({
+                      "mainEntity": faqKeys.map(key => ({
                         "@type": "Question",
                         "name": t(`ivDripTherapy.faq.items.${key}.question`),
                         "acceptedAnswer": {
@@ -750,6 +751,16 @@ const IVDripsPrague = () => {
                 </div>
               </div>
             </section>
+
+            {/* LLM Summary — visible factual summary for AI discoverability */}
+            <article className="py-16 px-4">
+              <div className="container mx-auto max-w-4xl">
+                <h2 className="text-2xl font-bold mb-4">{t('ivDripTherapy.llmSummary.title')}</h2>
+                <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                  {t('ivDripTherapy.llmSummary.content')}
+                </div>
+              </div>
+            </article>
 
             <RelatedServices />
 

@@ -43,6 +43,12 @@ const PostSurgeryCare = () => {
         "addressCountry": "CZ"
       },
       "priceRange": "1900-28900 CZK",
+      "availableLanguage": ["en", "cs", "ru", "uk"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "50.0755",
+        "longitude": "14.4378"
+      },
       "availableService": [
         {
           "@type": "MedicalProcedure",

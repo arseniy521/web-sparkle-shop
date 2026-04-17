@@ -44,6 +44,12 @@ const DisabledCare = () => {
         "addressCountry": "CZ"
       },
       "priceRange": "2190-118200 CZK",
+      "availableLanguage": ["en", "cs", "ru", "uk"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "50.0755",
+        "longitude": "14.4378"
+      },
       "availableService": [
         {
           "@type": "Service",

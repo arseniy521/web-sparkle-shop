@@ -24,7 +24,8 @@ const SpecializedServices = () => {
     "description": pageDescription,
     "url": `https://www.nius.cz${langPrefix}/specialized-services`,
     "image": "https://www.nius.cz/og-image.jpg",
-    "priceRange": "€€",
+    "priceRange": "1290-28900 CZK",
+    "availableLanguage": ["en", "cs", "ru", "uk"],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Prague",

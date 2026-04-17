@@ -78,6 +78,8 @@ export const SEO = ({
         <meta property="og:type" content={ogType} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Nurse in Prague" />
         <meta property="og:locale" content={ogLocale} />
         {alternateLanguages.map(lang => (
@@ -93,7 +95,7 @@ export const SEO = ({
       
       {schema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify(Array.isArray(schema) ? schema : schema)
+          __html: JSON.stringify(schema)
         }} />
       )}
     </>

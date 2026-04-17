@@ -41,8 +41,8 @@ const SestrickaPrahaVinohrady = () => {
           "priceRange": "1890-2680 CZK",
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "50.0755",
-            "longitude": "14.4378"
+            "latitude": "50.0773",
+            "longitude": "14.4440"
           },
           "openingHours": "Mo-Su 08:00-22:00",
           "areaServed": {
