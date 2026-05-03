@@ -615,12 +615,30 @@
       "title": "Spolupracujeme s předními klinikami v Praze",
       "subtitle": "Naše sestry přímo koordinují s vaším chirurgickým týmem pro bezproblémovou následnou péči",
       "items": [
-        { "name": "Beaute Clinic", "specialty": "Plastická chirurgie" },
-        { "name": "Praga Medica", "specialty": "Plastická a estetická chirurgie" },
-        { "name": "Canadian Medical", "specialty": "Stomatologie a estetika" },
-        { "name": "Prague Medical Institute", "specialty": "Ortopedická chirurgie" },
-        { "name": "Motol University Hospital", "specialty": "Obecná chirurgie" },
-        { "name": "Na Homolce Hospital", "specialty": "Kardiochirurgie" }
+        {
+          "name": "Beaute Clinic",
+          "specialty": "Plastická chirurgie"
+        },
+        {
+          "name": "Praga Medica",
+          "specialty": "Plastická a estetická chirurgie"
+        },
+        {
+          "name": "Canadian Medical",
+          "specialty": "Stomatologie a estetika"
+        },
+        {
+          "name": "Prague Medical Institute",
+          "specialty": "Ortopedická chirurgie"
+        },
+        {
+          "name": "Motol University Hospital",
+          "specialty": "Obecná chirurgie"
+        },
+        {
+          "name": "Na Homolce Hospital",
+          "specialty": "Kardiochirurgie"
+        }
       ],
       "note": "Nevidíte svou kliniku? Spolupracujeme s jakýmkoli chirurgem nebo nemocnicí v Praze. Kontaktujte nás pro koordinaci."
     },
@@ -649,6 +667,10 @@
           "context": "Zotavení po plastické operaci, Airbnb na Vinohradech"
         }
       ]
+    },
+    "cta": {
+      "title": "Planning Surgery in Prague?",
+      "description": "Book your post-operative care in advance for peace of mind. We're here to support your recovery."
     }
   },
   "disabledCare": {
@@ -682,7 +704,13 @@
       "monthly": "Měsíční předplatné",
       "monthlyPrice": "39 400 Kč",
       "monthlyDesc": "20 hodin měsíčně - ideální pro denní nebo pravidelné potřeby péče",
-      "monthlyFeatures": ["20 hodin péče měsíčně", "Stálá pečovatelka", "Flexibilní denní plánování", "Prioritní telefonická podpora", "Ušetřete 10% oproti jednotlivým návštěvám"],
+      "monthlyFeatures": [
+        "20 hodin péče měsíčně",
+        "Stálá pečovatelka",
+        "Flexibilní denní plánování",
+        "Prioritní telefonická podpora",
+        "Ušetřete 10% oproti jednotlivým návštěvám"
+      ],
       "bestValue": "Nejlepší hodnota",
       "extended": "Rozšířená péče k dispozici: 40 hodin/měsíc = 78 800 Kč | 60 hodin/měsíc = 118 200 Kč",
       "includes": "Všechny balíčky zahrnují dopravu v rámci Prahy, pomůcky a anglicky mluvící sestry",
@@ -693,17 +721,32 @@
       "disabled": {
         "title": "Stárnoucí rodiče",
         "description": "Váš rodič potřebuje denní pomoc, ale chce zůstat doma. Poskytujeme péči, která je udržuje v bezpečí, pohodlí a nezávislosti.",
-        "items": ["Koupání a hygiena", "Pomoc s oblékáním", "Podpora mobility", "Správa léků"]
+        "items": [
+          "Koupání a hygiena",
+          "Pomoc s oblékáním",
+          "Podpora mobility",
+          "Správa léků"
+        ]
       },
       "expats": {
         "title": "Expatriotské rodiny",
         "description": "Jste v zahraničí a nemůžete být u svého blízkého v Praze. Překlenujeme tuto mezeru anglicky mluvící péčí a pravidelnými aktualizacemi.",
-        "items": ["Anglická komunikace", "Pravidelné aktualizace pro rodinu", "Koordinace s lékařem", "Kulturní citlivost"]
+        "items": [
+          "Anglická komunikace",
+          "Pravidelné aktualizace pro rodinu",
+          "Koordinace s lékařem",
+          "Kulturní citlivost"
+        ]
       },
       "chronic": {
         "title": "Chronická onemocnění",
         "description": "Zvládání dlouhodobého stavu je vyčerpávající pro celou rodinu. Nechte naše sestry zvládat denní lékařskou rutinu.",
-        "items": ["Péče o diabetes", "Péče o rány", "Péče o katétr", "Léčba bolesti"]
+        "items": [
+          "Péče o diabetes",
+          "Péče o rány",
+          "Péče o katétr",
+          "Léčba bolesti"
+        ]
       }
     },
     "faq": {
@@ -737,7 +780,8 @@
     "cta": {
       "title": "Dopřejte svým blízkým péči, kterou si zaslouží",
       "description": "Nemusíte to zvládat sami. Nechte nás postarat se o denní zdravotní péči, zatímco se soustředíte na to být rodina."
-    }
+    },
+    "bookNow": "Arrange Care Now"
   },
   "womensDayGift": {
     "seo": {
@@ -1242,7 +1286,12 @@
               "price": 2800,
               "duration": 45,
               "short": "Základní posílení vitaminem C pro podporu imunity a prevenci.",
-              "includes": ["Infuze vitaminu C", "Podpora hydratace", "Návštěva registrované sestry", "Veškerý materiál v ceně"],
+              "includes": [
+                "Infuze vitaminu C",
+                "Podpora hydratace",
+                "Návštěva registrované sestry",
+                "Veškerý materiál v ceně"
+              ],
               "popular": false,
               "bestFor": "Prevence"
             },
@@ -1251,7 +1300,12 @@
               "price": 3150,
               "duration": 60,
               "short": "Vysokodávkový vitamin C (15 g) pro obranu proti virům a intenzivní podporu imunity.",
-              "includes": ["Vysokodávkový vitamin C 15 g", "Podpůrná hydratace", "Monitoring registrovanou sestrou", "Veškerý sterilní materiál"],
+              "includes": [
+                "Vysokodávkový vitamin C 15 g",
+                "Podpůrná hydratace",
+                "Monitoring registrovanou sestrou",
+                "Veškerý sterilní materiál"
+              ],
               "popular": true,
               "bestFor": "Nachlazení a chřipka"
             },
@@ -1260,7 +1314,12 @@
               "price": 4250,
               "duration": 60,
               "short": "Ultimátní regenerace po chřipce a virech s vitaminem C a stopovými prvky.",
-              "includes": ["Vitamin C + stopové prvky", "Esenciální mikroelementy", "Hydratační terapie", "Návštěva registrované sestry"],
+              "includes": [
+                "Vitamin C + stopové prvky",
+                "Esenciální mikroelementy",
+                "Hydratační terapie",
+                "Návštěva registrované sestry"
+              ],
               "popular": true,
               "bestFor": "Posílení imunity"
             },
@@ -1269,7 +1328,12 @@
               "price": 3650,
               "duration": 60,
               "short": "Podpora regenerace pleti, vlasů a imunitní odolnosti po nemoci.",
-              "includes": ["Mikroelementy pro pleť a vlasy", "Živiny pro podporu imunity", "Stopové prvky a vitamíny", "Návštěva registrované sestry"],
+              "includes": [
+                "Mikroelementy pro pleť a vlasy",
+                "Živiny pro podporu imunity",
+                "Stopové prvky a vitamíny",
+                "Návštěva registrované sestry"
+              ],
               "popular": false,
               "bestFor": "Zotavení po nemoci"
             }
@@ -1283,7 +1347,12 @@
               "price": 4450,
               "duration": 60,
               "short": "Maximální soustředění a mentální jasnost s B-komplexem, minerály a hořčíkem pro náročné profesionály.",
-              "includes": ["Vitamíny B-komplexu", "Esenciální minerály", "2000 mg hořčíku", "Návštěva registrované sestry"],
+              "includes": [
+                "Vitamíny B-komplexu",
+                "Esenciální minerály",
+                "2000 mg hořčíku",
+                "Návštěva registrované sestry"
+              ],
               "popular": true,
               "bestFor": "Soustředění a produktivita"
             },
@@ -1292,7 +1361,12 @@
               "price": 3950,
               "duration": 60,
               "short": "Podpora energetického metabolismu a detoxikace pro celkovou vitalitu.",
-              "includes": ["Metabolické živiny", "Detoxikační prvky", "Komplex vitamínů B", "Návštěva registrované sestry"],
+              "includes": [
+                "Metabolické živiny",
+                "Detoxikační prvky",
+                "Komplex vitamínů B",
+                "Návštěva registrované sestry"
+              ],
               "popular": false,
               "bestFor": "Detox a metabolismus"
             },
@@ -1301,7 +1375,12 @@
               "price": 1550,
               "duration": 10,
               "short": "Rychlá energetická injekce B12 900 mcg (intramuskulárně, pouze 10 minut).",
-              "includes": ["Vitamín B12 900 mcg IM", "Rychlá 10minutová procedura", "Návštěva registrované sestry", "Okamžitý nárůst energie"],
+              "includes": [
+                "Vitamín B12 900 mcg IM",
+                "Rychlá 10minutová procedura",
+                "Návštěva registrované sestry",
+                "Okamžitý nárůst energie"
+              ],
               "popular": false,
               "bestFor": "Rychlá energie"
             }
@@ -1315,7 +1394,12 @@
               "price": 2450,
               "duration": 45,
               "short": "Rychlá rehydratace 500 ml–1000 ml fyziologického roztoku při dehydrataci.",
-              "includes": ["0,9% NaCl fyziologický roztok (500 ml–1000 ml)", "Rychlá rehydratace", "Návštěva registrované sestry", "Veškerý materiál v ceně"],
+              "includes": [
+                "0,9% NaCl fyziologický roztok (500 ml–1000 ml)",
+                "Rychlá rehydratace",
+                "Návštěva registrované sestry",
+                "Veškerý materiál v ceně"
+              ],
               "popular": false,
               "bestFor": "Dehydratace"
             },
@@ -1324,7 +1408,12 @@
               "price": 2950,
               "duration": 45,
               "short": "Hydratace s 2000 mg hořčíku pro svalovou regeneraci a lepší spánek.",
-              "includes": ["Vyvážené elektrolytové roztoky", "2000 mg hořčíku", "Podpora svalů a spánku", "Návštěva registrované sestry"],
+              "includes": [
+                "Vyvážené elektrolytové roztoky",
+                "2000 mg hořčíku",
+                "Podpora svalů a spánku",
+                "Návštěva registrované sestry"
+              ],
               "popular": true,
               "bestFor": "Sportovní regenerace"
             },
@@ -1333,7 +1422,12 @@
               "price": 2850,
               "duration": 45,
               "short": "Rychlá pomoc při otravě jídlem, těžké kocovině nebo zažívacích potížích.",
-              "includes": ["Lék proti nevolnosti", "Podpora hydratace", "Rovnováha elektrolytů", "Návštěva registrované sestry"],
+              "includes": [
+                "Lék proti nevolnosti",
+                "Podpora hydratace",
+                "Rovnováha elektrolytů",
+                "Návštěva registrované sestry"
+              ],
               "popular": false,
               "bestFor": "Kocovina a nevolnost"
             }
@@ -1347,7 +1441,12 @@
               "price": 2750,
               "duration": 45,
               "short": "Šetrné doplnění železa přípravkem Ferrlecit při mírné anémii.",
-              "includes": ["Infuze železa Ferrlecit", "Šetrné složení", "Monitoring registrovanou sestrou", "Veškerý materiál v ceně"],
+              "includes": [
+                "Infuze železa Ferrlecit",
+                "Šetrné složení",
+                "Monitoring registrovanou sestrou",
+                "Veškerý materiál v ceně"
+              ],
               "popular": false,
               "bestFor": "Nedostatek železa"
             },
@@ -1356,7 +1455,12 @@
               "price": 6350,
               "duration": 60,
               "short": "Vysoce účinná infuze železa (Ferinject) při chronické únavě a těžké anémii.",
-              "includes": ["Vysoce účinné železo Ferinject", "Prodloužený monitoring", "Návštěva registrované sestry", "Pokyny po proceduře"],
+              "includes": [
+                "Vysoce účinné železo Ferinject",
+                "Prodloužený monitoring",
+                "Návštěva registrované sestry",
+                "Pokyny po proceduře"
+              ],
               "popular": false,
               "bestFor": "Těžká anémie"
             },
@@ -1365,7 +1469,12 @@
               "price": 3350,
               "duration": 45,
               "short": "Podpora při bolestech zad a neurologické regeneraci intramuskulární injekcí B-komplexu.",
-              "includes": ["Intramuskulární injekce B-komplexu", "Živiny pro podporu nervů", "Podpora úlevy od bolesti", "Návštěva registrované sestry"],
+              "includes": [
+                "Intramuskulární injekce B-komplexu",
+                "Živiny pro podporu nervů",
+                "Podpora úlevy od bolesti",
+                "Návštěva registrované sestry"
+              ],
               "popular": false,
               "bestFor": "Zdraví nervů"
             },
@@ -1374,7 +1483,12 @@
               "price": 3250,
               "duration": 45,
               "short": "Akutní úleva od svalové a nervové bolesti zad a kloubů.",
-              "includes": ["Léky proti bolesti", "Protizánětlivá podpora", "Svalová relaxace", "Návštěva registrované sestry"],
+              "includes": [
+                "Léky proti bolesti",
+                "Protizánětlivá podpora",
+                "Svalová relaxace",
+                "Návštěva registrované sestry"
+              ],
               "popular": false,
               "bestFor": "Úleva od bolesti"
             },
@@ -1383,7 +1497,12 @@
               "price": 2650,
               "duration": 45,
               "short": "Rychlá úleva od alergických reakcí a příznaků sezónních alergií.",
-              "includes": ["Antihistaminická podpora", "Protizánětlivé látky", "Úleva od příznaků", "Návštěva registrované sestry"],
+              "includes": [
+                "Antihistaminická podpora",
+                "Protizánětlivé látky",
+                "Úleva od příznaků",
+                "Návštěva registrované sestry"
+              ],
               "popular": false,
               "bestFor": "Alergie"
             }
@@ -1399,32 +1518,56 @@
         "vitaminC": {
           "title": "IV kapačka s vitaminem C Praha",
           "description": "Vysokodávkové infuze vitaminu C (až 15 g) pro obranu imunitního systému, ochranu proti virům a rychlejší zotavení z nemoci.",
-          "benefits": ["Silná podpora imunity", "Obrana proti virům", "Antioxidační ochrana"]
+          "benefits": [
+            "Silná podpora imunity",
+            "Obrana proti virům",
+            "Antioxidační ochrana"
+          ]
         },
         "ceo": {
           "title": "CEO Recharge IV kapačka",
           "description": "Formule pro špičkový mentální výkon s B-komplexem, minerály a hořčíkem. Navržena pro manažery a profesionály vyžadující soustředění a jasné myšlení.",
-          "benefits": ["Zvýšená mentální jasnost", "Lepší soustředění", "Odolnost vůči stresu"]
+          "benefits": [
+            "Zvýšená mentální jasnost",
+            "Lepší soustředění",
+            "Odolnost vůči stresu"
+          ]
         },
         "hydration": {
           "title": "Hydratační a elektrolytová IV kapačka",
           "description": "Hydratační terapie zdravotnické kvality s elektrolyty a hořčíkem. Ideální při kocovině, únavě z cestování, dehydrataci nebo svalové regeneraci.",
-          "benefits": ["Rychlá rehydratace", "Rovnováha elektrolytů", "Podpora svalové regenerace"]
+          "benefits": [
+            "Rychlá rehydratace",
+            "Rovnováha elektrolytů",
+            "Podpora svalové regenerace"
+          ]
         },
         "iron": {
           "title": "Infuze železa Praha",
           "description": "Šetrné nebo vysoce účinné infuze železa (Ferrlecit nebo Ferinject) při anémii, chronické únavě a léčbě nedostatku železa.",
-          "benefits": ["Léčba nedostatku železa", "Zvýšení hladiny energie", "Snížení únavy"]
+          "benefits": [
+            "Léčba nedostatku železa",
+            "Zvýšení hladiny energie",
+            "Snížení únavy"
+          ]
         },
         "defense": {
           "title": "Defense Shield (Hero)",
           "description": "Ultimátní regenerace po chřipce a virech s vitaminem C a stopovými prvky. Komplexní podpora při příznacích nachlazení/chřipky a zotavení po nemoci.",
-          "benefits": ["Kompletní zotavení po chřipce", "Podpora stopovými prvky", "Posílení imunity"]
+          "benefits": [
+            "Kompletní zotavení po chřipce",
+            "Podpora stopovými prvky",
+            "Posílení imunity"
+          ]
         },
         "glow": {
           "title": "Glow & Post-Flu regenerace",
           "description": "Podpora regenerace pleti, vlasů a imunitní odolnosti. Kombinuje beauty živiny s prvky pro zotavení po nemoci.",
-          "benefits": ["Podpora pleti a vlasů", "Zotavení po nemoci", "Imunitní odolnost"]
+          "benefits": [
+            "Podpora pleti a vlasů",
+            "Zotavení po nemoci",
+            "Imunitní odolnost"
+          ]
         }
       }
     },
@@ -1669,7 +1812,12 @@
           "currency": "Kč",
           "duration": "~60 minut",
           "short": "Rychlá rehydratace 500ml–1000ml fyziologického roztoku. Ideální při lehčí kocovině, kdy je hlavním problémem dehydratace.",
-          "includes": ["0,9% NaCl fyziologický roztok (500ml–1000ml)", "Rychlá rehydratace", "Návštěva registrované sestry", "Veškerý materiál v ceně"],
+          "includes": [
+            "0,9% NaCl fyziologický roztok (500ml–1000ml)",
+            "Rychlá rehydratace",
+            "Návštěva registrované sestry",
+            "Veškerý materiál v ceně"
+          ],
           "bestFor": "Lehká kocovina a dehydratace",
           "tag": "Cenově výhodná",
           "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Čistá hydratace na kocovinu v Praze."
@@ -1680,7 +1828,12 @@
           "currency": "Kč",
           "duration": "~60 minut",
           "short": "Hydratace plus 2000mg hořčíku pro svalovou regeneraci, úlevu od bolesti hlavy a lepší spánek po náročné noci.",
-          "includes": ["Vyvážené elektrolytové roztoky", "2000mg hořčíku", "Podpora svalů a spánku", "Návštěva registrované sestry"],
+          "includes": [
+            "Vyvážené elektrolytové roztoky",
+            "2000mg hořčíku",
+            "Podpora svalů a spánku",
+            "Návštěva registrované sestry"
+          ],
           "bestFor": "Kocovina + bolest svalů",
           "tag": "Oblíbená",
           "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Elektrolytový reset na kocovinu v Praze."
@@ -1691,7 +1844,12 @@
           "currency": "Kč",
           "duration": "~60 minut",
           "short": "Vitamin C s hydratací — ideální, pokud máte kocovinu a zároveň cítíte, že se na vás řítí nachlazení.",
-          "includes": ["Infuze vitaminu C", "Hydratační podpora", "Návštěva registrované sestry", "Veškerý materiál v ceně"],
+          "includes": [
+            "Infuze vitaminu C",
+            "Hydratační podpora",
+            "Návštěva registrované sestry",
+            "Veškerý materiál v ceně"
+          ],
           "bestFor": "Kocovina + začínající nachlazení",
           "tag": "Posílení imunity",
           "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Imunita Lite na kocovinu v Praze."
@@ -1797,6 +1955,150 @@
       "emailBtn": "Napište nám",
       "reassurance": "Registrované sestry • Celá Praha • Denně 8:00 – 20:00",
       "hours": "K dispozici každý den 8:00–20:00 • Pro urgentní případy mimo pracovní dobu prosím volejte přímo"
+    }
+  },
+  "onboarding": {
+    "dialogTitle": "Objednat sestru",
+    "dialogDescription": "Vyberte adresu, termín, kontakt a odešlete žádost o domácí návštěvu sestry.",
+    "close": "Zavřít",
+    "next": "Pokračovat",
+    "finish": "Dokončit",
+    "optional": "volitelné",
+    "or": "nebo",
+    "step1": {
+      "title": "Jak vás můžeme kontaktovat?",
+      "subtitle": "Zadejte své telefonní číslo a my potvrdíme detaily.",
+      "phoneLabel": "Telefon",
+      "phoneHint": "Kontaktujeme vás pouze k této objednávce.",
+      "phoneError": "Zadejte platné telefonní číslo",
+      "privacy": "Vaše data zpracováváme v souladu s GDPR."
+    },
+    "step2": {
+      "title": "Kam máme přijet?",
+      "subtitle": "Adresa, kde proběhne návštěva.",
+      "addressLabel": "Adresa",
+      "addressPlaceholder": "Ulice, číslo domu, byt",
+      "addressError": "Zadejte úplnou adresu",
+      "floorLabel": "Patro",
+      "floorPlaceholder": "Patro",
+      "intercomLabel": "Zvonek / kód",
+      "intercomPlaceholder": "Zvonek / kód",
+      "addressNoResults": "Adresa nenalezena — zadejte ručně",
+      "addressSearching": "Vyhledávání adres…",
+      "addressRequestFailed": "Vyhledávání adres není dostupné — zadejte ji ručně",
+      "fromLabel": "Adresa vyzvednutí",
+      "fromPlaceholder": "Kde pacienta vyzvednout",
+      "toLabel": "Cílová adresa",
+      "toPlaceholder": "Kam pacienta dopravit",
+      "toError": "Zadejte cílovou adresu"
+    },
+    "step3": {
+      "title": "Kdy se vám to hodí?",
+      "subtitle": "Vyberte preferovaný čas návštěvy.",
+      "asapHint": "Zavoláme vám do 60 min pro potvrzení",
+      "orSpecific": "nebo zvolte konkrétní čas",
+      "today": "Dnes",
+      "more": "Více",
+      "groups": {
+        "morning": "Ráno 08:00–12:00",
+        "afternoon": "Odpoledne 12:00–17:00",
+        "evening": "Večer 17:00–20:00"
+      },
+      "slots": {
+        "asap": "Co nejdříve",
+        "morning": "Ráno (8:00–12:00)",
+        "afternoon": "Odpoledne (12:00–17:00)",
+        "evening": "Večer (17:00–21:00)",
+        "custom": "Konkrétní datum a čas"
+      },
+      "loadError": "Nepodařilo se načíst časové sloty. Zkuste to prosím znovu.",
+      "dateLabel": "Datum a čas"
+    },
+    "step4": {
+      "title": "Jak chcete platit?",
+      "subtitle": "Platíte až po poskytnutí služby.",
+      "card": {
+        "label": "Kartou online",
+        "desc": "Bezpečná platba přes Stripe"
+      },
+      "cash": {
+        "label": "Hotovost",
+        "desc": "Při příjezdu sestry"
+      },
+      "bank": {
+        "label": "Bankovní převod",
+        "desc": "Zašleme vám platební údaje"
+      }
+    },
+    "step5": {
+      "title": "Co vás trápí?",
+      "subtitle": "Alergie, chronická onemocnění, užívané léky.",
+      "noteLabel": "Příznaky",
+      "notePlaceholder": "Popište, co vás trápí: bolest, horečka, krevní tlak atd."
+    },
+    "final": {
+      "title": "Skoro hotovo!",
+      "subtitle": "Přijali jsme vaši žádost. Zvolte, jak chcete pokračovat.",
+      "loginBtn": "Přihlásit se a sledovat rezervaci",
+      "loginHint": "Přihlášení umožňuje sledovat stav, upravit objednávku a vyplnit krátký zdravotní dotazník.",
+      "contactBtn": "Zavolejte mi zpět"
+    },
+    "thankyou": {
+      "title": "Děkujeme!",
+      "subtitle": "Brzy vám zavoláme na zadané číslo pro potvrzení detailů.",
+      "closeBtn": "Zavřít"
+    },
+    "catalogLoading": "Načítám služby…",
+    "catalogLoadFailed": "Nepodařilo se načíst seznam služeb. Zavřete okno a zkuste to znovu.",
+    "errors": {
+      "rateLimit": "Příliš mnoho pokusů. Zkuste to prosím za chvíli.",
+      "network": "Připojení selhalo. Zkontrolujte internet a zkuste znovu.",
+      "notFound": "Tato rezervace již není dostupná. Začněte prosím znovu.",
+      "server": "Něco se pokazilo. Zkuste to prosím znovu.",
+      "validation": "Zkontrolujte prosím zadané údaje.",
+      "unknown": "Neočekávaná chyba. Zkuste to prosím znovu."
+    },
+    "cartTitle": "Váš košík",
+    "cart": {
+      "addServices": "Přidat služby",
+      "selected": "Váš výběr",
+      "empty": "Košík je prázdný — přidejte službu výše",
+      "added": "Přidáno",
+      "remove": "Odebrat",
+      "totalFrom": "Celkem od",
+      "priceFrom": "od {{price}} Kč",
+      "continue": "Pokračovat k rezervaci",
+      "yourBooking": "Vaše rezervace",
+      "totalTime": "min celkem",
+      "oneVisit": "Jedna návštěva"
+    },
+    "upsale": {
+      "title": "Doporučujeme",
+      "add": "Přidat",
+      "added": "Přidáno",
+      "ivfHint": "Často se přidává ke kapačkám na kocovinu",
+      "b12Hint": "Zrychlete zotavení — stejná návštěva",
+      "vitaminCHint": "Často se přidává ke kapačkám na kocovinu",
+      "ivHint": "Mobilní IV terapie na vaší adrese",
+      "escortHint": "Asistovaná zdravotní doprava po Praze"
+    },
+    "sections": {
+      "quickDetails": "Jak vás můžeme kontaktovat?",
+      "address": "Kam máme přijet?",
+      "timing": "Kdy se vám to hodí?",
+      "payment": "Platba",
+      "note": "Co vás trápí?",
+      "route": "Trasa"
+    },
+    "edit": "Upravit",
+    "footerTotal": "Celkem",
+    "step3Summary": {
+      "asap": "Co nejdříve"
+    },
+    "step4Summary": {
+      "card": "Karta online",
+      "cash": "Hotově",
+      "bank": "Bankovní převod"
     }
   }
 }
