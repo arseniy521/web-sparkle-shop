@@ -1,22 +1,44 @@
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import mainImage from "@/assets/drips_cl2.webp";
 import { useTranslation } from "react-i18next";
+import { OnboardingFormDialog } from "@/components/OnboardingForm";
 
 export const Hero = () => {
   const { t } = useTranslation();
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const debugParam = searchParams.get("debug");
+  const onboardingOpen = debugParam === "sparkle" || debugParam === "escort";
+  const onboardingMode: "standard" | "escort" =
+    debugParam === "escort" ? "escort" : "standard";
+
+  const onboardingModeRef = useRef(onboardingMode);
+  onboardingModeRef.current = onboardingMode;
+
+  const setOnboardingOpen = useCallback(
+    (nextOpen: boolean) => {
+      const next = new URLSearchParams(searchParams);
+      if (nextOpen) {
+        next.set("debug", onboardingModeRef.current === "escort" ? "escort" : "sparkle");
+      } else {
+        next.delete("debug");
+      }
+      setSearchParams(next);
+    },
+    [searchParams, setSearchParams],
+  );
   
-  const dynamicPhrases = [
+  const dynamicPhrases = useMemo(() => [
     t('hero.phrases.0'),
     t('hero.phrases.1'),
     t('hero.phrases.2'),
     t('hero.phrases.3'),
     t('hero.phrases.4'),
-  ];
+  ], [t]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,7 +50,7 @@ export const Hero = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [dynamicPhrases.length]);
 
   return (
     <section id="home" className="relative py-20 md:py-32 overflow-hidden" aria-label="Hero section">
@@ -132,6 +154,13 @@ export const Hero = () => {
           </div>
         </div>
       </div>
+
+      <OnboardingFormDialog
+        open={onboardingOpen}
+        onOpenChange={setOnboardingOpen}
+        initialMode={onboardingMode}
+        initialServiceCode={debugParam === 'escort' ? 'escort' : 'iv_infusion'}
+      />
     </section>
   );
 };

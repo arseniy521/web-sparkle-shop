@@ -615,12 +615,30 @@
       "title": "We Work With Prague's Top Clinics",
       "subtitle": "Our nurses coordinate directly with your surgical team for seamless aftercare",
       "items": [
-        { "name": "Beaute Clinic", "specialty": "Plastic Surgery" },
-        { "name": "Praga Medica", "specialty": "Plastic & Cosmetic Surgery" },
-        { "name": "Canadian Medical", "specialty": "Dental & Cosmetic" },
-        { "name": "Prague Medical Institute", "specialty": "Orthopedic Surgery" },
-        { "name": "Motol University Hospital", "specialty": "General Surgery" },
-        { "name": "Na Homolce Hospital", "specialty": "Cardiac & General" }
+        {
+          "name": "Beaute Clinic",
+          "specialty": "Plastic Surgery"
+        },
+        {
+          "name": "Praga Medica",
+          "specialty": "Plastic & Cosmetic Surgery"
+        },
+        {
+          "name": "Canadian Medical",
+          "specialty": "Dental & Cosmetic"
+        },
+        {
+          "name": "Prague Medical Institute",
+          "specialty": "Orthopedic Surgery"
+        },
+        {
+          "name": "Motol University Hospital",
+          "specialty": "General Surgery"
+        },
+        {
+          "name": "Na Homolce Hospital",
+          "specialty": "Cardiac & General"
+        }
       ],
       "note": "Don't see your clinic? We work with any surgeon or hospital in Prague. Contact us for coordination."
     },
@@ -687,7 +705,13 @@
       "monthly": "Monthly Subscription",
       "monthlyPrice": "38,000 CZK",
       "monthlyDesc": "20 hours per month - ideal for daily or regular care needs",
-      "monthlyFeatures": ["20 hours of care monthly", "Consistent caregiver", "Flexible daily scheduling", "Priority phone support", "Save 10% vs single visits"],
+      "monthlyFeatures": [
+        "20 hours of care monthly",
+        "Consistent caregiver",
+        "Flexible daily scheduling",
+        "Priority phone support",
+        "Save 10% vs single visits"
+      ],
       "bestValue": "Best Value",
       "extended": "Extended care available: 40 hours/month = 72,000 CZK | 60 hours/month = 105,000 CZK",
       "includes": "All packages include travel within Prague, supplies, and English-speaking nurses",
@@ -698,17 +722,32 @@
       "disabled": {
         "title": "Aging Parents",
         "description": "Your parent needs daily help but wants to stay at home. We provide the care that keeps them safe, comfortable, and independent.",
-        "items": ["Bathing and hygiene", "Dressing assistance", "Mobility support", "Medication management"]
+        "items": [
+          "Bathing and hygiene",
+          "Dressing assistance",
+          "Mobility support",
+          "Medication management"
+        ]
       },
       "expats": {
         "title": "Expat Families",
         "description": "You're abroad and can't be there for your loved one in Prague. We bridge the gap with English-speaking care and regular updates.",
-        "items": ["English communication", "Regular family updates", "Doctor coordination", "Cultural sensitivity"]
+        "items": [
+          "English communication",
+          "Regular family updates",
+          "Doctor coordination",
+          "Cultural sensitivity"
+        ]
       },
       "chronic": {
         "title": "Chronic Conditions",
         "description": "Managing a long-term condition is exhausting for the whole family. Let our nurses handle the daily medical routine.",
-        "items": ["Diabetes management", "Wound care", "Catheter care", "Pain management"]
+        "items": [
+          "Diabetes management",
+          "Wound care",
+          "Catheter care",
+          "Pain management"
+        ]
       }
     },
     "faq": {
@@ -1247,7 +1286,12 @@
               "price": 2800,
               "duration": 45,
               "short": "Baseline Vitamin C boost for immune support and prevention.",
-              "includes": ["Vitamin C infusion", "Hydration support", "Registered nurse visit", "All equipment included"],
+              "includes": [
+                "Vitamin C infusion",
+                "Hydration support",
+                "Registered nurse visit",
+                "All equipment included"
+              ],
               "popular": false,
               "bestFor": "Prevention"
             },
@@ -1256,7 +1300,12 @@
               "price": 3150,
               "duration": 60,
               "short": "High-dose Vitamin C (15g) for viral defense and intensive immune support.",
-              "includes": ["Vitamin C 15g high-dose", "Supportive hydration", "Registered nurse monitoring", "All sterile equipment"],
+              "includes": [
+                "Vitamin C 15g high-dose",
+                "Supportive hydration",
+                "Registered nurse monitoring",
+                "All sterile equipment"
+              ],
               "popular": true,
               "bestFor": "Cold & Flu"
             },
@@ -1265,7 +1314,12 @@
               "price": 4250,
               "duration": 60,
               "short": "The ultimate flu & virus recovery with Vitamin C and trace elements.",
-              "includes": ["Vitamin C + trace elements", "Essential microelements", "Hydration therapy", "Registered nurse visit"],
+              "includes": [
+                "Vitamin C + trace elements",
+                "Essential microelements",
+                "Hydration therapy",
+                "Registered nurse visit"
+              ],
               "popular": true,
               "bestFor": "Immune Boost"
             },
@@ -1274,7 +1328,12 @@
               "price": 3650,
               "duration": 60,
               "short": "Recovery support for skin, hair, and immune resilience after illness.",
-              "includes": ["Microelements for skin & hair", "Immune support nutrients", "Trace elements & vitamins", "Registered nurse visit"],
+              "includes": [
+                "Microelements for skin & hair",
+                "Immune support nutrients",
+                "Trace elements & vitamins",
+                "Registered nurse visit"
+              ],
               "popular": false,
               "bestFor": "Post-Illness Recovery"
             }
@@ -1288,7 +1347,12 @@
               "price": 4450,
               "duration": 60,
               "short": "Peak focus & mental clarity with B-Complex, minerals, and magnesium for high performers.",
-              "includes": ["B-Complex vitamins", "Essential minerals", "2000mg Magnesium", "Registered nurse visit"],
+              "includes": [
+                "B-Complex vitamins",
+                "Essential minerals",
+                "2000mg Magnesium",
+                "Registered nurse visit"
+              ],
               "popular": true,
               "bestFor": "Focus & Productivity"
             },
@@ -1297,7 +1361,12 @@
               "price": 3950,
               "duration": 60,
               "short": "Energy metabolism boost and detox support for overall vitality.",
-              "includes": ["Metabolic nutrients", "Detox support elements", "B-vitamins complex", "Registered nurse visit"],
+              "includes": [
+                "Metabolic nutrients",
+                "Detox support elements",
+                "B-vitamins complex",
+                "Registered nurse visit"
+              ],
               "popular": false,
               "bestFor": "Detox & Metabolism"
             },
@@ -1306,7 +1375,12 @@
               "price": 1550,
               "duration": 10,
               "short": "Quick 900mcg B12 energy injection (intramuscular, 10 minutes only).",
-              "includes": ["Vitamin B12 900mcg IM", "Quick 10-minute procedure", "Registered nurse visit", "Immediate energy boost"],
+              "includes": [
+                "Vitamin B12 900mcg IM",
+                "Quick 10-minute procedure",
+                "Registered nurse visit",
+                "Immediate energy boost"
+              ],
               "popular": false,
               "bestFor": "Quick Energy"
             }
@@ -1320,7 +1394,12 @@
               "price": 2450,
               "duration": 45,
               "short": "Rapid rehydration with 500ml–1000ml saline for dehydration relief.",
-              "includes": ["0.9% NaCl saline (500ml–1000ml)", "Rapid rehydration", "Registered nurse visit", "All equipment included"],
+              "includes": [
+                "0.9% NaCl saline (500ml–1000ml)",
+                "Rapid rehydration",
+                "Registered nurse visit",
+                "All equipment included"
+              ],
               "popular": false,
               "bestFor": "Dehydration"
             },
@@ -1329,7 +1408,12 @@
               "price": 2950,
               "duration": 45,
               "short": "Hydration plus 2000mg Magnesium for muscle recovery and better sleep.",
-              "includes": ["Balanced electrolyte fluids", "2000mg Magnesium", "Muscle & sleep support", "Registered nurse visit"],
+              "includes": [
+                "Balanced electrolyte fluids",
+                "2000mg Magnesium",
+                "Muscle & sleep support",
+                "Registered nurse visit"
+              ],
               "popular": true,
               "bestFor": "Sports Recovery"
             },
@@ -1338,7 +1422,12 @@
               "price": 2850,
               "duration": 45,
               "short": "Rapid help for food poisoning, severe hangovers, or digestive distress.",
-              "includes": ["Anti-nausea medication", "Hydration support", "Electrolyte balance", "Registered nurse visit"],
+              "includes": [
+                "Anti-nausea medication",
+                "Hydration support",
+                "Electrolyte balance",
+                "Registered nurse visit"
+              ],
               "popular": false,
               "bestFor": "Hangover & Nausea"
             }
@@ -1352,7 +1441,12 @@
               "price": 2750,
               "duration": 45,
               "short": "Gentle iron replenishment with Ferrlecit for mild anemia.",
-              "includes": ["Ferrlecit iron infusion", "Gentle formula", "Registered nurse monitoring", "All equipment included"],
+              "includes": [
+                "Ferrlecit iron infusion",
+                "Gentle formula",
+                "Registered nurse monitoring",
+                "All equipment included"
+              ],
               "popular": false,
               "bestFor": "Iron Deficiency"
             },
@@ -1361,7 +1455,12 @@
               "price": 6350,
               "duration": 60,
               "short": "High-potency iron infusion (Ferinject) for chronic fatigue and severe anemia.",
-              "includes": ["Ferinject high-potency iron", "Extended monitoring", "Registered nurse visit", "Post-treatment guidance"],
+              "includes": [
+                "Ferinject high-potency iron",
+                "Extended monitoring",
+                "Registered nurse visit",
+                "Post-treatment guidance"
+              ],
               "popular": false,
               "bestFor": "Severe Anemia"
             },
@@ -1370,7 +1469,12 @@
               "price": 3350,
               "duration": 45,
               "short": "Back pain & neurological recovery support with B-Complex intramuscular injection.",
-              "includes": ["B-Complex IM injection", "Nerve support nutrients", "Pain relief support", "Registered nurse visit"],
+              "includes": [
+                "B-Complex IM injection",
+                "Nerve support nutrients",
+                "Pain relief support",
+                "Registered nurse visit"
+              ],
               "popular": false,
               "bestFor": "Nerve Health"
             },
@@ -1379,7 +1483,12 @@
               "price": 3250,
               "duration": 45,
               "short": "Acute muscle & nerve pain relief for back and joint discomfort.",
-              "includes": ["Pain relief medication", "Anti-inflammatory support", "Muscle relaxation", "Registered nurse visit"],
+              "includes": [
+                "Pain relief medication",
+                "Anti-inflammatory support",
+                "Muscle relaxation",
+                "Registered nurse visit"
+              ],
               "popular": false,
               "bestFor": "Pain Relief"
             },
@@ -1388,7 +1497,12 @@
               "price": 2650,
               "duration": 45,
               "short": "Rapid relief from allergic reactions and seasonal allergy symptoms.",
-              "includes": ["Antihistamine support", "Anti-inflammatory agents", "Symptom relief", "Registered nurse visit"],
+              "includes": [
+                "Antihistamine support",
+                "Anti-inflammatory agents",
+                "Symptom relief",
+                "Registered nurse visit"
+              ],
               "popular": false,
               "bestFor": "Allergies"
             }
@@ -1404,32 +1518,56 @@
         "vitaminC": {
           "title": "Vitamin C IV Drip Prague",
           "description": "High-dose Vitamin C infusions (up to 15g) for immune system defense, viral protection, and faster recovery from illness.",
-          "benefits": ["Powerful immune support", "Viral defense", "Antioxidant protection"]
+          "benefits": [
+            "Powerful immune support",
+            "Viral defense",
+            "Antioxidant protection"
+          ]
         },
         "ceo": {
           "title": "CEO Recharge IV Drip",
           "description": "Peak mental performance formula with B-Complex, minerals, and magnesium. Designed for executives and high performers needing focus and clarity.",
-          "benefits": ["Enhanced mental clarity", "Improved focus", "Stress resilience"]
+          "benefits": [
+            "Enhanced mental clarity",
+            "Improved focus",
+            "Stress resilience"
+          ]
         },
         "hydration": {
           "title": "Hydration & Electrolyte IV",
           "description": "Medical-grade hydration therapy with electrolytes and magnesium. Perfect for hangovers, travel fatigue, dehydration, or muscle recovery.",
-          "benefits": ["Rapid rehydration", "Electrolyte balance", "Muscle recovery support"]
+          "benefits": [
+            "Rapid rehydration",
+            "Electrolyte balance",
+            "Muscle recovery support"
+          ]
         },
         "iron": {
           "title": "Iron Infusion Prague",
           "description": "Gentle or high-potency iron infusions (Ferrlecit or Ferinject) for anemia, chronic fatigue, and iron deficiency treatment.",
-          "benefits": ["Treats iron deficiency", "Boosts energy levels", "Reduces fatigue"]
+          "benefits": [
+            "Treats iron deficiency",
+            "Boosts energy levels",
+            "Reduces fatigue"
+          ]
         },
         "defense": {
           "title": "Defense Shield (Hero)",
           "description": "Ultimate flu & virus recovery with Vitamin C and trace elements. Comprehensive support for cold/flu symptoms and post-illness recovery.",
-          "benefits": ["Complete flu recovery", "Trace element support", "Immune reinforcement"]
+          "benefits": [
+            "Complete flu recovery",
+            "Trace element support",
+            "Immune reinforcement"
+          ]
         },
         "glow": {
           "title": "Glow & Post-Flu Recovery",
           "description": "Recovery support for skin, hair, and immune resilience. Combines beauty nutrients with post-illness recovery elements.",
-          "benefits": ["Skin & hair support", "Post-illness recovery", "Immune resilience"]
+          "benefits": [
+            "Skin & hair support",
+            "Post-illness recovery",
+            "Immune resilience"
+          ]
         }
       }
     },
@@ -1674,7 +1812,12 @@
           "currency": "CZK",
           "duration": "~60 minutes",
           "short": "Fast rehydration with 500ml–1000ml saline. Best for mild hangovers where dehydration is the main issue.",
-          "includes": ["0.9% NaCl saline (500ml–1000ml)", "Rapid rehydration", "Registered nurse visit", "All equipment included"],
+          "includes": [
+            "0.9% NaCl saline (500ml–1000ml)",
+            "Rapid rehydration",
+            "Registered nurse visit",
+            "All equipment included"
+          ],
           "bestFor": "Mild Hangover & Dehydration",
           "tag": "Budget-Friendly",
           "bookMessage": "Hi! I'd like to book the Pure Hydrate IV Drip for a hangover in Prague."
@@ -1685,7 +1828,12 @@
           "currency": "CZK",
           "duration": "~60 minutes",
           "short": "Hydration plus 2000mg Magnesium for muscle recovery, headache relief, and better sleep after a rough night.",
-          "includes": ["Balanced electrolyte fluids", "2000mg Magnesium", "Muscle & sleep support", "Registered nurse visit"],
+          "includes": [
+            "Balanced electrolyte fluids",
+            "2000mg Magnesium",
+            "Muscle & sleep support",
+            "Registered nurse visit"
+          ],
           "bestFor": "Hangover + Muscle Aches",
           "tag": "Popular",
           "bookMessage": "Hi! I'd like to book the Electrolyte Reset IV Drip for a hangover in Prague."
@@ -1696,7 +1844,12 @@
           "currency": "CZK",
           "duration": "~60 minutes",
           "short": "Vitamin C boost with hydration — ideal if you're hungover and feel a cold coming on at the same time.",
-          "includes": ["Vitamin C infusion", "Hydration support", "Registered nurse visit", "All equipment included"],
+          "includes": [
+            "Vitamin C infusion",
+            "Hydration support",
+            "Registered nurse visit",
+            "All equipment included"
+          ],
           "bestFor": "Hangover + Feeling Under the Weather",
           "tag": "Immunity Boost",
           "bookMessage": "Hi! I'd like to book the Immunity Lite IV Drip for a hangover in Prague."
@@ -1802,6 +1955,150 @@
       "emailBtn": "Email Us",
       "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 8 PM",
       "hours": "Available every day 8:00–20:00 • For urgent cases outside hours, please call directly"
+    }
+  },
+  "onboarding": {
+    "dialogTitle": "Book a nurse",
+    "dialogDescription": "Choose address, timing, contact details and submit a home nurse booking request.",
+    "close": "Close",
+    "next": "Continue",
+    "finish": "Finish",
+    "optional": "optional",
+    "or": "or",
+    "step1": {
+      "title": "How can we reach you?",
+      "subtitle": "Leave your phone number and we'll confirm the details.",
+      "phoneLabel": "Phone number",
+      "phoneHint": "We'll call or text only about this booking.",
+      "phoneError": "Enter a valid phone number",
+      "privacy": "Your data is processed in line with GDPR."
+    },
+    "step2": {
+      "title": "Where should we come?",
+      "subtitle": "Address where the visit will take place.",
+      "addressLabel": "Address",
+      "addressPlaceholder": "Street, building, apartment",
+      "addressError": "Enter the full address",
+      "floorLabel": "Floor",
+      "floorPlaceholder": "Floor",
+      "intercomLabel": "Intercom / code",
+      "intercomPlaceholder": "Intercom / code",
+      "addressNoResults": "Address not found — type it manually",
+      "addressSearching": "Searching addresses…",
+      "addressRequestFailed": "Address search is unavailable — type it manually",
+      "fromLabel": "Pickup address",
+      "fromPlaceholder": "Where to pick up the patient",
+      "toLabel": "Drop-off address",
+      "toPlaceholder": "Where to take the patient",
+      "toError": "Enter the drop-off address"
+    },
+    "step3": {
+      "title": "When works for you?",
+      "subtitle": "Pick a preferred visit time.",
+      "loadError": "Could not load time slots. Please try again.",
+      "dateLabel": "Date and time",
+      "slots": {
+        "asap": "As soon as possible",
+        "morning": "Morning (8:00–12:00)",
+        "afternoon": "Afternoon (12:00–17:00)",
+        "evening": "Evening (17:00–21:00)",
+        "custom": "Specific date and time"
+      },
+      "asapHint": "We will call you within 60 min to confirm",
+      "orSpecific": "or choose a specific time",
+      "today": "Today",
+      "more": "More",
+      "groups": {
+        "morning": "Morning 08:00–12:00",
+        "afternoon": "Afternoon 12:00–17:00",
+        "evening": "Evening 17:00–20:00"
+      }
+    },
+    "step4": {
+      "title": "How would you like to pay?",
+      "subtitle": "You only pay after the service.",
+      "card": {
+        "label": "Card online",
+        "desc": "Secure payment via Stripe"
+      },
+      "cash": {
+        "label": "Cash",
+        "desc": "When the nurse arrives"
+      },
+      "bank": {
+        "label": "Bank transfer",
+        "desc": "We'll send you payment details"
+      }
+    },
+    "step5": {
+      "title": "What's bothering you?",
+      "subtitle": "Allergies, chronic conditions, current medications.",
+      "noteLabel": "Symptoms",
+      "notePlaceholder": "Describe what's bothering you: pain, fever, blood pressure, etc."
+    },
+    "final": {
+      "title": "Almost done!",
+      "subtitle": "We've received your request. Pick how you'd like to continue.",
+      "loginBtn": "Sign in and track booking",
+      "loginHint": "Signing in lets you track status, edit the order and fill a short medical questionnaire.",
+      "contactBtn": "Call me back"
+    },
+    "thankyou": {
+      "title": "Thank you!",
+      "subtitle": "We'll call you back soon at the number you provided to confirm the details.",
+      "closeBtn": "Close"
+    },
+    "catalogLoading": "Loading services…",
+    "catalogLoadFailed": "Could not load the service list. Please close and try again.",
+    "errors": {
+      "rateLimit": "Too many attempts. Please try again in a while.",
+      "network": "Connection failed. Check your internet and try again.",
+      "notFound": "This booking is no longer available. Please start over.",
+      "server": "Something went wrong. Please try again.",
+      "validation": "Please check your input.",
+      "unknown": "Unexpected error. Please try again."
+    },
+    "cartTitle": "Your Cart",
+    "cart": {
+      "addServices": "Add services",
+      "selected": "Your selection",
+      "empty": "Your cart is empty — add a service above",
+      "added": "Added",
+      "remove": "Remove",
+      "totalFrom": "Total from",
+      "priceFrom": "from {{price}} Kč",
+      "continue": "Continue to booking",
+      "yourBooking": "Your booking",
+      "totalTime": "min total",
+      "oneVisit": "One visit"
+    },
+    "upsale": {
+      "title": "Recommended for you",
+      "add": "Add",
+      "added": "Added",
+      "ivfHint": "Often added with hangover drips",
+      "b12Hint": "Boost recovery — same visit",
+      "vitaminCHint": "Often added with hangover drips",
+      "ivHint": "Mobile IV treatment at your location",
+      "escortHint": "Assisted medical transport in Prague"
+    },
+    "sections": {
+      "quickDetails": "How can we reach you?",
+      "address": "Where should we come?",
+      "timing": "When works for you?",
+      "payment": "Payment",
+      "note": "What's bothering you?",
+      "route": "Route"
+    },
+    "edit": "Edit",
+    "footerTotal": "Total",
+    "step3Summary": {
+      "asap": "As soon as possible"
+    },
+    "step4Summary": {
+      "card": "Card online",
+      "cash": "Cash",
+      "bank": "Bank transfer"
     }
   }
 }

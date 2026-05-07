@@ -136,6 +136,23 @@
     "member": {
       "title": "Дипломована медсестра",
       "experience": "років досвіду"
+    },
+    "members": {
+      "nigina": {
+        "name": "Nigina Jebrak",
+        "role": "Managing Nurse",
+        "description": "With unwavering dedication to patient care, Nigina stands as our most senior nurse, celebrated for her clinical acumen and visionary leadership."
+      },
+      "jana": {
+        "name": "Jana Králová",
+        "role": "Internal Medicine Nurse",
+        "description": "She spent 10 years working in internal medicine at Thomayer Hospital, where she gained deep knowledge in managing chronic and acute conditions."
+      },
+      "tomas": {
+        "name": "Tomáš Dvořák",
+        "role": "Emergency Nurse",
+        "description": "An experienced nurse with a strong background in emergency care. He worked for 8 years in emergency departments, handling critical situations with precision."
+      }
     }
   },
   "pricing": {
@@ -193,6 +210,22 @@
       "testimonial6": {
         "text": "Як іноземка без знання чеської, знайти англомовну медичну допомогу було кошмаром, поки я не знайшла NIUS. Вони беруть на себе все — від запису до подальшого догляду.",
         "author": "Rebecca S."
+      },
+      "testimonial1": {
+        "text": "I needed a nurse for my elderly mother after surgery. The service was fast, professional, and kind. We didn't expect such comfort and care at home.",
+        "author": "Petra M."
+      },
+      "testimonial2": {
+        "text": "Great communication and quick response. The nurse was on time, explained everything clearly, and handled the injection smoothly. Highly recommended!",
+        "author": "Martin K."
+      },
+      "testimonial3": {
+        "text": "After my knee surgery, having a nurse come to my hotel made recovery so much easier. Professional, caring, and no hospital visits needed.",
+        "author": "Sarah L."
+      },
+      "testimonial4": {
+        "text": "The IVF injections were administered perfectly every time. The nurse was gentle, understanding, and always punctual. Thank you!",
+        "author": "Anna V."
       }
     }
   },
@@ -242,6 +275,56 @@
     "q6": {
       "question": "Чи можна записатися на той же день?",
       "answer": "Так! Ми пропонуємо обслуговування в день звернення залежно від доступності. Наш звичайний час відгуку становить 2-4 години після підтвердження запису."
+    },
+    "items": {
+      "q1": {
+        "question": "How can I book a nurse?",
+        "answer": "You can book a nurse through several methods: by filling out the online booking form, calling us at +420 773 629 123, via email at info@nius.cz, or through WhatsApp/Telegram. After booking, we will contact you to confirm the appointment time."
+      },
+      "q2": {
+        "question": "How quickly can a nurse arrive?",
+        "answer": "We strive to provide care as quickly as possible. Depending on your location in Prague and current nurse availability, we can typically arrive within 2-3 hours of confirming your booking. For planned visits, we recommend booking a nurse at least one day in advance."
+      },
+      "q3": {
+        "question": "Do you visit hotels and Airbnb accommodations?",
+        "answer": "Yes! We regularly visit international patients staying in hotels, Airbnb, and short-term rentals throughout Prague. This is especially common for IVF patients and medical tourists needing post-surgery care. Just provide your accommodation address when booking."
+      },
+      "q4": {
+        "question": "Do you work with IVF patients and fertility clinics?",
+        "answer": "Absolutely. We have extensive experience with IVF patients, including time-sensitive hormone injections and trigger shots. We're familiar with protocols from major Prague fertility clinics like Reprofit, ISCARE, and Gennet. We offer evening and weekend appointments for precise timing requirements."
+      },
+      "q5": {
+        "question": "Can you help with post-surgery recovery for medical tourists?",
+        "answer": "Yes, this is one of our specialties. We provide wound care, bandage changes, drain management, hygiene assistance, and escort services for patients recovering from plastic surgery, dental procedures, or other medical treatments in Prague. We understand the unique needs of international patients."
+      },
+      "q6": {
+        "question": "Do I need a medical prescription for IV therapy?",
+        "answer": "Yes, prescribed IV therapies require a medical prescription. Our nurses can only administer medications prescribed by a doctor. If you're interested in vitamin or hydration IVs, these can be administered without a prescription as they are considered dietary supplements."
+      },
+      "q7": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept cash (CZK or EUR), bank transfers, and card payments. Payment is collected after service. For package deals and subscription services, we can invoice monthly. Most insurance companies do not cover home nursing, but we provide receipts for potential reimbursement."
+      },
+      "q8": {
+        "question": "Do you provide services outside of Prague?",
+        "answer": "We primarily operate in Prague, but we can provide services in the surrounding areas (up to 30 km) by individual arrangement. For travel outside Prague, we charge an additional fee of 10 CZK/km above the base rate."
+      },
+      "q9": {
+        "question": "What are your operating hours?",
+        "answer": "We are available 7 days a week from 8:00 AM to 10:00 PM. For urgent cases and IVF injections requiring specific timing, we also offer evening/night visits by arrangement. Call +420 773 629 123 anytime for 24/7 booking."
+      },
+      "q10": {
+        "question": "Do you offer long-term care for disabled patients?",
+        "answer": "Yes, we provide daily assistance care for disabled and chronic patients, including hygiene support, medication administration, mobility assistance, and companionship. We offer flexible subscription packages for ongoing care needs."
+      },
+      "q11": {
+        "question": "Are your services covered by insurance?",
+        "answer": "Currently, our services are not covered by health insurance. This is a direct payment by the client. Upon request, we will issue a receipt for payment that you can use for possible claims with your insurance company if you have additional insurance for premium healthcare."
+      },
+      "q12": {
+        "question": "Do I need to prepare anything before the nurse arrives?",
+        "answer": "For the smoothest possible visit, we recommend: having your medical prescription ready (if required), ensuring a calm and clean space for the procedure, informing us in advance about your health condition and any allergies, and having your doctor's contact information handy."
+      }
     }
   },
   "notFound": {
@@ -269,7 +352,8 @@
     "disabled": "Щоденний комфортний догляд",
     "hangover": "Hangover IV Drip",
     "hangoverDesc": "Mobile hangover IV drip delivered to your hotel, Airbnb, or home in Prague within 60 minutes. Anti-nausea medication, rehydration, and electrolytes from 2,450 CZK.",
-    "womensDayGift": "Подарунок на 8 березня"
+    "womensDayGift": "Подарунок на 8 березня",
+    "birthdayGift": "Birthday Gift"
   },
   "ivfSupport": {
     "seo": {
@@ -558,12 +642,30 @@
       "title": "Ми працюємо з провідними клініками Праги",
       "subtitle": "Наші медсестри координують безпосередньо з вашою хірургічною командою",
       "items": [
-        { "name": "Beaute Clinic", "specialty": "Пластична хірургія" },
-        { "name": "Praga Medica", "specialty": "Пластична та косметична хірургія" },
-        { "name": "Canadian Medical", "specialty": "Стоматологія та косметологія" },
-        { "name": "Prague Medical Institute", "specialty": "Ортопедична хірургія" },
-        { "name": "Motol University Hospital", "specialty": "Загальна хірургія" },
-        { "name": "Na Homolce Hospital", "specialty": "Кардіохірургія" }
+        {
+          "name": "Beaute Clinic",
+          "specialty": "Пластична хірургія"
+        },
+        {
+          "name": "Praga Medica",
+          "specialty": "Пластична та косметична хірургія"
+        },
+        {
+          "name": "Canadian Medical",
+          "specialty": "Стоматологія та косметологія"
+        },
+        {
+          "name": "Prague Medical Institute",
+          "specialty": "Ортопедична хірургія"
+        },
+        {
+          "name": "Motol University Hospital",
+          "specialty": "Загальна хірургія"
+        },
+        {
+          "name": "Na Homolce Hospital",
+          "specialty": "Кардіохірургія"
+        }
       ],
       "note": "Не бачите свою клініку? Ми працюємо з будь-яким хірургом або лікарнею у Празі. Зв'яжіться з нами для координації."
     },
@@ -592,6 +694,10 @@
           "context": "Відновлення після пластичної операції, Airbnb у Виноградах"
         }
       ]
+    },
+    "cta": {
+      "title": "Planning Surgery in Prague?",
+      "description": "Book your post-operative care in advance for peace of mind. We're here to support your recovery."
     }
   },
   "disabledCare": {
@@ -625,7 +731,13 @@
       "monthly": "Щомісячна підписка",
       "monthlyPrice": "39 400 крон",
       "monthlyDesc": "20 годин на місяць - ідеально для щоденних або регулярних потреб у догляді",
-      "monthlyFeatures": ["20 годин догляду на місяць", "Постійна медсестра", "Гнучке щоденне планування", "Пріоритетна телефонна підтримка", "Економія 10% порівняно з разовими візитами"],
+      "monthlyFeatures": [
+        "20 годин догляду на місяць",
+        "Постійна медсестра",
+        "Гнучке щоденне планування",
+        "Пріоритетна телефонна підтримка",
+        "Економія 10% порівняно з разовими візитами"
+      ],
       "bestValue": "Найкраща пропозиція",
       "extended": "Розширений догляд доступний: 40 годин/місяць = 78 800 крон | 60 годин/місяць = 118 200 крон",
       "includes": "Усі пакети включають проїзд у межах Праги, витратні матеріали та англомовних медсестер",
@@ -636,17 +748,32 @@
       "disabled": {
         "title": "Літні батьки",
         "description": "Вашим батькам потрібна щоденна допомога, але вони хочуть залишатися вдома. Ми забезпечуємо догляд, який підтримує їх у безпеці, комфорті та незалежності.",
-        "items": ["Купання та гігієна", "Допомога з одяганням", "Підтримка рухливості", "Управління ліками"]
+        "items": [
+          "Купання та гігієна",
+          "Допомога з одяганням",
+          "Підтримка рухливості",
+          "Управління ліками"
+        ]
       },
       "expats": {
         "title": "Родини експатів",
         "description": "Ви за кордоном і не можете бути поруч з близьким у Празі. Ми усуваємо розрив з англомовним доглядом та регулярними оновленнями.",
-        "items": ["Англомовна комунікація", "Регулярні оновлення для родини", "Координація з лікарем", "Культурна чутливість"]
+        "items": [
+          "Англомовна комунікація",
+          "Регулярні оновлення для родини",
+          "Координація з лікарем",
+          "Культурна чутливість"
+        ]
       },
       "chronic": {
         "title": "Хронічні захворювання",
         "description": "Управління довготривалим станом виснажливе для всієї родини. Дозвольте нашим медсестрам впоратися зі щоденною медичною рутиною.",
-        "items": ["Управління діабетом", "Догляд за ранами", "Догляд за катетером", "Знеболення"]
+        "items": [
+          "Управління діабетом",
+          "Догляд за ранами",
+          "Догляд за катетером",
+          "Знеболення"
+        ]
       }
     },
     "faq": {
@@ -680,7 +807,8 @@
     "cta": {
       "title": "Подаруйте близькому догляд, якого він заслуговує",
       "description": "Вам не потрібно справлятися самостійно. Довірте нам щоденний медичний догляд, а самі зосередьтесь на родині."
-    }
+    },
+    "bookNow": "Arrange Care Now"
   },
   "ivDripTherapy": {
     "seo": {
@@ -790,7 +918,12 @@
               "price": 2800,
               "duration": 45,
               "short": "Базова підтримка вітаміном C для імунітету та профілактики.",
-              "includes": ["Інфузія вітаміну C", "Підтримка гідратації", "Візит дипломованої медсестри", "Усе обладнання включено"],
+              "includes": [
+                "Інфузія вітаміну C",
+                "Підтримка гідратації",
+                "Візит дипломованої медсестри",
+                "Усе обладнання включено"
+              ],
               "popular": false,
               "bestFor": "Профілактика"
             },
@@ -799,7 +932,12 @@
               "price": 3150,
               "duration": 60,
               "short": "Високодозований вітамін C (15 г) для захисту від вірусів та інтенсивної підтримки імунітету.",
-              "includes": ["Вітамін C 15 г високодозований", "Підтримуюча гідратація", "Моніторинг дипломованою медсестрою", "Усе стерильне обладнання"],
+              "includes": [
+                "Вітамін C 15 г високодозований",
+                "Підтримуюча гідратація",
+                "Моніторинг дипломованою медсестрою",
+                "Усе стерильне обладнання"
+              ],
               "popular": true,
               "bestFor": "Застуда та грип"
             },
@@ -808,7 +946,12 @@
               "price": 4250,
               "duration": 60,
               "short": "Максимальне відновлення після грипу та вірусів з вітаміном C та мікроелементами.",
-              "includes": ["Вітамін C + мікроелементи", "Основні мікроелементи", "Гідратаційна терапія", "Візит дипломованої медсестри"],
+              "includes": [
+                "Вітамін C + мікроелементи",
+                "Основні мікроелементи",
+                "Гідратаційна терапія",
+                "Візит дипломованої медсестри"
+              ],
               "popular": true,
               "bestFor": "Зміцнення імунітету"
             },
@@ -817,7 +960,12 @@
               "price": 3650,
               "duration": 60,
               "short": "Підтримка відновлення шкіри, волосся та імунної стійкості після хвороби.",
-              "includes": ["Мікроелементи для шкіри та волосся", "Нутрієнти для підтримки імунітету", "Мікроелементи та вітаміни", "Візит дипломованої медсестри"],
+              "includes": [
+                "Мікроелементи для шкіри та волосся",
+                "Нутрієнти для підтримки імунітету",
+                "Мікроелементи та вітаміни",
+                "Візит дипломованої медсестри"
+              ],
               "popular": false,
               "bestFor": "Відновлення після хвороби"
             }
@@ -831,7 +979,12 @@
               "price": 4450,
               "duration": 60,
               "short": "Максимальний фокус та ясність розуму з B-комплексом, мінералами та магнієм для високопродуктивних людей.",
-              "includes": ["Вітаміни групи B", "Основні мінерали", "Магній 2000 мг", "Візит дипломованої медсестри"],
+              "includes": [
+                "Вітаміни групи B",
+                "Основні мінерали",
+                "Магній 2000 мг",
+                "Візит дипломованої медсестри"
+              ],
               "popular": true,
               "bestFor": "Фокус та продуктивність"
             },
@@ -840,7 +993,12 @@
               "price": 3950,
               "duration": 60,
               "short": "Стимуляція енергетичного метаболізму та підтримка детоксикації для загальної бадьорості.",
-              "includes": ["Метаболічні нутрієнти", "Елементи підтримки детоксикації", "Комплекс вітамінів групи B", "Візит дипломованої медсестри"],
+              "includes": [
+                "Метаболічні нутрієнти",
+                "Елементи підтримки детоксикації",
+                "Комплекс вітамінів групи B",
+                "Візит дипломованої медсестри"
+              ],
               "popular": false,
               "bestFor": "Детокс та метаболізм"
             },
@@ -849,7 +1007,12 @@
               "price": 1550,
               "duration": 10,
               "short": "Швидка ін'єкція B12 900 мкг (внутрішньом'язово, лише 10 хвилин).",
-              "includes": ["Вітамін B12 900 мкг в/м", "Швидка 10-хвилинна процедура", "Візит дипломованої медсестри", "Миттєвий заряд енергії"],
+              "includes": [
+                "Вітамін B12 900 мкг в/м",
+                "Швидка 10-хвилинна процедура",
+                "Візит дипломованої медсестри",
+                "Миттєвий заряд енергії"
+              ],
               "popular": false,
               "bestFor": "Швидка енергія"
             }
@@ -863,7 +1026,12 @@
               "price": 2450,
               "duration": 45,
               "short": "Швидка регідратація 500–1000 мл фізрозчину при зневодненні.",
-              "includes": ["Фізрозчин NaCl 0,9% (500–1000 мл)", "Швидка регідратація", "Візит дипломованої медсестри", "Усе обладнання включено"],
+              "includes": [
+                "Фізрозчин NaCl 0,9% (500–1000 мл)",
+                "Швидка регідратація",
+                "Візит дипломованої медсестри",
+                "Усе обладнання включено"
+              ],
               "popular": false,
               "bestFor": "Зневоднення"
             },
@@ -872,7 +1040,12 @@
               "price": 2950,
               "duration": 45,
               "short": "Гідратація плюс магній 2000 мг для відновлення м'язів та кращого сну.",
-              "includes": ["Збалансовані електролітні розчини", "Магній 2000 мг", "Підтримка м'язів та сну", "Візит дипломованої медсестри"],
+              "includes": [
+                "Збалансовані електролітні розчини",
+                "Магній 2000 мг",
+                "Підтримка м'язів та сну",
+                "Візит дипломованої медсестри"
+              ],
               "popular": true,
               "bestFor": "Спортивне відновлення"
             },
@@ -881,7 +1054,12 @@
               "price": 2850,
               "duration": 45,
               "short": "Швидка допомога при харчовому отруєнні, сильному похміллі або шлунковому розладі.",
-              "includes": ["Протинудотний препарат", "Підтримка гідратації", "Електролітний баланс", "Візит дипломованої медсестри"],
+              "includes": [
+                "Протинудотний препарат",
+                "Підтримка гідратації",
+                "Електролітний баланс",
+                "Візит дипломованої медсестри"
+              ],
               "popular": false,
               "bestFor": "Похмілля та нудота"
             }
@@ -895,7 +1073,12 @@
               "price": 2750,
               "duration": 45,
               "short": "М'яке поповнення заліза за допомогою Ferrlecit при легкій анемії.",
-              "includes": ["Інфузія заліза Ferrlecit", "М'яка формула", "Моніторинг дипломованою медсестрою", "Усе обладнання включено"],
+              "includes": [
+                "Інфузія заліза Ferrlecit",
+                "М'яка формула",
+                "Моніторинг дипломованою медсестрою",
+                "Усе обладнання включено"
+              ],
               "popular": false,
               "bestFor": "Дефіцит заліза"
             },
@@ -904,7 +1087,12 @@
               "price": 6350,
               "duration": 60,
               "short": "Високопотентна інфузія заліза (Ferinject) при хронічній втомі та тяжкій анемії.",
-              "includes": ["Ferinject — високопотентне залізо", "Тривалий моніторинг", "Візит дипломованої медсестри", "Рекомендації після процедури"],
+              "includes": [
+                "Ferinject — високопотентне залізо",
+                "Тривалий моніторинг",
+                "Візит дипломованої медсестри",
+                "Рекомендації після процедури"
+              ],
               "popular": false,
               "bestFor": "Важка анемія"
             },
@@ -913,7 +1101,12 @@
               "price": 3350,
               "duration": 45,
               "short": "Підтримка відновлення при болях у спині та неврологічних проблемах — внутрішньом'язова ін'єкція B-комплексу.",
-              "includes": ["В/м ін'єкція B-комплексу", "Нутрієнти підтримки нервів", "Допомога при болю", "Візит дипломованої медсестри"],
+              "includes": [
+                "В/м ін'єкція B-комплексу",
+                "Нутрієнти підтримки нервів",
+                "Допомога при болю",
+                "Візит дипломованої медсестри"
+              ],
               "popular": false,
               "bestFor": "Здоров'я нервів"
             },
@@ -922,7 +1115,12 @@
               "price": 3250,
               "duration": 45,
               "short": "Полегшення гострого м'язового та нервового болю в спині та суглобах.",
-              "includes": ["Знеболювальний препарат", "Протизапальна підтримка", "Розслаблення м'язів", "Візит дипломованої медсестри"],
+              "includes": [
+                "Знеболювальний препарат",
+                "Протизапальна підтримка",
+                "Розслаблення м'язів",
+                "Візит дипломованої медсестри"
+              ],
               "popular": false,
               "bestFor": "Полегшення болю"
             },
@@ -931,7 +1129,12 @@
               "price": 2650,
               "duration": 45,
               "short": "Швидке полегшення при алергічних реакціях та сезонній алергії.",
-              "includes": ["Антигістамінна підтримка", "Протизапальні засоби", "Полегшення симптомів", "Візит дипломованої медсестри"],
+              "includes": [
+                "Антигістамінна підтримка",
+                "Протизапальні засоби",
+                "Полегшення симптомів",
+                "Візит дипломованої медсестри"
+              ],
               "popular": false,
               "bestFor": "Алергія"
             }
@@ -947,32 +1150,56 @@
         "vitaminC": {
           "title": "Крапельниця з вітаміном C Прага",
           "description": "Високодозовані інфузії вітаміну C (до 15 г) для захисту імунної системи, противірусного захисту та швидшого відновлення після хвороби.",
-          "benefits": ["Потужна підтримка імунітету", "Противірусний захист", "Антиоксидантний захист"]
+          "benefits": [
+            "Потужна підтримка імунітету",
+            "Противірусний захист",
+            "Антиоксидантний захист"
+          ]
         },
         "ceo": {
           "title": "CEO Recharge IV крапельниця",
           "description": "Формула максимальної розумової продуктивності з B-комплексом, мінералами та магнієм. Розроблена для керівників та високопродуктивних людей, яким потрібні фокус та ясність.",
-          "benefits": ["Покращена ясність розуму", "Підвищена концентрація", "Стійкість до стресу"]
+          "benefits": [
+            "Покращена ясність розуму",
+            "Підвищена концентрація",
+            "Стійкість до стресу"
+          ]
         },
         "hydration": {
           "title": "Гідратація та електролітна крапельниця",
           "description": "Медична гідратаційна терапія з електролітами та магнієм. Ідеально при похміллі, втомі від подорожі, зневодненні або відновленні м'язів.",
-          "benefits": ["Швидка регідратація", "Електролітний баланс", "Підтримка відновлення м'язів"]
+          "benefits": [
+            "Швидка регідратація",
+            "Електролітний баланс",
+            "Підтримка відновлення м'язів"
+          ]
         },
         "iron": {
           "title": "Інфузія заліза Прага",
           "description": "М'які або високопотентні інфузії заліза (Ferrlecit або Ferinject) при анемії, хронічній втомі та дефіциті заліза.",
-          "benefits": ["Лікування дефіциту заліза", "Підвищення рівня енергії", "Зменшення втоми"]
+          "benefits": [
+            "Лікування дефіциту заліза",
+            "Підвищення рівня енергії",
+            "Зменшення втоми"
+          ]
         },
         "defense": {
           "title": "Defense Shield (Hero)",
           "description": "Максимальне відновлення після грипу та вірусів з вітаміном C та мікроелементами. Комплексна підтримка при симптомах застуди/грипу та відновленні після хвороби.",
-          "benefits": ["Повне відновлення після грипу", "Підтримка мікроелементами", "Зміцнення імунітету"]
+          "benefits": [
+            "Повне відновлення після грипу",
+            "Підтримка мікроелементами",
+            "Зміцнення імунітету"
+          ]
         },
         "glow": {
           "title": "Glow & Post-Flu відновлення",
           "description": "Підтримка відновлення шкіри, волосся та імунної стійкості. Поєднує нутрієнти краси з елементами відновлення після хвороби.",
-          "benefits": ["Підтримка шкіри та волосся", "Відновлення після хвороби", "Імунна стійкість"]
+          "benefits": [
+            "Підтримка шкіри та волосся",
+            "Відновлення після хвороби",
+            "Імунна стійкість"
+          ]
         }
       }
     },
@@ -1217,7 +1444,12 @@
           "currency": "CZK",
           "duration": "~60 minutes",
           "short": "Fast rehydration with 500ml–1000ml saline. Best for mild hangovers where dehydration is the main issue.",
-          "includes": ["0.9% NaCl saline (500ml–1000ml)", "Rapid rehydration", "Registered nurse visit", "All equipment included"],
+          "includes": [
+            "0.9% NaCl saline (500ml–1000ml)",
+            "Rapid rehydration",
+            "Registered nurse visit",
+            "All equipment included"
+          ],
           "bestFor": "Mild Hangover & Dehydration",
           "tag": "Budget-Friendly",
           "bookMessage": "Hi! I'd like to book the Pure Hydrate IV Drip for a hangover in Prague."
@@ -1228,7 +1460,12 @@
           "currency": "CZK",
           "duration": "~60 minutes",
           "short": "Hydration plus 2000mg Magnesium for muscle recovery, headache relief, and better sleep after a rough night.",
-          "includes": ["Balanced electrolyte fluids", "2000mg Magnesium", "Muscle & sleep support", "Registered nurse visit"],
+          "includes": [
+            "Balanced electrolyte fluids",
+            "2000mg Magnesium",
+            "Muscle & sleep support",
+            "Registered nurse visit"
+          ],
           "bestFor": "Hangover + Muscle Aches",
           "tag": "Popular",
           "bookMessage": "Hi! I'd like to book the Electrolyte Reset IV Drip for a hangover in Prague."
@@ -1239,7 +1476,12 @@
           "currency": "CZK",
           "duration": "~60 minutes",
           "short": "Vitamin C boost with hydration — ideal if you're hungover and feel a cold coming on at the same time.",
-          "includes": ["Vitamin C infusion", "Hydration support", "Registered nurse visit", "All equipment included"],
+          "includes": [
+            "Vitamin C infusion",
+            "Hydration support",
+            "Registered nurse visit",
+            "All equipment included"
+          ],
           "bestFor": "Hangover + Feeling Under the Weather",
           "tag": "Immunity Boost",
           "bookMessage": "Hi! I'd like to book the Immunity Lite IV Drip for a hangover in Prague."
@@ -1345,6 +1587,545 @@
       "emailBtn": "Email Us",
       "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 8 PM",
       "hours": "Available every day 8:00–20:00 • For urgent cases outside hours, please call directly"
+    }
+  },
+  "onboarding": {
+    "dialogTitle": "Викликати медсестру",
+    "dialogDescription": "Оберіть адресу, час, контактні дані й надішліть заявку на виїзд медсестри.",
+    "cartTitle": "Ваш кошик",
+    "close": "Закрити",
+    "next": "Продовжити",
+    "finish": "Завершити",
+    "optional": "необов’язково",
+    "or": "або",
+    "cart": {
+      "addServices": "Додати послуги",
+      "selected": "Ваш вибір",
+      "empty": "Кошик порожній — додайте послугу вище",
+      "added": "Додано",
+      "remove": "Видалити",
+      "totalFrom": "Разом від",
+      "priceFrom": "від {{price}} Kč",
+      "continue": "Перейти до бронювання",
+      "yourBooking": "Ваше бронювання",
+      "totalTime": "хв загалом",
+      "oneVisit": "Один візит"
+    },
+    "step1": {
+      "title": "Як з вами зв'язатися?",
+      "subtitle": "Залиште номер телефону — ми уточнимо деталі.",
+      "phoneLabel": "Телефон",
+      "phoneHint": "Зв’яжемось лише щодо цього замовлення.",
+      "phoneError": "Введіть коректний номер телефону",
+      "privacy": "Дані обробляються відповідно до GDPR."
+    },
+    "step2": {
+      "title": "Куди приїхати?",
+      "subtitle": "Адреса, де відбудеться візит.",
+      "addressLabel": "Адреса",
+      "addressPlaceholder": "Вулиця, будинок, квартира",
+      "addressError": "Введіть повну адресу",
+      "floorLabel": "Поверх",
+      "floorPlaceholder": "Поверх",
+      "intercomLabel": "Домофон / код",
+      "intercomPlaceholder": "Домофон / код",
+      "addressNoResults": "Адресу не знайдено — введіть вручну",
+      "addressSearching": "Пошук адрес…",
+      "addressRequestFailed": "Пошук адрес недоступний — введіть адресу вручну",
+      "fromLabel": "Адреса відправлення",
+      "fromPlaceholder": "Звідки забрати пацієнта",
+      "toLabel": "Адреса призначення",
+      "toPlaceholder": "Куди доставити пацієнта",
+      "toError": "Введіть адресу призначення"
+    },
+    "step3": {
+      "title": "Коли вам зручно?",
+      "subtitle": "Оберіть зручний час візиту.",
+      "asapHint": "Передзвонимо протягом 60 хв для підтвердження",
+      "orSpecific": "або оберіть точний час",
+      "today": "Сьогодні",
+      "more": "Ще",
+      "groups": {
+        "morning": "Ранок 08:00–12:00",
+        "afternoon": "День 12:00–17:00",
+        "evening": "Вечір 17:00–20:00"
+      },
+      "slots": {
+        "asap": "Якнайшвидше",
+        "morning": "Ранок (8:00–12:00)",
+        "afternoon": "День (12:00–17:00)",
+        "evening": "Вечір (17:00–21:00)",
+        "custom": "Конкретна дата і час"
+      },
+      "loadError": "Не вдалося завантажити слоти. Спробуйте ще раз.",
+      "dateLabel": "Дата і час"
+    },
+    "step4": {
+      "title": "Як хочете оплатити?",
+      "subtitle": "Оплата лише після надання послуги.",
+      "card": {
+        "label": "Карткою онлайн",
+        "desc": "Безпечна оплата через Stripe"
+      },
+      "cash": {
+        "label": "Готівкою",
+        "desc": "При приїзді медсестри"
+      },
+      "bank": {
+        "label": "Банківський переказ",
+        "desc": "Надішлемо реквізити"
+      }
+    },
+    "step5": {
+      "title": "Що вас турбує?",
+      "subtitle": "Алергії, хронічні захворювання, ліки, які приймаєте.",
+      "noteLabel": "Симптоми",
+      "notePlaceholder": "Опишіть, що вас турбує: біль, температура, тиск тощо"
+    },
+    "final": {
+      "title": "Майже готово!",
+      "subtitle": "Ми отримали ваш запит. Оберіть, як продовжити.",
+      "loginBtn": "Увійти і відстежувати замовлення",
+      "loginHint": "Вхід дозволяє відстежувати статус, редагувати замовлення і заповнити медичну анкету.",
+      "contactBtn": "Передзвоніть мені"
+    },
+    "thankyou": {
+      "title": "Дякуємо!",
+      "subtitle": "Незабаром передзвонимо на вказаний номер для підтвердження деталей.",
+      "closeBtn": "Закрити"
+    },
+    "catalogLoading": "Завантажуємо послуги…",
+    "catalogLoadFailed": "Не вдалося завантажити список послуг. Закрийте вікно та спробуйте знову.",
+    "errors": {
+      "rateLimit": "Забагато спроб. Повторіть через деякий час.",
+      "network": "Помилка з’єднання. Перевірте інтернет і спробуйте знову.",
+      "notFound": "Це замовлення більше недоступне. Почніть спочатку.",
+      "server": "Щось пішло не так. Спробуйте ще раз.",
+      "validation": "Перевірте введені дані.",
+      "unknown": "Несподівана помилка. Спробуйте ще раз."
+    },
+    "upsale": {
+      "title": "Рекомендуємо вам",
+      "add": "Додати",
+      "added": "Додано",
+      "ivfHint": "Часто додають до крапельниць від похмілля",
+      "b12Hint": "Прискорте відновлення — той самий візит",
+      "vitaminCHint": "Часто додають до крапельниць від похмілля",
+      "ivHint": "Мобільна IV-терапія за вашою адресою",
+      "escortHint": "Медичний супровід по Празі"
+    },
+    "sections": {
+      "quickDetails": "Як з вами зв'язатися?",
+      "address": "Куди приїхати?",
+      "timing": "Коли вам зручно?",
+      "payment": "Оплата",
+      "note": "Що вас турбує?",
+      "route": "Маршрут"
+    },
+    "edit": "Редагувати",
+    "footerTotal": "Разом",
+    "step3Summary": {
+      "asap": "Якомога швидше"
+    },
+    "step4Summary": {
+      "card": "Карткою онлайн",
+      "cash": "Готівка",
+      "bank": "Банківський переказ"
+    }
+  },
+  "womensDayGift": {
+    "seo": {
+      "title": "Women's Day Gift Prague | Premium Wellness Experience 2026",
+      "description": "The best Women's Day gift in Prague — Glow IV Drip wellness experience at 3,650 CZK. Luxury IV therapy delivered by a registered nurse to her hotel or home. Order gift voucher now.",
+      "keywords": "gift for women's day Prague, best women's day gift Prague, women's day gift for girlfriend Prague, unique women's day experience Prague, premium wellness gift Prague, IV drip gift Prague, 8 march gift Prague"
+    },
+    "breadcrumb": "Women's Day Gift",
+    "hero": {
+      "badge": "Premium Gift Experience",
+      "title": "The Perfect Women's Day Gift in Prague",
+      "subtitle": "Give her the gift of radiance — a luxury IV drip wellness experience delivered by a registered nurse",
+      "description": "Looking for a unique Women's Day gift in Prague? The Glow IV Drip is a premium wellness experience that combines beauty-boosting nutrients with immune recovery support. A registered nurse comes to her hotel, home, or Airbnb — the most thoughtful and original gift for women's day in Prague.",
+      "cta": "Order Gift Voucher",
+      "ctaSecondary": "See What's Included",
+      "trustBadges": {
+        "nurses": "Licensed Nurses",
+        "rating": "4.9★ Google Rating",
+        "available": "7 Days a Week",
+        "districts": "All Prague Districts"
+      }
+    },
+    "countdown": {
+      "title": "Until Women's Day",
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Min",
+      "seconds": "Sec",
+      "expired": "Gift vouchers still available — treat her anytime!"
+    },
+    "benefits": {
+      "title": "Why This Is the Best Women's Day Gift in Prague",
+      "subtitle": "Not flowers. Not chocolate. A premium wellness experience she'll never forget.",
+      "items": {
+        "unique": {
+          "title": "Truly Unique Gift",
+          "description": "Stand out from the crowd with an original Women's Day experience — a luxury IV drip that combines beauty and health."
+        },
+        "luxury": {
+          "title": "Luxury Experience",
+          "description": "Professional IV therapy with skin-glow nutrients, delivered in the comfort of her home or hotel room."
+        },
+        "health": {
+          "title": "Health & Beauty",
+          "description": "Microelements for radiant skin and hair, combined with immune support vitamins and trace elements."
+        },
+        "professional": {
+          "title": "Registered Nurse",
+          "description": "Administered by a certified medical professional. Safe, comfortable, and expertly done."
+        },
+        "convenient": {
+          "title": "We Come to Her",
+          "description": "Mobile service across all Prague districts. Hotel, home, or Airbnb — the nurse comes to her."
+        },
+        "voucher": {
+          "title": "Gift Voucher",
+          "description": "Beautiful digital voucher she can redeem at her convenience. Valid for 3 months from purchase."
+        }
+      }
+    },
+    "included": {
+      "title": "What's Included in the Glow IV Drip",
+      "subtitle": "A complete premium wellness experience — everything included, no hidden fees.",
+      "items": [
+        "Glow & Post-Flu IV drip session (60 minutes)",
+        "Microelements for skin & hair rejuvenation",
+        "Immune support nutrients and trace vitamins",
+        "Registered nurse visit to her location",
+        "All sterile medical equipment included",
+        "Pre-session health screening",
+        "Post-treatment wellness guidance",
+        "Beautiful digital gift voucher"
+      ],
+      "learnMore": "See our full IV drips menu"
+    },
+    "experience": {
+      "title": "A Unique Women's Day Experience in Prague",
+      "subtitle": "Imagine her surprise when she discovers a premium wellness session waiting for her.",
+      "steps": {
+        "step1": {
+          "title": "She receives the voucher",
+          "description": "A beautiful digital gift card arrives with your personal message."
+        },
+        "step2": {
+          "title": "She books her session",
+          "description": "She chooses her preferred date, time, and location anywhere in Prague."
+        },
+        "step3": {
+          "title": "A nurse arrives",
+          "description": "A registered nurse comes to her with everything needed for the session."
+        },
+        "step4": {
+          "title": "60 minutes of glow",
+          "description": "She relaxes while nutrients replenish her skin, hair, and immune system."
+        }
+      }
+    },
+    "voucher": {
+      "title": "Gift Voucher Details",
+      "validity": "Valid for 3 months from purchase",
+      "redeemable": "Redeemable any day, 8:00–22:00",
+      "transferable": "Fully transferable to another person",
+      "personalized": "Add your personal message",
+      "instant": "Delivered instantly via email"
+    },
+    "pricing": {
+      "title": "Premium Women's Day Gift",
+      "subtitle": "The best women's day gift for girlfriend, wife, or any special woman in your life.",
+      "price": "3,650",
+      "currency": "CZK",
+      "approximateEur": "~€148",
+      "perSession": "per session",
+      "cta": "Order Gift Now",
+      "ctaWhatsApp": "Order via WhatsApp",
+      "ctaCall": "Call to Order",
+      "includes": "Everything included. No hidden fees.",
+      "guarantee": "Satisfaction guaranteed"
+    },
+    "testimonials": {
+      "title": "What Gift-Givers Say",
+      "items": {
+        "t1": {
+          "text": "My girlfriend was so surprised! She said it was the most thoughtful gift she ever received. Much better than flowers.",
+          "author": "David M.",
+          "location": "Prague 2"
+        },
+        "t2": {
+          "text": "I wanted something special for Women's Day, not the usual gifts. This was perfect — she's still talking about it weeks later.",
+          "author": "Mark T.",
+          "location": "Vinohrady"
+        },
+        "t3": {
+          "text": "She had been feeling run-down after the flu. This gift was both caring and luxurious. The nurse was amazing and professional.",
+          "author": "Alex K.",
+          "location": "Prague 1"
+        }
+      }
+    },
+    "howToOrder": {
+      "title": "How to Order",
+      "subtitle": "Three simple steps to the perfect Women's Day gift.",
+      "steps": {
+        "step1": {
+          "title": "Contact us",
+          "description": "WhatsApp, call, or email — tell us it's a Women's Day gift."
+        },
+        "step2": {
+          "title": "Receive the voucher",
+          "description": "We send you a beautiful digital gift voucher to forward to her."
+        },
+        "step3": {
+          "title": "She books & enjoys",
+          "description": "She chooses her date and enjoys the premium wellness experience."
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "q1": {
+          "question": "Is the Glow IV Drip a real medical treatment?",
+          "answer": "Yes. The Glow & Post-Flu IV drip is a professional IV infusion administered by a registered nurse. It contains medically-approved microelements, trace vitamins, and immune support nutrients. All treatments follow strict medical protocols."
+        },
+        "q2": {
+          "question": "How does the Women's Day gift voucher work?",
+          "answer": "After you place your order, we send you a digital gift voucher with a unique code. You forward it to the recipient. She contacts us to book her preferred date, time, and location in Prague. It's that simple."
+        },
+        "q3": {
+          "question": "Can I book for March 8 specifically?",
+          "answer": "Absolutely. You can either pre-book for March 8 or purchase an open voucher she can redeem anytime within 3 months."
+        },
+        "q4": {
+          "question": "Is the IV drip safe?",
+          "answer": "Completely. All treatments are administered by certified registered nurses using sterile, single-use medical equipment. We conduct a brief health screening before every session."
+        },
+        "q5": {
+          "question": "What if she's never had an IV before?",
+          "answer": "No problem! Our nurses are experienced and gentle. The procedure is very comfortable and takes about 60 minutes while she can relax, read, or watch something."
+        },
+        "q6": {
+          "question": "Can the voucher be used after March 8?",
+          "answer": "Yes, the voucher is valid for 3 months from the date of purchase. She can use it whenever it's convenient for her."
+        },
+        "q7": {
+          "question": "Do you deliver to hotels and Airbnbs?",
+          "answer": "Yes! We serve all Prague districts including hotels, Airbnbs, private homes, and offices. The nurse brings all necessary equipment."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Make This Women's Day Unforgettable",
+      "description": "Order the premium wellness gift voucher now. Limited availability around March 8.",
+      "cta": "Order Gift Voucher",
+      "phone": "+420773629123",
+      "whatsapp": "Order via WhatsApp",
+      "email": "info@nius.cz"
+    }
+  },
+  "birthdayGift": {
+    "seo": {
+      "title": "Birthday Gift Prague | Premium IV Drip Wellness Experience",
+      "description": "The best birthday gift in Prague — Glow IV Drip wellness experience at 3,650 CZK. Luxury IV therapy delivered by a registered nurse to her hotel or home. Order birthday gift voucher now.",
+      "keywords": "birthday gift Prague, best birthday gift Prague, unique birthday experience Prague, premium wellness gift Prague, IV drip gift Prague, birthday gift for girlfriend Prague, birthday gift for wife Prague"
+    },
+    "breadcrumb": "Birthday Gift",
+    "hero": {
+      "badge": "Premium Birthday Experience",
+      "title": "The Best Birthday Gift in Prague",
+      "subtitle": "Give her the gift of radiance — a luxury IV drip wellness experience delivered by a registered nurse",
+      "description": "Looking for a unique birthday gift in Prague? The Glow IV Drip is a premium wellness experience that combines beauty-boosting nutrients with immune recovery support. A registered nurse comes to her hotel, home, or Airbnb — the most thoughtful and original birthday gift in Prague. Perfect for girlfriends, wives, mothers, and colleagues.",
+      "cta": "Order Birthday Voucher",
+      "ctaSecondary": "See What's Included",
+      "trustBadges": {
+        "nurses": "Licensed Nurses",
+        "rating": "4.9★ Google Rating",
+        "available": "7 Days a Week",
+        "districts": "All Prague Districts"
+      }
+    },
+    "benefits": {
+      "title": "Why This Is the Best Birthday Gift in Prague",
+      "subtitle": "Not flowers. Not chocolate. A premium wellness experience she'll never forget.",
+      "items": {
+        "unique": {
+          "title": "Truly Unique Gift",
+          "description": "Stand out with an original birthday experience — a luxury IV drip that combines beauty and health. Unlike anything she's received before."
+        },
+        "luxury": {
+          "title": "Luxury Experience",
+          "description": "Professional IV therapy with skin-glow nutrients, delivered in the comfort of her home or hotel room. A birthday spa without leaving home."
+        },
+        "health": {
+          "title": "Health & Beauty",
+          "description": "Microelements for radiant skin and hair, combined with immune support vitamins and trace elements. She'll feel and look amazing."
+        },
+        "professional": {
+          "title": "Registered Nurse",
+          "description": "Administered by a certified medical professional. Safe, comfortable, and expertly done. Full health screening included."
+        },
+        "convenient": {
+          "title": "We Come to Her",
+          "description": "Mobile service across all Prague districts. Hotel, home, or Airbnb — the nurse comes to her at a time that suits her schedule."
+        },
+        "voucher": {
+          "title": "Gift Voucher",
+          "description": "Beautiful digital voucher she can redeem at her convenience. Valid for 3 months from purchase. Add a personal birthday message."
+        }
+      }
+    },
+    "included": {
+      "title": "What's Included in the Glow IV Drip",
+      "subtitle": "A complete premium wellness experience — everything included, no hidden fees.",
+      "items": [
+        "Glow & Post-Flu IV drip session (60 minutes)",
+        "Microelements for skin & hair rejuvenation",
+        "Immune support nutrients and trace vitamins",
+        "Registered nurse visit to her location",
+        "All sterile medical equipment included",
+        "Pre-session health screening",
+        "Post-treatment wellness guidance",
+        "Beautiful digital birthday gift voucher"
+      ],
+      "learnMore": "See our full IV drips menu"
+    },
+    "experience": {
+      "title": "A Unique Birthday Experience in Prague",
+      "subtitle": "Imagine her surprise when she discovers a premium wellness session waiting for her.",
+      "steps": {
+        "step1": {
+          "title": "She receives the voucher",
+          "description": "A beautiful digital birthday gift card arrives with your personal message."
+        },
+        "step2": {
+          "title": "She books her session",
+          "description": "She chooses her preferred date, time, and location anywhere in Prague."
+        },
+        "step3": {
+          "title": "A nurse arrives",
+          "description": "A registered nurse comes to her with everything needed for the session."
+        },
+        "step4": {
+          "title": "60 minutes of glow",
+          "description": "She relaxes while nutrients replenish her skin, hair, and immune system."
+        }
+      }
+    },
+    "voucher": {
+      "title": "Birthday Gift Voucher Details",
+      "validity": "Valid for 3 months from purchase",
+      "redeemable": "Redeemable any day, 8:00–22:00",
+      "transferable": "Fully transferable to another person",
+      "personalized": "Add your personal birthday message",
+      "instant": "Delivered instantly via email"
+    },
+    "pricing": {
+      "title": "Premium Birthday Gift",
+      "subtitle": "The best birthday gift for girlfriend, wife, mother, or any special woman in your life.",
+      "price": "3,650",
+      "currency": "CZK",
+      "approximateEur": "~€148",
+      "perSession": "per session",
+      "ctaWhatsApp": "Order via WhatsApp",
+      "ctaCall": "Call to Order",
+      "includes": "Everything included. No hidden fees.",
+      "guarantee": "Satisfaction guaranteed"
+    },
+    "testimonials": {
+      "title": "What Birthday Gift-Givers Say",
+      "items": {
+        "t1": {
+          "text": "I ordered this for my girlfriend's birthday and she absolutely loved it. She said it was the most original and thoughtful gift she ever received.",
+          "author": "Tomáš H.",
+          "location": "Prague 3"
+        },
+        "t2": {
+          "text": "Wanted something special for my wife's 40th birthday. This was perfect — she felt pampered and refreshed. Way better than another piece of jewelry.",
+          "author": "James R.",
+          "location": "Prague 6"
+        },
+        "t3": {
+          "text": "Bought this for my colleague's birthday from our team. She was blown away. The nurse was professional and the whole experience was first-class.",
+          "author": "Lucie M.",
+          "location": "Vinohrady"
+        }
+      }
+    },
+    "corporate": {
+      "title": "Corporate & Team Birthday Gifts",
+      "subtitle": "Looking for a unique way to celebrate team members' birthdays? Our Glow IV Drip vouchers make the perfect corporate wellness benefit.",
+      "benefits": [
+        "Bulk voucher discounts for 5+ orders",
+        "Branded digital vouchers with your company logo",
+        "Flexible redemption — employees choose their date",
+        "Wellness benefit that shows you care about your team",
+        "Invoice billing available for companies"
+      ],
+      "cta": "Contact Us for Corporate Orders"
+    },
+    "howToOrder": {
+      "title": "How to Order",
+      "subtitle": "Three simple steps to the perfect birthday gift.",
+      "steps": {
+        "step1": {
+          "title": "Contact us",
+          "description": "WhatsApp, call, or email — tell us it's a birthday gift and share any personal message."
+        },
+        "step2": {
+          "title": "Receive the voucher",
+          "description": "We send you a beautiful digital birthday gift voucher to forward to the birthday person."
+        },
+        "step3": {
+          "title": "She books & enjoys",
+          "description": "She chooses her date and enjoys the premium wellness experience at her convenience."
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "q1": {
+          "question": "Is the Glow IV Drip a real medical treatment?",
+          "answer": "Yes. The Glow & Post-Flu IV drip is a professional IV infusion administered by a registered nurse. It contains medically-approved microelements, trace vitamins, and immune support nutrients. All treatments follow strict medical protocols."
+        },
+        "q2": {
+          "question": "How does the birthday gift voucher work?",
+          "answer": "After you place your order, we send you a digital gift voucher with a unique code and your personal birthday message. You forward it to the recipient. She contacts us to book her preferred date, time, and location in Prague. It's that simple."
+        },
+        "q3": {
+          "question": "Can I book for a specific birthday date?",
+          "answer": "Absolutely. You can either pre-book for the exact birthday date or purchase an open voucher she can redeem anytime within 3 months."
+        },
+        "q4": {
+          "question": "Is the IV drip safe?",
+          "answer": "Completely. All treatments are administered by certified registered nurses using sterile, single-use medical equipment. We conduct a brief health screening before every session."
+        },
+        "q5": {
+          "question": "What if she's never had an IV before?",
+          "answer": "No problem! Our nurses are experienced and gentle. The procedure is very comfortable and takes about 60 minutes while she can relax, read, or watch something."
+        },
+        "q6": {
+          "question": "Can I add extras to the birthday gift?",
+          "answer": "The Glow IV Drip is a complete experience on its own, but we can coordinate with local flower delivery or champagne services to make it even more special. Just ask when ordering."
+        },
+        "q7": {
+          "question": "Do you deliver to hotels and Airbnbs?",
+          "answer": "Yes! We serve all Prague districts including hotels, Airbnbs, private homes, and offices. The nurse brings all necessary equipment."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Make Her Birthday Unforgettable",
+      "description": "Order the premium birthday wellness gift voucher now. Available year-round, 7 days a week.",
+      "whatsapp": "Order via WhatsApp",
+      "email": "info@nius.cz"
     }
   }
 }
