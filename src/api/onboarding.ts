@@ -96,7 +96,7 @@ export class OnboardingApiError extends Error {
 }
 
 const envUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
-const BASE_URL = envUrl || 'https://api.nius.cz';
+const BASE_URL = envUrl || 'https://app.nius.cz/api';
 
 function clampErrorMessage(raw: string): string {
   const t = raw.trim();

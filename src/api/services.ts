@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { mapDtoToCartService } from '@/components/OnboardingForm/cartCatalog';
 
 const envUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
-const BASE_URL = envUrl || 'https://api.nius.cz';
+const BASE_URL = envUrl || 'https://app.nius.cz/api';
 
 /** Public catalog of active services (backend: isActive + isPublic only). */
 export const publicServiceSchema = z.object({
