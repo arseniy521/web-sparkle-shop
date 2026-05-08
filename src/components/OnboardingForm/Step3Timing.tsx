@@ -221,7 +221,7 @@ export const Step3Timing = ({ data, setField, onNext, isLoading, dialogOpen }: S
         </div>
       </div>
 
-      <div className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 snap-x scrollbar-none">
+      <div className="flex justify-center gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 snap-x scrollbar-none">
         {next7.map((day) => {
           const { short, num, isToday } = formatDayPill(day, i18n.language);
           const isSelected = selectedDayStr === dateKey(day);
@@ -323,8 +323,8 @@ export const Step3Timing = ({ data, setField, onNext, isLoading, dialogOpen }: S
             const groupSlots = TIME_SLOTS.filter((s) => group.hours.includes(s.hour));
             return (
               <div key={group.labelKey}>
-                <p className="text-xs font-medium text-muted-foreground mb-1">{t(group.labelKey)}</p>
-                <div className="flex flex-wrap gap-1.5">
+                <p className="text-center text-xs font-medium text-muted-foreground mb-1">{t(group.labelKey)}</p>
+                <div className="flex flex-wrap justify-center gap-1.5">
                   {groupSlots.map((slot) => {
                     const isSelected = selectedHour === slot.hour;
                     const nowHour = new Date().getHours();

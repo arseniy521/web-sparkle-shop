@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { PhoneInput } from '@/components/ui/phone-input';
 import { isValidPhoneNumber, OnboardingFormData } from './useOnboardingForm';
 
 interface Step1PhoneProps {
@@ -15,38 +15,33 @@ interface Step1PhoneProps {
 
 export const Step1Phone = ({ data, setField, onNext, isLoading }: Step1PhoneProps) => {
   const { t } = useTranslation();
-  const [touched, setTouched] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const didMount = useRef(false);
+
+  useEffect(() => {
+    didMount.current = true;
+  }, []);
 
   const phoneError =
-    touched && !isValidPhoneNumber(data.phone)
+    didMount.current && data.phone && !isValidPhoneNumber(data.phone)
       ? t('onboarding.step1.phoneError')
       : null;
 
   const canSubmit = isValidPhoneNumber(data.phone) && !isLoading;
 
-  useEffect(() => {
-    const timer = window.setTimeout(() => inputRef.current?.focus(), 150);
-    return () => window.clearTimeout(timer);
-  }, []);
-
   return (
     <div className="space-y-3">
       <div className="space-y-1.5">
-        <Label htmlFor="onboarding-phone" className="text-xs">{t('onboarding.step1.phoneLabel')}</Label>
-        <Input
-          ref={inputRef}
+        <Label htmlFor="onboarding-phone" className="text-xs">
+          {t('onboarding.step1.phoneLabel')}
+        </Label>
+        <PhoneInput
           id="onboarding-phone"
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
-          placeholder="+420 777 123 456"
+          defaultCountry="CZ"
+          placeholder="Phone number"
           value={data.phone}
-          onChange={(e) => setField('phone', e.target.value)}
-          onBlur={() => setTouched(true)}
+          onChange={(value) => setField('phone', value)}
           aria-invalid={!!phoneError}
           aria-describedby={phoneError ? 'phone-error' : undefined}
-          className="h-11 text-base"
         />
         {phoneError && (
           <p id="phone-error" className="text-xs text-destructive">

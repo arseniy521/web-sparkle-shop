@@ -110,6 +110,7 @@ export const Step2Address = ({
               value={data.addressFloor}
               onChange={(e) => setField('addressFloor', e.target.value)}
               maxLength={20}
+              autoComplete="off"
               className="h-11"
             />
           </div>
@@ -123,6 +124,7 @@ export const Step2Address = ({
               value={data.addressIntercom}
               onChange={(e) => setField('addressIntercom', e.target.value)}
               maxLength={50}
+              autoComplete="off"
               className="h-11"
             />
           </div>

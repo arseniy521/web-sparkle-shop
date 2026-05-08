@@ -96,7 +96,7 @@ export class OnboardingApiError extends Error {
 }
 
 const envUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
-const BASE_URL = envUrl || 'https://app.nius.cz/api';
+const BASE_URL = envUrl || (import.meta.env.DEV ? '/api' : 'https://app.nius.cz/api');
 
 function clampErrorMessage(raw: string): string {
   const t = raw.trim();
@@ -263,17 +263,15 @@ async function requestOrder(path: string, init?: RequestInit): Promise<Onboardin
   return parseWithSchema(onboardingOrderSchema, data, response.status);
 }
 
-export function createOrder(phone: string, serviceId?: string): Promise<OnboardingOrder> {
-  return requestOrder('/onboarding/order', {
-    method: 'POST',
-    body: JSON.stringify({ phone, ...(serviceId ? { serviceId } : {}) }),
-  });
+export interface CreateOrderPayload extends OnboardingUpdate {
+  phone: string;
+  serviceId?: string;
 }
 
-export function updateOrder(id: string, data: OnboardingUpdate): Promise<OnboardingOrder> {
-  return requestOrder(`/onboarding/order/${id}`, {
-    method: 'PATCH',
-    body: JSON.stringify(data),
+export function createOrder(payload: CreateOrderPayload): Promise<OnboardingOrder> {
+  return requestOrder('/onboarding/order', {
+    method: 'POST',
+    body: JSON.stringify(payload),
   });
 }
 

@@ -43,10 +43,9 @@ function serviceHint(t: TFunction, svc: CartService): string | null {
 
 export const CartHeader = ({ cart, onRemove }: CartHeaderProps) => {
   const { t } = useTranslation();
-  const totalMin = cart.reduce((s, x) => s + x.durationMin, 0);
 
   return (
-    <div className="rounded-2xl border border-border bg-muted/20 p-4 space-y-3">
+    <div className="space-y-3">
       <div className="flex items-center justify-between">
         <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
           {t('onboarding.cart.yourBooking')} · {cart.length}
@@ -85,11 +84,6 @@ export const CartHeader = ({ cart, onRemove }: CartHeaderProps) => {
         </div>
       )}
 
-      <div className="pt-1">
-        <span className="text-xs text-muted-foreground">
-          ~{totalMin} {t('onboarding.cart.totalTime')} · {t('onboarding.cart.oneVisit')}
-        </span>
-      </div>
     </div>
   );
 };

@@ -6,7 +6,6 @@ import {
   OnboardingApiError,
   OnboardingOrder,
   PaymentPreference,
-  updateOrder,
 } from '@/api/onboarding';
 import type { CartService } from './cartCatalog';
 import { normalizeServiceCode } from './cartCatalog';
@@ -127,8 +126,6 @@ export function useOnboardingForm(opts: {
   open: boolean;
 }): UseOnboardingFormResult {
   const { catalog, initialServiceCode, open, initialMode = 'standard' } = opts;
-
-  const prefilledInitial = (): CartService[] => prefilledCartFor(catalog, initialMode, initialServiceCode);
 
   const [step, setStep] = useState<OnboardingStep>(1);
   const [orderId, setOrderId] = useState<string | null>(null);
@@ -272,16 +269,9 @@ export function useOnboardingForm(opts: {
     setIsLoading(true);
     setError(null);
     try {
-      const currentOrderId = orderId;
-      let targetOrderId = currentOrderId;
-
-      if (!targetOrderId) {
-        const order = await createOrder(data.phone, primaryUuid);
-        targetOrderId = order.id;
-        setOrderId(targetOrderId);
-      }
-
-      await updateOrder(targetOrderId, {
+      const order = await createOrder({
+        phone: data.phone,
+        serviceId: primaryUuid,
         address: data.address,
         ...(data.addressGeo ? { addressGeo: data.addressGeo } : {}),
         ...(data.addressTo.trim() ? { addressTo: data.addressTo } : {}),
@@ -295,7 +285,7 @@ export function useOnboardingForm(opts: {
         ...(data.paymentPreference ? { paymentPreference: data.paymentPreference } : {}),
         ...(data.patientNote.trim() ? { patientNote: data.patientNote.trim() } : {}),
       });
-
+      setOrderId(order.id);
       setStep('final');
       return true;
     } catch (e) {
@@ -304,7 +294,7 @@ export function useOnboardingForm(opts: {
     } finally {
       setIsLoading(false);
     }
-  }, [data, cart, orderId, handleApiError]);
+  }, [data, cart, handleApiError]);
 
   const submitContactMe = useCallback(async (): Promise<boolean> => {
     if (!orderId) return false;
@@ -325,8 +315,6 @@ export function useOnboardingForm(opts: {
   const advanceTestStep = useCallback(() => {
     if (!import.meta.env.DEV) return;
 
-    const devPhone = '+420773629123';
-
     setTestMode(true);
     setError(null);
     setIsLoading(false);
@@ -334,7 +322,6 @@ export function useOnboardingForm(opts: {
       ...prev,
       address: prev.address || 'Vaclavske namesti 1, Praha',
       desiredTiming: prev.desiredTiming ?? 'ASAP',
-      phone: prev.phone || devPhone,
     }));
     setStep((current) => {
       if (current === 1) return 2;
