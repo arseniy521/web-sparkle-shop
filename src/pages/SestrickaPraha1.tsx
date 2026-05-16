@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SEO } from "@/components/SEO";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const SestrickaPraha1 = () => {
   const { t } = useTranslation();
@@ -168,13 +169,15 @@ const SestrickaPraha1 = () => {
                 Naše služby v centru Prahy
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">IV Kapačky Praha 1</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Rychlé podání IV kapačky v hotelu nebo apartmánu. Vitamíny, hydratace, hangover terapie.
-                  </p>
-                  <p className="text-sm font-semibold">Od 2 380 Kč</p>
-                </Card>
+                <Link to="/iv-drips-prague/">
+                  <Card className="p-6 hover:shadow-card transition-all">
+                    <h3 className="text-xl font-semibold mb-3">IV Kapačky Praha 1</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Rychlé podání IV kapačky v hotelu nebo apartmánu. Vitamíny, hydratace, hangover terapie.
+                    </p>
+                    <p className="text-sm font-semibold">Od 2 380 Kč</p>
+                  </Card>
+                </Link>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">IVF Injekce pro zahraniční pacienty</h3>

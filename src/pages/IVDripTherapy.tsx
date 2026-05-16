@@ -743,6 +743,12 @@ const IVDripsPrague = () => {
                   ))}
                 </div>
 
+                <div className="flex flex-wrap justify-center gap-3 mt-8">
+                  <Link to="/sestricka-praha-1/" className="text-sm text-primary hover:underline font-medium">Sestřička Praha 1</Link>
+                  <Link to="/sestricka-praha-vinohrady/" className="text-sm text-primary hover:underline font-medium">Sestřička Vinohrady</Link>
+                  <Link to="/sestricka-praha-zizkov/" className="text-sm text-primary hover:underline font-medium">Sestřička Žižkov</Link>
+                </div>
+
                 <div className="text-center mt-10">
                   <p className="text-muted-foreground mb-4" dangerouslySetInnerHTML={{ __html: t('ivDripTherapy.districts.serviceArea') }} />
                   <Button size="lg" asChild>

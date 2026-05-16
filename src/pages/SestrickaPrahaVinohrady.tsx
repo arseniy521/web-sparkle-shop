@@ -162,13 +162,15 @@ const SestrickaPrahaVinohrady = () => {
                 Naše služby na Vinohradech
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">IV Kapačky na Vinohradech</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Profesionální podání IV kapačky přímo u vás doma na Vinohradech. Vitamíny, hydratace, předepsané léky.
-                  </p>
-                  <p className="text-sm font-semibold">Od 2 380 Kč</p>
-                </Card>
+                <Link to="/iv-drips-prague/">
+                  <Card className="p-6 hover:shadow-card transition-all">
+                    <h3 className="text-xl font-semibold mb-3">IV Kapačky na Vinohradech</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Profesionální podání IV kapačky přímo u vás doma na Vinohradech. Vitamíny, hydratace, předepsané léky.
+                    </p>
+                    <p className="text-sm font-semibold">Od 2 380 Kč</p>
+                  </Card>
+                </Link>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Injekce a aplikace léků</h3>

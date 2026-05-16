@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Phone, MapPin, Clock } from "lucide-react";
@@ -161,13 +162,15 @@ const SestrickaPrahaZizkov = () => {
                 Naše služby na Žižkově
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">IV Kapačky na Žižkově</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Profesionální podání IV kapačky u vás doma. Vitamíny, hydratace, předepsané léky.
-                  </p>
-                  <p className="text-sm font-semibold">Od 2 380 Kč</p>
-                </Card>
+                <Link to="/iv-drips-prague/">
+                  <Card className="p-6 hover:shadow-card transition-all">
+                    <h3 className="text-xl font-semibold mb-3">IV Kapačky na Žižkově</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Profesionální podání IV kapačky u vás doma. Vitamíny, hydratace, předepsané léky.
+                    </p>
+                    <p className="text-sm font-semibold">Od 2 380 Kč</p>
+                  </Card>
+                </Link>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Injekce a aplikace léků</h3>
