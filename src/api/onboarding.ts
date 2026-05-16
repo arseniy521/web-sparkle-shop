@@ -38,6 +38,7 @@ export const onboardingOrderSchema = z.object({
   totalHalers: z.number(),
   currency: z.string(),
   createdAt: z.string().optional(),
+  accessToken: z.string().optional(),
 });
 
 export type OnboardingOrder = z.infer<typeof onboardingOrderSchema>;
@@ -138,6 +139,7 @@ async function request<T>(
   try {
     response = await fetch(`${BASE_URL}${path}`, {
       ...init,
+      credentials: init?.credentials ?? 'include',
       headers,
     });
   } catch (e) {
@@ -181,6 +183,7 @@ export async function contactMe(id: string): Promise<{ ok: true }> {
   try {
     response = await fetch(`${BASE_URL}${path}`, {
       method: 'POST',
+      credentials: 'include',
       headers,
       body: JSON.stringify({}),
     });
@@ -230,6 +233,7 @@ async function requestOrder(path: string, init?: RequestInit): Promise<Onboardin
   try {
     response = await fetch(`${BASE_URL}${path}`, {
       ...init,
+      credentials: init?.credentials ?? 'include',
       headers,
     });
   } catch (e) {

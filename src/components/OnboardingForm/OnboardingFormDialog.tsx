@@ -206,12 +206,27 @@ export const OnboardingFormDialog = ({
           <div className="flex-1 overflow-y-auto px-5 py-4 sm:px-6 sm:py-5 space-y-4">
             {isThankyou ? (
               <ThankYouScreen onClose={handleClose} />
-            ) : isFinal && form.orderId ? (
+            ) : isFinal && form.orderId && form.orderAccessToken ? (
               <FinalScreen
                 orderId={form.orderId}
+                orderAccessToken={form.orderAccessToken}
                 onContactMe={() => void form.submitContactMe()}
                 isLoading={form.isLoading}
               />
+            ) : isFinal && form.orderId ? (
+              <div className="space-y-4 text-center">
+                <p className="text-sm text-destructive">
+                  {t('onboarding.errors.server')}
+                </p>
+                <Button
+                  onClick={() => void form.submitContactMe()}
+                  disabled={form.isLoading}
+                  variant="outline"
+                  className="w-full"
+                >
+                  {t('onboarding.final.contactBtn')}
+                </Button>
+              </div>
             ) : (
               <>
                 {catalogLoading && !catalogErrorKey && (

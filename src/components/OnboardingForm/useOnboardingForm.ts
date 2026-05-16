@@ -85,6 +85,7 @@ export interface OnboardingFormData {
 export interface UseOnboardingFormResult {
   step: OnboardingStep;
   orderId: string | null;
+  orderAccessToken: string | null;
   data: OnboardingFormData;
   cart: CartService[];
   isEscortMode: boolean;
@@ -129,6 +130,7 @@ export function useOnboardingForm(opts: {
 
   const [step, setStep] = useState<OnboardingStep>(1);
   const [orderId, setOrderId] = useState<string | null>(null);
+  const [orderAccessToken, setOrderAccessToken] = useState<string | null>(null);
   const initialCodeNorm = initialServiceCode ? normalizeServiceCode(initialServiceCode) : null;
 
   const [data, setData] = useState<OnboardingFormData>(() => ({
@@ -154,6 +156,7 @@ export function useOnboardingForm(opts: {
       initialServiceCode ?? (initialMode === 'escort' ? DEFAULT_ESCORT_CODE : DEFAULT_STANDARD_CODE),
     );
     setOrderId(null);
+    setOrderAccessToken(null);
     setData({
       ...EMPTY_DATA,
       serviceCode: nextCart[0]?.code ?? nextCode,
@@ -286,6 +289,7 @@ export function useOnboardingForm(opts: {
         ...(data.patientNote.trim() ? { patientNote: data.patientNote.trim() } : {}),
       });
       setOrderId(order.id);
+      setOrderAccessToken(order.accessToken ?? null);
       setStep('final');
       return true;
     } catch (e) {
@@ -336,6 +340,7 @@ export function useOnboardingForm(opts: {
   return {
     step,
     orderId,
+    orderAccessToken,
     data,
     cart,
     isEscortMode,

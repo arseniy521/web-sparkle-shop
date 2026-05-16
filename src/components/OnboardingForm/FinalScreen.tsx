@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 
 interface FinalScreenProps {
   orderId: string;
+  orderAccessToken: string;
   onContactMe: () => void;
   isLoading: boolean;
 }
@@ -11,11 +12,12 @@ interface FinalScreenProps {
 const appUrl = (import.meta.env.VITE_APP_URL as string | undefined)?.trim() || 'https://app.nius.cz';
 const APP_LOGIN_URL = `${appUrl.replace(/\/$/, '')}/login`;
 
-export const FinalScreen = ({ orderId, onContactMe, isLoading }: FinalScreenProps) => {
+export const FinalScreen = ({ orderId, orderAccessToken, onContactMe, isLoading }: FinalScreenProps) => {
   const { t } = useTranslation();
 
   const handleLogin = () => {
-    const href = `${APP_LOGIN_URL}?orderId=${encodeURIComponent(orderId)}`;
+    const params = new URLSearchParams({ orderId, orderAccessToken });
+    const href = `${APP_LOGIN_URL}?${params.toString()}`;
     const a = document.createElement('a');
     a.href = href;
     a.rel = 'noopener noreferrer';
