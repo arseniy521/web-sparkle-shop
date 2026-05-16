@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Quote, Star, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const GOOGLE_REVIEWS_URL = "https://share.google/Jqh351YRU9Wfrk8hM";
+const GOOGLE_REVIEWS_URL = "https://g.page/r/Cb4BmqPTZRSSEBE/review";
 
 const testimonials = ["testimonial1", "testimonial2", "testimonial3", "testimonial4", "testimonial5", "testimonial6"];
 

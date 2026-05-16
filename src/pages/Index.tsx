@@ -169,7 +169,7 @@ const Index = () => {
       "sameAs": [
         "https://www.instagram.com/nius.prague/",
         "https://t.me/nius_prague",
-        "https://share.google/Jqh351YRU9Wfrk8hM"
+        "https://g.page/r/Cb4BmqPTZRSSEBE"
       ]
     }
   ];
