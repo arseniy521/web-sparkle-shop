@@ -199,6 +199,8 @@
   "testimonials": {
     "title": "Co říkají naši pacienti",
     "description": "Zkušenosti cizinců, zdravotních turistů a obyvatel Prahy.",
+    "googleReviews": "na Google",
+    "leaveReview": "Napište nám recenzi na Google",
     "items": {
       "testimonial1": {
         "text": "Potřebovala jsem sestru pro svou starší matku po operaci. Služba byla rychlá, profesionální a laskavá. Nečekali jsme takový komfort a péči doma.",

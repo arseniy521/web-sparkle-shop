@@ -199,6 +199,8 @@
   "testimonials": {
     "title": "What Our Patients Say",
     "description": "Real experiences from expats, medical tourists, and Prague residents.",
+    "googleReviews": "on Google",
+    "leaveReview": "Leave us a review on Google",
     "items": {
       "testimonial1": {
         "text": "I needed a nurse for my elderly mother after surgery. The service was fast, professional, and kind. We didn't expect such comfort and care at home.",
