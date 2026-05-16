@@ -18,6 +18,7 @@ import SestrickaPrahaZizkov from "./pages/SestrickaPrahaZizkov";
 import WomensDayGift from "./pages/WomensDayGift";
 import BirthdayGift from "./pages/BirthdayGift";
 import HangoverIVDripPrague from "./pages/HangoverIVDripPrague";
+import IVDripHotelPrague from "./pages/IVDripHotelPrague";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,7 +36,8 @@ const App = () => (
             <Route path="/blog" element={<LanguageWrapper language="cs"><Blog /></LanguageWrapper>} />
             <Route path="/blog/:slug" element={<LanguageWrapper language="cs"><BlogPost /></LanguageWrapper>} />
             <Route path="/ivf-support-prague" element={<LanguageWrapper language="cs"><IVFSupport /></LanguageWrapper>} />
-            <Route path="/iv-drips-prague" element={<LanguageWrapper language="cs"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/iv-kapacky-praha" element={<LanguageWrapper language="cs"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/iv-drips-prague" element={<Navigate to="/iv-kapacky-praha/" replace />} />
             <Route path="/post-surgery-recovery-care-prague" element={<LanguageWrapper language="cs"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/disabled-daily-care-prague" element={<LanguageWrapper language="cs"><DisabledCare /></LanguageWrapper>} />
             {/* Czech Neighborhood Pages */}
@@ -49,6 +51,7 @@ const App = () => (
             <Route path="/en/blog/:slug" element={<LanguageWrapper language="en"><BlogPost /></LanguageWrapper>} />
             <Route path="/en/ivf-support-prague" element={<LanguageWrapper language="en"><IVFSupport /></LanguageWrapper>} />
             <Route path="/en/iv-drips-prague" element={<LanguageWrapper language="en"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/en/iv-drip-hotel-prague" element={<LanguageWrapper language="en"><IVDripHotelPrague /></LanguageWrapper>} />
             <Route path="/en/post-surgery-recovery-care-prague" element={<LanguageWrapper language="en"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/en/disabled-daily-care-prague" element={<LanguageWrapper language="en"><DisabledCare /></LanguageWrapper>} />
             
@@ -57,7 +60,8 @@ const App = () => (
             <Route path="/ru/blog" element={<LanguageWrapper language="ru"><Blog /></LanguageWrapper>} />
             <Route path="/ru/blog/:slug" element={<LanguageWrapper language="ru"><BlogPost /></LanguageWrapper>} />
             <Route path="/ru/ivf-support-prague" element={<LanguageWrapper language="ru"><IVFSupport /></LanguageWrapper>} />
-            <Route path="/ru/iv-drips-prague" element={<LanguageWrapper language="ru"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/ru/kapelnitsy-praga" element={<LanguageWrapper language="ru"><IVDripTherapy /></LanguageWrapper>} />
+            <Route path="/ru/iv-drips-prague" element={<Navigate to="/ru/kapelnitsy-praga/" replace />} />
             <Route path="/ru/post-surgery-recovery-care-prague" element={<LanguageWrapper language="ru"><PostSurgeryCare /></LanguageWrapper>} />
             <Route path="/ru/disabled-daily-care-prague" element={<LanguageWrapper language="ru"><DisabledCare /></LanguageWrapper>} />
             
@@ -91,7 +95,7 @@ const App = () => (
             <Route path="/cz/*" element={<Navigate to="/" replace />} />
 
             {/* 301-style redirects: old IV drip therapy URL → new IV drips URL */}
-            <Route path="/iv-drip-therapy-prague" element={<Navigate to="/iv-drips-prague/" replace />} />
+            <Route path="/iv-drip-therapy-prague" element={<Navigate to="/iv-kapacky-praha/" replace />} />
             <Route path="/en/iv-drip-therapy-prague" element={<Navigate to="/en/iv-drips-prague/" replace />} />
             <Route path="/ru/iv-drip-therapy-prague" element={<Navigate to="/ru/iv-drips-prague/" replace />} />
             <Route path="/uk/iv-drip-therapy-prague" element={<Navigate to="/uk/iv-drips-prague/" replace />} />

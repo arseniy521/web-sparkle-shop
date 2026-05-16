@@ -169,7 +169,7 @@ const SestrickaPraha1 = () => {
                 Naše služby v centru Prahy
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Link to="/iv-drips-prague/">
+                <Link to="/iv-kapacky-praha/">
                   <Card className="p-6 hover:shadow-card transition-all">
                     <h3 className="text-xl font-semibold mb-3">IV Kapačky Praha 1</h3>
                     <p className="text-muted-foreground mb-4">

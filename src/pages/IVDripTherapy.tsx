@@ -41,9 +41,9 @@ const IVDripsPrague = () => {
   const pageDescription = t('ivDripTherapy.seo.description');
 
   const hreflangMap: Record<string, string> = {
-    cs: "https://www.nius.cz/iv-drips-prague/",
+    cs: "https://www.nius.cz/iv-kapacky-praha/",
     en: "https://www.nius.cz/en/iv-drips-prague/",
-    ru: "https://www.nius.cz/ru/iv-drips-prague/",
+    ru: "https://www.nius.cz/ru/kapelnitsy-praga/",
     uk: "https://www.nius.cz/uk/iv-drips-prague/",
   };
 

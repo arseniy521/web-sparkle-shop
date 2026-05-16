@@ -55,6 +55,9 @@ const localizedSlugMap: Record<string, Record<string, string>> = {
   '/kapacka-na-kocovinu-praha': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
   '/kapelnica-ot-pokhmelya-praga': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
   '/krapelnytsia-vid-pokhmellia-praga': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
+  '/iv-drips-prague': { cs: '/iv-kapacky-praha/', en: '/en/iv-drips-prague/', ru: '/ru/kapelnitsy-praga/', uk: '/uk/iv-drips-prague/' },
+  '/iv-kapacky-praha': { cs: '/iv-kapacky-praha/', en: '/en/iv-drips-prague/', ru: '/ru/kapelnitsy-praga/', uk: '/uk/iv-drips-prague/' },
+  '/kapelnitsy-praga': { cs: '/iv-kapacky-praha/', en: '/en/iv-drips-prague/', ru: '/ru/kapelnitsy-praga/', uk: '/uk/iv-drips-prague/' },
 };
 
 // Get localized URL for pages with different slugs per language
