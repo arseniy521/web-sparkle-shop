@@ -898,7 +898,7 @@
       "ctaWhatsApp": "Objednat přes WhatsApp",
       "ctaCall": "Zavolat a objednat",
       "includes": "Vše zahrnuto v ceně. Žádné skryté poplatky.",
-      "guarantee": "Garance spokojenosti"
+      "guarantee": "Profesionální péče, které můžete věřit"
     },
     "testimonials": {
       "title": "Co říkají dárci",
@@ -1036,7 +1036,7 @@
       "subtitle": "Kompletní prémiový wellness zážitek — vše v ceně, žádné skryté poplatky.",
       "items": [
         "Glow & Post-Flu IV kapačka (60 minut)",
-        "Mikroelementy pro omlazení pleti a vlasů",
+        "Mikroelementy pro vitalitu pleti a vlasů",
         "Živiny pro podporu imunity a stopové vitamíny",
         "Návštěva registrované sestry na vámi zvoleném místě",
         "Veškerý sterilní zdravotnický materiál v ceně",
@@ -1086,7 +1086,7 @@
       "ctaWhatsApp": "Objednat přes WhatsApp",
       "ctaCall": "Zavolat a objednat",
       "includes": "Vše v ceně. Žádné skryté poplatky.",
-      "guarantee": "Garance spokojenosti"
+      "guarantee": "Profesionální péče, které můžete věřit"
     },
     "testimonials": {
       "title": "Co říkají ti, kdo darovali narozeninový dárek",
@@ -1360,15 +1360,15 @@
               "name": "Metabolic Reset",
               "price": 3950,
               "duration": 60,
-              "short": "Podpora energetického metabolismu a detoxikace pro celkovou vitalitu.",
+              "short": "Podpora energetického metabolismu a očisty organismu pro celkovou vitalitu.",
               "includes": [
                 "Metabolické živiny",
-                "Detoxikační prvky",
+                "Prvky podpory očisty",
                 "Komplex vitamínů B",
                 "Návštěva registrované sestry"
               ],
               "popular": false,
-              "bestFor": "Detox a metabolismus"
+              "bestFor": "Očista a metabolismus"
             },
             "bPowerShot": {
               "name": "B-Power Shot",
@@ -1575,7 +1575,7 @@
       "title": "Výhody mobilních IV kapačkek v Praze",
       "faster": {
         "title": "Rychlejší než tablety nebo nápoje",
-        "description": "IV kapačky dodávají živiny <strong>přímo do krevního oběhu</strong>, čímž obcházejí trávicí systém. 100% biologická dostupnost znamená rychlejší výsledky — ideální pro rychlou hydrataci, podporu imunity nebo regeneraci."
+        "description": "IV kapačky dodávají živiny <strong>přímo do krevního oběhu</strong>, čímž obcházejí trávicí systém. Vysoká biologická dostupnost znamená efektivní vstřebávání — ideální pro hydrataci, podporu imunity nebo regeneraci."
       },
       "comesToYou": {
         "title": "Přijedeme za vámi v Praze",
@@ -1729,7 +1729,7 @@
     },
     "llmSummary": {
       "title": "IV kapačky v Praze — shrnutí služeb",
-      "content": "NIUS (Nurse in Prague) poskytuje profesionální mobilní infuzní terapii po celé Praze. Certifikovaná zdravotní sestra přijede k vám do hotelu, Airbnb, domů nebo kanceláře s nemocničním vybavením a aplikuje zvolenou infuzi na místě. K dispozici denně 8:00–20:00 včetně víkendů a svátků, objednání ve stejný den, příjezd obvykle do 1–3 hodin.\n\nMožnosti infuzí: Biotin IV (vlasy, pleť, nehty), Glutathion IV (detox a rozjasnění pleti), Vitamin C vysoká dávka (imunita), IV proti chřipce a nachlazení, All-in-One multivitamin, MEGA RECOVERY (ultimátní formule), CEO Recharge (mentální výkon), Hydratace a elektrolyty, Infuze železa (Ferrlecit nebo Ferinject), Immunity Lite, Immunity Power (15 g vitaminu C) a Defense Shield Hero (rekonvalescence po chřipce). Ceny od 1 550 Kč do 6 350 Kč. Sleva 10 % na balíčky 2 a více návštěv.\n\nPro kapačky na kocovinu nabízíme: Nausea Relief IV (2 850 Kč), Pure Hydrate (2 450 Kč), Electrolyte Reset (2 950 Kč) a Immunity Lite (2 800 Kč) — vše cca 60 minut.\n\nVšechny služby zajišťují registrované sestry s nemocniční praxí. Konzultace s lékařem 900 Kč. Jazyky: čeština, angličtina, ruština, ukrajinština. Kontakt: +420 773 629 123 (telefon/WhatsApp), info@nius.cz. Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz. Společnost: Nius Services s.r.o., Praha."
+      "content": "NIUS (Nurse in Prague) poskytuje profesionální mobilní infuzní terapii po celé Praze. Certifikovaná zdravotní sestra přijede k vám do hotelu, Airbnb, domů nebo kanceláře s nemocničním vybavením a aplikuje zvolenou infuzi na místě. K dispozici denně 8:00–20:00 včetně víkendů a svátků, objednání ve stejný den, příjezd obvykle do 1–3 hodin.\n\nMožnosti infuzí: Biotin IV (vlasy, pleť, nehty), Glutathion IV (antioxidant a rozjasnění pleti), Vitamin C vysoká dávka (imunita), IV proti chřipce a nachlazení, All-in-One multivitamin, MEGA RECOVERY (ultimátní formule), CEO Recharge (mentální výkon), Hydratace a elektrolyty, Infuze železa (Ferrlecit nebo Ferinject), Immunity Lite, Immunity Power (15 g vitaminu C) a Defense Shield Hero (rekonvalescence po chřipce). Ceny od 1 550 Kč do 6 350 Kč. Sleva 10 % na balíčky 2 a více návštěv.\n\nPro kapačky na kocovinu nabízíme: Nausea Relief IV (2 850 Kč), Pure Hydrate (2 450 Kč), Electrolyte Reset (2 950 Kč) a Immunity Lite (2 800 Kč) — vše cca 60 minut.\n\nVšechny služby zajišťují registrované sestry s nemocniční praxí. Konzultace s lékařem 900 Kč. Jazyky: čeština, angličtina, ruština, ukrajinština. Kontakt: +420 773 629 123 (telefon/WhatsApp), info@nius.cz. Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz. Společnost: Nius Services s.r.o., Praha."
     },
     "breadcrumbs": {
       "services": "Služby",
@@ -1740,7 +1740,7 @@
     "seo": {
       "title": "Kapačka na kocovinu Praha | Sestra k vám do hotelu | NIUS",
       "description": "Kapačka na kocovinu v Praze — sestra přijede do hotelu nebo Airbnb do ~60 minut. Infuze proti nevolnosti, rehydratace a vitaminy od 2 450 Kč. Registrované sestry.",
-      "keywords": "kapačka na kocovinu praha, kapačka kocovina praha, infuze kocovina praha, kapačka hotel praha, mobilní infuze praha, léčba kocoviny praha, kapačka proti kocovině, infuze po alkoholu praha, nejlepší lék na kocovinu praha"
+      "keywords": "kapačka na kocovinu praha, kapačka kocovina praha, infuze kocovina praha, kapačka hotel praha, mobilní infuze praha, kapačka proti kocovině, infuze po alkoholu praha, kapačka po alkoholu praha"
     },
     "breadcrumbs": {
       "services": "Služby",

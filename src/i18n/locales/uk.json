@@ -992,15 +992,15 @@
               "name": "Metabolic Reset",
               "price": 3950,
               "duration": 60,
-              "short": "Стимуляція енергетичного метаболізму та підтримка детоксикації для загальної бадьорості.",
+              "short": "Стимуляція енергетичного метаболізму та підтримка очищення для загальної бадьорості.",
               "includes": [
                 "Метаболічні нутрієнти",
-                "Елементи підтримки детоксикації",
+                "Елементи підтримки очищення",
                 "Комплекс вітамінів групи B",
                 "Візит дипломованої медсестри"
               ],
               "popular": false,
-              "bestFor": "Детокс та метаболізм"
+              "bestFor": "Очищення та метаболізм"
             },
             "bPowerShot": {
               "name": "B-Power Shot",
@@ -1207,7 +1207,7 @@
       "title": "Переваги мобільних IV крапельниць у Празі",
       "faster": {
         "title": "Швидше, ніж таблетки чи напої",
-        "description": "IV крапельниці доставляють нутрієнти <strong>безпосередньо у кровотік</strong>, минаючи травну систему. 100% біодоступність означає швидший результат — ідеально для швидкої гідратації, підтримки імунітету або відновлення."
+        "description": "IV крапельниці доставляють нутрієнти <strong>безпосередньо у кровотік</strong>, минаючи травну систему. Висока біодоступність означає ефективне засвоєння — ідеально для гідратації, підтримки імунітету або відновлення."
       },
       "comesToYou": {
         "title": "Ми приїдемо до вас у Празі",
@@ -1361,7 +1361,7 @@
     },
     "llmSummary": {
       "title": "IV Drip Therapy in Prague — Service Summary",
-      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 8 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (detox & skin brightening), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
+      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 8 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (antioxidant & skin glow), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
     },
     "breadcrumbs": {
       "services": "Послуги",
@@ -1372,7 +1372,7 @@
     "seo": {
       "title": "Hangover IV Drip Prague | Mobile Nurse to Your Hotel | NIUS",
       "description": "Hangover IV drip in Prague delivered to your hotel or Airbnb in ~60 min. Anti-nausea, rehydration & vitamins from 2,450 CZK. Licensed nurses, same-day booking.",
-      "keywords": "hangover iv drip prague, hangover drip prague, hangover cure prague, iv drip hotel prague, mobile iv therapy prague, hangover treatment prague, iv hangover drip, hangover infusion prague, best hangover cure prague"
+      "keywords": "hangover iv drip prague, hangover drip prague, iv drip hotel prague, mobile iv therapy prague, iv hangover drip, hangover infusion prague, hangover recovery drip prague"
     },
     "breadcrumbs": {
       "services": "Services",
@@ -1425,7 +1425,7 @@
       "price": 2850,
       "currency": "CZK",
       "duration": "~60 minutes",
-      "short": "Our #1 recommended drip for hangovers — rapid relief from nausea, headache, and dehydration.",
+      "short": "Our #1 recommended drip for hangovers — effective support for nausea, headache, and dehydration.",
       "includes": [
         "Anti-nausea medication",
         "Hydration support (saline infusion)",
@@ -1801,7 +1801,7 @@
       "subtitle": "A complete premium wellness experience — everything included, no hidden fees.",
       "items": [
         "Glow & Post-Flu IV drip session (60 minutes)",
-        "Microelements for skin & hair rejuvenation",
+        "Microelements for skin & hair vitality",
         "Immune support nutrients and trace vitamins",
         "Registered nurse visit to her location",
         "All sterile medical equipment included",
@@ -1852,7 +1852,7 @@
       "ctaWhatsApp": "Order via WhatsApp",
       "ctaCall": "Call to Order",
       "includes": "Everything included. No hidden fees.",
-      "guarantee": "Satisfaction guaranteed"
+      "guarantee": "Professional care you can trust"
     },
     "testimonials": {
       "title": "What Gift-Givers Say",
@@ -1990,7 +1990,7 @@
       "subtitle": "A complete premium wellness experience — everything included, no hidden fees.",
       "items": [
         "Glow & Post-Flu IV drip session (60 minutes)",
-        "Microelements for skin & hair rejuvenation",
+        "Microelements for skin & hair vitality",
         "Immune support nutrients and trace vitamins",
         "Registered nurse visit to her location",
         "All sterile medical equipment included",
@@ -2040,7 +2040,7 @@
       "ctaWhatsApp": "Order via WhatsApp",
       "ctaCall": "Call to Order",
       "includes": "Everything included. No hidden fees.",
-      "guarantee": "Satisfaction guaranteed"
+      "guarantee": "Professional care you can trust"
     },
     "testimonials": {
       "title": "What Birthday Gift-Givers Say",
