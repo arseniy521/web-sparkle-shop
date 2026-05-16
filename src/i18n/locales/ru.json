@@ -1,8 +1,8 @@
 {
   "seo": {
     "home": {
-      "title": "Медсестра в Праге | IV Капельницы и Медицинский Уход на Дому 24/7",
-      "description": "Профессиональная медсестра в Праге для IV капельниц, IV инфузий, послеоперационного ухода и медицинского ухода на дому. Русскоязычные медсестры в вашем отеле/доме. Запись 24/7 на IV капельницы, уход за ранами, ЭКО инъекции и уход за инвалидами.",
+      "title": "Медсестра в Праге | IV Капельницы и Медицинский Уход на Дому ежедневно 8–21",
+      "description": "Профессиональная медсестра в Праге для IV капельниц, IV инфузий, послеоперационного ухода и медицинского ухода на дому. Русскоязычные медсестры в вашем отеле/доме. Запись ежедневно 8–21 на IV капельницы, уход за ранами, ЭКО инъекции и уход за инвалидами.",
       "keywords": "медсестра в праге, медсестра прага, капельницы прага, iv терапия прага, медицинский уход на дому прага, медицинский туризм прага"
     }
   },
@@ -63,7 +63,7 @@
     "ourServices": "Наши услуги",
     "certifiedNurses": "Сертифицированные медсестры",
     "licensedProfessionals": "Лицензированные специалисты",
-    "available247": "Ежедневно 8:00–20:00",
+    "available247": "Ежедневно 8:00–21:00",
     "sameDayService": "Обслуживание в день обращения"
   },
   "services": {
@@ -119,7 +119,7 @@
     },
     "benefit2": {
       "title": "Визиты в тот же день, 7 дней в неделю",
-      "description": "Ежедневно 8:00–20:00 включая выходные и праздники. Большинство пациентов принимаются за 2–4 часа."
+      "description": "Ежедневно 8:00–21:00 включая выходные и праздники. Большинство пациентов принимаются за 2–4 часа."
     },
     "benefit3": {
       "title": "Английский, чешский, русский, украинский",
@@ -284,7 +284,7 @@
       },
       "q9": {
         "question": "Каковы ваши часы работы?",
-        "answer": "Мы доступны 7 дней в неделю с 8:00 до 22:00. Для срочных случаев и инъекций ЭКО, требующих определенного времени, мы также предлагаем вечерние/ночные визиты по договоренности. Звоните +420 773 629 123 в любое время для бронирования 24/7."
+        "answer": "Мы доступны 7 дней в неделю с 8:00 до 21:00. Для срочных случаев и инъекций ЭКО, требующих определенного времени, мы также предлагаем вечерние визиты по договоренности. Звоните +420 773 629 123 для бронирования."
       },
       "q10": {
         "question": "Предлагаете ли вы долгосрочный уход за инвалидами?",
@@ -331,7 +331,7 @@
   "ivfSupport": {
     "seo": {
       "title": "Поддержка ЭКО Прага | Инъекции, Интралипид и лечение NK клеток",
-      "description": "Профессиональная поддержка ЭКО в Праге: инъекции для фертильности, Интралипид инфузии, лечение NK клеток и wellness капельницы в вашем отеле. Русскоязычные медсестры доступны 24/7. Нам доверяют более 500 ЭКО пациенток из Reprofit, ISCARE, Gennet.",
+      "description": "Профессиональная поддержка ЭКО в Праге: инъекции для фертильности, Интралипид инфузии, лечение NK клеток и wellness капельницы в вашем отеле. Русскоязычные медсестры доступны ежедневно 8:00–21:00, включая выходные и праздники. Нам доверяют более 500 ЭКО пациенток из Reprofit, ISCARE, Gennet.",
       "keywords": "эко прага, поддержка эко прага, инъекции эко прага, интралипид прага, лечение нк клеток прага, инъекции фертильности прага, медсестра эко прага"
     },
     "badge": "Надёжная поддержка ЭКО в Праге",
@@ -342,7 +342,7 @@
     "call247": "Позвоните нам",
     "whatsapp": "Написать в WhatsApp",
     "trustBadges": {
-      "available": "Доступно 24/7",
+      "available": "Ежедневно 8:00–21:00",
       "nurses": "Лицензированные медсестры",
       "patients": "500+ ЭКО пациенток",
       "rating": "4.9★ рейтинг Google"
@@ -423,7 +423,7 @@
         "Проверка препарата и контроль дозировки",
         "Проезд в любую точку Праги",
         "Прямая координация с вашей клиникой фертильности",
-        "Доступность 24/7, включая выходные и праздники"
+        "Доступность ежедневно 8:00–21:00, включая выходные и праздники"
       ]
     },
     "experience": {
@@ -510,7 +510,7 @@
         },
         {
           "question": "Можете ли вы приехать в 5 утра для триггерной инъекции?",
-          "answer": "Да! Мы предлагаем доступность 24/7 именно потому, что тайминг ЭКО этого требует. Будь то триггерная инъекция в 5 утра, в 23:00 или в любое другое время — наша медсестра будет у вашей двери вовремя. Мы провели тысячи ранних утренних и ночных ЭКО визитов."
+          "answer": "Да! Мы предлагаем доступность ежедневно 8:00–21:00, включая выходные и праздники, именно потому, что тайминг ЭКО этого требует. Наша медсестра будет у вашей двери вовремя. Мы провели тысячи ЭКО визитов."
         },
         {
           "question": "Работаете ли вы с пражскими клиниками ЭКО, такими как Reprofit, ISCARE, Gennet?",
@@ -540,7 +540,7 @@
     },
     "finalCta": {
       "title": "Готовы забронировать поддержку ЭКО в Праге?",
-      "description": "Не стрессуйте из-за времени инъекций, Интралипид инфузий или поиска медсестры в Праге. Мы рядом — 24/7, по вашему адресу.",
+      "description": "Не стрессуйте из-за времени инъекций, Интралипид инфузий или поиска медсестры в Праге. Мы рядом — ежедневно 8–21, по вашему адресу.",
       "whatsapp": "Написать в WhatsApp",
       "call": "Позвонить",
       "email": "Написать email"
@@ -882,7 +882,7 @@
     "voucher": {
       "title": "Детали подарочного сертификата",
       "validity": "Действует 3 месяца с момента покупки",
-      "redeemable": "Можно использовать каждый день, 8:00–22:00",
+      "redeemable": "Можно использовать каждый день, 8:00–21:00",
       "transferable": "Полностью передаваемый другому лицу",
       "personalized": "Добавьте своё личное послание",
       "instant": "Доставка мгновенно по email"
@@ -1187,7 +1187,7 @@
     "trustBadges": {
       "licensedNurses": "Лицензированные медсёстры",
       "rating": "Рейтинг 4.9/5",
-      "available": "Ежедневно 8:00–20:00",
+      "available": "Ежедневно 8:00–21:00",
       "allDistricts": "Все районы Праги"
     },
     "hero": {
@@ -1213,8 +1213,8 @@
           "description": "В отличие от других, мы предлагаем <strong>IV капельницы + поддержку ЭКО инъекций + перевязки + послеоперационную реабилитацию</strong>. Полный комплекс медицинской помощи по вашему адресу."
         },
         "availability": {
-          "title": "Настоящая доступность 24/7",
-          "description": "Реальная круглосуточная работа, а не просто «в рабочие часы». <strong>IV капельницы в Праге в тот же день</strong> доступны 365 дней в году, включая выходные и праздники."
+          "title": "Ежедневно 8:00–21:00, включая выходные и праздники",
+          "description": "<strong>IV капельницы в Праге в тот же день</strong> доступны ежедневно 8:00–21:00, 365 дней в году, включая выходные и праздники."
         },
         "nurses": {
           "title": "Дипломированные медсёстры, а не техники",
@@ -1243,7 +1243,7 @@
       "hospitalClinic": "Больница/Клиника",
       "rows": {
         "mobile": "Мобильная услуга (отель/дом)",
-        "availability": "Настоящая доступность 24/7",
+        "availability": "Ежедневно 8:00–21:00",
         "nurses": "Дипломированные медсёстры (не техники)",
         "ivf": "Поддержка инъекций ЭКО",
         "postSurgery": "Послеоперационный уход",
@@ -1687,7 +1687,7 @@
         },
         "sameDay": {
           "question": "Можно ли записаться на IV капельницу в Праге в тот же день?",
-          "answer": "Да! Мы предлагаем <strong>обслуживание IV капельницами в Праге в тот же день</strong> с типичным временем прибытия 1–3 часа. Доступно 24/7, включая выходные и праздники. Запишитесь заранее для точного времени."
+          "answer": "Да! Мы предлагаем <strong>обслуживание IV капельницами в Праге в тот же день</strong> с типичным временем прибытия 1–3 часа. Доступно ежедневно 8:00–21:00, включая выходные и праздники. Запишитесь заранее для точного времени."
         },
         "districts": {
           "question": "Какие районы Праги вы обслуживаете?",
@@ -1719,17 +1719,17 @@
     },
     "cta": {
       "title": "Готовы заказать IV капельницу в Праге?",
-      "subtitle": "Мобильная IV терапия в тот же день, доступна 24/7 в вашем отеле, доме или Airbnb",
+      "subtitle": "Мобильная IV терапия в тот же день, доступна ежедневно 8–21 в вашем отеле, доме или Airbnb",
       "description": "Обслуживаем Прагу 1, Виноградe, Старый город и все районы Праги • Дипломированные медсёстры • Рейтинг 4.9★",
       "callBtn": "Позвонить {{phone}}",
       "whatsappBtn": "Записаться через WhatsApp",
       "bookBtn": "Записаться онлайн",
       "emailBtn": "Написать нам",
-      "hours": "Доступно ежедневно 8:00–20:00 • В экстренных случаях вне рабочих часов звоните напрямую"
+      "hours": "Доступно ежедневно 8:00–21:00 • В экстренных случаях вне рабочих часов звоните напрямую"
     },
     "llmSummary": {
       "title": "IV Drip Therapy in Prague — Service Summary",
-      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 8 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (antioxidant & skin glow), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
+      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 9 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (antioxidant & skin glow), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
     },
     "breadcrumbs": {
       "services": "Услуги",
@@ -1758,7 +1758,7 @@
     "trustBadges": {
       "licensedNurses": "Licensed Nurses",
       "rating": "4.9/5 Rating",
-      "available": "Daily 8 AM – 8 PM",
+      "available": "Daily 8 AM – 9 PM",
       "allDistricts": "All Prague Districts"
     },
     "symptoms": {
@@ -1918,7 +1918,7 @@
       "items": {
         "howFast": {
           "question": "How fast can a nurse arrive?",
-          "answer": "Typically <strong>within 60 minutes</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 8 PM."
+          "answer": "Typically <strong>within 60 minutes</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 9 PM."
         },
         "cost": {
           "question": "How much does a hangover IV drip cost in Prague?",
@@ -1946,7 +1946,7 @@
         },
         "hours": {
           "question": "Can you come at night or on weekends?",
-          "answer": "We're available <strong>daily from 8 AM to 8 PM</strong>, including weekends and holidays. For urgent requests outside these hours, please call us directly and we'll do our best to accommodate."
+          "answer": "We're available <strong>daily from 8 AM to 9 PM</strong>, including weekends and holidays. For urgent requests outside these hours, please call us directly and we'll do our best to accommodate."
         }
       }
     },
@@ -1957,8 +1957,8 @@
       "whatsappBtn": "WhatsApp Booking",
       "bookBtn": "Book Online",
       "emailBtn": "Email Us",
-      "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 8 PM",
-      "hours": "Available every day 8:00–20:00 • For urgent cases outside hours, please call directly"
+      "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 9 PM",
+      "hours": "Available every day 8:00–21:00 • For urgent cases outside hours, please call directly"
     }
   },
   "onboarding": {

@@ -1,8 +1,8 @@
 {
   "seo": {
     "home": {
-      "title": "Sestřička Praha | Domácí Sestra - IV Kapačky Praha & Injekce 24/7",
-      "description": "Sestřička Praha na zavolání! Profesionální domácí sestra v Praze pro IV kapačky Praha, IV infuze, pooperační péči a zdravotní péči doma. Anglicky mluvící sestřička ve vašem hotelu/domě. Rezervujte 24/7 pro IV terapii, ošetření ran, IVF injekce a péči o zdravotně postižené.",
+      "title": "Sestřička Praha | Domácí Sestra - IV Kapačky Praha & Injekce",
+      "description": "Sestřička Praha na zavolání! Profesionální domácí sestra v Praze pro IV kapačky Praha, IV infuze, pooperační péči a zdravotní péči doma. Anglicky mluvící sestřička ve vašem hotelu/domě. Rezervujte denně 8–21 pro IV terapii, ošetření ran, IVF injekce a péči o zdravotně postižené.",
       "keywords": "sestřička praha, domácí sestra praha, iv kapačky praha, iv terapie praha, ošetřovatelka praha, sestra na doma praha, zdravotní péče doma praha, ivf injekce praha"
     }
   },
@@ -63,7 +63,7 @@
     "ourServices": "Naše služby",
     "certifiedNurses": "Certifikované sestry",
     "licensedProfessionals": "Licencované profesionálky",
-    "available247": "Denně 8:00–20:00",
+    "available247": "Denně 8:00–21:00",
     "sameDayService": "Služba tentýž den"
   },
   "services": {
@@ -119,7 +119,7 @@
     },
     "benefit2": {
       "title": "Návštěvy tentýž den, 7 dní v týdnu",
-      "description": "K dispozici denně 8:00–20:00 včetně víkendů a svátků. Většina pacientů ošetřena do 2–4 hodin."
+      "description": "K dispozici denně 8:00–21:00 včetně víkendů a svátků. Většina pacientů ošetřena do 2–4 hodin."
     },
     "benefit3": {
       "title": "Anglicky, česky, rusky, ukrajinsky",
@@ -243,7 +243,7 @@
     "instagram": "Instagram",
     "email": "E-mail",
     "availability": "Dostupnost",
-    "availabilityHours": "Každý den 8:00 - 20:00",
+    "availabilityHours": "Každý den 8:00 – 21:00",
     "urgentNote": "V naléhavých případech mimo standardní hodiny prosím volejte přímo"
   },
   "faq": {
@@ -284,7 +284,7 @@
       },
       "q9": {
         "question": "Jaká je vaše provozní doba?",
-        "answer": "Jsme k dispozici 7 dní v týdnu od 8:00 do 22:00. Pro naléhavé případy a IVF injekce vyžadující specifické načasování nabízíme také večerní/noční návštěvy po dohodě. Volejte +420 773 629 123 kdykoli pro rezervace 24/7."
+        "answer": "Jsme k dispozici 7 dní v týdnu od 8:00 do 21:00. Pro naléhavé případy a IVF injekce vyžadující specifické načasování nabízíme také večerní návštěvy po dohodě. Volejte +420 773 629 123 denně pro rezervace."
       },
       "q10": {
         "question": "Nabízíte dlouhodobou péči pro zdravotně postižené pacienty?",
@@ -331,7 +331,7 @@
   "ivfSupport": {
     "seo": {
       "title": "IVF podpora Praha | Injekce, Intralipid a léčba NK buněk",
-      "description": "Profesionální podpora IVF v Praze: injekce pro plodnost, Intralipid infuze, léčba NK buněk a wellness IV kapačky ve vašem hotelu. Anglicky mluvící sestry dostupné 24/7. Důvěřuje nám přes 500 IVF pacientek z Reprofit, ISCARE, Gennet.",
+      "description": "Profesionální podpora IVF v Praze: injekce pro plodnost, Intralipid infuze, léčba NK buněk a wellness IV kapačky ve vašem hotelu. Anglicky mluvící sestry dostupné denně 8–21. Důvěřuje nám přes 500 IVF pacientek z Reprofit, ISCARE, Gennet.",
       "keywords": "ivf praha, ivf podpora praha, ivf injekce praha, intralipid praha, léčba nk buněk praha, injekce plodnosti praha, ivf sestra praha"
     },
     "badge": "Důvěryhodná IVF podpora v Praze",
@@ -342,7 +342,7 @@
     "call247": "Zavolejte nám",
     "whatsapp": "Napište nám na WhatsApp",
     "trustBadges": {
-      "available": "Denně 8:00–20:00",
+      "available": "Denně 8:00–21:00",
       "nurses": "Licencované sestry",
       "patients": "Přes 500 IVF pacientek",
       "rating": "4.9★ Hodnocení Google"
@@ -423,7 +423,7 @@
         "Ověření léků a kontrola dávkování",
         "Doprava na jakoukoli adresu v Praze",
         "Přímá koordinace s vaší klinikou plodnosti",
-        "Dostupnost 24/7 včetně víkendů a svátků"
+        "Denní dostupnost včetně víkendů a svátků"
       ]
     },
     "experience": {
@@ -510,7 +510,7 @@
         },
         {
           "question": "Můžete přijet v 5 ráno na trigger injekci?",
-          "answer": "Ano! Nabízíme dostupnost 24/7 právě proto, že načasování IVF to vyžaduje. Ať je vaše trigger injekce v 5 ráno, v 23 hodin nebo v jakýkoli jiný čas, naše sestra bude u vašich dveří včas. Provedli jsme tisíce ranních a nočních IVF návštěv."
+          "answer": "Ano! Jsme k dispozici každý den od 8:00 do 21:00, včetně víkendů a svátků. Pro ranní nebo večerní IVF návštěvy nám prosím zavolejte předem."
         },
         {
           "question": "Spolupracujete s pražskými IVF klinikami jako Reprofit, ISCARE, Gennet?",
@@ -540,7 +540,7 @@
     },
     "finalCta": {
       "title": "Jste připraveni rezervovat IVF podporu v Praze?",
-      "description": "Nestresujte se načasováním injekcí, Intralipid infuzemi nebo hledáním sestry v Praze. Jsme tu pro vás — 24/7, na vaší adrese.",
+      "description": "Nestresujte se načasováním injekcí, Intralipid infuzemi nebo hledáním sestry v Praze. Jsme tu pro vás — každý den 8–21, na vaší adrese.",
       "whatsapp": "Napište nám na WhatsApp",
       "call": "Zavolejte nám",
       "email": "Napište nám e-mail"
@@ -882,7 +882,7 @@
     "voucher": {
       "title": "Detaily dárkového voucheru",
       "validity": "Platnost 3 měsíce od nákupu",
-      "redeemable": "Využitelný každý den, 8:00–22:00",
+      "redeemable": "Využitelný každý den, 8:00–21:00",
       "transferable": "Plně přenosný na jinou osobu",
       "personalized": "Přidejte svůj osobní vzkaz",
       "instant": "Doručen okamžitě e-mailem"
@@ -1071,7 +1071,7 @@
     "voucher": {
       "title": "Podrobnosti o narozeninovém dárkovém voucheru",
       "validity": "Platnost 3 měsíce od zakoupení",
-      "redeemable": "Využitelný každý den, 8:00–22:00",
+      "redeemable": "Využitelný každý den, 8:00–21:00",
       "transferable": "Plně přenosný na jinou osobu",
       "personalized": "Přidejte své osobní narozeninové přání",
       "instant": "Doručen okamžitě e-mailem"
@@ -1187,7 +1187,7 @@
     "trustBadges": {
       "licensedNurses": "Licencované sestry",
       "rating": "Hodnocení 4.9/5",
-      "available": "Denně 8:00–20:00",
+      "available": "Denně 8:00–21:00",
       "allDistricts": "Všechny pražské obvody"
     },
     "hero": {
@@ -1213,7 +1213,7 @@
           "description": "Na rozdíl od ostatních poskytovatelů nabízíme <strong>IV kapačky + podporu IVF injekcí + ošetření ran + pooperační regeneraci</strong>. Kompletní zdravotní péče na vaší adrese."
         },
         "availability": {
-          "title": "Skutečná dostupnost 24/7",
+          "title": "Denní dostupnost 8–21",
           "description": "Skutečný nepřetržitý provoz, nejen \"úřední hodiny\". <strong>IV kapačky v Praze ve stejný den</strong> dostupné 365 dní v roce, včetně víkendů a svátků."
         },
         "nurses": {
@@ -1243,7 +1243,7 @@
       "hospitalClinic": "Nemocnice/Klinika",
       "rows": {
         "mobile": "Mobilní služba (hotel/domov)",
-        "availability": "Skutečná dostupnost 24/7",
+        "availability": "Denní dostupnost 8–21",
         "nurses": "Registrované sestry (ne technici)",
         "ivf": "Podpora IVF injekcí",
         "postSurgery": "Pooperační péče",
@@ -1687,7 +1687,7 @@
         },
         "sameDay": {
           "question": "Mohu dostat IV kapačku v Praze ve stejný den?",
-          "answer": "Ano! Nabízíme <strong>službu IV kapačkek v Praze ve stejný den</strong> s typickým příjezdem do 1–3 hodin. Dostupné 24/7 včetně víkendů a svátků. Rezervujte předem pro přesné naplánování."
+          "answer": "Ano! Nabízíme <strong>službu IV kapačkek v Praze ve stejný den</strong> s typickým příjezdem do 1–3 hodin. Dostupné denně 8–21 včetně víkendů a svátků. Rezervujte předem pro přesné naplánování."
         },
         "districts": {
           "question": "Které pražské obvody obsluhujete?",
@@ -1719,17 +1719,17 @@
     },
     "cta": {
       "title": "Chcete si objednat IV kapačku v Praze?",
-      "subtitle": "Mobilní IV terapie ve stejný den dostupná 24/7 ve vašem hotelu, doma nebo Airbnb",
+      "subtitle": "Mobilní IV terapie ve stejný den dostupná denně 8–21 ve vašem hotelu, doma nebo Airbnb",
       "description": "Obsluhujeme Prahu 1, Vinohrady, Staré Město a všechny pražské obvody • Registrované sestry • Hodnocení 4.9★",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervace přes WhatsApp",
       "bookBtn": "Rezervovat online",
       "emailBtn": "Napište nám",
-      "hours": "K dispozici každý den 8:00–20:00 • Pro urgentní případy mimo pracovní dobu prosím volejte přímo"
+      "hours": "K dispozici každý den 8:00–21:00 • Pro urgentní případy mimo pracovní dobu prosím volejte přímo"
     },
     "llmSummary": {
       "title": "IV kapačky v Praze — shrnutí služeb",
-      "content": "NIUS (Nurse in Prague) poskytuje profesionální mobilní infuzní terapii po celé Praze. Certifikovaná zdravotní sestra přijede k vám do hotelu, Airbnb, domů nebo kanceláře s nemocničním vybavením a aplikuje zvolenou infuzi na místě. K dispozici denně 8:00–20:00 včetně víkendů a svátků, objednání ve stejný den, příjezd obvykle do 1–3 hodin.\n\nMožnosti infuzí: Biotin IV (vlasy, pleť, nehty), Glutathion IV (antioxidant a rozjasnění pleti), Vitamin C vysoká dávka (imunita), IV proti chřipce a nachlazení, All-in-One multivitamin, MEGA RECOVERY (ultimátní formule), CEO Recharge (mentální výkon), Hydratace a elektrolyty, Infuze železa (Ferrlecit nebo Ferinject), Immunity Lite, Immunity Power (15 g vitaminu C) a Defense Shield Hero (rekonvalescence po chřipce). Ceny od 1 550 Kč do 6 350 Kč. Sleva 10 % na balíčky 2 a více návštěv.\n\nPro kapačky na kocovinu nabízíme: Nausea Relief IV (2 850 Kč), Pure Hydrate (2 450 Kč), Electrolyte Reset (2 950 Kč) a Immunity Lite (2 800 Kč) — vše cca 60 minut.\n\nVšechny služby zajišťují registrované sestry s nemocniční praxí. Konzultace s lékařem 900 Kč. Jazyky: čeština, angličtina, ruština, ukrajinština. Kontakt: +420 773 629 123 (telefon/WhatsApp), info@nius.cz. Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz. Společnost: Nius Services s.r.o., Praha."
+      "content": "NIUS (Nurse in Prague) poskytuje profesionální mobilní infuzní terapii po celé Praze. Certifikovaná zdravotní sestra přijede k vám do hotelu, Airbnb, domů nebo kanceláře s nemocničním vybavením a aplikuje zvolenou infuzi na místě. K dispozici denně 8:00–21:00 včetně víkendů a svátků, objednání ve stejný den, příjezd obvykle do 1–3 hodin.\n\nMožnosti infuzí: Biotin IV (vlasy, pleť, nehty), Glutathion IV (antioxidant a rozjasnění pleti), Vitamin C vysoká dávka (imunita), IV proti chřipce a nachlazení, All-in-One multivitamin, MEGA RECOVERY (ultimátní formule), CEO Recharge (mentální výkon), Hydratace a elektrolyty, Infuze železa (Ferrlecit nebo Ferinject), Immunity Lite, Immunity Power (15 g vitaminu C) a Defense Shield Hero (rekonvalescence po chřipce). Ceny od 1 550 Kč do 6 350 Kč. Sleva 10 % na balíčky 2 a více návštěv.\n\nPro kapačky na kocovinu nabízíme: Nausea Relief IV (2 850 Kč), Pure Hydrate (2 450 Kč), Electrolyte Reset (2 950 Kč) a Immunity Lite (2 800 Kč) — vše cca 60 minut.\n\nVšechny služby zajišťují registrované sestry s nemocniční praxí. Konzultace s lékařem 900 Kč. Jazyky: čeština, angličtina, ruština, ukrajinština. Kontakt: +420 773 629 123 (telefon/WhatsApp), info@nius.cz. Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz. Společnost: Nius Services s.r.o., Praha."
     },
     "breadcrumbs": {
       "services": "Služby",
@@ -1957,8 +1957,8 @@
       "whatsappBtn": "Rezervace přes WhatsApp",
       "bookBtn": "Objednat online",
       "emailBtn": "Napište nám",
-      "reassurance": "Registrované sestry • Celá Praha • Denně 8:00 – 20:00",
-      "hours": "K dispozici každý den 8:00–20:00 • Pro urgentní případy mimo pracovní dobu prosím volejte přímo"
+      "reassurance": "Registrované sestry • Celá Praha • Denně 8:00–21:00",
+      "hours": "K dispozici každý den 8:00–21:00 • Pro urgentní případy mimo pracovní dobu prosím volejte přímo"
     }
   },
   "onboarding": {

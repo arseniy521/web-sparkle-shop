@@ -81,7 +81,7 @@ const IVFSupport = () => {
         "longitude": "14.4378"
       },
       "image": "https://www.nius.cz/og-ivf.jpg",
-      "openingHours": "Mo-Su 00:00-23:59",
+      "openingHours": "Mo-Su 08:00-21:00",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",

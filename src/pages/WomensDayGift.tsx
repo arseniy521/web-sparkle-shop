@@ -132,7 +132,7 @@ const WomensDayGift = () => {
         addressCountry: "CZ",
       },
       areaServed: { "@type": "City", name: "Prague" },
-      openingHours: "Mo-Su 08:00-22:00",
+      openingHours: "Mo-Su 08:00-21:00",
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.9",

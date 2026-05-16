@@ -121,7 +121,7 @@ const HangoverIVDripPrague = () => {
           addressCountry: "CZ",
         },
         areaServed: { "@type": "City", name: "Prague" },
-        openingHours: "Mo-Su 08:00-20:00",
+        openingHours: "Mo-Su 08:00-21:00",
         medicalSpecialty: ["IV Therapy", "Mobile Nursing"],
       },
       {

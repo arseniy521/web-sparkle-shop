@@ -1,8 +1,8 @@
 {
   "seo": {
     "home": {
-      "title": "Медсестра в Празі | IV Крапельниці та Медичний Догляд Вдома 24/7",
-      "description": "Професійна медсестра в Празі для IV крапельниць, IV інфузій, післяопераційного догляду та медичного догляду вдома. Україномовні медсестри у вашому готелі/вдома. Запис 24/7 на IV крапельниці, догляд за ранами, ЕКЗ ін'єкції та догляд за інвалідами.",
+      "title": "Медсестра в Празі | IV Крапельниці та Медичний Догляд Вдома щодня 8–21",
+      "description": "Професійна медсестра в Празі для IV крапельниць, IV інфузій, післяопераційного догляду та медичного догляду вдома. Україномовні медсестри у вашому готелі/вдома. Запис щодня 8–21 на IV крапельниці, догляд за ранами, ЕКЗ ін'єкції та догляд за інвалідами.",
       "keywords": "медсестра в празі, медсестра прага, крапельниці прага, iv терапія прага, медичний догляд вдома прага, медичний туризм прага"
     }
   },
@@ -63,7 +63,7 @@
     "ourServices": "Наші послуги",
     "certifiedNurses": "Сертифіковані медсестри",
     "licensedProfessionals": "Ліцензовані спеціалісти",
-    "available247": "Щоденно 8:00–20:00",
+    "available247": "Щоденно 8:00–21:00",
     "sameDayService": "Обслуговування в день звернення"
   },
   "services": {
@@ -119,7 +119,7 @@
     },
     "benefit2": {
       "title": "Візити того ж дня, 7 днів на тиждень",
-      "description": "Щоденно 8:00–20:00 включаючи вихідні та свята. Більшість пацієнтів приймаються за 2–4 години."
+      "description": "Щоденно 8:00–21:00 включаючи вихідні та свята. Більшість пацієнтів приймаються за 2–4 години."
     },
     "benefit3": {
       "title": "Англійська, чеська, російська, українська",
@@ -311,7 +311,7 @@
       },
       "q9": {
         "question": "What are your operating hours?",
-        "answer": "We are available 7 days a week from 8:00 AM to 10:00 PM. For urgent cases and IVF injections requiring specific timing, we also offer evening/night visits by arrangement. Call +420 773 629 123 anytime for 24/7 booking."
+        "answer": "We are available 7 days a week from 8:00 AM to 9:00 PM. For urgent cases and IVF injections requiring specific timing, we also offer evening visits by arrangement. Call +420 773 629 123 for booking."
       },
       "q10": {
         "question": "Do you offer long-term care for disabled patients?",
@@ -358,7 +358,7 @@
   "ivfSupport": {
     "seo": {
       "title": "Підтримка ЕКЗ Прага | Ін'єкції, Інтраліпід та лікування НК клітин",
-      "description": "Професійна підтримка ЕКЗ у Празі: ін'єкції для фертильності, Інтраліпід інфузії, лікування НК клітин та wellness крапельниці у вашому готелі. Україномовні медсестри доступні 24/7. Нам довіряють понад 500 ЕКЗ пацієнток з Reprofit, ISCARE, Gennet.",
+      "description": "Професійна підтримка ЕКЗ у Празі: ін'єкції для фертильності, Інтраліпід інфузії, лікування НК клітин та wellness крапельниці у вашому готелі. Україномовні медсестри доступні щодня 8:00–21:00, включаючи вихідні та свята. Нам довіряють понад 500 ЕКЗ пацієнток з Reprofit, ISCARE, Gennet.",
       "keywords": "екз прага, підтримка екз прага, ін'єкції екз прага, інтраліпід прага, лікування нк клітин прага, ін'єкції фертильності прага, медсестра екз прага"
     },
     "badge": "Надійна підтримка ЕКЗ у Празі",
@@ -369,7 +369,7 @@
     "call247": "Зателефонувати",
     "whatsapp": "Написати в WhatsApp",
     "trustBadges": {
-      "available": "Щоденно 8:00–20:00",
+      "available": "Щодня 8:00–21:00",
       "nurses": "Ліцензовані медсестри",
       "patients": "500+ ЕКЗ пацієнток",
       "rating": "4.9★ рейтинг Google"
@@ -450,7 +450,7 @@
         "Перевірка препарату та контроль дозування",
         "Проїзд до будь-якої адреси в межах Праги",
         "Пряма координація з вашою клінікою фертильності",
-        "Доступність 24/7 включаючи вихідні та свята"
+        "Доступність щодня 8:00–21:00, включаючи вихідні та свята"
       ]
     },
     "experience": {
@@ -537,7 +537,7 @@
         },
         {
           "question": "Чи можете ви приїхати о 5 ранку для тригерної ін'єкції?",
-          "answer": "Так! Ми пропонуємо доступність 24/7 саме тому, що тайминг ЕКЗ цього вимагає. Чи то тригерна ін'єкція о 5 ранку, о 23:00 або в будь-який інший час — наша медсестра буде біля ваших дверей вчасно. Ми провели тисячі ранніх ранкових та нічних ЕКЗ візитів."
+          "answer": "Так! Ми пропонуємо доступність щодня 8:00–21:00, включаючи вихідні та свята, саме тому, що тайминг ЕКЗ цього вимагає. Наша медсестра буде біля ваших дверей вчасно. Ми провели тисячі ЕКЗ візитів."
         },
         {
           "question": "Чи працюєте ви з празькими клініками ЕКЗ, такими як Reprofit, ISCARE, Gennet?",
@@ -567,7 +567,7 @@
     },
     "finalCta": {
       "title": "Готові забронювати підтримку ЕКЗ у Празі?",
-      "description": "Не стресуйте через час ін'єкцій, Інтраліпід інфузії або пошук медсестри у Празі. Ми поруч — 24/7, за вашою адресою.",
+      "description": "Не стресуйте через час ін'єкцій, Інтраліпід інфузії або пошук медсестри у Празі. Ми поруч — щодня 8–21, за вашою адресою.",
       "whatsapp": "Написати в WhatsApp",
       "call": "Зателефонувати",
       "email": "Написати на email"
@@ -819,7 +819,7 @@
     "trustBadges": {
       "licensedNurses": "Дипломовані медсестри",
       "rating": "Рейтинг 4.9/5",
-      "available": "Щоденно 8:00–20:00",
+      "available": "Щодня 8:00–21:00",
       "allDistricts": "Усі райони Праги"
     },
     "hero": {
@@ -845,8 +845,8 @@
           "description": "На відміну від інших провайдерів, ми пропонуємо <strong>IV крапельниці + підтримку ін'єкцій ЕКЗ + догляд за ранами + післяопераційне відновлення</strong>. Повний медичний догляд за вашою адресою."
         },
         "availability": {
-          "title": "Справжня доступність 24/7",
-          "description": "Реальне цілодобове обслуговування, а не просто \"робочі години\". <strong>IV крапельниці в Празі в день звернення</strong> доступні 365 днів на рік, включаючи вихідні та свята."
+          "title": "Щодня 8:00–21:00, включаючи вихідні та свята",
+          "description": "<strong>IV крапельниці в Празі в день звернення</strong> доступні щодня 8:00–21:00, 365 днів на рік, включаючи вихідні та свята."
         },
         "nurses": {
           "title": "Дипломовані медсестри, а не техніки",
@@ -875,7 +875,7 @@
       "hospitalClinic": "Лікарня/Клініка",
       "rows": {
         "mobile": "Мобільний сервіс (готель/дім)",
-        "availability": "Справжня доступність 24/7",
+        "availability": "Щодня 8:00–21:00",
         "nurses": "Дипломовані медсестри (не техніки)",
         "ivf": "Підтримка ін'єкцій ЕКЗ",
         "postSurgery": "Післяопераційний догляд",
@@ -1319,7 +1319,7 @@
         },
         "sameDay": {
           "question": "Чи можу я отримати IV крапельницю в день звернення в Празі?",
-          "answer": "Так! Ми пропонуємо <strong>IV крапельниці в день звернення в Празі</strong> з типовим прибуттям протягом 1–3 годин. Доступні 24/7, включаючи вихідні та свята. Запишіться заздалегідь для точного планування."
+          "answer": "Так! Ми пропонуємо <strong>IV крапельниці в день звернення в Празі</strong> з типовим прибуттям протягом 1–3 годин. Доступні щодня 8:00–21:00, включаючи вихідні та свята. Запишіться заздалегідь для точного планування."
         },
         "districts": {
           "question": "Які райони Праги ви обслуговуєте?",
@@ -1351,17 +1351,17 @@
     },
     "cta": {
       "title": "Готові замовити IV крапельницю в Празі?",
-      "subtitle": "Мобільна IV терапія в день звернення доступна 24/7 у вашому готелі, вдома або Airbnb",
+      "subtitle": "Мобільна IV терапія в день звернення доступна щодня 8–21 у вашому готелі, вдома або Airbnb",
       "description": "Обслуговуємо Прага 1, Виногради, Старе Місто та всі райони Праги • Дипломовані медсестри • Рейтинг 4.9★",
       "callBtn": "Зателефонувати {{phone}}",
       "whatsappBtn": "Запис через WhatsApp",
       "bookBtn": "Записатися онлайн",
       "emailBtn": "Написати нам",
-      "hours": "Доступні щодня 8:00–20:00 • Для термінових випадків поза робочим часом, будь ласка, зателефонуйте напряму"
+      "hours": "Доступні щодня 8:00–21:00 • Для термінових випадків поза робочим часом, будь ласка, зателефонуйте напряму"
     },
     "llmSummary": {
       "title": "IV Drip Therapy in Prague — Service Summary",
-      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 8 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (antioxidant & skin glow), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
+      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 9 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (antioxidant & skin glow), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
     },
     "breadcrumbs": {
       "services": "Послуги",
@@ -1390,7 +1390,7 @@
     "trustBadges": {
       "licensedNurses": "Licensed Nurses",
       "rating": "4.9/5 Rating",
-      "available": "Daily 8 AM – 8 PM",
+      "available": "Daily 8 AM – 9 PM",
       "allDistricts": "All Prague Districts"
     },
     "symptoms": {
@@ -1550,7 +1550,7 @@
       "items": {
         "howFast": {
           "question": "How fast can a nurse arrive?",
-          "answer": "Typically <strong>within 60 minutes</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 8 PM."
+          "answer": "Typically <strong>within 60 minutes</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 9 PM."
         },
         "cost": {
           "question": "How much does a hangover IV drip cost in Prague?",
@@ -1578,7 +1578,7 @@
         },
         "hours": {
           "question": "Can you come at night or on weekends?",
-          "answer": "We're available <strong>daily from 8 AM to 8 PM</strong>, including weekends and holidays. For urgent requests outside these hours, please call us directly and we'll do our best to accommodate."
+          "answer": "We're available <strong>daily from 8 AM to 9 PM</strong>, including weekends and holidays. For urgent requests outside these hours, please call us directly and we'll do our best to accommodate."
         }
       }
     },
@@ -1589,8 +1589,8 @@
       "whatsappBtn": "WhatsApp Booking",
       "bookBtn": "Book Online",
       "emailBtn": "Email Us",
-      "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 8 PM",
-      "hours": "Available every day 8:00–20:00 • For urgent cases outside hours, please call directly"
+      "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 9 PM",
+      "hours": "Available every day 8:00–21:00 • For urgent cases outside hours, please call directly"
     }
   },
   "onboarding": {
@@ -1836,7 +1836,7 @@
     "voucher": {
       "title": "Gift Voucher Details",
       "validity": "Valid for 3 months from purchase",
-      "redeemable": "Redeemable any day, 8:00–22:00",
+      "redeemable": "Redeemable any day, 8:00–21:00",
       "transferable": "Fully transferable to another person",
       "personalized": "Add your personal message",
       "instant": "Delivered instantly via email"
@@ -2025,7 +2025,7 @@
     "voucher": {
       "title": "Birthday Gift Voucher Details",
       "validity": "Valid for 3 months from purchase",
-      "redeemable": "Redeemable any day, 8:00–22:00",
+      "redeemable": "Redeemable any day, 8:00–21:00",
       "transferable": "Fully transferable to another person",
       "personalized": "Add your personal birthday message",
       "instant": "Delivered instantly via email"

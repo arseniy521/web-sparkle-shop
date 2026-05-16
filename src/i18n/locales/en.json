@@ -63,7 +63,7 @@
     "ourServices": "Our Services",
     "certifiedNurses": "Certified Nurses",
     "licensedProfessionals": "Licensed professionals",
-    "available247": "Daily 8 AM – 8 PM",
+    "available247": "Daily 8 AM – 9 PM",
     "sameDayService": "Same-day service"
   },
   "services": {
@@ -119,7 +119,7 @@
     },
     "benefit2": {
       "title": "Same-Day Visits, 7 Days a Week",
-      "description": "Available daily 8 AM – 8 PM including weekends and holidays. Most patients seen within 2–4 hours."
+      "description": "Available daily 8 AM – 9 PM including weekends and holidays. Most patients seen within 2–4 hours."
     },
     "benefit3": {
       "title": "English, Czech, Russian, Ukrainian",
@@ -243,7 +243,7 @@
     "instagram": "Instagram",
     "email": "Email",
     "availability": "Availability",
-    "availabilityHours": "Every day 8:00 - 20:00",
+    "availabilityHours": "Every day 8:00 – 21:00",
     "urgentNote": "For urgent cases outside standard hours, please call directly"
   },
   "faq": {
@@ -284,7 +284,7 @@
       },
       "q9": {
         "question": "What are your operating hours?",
-        "answer": "We are available 7 days a week from 8:00 AM to 10:00 PM. For urgent cases and IVF injections requiring specific timing, we also offer evening/night visits by arrangement. Call +420 773 629 123 anytime for 24/7 booking."
+        "answer": "We are available 7 days a week from 8:00 AM to 9:00 PM. For urgent cases and IVF injections requiring specific timing, we also offer evening/night visits by arrangement. Call +420 773 629 123 anytime for daily booking."
       },
       "q10": {
         "question": "Do you offer long-term care for disabled patients?",
@@ -331,7 +331,7 @@
   "ivfSupport": {
     "seo": {
       "title": "IVF Support Prague | Injections, Intralipid & NK Cell Treatment",
-      "description": "Professional IVF support in Prague: fertility injections, Intralipid infusions, NK cell treatment, and wellness IV drips at your hotel. English-speaking nurses available 24/7. Trusted by 500+ IVF patients from Reprofit, ISCARE, Gennet.",
+      "description": "Professional IVF support in Prague: fertility injections, Intralipid infusions, NK cell treatment, and wellness IV drips at your hotel. English-speaking nurses available daily 8 AM – 9 PM. Trusted by 500+ IVF patients from Reprofit, ISCARE, Gennet.",
       "keywords": "ivf prague, ivf support prague, ivf injections prague, intralipid prague, nk cell treatment prague, fertility injections prague, ivf nurse prague, reprofit nurse, iscare nurse, gennet nurse"
     },
     "badge": "Trusted IVF Support in Prague",
@@ -342,7 +342,7 @@
     "call247": "Call Us",
     "whatsapp": "WhatsApp Us",
     "trustBadges": {
-      "available": "Daily 8 AM – 8 PM",
+      "available": "Daily 8 AM – 9 PM",
       "nurses": "Licensed Nurses",
       "patients": "500+ IVF Patients",
       "rating": "4.9★ Google Rating"
@@ -423,7 +423,7 @@
         "Medication verification & dosage check",
         "Travel to any location within Prague",
         "Direct coordination with your fertility clinic",
-        "24/7 availability including weekends & holidays"
+        "Daily availability including weekends & holidays"
       ]
     },
     "experience": {
@@ -510,7 +510,7 @@
         },
         {
           "question": "Can you come at 5 AM for a trigger shot?",
-          "answer": "Yes! We offer 24/7 availability specifically because IVF timing demands it. Whether your trigger shot is at 5 AM, 11 PM, or any other time, our nurse will be at your door on time. We've done thousands of early-morning and late-night IVF visits."
+          "answer": "Yes! We're available every day from 8 AM to 9 PM, including weekends and holidays. Early morning or evening IVF visits can be arranged by calling us in advance."
         },
         {
           "question": "Do you work with Prague IVF clinics like Reprofit, ISCARE, Gennet?",
@@ -540,7 +540,7 @@
     },
     "finalCta": {
       "title": "Ready to Book Your IVF Support in Prague?",
-      "description": "Don't stress about injection timing, Intralipid infusions, or finding a nurse in Prague. We're here for you — 24/7, at your location.",
+      "description": "Don't stress about injection timing, Intralipid infusions, or finding a nurse in Prague. We're here for you — every day 8 AM – 9 PM, at your location.",
       "whatsapp": "WhatsApp Us",
       "call": "Call Us",
       "email": "Email Us"
@@ -882,7 +882,7 @@
     "voucher": {
       "title": "Gift Voucher Details",
       "validity": "Valid for 3 months from purchase",
-      "redeemable": "Redeemable any day, 8:00–22:00",
+      "redeemable": "Redeemable any day, 8:00–21:00",
       "transferable": "Fully transferable to another person",
       "personalized": "Add your personal message",
       "instant": "Delivered instantly via email"
@@ -1071,7 +1071,7 @@
     "voucher": {
       "title": "Birthday Gift Voucher Details",
       "validity": "Valid for 3 months from purchase",
-      "redeemable": "Redeemable any day, 8:00–22:00",
+      "redeemable": "Redeemable any day, 8:00–21:00",
       "transferable": "Fully transferable to another person",
       "personalized": "Add your personal birthday message",
       "instant": "Delivered instantly via email"
@@ -1187,7 +1187,7 @@
     "trustBadges": {
       "licensedNurses": "Licensed Nurses",
       "rating": "4.9/5 Rating",
-      "available": "Daily 8 AM – 8 PM",
+      "available": "Daily 8 AM – 9 PM",
       "allDistricts": "All Prague Districts"
     },
     "hero": {
@@ -1214,7 +1214,7 @@
         },
         "availability": {
           "title": "Same-Day Availability",
-          "description": "Available <strong>daily 8 AM – 8 PM</strong>, including weekends and holidays. <strong>Same-day IV drips in Prague</strong> available 365 days a year."
+          "description": "Available <strong>daily 8 AM – 9 PM</strong>, including weekends and holidays. <strong>Same-day IV drips in Prague</strong> available 365 days a year."
         },
         "nurses": {
           "title": "Registered Nurses, Not Technicians",
@@ -1687,7 +1687,7 @@
         },
         "sameDay": {
           "question": "Can I get same-day IV drips in Prague?",
-          "answer": "Yes! We offer <strong>same-day IV drip service in Prague</strong> with typical arrival within 1–3 hours. Available daily 8 AM – 8 PM including weekends and holidays. Book in advance for exact scheduling."
+          "answer": "Yes! We offer <strong>same-day IV drip service in Prague</strong> with typical arrival within 1–3 hours. Available daily 8 AM – 9 PM including weekends and holidays. Book in advance for exact scheduling."
         },
         "districts": {
           "question": "Which Prague districts do you serve?",
@@ -1725,11 +1725,11 @@
       "whatsappBtn": "WhatsApp Booking",
       "bookBtn": "Book Online",
       "emailBtn": "Email Us",
-      "hours": "Available every day 8:00–20:00 • For urgent cases outside hours, please call directly"
+      "hours": "Available every day 8:00–21:00 • For urgent cases outside hours, please call directly"
     },
     "llmSummary": {
       "title": "IV Drip Therapy in Prague — Service Summary",
-      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 8 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (antioxidant & skin glow), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
+      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 9 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (antioxidant & skin glow), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
     },
     "breadcrumbs": {
       "services": "Services",
@@ -1758,7 +1758,7 @@
     "trustBadges": {
       "licensedNurses": "Licensed Nurses",
       "rating": "4.9/5 Rating",
-      "available": "Daily 8 AM – 8 PM",
+      "available": "Daily 8 AM – 9 PM",
       "allDistricts": "All Prague Districts"
     },
     "symptoms": {
@@ -1918,7 +1918,7 @@
       "items": {
         "howFast": {
           "question": "How fast can a nurse arrive?",
-          "answer": "Typically <strong>within 60 minutes</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 8 PM."
+          "answer": "Typically <strong>within 60 minutes</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 9 PM."
         },
         "cost": {
           "question": "How much does a hangover IV drip cost in Prague?",
@@ -1946,7 +1946,7 @@
         },
         "hours": {
           "question": "Can you come at night or on weekends?",
-          "answer": "We're available <strong>daily from 8 AM to 8 PM</strong>, including weekends and holidays. For urgent requests outside these hours, please call us directly and we'll do our best to accommodate."
+          "answer": "We're available <strong>daily from 8 AM to 9 PM</strong>, including weekends and holidays. For urgent requests outside these hours, please call us directly and we'll do our best to accommodate."
         }
       }
     },
@@ -1957,8 +1957,8 @@
       "whatsappBtn": "WhatsApp Booking",
       "bookBtn": "Book Online",
       "emailBtn": "Email Us",
-      "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 8 PM",
-      "hours": "Available every day 8:00–20:00 • For urgent cases outside hours, please call directly"
+      "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 9 PM",
+      "hours": "Available every day 8:00–21:00 • For urgent cases outside hours, please call directly"
     }
   },
   "onboarding": {
@@ -2015,7 +2015,7 @@
       "groups": {
         "morning": "Morning 08:00–12:00",
         "afternoon": "Afternoon 12:00–17:00",
-        "evening": "Evening 17:00–20:00"
+        "evening": "Evening 17:00–21:00"
       }
     },
     "step4": {

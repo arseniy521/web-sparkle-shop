@@ -130,7 +130,7 @@ const IVDripsPrague = () => {
           "latitude": "50.0755",
           "longitude": "14.4378",
         },
-        "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 08:00-20:00",
+        "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 08:00-21:00",
         "medicalSpecialty": ["IV Therapy", "Vitamin Infusion", "Mobile Nursing", "IV Drip Therapy"],
         "availableLanguage": ["en", "cs", "ru", "uk"],
         "aggregateRating": {

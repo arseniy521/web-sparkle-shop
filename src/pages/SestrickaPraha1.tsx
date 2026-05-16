@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 const SestrickaPraha1 = () => {
   const { t } = useTranslation();
   
-  const pageTitle = "Sestřička Praha 1 | Domácí Péče Staré Město & Nové Město 24/7";
+  const pageTitle = "Sestřička Praha 1 | Domácí Péče Staré Město & Nové Město";
   const pageDescription = "Profesionální sestřička v centru Prahy. IV kapačky, injekce a ošetřovatelská péče v Praze 1 - Staré Město, Nové Město, Malá Strana. Rychlý příjezd 1 hodina.";
   
   const neighborhoods = [
@@ -43,7 +43,7 @@ const SestrickaPraha1 = () => {
             "latitude": "50.0875",
             "longitude": "14.4208"
           },
-          "openingHours": "Mo-Su 08:00-22:00",
+          "openingHours": "Mo-Su 08:00-21:00",
           "areaServed": {
             "@type": "Place",
             "name": "Prague 1 - Old Town, New Town, Lesser Town"

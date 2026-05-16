@@ -67,12 +67,12 @@ const Index = () => {
     "priceRange": "1890-2680 CZK",
     "currenciesAccepted": "CZK, EUR",
     "paymentAccepted": ["Cash", "Bank Transfer", "Card"],
-    "openingHours": "Mo-Su 08:00-20:00",
+    "openingHours": "Mo-Su 08:00-21:00",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
       "opens": "08:00",
-      "closes": "20:00"
+      "closes": "21:00"
     },
     "aggregateRating": {
       "@type": "AggregateRating",

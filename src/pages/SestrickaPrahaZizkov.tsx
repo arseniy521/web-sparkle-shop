@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 const SestrickaPrahaZizkov = () => {
   const { t } = useTranslation();
   
-  const pageTitle = "Sestřička Praha Žižkov | Domácí Zdravotní Péče 24/7";
+  const pageTitle = "Sestřička Praha Žižkov | Domácí Zdravotní Péče";
   const pageDescription = "Profesionální sestřička na Žižkově v Praze 3. IV kapačky, injekce, péče o rány a domácí ošetřovatelská péče. Rychlá dostupnost pro Žižkov a okolí.";
   
   const neighborhoods = [
@@ -43,7 +43,7 @@ const SestrickaPrahaZizkov = () => {
             "latitude": "50.0837",
             "longitude": "14.4508"
           },
-          "openingHours": "Mo-Su 08:00-22:00",
+          "openingHours": "Mo-Su 08:00-21:00",
           "areaServed": {
             "@type": "Place",
             "name": "Žižkov, Prague 3"
@@ -227,7 +227,7 @@ const SestrickaPrahaZizkov = () => {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold">24/7 dostupnost</h3>
+                  <h3 className="font-semibold">Denní dostupnost 8–21</h3>
                   <p className="text-sm text-muted-foreground">
                     Naléhavá péče i večerní návštěvy
                   </p>
