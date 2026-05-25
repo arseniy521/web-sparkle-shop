@@ -39,6 +39,7 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "menu": "Menu",
     "workflow": "How It Works",
     "pricing": "Pricing",
     "testimonials": "Reviews",
@@ -2106,5 +2107,122 @@
       "cash": "Cash",
       "bank": "Bank transfer"
     }
+  },
+  "heroNew": {
+    "headline": "at your door.",
+    "eyebrow": "Prague · Same-day arrival",
+    "phrases": ["IV therapy", "IVF injection support", "Post-surgery care", "Hangover recovery", "Jet lag IV drips", "Hydration IV drips"],
+    "subheadline": "Registered nurses with hospital experience delivering IV therapy, IVF injection support, and post-surgery care to your hotel, Airbnb, or home anywhere in Prague.",
+    "ctaPrimary": "Book on WhatsApp",
+    "ctaSecondary": "See services & pricing",
+    "statsVisits": "visits",
+    "statsInternational": "international",
+    "statsSameDay": "Same-day",
+    "statsSameDayLabel": "arrival"
+  },
+  "trustStrip": {
+    "nurses": "Registered nurses only",
+    "sameDay": "Same-day arrival",
+    "international": "EN, RU, CZ speaking",
+    "formulas": "Medical-grade formulas",
+    "screening": "Medical review included"
+  },
+  "partners": {
+    "label": "Trusted partners & referred by"
+  },
+  "whoWeServe": {
+    "eyebrow": "Who we serve",
+    "title": "Built for everyone who can't wait.",
+    "cards": {
+      "international": {
+        "title": "International visitors",
+        "desc": "Medical tourists, business travellers, tourists in Prague's 5-star hotels. 70% of our clients are international.",
+        "bullets": ["Hotel infusions", "Airbnb stays", "Pre/post-flight recovery", "Hangover & dehydration"]
+      },
+      "ivf": {
+        "title": "IVF patients",
+        "desc": "Partnership with Unica Clinic and Formé. Evening injection visits so you can be at home, comfortable, supported.",
+        "bullets": ["Evening IVF visits", "Progesterone, Gonal-F, Menopur", "Intralipid infusions", "Nurse-led training sessions"]
+      },
+      "hotel": {
+        "title": "Luxury hotel guests",
+        "desc": "Concierge-referred service for Mandarin Oriental, Four Seasons, Augustine.",
+        "bullets": ["5-star partnerships", "Concierge referrals", "Same-day booking", "English-speaking nurse"]
+      },
+      "postSurgery": {
+        "title": "Post-surgery recovery",
+        "desc": "Plastic surgery, orthopaedic, cosmetic procedures in Prague — NIUS handles aftercare at your accommodation.",
+        "bullets": ["Wound care", "Drain management", "Patient escorts", "Post-op IV nutrition"]
+      }
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "Simple process",
+    "titleBase": "Four steps,",
+    "titleItalic": "done.",
+    "steps": [
+      { "title": "Choose your service", "desc": "Pick an outcome — Energy, Immunity, IVF, or post-surgery. 2 minutes online or WhatsApp.", "time": "2 minutes" },
+      { "title": "Medical screening", "desc": "Short medical history form. Our nurse reviews before arrival.", "time": "5 minutes" },
+      { "title": "Nurse arrives", "desc": "Registered nurse at your hotel, home, or clinic. All equipment brought to you.", "time": "Same day" },
+      { "title": "Feel it working", "desc": "45–75 min infusion. Most clients feel the effect during the session.", "time": "45–75 min" }
+    ]
+  },
+  "testimonialsNew": {
+    "title": "What clients say",
+    "leaveReview": "Leave us a review on Google",
+    "items": [
+      {
+        "quote": "I was staying at the Mandarin for a conference and felt completely wrecked by day two. NIUS sent a nurse within 45 minutes. By evening I was back in meetings.",
+        "name": "Michael T.",
+        "origin": "London · Business travel, Prague 2024"
+      },
+      {
+        "quote": "As an IVF patient from Germany, giving myself injections alone in a hotel room was terrifying. NIUS came every evening during my cycle. It changed everything.",
+        "name": "Anna K.",
+        "origin": "Munich · IVF support, Unica Clinic"
+      },
+      {
+        "quote": "Post-rhinoplasty, I needed someone to change my dressings every day. My surgeon recommended NIUS. Professional, quiet, completely reliable.",
+        "name": "Yasmin R.",
+        "origin": "Dubai · Post-surgery care, Prague 2025"
+      }
+    ]
+  },
+  "serviceArea": {
+    "title": "Service area",
+    "responseTitle": "Response time",
+    "responseDesc": "Usually 2–4 hours same-day across all Prague."
+  },
+  "finalCta": {
+    "eyebrow": "Ready when you are",
+    "titleBase": "Book tonight.",
+    "titleItalic": "Feel better by morning.",
+    "sub": "No clinic. No waiting room. Your nurse arrives the same day.",
+    "ctaPrimary": "Book via WhatsApp",
+    "ctaSecondary": "Email us — hello@nius.cz",
+    "trustLine": "Available 7 days · Prague city centre & surroundings · English · Russian · Czech"
+  },
+  "faqNew": {
+    "title": "Frequently asked",
+    "items": [
+      { "q": "Do I need a prescription for IV therapy?", "a": "No prescription is needed. Our nurse conducts a medical screening before every infusion to ensure safety." },
+      { "q": "How fast can a nurse arrive?", "a": "Same-day booking available 7 days a week, 8:00–21:00. We confirm arrival time after your booking." },
+      { "q": "What qualifications do your nurses have?", "a": "All nurses are registered and certified with hospital-grade training. They carry full medical equipment." },
+      { "q": "Can I get an IV drip at my hotel?", "a": "Yes. We visit all Prague hotels including 5-star properties. Many concierge teams refer us directly." },
+      { "q": "How long does an infusion take?", "a": "Most infusions take 35–75 minutes depending on the drip. Your nurse stays the entire time." },
+      { "q": "Do you support IVF patients?", "a": "Yes. We partner with Unica Clinic and Formé. Evening injection visits for progesterone, Gonal-F, Menopur, and intralipid infusions." },
+      { "q": "What payment methods do you accept?", "a": "Cash, bank transfer, and card payment. EUR accepted at current rate." },
+      { "q": "Is there a minimum booking?", "a": "No minimum. Single visits, bundles, and monthly subscriptions are all available." }
+    ]
+  },
+  "footerNew": {
+    "tagline": "Registered nurses delivering IV therapy, IVF support, and post-surgery care anywhere in Prague.",
+    "services": "Services",
+    "forPartners": "For partners",
+    "partnerHotels": "Hotels",
+    "partnerIVF": "IVF clinics",
+    "partnerSurgery": "Plastic surgery",
+    "partnerCorporate": "Corporate wellness",
+    "company": "Company"
   }
 }

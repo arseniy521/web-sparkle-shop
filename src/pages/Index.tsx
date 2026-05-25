@@ -1,22 +1,21 @@
-import { Hero } from "@/components/Hero";
-import { Services } from "@/components/Services";
-import { Workflow } from "@/components/Workflow";
-import { Benefits } from "@/components/Benefits";
-import { Team } from "@/components/Team";
-import { Pricing } from "@/components/Pricing";
-import { Testimonials } from "@/components/Testimonials";
-import { Location } from "@/components/Location";
-import { Contacts } from "@/components/Contacts";
-import { FAQ } from "@/components/FAQ";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { StickyBookNow } from "@/components/StickyBookNow";
+import { NavBar } from "@/components/NavBar";
+import { HeroNew } from "@/components/HeroNew";
+import { TrustStrip } from "@/components/TrustStrip";
+import { Partners } from "@/components/Partners";
+import { MenuSection } from "@/components/MenuSection";
+import { WhoWeServe } from "@/components/WhoWeServe";
+import { HowItWorks } from "@/components/HowItWorks";
+import { TestimonialsNew } from "@/components/TestimonialsNew";
+import { ServiceArea } from "@/components/ServiceArea";
+import { FinalCTA } from "@/components/FinalCTA";
+import { FAQNew } from "@/components/FAQNew";
+import { FooterNew } from "@/components/FooterNew";
 import { SEO } from "@/components/SEO";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
   const { t } = useTranslation();
-  
+
   const enhancedSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
@@ -64,7 +63,7 @@ const Index = () => {
     },
     "telephone": "+420773629123",
     "email": "info@nius.cz",
-    "priceRange": "1890-2680 CZK",
+    "priceRange": "1650-6450 CZK",
     "currenciesAccepted": "CZK, EUR",
     "paymentAccepted": ["Cash", "Bank Transfer", "Card"],
     "openingHours": "Mo-Su 08:00-21:00",
@@ -151,7 +150,7 @@ const Index = () => {
       "name": "Nurse in Prague",
       "legalName": "Nius Services s.r.o.",
       "url": "https://www.nius.cz/",
-      "logo": "https://www.nius.cz/favicon.png",
+      "logo": "https://www.nius.cz/brand/logo-mark-dark.svg",
       "foundingDate": "2024",
       "founders": [{ "@type": "Person", "name": "Nigina Jebrak" }],
       "address": {
@@ -175,29 +174,28 @@ const Index = () => {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <SEO 
+    <div className="flex min-h-screen flex-col" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <SEO
         title={t('seo.home.title')}
         description={t('seo.home.description')}
         ogImage="https://www.nius.cz/og-image.jpg"
         schema={schemaArray}
         keywords={t('seo.home.keywords')}
       />
-      <Header />
-      <main role="main">
-        <Hero />
-        <Services />
-        <Workflow />
-        <Benefits />
-        <Team />
-        <Pricing />
-        <Testimonials />
-        <Location />
-        <Contacts />
-        <FAQ />
+      <NavBar />
+      <main role="main" id="main-content">
+        <HeroNew />
+        <TrustStrip />
+        <Partners />
+        <MenuSection />
+        <WhoWeServe />
+        <HowItWorks />
+        <TestimonialsNew />
+        <ServiceArea />
+        <FinalCTA />
+        <FAQNew />
       </main>
-      <Footer />
-      <StickyBookNow />
+      <FooterNew />
     </div>
   );
 };

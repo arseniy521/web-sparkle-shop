@@ -39,6 +39,7 @@
   "nav": {
     "home": "Domů",
     "services": "Služby",
+    "menu": "Menu",
     "workflow": "Jak to funguje",
     "pricing": "Ceník",
     "testimonials": "Recenze",
@@ -2106,5 +2107,122 @@
       "cash": "Hotově",
       "bank": "Bankovní převod"
     }
+  },
+  "heroNew": {
+    "headline": "u vašich dveří.",
+    "eyebrow": "Praha · Příjezd ve stejný den",
+    "phrases": ["IV terapie", "IVF injekce", "Pooperační péče", "Pomoc s kocovinou", "Jet lag kapačky", "Hydratační kapačky"],
+    "subheadline": "Registrované sestry s nemocniční praxí doručují IV kapačky, podporu IVF a pooperační péči k vám do hotelu, bytu Airbnb nebo domů — kdekoli v Praze.",
+    "ctaPrimary": "Objednat přes WhatsApp",
+    "ctaSecondary": "Služby a ceník",
+    "statsVisits": "návštěv",
+    "statsInternational": "mezinárodní klienti",
+    "statsSameDay": "Stejný den",
+    "statsSameDayLabel": "příjezd"
+  },
+  "trustStrip": {
+    "nurses": "Pouze registrované sestry",
+    "sameDay": "Příjezd ve stejný den",
+    "international": "EN, RU, CZ komunikace",
+    "formulas": "Lékařské preparáty",
+    "screening": "Lékařská kontrola"
+  },
+  "partners": {
+    "label": "Důvěřují nám a doporučují nás"
+  },
+  "whoWeServe": {
+    "eyebrow": "Pro koho jsme",
+    "title": "Pro každého, kdo nemůže čekat.",
+    "cards": {
+      "international": {
+        "title": "Mezinárodní návštěvníci",
+        "desc": "Zdravotní turisté, obchodní cestovatelé, hosté pražských 5hvězdičkových hotelů. 70 % klientů je ze zahraničí.",
+        "bullets": ["Hotelové infuze", "Airbnb pobyty", "Regenerace po letu", "Kocovina a dehydratace"]
+      },
+      "ivf": {
+        "title": "IVF pacientky",
+        "desc": "Spolupráce s klinikami Unica a Formé. Večerní aplikace injekcí, abyste mohly být doma, v pohodlí.",
+        "bullets": ["Večerní IVF návštěvy", "Progesteron, Gonal-F, Menopur", "Intralipidové infuze", "Školení s sestrou"]
+      },
+      "hotel": {
+        "title": "Hosté luxusních hotelů",
+        "desc": "Služba doporučovaná concierge v Mandarin Oriental, Four Seasons, Augustine.",
+        "bullets": ["5hvězdičková partnerství", "Doporučení od concierge", "Objednání ve stejný den", "Anglicky mluvící sestra"]
+      },
+      "postSurgery": {
+        "title": "Pooperační péče",
+        "desc": "Plastická chirurgie, ortopedie, estetické zákroky v Praze — NIUS zajistí následnou péči ve vašem ubytování.",
+        "bullets": ["Péče o rány", "Správa drénů", "Doprovod pacientů", "Pooperační IV výživa"]
+      }
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "Jednoduchý proces",
+    "titleBase": "Čtyři kroky,",
+    "titleItalic": "hotovo.",
+    "steps": [
+      { "title": "Vyberte službu", "desc": "Zvolte cíl — Energie, Imunita, IVF nebo pooperační péče. 2 minuty online nebo WhatsApp.", "time": "2 minuty" },
+      { "title": "Zdravotní screening", "desc": "Krátký dotazník zdravotní historie. Sestra zkontroluje před příjezdem.", "time": "5 minut" },
+      { "title": "Sestra dorazí", "desc": "Registrovaná sestra u vás v hotelu, doma nebo na klinice. Veškeré vybavení s sebou.", "time": "Do 60 min" },
+      { "title": "Pocítíte účinek", "desc": "45–75 min infuze. Většina klientů cítí efekt již během procedury.", "time": "45–75 min" }
+    ]
+  },
+  "testimonialsNew": {
+    "title": "Co říkají klienti",
+    "leaveReview": "Zanechte nám recenzi na Google",
+    "items": [
+      {
+        "quote": "Byl jsem na konferenci v Mandarin a druhý den jsem byl úplně vyčerpaný. NIUS poslal sestru za 45 minut. Večer jsem byl zpět na jednáních.",
+        "name": "Michael T.",
+        "origin": "Londýn · Obchodní cesta, Praha 2024"
+      },
+      {
+        "quote": "Jako IVF pacientka z Německa mě děsilo píchat si injekce sama v hotelovém pokoji. NIUS přijížděl každý večer během mého cyklu. Změnilo mi to život.",
+        "name": "Anna K.",
+        "origin": "Mnichov · IVF podpora, klinika Unica"
+      },
+      {
+        "quote": "Po rhinoplastice jsem potřebovala každodenní převazy. Můj chirurg doporučil NIUS. Profesionální, klidní, naprosto spolehliví.",
+        "name": "Yasmin R.",
+        "origin": "Dubaj · Pooperační péče, Praha 2025"
+      }
+    ]
+  },
+  "serviceArea": {
+    "title": "Oblast služeb",
+    "responseTitle": "Doba příjezdu",
+    "responseDesc": "Obvykle 2–4 hodiny ve stejný den po celé Praze. 60minutový příjezd v centru."
+  },
+  "finalCta": {
+    "eyebrow": "Připraveni, kdy potřebujete",
+    "titleBase": "Objednejte dnes.",
+    "titleItalic": "Ráno se budete cítit lépe.",
+    "sub": "Žádná klinika. Žádná čekárna. Vaše sestra dorazí za 60 minut.",
+    "ctaPrimary": "Objednat přes WhatsApp",
+    "ctaSecondary": "Napište nám — hello@nius.cz",
+    "trustLine": "K dispozici 7 dní · Praha a okolí · Anglicky · Rusky · Česky"
+  },
+  "faqNew": {
+    "title": "Časté dotazy",
+    "items": [
+      { "q": "Potřebuji recept na IV terapii?", "a": "Ne, recept není potřeba. Naše sestra provede zdravotní screening před každou infuzí." },
+      { "q": "Jak rychle může sestra dorazit?", "a": "Obvykle do 60 minut v centru Prahy. Objednání ve stejný den je k dispozici 7 dní v týdnu, 8:00–21:00." },
+      { "q": "Jakou kvalifikaci mají vaše sestry?", "a": "Všechny sestry jsou registrované a certifikované s nemocniční praxí. Mají kompletní zdravotnické vybavení." },
+      { "q": "Mohu dostat kapačku v hotelu?", "a": "Ano. Navštěvujeme všechny pražské hotely včetně 5hvězdičkových. Mnohé concierge týmy nás přímo doporučují." },
+      { "q": "Jak dlouho trvá infuze?", "a": "Většina infuzí trvá 35–75 minut podle typu kapačky. Sestra zůstává po celou dobu." },
+      { "q": "Podporujete IVF pacientky?", "a": "Ano. Spolupracujeme s klinikami Unica a Formé. Večerní aplikace progesteronu, Gonal-F, Menopuru a intralipidových infuzí." },
+      { "q": "Jaké platební metody přijímáte?", "a": "Hotovost, bankovní převod a platba kartou. EUR přijímáme v aktuálním kurzu." },
+      { "q": "Je minimální objednávka?", "a": "Žádné minimum. Jednorázové návštěvy, balíčky i měsíční předplatné." }
+    ]
+  },
+  "footerNew": {
+    "tagline": "Registrované sestry doručují IV terapii, IVF podporu a pooperační péči kamkoli v Praze.",
+    "services": "Služby",
+    "forPartners": "Pro partnery",
+    "partnerHotels": "Hotely",
+    "partnerIVF": "IVF kliniky",
+    "partnerSurgery": "Plastická chirurgie",
+    "partnerCorporate": "Firemní wellness",
+    "company": "Společnost"
   }
 }
