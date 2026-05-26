@@ -84,11 +84,11 @@ export const HeroNew = () => {
           {/* Right column — hero video */}
           <div className="relative hidden lg:flex justify-center">
             <video
-              src="/photos/hero-video.mp4"
               autoPlay
               muted
               loop
               playsInline
+              preload="metadata"
               poster="/photos/hero-iv-bag.png"
               className="rounded-lg object-cover"
               style={{
@@ -96,7 +96,10 @@ export const HeroNew = () => {
                 aspectRatio: '3/4',
                 boxShadow: '0 24px 60px rgba(21,63,77,0.12)',
               }}
-            />
+              aria-label="Nurse preparing an IV drip for a patient"
+            >
+              <source src="/photos/hero-video.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
 

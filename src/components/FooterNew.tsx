@@ -68,9 +68,14 @@ export const FooterNew = () => {
           <span className="text-[11px] font-body" style={{ color: 'rgba(255,255,255,0.4)' }}>
             {t('footerNew.copyright')}
           </span>
-          <span className="text-[11px] font-body" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            IČO: 21908494 · info@nius.cz
-          </span>
+          <div className="flex items-center gap-3">
+            <Link to={`${langPrefix}/privacy/`} className="text-[11px] font-body" style={{ color: 'rgba(255,255,255,0.4)' }}>
+              Privacy Policy
+            </Link>
+            <span className="text-[11px] font-body" style={{ color: 'rgba(255,255,255,0.4)' }}>
+              IČO: 21908494 · info@nius.cz
+            </span>
+          </div>
         </div>
       </div>
     </footer>

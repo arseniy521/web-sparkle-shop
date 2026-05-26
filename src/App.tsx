@@ -20,6 +20,8 @@ import BirthdayGift from "./pages/BirthdayGift";
 import HangoverIVDripPrague from "./pages/HangoverIVDripPrague";
 import IVDripHotelPrague from "./pages/IVDripHotelPrague";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import { CookieConsent } from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <CookieConsent />
           <Routes>
             {/* Czech (default) */}
             <Route path="/" element={<LanguageWrapper language="cs"><Index /></LanguageWrapper>} />
@@ -105,6 +108,12 @@ const App = () => (
             <Route path="/en/ivf-injection-support-prague" element={<Navigate to="/en/ivf-support-prague/" replace />} />
             <Route path="/ru/ivf-injection-support-prague" element={<Navigate to="/ru/ivf-support-prague/" replace />} />
             <Route path="/uk/ivf-injection-support-prague" element={<Navigate to="/uk/ivf-support-prague/" replace />} />
+
+            {/* Privacy Policy */}
+            <Route path="/privacy" element={<LanguageWrapper language="cs"><PrivacyPolicy /></LanguageWrapper>} />
+            <Route path="/en/privacy" element={<LanguageWrapper language="en"><PrivacyPolicy /></LanguageWrapper>} />
+            <Route path="/ru/privacy" element={<LanguageWrapper language="ru"><PrivacyPolicy /></LanguageWrapper>} />
+            <Route path="/uk/privacy" element={<LanguageWrapper language="uk"><PrivacyPolicy /></LanguageWrapper>} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
