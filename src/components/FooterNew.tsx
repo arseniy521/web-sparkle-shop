@@ -10,7 +10,7 @@ export const FooterNew = () => {
   const langPrefix = getLanguagePrefix(currentLang);
 
   return (
-    <footer style={{ backgroundColor: 'var(--color-indigo)' }} className="py-16 pb-10 relative overflow-hidden">
+    <footer style={{ backgroundColor: 'var(--color-indigo)' }} className="py-16 pb-24 relative overflow-hidden">
       <img
         src="/brand/logo-mark-light.svg"
         alt=""

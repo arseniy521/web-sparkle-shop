@@ -14,9 +14,9 @@ export const TrustStrip = () => {
   return (
     <section style={{ backgroundColor: 'var(--color-indigo)' }} className="py-5 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="flex flex-wrap md:flex-nowrap items-center justify-between gap-4 md:gap-0">
+        <div className="flex items-center gap-6 md:gap-0 md:justify-between overflow-x-auto scrollbar-hide">
           {items.map((item, i) => (
-            <div key={i} className="flex items-center gap-3 flex-1 min-w-0 justify-center">
+            <div key={i} className="flex items-center gap-3 flex-shrink-0">
               {i > 0 && (
                 <div className="hidden md:block w-px h-8 flex-shrink-0 -ml-4 mr-4" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
               )}

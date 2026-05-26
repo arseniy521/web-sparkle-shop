@@ -1,6 +1,6 @@
 export const MenuSection = () => {
   return (
-    <section id="menu" className="py-16 md:py-24" style={{ padding: '100px 48px', background: 'var(--color-bg)' }}>
+    <section id="menu" className="py-16 md:py-24 px-4 md:px-12" style={{ background: 'var(--color-bg)' }}>
       <nius-menu section="menu"></nius-menu>
       {/* SEO fallback: crawlable text for search engines (hidden from users) */}
       <div className="sr-only" aria-hidden="true">
@@ -60,7 +60,7 @@ export const MenuSection = () => {
 
 export const BundlesSection = () => {
   return (
-    <section id="bundles" className="py-16 md:py-24" style={{ padding: '48px 48px', background: 'var(--color-bg)' }}>
+    <section id="bundles" className="py-8 md:py-16 px-4 md:px-12" style={{ background: 'var(--color-bg)' }}>
       <nius-menu section="packages"></nius-menu>
     </section>
   );
@@ -68,7 +68,7 @@ export const BundlesSection = () => {
 
 export const SubscriptionSection = () => {
   return (
-    <section id="membership" className="py-16 md:py-24" style={{ padding: '100px 48px', background: 'var(--color-bg)' }}>
+    <section id="membership" className="py-16 md:py-24 px-4 md:px-12" style={{ background: 'var(--color-bg)' }}>
       <nius-menu section="subscription"></nius-menu>
     </section>
   );

@@ -22,7 +22,7 @@ export const HeroNew = () => {
   return (
     <section id="home" className="relative py-16 md:py-24 lg:py-32 overflow-hidden" style={{ background: 'var(--color-bg)' }}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-[60%_40%] gap-12 items-center">
+        <div className="grid md:grid-cols-[60%_40%] gap-12 items-center">
           {/* Left column */}
           <div className="space-y-6">
             {/* Eyebrow */}
@@ -79,7 +79,7 @@ export const HeroNew = () => {
           </div>
 
           {/* Right column — hero image */}
-          <div className="relative hidden lg:flex justify-center">
+          <div className="relative hidden md:flex justify-center">
             <img
               src="/photos/hero-iv-bag.webp"
               alt="NIUS branded IV drip bag"
