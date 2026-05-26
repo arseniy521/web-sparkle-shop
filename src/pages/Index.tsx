@@ -1,19 +1,21 @@
+import { lazy, Suspense } from "react";
 import { NavBar } from "@/components/NavBar";
 import { HeroNew } from "@/components/HeroNew";
 import { TrustStrip } from "@/components/TrustStrip";
 import { Partners } from "@/components/Partners";
-import { MenuSection, SubscriptionSection } from "@/components/MenuSection";
+import { MenuSection, BundlesSection, SubscriptionSection } from "@/components/MenuSection";
 import { MobileStickyBar } from "@/components/MobileStickyBar";
 import { WhoWeServe } from "@/components/WhoWeServe";
 import { HowItWorks } from "@/components/HowItWorks";
 import { OurNurses } from "@/components/OurNurses";
-import { TestimonialsNew } from "@/components/TestimonialsNew";
-import { ServiceArea } from "@/components/ServiceArea";
-import { FinalCTA } from "@/components/FinalCTA";
-import { FAQNew } from "@/components/FAQNew";
 import { FooterNew } from "@/components/FooterNew";
 import { SEO } from "@/components/SEO";
 import { useTranslation } from "react-i18next";
+
+const TestimonialsNew = lazy(() => import("@/components/TestimonialsNew").then(m => ({ default: m.TestimonialsNew })));
+const ServiceArea = lazy(() => import("@/components/ServiceArea").then(m => ({ default: m.ServiceArea })));
+const FinalCTA = lazy(() => import("@/components/FinalCTA").then(m => ({ default: m.FinalCTA })));
+const FAQNew = lazy(() => import("@/components/FAQNew").then(m => ({ default: m.FAQNew })));
 
 const Index = () => {
   const { t } = useTranslation();
@@ -78,7 +80,7 @@ const Index = () => {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "11",
+      "reviewCount": "6",
       "bestRating": "5",
       "worstRating": "4"
     },
@@ -221,11 +223,14 @@ const Index = () => {
         <WhoWeServe />
         <HowItWorks />
         <OurNurses />
+        <BundlesSection />
         <SubscriptionSection />
-        <TestimonialsNew />
-        <ServiceArea />
-        <FinalCTA />
-        <FAQNew />
+        <Suspense fallback={null}>
+          <TestimonialsNew />
+          <ServiceArea />
+          <FinalCTA />
+          <FAQNew />
+        </Suspense>
         <MobileStickyBar />
       </main>
       <FooterNew />

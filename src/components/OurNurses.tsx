@@ -11,7 +11,7 @@ export const OurNurses = () => {
   const langPrefix = getLanguagePrefix(currentLang);
 
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="our-nurses" className="py-16 md:py-24" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-[45%_55%] gap-12 items-center">
           {/* Left — portrait */}

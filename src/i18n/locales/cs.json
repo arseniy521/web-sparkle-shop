@@ -47,7 +47,9 @@
     "contacts": "Kontakty",
     "bookNow": "Rezervovat",
     "blog": "Blog",
-    "allServices": "Všechny služby"
+    "allServices": "Všechny služby",
+    "servicesPricing": "Služby a ceník",
+    "ourNurses": "Naše sestry"
   },
   "hero": {
     "phrases": {
@@ -1225,7 +1227,7 @@
         },
         "location": {
           "title": "Přijedeme na JAKÉKOLI místo",
-          "description": "Hotely (Four Seasons, Mandarin Oriental atd.), Airbnb, soukromé byty, kanceláře. Obsluhujeme <strong>všechny pražské obvody</strong> do 20 km od centra."
+          "description": "Hotely (Four Seasons, Hilton atd.), Airbnb, soukromé byty, kanceláře. Obsluhujeme <strong>všechny pražské obvody</strong> do 20 km od centra."
         },
         "rating": {
           "title": "Hodnocení pacientů 4.9★",
@@ -1670,7 +1672,7 @@
         },
         "hotels": {
           "question": "Přijedete do hotelů v Praze?",
-          "answer": "Samozřejmě! Poskytujeme <strong>mobilní IV kapačky v hotelech, Airbnb, soukromých bytech a kancelářích</strong> po celé Praze. Oblíbené hotely: Four Seasons, Mandarin Oriental, Hilton, jakýkoli hotel v Praze 1, Vinohradech, Starém Městě a dalších obvodech."
+          "answer": "Samozřejmě! Poskytujeme <strong>mobilní IV kapačky v hotelech, Airbnb, soukromých bytech a kancelářích</strong> po celé Praze. Oblíbené hotely: Four Seasons, Hilton, jakýkoli hotel v Praze 1, Vinohradech, Starém Městě a dalších obvodech."
         },
         "hangover": {
           "question": "Jaká je nejlepší IV kapačka na kocovinu?",
@@ -1893,7 +1895,7 @@
     },
     "whereWeCome": {
       "title": "Přijedeme kamkoli v Praze",
-      "description": "Obsluhujeme celou Prahu — <strong>Staré Město, Nové Město, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong> a všechny hlavní hotely včetně Four Seasons, Mandarin Oriental, Hilton a stovek dalších. Ať jste kdekoli, přijedeme za vámi."
+      "description": "Obsluhujeme celou Prahu — <strong>Staré Město, Nové Město, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong> a všechny hlavní hotely včetně Four Seasons, Hilton a stovek dalších. Ať jste kdekoli, přijedeme za vámi."
     },
     "testimonials": {
       "title": "Co říkají naši klienti",
@@ -2109,21 +2111,16 @@
     }
   },
   "heroNew": {
-    "headline": "u vašich dveří.",
-    "eyebrow": "Praha · Příjezd ve stejný den",
-    "phrases": ["IV terapie", "IVF injekce", "Pooperační péče", "Pomoc s kocovinou", "Jet lag kapačky", "Hydratační kapačky"],
+    "headline": "Registrovaná sestra u vašich dveří ještě dnes.",
+    "eyebrow": "K dispozici nyní v Praze",
+    "services": ["IV kapačky", "IVF podpora", "Pooperační péče", "Pomoc s kocovinou"],
     "subheadline": "Registrované sestry s nemocniční praxí doručují IV kapačky, podporu IVF a pooperační péči k vám do hotelu, bytu Airbnb nebo domů — kdekoli v Praze.",
     "ctaPrimary": "Objednat přes WhatsApp",
     "ctaSecondary": "Služby a ceník",
     "statsVisits": "návštěv",
     "statsInternational": "mezinárodní klienti",
     "statsSameDay": "Stejný den",
-    "statsSameDayLabel": "příjezd",
-    "card1Status": "K dispozici",
-    "card1Badge": "Dnes večer",
-    "card2Status": "IVF podpora",
-    "card2Title": "Večerní aplikace injekce",
-    "card2Badge": "Partner kliniky"
+    "statsSameDayLabel": "příjezd"
   },
   "trustStrip": {
     "nurses": "Pouze registrované sestry",
@@ -2153,7 +2150,7 @@
       },
       "hotel": {
         "title": "Hosté luxusních hotelů",
-        "desc": "Služba doporučovaná concierge v Mandarin Oriental, Four Seasons, Augustine.",
+        "desc": "Služba doporučovaná concierge v Four Seasons, Augustine.",
         "bullets": ["5hvězdičková partnerství", "Doporučení od concierge", "Objednání ve stejný den", "Anglicky mluvící sestra"]
       },
       "postSurgery": {

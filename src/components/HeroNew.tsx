@@ -6,25 +6,18 @@ export const HeroNew = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const phrases = useMemo(() => [
-    t('heroNew.phrases.0'),
-    t('heroNew.phrases.1'),
-    t('heroNew.phrases.2'),
-    t('heroNew.phrases.3'),
-    t('heroNew.phrases.4'),
-    t('heroNew.phrases.5'),
-  ], [t]);
+  const services = useMemo(() => t('heroNew.services', { returnObjects: true }) as string[], [t]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIsAnimating(true);
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % phrases.length);
+        setCurrentIndex((prev) => (prev + 1) % services.length);
         setIsAnimating(false);
       }, 300);
     }, 3000);
     return () => clearInterval(interval);
-  }, [phrases.length]);
+  }, [services.length]);
 
   return (
     <section id="home" className="relative py-16 md:py-24 lg:py-32 overflow-hidden" style={{ background: 'var(--color-bg)' }}>
@@ -34,22 +27,26 @@ export const HeroNew = () => {
           <div className="space-y-6">
             {/* Eyebrow */}
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full animate-pulse-dot" style={{ backgroundColor: 'var(--color-indigo)' }} />
+              <span className="w-2 h-2 rounded-full animate-pulse-dot" style={{ backgroundColor: '#22c55e' }} />
               <span className="text-sm font-body font-medium" style={{ color: 'var(--color-text-secondary)' }}>
                 {t('heroNew.eyebrow')}
               </span>
             </div>
 
-            {/* H1 with rotating phrase */}
-            <h1 className="font-display font-bold leading-[1.05]" style={{ fontSize: 'clamp(40px, 5vw, 72px)' }}>
-              <span
-                className={`block transition-all duration-300 ${isAnimating ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`}
-                style={{ color: 'var(--color-indigo)', fontWeight: 700 }}
-              >
-                {phrases[currentIndex]}
-              </span>
-              <span style={{ color: 'var(--color-indigo)' }}>{t('heroNew.headline')}</span>
+            {/* H1 — static headline */}
+            <h1 className="font-display font-bold leading-[1.05]" style={{ fontSize: 'clamp(40px, 5vw, 72px)', color: 'var(--color-indigo)' }}>
+              {t('heroNew.headline')}
             </h1>
+
+            {/* Rotating services */}
+            <div className="h-8 overflow-hidden">
+              <span
+                className={`block text-lg font-body font-medium transition-all duration-300 ${isAnimating ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {services[currentIndex]}
+              </span>
+            </div>
 
             {/* Sub-headline */}
             <p className="font-body text-base md:text-lg max-w-[480px]" style={{ color: 'var(--color-text-secondary)' }}>
@@ -81,25 +78,18 @@ export const HeroNew = () => {
             </div>
           </div>
 
-          {/* Right column — hero video */}
+          {/* Right column — hero image */}
           <div className="relative hidden lg:flex justify-center">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster="/photos/hero-iv-bag.png"
+            <img
+              src="/photos/hero-iv-bag.webp"
+              alt="NIUS branded IV drip bag"
               className="rounded-lg object-cover"
               style={{
                 maxHeight: '600px',
                 aspectRatio: '3/4',
                 boxShadow: '0 24px 60px rgba(21,63,77,0.12)',
               }}
-              aria-label="Nurse preparing an IV drip for a patient"
-            >
-              <source src="/photos/hero-video.mp4" type="video/mp4" />
-            </video>
+            />
           </div>
         </div>
 

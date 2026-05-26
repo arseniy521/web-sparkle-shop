@@ -51,10 +51,10 @@ export const NavBar = () => {
   const isHomePage = location.pathname === "/" || location.pathname === `${langPrefix}/` || location.pathname === langPrefix;
 
   const navLinks = [
-    { href: "#menu", label: t('nav.menu') },
+    { href: "#menu", label: t('nav.servicesPricing') },
     { href: "#how-it-works", label: t('nav.workflow') },
+    { href: "#our-nurses", label: t('nav.ourNurses') },
     { href: "#testimonials", label: t('nav.testimonials') },
-    { href: `${langPrefix}/blog/`, label: "Blog", isPage: true },
   ];
 
   const langLabels: Record<string, string> = { cs: 'CZ', en: 'EN', ru: 'RU', uk: 'УКР' };
@@ -93,14 +93,7 @@ export const NavBar = () => {
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href + link.label}>
-              {link.isPage ? (
-                <Link
-                  to={link.href}
-                  className="text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ) : isHomePage ? (
+              {isHomePage ? (
                 <a
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
@@ -173,15 +166,7 @@ export const NavBar = () => {
           <ul className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <li key={link.href + link.label}>
-                {link.isPage ? (
-                  <Link
-                    to={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-2 text-sm font-medium font-body text-[var(--color-text-secondary)]"
-                  >
-                    {link.label}
-                  </Link>
-                ) : isHomePage ? (
+                {isHomePage ? (
                   <a
                     href={link.href}
                     onClick={(e) => { e.preventDefault(); scrollToSection(link.href); setIsMobileMenuOpen(false); }}

@@ -47,7 +47,9 @@
     "contacts": "Contacts",
     "bookNow": "Book Now",
     "blog": "Blog",
-    "allServices": "All Services"
+    "allServices": "All Services",
+    "servicesPricing": "Services & Pricing",
+    "ourNurses": "Our Nurses"
   },
   "hero": {
     "phrases": {
@@ -1225,7 +1227,7 @@
         },
         "location": {
           "title": "We Come to ANY Location",
-          "description": "Hotels (Four Seasons, Mandarin Oriental, etc.), Airbnbs, private homes, offices. Serving <strong>all Prague districts</strong> within 20km of city center."
+          "description": "Hotels (Four Seasons, etc.), Airbnbs, private homes, offices. Serving <strong>all Prague districts</strong> within 20km of city center."
         },
         "rating": {
           "title": "4.9★ Patient Rating",
@@ -1670,7 +1672,7 @@
         },
         "hotels": {
           "question": "Do you come to hotels in Prague?",
-          "answer": "Absolutely! We provide <strong>mobile IV drips at hotels, Airbnbs, private homes, and offices</strong> throughout Prague. Popular hotels: Four Seasons, Mandarin Oriental, Hilton, any hotel in Prague 1, Vinohrady, Old Town, and beyond."
+          "answer": "Absolutely! We provide <strong>mobile IV drips at hotels, Airbnbs, private homes, and offices</strong> throughout Prague. Popular hotels: Four Seasons, Hilton, any hotel in Prague 1, Vinohrady, Old Town, and beyond."
         },
         "hangover": {
           "question": "What's the best IV drip for hangovers?",
@@ -1893,7 +1895,7 @@
     },
     "whereWeCome": {
       "title": "We Come to You — Anywhere in Prague",
-      "description": "We serve all of Prague — <strong>Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong>, and all major hotels including Four Seasons, Mandarin Oriental, Hilton, and hundreds more. Wherever you're staying, we'll be there."
+      "description": "We serve all of Prague — <strong>Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong>, and all major hotels including Four Seasons, Hilton, and hundreds more. Wherever you're staying, we'll be there."
     },
     "testimonials": {
       "title": "What Our Clients Say",
@@ -2109,21 +2111,16 @@
     }
   },
   "heroNew": {
-    "headline": "at your door.",
-    "eyebrow": "Prague · Same-day arrival",
-    "phrases": ["IV therapy", "IVF injection support", "Post-surgery care", "Hangover recovery", "Jet lag IV drips", "Hydration IV drips"],
+    "headline": "Registered nurse at your door, same day.",
+    "eyebrow": "Available now in Prague",
+    "services": ["IV drips", "IVF support", "Post-surgery care", "Hangover recovery"],
     "subheadline": "Registered nurses with hospital experience delivering IV therapy, IVF injection support, and post-surgery care to your hotel, Airbnb, or home anywhere in Prague.",
     "ctaPrimary": "Book on WhatsApp",
     "ctaSecondary": "See services & pricing",
     "statsVisits": "visits",
     "statsInternational": "international",
     "statsSameDay": "Same-day",
-    "statsSameDayLabel": "arrival",
-    "card1Status": "Available now",
-    "card1Badge": "Tonight",
-    "card2Status": "IVF Support",
-    "card2Title": "Evening injection visit",
-    "card2Badge": "Clinic partner"
+    "statsSameDayLabel": "arrival"
   },
   "trustStrip": {
     "nurses": "Registered nurses only",
@@ -2153,7 +2150,7 @@
       },
       "hotel": {
         "title": "Luxury hotel guests",
-        "desc": "Concierge-referred service for Mandarin Oriental, Four Seasons, Augustine.",
+        "desc": "Concierge-referred service for Four Seasons, Augustine.",
         "bullets": ["5-star partnerships", "Concierge referrals", "Same-day booking", "English-speaking nurse"]
       },
       "postSurgery": {

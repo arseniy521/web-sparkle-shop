@@ -57,7 +57,7 @@ export const TestimonialsNew = () => {
               {/* Stars */}
               <div className="flex gap-0.5 mb-3">
                 {[...Array(5)].map((_, j) => (
-                  <svg key={j} width="14" height="14" viewBox="0 0 16 16" fill="#FBBC05">
+                  <svg key={j} width="14" height="14" viewBox="0 0 16 16" fill="#153f4d">
                     <path d="M8 0l2.47 4.94L16 5.82l-4 3.86.94 5.46L8 12.77l-4.94 2.37.94-5.46-4-3.86 5.53-.88z" />
                   </svg>
                 ))}

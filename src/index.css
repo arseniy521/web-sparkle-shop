@@ -100,3 +100,9 @@
     display: none;
   }
 }
+
+@media (max-width: 880px) {
+  :root {
+    --sticky-bar-display: flex;
+  }
+}

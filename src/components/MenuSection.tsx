@@ -1,7 +1,7 @@
 export const MenuSection = () => {
   return (
     <section id="menu" className="py-16 md:py-24" style={{ padding: '100px 48px', background: 'var(--color-bg)' }}>
-      <nius-menu section="menu-packages"></nius-menu>
+      <nius-menu section="menu"></nius-menu>
       {/* SEO fallback: crawlable text for search engines (hidden from users) */}
       <div className="sr-only" aria-hidden="true">
         <h2>IV Drip Menu — Prague Home Delivery</h2>
@@ -10,7 +10,7 @@ export const MenuSection = () => {
           <li>Immunity Lite — Baseline immune boost. 2,900 CZK. 40–50 min IV infusion.</li>
           <li>Immunity Power — High-dose Vitamin C, serious viral defence. 3,250 CZK. 45–55 min.</li>
           <li>Defense Shield — Ultimate flu & virus recovery formula. 4,350 CZK. 50–60 min.</li>
-          <li>Glow & Post-Flu — Skin, hair, and immune resilience. 3,750 CZK. 45–55 min.</li>
+          <li>Radiance — Skin glow, hair strength, and inner vitality. 3,750 CZK. 45–55 min.</li>
         </ul>
         <h3>Energy & Performance</h3>
         <ul>
@@ -23,6 +23,7 @@ export const MenuSection = () => {
           <li>Pure Hydrate — Rapid rehydration. 2,550 CZK. 35–45 min.</li>
           <li>Electrolyte Reset — Hydration plus muscle and sleep recovery. 3,050 CZK. 45–55 min.</li>
           <li>Nausea Relief — Rapid relief from nausea and vomiting. 2,950 CZK. 20–30 min.</li>
+          <li>Jet Lag Recovery — Rehydration and energy reset after long-haul flights. 3,250 CZK. 45–55 min.</li>
         </ul>
         <h3>Specialised Care</h3>
         <ul>
@@ -37,7 +38,6 @@ export const MenuSection = () => {
           <li>Post-Op Wound Dressing — Professional wound care after surgery. 1,890 CZK. 30–45 min.</li>
           <li>Hygiene Assistance — Professional hygiene and comfort care. 1,690 CZK. 60 min.</li>
           <li>Nurse Escort — Accompanied transport to medical appointments. 2,190 CZK. 2–4 hours.</li>
-          <li>Jet Lag Recovery — Rehydration and energy reset after long-haul flights. 3,250 CZK. 45–55 min.</li>
         </ul>
         <h3>Booster Shots (Add-ons)</h3>
         <ul>
@@ -54,6 +54,14 @@ export const MenuSection = () => {
         </ul>
         <p>All prices include a registered nurse visit to your Prague location. Same-day appointments available 8:00–21:00 daily.</p>
       </div>
+    </section>
+  );
+};
+
+export const BundlesSection = () => {
+  return (
+    <section id="bundles" className="py-16 md:py-24" style={{ padding: '48px 48px', background: 'var(--color-bg)' }}>
+      <nius-menu section="packages"></nius-menu>
     </section>
   );
 };

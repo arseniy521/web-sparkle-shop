@@ -10,8 +10,15 @@ export const FooterNew = () => {
   const langPrefix = getLanguagePrefix(currentLang);
 
   return (
-    <footer style={{ backgroundColor: 'var(--color-indigo)' }} className="py-16 pb-10">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <footer style={{ backgroundColor: 'var(--color-indigo)' }} className="py-16 pb-10 relative overflow-hidden">
+      <img
+        src="/brand/logo-mark-light.svg"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-[-40px] right-[-20px] w-[280px] h-[280px] pointer-events-none select-none"
+        style={{ opacity: 0.04 }}
+      />
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
@@ -40,6 +47,7 @@ export const FooterNew = () => {
               <li><Link to={`${langPrefix}/ivf-support-prague/`} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>{t('footerNew.ivfSupport')}</Link></li>
               <li><Link to={`${langPrefix}/post-surgery-recovery-care-prague/`} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>{t('specializedServices.postSurgery')}</Link></li>
               <li><Link to={`${langPrefix}/disabled-daily-care-prague/`} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>{t('specializedServices.disabled')}</Link></li>
+              <li><Link to={`${langPrefix}/blog/`} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>Blog</Link></li>
             </ul>
           </div>
 

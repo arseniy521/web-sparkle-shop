@@ -6,10 +6,7 @@ export const Partners = () => {
   const partners = [
     'Unica Clinic',
     'Formé Clinic',
-    'Prague Fertility Centre',
-    'Mandarin Oriental',
-    'Four Seasons Prague',
-    'GymBeam',
+    'AMC',
   ];
 
   return (

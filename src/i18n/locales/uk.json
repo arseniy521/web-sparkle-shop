@@ -47,7 +47,9 @@
     "contacts": "Контакти",
     "bookNow": "Записатися",
     "blog": "Блог",
-    "allServices": "Усі послуги"
+    "allServices": "Усі послуги",
+    "servicesPricing": "Послуги та ціни",
+    "ourNurses": "Наші медсестри"
   },
   "hero": {
     "phrases": {
@@ -857,7 +859,7 @@
         },
         "location": {
           "title": "Ми приїдемо в БУДЬ-ЯКЕ місце",
-          "description": "Готелі (Four Seasons, Mandarin Oriental тощо), Airbnb, приватні будинки, офіси. Обслуговуємо <strong>всі райони Праги</strong> в радіусі 20 км від центру міста."
+          "description": "Готелі (Four Seasons, Hilton тощо), Airbnb, приватні будинки, офіси. Обслуговуємо <strong>всі райони Праги</strong> в радіусі 20 км від центру міста."
         },
         "rating": {
           "title": "Рейтинг пацієнтів 4.9★",
@@ -1302,7 +1304,7 @@
         },
         "hotels": {
           "question": "Ви приїжджаєте до готелів у Празі?",
-          "answer": "Безумовно! Ми надаємо <strong>мобільні IV крапельниці в готелях, Airbnb, приватних будинках та офісах</strong> по всій Празі. Популярні готелі: Four Seasons, Mandarin Oriental, Hilton, будь-який готель у Прага 1, Виноградах, Старому Місті та за його межами."
+          "answer": "Безумовно! Ми надаємо <strong>мобільні IV крапельниці в готелях, Airbnb, приватних будинках та офісах</strong> по всій Празі. Популярні готелі: Four Seasons, Hilton, будь-який готель у Прага 1, Виноградах, Старому Місті та за його межами."
         },
         "hangover": {
           "question": "Яка найкраща IV крапельниця при похміллі?",
@@ -1525,7 +1527,7 @@
     },
     "whereWeCome": {
       "title": "We Come to You — Anywhere in Prague",
-      "description": "We serve all of Prague — <strong>Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong>, and all major hotels including Four Seasons, Mandarin Oriental, Hilton, and hundreds more. Wherever you're staying, we'll be there."
+      "description": "We serve all of Prague — <strong>Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong>, and all major hotels including Four Seasons, Hilton, and hundreds more. Wherever you're staying, we'll be there."
     },
     "testimonials": {
       "title": "What Our Clients Say",
@@ -2136,21 +2138,16 @@
     }
   },
   "heroNew": {
-    "headline": "біля ваших дверей.",
-    "eyebrow": "Прага · Прибуття у той самий день",
-    "phrases": ["IV терапія", "Підтримка ЕКЗ", "Післяопераційний догляд", "Допомога при похміллі", "Крапельниці від джетлагу", "Гідратація крапельницями"],
+    "headline": "Дипломована медсестра біля ваших дверей у той самий день.",
+    "eyebrow": "Доступно зараз у Празі",
+    "services": ["Крапельниці", "Підтримка ЕКЗ", "Післяопераційний догляд", "Допомога при похміллі"],
     "subheadline": "Зареєстровані медсестри з лікарняним досвідом приїдуть з крапельницями, підтримкою ЕКЗ та післяопераційним доглядом до вашого готелю, Airbnb або додому — будь-де у Празі.",
     "ctaPrimary": "Замовити у WhatsApp",
     "ctaSecondary": "Послуги та ціни",
     "statsVisits": "візитів",
     "statsInternational": "іноземні клієнти",
     "statsSameDay": "У той самий день",
-    "statsSameDayLabel": "прибуття",
-    "card1Status": "Доступно зараз",
-    "card1Badge": "Сьогодні ввечері",
-    "card2Status": "Підтримка ЕКЗ",
-    "card2Title": "Вечірній візит для ін'єкції",
-    "card2Badge": "Клініка-партнер"
+    "statsSameDayLabel": "прибуття"
   },
   "trustStrip": {
     "nurses": "Тільки сертифіковані медсестри",
@@ -2180,7 +2177,7 @@
       },
       "hotel": {
         "title": "Гості люксових готелів",
-        "desc": "Сервіс за рекомендацією консьєржів Mandarin Oriental, Four Seasons, Augustine.",
+        "desc": "Сервіс за рекомендацією консьєржів Four Seasons, Augustine.",
         "bullets": ["5-зіркові партнерства", "Рекомендації консьєржів", "Запис у той самий день", "Англомовна медсестра"]
       },
       "postSurgery": {
