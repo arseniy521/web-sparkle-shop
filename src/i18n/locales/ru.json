@@ -150,8 +150,8 @@
       },
       "tomas": {
         "name": "Томаш Дворжак",
-        "role": "Медсестра скорой помощи",
-        "description": "Опытная медсестра с сильным опытом работы в неотложной помощи. Он работал 8 лет в отделениях неотложной помощи, справляясь с критическими ситуациями с точностью."
+        "role": "Медбрат скорой помощи",
+        "description": "Опытный медбрат с обширным опытом работы в неотложной помощи. Он работал 8 лет в отделениях неотложной помощи, справляясь с критическими ситуациями с точностью."
       }
     }
   },
@@ -246,7 +246,7 @@
     "instagram": "Instagram",
     "email": "Email",
     "availability": "Доступность",
-    "availabilityHours": "Каждый день 8:00 - 20:00",
+    "availabilityHours": "Каждый день 8:00 - 21:00",
     "urgentNote": "В экстренных случаях вне рабочих часов, пожалуйста, звоните напрямую"
   },
   "faq": {
@@ -326,8 +326,8 @@
     "ivDrip": "IV капельная терапия",
     "postSurgery": "Восстановление после операции",
     "disabled": "Ежедневный комфортный уход",
-    "hangover": "Hangover IV Drip",
-    "hangoverDesc": "Mobile hangover IV drip delivered to your hotel, Airbnb, or home in Prague within 60 minutes. Anti-nausea medication, rehydration, and electrolytes from 2,450 CZK.",
+    "hangover": "Капельница от похмелья",
+    "hangoverDesc": "Мобильная капельница от похмелья — медсестра приедет в ваш отель, Airbnb или домой в Праге в тот же день. Лекарство от тошноты, регидратация и электролиты от 2 450 Kč.",
     "womensDayGift": "Подарок на 8 марта",
     "birthdayGift": "Подарок на день рождения"
   },
@@ -513,7 +513,7 @@
         },
         {
           "question": "Можете ли вы приехать в 5 утра для триггерной инъекции?",
-          "answer": "Да! Мы предлагаем доступность ежедневно 8:00–21:00, включая выходные и праздники, именно потому, что тайминг ЭКО этого требует. Наша медсестра будет у вашей двери вовремя. Мы провели тысячи ЭКО визитов."
+          "answer": "Да! Мы предлагаем доступность ежедневно 8:00–21:00, включая выходные и праздники, именно потому, что расписание ЭКО этого требует. Наша медсестра будет у вашей двери вовремя. Мы провели тысячи ЭКО визитов."
         },
         {
           "question": "Работаете ли вы с пражскими клиниками ЭКО, такими как Reprofit, ISCARE, Gennet?",
@@ -672,8 +672,8 @@
       ]
     },
     "cta": {
-      "title": "Planning Surgery in Prague?",
-      "description": "Book your post-operative care in advance for peace of mind. We're here to support your recovery."
+      "title": "Планируете операцию в Праге?",
+      "description": "Забронируйте послеоперационный уход заранее для вашего спокойствия. Мы поддержим ваше восстановление."
     }
   },
   "disabledCare": {
@@ -784,7 +784,7 @@
       "title": "Подарите близкому уход, которого он заслуживает",
       "description": "Вам не нужно справляться в одиночку. Доверьте нам ежедневный медицинский уход, а сами сосредоточьтесь на семье."
     },
-    "bookNow": "Arrange Care Now"
+    "bookNow": "Организовать уход"
   },
   "womensDayGift": {
     "seo": {
@@ -2118,7 +2118,12 @@
     "statsVisits": "визитов",
     "statsInternational": "иностранные клиенты",
     "statsSameDay": "В тот же день",
-    "statsSameDayLabel": "прибытие"
+    "statsSameDayLabel": "прибытие",
+    "card1Status": "Доступно сейчас",
+    "card1Badge": "Сегодня вечером",
+    "card2Status": "Поддержка ЭКО",
+    "card2Title": "Вечерний визит для инъекции",
+    "card2Badge": "Клиника-партнёр"
   },
   "trustStrip": {
     "nurses": "Только сертифицированные медсёстры",
@@ -2133,6 +2138,8 @@
   "whoWeServe": {
     "eyebrow": "Для кого мы работаем",
     "title": "Для каждого, кому нельзя ждать.",
+    "titleBase": "Для каждого, кому",
+    "titleAccent": "нельзя ждать.",
     "cards": {
       "international": {
         "title": "Иностранные гости",
@@ -2170,21 +2177,37 @@
   "testimonialsNew": {
     "title": "Что говорят клиенты",
     "leaveReview": "Оставьте отзыв на Google",
+    "reviewCta": "Недавно были у NIUS? Поделитесь впечатлением",
     "items": [
       {
-        "quote": "Я был на конференции в Mandarin и ко второму дню чувствовал себя разбитым. NIUS прислал медсестру за 45 минут. К вечеру я был снова на встречах.",
-        "name": "Michael T.",
-        "origin": "Лондон · Деловая поездка, Прага 2024"
+        "quote": "This is unique service in Prague when you can just call and immediately get a shot of vitamins you need. The service is very knowledgeable, clean and friendly.",
+        "name": "Xenia Maier",
+        "origin": "Отзыв Google"
       },
       {
-        "quote": "Как пациентка ЭКО из Германии, делать себе уколы одной в гостиничном номере было страшно. NIUS приезжал каждый вечер во время моего цикла. Это всё изменило.",
-        "name": "Anna K.",
-        "origin": "Мюнхен · Поддержка ЭКО, клиника Unica"
+        "quote": "Excellent service. Communication was prompt, kind and clear. There was great flexibility and effort to meet my last minute needs of place and time. The nurse was amazing, super punctual, and kind.",
+        "name": "Sara Livrieri",
+        "origin": "Отзыв Google · Local Guide"
       },
       {
-        "quote": "После ринопластики мне нужно было менять повязки каждый день. Мой хирург порекомендовал NIUS. Профессионально, тихо, абсолютно надёжно.",
-        "name": "Yasmin R.",
-        "origin": "Дубай · Послеоперационный уход, Прага 2025"
+        "quote": "I had been sick and was feeling weak, so after consulting with their specialist, I ordered the Defense Shield for post-illness recovery. We arranged everything quickly, and the IV drip worked exactly as intended.",
+        "name": "Jan Ječmínek",
+        "origin": "Отзыв Google"
+      },
+      {
+        "quote": "Maria the nurse was awesome! She was the best IV nurse and helped my jet lag. I highly recommend.",
+        "name": "Noreen Connolly",
+        "origin": "Отзыв Google · Local Guide"
+      },
+      {
+        "quote": "While in Prague I came down with a bad virus. They were very responsive. They came to my AirBNB and provided excellent service. I highly recommend them!",
+        "name": "Jonathan Gale",
+        "origin": "Отзыв Google"
+      },
+      {
+        "quote": "Super easy to book, flexible with time, came to my hotel 21.00, easy to communicate with on WhatsApp.",
+        "name": "Simon Ankersen",
+        "origin": "Отзыв Google · Local Guide"
       }
     ]
   },
@@ -2199,8 +2222,16 @@
     "titleItalic": "Утром почувствуете себя лучше.",
     "sub": "Никаких клиник. Никаких очередей. Ваша медсестра приедет за 60 минут.",
     "ctaPrimary": "Заказать через WhatsApp",
-    "ctaSecondary": "Напишите нам — hello@nius.cz",
+    "ctaSecondary": "Напишите нам — info@nius.cz",
     "trustLine": "Доступно 7 дней · Прага и окрестности · Английский · Русский · Чешский"
+  },
+  "ourNurses": {
+    "eyebrow": "Наша команда",
+    "titleBase": "Дипломированные медсёстры, которым",
+    "titleAccent": "действительно не всё равно.",
+    "description": "Каждая медсестра NIUS имеет чешскую медицинскую лицензию и более 5 лет стажа в стационаре. Мы работаем преимущественно со старшими медсёстрами из ведущих пражских больниц — Мотол, IKEM, На Гомолце и других — которые выбрали частную практику ради гибкости и более тесного контакта с пациентами.",
+    "cta": "Подробнее о команде",
+    "imageAlt": "Медсестра NIUS в профессиональной форме"
   },
   "faqNew": {
     "title": "Частые вопросы",
@@ -2223,6 +2254,10 @@
     "partnerIVF": "ЭКО клиники",
     "partnerSurgery": "Пластическая хирургия",
     "partnerCorporate": "Корпоративный велнес",
-    "company": "Компания"
+    "company": "Компания",
+    "whatsapp": "WhatsApp →",
+    "ivDrips": "IV капельницы",
+    "ivfSupport": "Поддержка ЭКО",
+    "copyright": "© 2026 NIUS Services s.r.o. · Прага, Чехия"
   }
 }

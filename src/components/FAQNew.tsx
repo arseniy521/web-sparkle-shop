@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronDown } from "lucide-react";
 
 export const FAQNew = () => {
   const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const faqs = t('faqNew.items', { returnObjects: true }) as { q: string; a: string }[];
 
@@ -40,13 +41,15 @@ export const FAQNew = () => {
               <div
                 className="overflow-hidden transition-all duration-300"
                 style={{
-                  maxHeight: openIndex === i ? '300px' : '0px',
+                  maxHeight: openIndex === i ? `${contentRefs.current[i]?.scrollHeight ?? 500}px` : '0px',
                   opacity: openIndex === i ? 1 : 0,
                 }}
               >
-                <p className="pb-5 text-sm font-body leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
-                  {faq.a}
-                </p>
+                <div ref={(el) => { contentRefs.current[i] = el; }}>
+                  <p className="pb-5 text-sm font-body leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                    {faq.a}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

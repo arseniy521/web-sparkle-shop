@@ -327,7 +327,7 @@
     "postSurgery": "Post-Surgery Recovery",
     "disabled": "Daily Comfort Care",
     "hangover": "Hangover IV Drip",
-    "hangoverDesc": "Mobile hangover IV drip delivered to your hotel, Airbnb, or home in Prague within 60 minutes. Anti-nausea medication, rehydration, and electrolytes from 2,450 CZK.",
+    "hangoverDesc": "Mobile hangover IV drip delivered to your hotel, Airbnb, or home in Prague same day. Anti-nausea medication, rehydration, and electrolytes from 2,450 CZK.",
     "womensDayGift": "Women's Day Gift",
     "birthdayGift": "Birthday Gift"
   },
@@ -1742,7 +1742,7 @@
   "hangoverIVDrip": {
     "seo": {
       "title": "Hangover IV Drip Prague | Mobile Nurse to Your Hotel | NIUS",
-      "description": "Hangover IV drip in Prague delivered to your hotel or Airbnb in ~60 min. Anti-nausea, rehydration & vitamins from 2,450 CZK. Licensed nurses, same-day booking.",
+      "description": "Hangover IV drip in Prague delivered to your hotel or Airbnb same day. Anti-nausea, rehydration & vitamins from 2,450 CZK. Licensed nurses, same-day booking.",
       "keywords": "hangover iv drip prague, hangover drip prague, iv drip hotel prague, mobile iv therapy prague, iv hangover drip, hangover infusion prague, hangover recovery drip prague"
     },
     "breadcrumbs": {
@@ -1752,7 +1752,7 @@
     },
     "whatsappMessage": "Hi! I'd like to book a Hangover IV Drip in Prague. Can you come to my location?",
     "hero": {
-      "h1": "Hangover IV Drip in Prague — Delivered to Your Hotel in 60 Minutes",
+      "h1": "Hangover IV Drip in Prague — Delivered to Your Hotel Same Day",
       "subtitle": "Mobile nurse comes to your hotel, Airbnb, or home with everything needed to get you back on your feet.",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "WhatsApp Us",
@@ -1867,7 +1867,7 @@
     },
     "llmSummary": {
       "title": "About Hangover IV Drip Service in Prague",
-      "content": "NIUS provides mobile hangover IV drip therapy in Prague, Czech Republic. A registered nurse travels to your hotel, Airbnb, or home within approximately 60 minutes of booking. The service is available daily from 8:00 AM to 8:00 PM, including weekends and holidays. All treatments are overseen by a prescribing doctor. NIUS serves all Prague districts including Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, and Žižkov. Four hangover IV drip options are available: Nausea Relief (2,850 CZK) with anti-nausea medication and rehydration — the most popular choice for severe hangovers; Pure Hydrate (2,450 CZK) for basic saline rehydration; Electrolyte Reset (2,950 CZK) with 2000mg Magnesium for muscle recovery; and Immunity Lite (2,800 CZK) with Vitamin C for hangover combined with cold symptoms. All prices are all-inclusive with no hidden fees. The infusion takes approximately 60 minutes. Contact: +420 773 629 123 (phone/WhatsApp). Online booking: nurseinprague.setmore.com/book. Website: www.nius.cz."
+      "content": "NIUS provides mobile hangover IV drip therapy in Prague, Czech Republic. A registered nurse travels to your hotel, Airbnb, or home same day, typically within 1–3 hours. The service is available daily from 8:00 AM to 9:00 PM, including weekends and holidays. All treatments are overseen by a prescribing doctor. NIUS serves all Prague districts including Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, and Žižkov. Four hangover IV drip options are available: Nausea Relief (2,850 CZK) with anti-nausea medication and rehydration — the most popular choice for severe hangovers; Pure Hydrate (2,450 CZK) for basic saline rehydration; Electrolyte Reset (2,950 CZK) with 2000mg Magnesium for muscle recovery; and Immunity Lite (2,800 CZK) with Vitamin C for hangover combined with cold symptoms. All prices are all-inclusive with no hidden fees. The infusion takes approximately 45–60 minutes. Contact: +420 773 629 123 (phone/WhatsApp). Online booking: nurseinprague.setmore.com/book. Website: www.nius.cz."
     },
     "howItWorks": {
       "title": "How It Works",
@@ -1879,7 +1879,7 @@
         },
         "step2": {
           "title": "Nurse Arrives at Your Location",
-          "description": "A registered nurse comes to your hotel, Airbnb, or home within ~60 minutes — with all equipment and medication."
+          "description": "A registered nurse comes to your hotel, Airbnb, or home same day — with all equipment and medication."
         },
         "step3": {
           "title": "Quick Health Check & IV Setup",
@@ -1921,7 +1921,7 @@
       "items": {
         "howFast": {
           "question": "How fast can a nurse arrive?",
-          "answer": "Typically <strong>within 60 minutes</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 9 PM."
+          "answer": "Typically <strong>within 1–3 hours</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 9 PM."
         },
         "cost": {
           "question": "How much does a hangover IV drip cost in Prague?",
@@ -1955,7 +1955,7 @@
     },
     "cta": {
       "title": "Ready to Feel Better?",
-      "subtitle": "Book your hangover IV drip now — nurse at your door in ~60 minutes.",
+      "subtitle": "Book your hangover IV drip now — nurse at your door same day.",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "WhatsApp Booking",
       "bookBtn": "Book Online",
@@ -2118,7 +2118,12 @@
     "statsVisits": "visits",
     "statsInternational": "international",
     "statsSameDay": "Same-day",
-    "statsSameDayLabel": "arrival"
+    "statsSameDayLabel": "arrival",
+    "card1Status": "Available now",
+    "card1Badge": "Tonight",
+    "card2Status": "IVF Support",
+    "card2Title": "Evening injection visit",
+    "card2Badge": "Clinic partner"
   },
   "trustStrip": {
     "nurses": "Registered nurses only",
@@ -2133,6 +2138,8 @@
   "whoWeServe": {
     "eyebrow": "Who we serve",
     "title": "Built for everyone who can't wait.",
+    "titleBase": "Built for everyone who",
+    "titleAccent": "can't wait.",
     "cards": {
       "international": {
         "title": "International visitors",
@@ -2170,21 +2177,37 @@
   "testimonialsNew": {
     "title": "What clients say",
     "leaveReview": "Leave us a review on Google",
+    "reviewCta": "Recently visited by NIUS? Share your experience",
     "items": [
       {
-        "quote": "I was staying at the Mandarin for a conference and felt completely wrecked by day two. NIUS sent a nurse within 45 minutes. By evening I was back in meetings.",
-        "name": "Michael T.",
-        "origin": "London · Business travel, Prague 2024"
+        "quote": "This is unique service in Prague when you can just call and immediately get a shot of vitamins you need. The service is very knowledgeable, clean and friendly.",
+        "name": "Xenia Maier",
+        "origin": "Google Review"
       },
       {
-        "quote": "As an IVF patient from Germany, giving myself injections alone in a hotel room was terrifying. NIUS came every evening during my cycle. It changed everything.",
-        "name": "Anna K.",
-        "origin": "Munich · IVF support, Unica Clinic"
+        "quote": "Excellent service. Communication was prompt, kind and clear. There was great flexibility and effort to meet my last minute needs of place and time. The nurse was amazing, super punctual, and kind.",
+        "name": "Sara Livrieri",
+        "origin": "Google Review · Local Guide"
       },
       {
-        "quote": "Post-rhinoplasty, I needed someone to change my dressings every day. My surgeon recommended NIUS. Professional, quiet, completely reliable.",
-        "name": "Yasmin R.",
-        "origin": "Dubai · Post-surgery care, Prague 2025"
+        "quote": "I had been sick and was feeling weak, so after consulting with their specialist, I ordered the Defense Shield for post-illness recovery. We arranged everything quickly, and the IV drip worked exactly as intended.",
+        "name": "Jan Ječmínek",
+        "origin": "Google Review"
+      },
+      {
+        "quote": "Maria the nurse was awesome! She was the best IV nurse and helped my jet lag. I highly recommend.",
+        "name": "Noreen Connolly",
+        "origin": "Google Review · Local Guide"
+      },
+      {
+        "quote": "While in Prague I came down with a bad virus. They were very responsive. They came to my AirBNB and provided excellent service. I highly recommend them!",
+        "name": "Jonathan Gale",
+        "origin": "Google Review"
+      },
+      {
+        "quote": "Super easy to book, flexible with time, came to my hotel 21.00, easy to communicate with on WhatsApp.",
+        "name": "Simon Ankersen",
+        "origin": "Google Review · Local Guide"
       }
     ]
   },
@@ -2199,8 +2222,16 @@
     "titleItalic": "Feel better by morning.",
     "sub": "No clinic. No waiting room. Your nurse arrives the same day.",
     "ctaPrimary": "Book via WhatsApp",
-    "ctaSecondary": "Email us — hello@nius.cz",
+    "ctaSecondary": "Email us — info@nius.cz",
     "trustLine": "Available 7 days · Prague city centre & surroundings · English · Russian · Czech"
+  },
+  "ourNurses": {
+    "eyebrow": "Meet your team",
+    "titleBase": "Registered nurses who",
+    "titleAccent": "actually care.",
+    "description": "Every NIUS nurse holds a Czech medical license and has 5+ years of hospital experience. We work primarily with senior nurses from leading Prague hospitals — Motol, IKEM, Na Homolce, and others — who choose private practice for greater flexibility and patient connection.",
+    "cta": "Read more about our team",
+    "imageAlt": "NIUS nurse in professional scrubs"
   },
   "faqNew": {
     "title": "Frequently asked",
@@ -2223,6 +2254,10 @@
     "partnerIVF": "IVF clinics",
     "partnerSurgery": "Plastic surgery",
     "partnerCorporate": "Corporate wellness",
-    "company": "Company"
+    "company": "Company",
+    "whatsapp": "WhatsApp →",
+    "ivDrips": "IV Drips",
+    "ivfSupport": "IVF Support",
+    "copyright": "© 2026 NIUS Services s.r.o. · Prague, Czech Republic"
   }
 }

@@ -231,7 +231,7 @@
   },
   "location": {
     "title": "Oblast služeb sestřičky Praha",
-    "description": "Obsluhujeme všechny pražské okresy včetně Praha 1-10, Vinohrady, Žižkov, Staré Město, Nové Město a okolí",
+    "description": "Obsluhujeme všechny pražské obvody včetně Praha 1-10, Vinohrady, Žižkov, Staré Město, Nové Město a okolí",
     "serviceArea": "Oblast služeb",
     "serviceAreaText": "Praha 1-10, Vinohrady, Žižkov, Staré Město, Nové Město a okolí (až 20 km od centra)",
     "responseTime": "Reakční čas",
@@ -327,7 +327,7 @@
     "postSurgery": "Rekonvalescence po operaci",
     "disabled": "Denní komfortní péče",
     "hangover": "Kapačka na kocovinu",
-    "hangoverDesc": "Mobilní kapačka na kocovinu — sestra přijede do vašeho hotelu, Airbnb nebo domů v Praze do 60 minut. Lék proti nevolnosti, rehydratace a elektrolyty od 2 450 Kč.",
+    "hangoverDesc": "Mobilní kapačka na kocovinu — sestra přijede do vašeho hotelu, Airbnb nebo domů v Praze ve stejný den. Lék proti nevolnosti, rehydratace a elektrolyty od 2 450 Kč.",
     "womensDayGift": "Dárek na 8. března",
     "birthdayGift": "Dárek k narozeninám"
   },
@@ -533,7 +533,7 @@
         },
         {
           "question": "Můžete aplikovat Glutathion nebo NAD+ IV kapačky během IVF?",
-          "answer": "Ano! Mnoho IVF pacientek přidává wellness IV kapačky na podporu svého cyklu. Glutathion je oblíbený pro své antioxidační vlastnosti a potenciální přínosy pro kvalitu vajíček. NAD+ podporuje buněčnou energii. Vitamin C posiluje imunitu. Tyto kapačky lze kombinovat s vaší injekční návštěvou pro pohodlí. Prohlédněte si naše kompletní menu IV kapačkek pro možnosti a ceny."
+          "answer": "Ano! Mnoho IVF pacientek přidává wellness IV kapačky na podporu svého cyklu. Glutathion je oblíbený pro své antioxidační vlastnosti a potenciální přínosy pro kvalitu vajíček. NAD+ podporuje buněčnou energii. Vitamin C posiluje imunitu. Tyto kapačky lze kombinovat s vaší injekční návštěvou pro pohodlí. Prohlédněte si naše kompletní menu IV kapaček pro možnosti a ceny."
         },
         {
           "question": "Co když bydlím v hotelu?",
@@ -672,8 +672,8 @@
       ]
     },
     "cta": {
-      "title": "Planning Surgery in Prague?",
-      "description": "Book your post-operative care in advance for peace of mind. We're here to support your recovery."
+      "title": "Plánujete operaci v Praze?",
+      "description": "Rezervujte si pooperační péči předem pro klid a jistotu. Jsme tu, abychom podpořili vaše zotavení."
     }
   },
   "disabledCare": {
@@ -784,7 +784,7 @@
       "title": "Dopřejte svým blízkým péči, kterou si zaslouží",
       "description": "Nemusíte to zvládat sami. Nechte nás postarat se o denní zdravotní péči, zatímco se soustředíte na to být rodina."
     },
-    "bookNow": "Arrange Care Now"
+    "bookNow": "Domluvit péči"
   },
   "womensDayGift": {
     "seo": {
@@ -1047,7 +1047,7 @@
         "Poradenství pro zdravý životní styl po ošetření",
         "Krásný digitální narozeninový dárkový voucher"
       ],
-      "learnMore": "Prohlédněte si naši kompletní nabídku IV kapačkek"
+      "learnMore": "Prohlédněte si naši kompletní nabídku IV kapaček"
     },
     "experience": {
       "title": "Unikátní narozeninový zážitek v Praze",
@@ -1196,7 +1196,7 @@
     "hero": {
       "h1": "IV kapačky Praha",
       "subtitle": "Mobilní IV terapie s dojezdem do hotelu, domů nebo Airbnb",
-      "paragraph": "Profesionální <strong>IV kapačky v Praze</strong> aplikované registrovanými sestrami na vámi zvoleném místě. Obsluhujeme <strong>Prahu 1, Prahu 2, Vinohrady, Staré Město, Nové Město</strong> a všechny okolní obvody. Vyberte si z hydratačních, imunitních, beauty a regeneračních <strong>IV kapačkek v Praze</strong> s dostupností ve stejný den. Ideální pro zdravotní turisty, expaty a cestovatele hledající",
+      "paragraph": "Profesionální <strong>IV kapačky v Praze</strong> aplikované registrovanými sestrami na vámi zvoleném místě. Obsluhujeme <strong>Prahu 1, Prahu 2, Vinohrady, Staré Město, Nové Město</strong> a všechny okolní obvody. Vyberte si z hydratačních, imunitních, beauty a regeneračních <strong>IV kapaček v Praze</strong> s dostupností ve stejný den. Ideální pro zdravotní turisty, expaty a cestovatele hledající",
       "postSurgeryLink": "pooperační regenerační péči v Praze",
       "socialProof": "Důvěřuje nám <strong>100+ pacientů</strong> v Praze",
       "callBtn": "Volat {{phone}}",
@@ -1238,7 +1238,7 @@
       }
     },
     "comparison": {
-      "title": "NIUS vs. ostatní služby IV kapačkek v Praze",
+      "title": "NIUS vs. ostatní služby IV kapaček v Praze",
       "subtitle": "Proč si zdravotní turisté a expati vybírají NIUS pro IV terapii v Praze",
       "feature": "Vlastnost",
       "nius": "NIUS",
@@ -1515,7 +1515,7 @@
     },
     "treatments": {
       "title": "Oblíbené IV kapačkové procedury v Praze",
-      "subtitle": "Od <strong>IV kapačkek s vitaminem C</strong> po <strong>infuze glutathionu</strong> — vyberte si správnou IV terapii pro vaše zdravotní cíle v Praze",
+      "subtitle": "Od <strong>IV kapaček s vitaminem C</strong> po <strong>infuze glutathionu</strong> — vyberte si správnou IV terapii pro vaše zdravotní cíle v Praze",
       "viewPricing": "Zobrazit ceník",
       "items": {
         "vitaminC": {
@@ -1575,7 +1575,7 @@
       }
     },
     "benefits": {
-      "title": "Výhody mobilních IV kapačkek v Praze",
+      "title": "Výhody mobilních IV kapaček v Praze",
       "faster": {
         "title": "Rychlejší než tablety nebo nápoje",
         "description": "IV kapačky dodávají živiny <strong>přímo do krevního oběhu</strong>, čímž obcházejí trávicí systém. Vysoká biologická dostupnost znamená efektivní vstřebávání — ideální pro hydrataci, podporu imunity nebo regeneraci."
@@ -1596,7 +1596,7 @@
       }
     },
     "howItWorks": {
-      "title": "Jak funguje naše služba IV kapačkek v Praze",
+      "title": "Jak funguje naše služba IV kapaček v Praze",
       "subtitle": "Od rezervace po následnou péči — co můžete očekávat s mobilní IV terapií NIUS",
       "step1": {
         "title": "Kontaktujte nás a vyberte si IV kapačku",
@@ -1666,7 +1666,7 @@
         },
         "duration": {
           "question": "Jak dlouho trvá IV kapačka v Praze?",
-          "answer": "Většina procedur IV kapačkek trvá <strong>45–60 minut</strong> včetně přípravy, infuze a monitoringu. Složitější formule (jako MEGA Recovery) mohou trvat až 75 minut. K dispozici je objednání ve stejný den."
+          "answer": "Většina procedur IV kapaček trvá <strong>45–60 minut</strong> včetně přípravy, infuze a monitoringu. Složitější formule (jako MEGA Recovery) mohou trvat až 75 minut. K dispozici je objednání ve stejný den."
         },
         "hotels": {
           "question": "Přijedete do hotelů v Praze?",
@@ -1690,7 +1690,7 @@
         },
         "sameDay": {
           "question": "Mohu dostat IV kapačku v Praze ve stejný den?",
-          "answer": "Ano! Nabízíme <strong>službu IV kapačkek v Praze ve stejný den</strong> s typickým příjezdem do 1–3 hodin. Dostupné denně 8–21 včetně víkendů a svátků. Rezervujte předem pro přesné naplánování."
+          "answer": "Ano! Nabízíme <strong>službu IV kapaček v Praze ve stejný den</strong> s typickým příjezdem do 1–3 hodin. Dostupné denně 8–21 včetně víkendů a svátků. Rezervujte předem pro přesné naplánování."
         },
         "districts": {
           "question": "Které pražské obvody obsluhujete?",
@@ -1742,7 +1742,7 @@
   "hangoverIVDrip": {
     "seo": {
       "title": "Kapačka na kocovinu Praha | Sestra k vám do hotelu | NIUS",
-      "description": "Kapačka na kocovinu v Praze — sestra přijede do hotelu nebo Airbnb do ~60 minut. Infuze proti nevolnosti, rehydratace a vitaminy od 2 450 Kč. Registrované sestry.",
+      "description": "Kapačka na kocovinu v Praze — sestra přijede do hotelu nebo Airbnb ve stejný den. Infuze proti nevolnosti, rehydratace a vitaminy od 2 450 Kč. Registrované sestry.",
       "keywords": "kapačka na kocovinu praha, kapačka kocovina praha, infuze kocovina praha, kapačka hotel praha, mobilní infuze praha, kapačka proti kocovině, infuze po alkoholu praha, kapačka po alkoholu praha"
     },
     "breadcrumbs": {
@@ -1752,7 +1752,7 @@
     },
     "whatsappMessage": "Dobrý den! Chtěl/a bych si objednat kapačku na kocovinu v Praze. Můžete přijet k nám?",
     "hero": {
-      "h1": "Kapačka na kocovinu v Praze — Sestra u vás do 60 minut",
+      "h1": "Kapačka na kocovinu v Praze — Sestra u vás ve stejný den",
       "subtitle": "Registrovaná sestra přijede přímo k vám do hotelu, Airbnb nebo domů se vším potřebným, abyste se rychle postavili na nohy.",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Napsat na WhatsApp",
@@ -1761,7 +1761,7 @@
     "trustBadges": {
       "licensedNurses": "Registrované sestry",
       "rating": "Hodnocení 4.9/5",
-      "available": "Denně 8:00 – 20:00",
+      "available": "Denně 8:00 – 21:00",
       "allDistricts": "Celá Praha"
     },
     "symptoms": {
@@ -1867,7 +1867,7 @@
     },
     "llmSummary": {
       "title": "O službě kapačky na kocovinu v Praze",
-      "content": "NIUS poskytuje mobilní kapačky na kocovinu v Praze, Česká republika. Registrovaná sestra přijede k vám do hotelu, Airbnb nebo domů přibližně do 60 minut od objednání. Služba je dostupná denně od 8:00 do 20:00, včetně víkendů a svátků. Všechny léčby jsou pod dohledem předepisujícího lékaře. NIUS obsluhuje všechny pražské obvody včetně Starého Města, Nového Města, Vinohrad, Karlína, Smíchova, Holešovic a Žižkova. K dispozici jsou čtyři varianty kapačky na kocovinu: Infuze proti nevolnosti (2 850 Kč) s lékem proti nevolnosti a rehydratací — nejoblíbenější volba při těžké kocovině; Čistá hydratace (2 450 Kč) pro základní rehydrataci; Elektrolytový reset (2 950 Kč) s 2000mg hořčíku pro svalovou regeneraci; a Imunita Lite (2 800 Kč) s vitaminem C při kocovině kombinované s nachlazením. Všechny ceny jsou konečné bez skrytých poplatků. Infuze trvá přibližně 60 minut. Kontakt: +420 773 629 123 (telefon/WhatsApp). Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz."
+      "content": "NIUS poskytuje mobilní kapačky na kocovinu v Praze, Česká republika. Registrovaná sestra přijede k vám do hotelu, Airbnb nebo domů ve stejný den, typicky do 1–3 hodin. Služba je dostupná denně od 8:00 do 21:00, včetně víkendů a svátků. Všechny léčby jsou pod dohledem předepisujícího lékaře. NIUS obsluhuje všechny pražské obvody včetně Starého Města, Nového Města, Vinohrad, Karlína, Smíchova, Holešovic a Žižkova. K dispozici jsou čtyři varianty kapačky na kocovinu: Infuze proti nevolnosti (2 850 Kč) s lékem proti nevolnosti a rehydratací — nejoblíbenější volba při těžké kocovině; Čistá hydratace (2 450 Kč) pro základní rehydrataci; Elektrolytový reset (2 950 Kč) s 2000mg hořčíku pro svalovou regeneraci; a Imunita Lite (2 800 Kč) s vitaminem C při kocovině kombinované s nachlazením. Všechny ceny jsou konečné bez skrytých poplatků. Infuze trvá přibližně 60 minut. Kontakt: +420 773 629 123 (telefon/WhatsApp). Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz."
     },
     "howItWorks": {
       "title": "Jak to funguje",
@@ -1879,7 +1879,7 @@
         },
         "step2": {
           "title": "Sestra přijede k vám",
-          "description": "Registrovaná sestra dorazí do vašeho hotelu, Airbnb nebo domů do ~60 minut — se vším vybavením a léky."
+          "description": "Registrovaná sestra dorazí do vašeho hotelu, Airbnb nebo domů ve stejný den — se vším vybavením a léky."
         },
         "step3": {
           "title": "Rychlá zdravotní kontrola a zavedení kapačky",
@@ -1921,7 +1921,7 @@
       "items": {
         "howFast": {
           "question": "Jak rychle může sestra přijet?",
-          "answer": "Obvykle <strong>do 60 minut</strong> od objednání, v závislosti na vaší poloze v Praze a aktuální dostupnosti. Objednávky na stejný den jsou k dispozici denně od 8:00 do 20:00."
+          "answer": "Obvykle <strong>do 1–3 hodin</strong> od objednání, v závislosti na vaší poloze v Praze a aktuální dostupnosti. Objednávky na stejný den jsou k dispozici denně od 8:00 do 21:00."
         },
         "cost": {
           "question": "Kolik stojí kapačka na kocovinu v Praze?",
@@ -1949,7 +1949,7 @@
         },
         "hours": {
           "question": "Můžete přijet v noci nebo o víkendu?",
-          "answer": "Jsme k dispozici <strong>denně od 8:00 do 20:00</strong>, včetně víkendů a svátků. Pro naléhavé požadavky mimo tuto dobu nám prosím zavolejte přímo a uděláme maximum, abychom vám vyhověli."
+          "answer": "Jsme k dispozici <strong>denně od 8:00 do 21:00</strong>, včetně víkendů a svátků. Pro naléhavé požadavky mimo tuto dobu nám prosím zavolejte přímo a uděláme maximum, abychom vám vyhověli."
         }
       }
     },
@@ -2118,7 +2118,12 @@
     "statsVisits": "návštěv",
     "statsInternational": "mezinárodní klienti",
     "statsSameDay": "Stejný den",
-    "statsSameDayLabel": "příjezd"
+    "statsSameDayLabel": "příjezd",
+    "card1Status": "K dispozici",
+    "card1Badge": "Dnes večer",
+    "card2Status": "IVF podpora",
+    "card2Title": "Večerní aplikace injekce",
+    "card2Badge": "Partner kliniky"
   },
   "trustStrip": {
     "nurses": "Pouze registrované sestry",
@@ -2133,6 +2138,8 @@
   "whoWeServe": {
     "eyebrow": "Pro koho jsme",
     "title": "Pro každého, kdo nemůže čekat.",
+    "titleBase": "Pro každého, kdo",
+    "titleAccent": "nemůže čekat.",
     "cards": {
       "international": {
         "title": "Mezinárodní návštěvníci",
@@ -2163,28 +2170,44 @@
     "steps": [
       { "title": "Vyberte službu", "desc": "Zvolte cíl — Energie, Imunita, IVF nebo pooperační péče. 2 minuty online nebo WhatsApp.", "time": "2 minuty" },
       { "title": "Zdravotní screening", "desc": "Krátký dotazník zdravotní historie. Sestra zkontroluje před příjezdem.", "time": "5 minut" },
-      { "title": "Sestra dorazí", "desc": "Registrovaná sestra u vás v hotelu, doma nebo na klinice. Veškeré vybavení s sebou.", "time": "Do 60 min" },
+      { "title": "Sestra dorazí", "desc": "Registrovaná sestra u vás v hotelu, doma nebo na klinice. Veškeré vybavení s sebou.", "time": "Stejný den" },
       { "title": "Pocítíte účinek", "desc": "45–75 min infuze. Většina klientů cítí efekt již během procedury.", "time": "45–75 min" }
     ]
   },
   "testimonialsNew": {
     "title": "Co říkají klienti",
     "leaveReview": "Zanechte nám recenzi na Google",
+    "reviewCta": "Nedávno jste využili NIUS? Podělte se o zkušenost",
     "items": [
       {
-        "quote": "Byl jsem na konferenci v Mandarin a druhý den jsem byl úplně vyčerpaný. NIUS poslal sestru za 45 minut. Večer jsem byl zpět na jednáních.",
-        "name": "Michael T.",
-        "origin": "Londýn · Obchodní cesta, Praha 2024"
+        "quote": "This is unique service in Prague when you can just call and immediately get a shot of vitamins you need. The service is very knowledgeable, clean and friendly.",
+        "name": "Xenia Maier",
+        "origin": "Recenze Google"
       },
       {
-        "quote": "Jako IVF pacientka z Německa mě děsilo píchat si injekce sama v hotelovém pokoji. NIUS přijížděl každý večer během mého cyklu. Změnilo mi to život.",
-        "name": "Anna K.",
-        "origin": "Mnichov · IVF podpora, klinika Unica"
+        "quote": "Excellent service. Communication was prompt, kind and clear. There was great flexibility and effort to meet my last minute needs of place and time. The nurse was amazing, super punctual, and kind.",
+        "name": "Sara Livrieri",
+        "origin": "Recenze Google · Local Guide"
       },
       {
-        "quote": "Po rhinoplastice jsem potřebovala každodenní převazy. Můj chirurg doporučil NIUS. Profesionální, klidní, naprosto spolehliví.",
-        "name": "Yasmin R.",
-        "origin": "Dubaj · Pooperační péče, Praha 2025"
+        "quote": "I had been sick and was feeling weak, so after consulting with their specialist, I ordered the Defense Shield for post-illness recovery. We arranged everything quickly, and the IV drip worked exactly as intended.",
+        "name": "Jan Ječmínek",
+        "origin": "Recenze Google"
+      },
+      {
+        "quote": "Maria the nurse was awesome! She was the best IV nurse and helped my jet lag. I highly recommend.",
+        "name": "Noreen Connolly",
+        "origin": "Recenze Google · Local Guide"
+      },
+      {
+        "quote": "While in Prague I came down with a bad virus. They were very responsive. They came to my AirBNB and provided excellent service. I highly recommend them!",
+        "name": "Jonathan Gale",
+        "origin": "Recenze Google"
+      },
+      {
+        "quote": "Super easy to book, flexible with time, came to my hotel 21.00, easy to communicate with on WhatsApp.",
+        "name": "Simon Ankersen",
+        "origin": "Recenze Google · Local Guide"
       }
     ]
   },
@@ -2199,14 +2222,22 @@
     "titleItalic": "Ráno se budete cítit lépe.",
     "sub": "Žádná klinika. Žádná čekárna. Vaše sestra dorazí za 60 minut.",
     "ctaPrimary": "Objednat přes WhatsApp",
-    "ctaSecondary": "Napište nám — hello@nius.cz",
+    "ctaSecondary": "Napište nám — info@nius.cz",
     "trustLine": "K dispozici 7 dní · Praha a okolí · Anglicky · Rusky · Česky"
+  },
+  "ourNurses": {
+    "eyebrow": "Náš tým",
+    "titleBase": "Registrované sestry, kterým",
+    "titleAccent": "skutečně záleží.",
+    "description": "Každá sestra NIUS má českou zdravotnickou licenci a více než 5 let nemocniční praxe. Spolupracujeme především se zkušenými sestrami z předních pražských nemocnic — Motol, IKEM, Na Homolce a dalších — které si zvolily soukromou praxi pro větší flexibilitu a osobní přístup k pacientům.",
+    "cta": "Více o našem týmu",
+    "imageAlt": "Sestra NIUS v profesionálním úboru"
   },
   "faqNew": {
     "title": "Časté dotazy",
     "items": [
       { "q": "Potřebuji recept na IV terapii?", "a": "Ne, recept není potřeba. Naše sestra provede zdravotní screening před každou infuzí." },
-      { "q": "Jak rychle může sestra dorazit?", "a": "Obvykle do 60 minut v centru Prahy. Objednání ve stejný den je k dispozici 7 dní v týdnu, 8:00–21:00." },
+      { "q": "Jak rychle může sestra dorazit?", "a": "Obvykle do 1–3 hodin v centru Prahy. Objednání ve stejný den je k dispozici 7 dní v týdnu, 8:00–21:00." },
       { "q": "Jakou kvalifikaci mají vaše sestry?", "a": "Všechny sestry jsou registrované a certifikované s nemocniční praxí. Mají kompletní zdravotnické vybavení." },
       { "q": "Mohu dostat kapačku v hotelu?", "a": "Ano. Navštěvujeme všechny pražské hotely včetně 5hvězdičkových. Mnohé concierge týmy nás přímo doporučují." },
       { "q": "Jak dlouho trvá infuze?", "a": "Většina infuzí trvá 35–75 minut podle typu kapačky. Sestra zůstává po celou dobu." },
@@ -2223,6 +2254,10 @@
     "partnerIVF": "IVF kliniky",
     "partnerSurgery": "Plastická chirurgie",
     "partnerCorporate": "Firemní wellness",
-    "company": "Společnost"
+    "company": "Společnost",
+    "whatsapp": "WhatsApp →",
+    "ivDrips": "IV kapačky",
+    "ivfSupport": "IVF podpora",
+    "copyright": "© 2026 NIUS Services s.r.o. · Praha, Česká republika"
   }
 }

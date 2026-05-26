@@ -19,7 +19,7 @@ export const HowItWorks = () => {
             {t('howItWorks.eyebrow')}
           </span>
           <h2 className="font-display font-bold text-3xl md:text-4xl mt-3 text-white">
-            {t('howItWorks.titleBase')} <span className="display-italic" style={{ color: 'var(--color-peach)', fontStyle: 'italic', fontWeight: 600 }}>{t('howItWorks.titleItalic')}</span>
+            {t('howItWorks.titleBase')} <span style={{ color: 'var(--color-peach)', fontWeight: 700 }}>{t('howItWorks.titleItalic')}</span>
           </h2>
         </div>
 
@@ -31,13 +31,15 @@ export const HowItWorks = () => {
               className="py-6 md:px-6 first:pl-0 last:pr-0"
               style={{ borderRight: i < 3 ? '0.5px solid rgba(255,255,255,0.08)' : 'none' }}
             >
-              <span className="text-xs font-body font-medium tracking-[0.1em]" style={{ color: 'var(--color-blue)' }}>
-                {step.num}
-              </span>
-              <h3 className="font-display font-bold text-lg text-white mt-3 mb-2">
-                {step.title}
-              </h3>
-              <p className="text-[13px] font-body leading-relaxed" style={{ color: 'var(--color-text-on-dark-muted)' }}>
+              <div>
+                <span className="text-xs font-body font-medium tracking-[0.1em]" style={{ color: 'var(--color-blue)' }}>
+                  {step.num}
+                </span>
+                <h3 className="font-display font-bold text-lg text-white mt-3 mb-2">
+                  {step.title}
+                </h3>
+              </div>
+              <p className="text-[13px] font-body leading-relaxed mt-2" style={{ color: 'var(--color-text-on-dark-muted)' }}>
                 {step.desc}
               </p>
               <span className="inline-block mt-3 text-xs font-body font-medium" style={{ color: 'var(--color-blue)' }}>

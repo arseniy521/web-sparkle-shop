@@ -1,28 +1,15 @@
 import { useTranslation } from "react-i18next";
-import { ExternalLink } from "lucide-react";
 
 const GOOGLE_REVIEWS_URL = "https://g.page/r/Cb4BmqPTZRSSEBE/review";
 
 export const TestimonialsNew = () => {
   const { t } = useTranslation();
 
-  const testimonials = [
-    {
-      quote: t('testimonialsNew.items.0.quote'),
-      name: t('testimonialsNew.items.0.name'),
-      origin: t('testimonialsNew.items.0.origin'),
-    },
-    {
-      quote: t('testimonialsNew.items.1.quote'),
-      name: t('testimonialsNew.items.1.name'),
-      origin: t('testimonialsNew.items.1.origin'),
-    },
-    {
-      quote: t('testimonialsNew.items.2.quote'),
-      name: t('testimonialsNew.items.2.name'),
-      origin: t('testimonialsNew.items.2.origin'),
-    },
-  ];
+  const testimonials = Array.from({ length: 6 }, (_, i) => ({
+    quote: t(`testimonialsNew.items.${i}.quote`),
+    name: t(`testimonialsNew.items.${i}.name`),
+    origin: t(`testimonialsNew.items.${i}.origin`),
+  }));
 
   return (
     <section id="testimonials" className="py-16 md:py-24" style={{ backgroundColor: 'var(--color-bg)' }}>
@@ -60,29 +47,29 @@ export const TestimonialsNew = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible md:pb-0">
           {testimonials.map((item, i) => (
             <article
               key={i}
-              className="bg-white rounded-lg p-8"
+              className="bg-white rounded-lg p-7 min-w-[300px] snap-start md:min-w-0"
               style={{ border: '0.5px solid var(--color-border)' }}
             >
               {/* Stars */}
-              <div className="flex gap-0.5 mb-4">
+              <div className="flex gap-0.5 mb-3">
                 {[...Array(5)].map((_, j) => (
-                  <svg key={j} width="16" height="16" viewBox="0 0 16 16" fill="var(--color-indigo)">
+                  <svg key={j} width="14" height="14" viewBox="0 0 16 16" fill="#FBBC05">
                     <path d="M8 0l2.47 4.94L16 5.82l-4 3.86.94 5.46L8 12.77l-4.94 2.37.94-5.46-4-3.86 5.53-.88z" />
                   </svg>
                 ))}
               </div>
 
               {/* Quote */}
-              <p className="font-display font-medium text-[15px] italic leading-relaxed mb-5" style={{ color: 'var(--color-text-primary)' }}>
+              <p className="font-body text-[14px] leading-relaxed mb-4" style={{ color: 'var(--color-text-primary)' }}>
                 "{item.quote}"
               </p>
 
               {/* Name */}
-              <div className="text-[13px] font-body font-medium" style={{ color: 'var(--color-indigo)' }}>
+              <div className="text-[13px] font-body font-medium" style={{ color: 'var(--color-ink)' }}>
                 {item.name}
               </div>
               <div className="text-[11px] font-body mt-0.5" style={{ color: 'var(--color-text-muted)' }}>
@@ -92,17 +79,16 @@ export const TestimonialsNew = () => {
           ))}
         </div>
 
-        {/* Leave a review link */}
-        <div className="text-center mt-8">
+        {/* Review CTA */}
+        <div className="text-center mt-10">
           <a
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-body font-medium transition-colors hover:opacity-80"
-            style={{ color: 'var(--color-indigo)' }}
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded font-body font-medium text-sm text-white transition-colors hover:opacity-90"
+            style={{ backgroundColor: 'var(--color-indigo)' }}
           >
-            {t('testimonialsNew.leaveReview')}
-            <ExternalLink className="h-3.5 w-3.5" />
+            {t('testimonialsNew.reviewCta')} →
           </a>
         </div>
       </div>

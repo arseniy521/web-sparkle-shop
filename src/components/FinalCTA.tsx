@@ -21,7 +21,7 @@ export const FinalCTA = () => {
 
         {/* Title */}
         <h2 className="font-display font-bold text-3xl md:text-[52px] text-white mt-4 mb-4 leading-tight">
-          {t('finalCta.titleBase')} <span className="display-italic" style={{ color: 'var(--color-peach)', fontStyle: 'italic', fontWeight: 600 }}>{t('finalCta.titleItalic')}</span>
+          {t('finalCta.titleBase')} <span style={{ color: 'var(--color-peach)', fontWeight: 700 }}>{t('finalCta.titleItalic')}</span>
         </h2>
 
         {/* Sub */}
@@ -41,7 +41,7 @@ export const FinalCTA = () => {
             {t('finalCta.ctaPrimary')} →
           </a>
           <a
-            href="mailto:hello@nius.cz"
+            href="mailto:info@nius.cz"
             className="inline-flex items-center px-6 py-3.5 rounded font-body font-medium text-sm text-white transition-colors"
             style={{ border: '0.5px solid rgba(255,255,255,0.3)' }}
           >

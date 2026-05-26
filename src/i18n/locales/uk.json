@@ -141,18 +141,18 @@
     "members": {
       "nigina": {
         "name": "Nigina Jebrak",
-        "role": "Managing Nurse",
-        "description": "With unwavering dedication to patient care, Nigina stands as our most senior nurse, celebrated for her clinical acumen and visionary leadership."
+        "role": "Старша медсестра",
+        "description": "З непохитною відданістю догляду за пацієнтами, Нігіна є нашою найдосвідченішою медсестрою, відомою своїм клінічним досвідом та лідерськими якостями."
       },
       "jana": {
         "name": "Jana Králová",
-        "role": "Internal Medicine Nurse",
-        "description": "She spent 10 years working in internal medicine at Thomayer Hospital, where she gained deep knowledge in managing chronic and acute conditions."
+        "role": "Медсестра терапевтичного відділення",
+        "description": "10 років працювала у відділенні внутрішньої медицини лікарні Thomayer, де набула глибоких знань у лікуванні хронічних та гострих захворювань."
       },
       "tomas": {
         "name": "Tomáš Dvořák",
-        "role": "Emergency Nurse",
-        "description": "An experienced nurse with a strong background in emergency care. He worked for 8 years in emergency departments, handling critical situations with precision."
+        "role": "Медбрат невідкладної допомоги",
+        "description": "Досвідчений медбрат із великим досвідом роботи у невідкладній допомозі. 8 років працював у відділеннях невідкладної допомоги, справляючись із критичними ситуаціями з точністю."
       }
     }
   },
@@ -249,7 +249,7 @@
     "instagram": "Instagram",
     "email": "Email",
     "availability": "Доступність",
-    "availabilityHours": "Щодня 8:00 - 20:00",
+    "availabilityHours": "Щодня 8:00 - 21:00",
     "urgentNote": "У термінових випадках поза робочим часом, будь ласка, телефонуйте напряму"
   },
   "faq": {
@@ -281,52 +281,52 @@
     },
     "items": {
       "q1": {
-        "question": "How can I book a nurse?",
-        "answer": "You can book a nurse through several methods: by filling out the online booking form, calling us at +420 773 629 123, via email at info@nius.cz, or through WhatsApp/Telegram. After booking, we will contact you to confirm the appointment time."
+        "question": "Як замовити медсестру?",
+        "answer": "Ви можете замовити медсестру кількома способами: заповнивши онлайн-форму, зателефонувавши за номером +420 773 629 123, написавши на info@nius.cz або через WhatsApp/Telegram. Після бронювання ми зв'яжемося з вами для підтвердження часу візиту."
       },
       "q2": {
-        "question": "How quickly can a nurse arrive?",
-        "answer": "We strive to provide care as quickly as possible. Depending on your location in Prague and current nurse availability, we can typically arrive within 2-3 hours of confirming your booking. For planned visits, we recommend booking a nurse at least one day in advance."
+        "question": "Як швидко може приїхати медсестра?",
+        "answer": "Ми прагнемо надати допомогу якомога швидше. Залежно від вашого місцезнаходження у Празі та доступності медсестер, ми зазвичай приїжджаємо протягом 2–3 годин після підтвердження. Для планових візитів рекомендуємо бронювати щонайменше за день."
       },
       "q3": {
-        "question": "Do you visit hotels and Airbnb accommodations?",
-        "answer": "Yes! We regularly visit international patients staying in hotels, Airbnb, and short-term rentals throughout Prague. This is especially common for IVF patients and medical tourists needing post-surgery care. Just provide your accommodation address when booking."
+        "question": "Ви приїжджаєте до готелів та Airbnb?",
+        "answer": "Так! Ми регулярно відвідуємо іноземних пацієнтів, які зупиняються в готелях, Airbnb та короткостроковій оренді по всій Празі. Це особливо поширено серед пацієнток ЕКЗ та медичних туристів, які потребують післяопераційного догляду. Просто вкажіть адресу при бронюванні."
       },
       "q4": {
-        "question": "Do you work with IVF patients and fertility clinics?",
-        "answer": "Absolutely. We have extensive experience with IVF patients, including time-sensitive hormone injections and trigger shots. We're familiar with protocols from major Prague fertility clinics like Reprofit, ISCARE, and Gennet. We offer evening and weekend appointments for precise timing requirements."
+        "question": "Ви працюєте з пацієнтками ЕКЗ та клініками репродукції?",
+        "answer": "Безумовно. Ми маємо великий досвід роботи з пацієнтками ЕКЗ, включаючи термінові гормональні ін'єкції та тригерні уколи. Ми знайомі з протоколами провідних празьких клінік — Reprofit, ISCARE, Gennet. Пропонуємо вечірні та вихідні візити для точного дотримання графіку."
       },
       "q5": {
-        "question": "Can you help with post-surgery recovery for medical tourists?",
-        "answer": "Yes, this is one of our specialties. We provide wound care, bandage changes, drain management, hygiene assistance, and escort services for patients recovering from plastic surgery, dental procedures, or other medical treatments in Prague. We understand the unique needs of international patients."
+        "question": "Чи допомагаєте ви з відновленням після операції для медичних туристів?",
+        "answer": "Так, це одна з наших спеціалізацій. Ми забезпечуємо догляд за ранами, зміну пов'язок, контроль дренажів, гігієнічну допомогу та супровід пацієнтів, які відновлюються після пластичної хірургії, стоматологічних процедур та інших медичних втручань у Празі."
       },
       "q6": {
-        "question": "Do I need a medical prescription for IV therapy?",
-        "answer": "Yes, prescribed IV therapies require a medical prescription. Our nurses can only administer medications prescribed by a doctor. If you're interested in vitamin or hydration IVs, these can be administered without a prescription as they are considered dietary supplements."
+        "question": "Чи потрібен рецепт для IV-терапії?",
+        "answer": "Так, для призначених IV-терапій потрібен рецепт лікаря. Наші медсестри можуть вводити лише ліки, призначені лікарем. Якщо вас цікавлять вітамінні або гідратаційні крапельниці, вони можуть бути введені без рецепта, оскільки вважаються дієтичними добавками."
       },
       "q7": {
-        "question": "What payment methods do you accept?",
-        "answer": "We accept cash (CZK or EUR), bank transfers, and card payments. Payment is collected after service. For package deals and subscription services, we can invoice monthly. Most insurance companies do not cover home nursing, but we provide receipts for potential reimbursement."
+        "question": "Які способи оплати ви приймаєте?",
+        "answer": "Ми приймаємо готівку (CZK або EUR), банківські перекази та оплату карткою. Оплата стягується після надання послуги. Для пакетних та підписних послуг ми можемо виставляти рахунки щомісяця. Більшість страхових компаній не покривають домашній медичний догляд, але ми надаємо квитанції для можливого відшкодування."
       },
       "q8": {
-        "question": "Do you provide services outside of Prague?",
-        "answer": "We primarily operate in Prague, but we can provide services in the surrounding areas (up to 30 km) by individual arrangement. For travel outside Prague, we charge an additional fee of 10 CZK/km above the base rate."
+        "question": "Чи надаєте ви послуги за межами Праги?",
+        "answer": "Ми працюємо переважно у Празі, але можемо надати послуги в околицях (до 30 км) за індивідуальною домовленістю. За виїзд за межі Праги стягується додатковий збір 10 Kč/км."
       },
       "q9": {
-        "question": "What are your operating hours?",
-        "answer": "We are available 7 days a week from 8:00 AM to 9:00 PM. For urgent cases and IVF injections requiring specific timing, we also offer evening visits by arrangement. Call +420 773 629 123 for booking."
+        "question": "Які ваші години роботи?",
+        "answer": "Ми доступні 7 днів на тиждень з 8:00 до 21:00. Для термінових випадків та ін'єкцій ЕКЗ, що вимагають точного часу, ми також пропонуємо вечірні візити за домовленістю. Телефонуйте +420 773 629 123."
       },
       "q10": {
-        "question": "Do you offer long-term care for disabled patients?",
-        "answer": "Yes, we provide daily assistance care for disabled and chronic patients, including hygiene support, medication administration, mobility assistance, and companionship. We offer flexible subscription packages for ongoing care needs."
+        "question": "Чи пропонуєте ви тривалий догляд для пацієнтів з обмеженими можливостями?",
+        "answer": "Так, ми надаємо щоденний догляд для пацієнтів з обмеженими можливостями та хронічними захворюваннями, включаючи гігієнічну підтримку, введення ліків, допомогу з рухливістю та супровід. Пропонуємо гнучкі підписні пакети для постійного догляду."
       },
       "q11": {
-        "question": "Are your services covered by insurance?",
-        "answer": "Currently, our services are not covered by health insurance. This is a direct payment by the client. Upon request, we will issue a receipt for payment that you can use for possible claims with your insurance company if you have additional insurance for premium healthcare."
+        "question": "Чи покриваються ваші послуги страховкою?",
+        "answer": "Наразі наші послуги не покриваються медичним страхуванням. Оплата здійснюється безпосередньо клієнтом. За запитом ми видамо квитанцію, яку ви можете використати для можливого відшкодування від вашої страхової компанії."
       },
       "q12": {
-        "question": "Do I need to prepare anything before the nurse arrives?",
-        "answer": "For the smoothest possible visit, we recommend: having your medical prescription ready (if required), ensuring a calm and clean space for the procedure, informing us in advance about your health condition and any allergies, and having your doctor's contact information handy."
+        "question": "Чи потрібно мені щось підготувати до приїзду медсестри?",
+        "answer": "Для максимально комфортного візиту рекомендуємо: мати напоготові медичний рецепт (якщо потрібен), забезпечити спокійне та чисте місце для процедури, заздалегідь повідомити нас про стан здоров'я та алергії, та мати під рукою контакти вашого лікаря."
       }
     }
   },
@@ -353,10 +353,10 @@
     "ivDrip": "IV краплинна терапія",
     "postSurgery": "Відновлення після операції",
     "disabled": "Щоденний комфортний догляд",
-    "hangover": "Hangover IV Drip",
-    "hangoverDesc": "Mobile hangover IV drip delivered to your hotel, Airbnb, or home in Prague within 60 minutes. Anti-nausea medication, rehydration, and electrolytes from 2,450 CZK.",
+    "hangover": "Крапельниця від похмілля",
+    "hangoverDesc": "Мобільна крапельниця від похмілля — медсестра приїде до вашого готелю, Airbnb або додому у Празі в той самий день. Ліки від нудоти, регідратація та електроліти від 2 450 Kč.",
     "womensDayGift": "Подарунок на 8 березня",
-    "birthdayGift": "Birthday Gift"
+    "birthdayGift": "Подарунок на день народження"
   },
   "ivfSupport": {
     "seo": {
@@ -540,7 +540,7 @@
         },
         {
           "question": "Чи можете ви приїхати о 5 ранку для тригерної ін'єкції?",
-          "answer": "Так! Ми пропонуємо доступність щодня 8:00–21:00, включаючи вихідні та свята, саме тому, що тайминг ЕКЗ цього вимагає. Наша медсестра буде біля ваших дверей вчасно. Ми провели тисячі ЕКЗ візитів."
+          "answer": "Так! Ми пропонуємо доступність щодня 8:00–21:00, включаючи вихідні та свята, саме тому, що графік ЕКЗ цього вимагає. Наша медсестра буде біля ваших дверей вчасно. Ми провели тисячі ЕКЗ візитів."
         },
         {
           "question": "Чи працюєте ви з празькими клініками ЕКЗ, такими як Reprofit, ISCARE, Gennet?",
@@ -699,8 +699,8 @@
       ]
     },
     "cta": {
-      "title": "Planning Surgery in Prague?",
-      "description": "Book your post-operative care in advance for peace of mind. We're here to support your recovery."
+      "title": "Плануєте операцію у Празі?",
+      "description": "Забронюйте післяопераційний догляд заздалегідь для вашого спокою. Ми підтримаємо ваше відновлення."
     }
   },
   "disabledCare": {
@@ -718,7 +718,7 @@
       "dressing": "Підтримка одягання та догляду",
       "medication": "Введення ліків",
       "suppository": "Догляд за свічками та катетером",
-      "mobility": "Допомога з мобільністю та переміщеннями",
+      "mobility": "Допомога з рухливістю та переміщеннями",
       "meals": "Підтримка приготування їжі",
       "vitals": "Моніторинг життєво важливих показників",
       "companionship": "Спілкування та емоційна підтримка"
@@ -811,7 +811,7 @@
       "title": "Подаруйте близькому догляд, якого він заслуговує",
       "description": "Вам не потрібно справлятися самостійно. Довірте нам щоденний медичний догляд, а самі зосередьтесь на родині."
     },
-    "bookNow": "Arrange Care Now"
+    "bookNow": "Організувати догляд"
   },
   "ivDripTherapy": {
     "seo": {
@@ -1097,7 +1097,7 @@
                 "Рекомендації після процедури"
               ],
               "popular": false,
-              "bestFor": "Важка анемія"
+              "bestFor": "Тяжка анемія"
             },
             "nerveRegen": {
               "name": "Nerve Regen",
@@ -2145,12 +2145,17 @@
     "statsVisits": "візитів",
     "statsInternational": "іноземні клієнти",
     "statsSameDay": "У той самий день",
-    "statsSameDayLabel": "прибуття"
+    "statsSameDayLabel": "прибуття",
+    "card1Status": "Доступно зараз",
+    "card1Badge": "Сьогодні ввечері",
+    "card2Status": "Підтримка ЕКЗ",
+    "card2Title": "Вечірній візит для ін'єкції",
+    "card2Badge": "Клініка-партнер"
   },
   "trustStrip": {
     "nurses": "Тільки сертифіковані медсестри",
     "sameDay": "Прибуття у той самий день",
-    "international": "EN, RU, CZ спілкування",
+    "international": "EN, UK, RU, CZ спілкування",
     "formulas": "Медичні препарати",
     "screening": "Медичний огляд"
   },
@@ -2160,6 +2165,8 @@
   "whoWeServe": {
     "eyebrow": "Для кого ми працюємо",
     "title": "Для кожного, хто не може чекати.",
+    "titleBase": "Для кожного, хто",
+    "titleAccent": "не може чекати.",
     "cards": {
       "international": {
         "title": "Іноземні гості",
@@ -2197,21 +2204,37 @@
   "testimonialsNew": {
     "title": "Що кажуть клієнти",
     "leaveReview": "Залиште відгук у Google",
+    "reviewCta": "Нещодавно були у NIUS? Поділіться враженням",
     "items": [
       {
-        "quote": "Я був на конференції в Mandarin і до другого дня почувався розбитим. NIUS надіслав медсестру за 45 хвилин. До вечора я знову був на зустрічах.",
-        "name": "Michael T.",
-        "origin": "Лондон · Ділова поїздка, Прага 2024"
+        "quote": "This is unique service in Prague when you can just call and immediately get a shot of vitamins you need. The service is very knowledgeable, clean and friendly.",
+        "name": "Xenia Maier",
+        "origin": "Відгук Google"
       },
       {
-        "quote": "Як пацієнтка ЕКЗ з Німеччини, робити собі уколи самій у готельному номері було страшно. NIUS приїжджав кожен вечір під час мого циклу. Це все змінило.",
-        "name": "Anna K.",
-        "origin": "Мюнхен · Підтримка ЕКЗ, клініка Unica"
+        "quote": "Excellent service. Communication was prompt, kind and clear. There was great flexibility and effort to meet my last minute needs of place and time. The nurse was amazing, super punctual, and kind.",
+        "name": "Sara Livrieri",
+        "origin": "Відгук Google · Local Guide"
       },
       {
-        "quote": "Після ринопластики мені потрібно було міняти пов'язки щодня. Мій хірург порекомендував NIUS. Професійно, тихо, абсолютно надійно.",
-        "name": "Yasmin R.",
-        "origin": "Дубай · Післяопераційний догляд, Прага 2025"
+        "quote": "I had been sick and was feeling weak, so after consulting with their specialist, I ordered the Defense Shield for post-illness recovery. We arranged everything quickly, and the IV drip worked exactly as intended.",
+        "name": "Jan Ječmínek",
+        "origin": "Відгук Google"
+      },
+      {
+        "quote": "Maria the nurse was awesome! She was the best IV nurse and helped my jet lag. I highly recommend.",
+        "name": "Noreen Connolly",
+        "origin": "Відгук Google · Local Guide"
+      },
+      {
+        "quote": "While in Prague I came down with a bad virus. They were very responsive. They came to my AirBNB and provided excellent service. I highly recommend them!",
+        "name": "Jonathan Gale",
+        "origin": "Відгук Google"
+      },
+      {
+        "quote": "Super easy to book, flexible with time, came to my hotel 21.00, easy to communicate with on WhatsApp.",
+        "name": "Simon Ankersen",
+        "origin": "Відгук Google · Local Guide"
       }
     ]
   },
@@ -2226,8 +2249,16 @@
     "titleItalic": "Вранці відчуєте себе краще.",
     "sub": "Жодних клінік. Жодних черг. Ваша медсестра приїде за 60 хвилин.",
     "ctaPrimary": "Замовити через WhatsApp",
-    "ctaSecondary": "Напишіть нам — hello@nius.cz",
-    "trustLine": "Доступно 7 днів · Прага та околиці · Англійська · Російська · Чеська"
+    "ctaSecondary": "Напишіть нам — info@nius.cz",
+    "trustLine": "Доступно 7 днів · Прага та околиці · Англійська · Українська · Російська · Чеська"
+  },
+  "ourNurses": {
+    "eyebrow": "Наша команда",
+    "titleBase": "Дипломовані медсестри, яким",
+    "titleAccent": "дійсно не байдуже.",
+    "description": "Кожна медсестра NIUS має чеську медичну ліцензію та понад 5 років стажу у стаціонарі. Ми працюємо переважно зі старшими медсестрами з провідних празьких лікарень — Мотол, IKEM, На Гомолці та інших — які обрали приватну практику заради гнучкості та тіснішого контакту з пацієнтами.",
+    "cta": "Детальніше про команду",
+    "imageAlt": "Медсестра NIUS у професійній формі"
   },
   "faqNew": {
     "title": "Часті запитання",
@@ -2250,6 +2281,10 @@
     "partnerIVF": "ЕКЗ клініки",
     "partnerSurgery": "Пластична хірургія",
     "partnerCorporate": "Корпоративний велнес",
-    "company": "Компанія"
+    "company": "Компанія",
+    "whatsapp": "WhatsApp →",
+    "ivDrips": "IV крапельниці",
+    "ivfSupport": "Підтримка ЕКЗ",
+    "copyright": "© 2026 NIUS Services s.r.o. · Прага, Чехія"
   }
 }

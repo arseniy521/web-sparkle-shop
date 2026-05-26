@@ -56,7 +56,7 @@ export const NavBar = () => {
     { href: "#testimonials", label: t('nav.testimonials') },
   ];
 
-  const langLabels: Record<string, string> = { cs: 'CZ', en: 'EN', ru: 'RU', uk: 'UK' };
+  const langLabels: Record<string, string> = { cs: 'CZ', en: 'EN', ru: 'RU', uk: 'УКР' };
 
   return (
     <header

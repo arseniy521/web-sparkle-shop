@@ -2,9 +2,11 @@ import { NavBar } from "@/components/NavBar";
 import { HeroNew } from "@/components/HeroNew";
 import { TrustStrip } from "@/components/TrustStrip";
 import { Partners } from "@/components/Partners";
-import { MenuSection } from "@/components/MenuSection";
+import { MenuSection, SubscriptionSection } from "@/components/MenuSection";
+import { MobileStickyBar } from "@/components/MobileStickyBar";
 import { WhoWeServe } from "@/components/WhoWeServe";
 import { HowItWorks } from "@/components/HowItWorks";
+import { OurNurses } from "@/components/OurNurses";
 import { TestimonialsNew } from "@/components/TestimonialsNew";
 import { ServiceArea } from "@/components/ServiceArea";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -76,7 +78,7 @@ const Index = () => {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "4",
+      "reviewCount": "11",
       "bestRating": "5",
       "worstRating": "4"
     },
@@ -142,6 +144,32 @@ const Index = () => {
     }
   };
 
+  const faqItems = t('faqNew.items', { returnObjects: true }) as Array<{ q: string; a: string }>;
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": Array.isArray(faqItems) ? faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.q ? item.a : '' }
+    })) : []
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "IV Drip Services Prague",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "Service", "name": "Immunity Lite", "description": "Baseline immune boost IV drip", "offers": { "@type": "Offer", "price": "2900", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "Service", "name": "Immunity Power", "description": "High-dose Vitamin C IV drip", "offers": { "@type": "Offer", "price": "3250", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "Service", "name": "Defense Shield", "description": "Ultimate flu & virus recovery IV drip", "offers": { "@type": "Offer", "price": "4350", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "Service", "name": "CEO Recharge", "description": "Peak focus and energy reset IV drip", "offers": { "@type": "Offer", "price": "4550", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "Service", "name": "Pure Hydrate", "description": "Rapid rehydration IV drip", "offers": { "@type": "Offer", "price": "2450", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 6, "item": { "@type": "Service", "name": "Standard Iron", "description": "Iron infusion for energy and vitality", "offers": { "@type": "Offer", "price": "3450", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 7, "item": { "@type": "Service", "name": "Premium Iron", "description": "High-potency iron infusion", "offers": { "@type": "Offer", "price": "5650", "priceCurrency": "CZK" } } }
+    ]
+  };
+
   const schemaArray = [
     enhancedSchema,
     {
@@ -170,7 +198,9 @@ const Index = () => {
         "https://t.me/nius_prague",
         "https://g.page/r/Cb4BmqPTZRSSEBE"
       ]
-    }
+    },
+    faqSchema,
+    serviceSchema
   ];
 
   return (
@@ -190,10 +220,13 @@ const Index = () => {
         <MenuSection />
         <WhoWeServe />
         <HowItWorks />
+        <OurNurses />
+        <SubscriptionSection />
         <TestimonialsNew />
         <ServiceArea />
         <FinalCTA />
         <FAQNew />
+        <MobileStickyBar />
       </main>
       <FooterNew />
     </div>

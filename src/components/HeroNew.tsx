@@ -44,11 +44,11 @@ export const HeroNew = () => {
             <h1 className="font-display font-bold leading-[1.05]" style={{ fontSize: 'clamp(40px, 5vw, 72px)' }}>
               <span
                 className={`block transition-all duration-300 ${isAnimating ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`}
-                style={{ color: 'var(--color-indigo)', fontWeight: 600 }}
+                style={{ color: 'var(--color-indigo)', fontWeight: 700 }}
               >
                 {phrases[currentIndex]}
               </span>
-              <span style={{ color: 'var(--color-ink)' }}>{t('heroNew.headline')}</span>
+              <span style={{ color: 'var(--color-indigo)' }}>{t('heroNew.headline')}</span>
             </h1>
 
             {/* Sub-headline */}
@@ -81,31 +81,22 @@ export const HeroNew = () => {
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-0 rounded-xl" style={{ background: 'linear-gradient(135deg, var(--color-bone) 0%, rgba(252,221,192,0.3) 100%)' }} />
-
-            {/* Floating cards */}
-            <div className="relative p-8 space-y-4">
-              {/* Card 1 */}
-              <div className="bg-white rounded-lg p-5 shadow-float">
-                <div className="text-xs font-body font-medium mb-1" style={{ color: 'var(--color-indigo)' }}>Available now</div>
-                <div className="font-display font-bold text-lg" style={{ color: 'var(--color-ink)' }}>CEO Recharge</div>
-                <div className="flex items-center gap-3 mt-2">
-                  <span className="text-xs font-body" style={{ color: 'var(--color-text-muted)' }}>65–75 min</span>
-                  <span className="text-sm font-display font-bold" style={{ color: 'var(--color-ink)' }}>4 550 CZK</span>
-                  <span className="text-xs px-2 py-0.5 rounded" style={{ backgroundColor: 'var(--color-peach)', color: 'var(--color-indigo)' }}>Tonight</span>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="bg-white rounded-lg p-5 shadow-float ml-8">
-                <div className="text-xs font-body font-medium mb-1" style={{ color: 'var(--color-indigo)' }}>IVF Support</div>
-                <div className="font-display font-bold text-lg" style={{ color: 'var(--color-ink)' }}>Evening injection visit</div>
-                <span className="inline-block mt-2 text-xs px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(86,154,205,0.1)', color: 'var(--color-blue)' }}>Clinic partner</span>
-              </div>
-            </div>
-
+          {/* Right column — hero video */}
+          <div className="relative hidden lg:flex justify-center">
+            <video
+              src="/photos/hero-video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/photos/hero-iv-bag.png"
+              className="rounded-lg object-cover"
+              style={{
+                maxHeight: '600px',
+                aspectRatio: '3/4',
+                boxShadow: '0 24px 60px rgba(21,63,77,0.12)',
+              }}
+            />
           </div>
         </div>
 
