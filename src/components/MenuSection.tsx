@@ -1,7 +1,9 @@
 export const MenuSection = () => {
   return (
-    <section id="menu" className="py-16 md:py-24 px-4 md:px-12" style={{ background: 'var(--color-bg)' }}>
-      <nius-menu section="menu"></nius-menu>
+    <section id="menu" className="py-16 md:py-24" style={{ background: 'var(--color-bg)' }}>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <nius-menu section="menu"></nius-menu>
+      </div>
       {/* SEO fallback: crawlable text for search engines (hidden from users) */}
       <div className="sr-only" aria-hidden="true">
         <h2>IV Drip Menu — Prague Home Delivery</h2>
@@ -60,16 +62,20 @@ export const MenuSection = () => {
 
 export const BundlesSection = () => {
   return (
-    <section id="bundles" className="py-8 md:py-16 px-4 md:px-12" style={{ background: 'var(--color-bg)' }}>
-      <nius-menu section="packages"></nius-menu>
+    <section id="bundles" className="py-8 md:py-16" style={{ background: 'var(--color-bg)' }}>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <nius-menu section="packages"></nius-menu>
+      </div>
     </section>
   );
 };
 
 export const SubscriptionSection = () => {
   return (
-    <section id="membership" className="py-16 md:py-24 px-4 md:px-12" style={{ background: 'var(--color-bg)' }}>
-      <nius-menu section="subscription"></nius-menu>
+    <section id="membership" className="py-16 md:py-24" style={{ background: 'var(--color-bg)' }}>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <nius-menu section="subscription"></nius-menu>
+      </div>
     </section>
   );
 };
