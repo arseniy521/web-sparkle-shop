@@ -1,10 +1,32 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { OnboardingFormDialog } from "@/components/OnboardingForm";
 
 export const HeroNew = () => {
   const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const debugParam = import.meta.env.DEV ? searchParams.get("debug") : null;
+  const onboardingOpen = debugParam === "sparkle" || debugParam === "escort";
+  const onboardingMode: "standard" | "escort" = debugParam === "escort" ? "escort" : "standard";
+  const onboardingServiceCode = debugParam === "escort" ? "escort" : "iv_infusion";
+  const onboardingModeRef = useRef(onboardingMode);
+  onboardingModeRef.current = onboardingMode;
+
+  const setOnboardingOpen = useCallback(
+    (nextOpen: boolean) => {
+      const next = new URLSearchParams(searchParams);
+      if (nextOpen) {
+        next.set("debug", onboardingModeRef.current === "escort" ? "escort" : "sparkle");
+      } else {
+        next.delete("debug");
+      }
+      setSearchParams(next);
+    },
+    [searchParams, setSearchParams],
+  );
 
   const services = useMemo(() => t('heroNew.services', { returnObjects: true }) as string[], [t]);
 
@@ -111,6 +133,14 @@ export const HeroNew = () => {
           </div>
         </div>
       </div>
+
+      <OnboardingFormDialog
+        key={`${onboardingMode}:${onboardingServiceCode}`}
+        open={onboardingOpen}
+        onOpenChange={setOnboardingOpen}
+        initialMode={onboardingMode}
+        initialServiceCode={onboardingServiceCode}
+      />
     </section>
   );
 };
