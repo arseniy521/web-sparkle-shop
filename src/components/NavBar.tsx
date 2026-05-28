@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, Menu, X, UserCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getLanguageFromPath, getLanguagePrefix, getLocalizedUrl, getBasePath, buildLanguageUrl } from "@/utils/languageUtils";
+import { useAuthStatus } from "@/hooks/useAuthStatus";
+import { APP_NIUS_CABINET_URL, APP_NIUS_LOGIN_URL, NIUS_SITE_URL } from "@/constants/siteContacts";
+
+const ALLOWED_RETURN_ORIGINS = new Set(['https://www.nius.cz', 'https://nius.cz']);
 
 export const NavBar = () => {
   const { t } = useTranslation();
@@ -10,6 +14,7 @@ export const NavBar = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const authStatus = useAuthStatus();
 
   const currentLang = getLanguageFromPath(location.pathname);
   const langPrefix = getLanguagePrefix(currentLang);
@@ -58,6 +63,13 @@ export const NavBar = () => {
   ];
 
   const langLabels: Record<string, string> = { cs: 'CZ', en: 'EN', ru: 'RU', uk: 'УКР' };
+  const browserOrigin = typeof window === 'undefined' ? null : window.location.origin;
+  const returnToOrigin = browserOrigin && ALLOWED_RETURN_ORIGINS.has(browserOrigin) ? browserOrigin : NIUS_SITE_URL;
+  const returnTo = `${returnToOrigin}${location.pathname}${location.search}${location.hash}`;
+  const isAccountLoading = authStatus === 'loading';
+  const accountHref = authStatus === 'authenticated'
+    ? APP_NIUS_CABINET_URL
+    : `${APP_NIUS_LOGIN_URL}?returnTo=${encodeURIComponent(returnTo)}`;
 
   return (
     <header
@@ -132,6 +144,26 @@ export const NavBar = () => {
             ))}
           </div>
 
+          {/* Account */}
+          {isAccountLoading ? (
+            <button
+              type="button"
+              disabled
+              aria-label={t('nav.account')}
+              className="hidden md:inline-flex items-center justify-center p-2 rounded-full text-[var(--color-text-secondary)] opacity-60 cursor-wait"
+            >
+              <UserCircle className="h-5 w-5" />
+            </button>
+          ) : (
+            <a
+              href={accountHref}
+              aria-label={t('nav.account')}
+              className="hidden md:inline-flex items-center justify-center p-2 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
+            >
+              <UserCircle className="h-5 w-5" />
+            </a>
+          )}
+
           {/* Phone */}
           <a href="tel:+420773629123" className="hidden lg:flex items-center gap-1.5 text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors">
             <Phone className="h-3.5 w-3.5" />
@@ -201,6 +233,25 @@ export const NavBar = () => {
                   </button>
                 ))}
               </div>
+              {isAccountLoading ? (
+                <button
+                  type="button"
+                  disabled
+                  className="flex items-center gap-2 py-2 mb-3 text-sm font-medium font-body text-[var(--color-text-secondary)] opacity-60 cursor-wait"
+                >
+                  <UserCircle className="h-4 w-4" />
+                  {t('nav.account')}
+                </button>
+              ) : (
+                <a
+                  href={accountHref}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 py-2 mb-3 text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
+                >
+                  <UserCircle className="h-4 w-4" />
+                  {t('nav.account')}
+                </a>
+              )}
               <a
                 href="https://wa.me/420773629123"
                 target="_blank"

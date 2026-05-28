@@ -178,7 +178,7 @@ export const OnboardingFormDialog = ({
           className={cn(
             'fixed bottom-0 left-0 right-0 z-50 flex flex-col bg-background',
             'max-h-[92dvh]',
-            'sm:bottom-auto sm:left-auto sm:top-0 sm:right-0 sm:h-full sm:w-[540px] sm:max-h-full',
+            'sm:bottom-auto sm:left-auto sm:top-0 sm:right-0 sm:h-full sm:w-[45vw] sm:min-w-[540px] sm:max-w-[820px] sm:max-h-full',
             'data-[state=open]:animate-in data-[state=open]:slide-in-from-right',
             'data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right',
             'duration-150 ease-out',
