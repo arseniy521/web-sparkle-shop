@@ -22,6 +22,7 @@ import IVDripHotelPrague from "./pages/IVDripHotelPrague";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsent } from "./components/CookieConsent";
+import { OnboardingHost } from "./components/OnboardingHost";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <CookieConsent />
+          <OnboardingHost />
           <Routes>
             {/* Czech (default) */}
             <Route path="/" element={<LanguageWrapper language="cs"><Index /></LanguageWrapper>} />

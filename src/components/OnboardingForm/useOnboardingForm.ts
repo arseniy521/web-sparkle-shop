@@ -5,6 +5,7 @@ import {
   DesiredTiming,
   OnboardingApiError,
   OnboardingOrder,
+  OnboardingOrderItem,
   PaymentPreference,
 } from '@/api/onboarding';
 import type { CartService } from './cartCatalog';
@@ -35,21 +36,38 @@ function prefilledCartFor(
   return match ? [match] : [];
 }
 
-function resolveFormServiceCode(order: OnboardingOrder, catalog: CartService[]): string | null {
-  const item = order.items?.[0];
-  if (!item) return null;
+function resolveOrderItemServiceCode(item: OnboardingOrderItem, catalog: CartService[]): string | null {
   const rawSlug =
     item.code?.trim() ||
     item.catalogSlug?.trim() ||
     item.serviceCode?.trim() ||
+    item.service?.code?.trim() ||
     '';
   if (rawSlug) return normalizeServiceCode(rawSlug);
-  const ext = item.serviceExternalId;
+
+  const ext = item.serviceExternalId || item.serviceId;
   if (ext) {
     const row = catalog.find((c) => c.serviceUuid === ext);
     return row?.code ?? null;
   }
   return null;
+}
+
+function cartFromOrder(order: OnboardingOrder, catalog: CartService[]): CartService[] {
+  const rows: CartService[] = [];
+  const seen = new Set<string>();
+
+  for (const item of order.items ?? []) {
+    const code = resolveOrderItemServiceCode(item, catalog);
+    const row = code
+      ? catalog.find((c) => c.code === code)
+      : catalog.find((c) => c.serviceUuid === (item.serviceExternalId || item.serviceId));
+    if (!row || seen.has(row.id)) continue;
+    seen.add(row.id);
+    rows.push(row);
+  }
+
+  return rows;
 }
 
 // Step order (UI sequence — phone is last before optional note):
@@ -145,7 +163,7 @@ export function useOnboardingForm(opts: {
     setCart((prev) => (prev.length === 0 ? prefilledCartFor(catalog, initialMode, initialServiceCode) : prev));
   }, [open, catalog, initialMode, initialServiceCode]);
 
-  const isEscortMode = cart.length > 0 && cart.every((s) => s.kind === 'escort');
+  const isEscortMode = cart.some((s) => s.kind === 'escort');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [testMode, setTestMode] = useState(false);
@@ -200,12 +218,13 @@ export function useOnboardingForm(opts: {
 
   const hydrateFromOrder = useCallback(
     (order: OnboardingOrder) => {
-      const code = resolveFormServiceCode(order, catalog);
-      const row = code ? catalog.find((c) => c.code === code) : undefined;
+      const nextCart = cartFromOrder(order, catalog);
+      const primaryCode = nextCart[0]?.code ??
+        (order.items?.[0] ? resolveOrderItemServiceCode(order.items[0], catalog) : null);
       setOrderId(order.id);
       setData({
         phone: order.phone ?? '',
-        serviceCode: code,
+        serviceCode: primaryCode,
         address: order.address ?? '',
         addressGeo: null,
         addressTo: order.addressTo ?? '',
@@ -217,7 +236,7 @@ export function useOnboardingForm(opts: {
         paymentPreference: order.paymentPreference,
         patientNote: order.patientNote ?? '',
       });
-      setCart(row ? [row] : code ? [] : []);
+      setCart(nextCart);
       setStep(1);
     },
     [catalog],
@@ -264,8 +283,12 @@ export function useOnboardingForm(opts: {
   }, [data.desiredTiming, data.desiredDate]);
 
   const submitPhoneAndCreate = useCallback(async (): Promise<boolean> => {
-    const primaryUuid = cart[0]?.serviceUuid;
-    if (!isValidPhoneNumber(data.phone) || cart.length === 0 || !primaryUuid) {
+    const orderItems = cart.map((service) => ({ serviceId: service.serviceUuid }));
+    if (
+      !isValidPhoneNumber(data.phone) ||
+      orderItems.length === 0 ||
+      orderItems.some((item) => !item.serviceId)
+    ) {
       setError('validation');
       return false;
     }
@@ -274,7 +297,7 @@ export function useOnboardingForm(opts: {
     try {
       const order = await createOrder({
         phone: data.phone,
-        serviceId: primaryUuid,
+        items: orderItems,
         address: data.address,
         ...(data.addressGeo ? { addressGeo: data.addressGeo } : {}),
         ...(data.addressTo.trim() ? { addressTo: data.addressTo } : {}),

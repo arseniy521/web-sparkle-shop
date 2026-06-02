@@ -156,7 +156,8 @@ export const OnboardingFormDialog = ({
 
   const canFinish =
     catalogReady &&
-    form.cart.some((x) => Boolean(x.serviceUuid)) &&
+    form.cart.length > 0 &&
+    form.cart.every((x) => Boolean(x.serviceUuid)) &&
     form.data.address.trim().length >= 5 &&
     (!form.isEscortMode || form.data.addressTo.trim().length >= 5) &&
     !!form.data.desiredTiming &&
