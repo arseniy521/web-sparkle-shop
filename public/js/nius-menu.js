@@ -19,6 +19,7 @@ const NIUS_I18N = {
     menuDesc: 'Registered nurses delivering vitamin infusions and specialised care anywhere in Prague — same day after you book.',
     nurseIncluded: 'nurse included',
     bookThisDrip: 'Book this drip →',
+    addToCart: 'Add to cart',
     ctaInfo: 'Registered nurse · medical review included · all equipment',
     addBooster: 'Add a booster shot',
     boosterFoot: 'Administered by your nurse during the same visit — no extra visit fee.',
@@ -65,6 +66,7 @@ const NIUS_I18N = {
     menuDesc: 'Registrované sestry poskytující vitamínové infuze a specializovanou péči kdekoli v Praze — v den objednání.',
     nurseIncluded: 'sestra v ceně',
     bookThisDrip: 'Objednat →',
+    addToCart: 'Přidat do košíku',
     ctaInfo: 'Registrovaná sestra · lékařská kontrola · veškerý materiál',
     addBooster: 'Přidat booster',
     boosterFoot: 'Aplikuje vaše sestra během stejné návštěvy — bez příplatku.',
@@ -175,6 +177,7 @@ const NIUS_I18N = {
     menuDesc: 'Дипломированные медсёстры проводят витаминные инфузии и специализированный уход в любой точке Праги — в день заказа.',
     nurseIncluded: 'медсестра включена',
     bookThisDrip: 'Заказать →',
+    addToCart: 'Добавить в корзину',
     ctaInfo: 'Дипломированная медсестра · медицинский осмотр · всё оборудование',
     addBooster: 'Добавить бустер',
     boosterFoot: 'Вводится медсестрой во время того же визита — без доплаты.',
@@ -285,6 +288,7 @@ const NIUS_I18N = {
     menuDesc: 'Дипломовані медсестри проводять вітамінні інфузії та спеціалізований догляд у будь-якій точці Праги — у день замовлення.',
     nurseIncluded: 'медсестра включена',
     bookThisDrip: 'Замовити →',
+    addToCart: 'Додати в кошик',
     ctaInfo: 'Дипломована медсестра · медичний огляд · все обладнання',
     addBooster: 'Додати бустер',
     boosterFoot: 'Вводиться медсестрою під час того ж візиту — без доплати.',
@@ -398,6 +402,7 @@ const NIUS_CATEGORIES = {
     drips: [
       {
         name: 'Immunity Lite',
+        code: 'immunity_lite',
         tagline: 'Baseline immune boost. The starter protocol.',
         price: 2900,
         duration: '40–50 min',
@@ -408,6 +413,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Immunity Power',
+        code: 'immunity_power',
         tagline: 'High-dose Vitamin C — serious viral defence.',
         price: 3250,
         duration: '45–55 min',
@@ -418,6 +424,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Defense Shield',
+        code: 'defense_shield',
         tagline: 'The ultimate flu & virus recovery formula.',
         price: 4350,
         duration: '50–60 min',
@@ -428,6 +435,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Glow & Post-Flu',
+        code: 'glow_post_flu',
         tagline: 'Skin, hair, and immune resilience.',
         price: 3750,
         duration: '45–55 min',
@@ -445,6 +453,7 @@ const NIUS_CATEGORIES = {
     drips: [
       {
         name: 'CEO Recharge',
+        code: 'ceo_recharge',
         tagline: 'Peak focus, mental clarity, full energy reset.',
         price: 4550,
         duration: '65–75 min',
@@ -455,6 +464,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Metabolic Reset',
+        code: 'metabolic_reset',
         tagline: 'Energy metabolism support and burnout recovery.',
         price: 4050,
         duration: '55–65 min',
@@ -465,6 +475,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'B-Power Shot',
+        code: 'b_power_shot',
         tagline: 'Fast B12 top-up. Energy in 10 minutes.',
         price: 1650,
         duration: '10–15 min',
@@ -482,6 +493,7 @@ const NIUS_CATEGORIES = {
     drips: [
       {
         name: 'Pure Hydrate',
+        code: 'pure_hydrate',
         tagline: 'Rapid rehydration. Simple, fast, effective.',
         price: 2550,
         duration: '35–45 min',
@@ -492,6 +504,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Electrolyte Reset',
+        code: 'electrolyte_reset',
         tagline: 'Hydration plus muscle and sleep recovery.',
         price: 3050,
         duration: '45–55 min',
@@ -502,6 +515,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Nausea Relief',
+        code: 'nausea_relief',
         tagline: 'Rapid relief from nausea and vomiting.',
         price: 2950,
         duration: '20–30 min',
@@ -519,6 +533,7 @@ const NIUS_CATEGORIES = {
     drips: [
       {
         name: 'Standard Iron',
+        code: 'standard_iron',
         tagline: 'Gentle iron replenishment for energy and vitality.',
         price: 2850,
         duration: '45–55 min',
@@ -529,6 +544,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Premium Iron',
+        code: 'premium_iron',
         tagline: 'High-potency iron, single-dose for severe deficiency.',
         price: 6450,
         duration: '20–30 min',
@@ -539,6 +555,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Nerve Regen',
+        code: 'nerve_regen',
         tagline: 'Nerve recovery and back pain relief.',
         price: 3450,
         duration: '45–55 min',
@@ -549,6 +566,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Backache Relief',
+        code: 'backache_relief',
         tagline: 'Acute muscle and nerve pain — fast relief.',
         price: 3350,
         duration: '45–55 min',
@@ -559,6 +577,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Allergy Stop',
+        code: 'allergy_stop',
         tagline: 'Rapid relief from allergic reactions.',
         price: 2750,
         duration: '25–35 min',
@@ -576,6 +595,7 @@ const NIUS_CATEGORIES = {
     drips: [
       {
         name: 'Post-Op Wound Dressing',
+        code: 'post_op_wound_dressing',
         tagline: 'Professional wound care and bandage change after surgery.',
         price: 1890,
         duration: '30–45 min',
@@ -586,6 +606,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Hygiene Assistance',
+        code: 'hygiene_assistance',
         tagline: 'One-hour professional hygiene and comfort care.',
         price: 1690,
         duration: '60 min',
@@ -596,6 +617,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Nurse Escort',
+        code: 'nurse_escort',
         tagline: 'Accompanied transport to and from medical appointments.',
         price: 2190,
         duration: '2–4 hours',
@@ -606,6 +628,7 @@ const NIUS_CATEGORIES = {
       },
       {
         name: 'Jet Lag Recovery',
+        code: 'jet_lag_recovery',
         tagline: 'Rehydration and energy reset after long-haul flights.',
         price: 3250,
         duration: '45–55 min',
@@ -973,14 +996,22 @@ class NiusMenu extends HTMLElement {
           flex-wrap: wrap;
         }
         .drip-cta-info { font-size: 11px; color: var(--ink3); }
-        .btn-book {
-          background: var(--gold); color: var(--white);
+        .drip-cta-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .btn-book,
+        .btn-cart {
           padding: 11px 22px; border-radius: 4px;
           font-family: var(--sans); font-size: 12px; font-weight: 500;
-          letter-spacing: 0.06em; border: none; cursor: pointer;
-          text-decoration: none; transition: background 0.2s;
+          letter-spacing: 0.06em; cursor: pointer;
+          text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .btn-book {
+          background: var(--gold); color: var(--white); border: none;
+        }
+        .btn-cart {
+          background: transparent; color: var(--ink); border: 1px solid var(--border);
         }
         .btn-book:hover { background: #0d2a35; }
+        .btn-cart:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
 
         .packages-grid {
           display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
@@ -1360,6 +1391,12 @@ class NiusMenu extends HTMLElement {
     const name = dt.name || d.name;
     const tagline = dt.tagline || d.tagline;
     const bestfor = dt.bestfor || d.bestfor;
+    // Add-to-cart (онбординг-форма) пока скрыта от обычных посетителей — показываем
+    // только при включённом флаге localStorage.debug. try/catch — на случай
+    // заблокированного localStorage (Safari private mode и т.п.).
+    const showCart = (() => {
+      try { return localStorage.getItem('debug') === 'true'; } catch { return false; }
+    })();
     const ingT = this.t.ingredients || {};
     const ingredients = d.ingredients.map(i => `<div class="ing-row">${ingT[i] || i}</div>`).join('');
     const shotT = this.t.shots || {};
@@ -1401,7 +1438,10 @@ class NiusMenu extends HTMLElement {
         </div>
         <div class="drip-cta-row">
           <div class="drip-cta-info">${this.t.ctaInfo}</div>
-          <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer" class="btn-book">${this.t.bookThisDrip}</a>
+          <div class="drip-cta-actions">
+            ${showCart ? `<button type="button" class="btn-cart" data-code="${d.code || ''}">${this.t.addToCart}</button>` : ''}
+            <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer" class="btn-book">${this.t.bookThisDrip}</a>
+          </div>
         </div>
       </div>
     `;
@@ -1411,6 +1451,19 @@ class NiusMenu extends HTMLElement {
     const closeBtn = modalBody.querySelector('[data-close]');
     if (closeBtn) {
       closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+    }
+    const cartBtn = modalBody.querySelector('.btn-cart');
+    if (cartBtn) {
+      cartBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const code = cartBtn.dataset.code;
+        if (!code) return;
+        window.dispatchEvent(new CustomEvent('nius:add-to-cart', {
+          detail: { code },
+          bubbles: true, composed: true
+        }));
+        modal.classList.remove('open');
+      });
     }
     modalBody.querySelectorAll('.upsell-chip').forEach(chip => {
       chip.addEventListener('click', (e) => {

@@ -10,12 +10,18 @@ export type PaymentPreference = z.infer<typeof paymentPreferenceSchema>;
 
 export const onboardingOrderItemSchema = z.object({
   id: z.string(),
+  serviceId: z.string().nullable().optional(),
   serviceName: z.string(),
   priceHalers: z.number(),
+  quantity: z.number().optional(),
   /** Stable service code (slug), e.g. `iv_infusion`. */
   catalogSlug: z.string().nullable().optional(),
   serviceCode: z.string().nullable().optional(),
   code: z.string().nullable().optional(),
+  service: z.object({
+    kind: z.string().nullable().optional(),
+    code: z.string().nullable().optional(),
+  }).nullable().optional(),
   /** Catalog service UUID for matching GET /services rows. */
   serviceExternalId: z.string().nullable().optional(),
 });
@@ -269,7 +275,7 @@ async function requestOrder(path: string, init?: RequestInit): Promise<Onboardin
 
 export interface CreateOrderPayload extends OnboardingUpdate {
   phone: string;
-  serviceId?: string;
+  items: { serviceId: string; quantity?: number }[];
 }
 
 export function createOrder(payload: CreateOrderPayload): Promise<OnboardingOrder> {
