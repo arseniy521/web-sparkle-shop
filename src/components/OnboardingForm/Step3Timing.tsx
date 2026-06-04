@@ -10,7 +10,6 @@ interface Step3TimingProps {
   setField: <K extends keyof OnboardingFormData>(key: K, value: OnboardingFormData[K]) => void;
   onNext: () => void;
   isLoading: boolean;
-  /** When the dialog opens, refreshes the next-7-days window and tracks calendar rollover. */
   dialogOpen: boolean;
 }
 
@@ -170,9 +169,19 @@ export const Step3Timing = ({ data, setField, onNext, isLoading, dialogOpen }: S
     setField('desiredDate', null);
   };
 
-  const canSubmit =
-    !isLoading &&
-    (isAsap || (isSpecific && selectedDayStr !== null && selectedHour !== null));
+  const timingInvalid = !(isAsap || (isSpecific && selectedDayStr !== null && selectedHour !== null));
+
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+  const timingError = submitAttempted && timingInvalid ? t('onboarding.step3.timingError') : null;
+
+  const handleContinue = () => {
+    if (isLoading) return;
+    if (timingInvalid) {
+      setSubmitAttempted(true);
+      return;
+    }
+    onNext();
+  };
 
   const calYear = calendarMonth.getFullYear();
   const calMonthIdx = calendarMonth.getMonth();
@@ -355,7 +364,9 @@ export const Step3Timing = ({ data, setField, onNext, isLoading, dialogOpen }: S
         </div>
       )}
 
-      <Button onClick={onNext} disabled={!canSubmit} size="default" className="w-full group">
+      {timingError && <p className="text-xs text-destructive">{timingError}</p>}
+
+      <Button onClick={handleContinue} disabled={isLoading} size="default" className="w-full group">
         {isLoading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (

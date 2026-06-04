@@ -50,7 +50,8 @@
     "allServices": "All Services",
     "servicesPricing": "Services & Pricing",
     "ourNurses": "Our Nurses",
-    "account": "Account"
+    "account": "Account",
+    "cart": "Cart"
   },
   "hero": {
     "phrases": {
@@ -1502,7 +1503,7 @@
               "name": "🌸 Allergy Stop",
               "price": 2650,
               "duration": 45,
-              "short": "Rapid relief from allergic reactions and seasonal allergy symptoms.",
+              "short": "Support during allergic reactions and seasonal allergy symptoms.",
               "includes": [
                 "Antihistamine support",
                 "Anti-inflammatory agents",
@@ -2022,7 +2023,8 @@
         "morning": "Morning 08:00–12:00",
         "afternoon": "Afternoon 12:00–17:00",
         "evening": "Evening 17:00–21:00"
-      }
+      },
+      "timingError": "Please choose a time"
     },
     "step4": {
       "title": "How would you like to pay?",
@@ -2050,8 +2052,13 @@
       "title": "Almost done!",
       "subtitle": "We've received your request. Pick how you'd like to continue.",
       "loginBtn": "Sign in and track booking",
-      "loginHint": "Signing in lets you track status, edit the order and fill a short medical questionnaire.",
-      "contactBtn": "Call me back"
+      "contactBtn": "Call me back",
+      "orderSummaryTitle": "Your order",
+      "benefits": {
+        "track": "Track your booking status in real time",
+        "edit": "Edit your order or add more services",
+        "questionnaire": "Fill in a short medical questionnaire"
+      }
     },
     "thankyou": {
       "title": "Thank you!",
@@ -2109,12 +2116,22 @@
       "card": "Card online",
       "cash": "Cash",
       "bank": "Bank transfer"
+    },
+    "emptyCart": {
+      "title": "Your cart is empty",
+      "hint": "Pick a service from the menu and add it to your cart.",
+      "cta": "Browse services"
     }
   },
   "heroNew": {
     "headline": "Registered nurse at your door, same day.",
     "eyebrow": "Available now in Prague",
-    "services": ["IV drips", "IVF support", "Post-surgery care", "Hangover recovery"],
+    "services": [
+      "IV drips",
+      "IVF support",
+      "Post-surgery care",
+      "Hangover recovery"
+    ],
     "subheadline": "Registered nurses with hospital experience delivering IV therapy, IVF injection support, and post-surgery care to your hotel, Airbnb, or home anywhere in Prague.",
     "ctaPrimary": "Book on WhatsApp",
     "ctaSecondary": "See services & pricing",
@@ -2142,22 +2159,42 @@
       "international": {
         "title": "International visitors",
         "desc": "Medical tourists, business travellers, tourists in Prague's 5-star hotels. 70% of our clients are international.",
-        "bullets": ["Hotel infusions", "Airbnb stays", "Pre/post-flight recovery", "Hangover & dehydration"]
+        "bullets": [
+          "Hotel infusions",
+          "Airbnb stays",
+          "Pre/post-flight recovery",
+          "Hangover & dehydration"
+        ]
       },
       "ivf": {
         "title": "IVF patients",
         "desc": "Partnership with Unica Clinic and Formé. Evening injection visits so you can be at home, comfortable, supported.",
-        "bullets": ["Evening IVF visits", "Progesterone, Gonal-F, Menopur", "Intralipid infusions", "Nurse-led training sessions"]
+        "bullets": [
+          "Evening IVF visits",
+          "Progesterone, Gonal-F, Menopur",
+          "Intralipid infusions",
+          "Nurse-led training sessions"
+        ]
       },
       "hotel": {
         "title": "Luxury hotel guests",
         "desc": "Concierge-referred service for Four Seasons, Augustine.",
-        "bullets": ["5-star partnerships", "Concierge referrals", "Same-day booking", "English-speaking nurse"]
+        "bullets": [
+          "5-star partnerships",
+          "Concierge referrals",
+          "Same-day booking",
+          "English-speaking nurse"
+        ]
       },
       "postSurgery": {
         "title": "Post-surgery recovery",
         "desc": "Plastic surgery, orthopaedic, cosmetic procedures in Prague — NIUS handles aftercare at your accommodation.",
-        "bullets": ["Wound care", "Drain management", "Patient escorts", "Post-op IV nutrition"]
+        "bullets": [
+          "Wound care",
+          "Drain management",
+          "Patient escorts",
+          "Post-op IV nutrition"
+        ]
       }
     }
   },
@@ -2166,10 +2203,26 @@
     "titleBase": "Four steps,",
     "titleItalic": "done.",
     "steps": [
-      { "title": "Choose your service", "desc": "Pick an outcome — Energy, Immunity, IVF, or post-surgery. 2 minutes online or WhatsApp.", "time": "2 minutes" },
-      { "title": "Medical screening", "desc": "Short medical history form. Our nurse reviews before arrival.", "time": "5 minutes" },
-      { "title": "Nurse arrives", "desc": "Registered nurse at your hotel, home, or clinic. All equipment brought to you.", "time": "Same day" },
-      { "title": "Feel it working", "desc": "45–75 min infusion. Most clients feel the effect during the session.", "time": "45–75 min" }
+      {
+        "title": "Choose your service",
+        "desc": "Pick an outcome — Energy, Immunity, IVF, or post-surgery. 2 minutes online or WhatsApp.",
+        "time": "2 minutes"
+      },
+      {
+        "title": "Medical screening",
+        "desc": "Short medical history form. Our nurse reviews before arrival.",
+        "time": "5 minutes"
+      },
+      {
+        "title": "Nurse arrives",
+        "desc": "Registered nurse at your hotel, home, or clinic. All equipment brought to you.",
+        "time": "Same day"
+      },
+      {
+        "title": "Feel it working",
+        "desc": "45–75 min infusion. Most clients feel the effect during the session.",
+        "time": "45–75 min"
+      }
     ]
   },
   "testimonialsNew": {
@@ -2234,14 +2287,38 @@
   "faqNew": {
     "title": "Frequently asked",
     "items": [
-      { "q": "Do I need a prescription for IV therapy?", "a": "No prescription is needed. Our nurse conducts a medical screening before every infusion to ensure safety." },
-      { "q": "How fast can a nurse arrive?", "a": "Same-day booking available 7 days a week, 8:00–21:00. We confirm arrival time after your booking." },
-      { "q": "What qualifications do your nurses have?", "a": "All nurses are registered and certified with hospital-grade training. They carry full medical equipment." },
-      { "q": "Can I get an IV drip at my hotel?", "a": "Yes. We visit all Prague hotels including 5-star properties. Many concierge teams refer us directly." },
-      { "q": "How long does an infusion take?", "a": "Most infusions take 35–75 minutes depending on the drip. Your nurse stays the entire time." },
-      { "q": "Do you support IVF patients?", "a": "Yes. We partner with Unica Clinic and Formé. Evening injection visits for progesterone, Gonal-F, Menopur, and intralipid infusions." },
-      { "q": "What payment methods do you accept?", "a": "Cash, bank transfer, and card payment. EUR accepted at current rate." },
-      { "q": "Is there a minimum booking?", "a": "No minimum. Single visits, bundles, and monthly subscriptions are all available." }
+      {
+        "q": "Do I need a prescription for IV therapy?",
+        "a": "No prescription is needed. Our nurse conducts a medical screening before every infusion to ensure safety."
+      },
+      {
+        "q": "How fast can a nurse arrive?",
+        "a": "Same-day booking available 7 days a week, 8:00–21:00. We confirm arrival time after your booking."
+      },
+      {
+        "q": "What qualifications do your nurses have?",
+        "a": "All nurses are registered and certified with hospital-grade training. They carry full medical equipment."
+      },
+      {
+        "q": "Can I get an IV drip at my hotel?",
+        "a": "Yes. We visit all Prague hotels including 5-star properties. Many concierge teams refer us directly."
+      },
+      {
+        "q": "How long does an infusion take?",
+        "a": "Most infusions take 35–75 minutes depending on the drip. Your nurse stays the entire time."
+      },
+      {
+        "q": "Do you support IVF patients?",
+        "a": "Yes. We partner with Unica Clinic and Formé. Evening injection visits for progesterone, Gonal-F, Menopur, and intralipid infusions."
+      },
+      {
+        "q": "What payment methods do you accept?",
+        "a": "Cash, bank transfer, and card payment. EUR accepted at current rate."
+      },
+      {
+        "q": "Is there a minimum booking?",
+        "a": "No minimum. Single visits, bundles, and monthly subscriptions are all available."
+      }
     ]
   },
   "footerNew": {
@@ -2257,5 +2334,123 @@
     "ivDrips": "IV Drips",
     "ivfSupport": "IVF Support",
     "copyright": "© 2026 NIUS Services s.r.o. · Prague, Czech Republic"
+  },
+  "serviceCatalog": {
+    "immunity_lite": {
+      "title": "Immunity Lite",
+      "description": "Baseline immune boost. The starter protocol."
+    },
+    "immunity_power": {
+      "title": "Immunity Power",
+      "description": "High-dose Vitamin C — serious viral defence."
+    },
+    "defense_shield": {
+      "title": "Defense Shield",
+      "description": "The ultimate flu & virus recovery formula."
+    },
+    "glow_post_flu": {
+      "title": "Glow & Post-Flu",
+      "description": "Skin, hair, and immune resilience."
+    },
+    "ceo_recharge": {
+      "title": "CEO Recharge",
+      "description": "Peak focus, mental clarity, full energy reset."
+    },
+    "metabolic_reset": {
+      "title": "Metabolic Reset",
+      "description": "Energy metabolism support and burnout recovery."
+    },
+    "b_power_shot": {
+      "title": "B-Power Shot",
+      "description": "Fast B12 top-up. Energy in 10 minutes."
+    },
+    "pure_hydrate": {
+      "title": "Pure Hydrate",
+      "description": "Rapid rehydration. Simple, fast, effective."
+    },
+    "electrolyte_reset": {
+      "title": "Electrolyte Reset",
+      "description": "Hydration plus muscle and sleep recovery."
+    },
+    "nausea_relief": {
+      "title": "Nausea Relief",
+      "description": "Support for nausea and vomiting."
+    },
+    "standard_iron": {
+      "title": "Standard Iron",
+      "description": "Gentle iron replenishment for energy and vitality."
+    },
+    "premium_iron": {
+      "title": "Premium Iron",
+      "description": "High-potency iron, single-dose for severe deficiency."
+    },
+    "nerve_regen": {
+      "title": "Nerve Regen",
+      "description": "Nerve recovery and back pain relief."
+    },
+    "backache_relief": {
+      "title": "Backache Relief",
+      "description": "Acute muscle and nerve pain — fast relief."
+    },
+    "allergy_stop": {
+      "title": "Allergy Stop",
+      "description": "Support during allergic reactions."
+    },
+    "post_op_wound_dressing": {
+      "title": "Post-Op Wound Dressing",
+      "description": "Professional wound care and bandage change after surgery."
+    },
+    "hygiene_assistance": {
+      "title": "Hygiene Assistance",
+      "description": "One-hour professional hygiene and comfort care."
+    },
+    "nurse_escort": {
+      "title": "Nurse Escort",
+      "description": "Accompanied transport to and from medical appointments."
+    },
+    "jet_lag_recovery": {
+      "title": "Jet Lag Recovery",
+      "description": "Rehydration and energy reset after long-haul flights."
+    },
+    "b12_energy_shot": {
+      "title": "B12 Energy Shot",
+      "description": "Instant energy and focus boost. Our most popular booster."
+    },
+    "b_vitamin_complex": {
+      "title": "B-Vitamin Complex",
+      "description": "Full B-Vitamin Complex (B1, B6, B12). Nerve and fatigue support."
+    },
+    "vitamin_d_shot": {
+      "title": "Vitamin D Shot",
+      "description": "High-dose Vitamin D3. Three-month top-up in one injection."
+    },
+    "vitamin_b1_thiamin": {
+      "title": "Vitamin B1 (Thiamin)",
+      "description": "Neurological support and cleansing acceleration."
+    },
+    "glutathione_glow": {
+      "title": "Glutathione Glow",
+      "description": "Antioxidant support and liver-support nutrients."
+    },
+    "magnesium_boost": {
+      "title": "Magnesium Boost",
+      "description": "Muscle relaxation, migraine relief, better sleep."
+    },
+    "zinc_trace_minerals": {
+      "title": "Zinc & Trace Minerals",
+      "description": "Zinc, Selenium & essential trace minerals — full immune support."
+    },
+    "vitamin_c_upgrade": {
+      "title": "Vitamin C Upgrade",
+      "description": "Extra Vitamin C dose mid-drip for stronger immune effect."
+    },
+    "vitamin_b6_shot": {
+      "title": "Vitamin B6 Shot",
+      "description": "PMS relief, pregnancy nausea, nerve and mood support."
+    },
+    "anti_nausea_addon": {
+      "title": "Anti-Nausea Add-on",
+      "description": "Quick nausea control added to any infusion."
+    }
   }
 }

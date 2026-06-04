@@ -33,15 +33,21 @@ function loadAuthStatus(): Promise<ResolvedAuthStatus | null> {
   return authStatusPromise;
 }
 
-export function useAuthStatus(): AuthStatus {
-  const [status, setStatus] = useState<AuthStatus>(() => cachedAuthStatus ?? 'loading');
+export function useAuthStatus(enabled = true): AuthStatus {
+  const [status, setStatus] = useState<AuthStatus>(() => (enabled ? cachedAuthStatus ?? 'loading' : 'anonymous'));
 
   useEffect(() => {
+    if (!enabled) {
+      setStatus('anonymous');
+      return;
+    }
+
     if (cachedAuthStatus) {
       setStatus(cachedAuthStatus);
       return;
     }
 
+    setStatus('loading');
     let cancelled = false;
     loadAuthStatus().then((nextStatus) => {
       if (cancelled || !nextStatus) return;
@@ -51,7 +57,7 @@ export function useAuthStatus(): AuthStatus {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [enabled]);
 
   return status;
 }

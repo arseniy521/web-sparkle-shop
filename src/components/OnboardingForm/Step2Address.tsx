@@ -25,26 +25,29 @@ export const Step2Address = ({
   mode = 'standard',
 }: Step2AddressProps) => {
   const { t } = useTranslation();
-  const [touched, setTouched] = useState(false);
-  const [touchedTo, setTouchedTo] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
 
   const isEscort = mode === 'escort';
 
-  const addressError =
-    touched && data.address.trim().length < 5 ? t('onboarding.step2.addressError') : null;
-  const addressToError =
-    isEscort && touchedTo && data.addressTo.trim().length < 5
-      ? t('onboarding.step2.toError')
-      : null;
+  const addressInvalid = data.address.trim().length < 5;
+  const addressToInvalid = isEscort && data.addressTo.trim().length < 5;
 
-  const canSubmit =
-    data.address.trim().length >= 5 &&
-    (!isEscort || data.addressTo.trim().length >= 5) &&
-    !isLoading;
+  const addressError =
+    submitAttempted && addressInvalid ? t('onboarding.step2.addressError') : null;
+  const addressToError =
+    submitAttempted && addressToInvalid ? t('onboarding.step2.toError') : null;
+
+  const handleContinue = () => {
+    if (isLoading) return;
+    if (addressInvalid || addressToInvalid) {
+      setSubmitAttempted(true);
+      return;
+    }
+    onNext();
+  };
 
   return (
     <div className="space-y-3">
-      {/* From / Address (point A) */}
       <div className="space-y-1.5">
         <Label htmlFor="onboarding-address" className="text-xs flex items-center gap-1.5">
           {isEscort && <MapPin className="h-3.5 w-3.5 text-primary" />}
@@ -52,7 +55,7 @@ export const Step2Address = ({
         </Label>
         <AddressAutocomplete
           id="onboarding-address"
-          autoFocus
+          autoFocus={data.address.trim().length === 0}
           placeholder={
             isEscort
               ? t('onboarding.step2.fromPlaceholder')
@@ -65,14 +68,12 @@ export const Step2Address = ({
           onSelect={(geo) => {
             setFields({ address: geo.label, addressGeo: geo });
           }}
-          onBlur={() => setTouched(true)}
           aria-invalid={!!addressError}
           className="h-11 text-base"
         />
         {addressError && <p className="text-xs text-destructive">{addressError}</p>}
       </div>
 
-      {/* To / Dropoff (point B) — escort mode only */}
       {isEscort && (
         <div className="space-y-1.5">
           <Label htmlFor="onboarding-address-to" className="text-xs flex items-center gap-1.5">
@@ -89,7 +90,6 @@ export const Step2Address = ({
             onSelect={(geo) => {
               setFields({ addressTo: geo.label, addressToGeo: geo });
             }}
-            onBlur={() => setTouchedTo(true)}
             aria-invalid={!!addressToError}
             className="h-11 text-base"
           />
@@ -97,7 +97,6 @@ export const Step2Address = ({
         </div>
       )}
 
-      {/* Floor / intercom — standard mode only */}
       {!isEscort && (
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1.5">
@@ -131,7 +130,7 @@ export const Step2Address = ({
         </div>
       )}
 
-      <Button onClick={onNext} disabled={!canSubmit} size="default" className="w-full group">
+      <Button onClick={handleContinue} disabled={isLoading} size="default" className="w-full group">
         {isLoading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (

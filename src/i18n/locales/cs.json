@@ -50,7 +50,8 @@
     "allServices": "Všechny služby",
     "servicesPricing": "Služby a ceník",
     "ourNurses": "Naše sestry",
-    "account": "Účet"
+    "account": "Účet",
+    "cart": "Košík"
   },
   "hero": {
     "phrases": {
@@ -2022,7 +2023,8 @@
         "custom": "Konkrétní datum a čas"
       },
       "loadError": "Nepodařilo se načíst časové sloty. Zkuste to prosím znovu.",
-      "dateLabel": "Datum a čas"
+      "dateLabel": "Datum a čas",
+      "timingError": "Vyberte prosím čas návštěvy"
     },
     "step4": {
       "title": "Jak chcete platit?",
@@ -2048,10 +2050,15 @@
     },
     "final": {
       "title": "Skoro hotovo!",
-      "subtitle": "Přijali jsme vaši žádost. Zvolte, jak chcete pokračovat.",
+      "subtitle": "Přijali jsme vaši žádost. Vyberte, jak chcete pokračovat.",
       "loginBtn": "Přihlásit se a sledovat rezervaci",
-      "loginHint": "Přihlášení umožňuje sledovat stav, upravit objednávku a vyplnit krátký zdravotní dotazník.",
-      "contactBtn": "Zavolejte mi zpět"
+      "contactBtn": "Zavolejte mi zpět",
+      "orderSummaryTitle": "Vaše objednávka",
+      "benefits": {
+        "track": "Sledujte stav objednávky v reálném čase",
+        "edit": "Upravte objednávku nebo přidejte další služby",
+        "questionnaire": "Vyplňte krátký zdravotní dotazník"
+      }
     },
     "thankyou": {
       "title": "Děkujeme!",
@@ -2109,12 +2116,22 @@
       "card": "Karta online",
       "cash": "Hotově",
       "bank": "Bankovní převod"
+    },
+    "emptyCart": {
+      "title": "Košík je prázdný",
+      "hint": "Vyberte službu z nabídky a přidejte ji do košíku.",
+      "cta": "Vybrat služby"
     }
   },
   "heroNew": {
     "headline": "Registrovaná sestra u vašich dveří ještě dnes.",
     "eyebrow": "K dispozici nyní v Praze",
-    "services": ["IV kapačky", "IVF podpora", "Pooperační péče", "Pomoc s kocovinou"],
+    "services": [
+      "IV kapačky",
+      "IVF podpora",
+      "Pooperační péče",
+      "Pomoc s kocovinou"
+    ],
     "subheadline": "Registrované sestry s nemocniční praxí doručují IV kapačky, podporu IVF a pooperační péči k vám do hotelu, bytu Airbnb nebo domů — kdekoli v Praze.",
     "ctaPrimary": "Objednat přes WhatsApp",
     "ctaSecondary": "Služby a ceník",
@@ -2142,22 +2159,42 @@
       "international": {
         "title": "Mezinárodní návštěvníci",
         "desc": "Zdravotní turisté, obchodní cestovatelé, hosté pražských 5hvězdičkových hotelů. 70 % klientů je ze zahraničí.",
-        "bullets": ["Hotelové infuze", "Airbnb pobyty", "Regenerace po letu", "Kocovina a dehydratace"]
+        "bullets": [
+          "Hotelové infuze",
+          "Airbnb pobyty",
+          "Regenerace po letu",
+          "Kocovina a dehydratace"
+        ]
       },
       "ivf": {
         "title": "IVF pacientky",
         "desc": "Spolupráce s klinikami Unica a Formé. Večerní aplikace injekcí, abyste mohly být doma, v pohodlí.",
-        "bullets": ["Večerní IVF návštěvy", "Progesteron, Gonal-F, Menopur", "Intralipidové infuze", "Školení s sestrou"]
+        "bullets": [
+          "Večerní IVF návštěvy",
+          "Progesteron, Gonal-F, Menopur",
+          "Intralipidové infuze",
+          "Školení s sestrou"
+        ]
       },
       "hotel": {
         "title": "Hosté luxusních hotelů",
         "desc": "Služba doporučovaná concierge v Four Seasons, Augustine.",
-        "bullets": ["5hvězdičková partnerství", "Doporučení od concierge", "Objednání ve stejný den", "Anglicky mluvící sestra"]
+        "bullets": [
+          "5hvězdičková partnerství",
+          "Doporučení od concierge",
+          "Objednání ve stejný den",
+          "Anglicky mluvící sestra"
+        ]
       },
       "postSurgery": {
         "title": "Pooperační péče",
         "desc": "Plastická chirurgie, ortopedie, estetické zákroky v Praze — NIUS zajistí následnou péči ve vašem ubytování.",
-        "bullets": ["Péče o rány", "Správa drénů", "Doprovod pacientů", "Pooperační IV výživa"]
+        "bullets": [
+          "Péče o rány",
+          "Správa drénů",
+          "Doprovod pacientů",
+          "Pooperační IV výživa"
+        ]
       }
     }
   },
@@ -2166,10 +2203,26 @@
     "titleBase": "Čtyři kroky,",
     "titleItalic": "hotovo.",
     "steps": [
-      { "title": "Vyberte službu", "desc": "Zvolte cíl — Energie, Imunita, IVF nebo pooperační péče. 2 minuty online nebo WhatsApp.", "time": "2 minuty" },
-      { "title": "Zdravotní screening", "desc": "Krátký dotazník zdravotní historie. Sestra zkontroluje před příjezdem.", "time": "5 minut" },
-      { "title": "Sestra dorazí", "desc": "Registrovaná sestra u vás v hotelu, doma nebo na klinice. Veškeré vybavení s sebou.", "time": "Stejný den" },
-      { "title": "Pocítíte účinek", "desc": "45–75 min infuze. Většina klientů cítí efekt již během procedury.", "time": "45–75 min" }
+      {
+        "title": "Vyberte službu",
+        "desc": "Zvolte cíl — Energie, Imunita, IVF nebo pooperační péče. 2 minuty online nebo WhatsApp.",
+        "time": "2 minuty"
+      },
+      {
+        "title": "Zdravotní screening",
+        "desc": "Krátký dotazník zdravotní historie. Sestra zkontroluje před příjezdem.",
+        "time": "5 minut"
+      },
+      {
+        "title": "Sestra dorazí",
+        "desc": "Registrovaná sestra u vás v hotelu, doma nebo na klinice. Veškeré vybavení s sebou.",
+        "time": "Stejný den"
+      },
+      {
+        "title": "Pocítíte účinek",
+        "desc": "45–75 min infuze. Většina klientů cítí efekt již během procedury.",
+        "time": "45–75 min"
+      }
     ]
   },
   "testimonialsNew": {
@@ -2234,14 +2287,38 @@
   "faqNew": {
     "title": "Časté dotazy",
     "items": [
-      { "q": "Potřebuji recept na IV terapii?", "a": "Ne, recept není potřeba. Naše sestra provede zdravotní screening před každou infuzí." },
-      { "q": "Jak rychle může sestra dorazit?", "a": "Obvykle do 1–3 hodin v centru Prahy. Objednání ve stejný den je k dispozici 7 dní v týdnu, 8:00–21:00." },
-      { "q": "Jakou kvalifikaci mají vaše sestry?", "a": "Všechny sestry jsou registrované a certifikované s nemocniční praxí. Mají kompletní zdravotnické vybavení." },
-      { "q": "Mohu dostat kapačku v hotelu?", "a": "Ano. Navštěvujeme všechny pražské hotely včetně 5hvězdičkových. Mnohé concierge týmy nás přímo doporučují." },
-      { "q": "Jak dlouho trvá infuze?", "a": "Většina infuzí trvá 35–75 minut podle typu kapačky. Sestra zůstává po celou dobu." },
-      { "q": "Podporujete IVF pacientky?", "a": "Ano. Spolupracujeme s klinikami Unica a Formé. Večerní aplikace progesteronu, Gonal-F, Menopuru a intralipidových infuzí." },
-      { "q": "Jaké platební metody přijímáte?", "a": "Hotovost, bankovní převod a platba kartou. EUR přijímáme v aktuálním kurzu." },
-      { "q": "Je minimální objednávka?", "a": "Žádné minimum. Jednorázové návštěvy, balíčky i měsíční předplatné." }
+      {
+        "q": "Potřebuji recept na IV terapii?",
+        "a": "Ne, recept není potřeba. Naše sestra provede zdravotní screening před každou infuzí."
+      },
+      {
+        "q": "Jak rychle může sestra dorazit?",
+        "a": "Obvykle do 1–3 hodin v centru Prahy. Objednání ve stejný den je k dispozici 7 dní v týdnu, 8:00–21:00."
+      },
+      {
+        "q": "Jakou kvalifikaci mají vaše sestry?",
+        "a": "Všechny sestry jsou registrované a certifikované s nemocniční praxí. Mají kompletní zdravotnické vybavení."
+      },
+      {
+        "q": "Mohu dostat kapačku v hotelu?",
+        "a": "Ano. Navštěvujeme všechny pražské hotely včetně 5hvězdičkových. Mnohé concierge týmy nás přímo doporučují."
+      },
+      {
+        "q": "Jak dlouho trvá infuze?",
+        "a": "Většina infuzí trvá 35–75 minut podle typu kapačky. Sestra zůstává po celou dobu."
+      },
+      {
+        "q": "Podporujete IVF pacientky?",
+        "a": "Ano. Spolupracujeme s klinikami Unica a Formé. Večerní aplikace progesteronu, Gonal-F, Menopuru a intralipidových infuzí."
+      },
+      {
+        "q": "Jaké platební metody přijímáte?",
+        "a": "Hotovost, bankovní převod a platba kartou. EUR přijímáme v aktuálním kurzu."
+      },
+      {
+        "q": "Je minimální objednávka?",
+        "a": "Žádné minimum. Jednorázové návštěvy, balíčky i měsíční předplatné."
+      }
     ]
   },
   "footerNew": {
@@ -2257,5 +2334,123 @@
     "ivDrips": "IV kapačky",
     "ivfSupport": "IVF podpora",
     "copyright": "© 2026 NIUS Services s.r.o. · Praha, Česká republika"
+  },
+  "serviceCatalog": {
+    "immunity_lite": {
+      "title": "Imunita Lite",
+      "description": "Základní imunitní podpora. Startovací protokol."
+    },
+    "immunity_power": {
+      "title": "Imunita Power",
+      "description": "Vysokodávkový vitamín C — silná obrana proti virům."
+    },
+    "defense_shield": {
+      "title": "Obranný štít",
+      "description": "Ultimátní formule pro obnovu po chřipce a virech."
+    },
+    "glow_post_flu": {
+      "title": "Záře & Post-Flu",
+      "description": "Pleť, vlasy a imunitní odolnost."
+    },
+    "ceo_recharge": {
+      "title": "CEO Recharge",
+      "description": "Maximální soustředění, mentální jasnost, reset energie."
+    },
+    "metabolic_reset": {
+      "title": "Metabolický reset",
+      "description": "Podpora energetického metabolismu a zotavení z vyhoření."
+    },
+    "b_power_shot": {
+      "title": "B-Power Shot",
+      "description": "Rychlý B12 boost. Energie za 10 minut."
+    },
+    "pure_hydrate": {
+      "title": "Čistá hydratace",
+      "description": "Rychlá rehydratace. Jednoduše, rychle, účinně."
+    },
+    "electrolyte_reset": {
+      "title": "Elektrolytový reset",
+      "description": "Hydratace plus regenerace svalů a spánku."
+    },
+    "nausea_relief": {
+      "title": "Úleva od nevolnosti",
+      "description": "Rychlá úleva od nauzey a zvracení."
+    },
+    "standard_iron": {
+      "title": "Železo Standard",
+      "description": "Šetrné doplnění železa pro energii a vitalitu."
+    },
+    "premium_iron": {
+      "title": "Železo Premium",
+      "description": "Vysocedávkové železo, jednorázová dávka pro těžký deficit."
+    },
+    "nerve_regen": {
+      "title": "Regenerace nervů",
+      "description": "Obnova nervů a úleva od bolesti zad."
+    },
+    "backache_relief": {
+      "title": "Úleva od bolesti zad",
+      "description": "Akutní svalová a nervová bolest — rychlá úleva."
+    },
+    "allergy_stop": {
+      "title": "Stop alergii",
+      "description": "Rychlá úleva od alergických reakcí."
+    },
+    "post_op_wound_dressing": {
+      "title": "Pooperační převaz",
+      "description": "Profesionální péče o rány a výměna obvazů po operaci."
+    },
+    "hygiene_assistance": {
+      "title": "Hygienická asistence",
+      "description": "Hodinová profesionální hygiena a komfortní péče."
+    },
+    "nurse_escort": {
+      "title": "Doprovod sestry",
+      "description": "Doprovod na lékařské vyšetření a zpět."
+    },
+    "jet_lag_recovery": {
+      "title": "Jet Lag Recovery",
+      "description": "Rehydratace a reset energie po dlouhém letu."
+    },
+    "b12_energy_shot": {
+      "title": "B12 Energetický shot",
+      "description": "Okamžitá energie a soustředění. Náš nejoblíbenější booster."
+    },
+    "b_vitamin_complex": {
+      "title": "B-vitamínový komplex",
+      "description": "Plný komplex vitaminů B (B1, B6, B12). Podpora nervů a proti únavě."
+    },
+    "vitamin_d_shot": {
+      "title": "Vitamín D shot",
+      "description": "Vysoká dávka vitaminu D3. Tříměsíční zásoba v jedné injekci."
+    },
+    "vitamin_b1_thiamin": {
+      "title": "Vitamín B1 (Thiamin)",
+      "description": "Podpora nervového systému a metabolické rovnováhy."
+    },
+    "glutathione_glow": {
+      "title": "Glutathion Záře",
+      "description": "Hlavní antioxidant — rozjasnění pleti, podpora jater."
+    },
+    "magnesium_boost": {
+      "title": "Hořčíkový boost",
+      "description": "Uvolnění svalů, úleva od migrén, lepší spánek."
+    },
+    "zinc_trace_minerals": {
+      "title": "Zinek a stopové prvky",
+      "description": "Zinek, selen a klíčové stopové prvky — komplexní podpora imunity."
+    },
+    "vitamin_c_upgrade": {
+      "title": "Vitamín C upgrade",
+      "description": "Dodatečná dávka vitaminu C během infuze pro silnější imunitní účinek."
+    },
+    "vitamin_b6_shot": {
+      "title": "Vitamín B6 shot",
+      "description": "Úleva od PMS, nevolnost v těhotenství, podpora nervů a nálady."
+    },
+    "anti_nausea_addon": {
+      "title": "Doplněk proti nevolnosti",
+      "description": "Rychlé zvládnutí nevolnosti přidané k jakékoli infuzi."
+    }
   }
 }

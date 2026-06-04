@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -15,18 +15,19 @@ interface Step1PhoneProps {
 
 export const Step1Phone = ({ data, setField, onNext, isLoading }: Step1PhoneProps) => {
   const { t } = useTranslation();
-  const didMount = useRef(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
 
-  useEffect(() => {
-    didMount.current = true;
-  }, []);
+  const phoneInvalid = !isValidPhoneNumber(data.phone);
+  const phoneError = submitAttempted && phoneInvalid ? t('onboarding.step1.phoneError') : null;
 
-  const phoneError =
-    didMount.current && data.phone && !isValidPhoneNumber(data.phone)
-      ? t('onboarding.step1.phoneError')
-      : null;
-
-  const canSubmit = isValidPhoneNumber(data.phone) && !isLoading;
+  const handleContinue = () => {
+    if (isLoading) return;
+    if (phoneInvalid) {
+      setSubmitAttempted(true);
+      return;
+    }
+    onNext();
+  };
 
   return (
     <div className="space-y-3">
@@ -51,7 +52,7 @@ export const Step1Phone = ({ data, setField, onNext, isLoading }: Step1PhoneProp
         <p className="text-xs text-muted-foreground">{t('onboarding.step1.phoneHint')}</p>
       </div>
 
-      <Button onClick={onNext} disabled={!canSubmit} size="default" className="w-full group">
+      <Button onClick={handleContinue} disabled={isLoading} size="default" className="w-full group">
         {isLoading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (

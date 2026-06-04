@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Phone, Menu, X, UserCircle } from "lucide-react";
+import { Phone, Menu, X, UserCircle, ShoppingBag } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getLanguageFromPath, getLanguagePrefix, getLocalizedUrl, getBasePath, buildLanguageUrl } from "@/utils/languageUtils";
 import { useAuthStatus } from "@/hooks/useAuthStatus";
+import { onboardingCart, useOnboardingCart } from "@/hooks/useOnboardingCart";
 import { APP_NIUS_CABINET_URL, APP_NIUS_LOGIN_URL, NIUS_SITE_URL } from "@/constants/siteContacts";
 
 const ALLOWED_RETURN_ORIGINS = new Set(['https://www.nius.cz', 'https://nius.cz']);
@@ -14,7 +15,18 @@ export const NavBar = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const authStatus = useAuthStatus();
+  const [showAccount, setShowAccount] = useState(false);
+  const authStatus = useAuthStatus(showAccount);
+  const { codes: cartCodes } = useOnboardingCart();
+  const cartCount = cartCodes.length;
+
+  useEffect(() => {
+    try {
+      setShowAccount(localStorage.getItem('debug') === 'true');
+    } catch {
+      setShowAccount(false);
+    }
+  }, []);
 
   const currentLang = getLanguageFromPath(location.pathname);
   const langPrefix = getLanguagePrefix(currentLang);
@@ -87,7 +99,6 @@ export const NavBar = () => {
         Skip to content
       </a>
       <nav role="navigation" aria-label="Main navigation" className="flex items-center justify-between max-w-[1400px] mx-auto">
-        {/* Logo */}
         <Link
           to={langPrefix ? `${langPrefix}/` : "/"}
           className="flex items-center gap-2 group"
@@ -101,7 +112,6 @@ export const NavBar = () => {
           <img src="/brand/logo-wordmark-dark.svg" alt="NIUS" height="56" className="h-14" />
         </Link>
 
-        {/* Center links */}
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href + link.label}>
@@ -125,9 +135,7 @@ export const NavBar = () => {
           ))}
         </ul>
 
-        {/* Right side */}
         <div className="flex items-center gap-3">
-          {/* Language switcher */}
           <div className="hidden sm:flex items-center gap-1">
             {(['cs', 'en', 'ru', 'uk'] as const).map((lang) => (
               <button
@@ -144,33 +152,48 @@ export const NavBar = () => {
             ))}
           </div>
 
-          {/* Account */}
-          {isAccountLoading ? (
+          {showAccount && (
             <button
               type="button"
-              disabled
-              aria-label={t('nav.account')}
-              className="hidden md:inline-flex items-center justify-center p-2 rounded-full text-[var(--color-text-secondary)] opacity-60 cursor-wait"
+              onClick={() => onboardingCart.openForm()}
+              aria-label={t('nav.cart')}
+              className="relative hidden md:inline-flex items-center justify-center p-2 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
             >
-              <UserCircle className="h-5 w-5" />
+              <ShoppingBag className="h-5 w-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 flex items-center justify-center rounded-full bg-[var(--color-indigo)] text-white text-[10px] font-semibold leading-none">
+                  {cartCount}
+                </span>
+              )}
             </button>
-          ) : (
-            <a
-              href={accountHref}
-              aria-label={t('nav.account')}
-              className="hidden md:inline-flex items-center justify-center p-2 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
-            >
-              <UserCircle className="h-5 w-5" />
-            </a>
           )}
 
-          {/* Phone */}
+          {showAccount && (
+            isAccountLoading ? (
+              <button
+                type="button"
+                disabled
+                aria-label={t('nav.account')}
+                className="hidden md:inline-flex items-center justify-center p-2 rounded-full text-[var(--color-text-secondary)] opacity-60 cursor-wait"
+              >
+                <UserCircle className="h-5 w-5" />
+              </button>
+            ) : (
+              <a
+                href={accountHref}
+                aria-label={t('nav.account')}
+                className="hidden md:inline-flex items-center justify-center p-2 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
+              >
+                <UserCircle className="h-5 w-5" />
+              </a>
+            )
+          )}
+
           <a href="tel:+420773629123" className="hidden lg:flex items-center gap-1.5 text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors">
             <Phone className="h-3.5 w-3.5" />
             +420 773 629 123
           </a>
 
-          {/* WhatsApp CTA */}
           <a
             href="https://wa.me/420773629123"
             target="_blank"
@@ -181,7 +204,6 @@ export const NavBar = () => {
             WhatsApp
           </a>
 
-          {/* Mobile menu */}
           <button
             className="md:hidden p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -192,7 +214,6 @@ export const NavBar = () => {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden pt-4 pb-4 animate-fade-in">
           <ul className="flex flex-col gap-3">
@@ -233,24 +254,42 @@ export const NavBar = () => {
                   </button>
                 ))}
               </div>
-              {isAccountLoading ? (
+              {showAccount && (
                 <button
                   type="button"
-                  disabled
-                  className="flex items-center gap-2 py-2 mb-3 text-sm font-medium font-body text-[var(--color-text-secondary)] opacity-60 cursor-wait"
-                >
-                  <UserCircle className="h-4 w-4" />
-                  {t('nav.account')}
-                </button>
-              ) : (
-                <a
-                  href={accountHref}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => { onboardingCart.openForm(); setIsMobileMenuOpen(false); }}
                   className="flex items-center gap-2 py-2 mb-3 text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
                 >
-                  <UserCircle className="h-4 w-4" />
-                  {t('nav.account')}
-                </a>
+                  <ShoppingBag className="h-4 w-4" />
+                  {t('nav.cart')}
+                  {cartCount > 0 && (
+                    <span className="min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-[var(--color-indigo)] text-white text-[10px] font-semibold leading-none">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
+              )}
+
+              {showAccount && (
+                isAccountLoading ? (
+                  <button
+                    type="button"
+                    disabled
+                    className="flex items-center gap-2 py-2 mb-3 text-sm font-medium font-body text-[var(--color-text-secondary)] opacity-60 cursor-wait"
+                  >
+                    <UserCircle className="h-4 w-4" />
+                    {t('nav.account')}
+                  </button>
+                ) : (
+                  <a
+                    href={accountHref}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2 py-2 mb-3 text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
+                  >
+                    <UserCircle className="h-4 w-4" />
+                    {t('nav.account')}
+                  </a>
+                )
               )}
               <a
                 href="https://wa.me/420773629123"

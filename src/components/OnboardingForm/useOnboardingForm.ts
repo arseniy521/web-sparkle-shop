@@ -10,10 +10,10 @@ import {
 } from '@/api/onboarding';
 import type { CartService } from './cartCatalog';
 import { normalizeServiceCode } from './cartCatalog';
+import { loadDraft, saveDraftData } from './onboardingPersist';
 
 export type OnboardingMode = 'standard' | 'escort';
 
-/** CZ/SK: normalize to 9 national digits (strip 420/421 or a leading 0). */
 export function isValidPhoneNumber(value: string): boolean {
   let d = value.replace(/\D/g, '');
   if (d.startsWith('00')) d = d.slice(2);
@@ -30,7 +30,27 @@ function prefilledCartFor(
   catalog: CartService[],
   mode: OnboardingMode,
   initialCode?: string,
+  initialCodes?: string[],
 ): CartService[] {
+  if (initialCodes && initialCodes.length > 0) {
+    const rows: CartService[] = [];
+    const seen = new Set<string>();
+    const unmatched: string[] = [];
+    for (const raw of initialCodes) {
+      const target = normalizeServiceCode(raw);
+      const match = catalog.find((s) => s.code === target || s.id === target);
+      if (match && !seen.has(match.id)) {
+        seen.add(match.id);
+        rows.push(match);
+      } else if (!match) {
+        unmatched.push(target);
+      }
+    }
+    if (import.meta.env.DEV && unmatched.length > 0) {
+      console.warn('Onboarding cart: service code(s) missing from catalog', unmatched);
+    }
+    if (rows.length > 0) return rows;
+  }
   const target = normalizeServiceCode(initialCode ?? (mode === 'escort' ? DEFAULT_ESCORT_CODE : DEFAULT_STANDARD_CODE));
   const match = catalog.find((s) => s.code === target || s.id === target);
   return match ? [match] : [];
@@ -70,7 +90,6 @@ function cartFromOrder(order: OnboardingOrder, catalog: CartService[]): CartServ
   return rows;
 }
 
-// Step order (UI sequence — phone is last before optional note):
 export type OnboardingStep = 1 | 2 | 3 | 'final' | 'thankyou';
 
 export interface AddressGeo {
@@ -86,7 +105,6 @@ export interface AddressGeo {
 
 export interface OnboardingFormData {
   phone: string;
-  /** Service code (slug) after hydration; orders are submitted using `cart[n].serviceUuid` only. */
   serviceCode: string | null;
   address: string;
   addressGeo: AddressGeo | null;
@@ -141,50 +159,60 @@ const EMPTY_DATA: Omit<OnboardingFormData, 'serviceCode'> = {
 export function useOnboardingForm(opts: {
   catalog: CartService[];
   initialServiceCode?: string;
+  initialServiceCodes?: string[];
   initialMode?: OnboardingMode;
   open: boolean;
 }): UseOnboardingFormResult {
-  const { catalog, initialServiceCode, open, initialMode = 'standard' } = opts;
+  const { catalog, initialServiceCode, initialServiceCodes, open, initialMode = 'standard' } = opts;
 
   const [step, setStep] = useState<OnboardingStep>(1);
   const [orderId, setOrderId] = useState<string | null>(null);
   const [orderAccessToken, setOrderAccessToken] = useState<string | null>(null);
   const initialCodeNorm = initialServiceCode ? normalizeServiceCode(initialServiceCode) : null;
 
-  const [data, setData] = useState<OnboardingFormData>(() => ({
-    ...EMPTY_DATA,
-    serviceCode: initialCodeNorm,
-  }));
+  const [data, setData] = useState<OnboardingFormData>(() => {
+    const draft = loadDraft();
+    if (draft?.data) {
+      return { ...EMPTY_DATA, ...draft.data, serviceCode: initialCodeNorm ?? draft.data.serviceCode };
+    }
+    return { ...EMPTY_DATA, serviceCode: initialCodeNorm };
+  });
 
   const [cart, setCart] = useState<CartService[]>(() => []);
 
+  const codesKey = (initialServiceCodes ?? []).join(',');
+
   useEffect(() => {
     if (!open || catalog.length === 0) return;
-    setCart((prev) => (prev.length === 0 ? prefilledCartFor(catalog, initialMode, initialServiceCode) : prev));
-  }, [open, catalog, initialMode, initialServiceCode]);
+    const prefilled = prefilledCartFor(catalog, initialMode, initialServiceCode, initialServiceCodes);
+    setCart((prev) => {
+      if (initialServiceCodes && initialServiceCodes.length > 0) {
+        const byId = new Map(prev.map((s) => [s.id, s]));
+        for (const row of prefilled) byId.set(row.id, row);
+        return Array.from(byId.values());
+      }
+      return prev.length === 0 ? prefilled : prev;
+    });
+  }, [open, catalog, initialMode, initialServiceCode, initialServiceCodes, codesKey]);
 
   const isEscortMode = cart.some((s) => s.kind === 'escort');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [testMode, setTestMode] = useState(false);
 
+  useEffect(() => {
+    if (orderId) return;
+    saveDraftData(data);
+  }, [data, orderId]);
+
   const reset = useCallback(() => {
-    const nextCart = prefilledCartFor(catalog, initialMode, initialServiceCode);
-    const nextCode = normalizeServiceCode(
-      initialServiceCode ?? (initialMode === 'escort' ? DEFAULT_ESCORT_CODE : DEFAULT_STANDARD_CODE),
-    );
     setOrderId(null);
     setOrderAccessToken(null);
-    setData({
-      ...EMPTY_DATA,
-      serviceCode: nextCart[0]?.code ?? nextCode,
-    });
-    setCart(nextCart);
     setStep(1);
     setError(null);
     setIsLoading(false);
     setTestMode(false);
-  }, [catalog, initialMode, initialServiceCode]);
+  }, []);
 
   useEffect(() => {
     if (!open) {

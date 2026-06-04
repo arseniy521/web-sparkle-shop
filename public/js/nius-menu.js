@@ -1,15 +1,3 @@
-/* ═══════════════════════════════════════════════════════════════
-   <nius-menu> — self-contained Web Component
-   All styles scoped via Shadow DOM. No external CSS leaks in/out.
-
-   Usage:
-     <nius-menu></nius-menu>                       (full)
-     <nius-menu section="menu"></nius-menu>        (services only)
-     <nius-menu section="packages"></nius-menu>    (bundles only)
-     <nius-menu section="subscription"></nius-menu>(membership only)
-
-   Attrs: section, accent-color, locale
-═══════════════════════════════════════════════════════════════ */
 
 const NIUS_I18N = {
   en: {
@@ -516,7 +504,7 @@ const NIUS_CATEGORIES = {
       {
         name: 'Nausea Relief',
         code: 'nausea_relief',
-        tagline: 'Rapid relief from nausea and vomiting.',
+        tagline: 'Support for nausea and vomiting.',
         price: 2950,
         duration: '20–30 min',
         admin: 'IV',
@@ -578,7 +566,7 @@ const NIUS_CATEGORIES = {
       {
         name: 'Allergy Stop',
         code: 'allergy_stop',
-        tagline: 'Rapid relief from allergic reactions.',
+        tagline: 'Support during allergic reactions.',
         price: 2750,
         duration: '25–35 min',
         admin: 'IV',
@@ -645,8 +633,8 @@ const NIUS_SHOTS = [
   { id:'b12', name:'B12 Energy Shot', desc:'Instant energy and focus boost. Our most popular booster.', price:650, tag:'Top seller' },
   { id:'bcomplex', name:'B-Vitamin Complex', desc:'Full B-Vitamin Complex (B1, B6, B12). Nerve and fatigue support.', price:750, tag:'Nerves / fatigue' },
   { id:'vitd', name:'Vitamin D Shot', desc:'High-dose Vitamin D3. Three-month top-up in one injection.', price:850, tag:'Immunity / bones' },
-  { id:'thiamin', name:'Vitamin B1 (Thiamin)', desc:'Neurological support and cleansing acceleration.', price:700, tag:'Cleansing / nerve' },
-  { id:'glutathione', name:'Glutathione Glow', desc:'Master antioxidant — skin glow, liver support.', price:900, tag:'Skin / glow' },
+  { id:'thiamin', name:'Vitamin B1 (Thiamin)', desc:'Neurological and metabolic balance support.', price:700, tag:'Nerve support' },
+  { id:'glutathione', name:'Glutathione Glow', desc:'Antioxidant support and liver-support nutrients.', price:900, tag:'Antioxidant' },
   { id:'magnesium', name:'Magnesium Boost', desc:'Muscle relaxation, migraine relief, better sleep.', price:500, tag:'Muscles / sleep' },
   { id:'zinc', name:'Zinc & Trace Minerals', desc:'Zinc, Selenium & essential trace minerals — full immune support.', price:550, tag:'Immunity' },
   { id:'vitc', name:'Vitamin C Upgrade', desc:'Extra Vitamin C dose mid-drip for stronger immune effect.', price:650, tag:'Immunity' },
@@ -897,7 +885,6 @@ class NiusMenu extends HTMLElement {
         }
         .drip-card:hover .drip-details-link { opacity: 1; }
 
-        /* Modal */
         .modal-backdrop {
           display: none; position: fixed; inset: 0; z-index: 9999;
           background: rgba(21,63,77,0.4); backdrop-filter: blur(4px);
@@ -1348,7 +1335,6 @@ class NiusMenu extends HTMLElement {
     const modal = this.shadowRoot.querySelector('[data-modal]');
     const modalBody = this.shadowRoot.querySelector('[data-modal-body]');
 
-    // Category tab filtering
     this.shadowRoot.querySelectorAll('.cat-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         this.shadowRoot.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
@@ -1364,7 +1350,6 @@ class NiusMenu extends HTMLElement {
       });
     });
 
-    // Card click → open modal
     this.shadowRoot.querySelectorAll('.drip-card').forEach(card => {
       card.addEventListener('click', () => {
         const catId = card.dataset.catId;
@@ -1378,7 +1363,6 @@ class NiusMenu extends HTMLElement {
       });
     });
 
-    // Close modal on backdrop click
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('open');
@@ -1391,9 +1375,6 @@ class NiusMenu extends HTMLElement {
     const name = dt.name || d.name;
     const tagline = dt.tagline || d.tagline;
     const bestfor = dt.bestfor || d.bestfor;
-    // Add-to-cart (онбординг-форма) пока скрыта от обычных посетителей — показываем
-    // только при включённом флаге localStorage.debug. try/catch — на случай
-    // заблокированного localStorage (Safari private mode и т.п.).
     const showCart = (() => {
       try { return localStorage.getItem('debug') === 'true'; } catch { return false; }
     })();

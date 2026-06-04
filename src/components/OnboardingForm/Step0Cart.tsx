@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import type { TFunction } from 'i18next';
-import { X, Droplet, Syringe, Bandage, Microscope, HandHeart, Citrus, Ambulance, Check } from 'lucide-react';
+import { Trash2, Droplet, Syringe, Bandage, Microscope, HandHeart, Citrus, Ambulance, Check } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CartService } from './cartCatalog';
+import { serviceTitle, serviceHint } from './serviceDisplay';
 
 const ICON_MAP = {
   drop: Droplet,
@@ -29,16 +29,6 @@ export const ServiceIcon = ({ iconKey, className }: { iconKey: string; className
 interface CartHeaderProps {
   cart: CartService[];
   onRemove: (id: string) => void;
-}
-
-function serviceTitle(t: TFunction, svc: CartService): string {
-  if (svc.nameKey) return t(svc.nameKey, { defaultValue: svc.displayNameFallback });
-  return svc.displayNameFallback;
-}
-
-function serviceHint(t: TFunction, svc: CartService): string | null {
-  if (!svc.hintKey) return svc.hintFallback;
-  return t(svc.hintKey, { defaultValue: svc.hintFallback ?? '' }) || svc.hintFallback;
 }
 
 export const CartHeader = ({ cart, onRemove }: CartHeaderProps) => {
@@ -74,10 +64,10 @@ export const CartHeader = ({ cart, onRemove }: CartHeaderProps) => {
               <button
                 type="button"
                 onClick={() => onRemove(svc.id)}
-                className="absolute top-2 right-2 h-5 w-5 rounded-full flex items-center justify-center text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-colors"
                 aria-label={t('onboarding.cart.remove')}
               >
-                <X className="h-3 w-3" />
+                <Trash2 className="h-3.5 w-3.5" />
               </button>
             </div>
           ))}

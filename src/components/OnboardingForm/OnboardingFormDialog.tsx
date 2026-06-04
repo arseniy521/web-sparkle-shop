@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { X, Loader2 } from 'lucide-react';
+import { X, Loader2, ShoppingBag } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useServices } from '@/hooks/useServices';
-import { CartHeader, UpsaleBlock } from './Step0Cart';
+import { CartHeader } from './Step0Cart';
 import { AccordionStep } from './AccordionStep';
 import { Step1Phone } from './Step1Phone';
 import { Step2Address } from './Step2Address';
@@ -14,28 +15,31 @@ import { Step3Timing } from './Step3Timing';
 import { Step5Note } from './Step5Note';
 import { FinalScreen } from './FinalScreen';
 import { ThankYouScreen } from './ThankYouScreen';
+import { normalizeServiceCode } from './cartCatalog';
 import { isValidPhoneNumber, useOnboardingForm } from './useOnboardingForm';
 
 interface OnboardingFormDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  /** Stable backend code, e.g. `iv_infusion` or `escort`. */
   initialServiceCode?: string;
-  /** @deprecated Use `initialServiceCode` (`iv-infusion`-style values are normalized automatically). */
+  initialServiceCodes?: string[];
   initialServiceId?: string;
   initialMode?: 'standard' | 'escort';
+  onOrderComplete?: () => void;
+  onCartCodesChange?: (codes: string[]) => void;
 }
 
-// Accordion sections, in display order.
-// Note is optional — the form can be submitted from step 3 (Phone) without filling it.
 type SectionId = 'address' | 'timing' | 'phone' | 'note';
 
 export const OnboardingFormDialog = ({
   open,
   onOpenChange,
   initialServiceCode,
+  initialServiceCodes,
   initialServiceId,
   initialMode = 'standard',
+  onOrderComplete,
+  onCartCodesChange,
 }: OnboardingFormDialogProps) => {
   const { t, i18n } = useTranslation();
   const resolvedInitialCode = initialServiceCode ?? initialServiceId;
@@ -45,18 +49,84 @@ export const OnboardingFormDialog = ({
     open,
     catalog,
     initialServiceCode: resolvedInitialCode,
+    initialServiceCodes,
     initialMode,
   });
 
   const [openSection, setOpenSection] = useState<SectionId>('address');
   const errorToastNonce = useRef(0);
 
-  // Sync open accordion with backing form.step (1=address, 2=timing, 3=phone)
+  const addressFilled =
+    form.data.address.trim().length >= 5 &&
+    (!form.isEscortMode || form.data.addressTo.trim().length >= 5);
+  const timingFilled =
+    !!form.data.desiredTiming &&
+    (form.data.desiredTiming !== 'CUSTOM_DATE' || !!form.data.desiredDate);
+  const phoneFilled = isValidPhoneNumber(form.data.phone);
+
+  const openInitializedRef = useRef(false);
   useEffect(() => {
-    if (form.step === 1) setOpenSection('address');
+    if (!open) {
+      openInitializedRef.current = false;
+      return;
+    }
+    if (openInitializedRef.current) return;
+    openInitializedRef.current = true;
+    if (!addressFilled) setOpenSection('address');
+    else if (!timingFilled) setOpenSection('timing');
+    else if (!phoneFilled) setOpenSection('phone');
+    else setOpenSection('note');
+  }, [open, addressFilled, timingFilled, phoneFilled]);
+
+  useEffect(() => {
+    if (!open || !openInitializedRef.current) return;
+    if (form.step === 1 && !addressFilled) setOpenSection('address');
     else if (form.step === 2) setOpenSection('timing');
     else if (form.step === 3) setOpenSection('phone');
-  }, [form.step]);
+  }, [open, form.step, addressFilled]);
+
+  useEffect(() => {
+    if (form.orderId) onOrderComplete?.();
+  }, [form.orderId, onOrderComplete]);
+
+  const cartCodes = useMemo(() => form.cart.map((s) => s.code), [form.cart]);
+  const incomingCodes = useMemo(
+    () => (initialServiceCodes ?? []).map(normalizeServiceCode).filter(Boolean),
+    [initialServiceCodes],
+  );
+  const catalogLoaded = !catalogLoading && catalog.length > 0;
+  const cartHydratedRef = useRef(false);
+  const userRemovedCodesRef = useRef<Set<string>>(new Set());
+
+  useEffect(() => {
+    for (const removedCode of Array.from(userRemovedCodesRef.current)) {
+      if (!incomingCodes.includes(removedCode)) userRemovedCodesRef.current.delete(removedCode);
+    }
+  }, [incomingCodes]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!catalogLoaded) return;
+    if (cartCodes.length > 0) cartHydratedRef.current = true;
+    if (cartCodes.length === 0 && !cartHydratedRef.current) return;
+
+    const removed = userRemovedCodesRef.current;
+    const nextCodes: string[] = [];
+    const append = (code: string) => {
+      if (!code || removed.has(code) || nextCodes.includes(code)) return;
+      nextCodes.push(code);
+    };
+    incomingCodes.forEach(append);
+    cartCodes.forEach(append);
+    onCartCodesChange?.(nextCodes);
+  }, [open, catalogLoaded, cartCodes, incomingCodes, onCartCodesChange]);
+
+  useEffect(() => {
+    if (!open) {
+      cartHydratedRef.current = false;
+      userRemovedCodesRef.current.clear();
+    }
+  }, [open]);
 
   useEffect(() => {
     if (!form.error) return;
@@ -81,19 +151,18 @@ export const OnboardingFormDialog = ({
 
   const handleClose = () => onOpenChange(false);
 
-  // Section completeness based on data + furthest reached step
-  const stepNum = typeof form.step === 'number' ? form.step : 5;
-  const addressDone =
-    stepNum > 1 &&
-    form.data.address.trim().length >= 5 &&
-    (!form.isEscortMode || form.data.addressTo.trim().length >= 5);
-  const timingDone =
-    stepNum > 2 &&
-    !!form.data.desiredTiming &&
-    (form.data.desiredTiming !== 'CUSTOM_DATE' || !!form.data.desiredDate);
-  const phoneDone = stepNum > 3 && isValidPhoneNumber(form.data.phone);
+  const handleBrowseServices = () => {
+    onOpenChange(false);
+    requestAnimationFrame(() => {
+      document.querySelector('#menu')?.scrollIntoView({ behavior: 'smooth' });
+    });
+  };
 
-  // Whether a section can be opened (must have completed prior required steps)
+  const addressDone = addressFilled;
+  const timingDone = timingFilled;
+  const phoneValid = phoneFilled;
+  const phoneDone = phoneValid;
+
   const canOpen = (s: SectionId): boolean => {
     switch (s) {
       case 'address': return true;
@@ -113,7 +182,6 @@ export const OnboardingFormDialog = ({
     if (canOpen(s)) setOpenSection(s);
   };
 
-  // Summaries
   const addressSummary = addressDone
     ? form.isEscortMode
       ? `${form.data.address} → ${form.data.addressTo}`
@@ -151,8 +219,8 @@ export const OnboardingFormDialog = ({
   const isThankyou = form.step === 'thankyou';
   const isWizard = !isFinal && !isThankyou;
 
-  // Finish button: enabled once all 3 required sections are done (note is optional)
   const catalogReady = !catalogLoading && !catalogErrorKey && catalog.length > 0;
+  const cartEmpty = catalogReady && form.cart.length === 0;
 
   const canFinish =
     catalogReady &&
@@ -209,6 +277,7 @@ export const OnboardingFormDialog = ({
               <ThankYouScreen onClose={handleClose} />
             ) : isFinal && form.orderId && form.orderAccessToken ? (
               <FinalScreen
+                cart={form.cart}
                 orderId={form.orderId}
                 orderAccessToken={form.orderAccessToken}
                 onContactMe={() => void form.submitContactMe()}
@@ -231,9 +300,19 @@ export const OnboardingFormDialog = ({
             ) : (
               <>
                 {catalogLoading && !catalogErrorKey && (
-                  <div className="flex items-center gap-3 py-6 text-muted-foreground text-sm">
-                    <Loader2 className="h-5 w-5 shrink-0 animate-spin" aria-hidden />
-                    {t('onboarding.catalogLoading')}
+                  <div className="space-y-4" aria-busy="true" aria-label={t('onboarding.catalogLoading')}>
+                    <div className="space-y-3">
+                      <Skeleton className="h-3 w-28" />
+                      <div className="grid grid-cols-2 gap-2">
+                        <Skeleton className="h-[72px] rounded-xl" />
+                        <Skeleton className="h-[72px] rounded-xl" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Skeleton className="h-12 rounded-xl" />
+                      <Skeleton className="h-12 rounded-xl" />
+                      <Skeleton className="h-12 rounded-xl" />
+                    </div>
                   </div>
                 )}
 
@@ -241,10 +320,33 @@ export const OnboardingFormDialog = ({
                   <p className="text-sm text-destructive">{t(catalogErrorKey)}</p>
                 )}
 
-                {catalogReady && (
+                {cartEmpty && (
+                  <div className="flex flex-col items-center justify-center text-center gap-3 py-16">
+                    <div className="h-14 w-14 rounded-full bg-muted flex items-center justify-center text-muted-foreground">
+                      <ShoppingBag className="h-6 w-6" aria-hidden />
+                    </div>
+                    <p className="text-base font-semibold text-foreground">
+                      {t('onboarding.emptyCart.title')}
+                    </p>
+                    <p className="text-sm text-muted-foreground max-w-[280px]">
+                      {t('onboarding.emptyCart.hint')}
+                    </p>
+                    <Button variant="outline" onClick={handleBrowseServices} className="mt-1">
+                      {t('onboarding.emptyCart.cta')}
+                    </Button>
+                  </div>
+                )}
+
+                {catalogReady && !cartEmpty && (
                   <>
-                <CartHeader cart={form.cart} onRemove={form.removeFromCart} />
-                <UpsaleBlock catalog={catalog} cart={form.cart} onAdd={form.addToCart} />
+                <CartHeader
+                  cart={form.cart}
+                  onRemove={(id) => {
+                    const service = form.cart.find((s) => s.id === id);
+                    if (service) userRemovedCodesRef.current.add(service.code);
+                    form.removeFromCart(id);
+                  }}
+                />
 
                 <div className="space-y-2">
                   <AccordionStep
@@ -321,21 +423,9 @@ export const OnboardingFormDialog = ({
                 )}
               </>
             )}
-
-            {!isThankyou && import.meta.env.DEV && (
-              <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={form.advanceTestStep}
-                  className="w-full rounded-md px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground border border-dashed border-border"
-                >
-                  Test: next step without API
-                </button>
-              </div>
-            )}
           </div>
 
-          {isWizard && (
+          {isWizard && !cartEmpty && (
             <div className="border-t border-border px-5 py-3 sm:px-6 flex-shrink-0 bg-background">
               <div className="flex items-center justify-between gap-3">
                 <div className="min-w-0">
