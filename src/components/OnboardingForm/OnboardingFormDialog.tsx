@@ -85,8 +85,15 @@ export const OnboardingFormDialog = ({
     else if (form.step === 3) setOpenSection('phone');
   }, [open, form.step, addressFilled]);
 
+  const orderCompleteFiredRef = useRef(false);
   useEffect(() => {
-    if (form.orderId) onOrderComplete?.();
+    if (!form.orderId) {
+      orderCompleteFiredRef.current = false;
+      return;
+    }
+    if (orderCompleteFiredRef.current) return;
+    orderCompleteFiredRef.current = true;
+    onOrderComplete?.();
   }, [form.orderId, onOrderComplete]);
 
   const cartCodes = useMemo(() => form.cart.map((s) => s.code), [form.cart]);
@@ -106,6 +113,7 @@ export const OnboardingFormDialog = ({
 
   useEffect(() => {
     if (!open) return;
+    if (form.orderId) return;
     if (!catalogLoaded) return;
     if (cartCodes.length > 0) cartHydratedRef.current = true;
     if (cartCodes.length === 0 && !cartHydratedRef.current) return;
@@ -119,7 +127,7 @@ export const OnboardingFormDialog = ({
     incomingCodes.forEach(append);
     cartCodes.forEach(append);
     onCartCodesChange?.(nextCodes);
-  }, [open, catalogLoaded, cartCodes, incomingCodes, onCartCodesChange]);
+  }, [open, form.orderId, catalogLoaded, cartCodes, incomingCodes, onCartCodesChange]);
 
   useEffect(() => {
     if (!open) {
