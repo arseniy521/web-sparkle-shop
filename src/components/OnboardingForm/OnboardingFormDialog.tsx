@@ -17,6 +17,7 @@ import { FinalScreen } from './FinalScreen';
 import { ThankYouScreen } from './ThankYouScreen';
 import { normalizeServiceCode } from './cartCatalog';
 import { isValidPhoneNumber, useOnboardingForm } from './useOnboardingForm';
+import { track } from '@/lib/analytics';
 
 interface OnboardingFormDialogProps {
   open: boolean;
@@ -72,11 +73,15 @@ export const OnboardingFormDialog = ({
     }
     if (openInitializedRef.current) return;
     openInitializedRef.current = true;
+    track('order_form_opened', {
+      services_in_cart: form.cart.length,
+      mode: form.isEscortMode ? 'escort' : 'standard',
+    });
     if (!addressFilled) setOpenSection('address');
     else if (!timingFilled) setOpenSection('timing');
     else if (!phoneFilled) setOpenSection('phone');
     else setOpenSection('note');
-  }, [open, addressFilled, timingFilled, phoneFilled]);
+  }, [open, addressFilled, timingFilled, phoneFilled, form.cart.length, form.isEscortMode]);
 
   useEffect(() => {
     if (!open || !openInitializedRef.current) return;

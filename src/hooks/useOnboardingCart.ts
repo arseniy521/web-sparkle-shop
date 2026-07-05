@@ -1,6 +1,7 @@
 import { useSyncExternalStore } from 'react';
 import { loadDraft, clearDraft, saveDraftCodes } from '@/components/OnboardingForm/onboardingPersist';
 import { normalizeServiceCode } from '@/components/OnboardingForm/cartCatalog';
+import { track } from '@/lib/analytics';
 
 
 export interface OnboardingCartState {
@@ -48,6 +49,9 @@ export const onboardingCart = {
   add(code: string) {
     const normalized = normalizeServiceCode(code);
     if (!normalized) return;
+    if (!state.codes.includes(normalized)) {
+      track('cart_service_added', { service_code: normalized, source: 'menu' });
+    }
     const codes = state.codes.includes(normalized) ? state.codes : [...state.codes, normalized];
     setState({ codes, open: true });
     saveDraftCodes(codes);

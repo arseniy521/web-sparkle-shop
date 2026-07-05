@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { enableAnalytics, disableAnalytics } from "@/lib/analytics";
+import { getConsent, setConsent } from "@/lib/consent";
 
 export const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("nius-cookie-consent");
+    const consent = getConsent();
     if (!consent) {
       setVisible(true);
     } else if (consent === "rejected") {
@@ -14,18 +16,20 @@ export const CookieConsent = () => {
   }, []);
 
   const accept = () => {
-    localStorage.setItem("nius-cookie-consent", "accepted");
+    setConsent("accepted");
+    enableAnalytics();
     setVisible(false);
   };
 
   const reject = () => {
-    localStorage.setItem("nius-cookie-consent", "rejected");
+    setConsent("rejected");
     disableGA();
+    disableAnalytics();
     setVisible(false);
   };
 
   const disableGA = () => {
-    (window as any)["ga-disable-G-VNMLWF0XZG"] = true;
+    (window as unknown as Record<string, boolean>)["ga-disable-G-VNMLWF0XZG"] = true;
     document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "_ga_VNMLWF0XZG=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };

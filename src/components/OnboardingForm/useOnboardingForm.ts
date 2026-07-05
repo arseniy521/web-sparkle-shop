@@ -11,6 +11,7 @@ import {
 import type { CartService } from './cartCatalog';
 import { normalizeServiceCode } from './cartCatalog';
 import { loadDraft, saveDraftData } from './onboardingPersist';
+import { track } from '@/lib/analytics';
 
 export type OnboardingMode = 'standard' | 'escort';
 
@@ -221,11 +222,19 @@ export function useOnboardingForm(opts: {
   }, [open, reset]);
 
   const addToCart = useCallback((service: CartService) => {
-    setCart((prev) => (prev.some((s) => s.id === service.id) ? prev : [...prev, service]));
+    setCart((prev) => {
+      if (prev.some((s) => s.id === service.id)) return prev;
+      track('cart_service_added', { service_code: service.code, source: 'form' });
+      return [...prev, service];
+    });
   }, []);
 
   const removeFromCart = useCallback((id: string) => {
-    setCart((prev) => prev.filter((s) => s.id !== id));
+    setCart((prev) => {
+      const removed = prev.find((s) => s.id === id);
+      if (removed) track('cart_service_removed', { service_code: removed.code });
+      return prev.filter((s) => s.id !== id);
+    });
   }, []);
 
   const setField = useCallback(
@@ -293,6 +302,7 @@ export function useOnboardingForm(opts: {
     }
     setError(null);
     setStep(2);
+    track('order_step_completed', { step: 'address' });
     return true;
   }, [data.address, data.addressTo, isEscortMode]);
 
@@ -307,6 +317,7 @@ export function useOnboardingForm(opts: {
     }
     setError(null);
     setStep(3);
+    track('order_step_completed', { step: 'timing' });
     return true;
   }, [data.desiredTiming, data.desiredDate]);
 
@@ -342,9 +353,17 @@ export function useOnboardingForm(opts: {
       setOrderId(order.id);
       setOrderAccessToken(order.accessToken ?? null);
       setStep('final');
+      track('order_created', {
+        order_id: order.id,
+        items_count: cart.length,
+        total_czk: cart.reduce((sum, s) => sum + s.priceCzk, 0),
+        service_codes: cart.map((s) => s.code),
+      });
       return true;
     } catch (e) {
-      setError(handleApiError(e));
+      const errorCode = handleApiError(e);
+      setError(errorCode);
+      track('order_create_failed', { error_code: errorCode });
       return false;
     } finally {
       setIsLoading(false);
@@ -358,6 +377,7 @@ export function useOnboardingForm(opts: {
     try {
       await contactMe(orderId);
       setStep('thankyou');
+      track('contact_me_requested', { order_id: orderId });
       return true;
     } catch (e) {
       setError(handleApiError(e));

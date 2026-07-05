@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import type { CartService } from './cartCatalog';
 import { ServiceIcon } from './Step0Cart';
 import { serviceTitle } from './serviceDisplay';
+import { track } from '@/lib/analytics';
 
 interface FinalScreenProps {
   cart: CartService[];
@@ -22,6 +23,7 @@ export const FinalScreen = ({ cart, orderId, orderAccessToken, onContactMe, isLo
   const totalCzk = cart.reduce((sum, s) => sum + s.priceCzk, 0);
 
   const handleLogin = () => {
+    track('login_cta_clicked', { order_id: orderId });
     const params = new URLSearchParams({ orderId, orderAccessToken });
     const href = `${APP_LOGIN_URL}?${params.toString()}`;
     const a = document.createElement('a');

@@ -39,6 +39,13 @@ React Router v6 with language-prefix pattern:
 - Onboarding form: `src/api/onboarding.ts`
 - Services: `src/api/services.ts`
 
+### Analytics
+- Amplitude via `src/lib/analytics.ts` (`VITE_AMPLITUDE_API_KEY`, empty = no-op)
+- Initialized only after cookie-banner consent; EU zone, no IP, no form autocapture
+- Consent lives in the `nius_consent` cookie on `.nius.cz` (`src/lib/consent.ts`, twin helper in nius/frontend) — shared with app.nius.cz, legacy localStorage value migrates automatically
+- Same Amplitude project as app.nius.cz — device_id cookie on `.nius.cz` stitches cross-domain funnels
+- Never send PHI (phone/address/note) in event props. Tracking plan: `nius/docs/analytics.md`
+
 ### Styling
 - Tailwind with custom tokens: indigo (#153f4d), bone (#f5f4ee), ink (#2a2c2e)
 - Fonts: Onest (display), Montserrat (body)

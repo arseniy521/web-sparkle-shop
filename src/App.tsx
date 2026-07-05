@@ -23,6 +23,9 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsent } from "./components/CookieConsent";
 import { OnboardingHost } from "./components/OnboardingHost";
+import { initAnalyticsIfConsented } from "./lib/analytics";
+
+initAnalyticsIfConsented();
 
 const queryClient = new QueryClient();
 
