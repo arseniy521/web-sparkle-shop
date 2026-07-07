@@ -14,6 +14,7 @@ import { Step2Address } from './Step2Address';
 import { Step3Timing } from './Step3Timing';
 import { Step5Note } from './Step5Note';
 import { FinalScreen } from './FinalScreen';
+import { ReturningCustomerHint } from './ReturningCustomerHint';
 import { ThankYouScreen } from './ThankYouScreen';
 import { normalizeServiceCode } from './cartCatalog';
 import { isValidPhoneNumber, useOnboardingForm } from './useOnboardingForm';
@@ -352,6 +353,7 @@ export const OnboardingFormDialog = ({
 
                 {catalogReady && !cartEmpty && (
                   <>
+                <ReturningCustomerHint />
                 <CartHeader
                   cart={form.cart}
                   onRemove={(id) => {

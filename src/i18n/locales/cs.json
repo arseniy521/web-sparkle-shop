@@ -1969,6 +1969,11 @@
     }
   },
   "onboarding": {
+    "returningHint": {
+      "body": "Vypadá to, že už jste náš klient. V osobním účtu objednáte rychleji — vaše údaje a historie jsou už uložené.",
+      "ctaLogin": "Přihlásit se",
+      "ctaCabinet": "Otevřít účet"
+    },
     "dialogTitle": "Objednat sestru",
     "dialogDescription": "Vyberte adresu, termín, kontakt a odešlete žádost o domácí návštěvu sestry.",
     "close": "Zavřít",

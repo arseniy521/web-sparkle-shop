@@ -1969,6 +1969,11 @@
     }
   },
   "onboarding": {
+    "returningHint": {
+      "body": "Looks like you are already our client. Ordering is faster in your account — your details and history are already saved.",
+      "ctaLogin": "Sign in",
+      "ctaCabinet": "Open my account"
+    },
     "dialogTitle": "Book a nurse",
     "dialogDescription": "Choose address, timing, contact details and submit a home nurse booking request.",
     "close": "Close",
