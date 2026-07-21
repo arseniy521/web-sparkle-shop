@@ -1,0 +1,64 @@
+name: Build and publish NIUS
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: publish-gh-pages
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
+      VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+
+      - name: Install Chrome for prerendering
+        run: npx puppeteer browsers install chrome
+
+      - name: Verify release environment
+        run: npm run predeploy
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check translations
+        run: npm run i18n:check
+
+      - name: Build and prerender
+        run: npm run build
+
+      - name: Configure deploy commit author
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Publish dist to gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          npx gh-pages
+          --dist dist
+          --branch gh-pages
+          --no-history
+          --silent
+          --repo "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
