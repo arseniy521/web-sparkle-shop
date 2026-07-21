@@ -65,7 +65,7 @@ const IVDripsPrague = () => {
       durationMin: Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.duration`)),
       short: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.short`),
       includes: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.includes`, { returnObjects: true }) as string[],
-      popular: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.popular`) === 'true' || t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.popular`) === true as any,
+      popular: String(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.popular`)) === 'true',
       bestFor: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.bestFor`, { defaultValue: '' }),
     })),
   }));

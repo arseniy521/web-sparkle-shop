@@ -51,7 +51,8 @@
     "servicesPricing": "Services & Pricing",
     "ourNurses": "Our Nurses",
     "account": "Account",
-    "cart": "Cart"
+    "cart": "Cart",
+    "language": "Language"
   },
   "hero": {
     "phrases": {
@@ -2138,8 +2139,8 @@
       "Hangover recovery"
     ],
     "subheadline": "Registered nurses with hospital experience delivering IV therapy, IVF injection support, and post-surgery care to your hotel, Airbnb, or home anywhere in Prague.",
-    "ctaPrimary": "Book on WhatsApp",
-    "ctaSecondary": "See services & pricing",
+    "ctaPrimary": "Choose a service",
+    "ctaSecondary": "Ask on WhatsApp",
     "statsVisits": "visits",
     "statsInternational": "international",
     "statsSameDay": "Same-day",
@@ -2277,8 +2278,8 @@
     "titleBase": "Book tonight.",
     "titleItalic": "Feel better by morning.",
     "sub": "No clinic. No waiting room. Your nurse arrives the same day.",
-    "ctaPrimary": "Book via WhatsApp",
-    "ctaSecondary": "Email us — info@nius.cz",
+    "ctaPrimary": "Choose a service",
+    "ctaSecondary": "Ask on WhatsApp",
     "trustLine": "Available 7 days · Prague city centre & surroundings · English · Russian · Czech"
   },
   "ourNurses": {

@@ -63,6 +63,7 @@ export const Contacts = () => {
                 href={method.href}
                 target={method.href.startsWith("http") ? "_blank" : undefined}
                 rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                data-analytics-source="contacts_section"
                 className="block"
               >
                 <Card className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 h-full">

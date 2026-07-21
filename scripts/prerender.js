@@ -179,7 +179,13 @@ async function prerender() {
       }
     }
 
-    await new Promise((resolve) => server.close(resolve));
+    // Close the page first so its keep-alive socket cannot make server.close()
+    // wait indefinitely after every route has already been rendered.
+    await page.close();
+    server.closeAllConnections?.();
+    await new Promise((resolve, reject) => {
+      server.close((error) => error ? reject(error) : resolve());
+    });
   } catch (error) {
     console.error('Pre-rendering failed:', error);
     process.exit(1);

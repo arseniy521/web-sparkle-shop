@@ -31,6 +31,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+const WOMENS_DAY_TARGET_TIMESTAMP = new Date("2026-03-08T00:00:00+01:00").getTime();
+
 const WomensDayGift = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
@@ -52,14 +54,13 @@ const WomensDayGift = () => {
   };
 
   // Countdown timer
-  const targetDate = new Date("2026-03-08T00:00:00+01:00");
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isPastDate, setIsPastDate] = useState(false);
 
   useEffect(() => {
     const update = () => {
       const now = new Date();
-      const diff = targetDate.getTime() - now.getTime();
+      const diff = WOMENS_DAY_TARGET_TIMESTAMP - now.getTime();
       if (diff <= 0) {
         setIsPastDate(true);
         return;

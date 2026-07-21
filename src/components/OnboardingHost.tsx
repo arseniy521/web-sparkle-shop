@@ -6,13 +6,14 @@ const handleOrderComplete = () => onboardingCart.clearItems();
 const handleCartCodesChange = (next: string[]) => onboardingCart.setCodes(next);
 
 export const OnboardingHost = () => {
-  const { codes, open } = useOnboardingCart();
+  const { codes, open, openSource } = useOnboardingCart();
 
   return (
     <OnboardingFormDialog
       open={open}
       onOpenChange={handleOpenChange}
       initialServiceCodes={codes}
+      analyticsSource={openSource ?? 'header'}
       onOrderComplete={handleOrderComplete}
       onCartCodesChange={handleCartCodesChange}
     />

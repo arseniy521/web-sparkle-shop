@@ -18,7 +18,8 @@ import { ReturningCustomerHint } from './ReturningCustomerHint';
 import { ThankYouScreen } from './ThankYouScreen';
 import { normalizeServiceCode } from './cartCatalog';
 import { isValidPhoneNumber, useOnboardingForm } from './useOnboardingForm';
-import { track } from '@/lib/analytics';
+import { track, trackCtaClick } from '@/lib/analytics';
+import type { ConversionSource } from '@/lib/analytics';
 
 interface OnboardingFormDialogProps {
   open: boolean;
@@ -27,6 +28,7 @@ interface OnboardingFormDialogProps {
   initialServiceCodes?: string[];
   initialServiceId?: string;
   initialMode?: 'standard' | 'escort';
+  analyticsSource?: ConversionSource;
   onOrderComplete?: () => void;
   onCartCodesChange?: (codes: string[]) => void;
 }
@@ -40,6 +42,7 @@ export const OnboardingFormDialog = ({
   initialServiceCodes,
   initialServiceId,
   initialMode = 'standard',
+  analyticsSource = 'header',
   onOrderComplete,
   onCartCodesChange,
 }: OnboardingFormDialogProps) => {
@@ -53,7 +56,13 @@ export const OnboardingFormDialog = ({
     initialServiceCode: resolvedInitialCode,
     initialServiceCodes,
     initialMode,
+    analyticsSource,
   });
+
+  const incomingCodes = useMemo(
+    () => (initialServiceCodes ?? []).map(normalizeServiceCode).filter(Boolean),
+    [initialServiceCodes],
+  );
 
   const [openSection, setOpenSection] = useState<SectionId>('address');
   const errorToastNonce = useRef(0);
@@ -75,14 +84,15 @@ export const OnboardingFormDialog = ({
     if (openInitializedRef.current) return;
     openInitializedRef.current = true;
     track('order_form_opened', {
-      services_in_cart: form.cart.length,
+      services_in_cart: Math.max(form.cart.length, new Set(incomingCodes).size),
       mode: form.isEscortMode ? 'escort' : 'standard',
+      source: analyticsSource,
     });
     if (!addressFilled) setOpenSection('address');
     else if (!timingFilled) setOpenSection('timing');
     else if (!phoneFilled) setOpenSection('phone');
     else setOpenSection('note');
-  }, [open, addressFilled, timingFilled, phoneFilled, form.cart.length, form.isEscortMode]);
+  }, [open, addressFilled, timingFilled, phoneFilled, form.cart.length, form.isEscortMode, analyticsSource, incomingCodes]);
 
   useEffect(() => {
     if (!open || !openInitializedRef.current) return;
@@ -103,10 +113,6 @@ export const OnboardingFormDialog = ({
   }, [form.orderId, onOrderComplete]);
 
   const cartCodes = useMemo(() => form.cart.map((s) => s.code), [form.cart]);
-  const incomingCodes = useMemo(
-    () => (initialServiceCodes ?? []).map(normalizeServiceCode).filter(Boolean),
-    [initialServiceCodes],
-  );
   const catalogLoaded = !catalogLoading && catalog.length > 0;
   const cartHydratedRef = useRef(false);
   const userRemovedCodesRef = useRef<Set<string>>(new Set());
@@ -166,6 +172,7 @@ export const OnboardingFormDialog = ({
   const handleClose = () => onOpenChange(false);
 
   const handleBrowseServices = () => {
+    trackCtaClick('choose_service', 'order_form');
     onOpenChange(false);
     requestAnimationFrame(() => {
       document.querySelector('#menu')?.scrollIntoView({ behavior: 'smooth' });

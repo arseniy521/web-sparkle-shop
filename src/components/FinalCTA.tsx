@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { trackCtaClick } from "@/lib/analytics";
 
 export const FinalCTA = () => {
   const { t } = useTranslation();
@@ -32,16 +33,22 @@ export const FinalCTA = () => {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
           <a
+            href="#menu"
+            className="inline-flex items-center px-6 py-3.5 rounded font-body font-medium text-sm transition-colors"
+            style={{ backgroundColor: 'var(--color-bone)', color: 'var(--color-indigo)' }}
+            onClick={(e) => {
+              e.preventDefault();
+              trackCtaClick('choose_service', 'final_cta');
+              document.querySelector('#menu')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            {t('finalCta.ctaPrimary')} ↓
+          </a>
+          <a
             href="https://wa.me/420773629123"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3.5 rounded font-body font-medium text-sm transition-colors"
-            style={{ backgroundColor: 'var(--color-bone)', color: 'var(--color-indigo)' }}
-          >
-            {t('finalCta.ctaPrimary')} →
-          </a>
-          <a
-            href="mailto:info@nius.cz"
+            data-analytics-source="final_cta"
             className="inline-flex items-center px-6 py-3.5 rounded font-body font-medium text-sm text-white transition-colors"
             style={{ border: '0.5px solid rgba(255,255,255,0.3)' }}
           >

@@ -51,7 +51,8 @@
     "servicesPricing": "Služby a ceník",
     "ourNurses": "Naše sestry",
     "account": "Účet",
-    "cart": "Košík"
+    "cart": "Košík",
+    "language": "Jazyk"
   },
   "hero": {
     "phrases": {
@@ -2138,8 +2139,8 @@
       "Pomoc s kocovinou"
     ],
     "subheadline": "Registrované sestry s nemocniční praxí doručují IV kapačky, podporu IVF a pooperační péči k vám do hotelu, bytu Airbnb nebo domů — kdekoli v Praze.",
-    "ctaPrimary": "Objednat přes WhatsApp",
-    "ctaSecondary": "Služby a ceník",
+    "ctaPrimary": "Vybrat službu",
+    "ctaSecondary": "Napsat na WhatsApp",
     "statsVisits": "návštěv",
     "statsInternational": "mezinárodní klienti",
     "statsSameDay": "Stejný den",
@@ -2277,8 +2278,8 @@
     "titleBase": "Objednejte dnes.",
     "titleItalic": "Ráno se budete cítit lépe.",
     "sub": "Žádná klinika. Žádná čekárna. Vaše sestra dorazí za 60 minut.",
-    "ctaPrimary": "Objednat přes WhatsApp",
-    "ctaSecondary": "Napište nám — info@nius.cz",
+    "ctaPrimary": "Vybrat službu",
+    "ctaSecondary": "Napsat na WhatsApp",
     "trustLine": "K dispozici 7 dní · Praha a okolí · Anglicky · Rusky · Česky"
   },
   "ourNurses": {

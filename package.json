@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "i18n:check": "node scripts/check-i18n-keys.mjs",
     "postbuild": "echo www.nius.cz > dist/CNAME",
+    "predeploy": "node scripts/check-release-env.mjs",
     "deploy": "npm run build && gh-pages -d dist -f"
   },
   "reactSnap": {

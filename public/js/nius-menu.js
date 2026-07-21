@@ -1261,7 +1261,7 @@ class NiusMenu extends HTMLElement {
         <ul class="pkg-perks">
           ${tr.perks.map(perk => `<li>${perk}</li>`).join('')}
         </ul>
-        <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer" class="pkg-cta">${tr.cta}</a>
+        <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer" class="pkg-cta" data-package-id="${p.id}">${tr.cta}</a>
       </div>
     `;
     }).join('');
@@ -1308,7 +1308,7 @@ class NiusMenu extends HTMLElement {
           <span class="sub-plan-per">${tr.per}</span>
         </div>
         <div class="sub-plan-desc">${tr.desc}</div>
-        <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer" class="sub-plan-cta">${sub.startCta || 'Start'} ${tr.name} →</a>
+        <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer" class="sub-plan-cta" data-subscription-id="${p.name.toLowerCase()}">${sub.startCta || 'Start'} ${tr.name} →</a>
       </div>
     `;
     }).join('');
@@ -1356,10 +1356,29 @@ class NiusMenu extends HTMLElement {
         const idx = parseInt(card.dataset.idx);
         const cat = NIUS_CATEGORIES[catId];
         const d = cat.drips[idx];
+        window.dispatchEvent(new CustomEvent('nius:cta-click', {
+          detail: { cta: 'view_service', source: 'service_catalog', service_code: d.code || '' }
+        }));
         const upsellIds = NIUS_UPSELLS_BY_CAT[catId] || [];
         modalBody.innerHTML = this.renderModal(d, upsellIds);
         modal.classList.add('open');
         this.attachModalListeners(modal, modalBody);
+      });
+    });
+
+    this.shadowRoot.querySelectorAll('.pkg-cta').forEach(link => {
+      link.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('nius:cta-click', {
+          detail: { cta: 'whatsapp', source: 'package_card', package_id: link.dataset.packageId || '' }
+        }));
+      });
+    });
+
+    this.shadowRoot.querySelectorAll('.sub-plan-cta').forEach(link => {
+      link.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('nius:cta-click', {
+          detail: { cta: 'whatsapp', source: 'subscription_card', subscription_id: link.dataset.subscriptionId || '' }
+        }));
       });
     });
 
@@ -1375,9 +1394,6 @@ class NiusMenu extends HTMLElement {
     const name = dt.name || d.name;
     const tagline = dt.tagline || d.tagline;
     const bestfor = dt.bestfor || d.bestfor;
-    const showCart = (() => {
-      try { return localStorage.getItem('debug') === 'true'; } catch { return false; }
-    })();
     const ingT = this.t.ingredients || {};
     const ingredients = d.ingredients.map(i => `<div class="ing-row">${ingT[i] || i}</div>`).join('');
     const shotT = this.t.shots || {};
@@ -1420,8 +1436,8 @@ class NiusMenu extends HTMLElement {
         <div class="drip-cta-row">
           <div class="drip-cta-info">${this.t.ctaInfo}</div>
           <div class="drip-cta-actions">
-            ${showCart ? `<button type="button" class="btn-cart" data-code="${d.code || ''}">${this.t.addToCart}</button>` : ''}
-            <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer" class="btn-book">${this.t.bookThisDrip}</a>
+            <button type="button" class="btn-cart" data-code="${d.code || ''}">${this.t.addToCart}</button>
+            <button type="button" class="btn-book" data-code="${d.code || ''}">${this.t.bookThisDrip}</button>
           </div>
         </div>
       </div>
@@ -1446,6 +1462,19 @@ class NiusMenu extends HTMLElement {
         modal.classList.remove('open');
       });
     }
+    const orderBtn = modalBody.querySelector('.btn-book');
+    if (orderBtn) {
+      orderBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const code = orderBtn.dataset.code;
+        if (!code) return;
+        window.dispatchEvent(new CustomEvent('nius:order-service', {
+          detail: { code },
+          bubbles: true, composed: true
+        }));
+        modal.classList.remove('open');
+      });
+    }
     modalBody.querySelectorAll('.upsell-chip').forEach(chip => {
       chip.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -1462,7 +1491,10 @@ class NiusMenu extends HTMLElement {
 customElements.define('nius-menu', NiusMenu);
 
 document.addEventListener('nius:upsell-click', (e) => {
-  const { name, price } = e.detail.shot;
+  const { id, name, price } = e.detail.shot;
+  window.dispatchEvent(new CustomEvent('nius:cta-click', {
+    detail: { cta: 'whatsapp', source: 'booster', booster_id: id || '' }
+  }));
   const message = encodeURIComponent(`Hi NIUS, I'd like to add ${name} (+${price} CZK) to my booking.`);
   window.open(`https://wa.me/420773629123?text=${message}`, '_blank');
 });

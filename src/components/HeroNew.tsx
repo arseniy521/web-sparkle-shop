@@ -1,33 +1,11 @@
-import { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { OnboardingFormDialog } from "@/components/OnboardingForm";
+import { trackCtaClick } from "@/lib/analytics";
 
 export const HeroNew = () => {
   const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const debugParam = import.meta.env.DEV ? searchParams.get("debug") : null;
-  const onboardingOpen = debugParam === "sparkle" || debugParam === "escort";
-  const onboardingMode: "standard" | "escort" = debugParam === "escort" ? "escort" : "standard";
-  const onboardingServiceCode = debugParam === "escort" ? "escort" : "iv_infusion";
-  const onboardingModeRef = useRef(onboardingMode);
-  onboardingModeRef.current = onboardingMode;
-
-  const setOnboardingOpen = useCallback(
-    (nextOpen: boolean) => {
-      const next = new URLSearchParams(searchParams);
-      if (nextOpen) {
-        next.set("debug", onboardingModeRef.current === "escort" ? "escort" : "sparkle");
-      } else {
-        next.delete("debug");
-      }
-      setSearchParams(next);
-    },
-    [searchParams, setSearchParams],
-  );
-
   const services = useMemo(() => t('heroNew.services', { returnObjects: true }) as string[], [t]);
 
   useEffect(() => {
@@ -78,24 +56,26 @@ export const HeroNew = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <a
-                href="https://wa.me/420773629123"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#menu"
                 className="inline-flex items-center justify-center px-6 py-3.5 rounded font-body font-medium text-sm text-white transition-colors hover:opacity-90"
                 style={{ backgroundColor: 'var(--color-indigo)' }}
-              >
-                {t('heroNew.ctaPrimary')} →
-              </a>
-              <a
-                href="#menu"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded font-body font-medium text-sm transition-colors"
-                style={{ color: 'var(--color-indigo)', borderBottom: '1px solid var(--color-indigo)' }}
                 onClick={(e) => {
                   e.preventDefault();
+                  trackCtaClick('choose_service', 'hero');
                   document.querySelector('#menu')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                {t('heroNew.ctaSecondary')} ↓
+                {t('heroNew.ctaPrimary')} ↓
+              </a>
+              <a
+                href="https://wa.me/420773629123"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics-source="hero"
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded font-body font-medium text-sm transition-colors"
+                style={{ color: 'var(--color-indigo)', border: '1px solid var(--color-indigo)' }}
+              >
+                {t('heroNew.ctaSecondary')} →
               </a>
             </div>
           </div>
@@ -134,13 +114,6 @@ export const HeroNew = () => {
         </div>
       </div>
 
-      <OnboardingFormDialog
-        key={`${onboardingMode}:${onboardingServiceCode}`}
-        open={onboardingOpen}
-        onOpenChange={setOnboardingOpen}
-        initialMode={onboardingMode}
-        initialServiceCode={onboardingServiceCode}
-      />
     </section>
   );
 };

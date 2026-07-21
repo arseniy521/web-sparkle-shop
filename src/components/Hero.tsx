@@ -1,36 +1,14 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import mainImage from "@/assets/drips_cl2.webp";
 import { useTranslation } from "react-i18next";
-import { OnboardingFormDialog } from "@/components/OnboardingForm";
 
 export const Hero = () => {
   const { t } = useTranslation();
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const debugParam = searchParams.get("debug");
-  const onboardingOpen = debugParam === "sparkle" || debugParam === "escort";
-  const onboardingMode: "standard" | "escort" =
-    debugParam === "escort" ? "escort" : "standard";
-
-  const onboardingModeRef = useRef(onboardingMode);
-  onboardingModeRef.current = onboardingMode;
-
-  const setOnboardingOpen = useCallback(
-    (nextOpen: boolean) => {
-      const next = new URLSearchParams(searchParams);
-      if (nextOpen) {
-        next.set("debug", onboardingModeRef.current === "escort" ? "escort" : "sparkle");
-      } else {
-        next.delete("debug");
-      }
-      setSearchParams(next);
-    },
-    [searchParams, setSearchParams],
-  );
   
   const dynamicPhrases = useMemo(() => [
     t('hero.phrases.0'),
@@ -155,12 +133,6 @@ export const Hero = () => {
         </div>
       </div>
 
-      <OnboardingFormDialog
-        open={onboardingOpen}
-        onOpenChange={setOnboardingOpen}
-        initialMode={onboardingMode}
-        initialServiceCode={debugParam === 'escort' ? 'escort' : 'iv_infusion'}
-      />
     </section>
   );
 };

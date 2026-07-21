@@ -58,3 +58,46 @@ export const track = (event: string, props?: Record<string, unknown>) => {
   if (!initialized) return;
   amplitude.track(event, { language: i18n.language, ...props });
 };
+
+export type ConversionCta =
+  | 'choose_service'
+  | 'view_service'
+  | 'add_to_cart'
+  | 'order_service'
+  | 'cart'
+  | 'account'
+  | 'phone'
+  | 'whatsapp';
+
+export type ConversionSource =
+  | 'header_navigation'
+  | 'header_contact_menu'
+  | 'header'
+  | 'mobile_header'
+  | 'mobile_menu'
+  | 'hero'
+  | 'mobile_sticky'
+  | 'final_cta'
+  | 'service_catalog'
+  | 'service_modal'
+  | 'package_card'
+  | 'subscription_card'
+  | 'booster'
+  | 'footer'
+  | 'floating_contact'
+  | 'contacts_section'
+  | 'order_form'
+  | 'page_content';
+
+/**
+ * One normalized click event for the public conversion funnel.
+ * Extra properties must remain non-PHI (for example service_code or cart_items_count).
+ */
+export const trackCtaClick = (
+  cta: ConversionCta,
+  source: ConversionSource,
+  props?: Record<string, unknown>,
+) => {
+  const pagePath = typeof window === 'undefined' ? undefined : window.location.pathname;
+  track('cta_clicked', { page_path: pagePath, ...props, cta, source });
+};

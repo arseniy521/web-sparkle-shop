@@ -11,7 +11,7 @@ import {
 import type { CartService } from './cartCatalog';
 import { normalizeServiceCode } from './cartCatalog';
 import { loadDraft, saveDraftData } from './onboardingPersist';
-import { track } from '@/lib/analytics';
+import { track, trackCtaClick, type ConversionSource } from '@/lib/analytics';
 
 export type OnboardingMode = 'standard' | 'escort';
 
@@ -162,9 +162,17 @@ export function useOnboardingForm(opts: {
   initialServiceCode?: string;
   initialServiceCodes?: string[];
   initialMode?: OnboardingMode;
+  analyticsSource?: ConversionSource;
   open: boolean;
 }): UseOnboardingFormResult {
-  const { catalog, initialServiceCode, initialServiceCodes, open, initialMode = 'standard' } = opts;
+  const {
+    catalog,
+    initialServiceCode,
+    initialServiceCodes,
+    open,
+    initialMode = 'standard',
+    analyticsSource = 'header',
+  } = opts;
 
   const [step, setStep] = useState<OnboardingStep>(1);
   const [orderId, setOrderId] = useState<string | null>(null);
@@ -224,6 +232,7 @@ export function useOnboardingForm(opts: {
   const addToCart = useCallback((service: CartService) => {
     setCart((prev) => {
       if (prev.some((s) => s.id === service.id)) return prev;
+      trackCtaClick('add_to_cart', 'order_form', { service_code: service.code });
       track('cart_service_added', { service_code: service.code, source: 'form' });
       return [...prev, service];
     });
@@ -302,9 +311,9 @@ export function useOnboardingForm(opts: {
     }
     setError(null);
     setStep(2);
-    track('order_step_completed', { step: 'address' });
+    track('order_step_completed', { step: 'address', source: analyticsSource });
     return true;
-  }, [data.address, data.addressTo, isEscortMode]);
+  }, [data.address, data.addressTo, isEscortMode, analyticsSource]);
 
   const submitTiming = useCallback((): boolean => {
     if (!data.desiredTiming) {
@@ -317,9 +326,9 @@ export function useOnboardingForm(opts: {
     }
     setError(null);
     setStep(3);
-    track('order_step_completed', { step: 'timing' });
+    track('order_step_completed', { step: 'timing', source: analyticsSource });
     return true;
-  }, [data.desiredTiming, data.desiredDate]);
+  }, [data.desiredTiming, data.desiredDate, analyticsSource]);
 
   const submitPhoneAndCreate = useCallback(async (): Promise<boolean> => {
     const orderItems = cart.map((service) => ({ serviceId: service.serviceUuid }));
@@ -358,17 +367,18 @@ export function useOnboardingForm(opts: {
         items_count: cart.length,
         total_czk: cart.reduce((sum, s) => sum + s.priceCzk, 0),
         service_codes: cart.map((s) => s.code),
+        source: analyticsSource,
       });
       return true;
     } catch (e) {
       const errorCode = handleApiError(e);
       setError(errorCode);
-      track('order_create_failed', { error_code: errorCode });
+      track('order_create_failed', { error_code: errorCode, source: analyticsSource });
       return false;
     } finally {
       setIsLoading(false);
     }
-  }, [data, cart, handleApiError]);
+  }, [data, cart, handleApiError, analyticsSource]);
 
   const submitContactMe = useCallback(async (): Promise<boolean> => {
     if (!orderId) return false;
@@ -377,7 +387,7 @@ export function useOnboardingForm(opts: {
     try {
       await contactMe(orderId);
       setStep('thankyou');
-      track('contact_me_requested', { order_id: orderId });
+      track('contact_me_requested', { order_id: orderId, source: analyticsSource });
       return true;
     } catch (e) {
       setError(handleApiError(e));
@@ -385,7 +395,7 @@ export function useOnboardingForm(opts: {
     } finally {
       setIsLoading(false);
     }
-  }, [orderId, handleApiError]);
+  }, [orderId, handleApiError, analyticsSource]);
 
   const advanceTestStep = useCallback(() => {
     if (!import.meta.env.DEV) return;

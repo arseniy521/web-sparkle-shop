@@ -30,6 +30,7 @@ export const FooterNew = () => {
               href="https://wa.me/420773629123"
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-source="footer"
               className="inline-flex items-center mt-4 px-4 py-2 rounded text-xs font-body font-medium"
               style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', border: '0.5px solid rgba(255,255,255,0.12)' }}
             >
@@ -58,7 +59,7 @@ export const FooterNew = () => {
             </h4>
             <ul className="space-y-2">
               <li><a href="mailto:info@nius.cz" className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>info@nius.cz</a></li>
-              <li><a href="tel:+420773629123" className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>+420 773 629 123</a></li>
+              <li><a href="tel:+420773629123" data-analytics-source="footer" className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>+420 773 629 123</a></li>
             </ul>
           </div>
         </div>

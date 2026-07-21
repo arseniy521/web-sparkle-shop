@@ -23,6 +23,7 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsent } from "./components/CookieConsent";
 import { OnboardingHost } from "./components/OnboardingHost";
+import { ConversionLinkTracker } from "./components/ConversionLinkTracker";
 import { initAnalyticsIfConsented } from "./lib/analytics";
 
 initAnalyticsIfConsented();
@@ -37,6 +38,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <CookieConsent />
+          <ConversionLinkTracker />
           <OnboardingHost />
           <Routes>
             {/* Czech (default) */}
