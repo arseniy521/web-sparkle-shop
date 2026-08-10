@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { isValidPhoneNumber as isValidIntlPhoneNumber } from 'react-phone-number-input';
 import {
   contactMe,
   createOrder,
@@ -15,13 +16,14 @@ import { track, trackCtaClick, type ConversionSource } from '@/lib/analytics';
 
 export type OnboardingMode = 'standard' | 'escort';
 
+/** Accepts any valid international number (E.164 from PhoneInput). */
 export function isValidPhoneNumber(value: string): boolean {
-  let d = value.replace(/\D/g, '');
-  if (d.startsWith('00')) d = d.slice(2);
-  if (d.startsWith('420')) d = d.slice(3);
-  else if (d.startsWith('421')) d = d.slice(3);
-  if (d.length === 10 && d.startsWith('0')) d = d.slice(1);
-  return d.length === 9 && /^[1-9]\d{8}$/.test(d);
+  if (!value?.trim()) return false;
+  try {
+    return isValidIntlPhoneNumber(value);
+  } catch {
+    return false;
+  }
 }
 
 const DEFAULT_STANDARD_CODE = 'iv_infusion';
