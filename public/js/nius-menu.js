@@ -630,16 +630,16 @@ const NIUS_CATEGORIES = {
 };
 
 const NIUS_SHOTS = [
-  { id:'b12', name:'B12 Energy Shot', desc:'Instant energy and focus boost. Our most popular booster.', price:650, tag:'Top seller' },
-  { id:'bcomplex', name:'B-Vitamin Complex', desc:'Full B-Vitamin Complex (B1, B6, B12). Nerve and fatigue support.', price:750, tag:'Nerves / fatigue' },
-  { id:'vitd', name:'Vitamin D Shot', desc:'High-dose Vitamin D3. Three-month top-up in one injection.', price:850, tag:'Immunity / bones' },
-  { id:'thiamin', name:'Vitamin B1 (Thiamin)', desc:'Neurological and metabolic balance support.', price:700, tag:'Nerve support' },
-  { id:'glutathione', name:'Glutathione Glow', desc:'Antioxidant support and liver-support nutrients.', price:900, tag:'Antioxidant' },
-  { id:'magnesium', name:'Magnesium Boost', desc:'Muscle relaxation, migraine relief, better sleep.', price:500, tag:'Muscles / sleep' },
-  { id:'zinc', name:'Zinc & Trace Minerals', desc:'Zinc, Selenium & essential trace minerals — full immune support.', price:550, tag:'Immunity' },
-  { id:'vitc', name:'Vitamin C Upgrade', desc:'Extra Vitamin C dose mid-drip for stronger immune effect.', price:650, tag:'Immunity' },
-  { id:'pyridoxin', name:'Vitamin B6 Shot', desc:'PMS relief, pregnancy nausea, nerve and mood support.', price:450, tag:'Nerve / PMS' },
-  { id:'antiemetic', name:'Anti-Nausea Add-on', desc:'Quick nausea control added to any infusion.', price:480, tag:'Nausea' }
+  { id:'b12', code:'b12_energy_shot', name:'B12 Energy Shot', desc:'Instant energy and focus boost. Our most popular booster.', price:650, tag:'Top seller' },
+  { id:'bcomplex', code:'b_vitamin_complex', name:'B-Vitamin Complex', desc:'Full B-Vitamin Complex (B1, B6, B12). Nerve and fatigue support.', price:750, tag:'Nerves / fatigue' },
+  { id:'vitd', code:'vitamin_d_shot', name:'Vitamin D Shot', desc:'High-dose Vitamin D3. Three-month top-up in one injection.', price:850, tag:'Immunity / bones' },
+  { id:'thiamin', code:'vitamin_b1_thiamin', name:'Vitamin B1 (Thiamin)', desc:'Neurological and metabolic balance support.', price:700, tag:'Nerve support' },
+  { id:'glutathione', code:'glutathione_glow', name:'Glutathione Glow', desc:'Antioxidant support and liver-support nutrients.', price:900, tag:'Antioxidant' },
+  { id:'magnesium', code:'magnesium_boost', name:'Magnesium Boost', desc:'Muscle relaxation, migraine relief, better sleep.', price:500, tag:'Muscles / sleep' },
+  { id:'zinc', code:'zinc_trace_minerals', name:'Zinc & Trace Minerals', desc:'Zinc, Selenium & essential trace minerals — full immune support.', price:550, tag:'Immunity' },
+  { id:'vitc', code:'vitamin_c_upgrade', name:'Vitamin C Upgrade', desc:'Extra Vitamin C dose mid-drip for stronger immune effect.', price:650, tag:'Immunity' },
+  { id:'pyridoxin', code:'vitamin_b6_shot', name:'Vitamin B6 Shot', desc:'PMS relief, pregnancy nausea, nerve and mood support.', price:450, tag:'Nerve / PMS' },
+  { id:'antiemetic', code:'anti_nausea_addon', name:'Anti-Nausea Add-on', desc:'Quick nausea control added to any infusion.', price:480, tag:'Nausea' }
 ];
 
 const NIUS_UPSELLS_BY_CAT = {
@@ -965,6 +965,10 @@ class NiusMenu extends HTMLElement {
         .upsell-chip:hover {
           border-color: var(--gold);
           box-shadow: 0 2px 12px rgba(21,63,77,0.18);
+        }
+        .upsell-chip.is-selected {
+          border-color: var(--ink);
+          box-shadow: 0 0 0 1px var(--ink);
         }
         .upsell-chip .plus { color: var(--gold); font-weight: 500; }
         .upsell-chip .price {
@@ -1399,10 +1403,10 @@ class NiusMenu extends HTMLElement {
     const shotT = this.t.shots || {};
     const upsells = upsellIds.map(id => {
       const s = NIUS_SHOTS.find(x => x.id === id);
-      if (!s) return '';
+      if (!s || !s.code) return '';
       const shotName = shotT[s.name] || s.name;
       return `
-        <button class="upsell-chip" data-shot="${s.id}">
+        <button type="button" class="upsell-chip" data-shot="${s.id}" data-code="${s.code}">
           <span class="plus">+</span>${shotName}
           <span class="price">+${s.price.toLocaleString('cs-CZ')} CZK</span>
         </button>
@@ -1444,6 +1448,21 @@ class NiusMenu extends HTMLElement {
     `;
   }
 
+  selectedBoosterCodes(modalBody) {
+    return [...modalBody.querySelectorAll('.upsell-chip.is-selected')]
+      .map((chip) => chip.dataset.code)
+      .filter(Boolean);
+  }
+
+  dispatchCartEvent(name, code) {
+    if (!code) return;
+    window.dispatchEvent(new CustomEvent(name, {
+      detail: { code },
+      bubbles: true,
+      composed: true,
+    }));
+  }
+
   attachModalListeners(modal, modalBody) {
     const closeBtn = modalBody.querySelector('[data-close]');
     if (closeBtn) {
@@ -1455,10 +1474,10 @@ class NiusMenu extends HTMLElement {
         e.stopPropagation();
         const code = cartBtn.dataset.code;
         if (!code) return;
-        window.dispatchEvent(new CustomEvent('nius:add-to-cart', {
-          detail: { code },
-          bubbles: true, composed: true
-        }));
+        for (const boosterCode of this.selectedBoosterCodes(modalBody)) {
+          this.dispatchCartEvent('nius:add-to-cart', boosterCode);
+        }
+        this.dispatchCartEvent('nius:add-to-cart', code);
         modal.classList.remove('open');
       });
     }
@@ -1468,33 +1487,20 @@ class NiusMenu extends HTMLElement {
         e.stopPropagation();
         const code = orderBtn.dataset.code;
         if (!code) return;
-        window.dispatchEvent(new CustomEvent('nius:order-service', {
-          detail: { code },
-          bubbles: true, composed: true
-        }));
+        for (const boosterCode of this.selectedBoosterCodes(modalBody)) {
+          this.dispatchCartEvent('nius:add-to-cart', boosterCode);
+        }
+        this.dispatchCartEvent('nius:order-service', code);
         modal.classList.remove('open');
       });
     }
     modalBody.querySelectorAll('.upsell-chip').forEach(chip => {
       chip.addEventListener('click', (e) => {
         e.stopPropagation();
-        const shotId = chip.dataset.shot;
-        this.dispatchEvent(new CustomEvent('nius:upsell-click', {
-          detail: { shotId, shot: NIUS_SHOTS.find(s => s.id === shotId) },
-          bubbles: true, composed: true
-        }));
+        chip.classList.toggle('is-selected');
       });
     });
   }
 }
 
 customElements.define('nius-menu', NiusMenu);
-
-document.addEventListener('nius:upsell-click', (e) => {
-  const { id, name, price } = e.detail.shot;
-  window.dispatchEvent(new CustomEvent('nius:cta-click', {
-    detail: { cta: 'whatsapp', source: 'booster', booster_id: id || '' }
-  }));
-  const message = encodeURIComponent(`Hi NIUS, I'd like to add ${name} (+${price} CZK) to my booking.`);
-  window.open(`https://wa.me/420773629123?text=${message}`, '_blank');
-});
