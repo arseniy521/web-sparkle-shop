@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { isValidPhoneNumber as isValidIntlPhoneNumber } from 'react-phone-number-input';
 import {
   contactMe,
@@ -9,7 +9,7 @@ import {
   OnboardingOrderItem,
   PaymentPreference,
 } from '@/api/onboarding';
-import type { CartService } from './cartCatalog';
+import type { CartItem, CartService } from './cartCatalog';
 import { normalizeServiceCode } from './cartCatalog';
 import { loadDraft, saveDraftData } from './onboardingPersist';
 import { track, trackCtaClick, type ConversionSource } from '@/lib/analytics';
@@ -34,17 +34,19 @@ function prefilledCartFor(
   mode: OnboardingMode,
   initialCode?: string,
   initialCodes?: string[],
-): CartService[] {
+): CartItem[] {
   if (initialCodes && initialCodes.length > 0) {
-    const rows: CartService[] = [];
-    const seen = new Set<string>();
+    const rows = new Map<string, CartItem>();
     const unmatched: string[] = [];
     for (const raw of initialCodes) {
       const target = normalizeServiceCode(raw);
       const match = catalog.find((s) => s.code === target || s.id === target);
-      if (match && !seen.has(match.id)) {
-        seen.add(match.id);
-        rows.push(match);
+      if (match) {
+        const existing = rows.get(match.id);
+        rows.set(match.id, {
+          ...match,
+          quantity: (existing?.quantity ?? 0) + 1,
+        });
       } else if (!match) {
         unmatched.push(target);
       }
@@ -52,11 +54,11 @@ function prefilledCartFor(
     if (import.meta.env.DEV && unmatched.length > 0) {
       console.warn('Onboarding cart: service code(s) missing from catalog', unmatched);
     }
-    if (rows.length > 0) return rows;
+    if (rows.size > 0) return Array.from(rows.values());
   }
   const target = normalizeServiceCode(initialCode ?? (mode === 'escort' ? DEFAULT_ESCORT_CODE : DEFAULT_STANDARD_CODE));
   const match = catalog.find((s) => s.code === target || s.id === target);
-  return match ? [match] : [];
+  return match ? [{ ...match, quantity: 1 }] : [];
 }
 
 function resolveOrderItemServiceCode(item: OnboardingOrderItem, catalog: CartService[]): string | null {
@@ -76,21 +78,23 @@ function resolveOrderItemServiceCode(item: OnboardingOrderItem, catalog: CartSer
   return null;
 }
 
-function cartFromOrder(order: OnboardingOrder, catalog: CartService[]): CartService[] {
-  const rows: CartService[] = [];
-  const seen = new Set<string>();
+function cartFromOrder(order: OnboardingOrder, catalog: CartService[]): CartItem[] {
+  const rows = new Map<string, CartItem>();
 
   for (const item of order.items ?? []) {
     const code = resolveOrderItemServiceCode(item, catalog);
     const row = code
       ? catalog.find((c) => c.code === code)
       : catalog.find((c) => c.serviceUuid === (item.serviceExternalId || item.serviceId));
-    if (!row || seen.has(row.id)) continue;
-    seen.add(row.id);
-    rows.push(row);
+    if (!row) continue;
+    const existing = rows.get(row.id);
+    rows.set(row.id, {
+      ...row,
+      quantity: (existing?.quantity ?? 0) + Math.max(1, item.quantity ?? 1),
+    });
   }
 
-  return rows;
+  return Array.from(rows.values());
 }
 
 export type OnboardingStep = 1 | 2 | 3 | 'final' | 'thankyou';
@@ -126,9 +130,10 @@ export interface UseOnboardingFormResult {
   orderId: string | null;
   orderAccessToken: string | null;
   data: OnboardingFormData;
-  cart: CartService[];
+  cart: CartItem[];
   isEscortMode: boolean;
   addToCart: (service: CartService) => void;
+  changeQuantity: (id: string, quantity: number) => void;
   removeFromCart: (id: string) => void;
   isLoading: boolean;
   error: string | null;
@@ -165,6 +170,7 @@ export function useOnboardingForm(opts: {
   initialServiceCodes?: string[];
   initialMode?: OnboardingMode;
   analyticsSource?: ConversionSource;
+  onCartCodesChange?: (codes: string[]) => void;
   open: boolean;
 }): UseOnboardingFormResult {
   const {
@@ -174,6 +180,7 @@ export function useOnboardingForm(opts: {
     open,
     initialMode = 'standard',
     analyticsSource = 'header',
+    onCartCodesChange,
   } = opts;
 
   const [step, setStep] = useState<OnboardingStep>(1);
@@ -189,22 +196,40 @@ export function useOnboardingForm(opts: {
     return { ...EMPTY_DATA, serviceCode: initialCodeNorm };
   });
 
-  const [cart, setCart] = useState<CartService[]>(() => []);
+  const [cart, setCart] = useState<CartItem[]>(() => []);
 
   const codesKey = (initialServiceCodes ?? []).join(',');
+  const [cartHydratedKey, setCartHydratedKey] = useState<string | null>(null);
+  const cartInitializedForOpenRef = useRef(false);
 
   useEffect(() => {
-    if (!open || catalog.length === 0) return;
-    const prefilled = prefilledCartFor(catalog, initialMode, initialServiceCode, initialServiceCodes);
-    setCart((prev) => {
-      if (initialServiceCodes && initialServiceCodes.length > 0) {
-        const byId = new Map(prev.map((s) => [s.id, s]));
-        for (const row of prefilled) byId.set(row.id, row);
-        return Array.from(byId.values());
-      }
-      return prev.length === 0 ? prefilled : prev;
-    });
-  }, [open, catalog, initialMode, initialServiceCode, initialServiceCodes, codesKey]);
+    if (!open) {
+      cartInitializedForOpenRef.current = false;
+      setCartHydratedKey(null);
+      return;
+    }
+    if (orderId || catalog.length === 0) return;
+
+    const hasExplicitCart = initialServiceCodes !== undefined;
+    const shouldKeepExplicitEmpty =
+      hasExplicitCart &&
+      initialServiceCodes.length === 0 &&
+      cartInitializedForOpenRef.current;
+    const nextCart = shouldKeepExplicitEmpty
+      ? []
+      : prefilledCartFor(catalog, initialMode, initialServiceCode, initialServiceCodes);
+
+    cartInitializedForOpenRef.current = true;
+    setCart(nextCart);
+    setCartHydratedKey(codesKey);
+  }, [open, orderId, catalog, initialMode, initialServiceCode, initialServiceCodes, codesKey]);
+
+  useEffect(() => {
+    if (!open || orderId || cartHydratedKey !== codesKey) return;
+    onCartCodesChange?.(
+      cart.flatMap((item) => Array.from({ length: item.quantity }, () => item.code)),
+    );
+  }, [open, orderId, cart, cartHydratedKey, codesKey, onCartCodesChange]);
 
   const isEscortMode = cart.some((s) => s.kind === 'escort');
   const [isLoading, setIsLoading] = useState(false);
@@ -233,10 +258,32 @@ export function useOnboardingForm(opts: {
 
   const addToCart = useCallback((service: CartService) => {
     setCart((prev) => {
-      if (prev.some((s) => s.id === service.id)) return prev;
       trackCtaClick('add_to_cart', 'order_form', { service_code: service.code });
       track('cart_service_added', { service_code: service.code, source: 'form' });
-      return [...prev, service];
+      const existing = prev.find((item) => item.id === service.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.id === service.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      }
+      return [...prev, { ...service, quantity: 1 }];
+    });
+  }, []);
+
+  const changeQuantity = useCallback((id: string, quantity: number) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === id);
+      if (!existing || quantity === existing.quantity) return prev;
+      if (quantity < 1) {
+        track('cart_service_removed', { service_code: existing.code });
+        return prev.filter((item) => item.id !== id);
+      }
+      if (quantity > existing.quantity) {
+        track('cart_service_added', { service_code: existing.code, source: 'form' });
+      }
+      return prev.map((item) => item.id === id ? { ...item, quantity } : item);
     });
   }, []);
 
@@ -333,7 +380,10 @@ export function useOnboardingForm(opts: {
   }, [data.desiredTiming, data.desiredDate, analyticsSource]);
 
   const submitPhoneAndCreate = useCallback(async (): Promise<boolean> => {
-    const orderItems = cart.map((service) => ({ serviceId: service.serviceUuid }));
+    const orderItems = cart.map((service) => ({
+      serviceId: service.serviceUuid,
+      quantity: service.quantity,
+    }));
     if (
       !isValidPhoneNumber(data.phone) ||
       orderItems.length === 0 ||
@@ -366,8 +416,8 @@ export function useOnboardingForm(opts: {
       setStep('final');
       track('order_created', {
         order_id: order.id,
-        items_count: cart.length,
-        total_czk: cart.reduce((sum, s) => sum + s.priceCzk, 0),
+        items_count: cart.reduce((sum, item) => sum + item.quantity, 0),
+        total_czk: cart.reduce((sum, item) => sum + item.priceCzk * item.quantity, 0),
         service_codes: cart.map((s) => s.code),
         source: analyticsSource,
       });
@@ -428,6 +478,7 @@ export function useOnboardingForm(opts: {
     cart,
     isEscortMode,
     addToCart,
+    changeQuantity,
     removeFromCart,
     isLoading,
     error,

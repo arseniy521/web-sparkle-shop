@@ -12,6 +12,10 @@ export interface CartService {
   kind: 'standard' | 'escort';
 }
 
+export interface CartItem extends CartService {
+  quantity: number;
+}
+
 function catalogKeys(code: string) {
   return {
     nameKey: `serviceCatalog.${code}.title`,

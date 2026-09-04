@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { CheckCircle2, LogIn, PhoneCall, Loader2, ClipboardList, Pencil, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import type { CartService } from './cartCatalog';
+import type { CartItem } from './cartCatalog';
 import { ServiceIcon } from './Step0Cart';
 import { serviceTitle } from './serviceDisplay';
 import { track } from '@/lib/analytics';
 
 interface FinalScreenProps {
-  cart: CartService[];
+  cart: CartItem[];
   orderId: string;
   orderAccessToken: string;
   onContactMe: () => void;
@@ -20,7 +20,7 @@ const APP_LOGIN_URL = `${appUrl.replace(/\/$/, '')}/login`;
 export const FinalScreen = ({ cart, orderId, orderAccessToken, onContactMe, isLoading }: FinalScreenProps) => {
   const { t } = useTranslation();
 
-  const totalCzk = cart.reduce((sum, s) => sum + s.priceCzk, 0);
+  const totalCzk = cart.reduce((sum, item) => sum + item.priceCzk * item.quantity, 0);
 
   const handleLogin = () => {
     track('login_cta_clicked', { order_id: orderId });
@@ -68,10 +68,10 @@ export const FinalScreen = ({ cart, orderId, orderAccessToken, onContactMe, isLo
                   <ServiceIcon iconKey={svc.iconKey} className="h-3.5 w-3.5" />
                 </div>
                 <span className="text-sm text-foreground flex-1 min-w-0 truncate">
-                  {serviceTitle(t, svc)}
+                  {svc.quantity > 1 ? `${svc.quantity}× ` : ''}{serviceTitle(t, svc)}
                 </span>
                 <span className="text-sm font-medium text-foreground flex-shrink-0">
-                  {svc.priceCzk.toLocaleString('cs-CZ')} Kč
+                  {(svc.priceCzk * svc.quantity).toLocaleString('cs-CZ')} Kč
                 </span>
               </li>
             ))}

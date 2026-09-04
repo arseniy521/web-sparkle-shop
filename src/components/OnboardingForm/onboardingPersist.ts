@@ -131,13 +131,11 @@ function sanitizeData(value: unknown): OnboardingFormData {
 
 function sanitizeCodes(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
-  const seen = new Set<string>();
   const codes: string[] = [];
   for (const raw of value) {
     if (typeof raw !== 'string') continue;
     const code = raw.trim();
-    if (!code || seen.has(code)) continue;
-    seen.add(code);
+    if (!code) continue;
     codes.push(code);
   }
   return codes;

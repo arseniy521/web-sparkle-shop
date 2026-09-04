@@ -57,6 +57,7 @@ export const OnboardingFormDialog = ({
     initialServiceCodes,
     initialMode,
     analyticsSource,
+    onCartCodesChange,
   });
 
   const incomingCodes = useMemo(
@@ -74,6 +75,7 @@ export const OnboardingFormDialog = ({
     !!form.data.desiredTiming &&
     (form.data.desiredTiming !== 'CUSTOM_DATE' || !!form.data.desiredDate);
   const phoneFilled = isValidPhoneNumber(form.data.phone);
+  const cartItemCount = form.cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const openInitializedRef = useRef(false);
   useEffect(() => {
@@ -84,7 +86,10 @@ export const OnboardingFormDialog = ({
     if (openInitializedRef.current) return;
     openInitializedRef.current = true;
     track('order_form_opened', {
-      services_in_cart: Math.max(form.cart.length, new Set(incomingCodes).size),
+      services_in_cart: Math.max(
+        cartItemCount,
+        incomingCodes.length,
+      ),
       mode: form.isEscortMode ? 'escort' : 'standard',
       source: analyticsSource,
     });
@@ -92,7 +97,7 @@ export const OnboardingFormDialog = ({
     else if (!timingFilled) setOpenSection('timing');
     else if (!phoneFilled) setOpenSection('phone');
     else setOpenSection('note');
-  }, [open, addressFilled, timingFilled, phoneFilled, form.cart.length, form.isEscortMode, analyticsSource, incomingCodes]);
+  }, [open, addressFilled, timingFilled, phoneFilled, cartItemCount, form.isEscortMode, analyticsSource, incomingCodes]);
 
   useEffect(() => {
     if (!open || !openInitializedRef.current) return;
@@ -111,42 +116,6 @@ export const OnboardingFormDialog = ({
     orderCompleteFiredRef.current = true;
     onOrderComplete?.();
   }, [form.orderId, onOrderComplete]);
-
-  const cartCodes = useMemo(() => form.cart.map((s) => s.code), [form.cart]);
-  const catalogLoaded = !catalogLoading && catalog.length > 0;
-  const cartHydratedRef = useRef(false);
-  const userRemovedCodesRef = useRef<Set<string>>(new Set());
-
-  useEffect(() => {
-    for (const removedCode of Array.from(userRemovedCodesRef.current)) {
-      if (!incomingCodes.includes(removedCode)) userRemovedCodesRef.current.delete(removedCode);
-    }
-  }, [incomingCodes]);
-
-  useEffect(() => {
-    if (!open) return;
-    if (form.orderId) return;
-    if (!catalogLoaded) return;
-    if (cartCodes.length > 0) cartHydratedRef.current = true;
-    if (cartCodes.length === 0 && !cartHydratedRef.current) return;
-
-    const removed = userRemovedCodesRef.current;
-    const nextCodes: string[] = [];
-    const append = (code: string) => {
-      if (!code || removed.has(code) || nextCodes.includes(code)) return;
-      nextCodes.push(code);
-    };
-    incomingCodes.forEach(append);
-    cartCodes.forEach(append);
-    onCartCodesChange?.(nextCodes);
-  }, [open, form.orderId, catalogLoaded, cartCodes, incomingCodes, onCartCodesChange]);
-
-  useEffect(() => {
-    if (!open) {
-      cartHydratedRef.current = false;
-      userRemovedCodesRef.current.clear();
-    }
-  }, [open]);
 
   useEffect(() => {
     if (!form.error) return;
@@ -234,7 +203,10 @@ export const OnboardingFormDialog = ({
   const phoneSummary = form.data.phone || null;
   const noteSummary = form.data.patientNote.trim() || null;
 
-  const totalCzk = form.cart.reduce((sum, s) => sum + s.priceCzk, 0);
+  const totalCzk = form.cart.reduce(
+    (sum, item) => sum + item.priceCzk * item.quantity,
+    0,
+  );
 
   const isFinal = form.step === 'final';
   const isThankyou = form.step === 'thankyou';
@@ -363,11 +335,15 @@ export const OnboardingFormDialog = ({
                 <ReturningCustomerHint />
                 <CartHeader
                   cart={form.cart}
-                  onRemove={(id) => {
-                    const service = form.cart.find((s) => s.id === id);
-                    if (service) userRemovedCodesRef.current.add(service.code);
-                    form.removeFromCart(id);
+                  onDecrement={(id) => {
+                    const item = form.cart.find((service) => service.id === id);
+                    if (item) form.changeQuantity(id, item.quantity - 1);
                   }}
+                  onIncrement={(id) => {
+                    const item = form.cart.find((service) => service.id === id);
+                    if (item) form.changeQuantity(id, item.quantity + 1);
+                  }}
+                  onRemove={form.removeFromCart}
                 />
 
                 <div className="space-y-2">

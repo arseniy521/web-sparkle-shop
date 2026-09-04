@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { Trash2, Droplet, Syringe, Bandage, Microscope, HandHeart, Citrus, Ambulance, Check } from 'lucide-react';
+import { Trash2, Droplet, Syringe, Bandage, Microscope, HandHeart, Citrus, Ambulance, Check, Minus, Plus } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { CartService } from './cartCatalog';
+import type { CartItem, CartService } from './cartCatalog';
 import { serviceTitle, serviceHint } from './serviceDisplay';
 
 const ICON_MAP = {
@@ -27,18 +27,21 @@ export const ServiceIcon = ({ iconKey, className }: { iconKey: string; className
 };
 
 interface CartHeaderProps {
-  cart: CartService[];
+  cart: CartItem[];
+  onDecrement: (id: string) => void;
+  onIncrement: (id: string) => void;
   onRemove: (id: string) => void;
 }
 
-export const CartHeader = ({ cart, onRemove }: CartHeaderProps) => {
+export const CartHeader = ({ cart, onDecrement, onIncrement, onRemove }: CartHeaderProps) => {
   const { t } = useTranslation();
+  const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-          {t('onboarding.cart.yourBooking')} · {cart.length}
+          {t('onboarding.cart.yourBooking')} · {itemCount}
         </p>
       </div>
 
@@ -58,8 +61,36 @@ export const CartHeader = ({ cart, onRemove }: CartHeaderProps) => {
               <div className="text-sm font-semibold text-foreground leading-tight line-clamp-2">
                 {serviceTitle(t, svc)}
               </div>
-              <div className="text-xs font-bold text-foreground mt-1 text-right">
-                {t('onboarding.cart.priceFrom', { price: svc.priceCzk.toLocaleString('cs-CZ') })}
+              <div className="mt-2 flex items-center justify-between gap-2">
+                <div className="text-xs font-bold text-foreground">
+                  {t('onboarding.cart.priceFrom', {
+                    price: (svc.priceCzk * svc.quantity).toLocaleString('cs-CZ'),
+                  })}
+                </div>
+                <div
+                  className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 p-0.5"
+                  aria-label={t('onboarding.cart.quantity')}
+                >
+                  <button
+                    type="button"
+                    onClick={() => onDecrement(svc.id)}
+                    className="flex h-6 w-6 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/10"
+                    aria-label={t('onboarding.cart.decreaseQuantity', { name: serviceTitle(t, svc) })}
+                  >
+                    <Minus className="h-3.5 w-3.5" />
+                  </button>
+                  <span className="min-w-6 text-center text-xs font-bold tabular-nums" aria-live="polite">
+                    {svc.quantity}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => onIncrement(svc.id)}
+                    className="flex h-6 w-6 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/10"
+                    aria-label={t('onboarding.cart.increaseQuantity', { name: serviceTitle(t, svc) })}
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                  </button>
+                </div>
               </div>
               <button
                 type="button"

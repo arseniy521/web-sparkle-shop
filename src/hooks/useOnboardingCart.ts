@@ -22,12 +22,10 @@ declare global {
 }
 
 function normalizeCodes(rawCodes: string[]): string[] {
-  const seen = new Set<string>();
   const codes: string[] = [];
   for (const raw of rawCodes) {
     const code = normalizeServiceCode(raw);
-    if (!code || seen.has(code)) continue;
-    seen.add(code);
+    if (!code) continue;
     codes.push(code);
   }
   return codes;
@@ -53,10 +51,8 @@ function setState(next: Partial<OnboardingCartState>) {
 function addService(code: string, openSource: ConversionSource | null) {
   const normalized = normalizeServiceCode(code);
   if (!normalized) return;
-  if (!state.codes.includes(normalized)) {
-    track('cart_service_added', { service_code: normalized, source: 'service_modal' });
-  }
-  const codes = state.codes.includes(normalized) ? state.codes : [...state.codes, normalized];
+  track('cart_service_added', { service_code: normalized, source: 'service_modal' });
+  const codes = [...state.codes, normalized];
   setState(openSource ? { codes, open: true, openSource } : { codes });
   saveDraftCodes(codes);
 }
