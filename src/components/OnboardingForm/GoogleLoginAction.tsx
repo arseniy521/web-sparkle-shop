@@ -32,6 +32,7 @@ interface GoogleLoginActionProps {
 
 function normalizeApiError(error: unknown): string {
   if (!(error instanceof OnboardingApiError)) return 'oauth_failed';
+  if (error.code === 'ACTIVE_ORDER_EXISTS') return 'active_order';
   if (error.status === 0) return 'network';
   if (error.status === 409) return 'link_conflict';
   if (error.status === 401) return 'oauth_failed';
@@ -73,9 +74,8 @@ const GoogleLoginButton = ({
         const user = await googleAuth(code, orderId, orderAccessToken);
         if (!activeRef.current) return;
         queryClient.setQueryData(AUTH_STATUS_QUERY_KEY, 'authenticated');
-        if (user.role === 'SUPERADMIN') {
-          setAnalyticsOptOut(true);
-        } else {
+        setAnalyticsOptOut(user.role === 'SUPERADMIN');
+        if (user.role !== 'SUPERADMIN') {
           track('login_completed', { linked_order: user.linked });
         }
         onAuthenticated(user);
@@ -96,9 +96,8 @@ const GoogleLoginButton = ({
           const user = await getPublicMe();
           if (!activeRef.current) return;
           queryClient.setQueryData(AUTH_STATUS_QUERY_KEY, 'authenticated');
-          if (user.role === 'SUPERADMIN') {
-            setAnalyticsOptOut(true);
-          } else {
+          setAnalyticsOptOut(user.role === 'SUPERADMIN');
+          if (user.role !== 'SUPERADMIN') {
             track('login_completed', { linked_order: false, recovered: true });
           }
           onAuthenticated(user);

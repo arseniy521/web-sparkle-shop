@@ -1975,6 +1975,11 @@
       "ctaLogin": "Přihlásit se",
       "ctaCabinet": "Otevřít účet"
     },
+    "activeOrder": {
+      "title": "Už máte aktivní objednávku",
+      "body": "V účtu ji můžete upravit, nebo zrušit, pokud vznikla omylem. Novou žádost z webu zatím odeslat nelze.",
+      "cta": "Otevřít objednávku"
+    },
     "dialogTitle": "Objednat sestru",
     "dialogDescription": "Vyberte adresu, termín, kontakt a odešlete žádost o domácí návštěvu sestry.",
     "close": "Zavřít",
@@ -2073,6 +2078,7 @@
         "account_mismatch": "Aktivní účet se během přihlášení změnil. Zkuste to prosím znovu.",
         "api_failed": "Přihlášení se nepodařilo dokončit. Zkuste to prosím znovu.",
         "link_failed": "Rezervaci se nepodařilo propojit. Zkuste to prosím znovu.",
+        "active_order": "Už máte aktivní objednávku. Otevřete ji v účtu a upravte, nebo zrušte.",
         "default": "Něco se pokazilo. Zkuste to prosím znovu."
       },
       "contactBtn": "Zavolejte mi zpět",

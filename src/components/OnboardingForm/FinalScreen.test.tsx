@@ -42,6 +42,7 @@ vi.mock('@/api/onboarding', async () => {
 
 vi.mock('./authNavigation', () => ({
   replaceWithIntakeForm: testState.replaceWithIntakeForm,
+  cabinetHref: () => 'https://app.nius.cz/cabinet',
 }));
 
 vi.mock('./GoogleLoginAction', () => ({
@@ -135,5 +136,38 @@ describe('FinalScreen action exclusivity', () => {
       await screen.findByRole('button', { name: 'google-action' }),
     ).toBeEnabled();
     expect(testState.replaceWithIntakeForm).not.toHaveBeenCalled();
+    expect(
+      screen.queryByRole('button', { name: 'onboarding.final.contactBtn' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('shows the existing-order gate instead of a generic link error', async () => {
+    testState.authStatus = 'authenticated';
+    testState.getPublicMe.mockResolvedValue({
+      authenticated: true,
+      id: 'patient-1',
+      name: 'Patient',
+      picture: null,
+      role: 'PATIENT',
+    });
+    testState.linkOrder.mockRejectedValue(
+      new OnboardingApiError('You already have an active order', 409, {
+        phase: 'link',
+        code: 'ACTIVE_ORDER_EXISTS',
+      }),
+    );
+
+    render(<FinalScreen {...baseProps} />);
+
+    expect(
+      await screen.findByText('onboarding.activeOrder.title'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'onboarding.activeOrder.cta' }),
+    ).toHaveAttribute('href', 'https://app.nius.cz/cabinet');
+    expect(testState.replaceWithIntakeForm).not.toHaveBeenCalled();
+    expect(
+      screen.queryByRole('button', { name: 'onboarding.final.contactBtn' }),
+    ).not.toBeInTheDocument();
   });
 });

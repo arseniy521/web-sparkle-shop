@@ -94,16 +94,18 @@ export type OrderByPhoneResponse = z.infer<typeof orderByPhoneResponseSchema>;
 export class OnboardingApiError extends Error {
   status: number;
   phase?: 'auth' | 'link';
+  code?: string;
 
   constructor(
     message: string,
     status: number,
-    options?: { cause?: unknown; phase?: 'auth' | 'link' },
+    options?: { cause?: unknown; phase?: 'auth' | 'link'; code?: string },
   ) {
     super(message);
     this.name = 'OnboardingApiError';
     this.status = status;
     this.phase = options?.phase;
+    this.code = options?.code;
     if (options && 'cause' in options) {
       (this as Error & { cause?: unknown }).cause = options.cause;
     }
@@ -146,6 +148,7 @@ async function request<T>(
   let response: Response;
   const hasBody = init?.body != null;
   const headers = {
+    'X-Requested-With': 'XmlHttpRequest',
     ...(hasBody ? { 'Content-Type': 'application/json' } : {}),
     ...(init?.headers ?? {}),
   };
@@ -164,6 +167,7 @@ async function request<T>(
   if (!response.ok) {
     let message = clampErrorMessage(response.statusText || 'request_failed');
     let phase: 'auth' | 'link' | undefined;
+    let code: string | undefined;
     try {
       const body = await readJsonUnknown(response);
       if (body && typeof body === 'object') {
@@ -180,11 +184,17 @@ async function request<T>(
         ) {
           phase = (body as { phase: 'auth' | 'link' }).phase;
         }
+        if (
+          'code' in body &&
+          typeof (body as { code: unknown }).code === 'string'
+        ) {
+          code = (body as { code: string }).code;
+        }
       }
     } catch {
       // ignore parse errors
     }
-    throw new OnboardingApiError(message, response.status, { phase });
+    throw new OnboardingApiError(message, response.status, { phase, code });
   }
 
   if (response.status === 204) {
@@ -199,6 +209,7 @@ export async function contactMe(id: string, orderAccessToken: string): Promise<{
   const path = `/onboarding/order/${id}/contact-me`;
   const headers = {
     'Content-Type': 'application/json',
+    'X-Requested-With': 'XmlHttpRequest',
     'x-onboarding-token': orderAccessToken,
   };
 
@@ -249,6 +260,7 @@ async function requestOrder(path: string, init?: RequestInit): Promise<Onboardin
   let response: Response;
   const hasBody = init?.body != null;
   const headers = {
+    'X-Requested-With': 'XmlHttpRequest',
     ...(hasBody ? { 'Content-Type': 'application/json' } : {}),
     ...(init?.headers ?? {}),
   };
@@ -337,13 +349,31 @@ const authUserSchema = z.object({
 
 const linkedSchema = z.object({ linked: z.literal(true) });
 
+const customerSummarySchema = z.object({
+  activeOrder: z
+    .object({
+      id: z.string(),
+      status: z.string(),
+      lastEventAt: z.string(),
+    })
+    .nullable(),
+  completedOrdersLast12Months: z.number(),
+  lastCompletedOrderAt: z.string().nullable(),
+  isFrequentCustomer: z.boolean(),
+});
+
 export type AuthUser = z.infer<typeof authUserSchema>;
 export type AuthenticatedUser = Pick<AuthUser, 'id' | 'role'> & {
   linked?: boolean;
 };
+export type CustomerSummary = z.infer<typeof customerSummarySchema>;
 
 export function getPublicMe() {
   return request(publicMeSchema, '/auth/me/public');
+}
+
+export function getCustomerSummary(): Promise<CustomerSummary> {
+  return request(customerSummarySchema, '/customers/summary');
 }
 
 export function googleAuth(

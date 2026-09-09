@@ -10,7 +10,9 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       "/api": {
-        target: "http://localhost:3002",
+        // Matches this checkout's backend `.env` (`PORT=3002`). Override with
+        // NIUS_API_PROXY if the API listens on another port (e.g. 3000).
+        target: process.env.NIUS_API_PROXY ?? "http://localhost:3002",
         changeOrigin: true,
         rewrite: (requestPath) => requestPath.replace(/^\/api/, ""),
       },

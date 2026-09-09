@@ -1975,6 +1975,11 @@
       "ctaLogin": "Sign in",
       "ctaCabinet": "Open my account"
     },
+    "activeOrder": {
+      "title": "You already have an active booking",
+      "body": "Open your account to edit it, or cancel it if it was a mistake. A new request from the website cannot be created until then.",
+      "cta": "Open my booking"
+    },
     "dialogTitle": "Book a nurse",
     "dialogDescription": "Choose address, timing, contact details and submit a home nurse booking request.",
     "close": "Close",
@@ -2073,6 +2078,7 @@
         "account_mismatch": "The active account changed during sign-in. Please try again.",
         "api_failed": "Sign-in could not be completed. Please try again.",
         "link_failed": "Your booking could not be linked. Please try again.",
+        "active_order": "You already have an active booking. Open it in your account to edit or cancel it.",
         "default": "Something went wrong. Please try again."
       },
       "contactBtn": "Call me back",

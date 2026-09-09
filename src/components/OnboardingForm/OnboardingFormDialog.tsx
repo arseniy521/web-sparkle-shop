@@ -15,11 +15,14 @@ import { Step3Timing } from './Step3Timing';
 import { Step5Note } from './Step5Note';
 import { FinalScreen } from './FinalScreen';
 import { ReturningCustomerHint } from './ReturningCustomerHint';
+import { ActiveOrderGate } from './ActiveOrderGate';
 import { ThankYouScreen } from './ThankYouScreen';
 import { normalizeServiceCode } from './cartCatalog';
 import { isValidPhoneNumber, useOnboardingForm } from './useOnboardingForm';
 import { track, trackCtaClick } from '@/lib/analytics';
 import type { ConversionSource } from '@/lib/analytics';
+import { useAuthStatus } from '@/hooks/useAuthStatus';
+import { useCustomerSummary } from '@/hooks/useCustomerSummary';
 
 interface OnboardingFormDialogProps {
   open: boolean;
@@ -48,6 +51,15 @@ export const OnboardingFormDialog = ({
 }: OnboardingFormDialogProps) => {
   const { t, i18n } = useTranslation();
   const resolvedInitialCode = initialServiceCode ?? initialServiceId;
+  const authStatus = useAuthStatus(open, true);
+  const customerSummary = useCustomerSummary(
+    open && authStatus === 'authenticated',
+  );
+  const blockingActiveOrder = Boolean(customerSummary.data?.activeOrder);
+  const sessionLoading =
+    open &&
+    (authStatus === 'loading' ||
+      (authStatus === 'authenticated' && customerSummary.isFetching));
   const { catalog, loading: catalogLoading, errorKey: catalogErrorKey } = useServices(open);
 
   const form = useOnboardingForm({
@@ -66,6 +78,7 @@ export const OnboardingFormDialog = ({
   );
 
   const [openSection, setOpenSection] = useState<SectionId>('address');
+  const [authBusy, setAuthBusy] = useState(false);
   const errorToastNonce = useRef(0);
 
   const addressFilled =
@@ -138,7 +151,15 @@ export const OnboardingFormDialog = ({
     toast.error(t(catalogErrorKey), { id: 'onboarding-catalog-error' });
   }, [open, catalogErrorKey, t]);
 
-  const handleClose = () => onOpenChange(false);
+  const handleClose = () => {
+    if (authBusy) return;
+    onOpenChange(false);
+  };
+
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen && authBusy) return;
+    onOpenChange(nextOpen);
+  };
 
   const handleBrowseServices = () => {
     trackCtaClick('choose_service', 'order_form');
@@ -210,7 +231,8 @@ export const OnboardingFormDialog = ({
 
   const isFinal = form.step === 'final';
   const isThankyou = form.step === 'thankyou';
-  const isWizard = !isFinal && !isThankyou;
+  const isActiveOrderGate = !isFinal && !isThankyou && blockingActiveOrder;
+  const isWizard = !isFinal && !isThankyou && !isActiveOrderGate && !sessionLoading;
 
   const catalogReady = !catalogLoading && !catalogErrorKey && catalog.length > 0;
   const cartEmpty = catalogReady && form.cart.length === 0;
@@ -226,7 +248,7 @@ export const OnboardingFormDialog = ({
     isValidPhoneNumber(form.data.phone);
 
   return (
-    <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
+    <DialogPrimitive.Root open={open} onOpenChange={handleOpenChange}>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay
           className={cn(
@@ -245,6 +267,15 @@ export const OnboardingFormDialog = ({
             'data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right',
             'duration-150 ease-out',
           )}
+          onEscapeKeyDown={(event) => {
+            if (authBusy) event.preventDefault();
+          }}
+          onPointerDownOutside={(event) => {
+            if (authBusy) event.preventDefault();
+          }}
+          onInteractOutside={(event) => {
+            if (authBusy) event.preventDefault();
+          }}
         >
           <DialogPrimitive.Title className="sr-only">
             {t('onboarding.dialogTitle')}
@@ -257,12 +288,23 @@ export const OnboardingFormDialog = ({
             <h2 className="text-base font-semibold text-foreground">
               {t('onboarding.dialogTitle')}
             </h2>
-            <DialogPrimitive.Close
-              className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground flex-shrink-0"
-              aria-label={t('onboarding.close')}
-            >
-              <X className="h-5 w-5" />
-            </DialogPrimitive.Close>
+            {authBusy ? (
+              <button
+                type="button"
+                disabled
+                className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground flex-shrink-0 opacity-50"
+                aria-label={t('onboarding.close')}
+              >
+                <X className="h-5 w-5" />
+              </button>
+            ) : (
+              <DialogPrimitive.Close
+                className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground flex-shrink-0"
+                aria-label={t('onboarding.close')}
+              >
+                <X className="h-5 w-5" />
+              </DialogPrimitive.Close>
+            )}
           </div>
 
           <div className="flex-1 overflow-y-auto px-5 py-4 sm:px-6 sm:py-5 space-y-4">
@@ -276,6 +318,7 @@ export const OnboardingFormDialog = ({
                 orderLinked={form.orderLinked}
                 onContactMe={() => void form.submitContactMe()}
                 isLoading={form.isLoading}
+                onBusyChange={setAuthBusy}
               />
             ) : isFinal && form.orderId ? (
               <div className="space-y-4 text-center">
@@ -291,6 +334,16 @@ export const OnboardingFormDialog = ({
                   {t('onboarding.final.contactBtn')}
                 </Button>
               </div>
+            ) : sessionLoading ? (
+              <div
+                className="flex justify-center py-16"
+                aria-busy="true"
+                aria-label={t('onboarding.catalogLoading')}
+              >
+                <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+              </div>
+            ) : isActiveOrderGate ? (
+              <ActiveOrderGate />
             ) : (
               <>
                 {catalogLoading && !catalogErrorKey && (

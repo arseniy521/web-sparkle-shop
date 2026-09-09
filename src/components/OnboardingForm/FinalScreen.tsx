@@ -20,6 +20,7 @@ import {
 } from '@/lib/analytics';
 import type { LoginFlowState } from './GoogleLoginAction';
 import { replaceWithIntakeForm } from './authNavigation';
+import { ActiveOrderGate } from './ActiveOrderGate';
 
 const GoogleLoginAction = lazy(() => import('./GoogleLoginAction'));
 
@@ -30,10 +31,12 @@ interface FinalScreenProps {
   orderLinked: boolean;
   onContactMe: () => void;
   isLoading: boolean;
+  onBusyChange?: (busy: boolean) => void;
 }
 
 function normalizeLinkError(error: unknown): string {
   if (!(error instanceof OnboardingApiError)) return 'link_failed';
+  if (error.code === 'ACTIVE_ORDER_EXISTS') return 'active_order';
   if (error.status === 0) return 'network';
   if (error.status === 401) return 'oauth_failed';
   if (error.status === 409) return 'link_conflict';
@@ -48,6 +51,7 @@ export const FinalScreen = ({
   orderLinked,
   onContactMe,
   isLoading,
+  onBusyChange,
 }: FinalScreenProps) => {
   const { t } = useTranslation();
   const authStatus = useAuthStatus(true, true);
@@ -85,6 +89,8 @@ export const FinalScreen = ({
         return;
       }
 
+      setAnalyticsOptOut(false);
+
       const linked = orderLinked || user?.linked ||
         (await linkOrder(orderId, orderAccessToken)).linked;
       if (!linked) {
@@ -119,6 +125,13 @@ export const FinalScreen = ({
     loginState === 'popup' ||
     loginState === 'linking' ||
     loginState === 'redirecting';
+  const dialogLocked =
+    loginState === 'linking' || loginState === 'redirecting';
+
+  useEffect(() => {
+    onBusyChange?.(dialogLocked);
+    return () => onBusyChange?.(false);
+  }, [dialogLocked, onBusyChange]);
 
   const benefits = [
     { icon: ClipboardList, text: t('onboarding.final.benefits.track') },
@@ -171,7 +184,9 @@ export const FinalScreen = ({
       )}
 
       <div className="space-y-3">
-        {authStatus === 'loading' ||
+        {loginError === 'active_order' ? (
+          <ActiveOrderGate />
+        ) : authStatus === 'loading' ||
         (authStatus === 'authenticated' &&
           !googleFlowStarted &&
           loginState !== 'error') ? (
@@ -205,50 +220,56 @@ export const FinalScreen = ({
             />
           </Suspense>
         )}
-        {loginError && (
+        {loginError && loginError !== 'active_order' && (
           <p className="text-sm text-center text-destructive" role="alert">
             {t(`onboarding.final.loginErrors.${loginError}`, {
               defaultValue: t('onboarding.final.loginErrors.default'),
             })}
           </p>
         )}
-        <ul className="space-y-1.5">
-          {benefits.map(({ icon: Icon, text }) => (
-            <li key={text} className="flex items-start gap-2 text-xs text-muted-foreground">
-              <Icon className="h-4 w-4 text-primary flex-shrink-0 mt-px" aria-hidden />
-              <span>{text}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="relative py-1">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-border" />
-        </div>
-        <div className="relative flex justify-center">
-          <span className="bg-background px-3 text-xs uppercase text-muted-foreground">
-            {t('onboarding.or')}
-          </span>
-        </div>
-      </div>
-
-      <Button
-        onClick={onContactMe}
-        disabled={isLoading || loginBusy}
-        variant="outline"
-        size="lg"
-        className="w-full"
-      >
-        {isLoading ? (
-          <Loader2 className="h-5 w-5 animate-spin" />
-        ) : (
-          <>
-            <PhoneCall className="mr-2 h-5 w-5" />
-            {t('onboarding.final.contactBtn')}
-          </>
+        {loginError !== 'active_order' && !orderLinked && (
+          <ul className="space-y-1.5">
+            {benefits.map(({ icon: Icon, text }) => (
+              <li key={text} className="flex items-start gap-2 text-xs text-muted-foreground">
+                <Icon className="h-4 w-4 text-primary flex-shrink-0 mt-px" aria-hidden />
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
         )}
-      </Button>
+      </div>
+
+      {loginError !== 'active_order' && !orderLinked && (
+        <>
+          <div className="relative py-1">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-border" />
+            </div>
+            <div className="relative flex justify-center">
+              <span className="bg-background px-3 text-xs uppercase text-muted-foreground">
+                {t('onboarding.or')}
+              </span>
+            </div>
+          </div>
+
+          <Button
+            onClick={onContactMe}
+            disabled={isLoading || loginBusy}
+            variant="outline"
+            size="lg"
+            className="w-full"
+          >
+            {isLoading ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <>
+                <PhoneCall className="mr-2 h-5 w-5" />
+                {t('onboarding.final.contactBtn')}
+              </>
+            )}
+          </Button>
+        </>
+      )}
     </div>
   );
 };

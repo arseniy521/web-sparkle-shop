@@ -3,6 +3,7 @@ import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { OnboardingApiError } from '@/api/onboarding';
+import { setAnalyticsOptOut, track } from '@/lib/analytics';
 import GoogleLoginAction, { type LoginFlowState } from './GoogleLoginAction';
 
 interface CapturedLoginOptions {
@@ -93,8 +94,13 @@ afterEach(() => {
   oauthState.scriptLoaded = true;
   oauthState.options = null;
   oauthState.scriptError = null;
+  oauthState.login.mockReset();
   apiMocks.googleAuth.mockReset();
   apiMocks.getPublicMe.mockReset();
+  failureSpy.mockReset();
+  authenticatedSpy.mockReset();
+  vi.mocked(setAnalyticsOptOut).mockReset();
+  vi.mocked(track).mockReset();
 });
 
 describe('GoogleLoginAction', () => {
@@ -207,5 +213,42 @@ describe('GoogleLoginAction', () => {
     act(() => options?.onNonOAuthError({ type: 'popup_closed' }));
 
     expect(failureSpy).not.toHaveBeenCalled();
+  });
+
+  it('resets Amplitude opt-out before tracking a patient after an admin login', async () => {
+    apiMocks.googleAuth
+      .mockResolvedValueOnce({
+        authenticated: true,
+        id: 'admin-1',
+        name: 'Admin',
+        picture: null,
+        role: 'SUPERADMIN',
+        linked: false,
+      })
+      .mockResolvedValueOnce({
+        authenticated: true,
+        id: 'patient-1',
+        name: 'Patient',
+        picture: null,
+        role: 'PATIENT',
+        linked: true,
+      });
+
+    render(<Harness />);
+    await waitFor(() => expect(screen.getByRole('button')).toBeEnabled());
+
+    await act(async () => {
+      await oauthState.options?.onSuccess({ code: 'admin-code' });
+    });
+    expect(setAnalyticsOptOut).toHaveBeenCalledWith(true);
+    expect(track).not.toHaveBeenCalled();
+
+    await act(async () => {
+      await oauthState.options?.onSuccess({ code: 'patient-code' });
+    });
+    expect(setAnalyticsOptOut).toHaveBeenLastCalledWith(false);
+    expect(track).toHaveBeenCalledWith('login_completed', {
+      linked_order: true,
+    });
   });
 });
