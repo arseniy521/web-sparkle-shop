@@ -2058,6 +2058,23 @@
       "title": "Almost done!",
       "subtitle": "We've received your request. Pick how you'd like to continue.",
       "loginBtn": "Sign in and track booking",
+      "loginPopup": "Waiting for Google sign-in…",
+      "loginLinking": "Linking your booking…",
+      "loginRedirecting": "Opening the questionnaire…",
+      "loginLoading": "Loading sign-in…",
+      "loginConfigError": "Google sign-in is currently unavailable. Please request a callback.",
+      "loginErrors": {
+        "popup_closed": "The sign-in window was closed. You can try again.",
+        "popup_failed": "The sign-in window could not open. Please allow pop-ups in your browser.",
+        "oauth_failed": "Google sign-in failed. Please try again.",
+        "network": "The connection failed. Check your internet and try again.",
+        "link_conflict": "This booking already belongs to another account.",
+        "link_forbidden": "This booking cannot be linked to this account.",
+        "account_mismatch": "The active account changed during sign-in. Please try again.",
+        "api_failed": "Sign-in could not be completed. Please try again.",
+        "link_failed": "Your booking could not be linked. Please try again.",
+        "default": "Something went wrong. Please try again."
+      },
       "contactBtn": "Call me back",
       "orderSummaryTitle": "Your order",
       "benefits": {

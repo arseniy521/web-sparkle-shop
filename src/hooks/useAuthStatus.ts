@@ -1,63 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
-export type AuthStatus = 'loading' | 'authenticated' | 'anonymous';
+export type AuthStatus = 'loading' | 'authenticated' | 'anonymous' | 'error';
 type ResolvedAuthStatus = Exclude<AuthStatus, 'loading'>;
 
 const rawEnvUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
 const BASE_URL = (rawEnvUrl || (import.meta.env.DEV ? '/api' : 'https://app.nius.cz/api')).replace(/\/+$/, '');
 
-let cachedAuthStatus: ResolvedAuthStatus | null = null;
-let authStatusPromise: Promise<ResolvedAuthStatus | null> | null = null;
+export const AUTH_STATUS_QUERY_KEY = ['auth-status'] as const;
 
-function loadAuthStatus(): Promise<ResolvedAuthStatus | null> {
-  if (cachedAuthStatus) return Promise.resolve(cachedAuthStatus);
-  if (authStatusPromise) return authStatusPromise;
-
-  authStatusPromise = fetch(`${BASE_URL}/auth/me/public`, {
+export async function fetchAuthStatus(): Promise<Exclude<ResolvedAuthStatus, 'error'>> {
+  const response = await fetch(`${BASE_URL}/auth/me/public`, {
     credentials: 'include',
-  })
-    .then<ResolvedAuthStatus>((response) => {
-      if (response.ok) return 'authenticated';
-      if (response.status === 401 || response.status === 403) return 'anonymous';
-      throw new Error(`auth_status_${response.status}`);
-    })
-    .then((status) => {
-      cachedAuthStatus = status;
-      return status as ResolvedAuthStatus | null;
-    })
-    .catch(() => null)
-    .finally(() => {
-      authStatusPromise = null;
-    });
-
-  return authStatusPromise;
+  });
+  if (response.ok) return 'authenticated';
+  if (response.status === 401 || response.status === 403) return 'anonymous';
+  throw new Error(`auth_status_${response.status}`);
 }
 
-export function useAuthStatus(enabled = true): AuthStatus {
-  const [status, setStatus] = useState<AuthStatus>(() => (enabled ? cachedAuthStatus ?? 'loading' : 'anonymous'));
+export function useAuthStatus(enabled = true, fresh = false): AuthStatus {
+  const query = useQuery({
+    queryKey: AUTH_STATUS_QUERY_KEY,
+    queryFn: fetchAuthStatus,
+    enabled,
+    staleTime: fresh ? 0 : 30_000,
+    refetchOnMount: fresh ? 'always' : true,
+    retry: false,
+  });
 
-  useEffect(() => {
-    if (!enabled) {
-      setStatus('anonymous');
-      return;
-    }
-
-    if (cachedAuthStatus) {
-      setStatus(cachedAuthStatus);
-      return;
-    }
-
-    setStatus('loading');
-    let cancelled = false;
-    loadAuthStatus().then((nextStatus) => {
-      if (cancelled || !nextStatus) return;
-      setStatus(nextStatus);
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [enabled]);
-
-  return status;
+  if (!enabled) return 'anonymous';
+  if (fresh && query.isFetching) return 'loading';
+  if (query.isPending) return 'loading';
+  if (query.isError) return 'error';
+  return query.data;
 }

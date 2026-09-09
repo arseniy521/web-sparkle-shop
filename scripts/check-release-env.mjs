@@ -10,11 +10,18 @@ const mapyApiKey = (
 const mapySuggestUrl = (
   process.env.VITE_MAPY_SUGGEST_URL || env.VITE_MAPY_SUGGEST_URL || ''
 ).trim();
+const googleClientId = (
+  process.env.VITE_GOOGLE_CLIENT_ID || env.VITE_GOOGLE_CLIENT_ID || ''
+).trim();
 
 const missing = [];
 
 if (!amplitudeApiKey) {
   missing.push('VITE_AMPLITUDE_API_KEY');
+}
+
+if (!googleClientId) {
+  missing.push('VITE_GOOGLE_CLIENT_ID');
 }
 
 if (!mapyApiKey && !mapySuggestUrl) {
@@ -29,4 +36,4 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-console.log('Release env check passed: Amplitude and Mapy address suggestions are configured.');
+console.log('Release env check passed: Google, Amplitude and Mapy are configured.');

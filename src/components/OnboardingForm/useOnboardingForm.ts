@@ -129,6 +129,7 @@ export interface UseOnboardingFormResult {
   step: OnboardingStep;
   orderId: string | null;
   orderAccessToken: string | null;
+  orderLinked: boolean;
   data: OnboardingFormData;
   cart: CartItem[];
   isEscortMode: boolean;
@@ -186,6 +187,7 @@ export function useOnboardingForm(opts: {
   const [step, setStep] = useState<OnboardingStep>(1);
   const [orderId, setOrderId] = useState<string | null>(null);
   const [orderAccessToken, setOrderAccessToken] = useState<string | null>(null);
+  const [orderLinked, setOrderLinked] = useState(false);
   const initialCodeNorm = initialServiceCode ? normalizeServiceCode(initialServiceCode) : null;
 
   const [data, setData] = useState<OnboardingFormData>(() => {
@@ -244,6 +246,7 @@ export function useOnboardingForm(opts: {
   const reset = useCallback(() => {
     setOrderId(null);
     setOrderAccessToken(null);
+    setOrderLinked(false);
     setStep(1);
     setError(null);
     setIsLoading(false);
@@ -317,6 +320,7 @@ export function useOnboardingForm(opts: {
       const primaryCode = nextCart[0]?.code ??
         (order.items?.[0] ? resolveOrderItemServiceCode(order.items[0], catalog) : null);
       setOrderId(order.id);
+      setOrderLinked(Boolean(order.linked));
       setData({
         phone: order.phone ?? '',
         serviceCode: primaryCode,
@@ -413,6 +417,7 @@ export function useOnboardingForm(opts: {
       });
       setOrderId(order.id);
       setOrderAccessToken(order.accessToken ?? null);
+      setOrderLinked(Boolean(order.linked));
       setStep('final');
       track('order_created', {
         order_id: order.id,
@@ -433,11 +438,11 @@ export function useOnboardingForm(opts: {
   }, [data, cart, handleApiError, analyticsSource]);
 
   const submitContactMe = useCallback(async (): Promise<boolean> => {
-    if (!orderId) return false;
+    if (!orderId || !orderAccessToken) return false;
     setIsLoading(true);
     setError(null);
     try {
-      await contactMe(orderId);
+      await contactMe(orderId, orderAccessToken);
       setStep('thankyou');
       track('contact_me_requested', { order_id: orderId, source: analyticsSource });
       return true;
@@ -447,7 +452,7 @@ export function useOnboardingForm(opts: {
     } finally {
       setIsLoading(false);
     }
-  }, [orderId, handleApiError, analyticsSource]);
+  }, [orderId, orderAccessToken, handleApiError, analyticsSource]);
 
   const advanceTestStep = useCallback(() => {
     if (!import.meta.env.DEV) return;
@@ -474,6 +479,7 @@ export function useOnboardingForm(opts: {
     step,
     orderId,
     orderAccessToken,
+    orderLinked,
     data,
     cart,
     isEscortMode,

@@ -114,12 +114,13 @@ async function prerender() {
       });
     });
 
+    const failedRoutes = [];
     for (const route of routes) {
       console.log(`Pre-rendering: ${route}`);
       
       try {
         await page.goto(`http://localhost:3000${route}`, {
-          waitUntil: 'networkidle0',
+          waitUntil: 'networkidle2',
           timeout: 30000
         });
 
@@ -176,6 +177,7 @@ async function prerender() {
         console.log(`✓ Saved: ${outputPath}`);
       } catch (error) {
         console.error(`✗ Failed to pre-render ${route}:`, error.message);
+        failedRoutes.push(route);
       }
     }
 
@@ -186,9 +188,15 @@ async function prerender() {
     await new Promise((resolve, reject) => {
       server.close((error) => error ? reject(error) : resolve());
     });
+    if (failedRoutes.length > 0) {
+      throw new Error(
+        `Failed to pre-render ${failedRoutes.length} route(s): ${failedRoutes.join(', ')}`
+      );
+    }
   } catch (error) {
     console.error('Pre-rendering failed:', error);
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   } finally {
     await browser.close();
   }

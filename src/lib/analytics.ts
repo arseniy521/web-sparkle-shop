@@ -59,6 +59,24 @@ export const track = (event: string, props?: Record<string, unknown>) => {
   amplitude.track(event, { language: i18n.language, ...props });
 };
 
+export const identifyUser = (userId: string) => {
+  if (!initialized) return;
+  amplitude.setUserId(userId);
+  const identify = new amplitude.Identify();
+  identify.set('language', i18n.language);
+  amplitude.identify(identify);
+};
+
+export const flushAnalytics = async () => {
+  if (!initialized) return;
+  await amplitude.flush().promise;
+};
+
+export const setAnalyticsOptOut = (optOut: boolean) => {
+  if (!initialized) return;
+  amplitude.setOptOut(optOut);
+};
+
 export type ConversionCta =
   | 'choose_service'
   | 'view_service'

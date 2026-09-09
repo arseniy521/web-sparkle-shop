@@ -45,6 +45,7 @@ export const onboardingOrderSchema = z.object({
   currency: z.string(),
   createdAt: z.string().optional(),
   accessToken: z.string().optional(),
+  linked: z.boolean().optional(),
 });
 
 export type OnboardingOrder = z.infer<typeof onboardingOrderSchema>;
@@ -92,10 +93,17 @@ export type OrderByPhoneResponse = z.infer<typeof orderByPhoneResponseSchema>;
 
 export class OnboardingApiError extends Error {
   status: number;
-  constructor(message: string, status: number, options?: { cause?: unknown }) {
+  phase?: 'auth' | 'link';
+
+  constructor(
+    message: string,
+    status: number,
+    options?: { cause?: unknown; phase?: 'auth' | 'link' },
+  ) {
     super(message);
     this.name = 'OnboardingApiError';
     this.status = status;
+    this.phase = options?.phase;
     if (options && 'cause' in options) {
       (this as Error & { cause?: unknown }).cause = options.cause;
     }
@@ -155,20 +163,28 @@ async function request<T>(
 
   if (!response.ok) {
     let message = clampErrorMessage(response.statusText || 'request_failed');
+    let phase: 'auth' | 'link' | undefined;
     try {
       const body = await readJsonUnknown(response);
-      if (
-        body &&
-        typeof body === 'object' &&
-        'message' in body &&
-        typeof (body as { message: unknown }).message === 'string'
-      ) {
-        message = clampErrorMessage((body as { message: string }).message);
+      if (body && typeof body === 'object') {
+        if (
+          'message' in body &&
+          typeof (body as { message: unknown }).message === 'string'
+        ) {
+          message = clampErrorMessage((body as { message: string }).message);
+        }
+        if (
+          'phase' in body &&
+          ((body as { phase: unknown }).phase === 'auth' ||
+            (body as { phase: unknown }).phase === 'link')
+        ) {
+          phase = (body as { phase: 'auth' | 'link' }).phase;
+        }
       }
     } catch {
       // ignore parse errors
     }
-    throw new OnboardingApiError(message, response.status);
+    throw new OnboardingApiError(message, response.status, { phase });
   }
 
   if (response.status === 204) {
@@ -179,10 +195,11 @@ async function request<T>(
   return parseWithSchema(schema, data, response.status);
 }
 
-export async function contactMe(id: string): Promise<{ ok: true }> {
+export async function contactMe(id: string, orderAccessToken: string): Promise<{ ok: true }> {
   const path = `/onboarding/order/${id}/contact-me`;
   const headers = {
     'Content-Type': 'application/json',
+    'x-onboarding-token': orderAccessToken,
   };
 
   let response: Response;
@@ -299,6 +316,55 @@ export function findOrderByPhone(phone: string): Promise<OrderByPhoneResponse> {
 
 export function getTimingPricing(): Promise<TimingPricingSlot[]> {
   return request(z.array(timingPricingSlotSchema), '/onboarding/timing-pricing');
+}
+
+const publicMeSchema = z.object({
+  authenticated: z.literal(true),
+  id: z.string(),
+  name: z.string(),
+  picture: z.string().nullable(),
+  role: z.enum(['PATIENT', 'SUPERADMIN']),
+});
+
+const authUserSchema = z.object({
+  id: z.string(),
+  email: z.string(),
+  name: z.string(),
+  picture: z.string().nullable(),
+  role: z.enum(['PATIENT', 'SUPERADMIN']),
+  linked: z.boolean(),
+});
+
+const linkedSchema = z.object({ linked: z.literal(true) });
+
+export type AuthUser = z.infer<typeof authUserSchema>;
+export type AuthenticatedUser = Pick<AuthUser, 'id' | 'role'> & {
+  linked?: boolean;
+};
+
+export function getPublicMe() {
+  return request(publicMeSchema, '/auth/me/public');
+}
+
+export function googleAuth(
+  code: string,
+  orderId: string,
+  orderAccessToken: string,
+): Promise<AuthUser> {
+  return request(authUserSchema, '/auth/google', {
+    method: 'POST',
+    body: JSON.stringify({ code, orderId, orderAccessToken }),
+  });
+}
+
+export function linkOrder(
+  orderId: string,
+  orderAccessToken: string,
+): Promise<{ linked: true }> {
+  return request(linkedSchema, '/auth/link-order', {
+    method: 'POST',
+    body: JSON.stringify({ orderId, orderAccessToken }),
+  });
 }
 
 export function formatCZK(halers: number): string {

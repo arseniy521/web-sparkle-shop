@@ -273,6 +273,7 @@ export const OnboardingFormDialog = ({
                 cart={form.cart}
                 orderId={form.orderId}
                 orderAccessToken={form.orderAccessToken}
+                orderLinked={form.orderLinked}
                 onContactMe={() => void form.submitContactMe()}
                 isLoading={form.isLoading}
               />

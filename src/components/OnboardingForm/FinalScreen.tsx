@@ -1,39 +1,124 @@
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CheckCircle2, LogIn, PhoneCall, Loader2, ClipboardList, Pencil, Activity } from 'lucide-react';
+import { CheckCircle2, PhoneCall, Loader2, ClipboardList, Pencil, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { CartItem } from './cartCatalog';
 import { ServiceIcon } from './Step0Cart';
 import { serviceTitle } from './serviceDisplay';
-import { track } from '@/lib/analytics';
+import {
+  getPublicMe,
+  linkOrder,
+  OnboardingApiError,
+  type AuthenticatedUser,
+} from '@/api/onboarding';
+import { useAuthStatus } from '@/hooks/useAuthStatus';
+import {
+  flushAnalytics,
+  identifyUser,
+  setAnalyticsOptOut,
+  track,
+} from '@/lib/analytics';
+import type { LoginFlowState } from './GoogleLoginAction';
+import { replaceWithIntakeForm } from './authNavigation';
+
+const GoogleLoginAction = lazy(() => import('./GoogleLoginAction'));
 
 interface FinalScreenProps {
   cart: CartItem[];
   orderId: string;
   orderAccessToken: string;
+  orderLinked: boolean;
   onContactMe: () => void;
   isLoading: boolean;
 }
 
-const appUrl = (import.meta.env.VITE_APP_URL as string | undefined)?.trim() || 'https://app.nius.cz';
-const APP_LOGIN_URL = `${appUrl.replace(/\/$/, '')}/login`;
+function normalizeLinkError(error: unknown): string {
+  if (!(error instanceof OnboardingApiError)) return 'link_failed';
+  if (error.status === 0) return 'network';
+  if (error.status === 401) return 'oauth_failed';
+  if (error.status === 409) return 'link_conflict';
+  if (error.status === 403) return 'link_forbidden';
+  return 'link_failed';
+}
 
-export const FinalScreen = ({ cart, orderId, orderAccessToken, onContactMe, isLoading }: FinalScreenProps) => {
+export const FinalScreen = ({
+  cart,
+  orderId,
+  orderAccessToken,
+  orderLinked,
+  onContactMe,
+  isLoading,
+}: FinalScreenProps) => {
   const { t } = useTranslation();
+  const authStatus = useAuthStatus(true, true);
+  const [loginState, setLoginState] = useState<LoginFlowState>('idle');
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [googleFlowStarted, setGoogleFlowStarted] = useState(false);
+  const processingRef = useRef(false);
+  const linkedEventRef = useRef(false);
 
   const totalCzk = cart.reduce((sum, item) => sum + item.priceCzk * item.quantity, 0);
 
-  const handleLogin = () => {
-    track('login_cta_clicked', { order_id: orderId });
-    const params = new URLSearchParams({ orderId, orderAccessToken });
-    const href = `${APP_LOGIN_URL}?${params.toString()}`;
-    const a = document.createElement('a');
-    a.href = href;
-    a.rel = 'noopener noreferrer';
-    a.referrerPolicy = 'no-referrer';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  };
+  const failLogin = useCallback((reason: string) => {
+    processingRef.current = false;
+    setLoginError(reason);
+    setLoginState('error');
+    track('login_failed', { reason, order_id: orderId });
+  }, [orderId]);
+
+  const ensureLinkedAndRedirect = useCallback(async (user: AuthenticatedUser | null) => {
+    if (processingRef.current) return;
+    processingRef.current = true;
+    setLoginError(null);
+    setLoginState('linking');
+
+    try {
+      const sessionUser = await getPublicMe();
+      if (user && sessionUser.id !== user.id) {
+        failLogin('account_mismatch');
+        return;
+      }
+
+      if (sessionUser.role === 'SUPERADMIN') {
+        setAnalyticsOptOut(true);
+        failLogin('link_forbidden');
+        return;
+      }
+
+      const linked = orderLinked || user?.linked ||
+        (await linkOrder(orderId, orderAccessToken)).linked;
+      if (!linked) {
+        failLogin('link_failed');
+        return;
+      }
+
+      if (!linkedEventRef.current) {
+        linkedEventRef.current = true;
+        track('order_linked', { order_id: orderId });
+      }
+      identifyUser(sessionUser.id);
+
+      setLoginState('redirecting');
+      await Promise.race([
+        flushAnalytics().catch(() => undefined),
+        new Promise<void>((resolve) => window.setTimeout(resolve, 800)),
+      ]);
+      replaceWithIntakeForm();
+    } catch (error) {
+      failLogin(normalizeLinkError(error));
+    }
+  }, [failLogin, orderAccessToken, orderId, orderLinked]);
+
+  useEffect(() => {
+    if (orderLinked || authStatus === 'authenticated') {
+      void ensureLinkedAndRedirect(null);
+    }
+  }, [authStatus, ensureLinkedAndRedirect, orderLinked]);
+
+  const loginBusy =
+    loginState === 'popup' ||
+    loginState === 'linking' ||
+    loginState === 'redirecting';
 
   const benefits = [
     { icon: ClipboardList, text: t('onboarding.final.benefits.track') },
@@ -86,10 +171,47 @@ export const FinalScreen = ({ cart, orderId, orderAccessToken, onContactMe, isLo
       )}
 
       <div className="space-y-3">
-        <Button onClick={handleLogin} size="lg" className="w-full">
-          <LogIn className="mr-2 h-5 w-5" />
-          {t('onboarding.final.loginBtn')}
-        </Button>
+        {authStatus === 'loading' ||
+        (authStatus === 'authenticated' &&
+          !googleFlowStarted &&
+          loginState !== 'error') ? (
+          <Button disabled size="lg" className="w-full">
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+            {loginState === 'redirecting'
+              ? t('onboarding.final.loginRedirecting')
+              : t('onboarding.final.loginLinking')}
+          </Button>
+        ) : (
+          <Suspense
+            fallback={(
+              <Button disabled size="lg" className="w-full">
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                {t('onboarding.final.loginLoading')}
+              </Button>
+            )}
+          >
+            <GoogleLoginAction
+              orderId={orderId}
+              orderAccessToken={orderAccessToken}
+              state={loginState}
+              disabled={isLoading}
+              allowAmbiguousRecovery={authStatus === 'anonymous'}
+              onStateChange={(state) => {
+                if (state === 'popup') setGoogleFlowStarted(true);
+                setLoginState(state);
+              }}
+              onAuthenticated={(user) => void ensureLinkedAndRedirect(user)}
+              onFailure={failLogin}
+            />
+          </Suspense>
+        )}
+        {loginError && (
+          <p className="text-sm text-center text-destructive" role="alert">
+            {t(`onboarding.final.loginErrors.${loginError}`, {
+              defaultValue: t('onboarding.final.loginErrors.default'),
+            })}
+          </p>
+        )}
         <ul className="space-y-1.5">
           {benefits.map(({ icon: Icon, text }) => (
             <li key={text} className="flex items-start gap-2 text-xs text-muted-foreground">
@@ -113,7 +235,7 @@ export const FinalScreen = ({ cart, orderId, orderAccessToken, onContactMe, isLo
 
       <Button
         onClick={onContactMe}
-        disabled={isLoading}
+        disabled={isLoading || loginBusy}
         variant="outline"
         size="lg"
         className="w-full"

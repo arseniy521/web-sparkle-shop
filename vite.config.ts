@@ -10,9 +10,9 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       "/api": {
-        target: "https://app.nius.cz",
+        target: "http://localhost:3002",
         changeOrigin: true,
-        secure: true,
+        rewrite: (requestPath) => requestPath.replace(/^\/api/, ""),
       },
     },
   },

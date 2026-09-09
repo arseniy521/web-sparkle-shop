@@ -2058,6 +2058,23 @@
       "title": "Skoro hotovo!",
       "subtitle": "Přijali jsme vaši žádost. Vyberte, jak chcete pokračovat.",
       "loginBtn": "Přihlásit se a sledovat rezervaci",
+      "loginPopup": "Čekám na přihlášení Google…",
+      "loginLinking": "Propojuji rezervaci…",
+      "loginRedirecting": "Otevírám dotazník…",
+      "loginLoading": "Načítám přihlášení…",
+      "loginConfigError": "Přihlášení Google nyní není dostupné. Zvolte prosím zpětné zavolání.",
+      "loginErrors": {
+        "popup_closed": "Přihlašovací okno bylo zavřeno. Můžete to zkusit znovu.",
+        "popup_failed": "Přihlašovací okno se nepodařilo otevřít. Povolte v prohlížeči vyskakovací okna.",
+        "oauth_failed": "Přihlášení Google se nezdařilo. Zkuste to prosím znovu.",
+        "network": "Připojení selhalo. Zkontrolujte internet a zkuste to znovu.",
+        "link_conflict": "Tato rezervace už patří jinému účtu.",
+        "link_forbidden": "Tuto rezervaci nelze propojit s tímto účtem.",
+        "account_mismatch": "Aktivní účet se během přihlášení změnil. Zkuste to prosím znovu.",
+        "api_failed": "Přihlášení se nepodařilo dokončit. Zkuste to prosím znovu.",
+        "link_failed": "Rezervaci se nepodařilo propojit. Zkuste to prosím znovu.",
+        "default": "Něco se pokazilo. Zkuste to prosím znovu."
+      },
       "contactBtn": "Zavolejte mi zpět",
       "orderSummaryTitle": "Vaše objednávka",
       "benefits": {

@@ -16,6 +16,7 @@ jobs:
     env:
       VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
       VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
+      VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
 
     steps:
       - name: Check out repository
