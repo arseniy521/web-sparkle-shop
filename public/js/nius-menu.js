@@ -12,7 +12,6 @@ const NIUS_I18N = {
     quickAdd: 'Add to cart',
     inCart: 'In cart',
     viewCart: 'View cart',
-    addedToCart: 'Added to cart',
     optional: 'Optional',
     total: 'Total',
     cartHint: 'Adding to cart does not place an order',
@@ -68,7 +67,6 @@ const NIUS_I18N = {
     quickAdd: 'Do košíku',
     inCart: 'V košíku',
     viewCart: 'Přejít do košíku',
-    addedToCart: 'Přidáno do košíku',
     optional: 'Volitelné',
     total: 'Celkem',
     cartHint: 'Přidáním do košíku nevytváříte objednávku',
@@ -188,7 +186,6 @@ const NIUS_I18N = {
     quickAdd: 'В корзину',
     inCart: 'В корзине',
     viewCart: 'Перейти в корзину',
-    addedToCart: 'Добавлено в корзину',
     optional: 'Необязательно',
     total: 'Итого',
     cartHint: 'Добавление в корзину не оформляет заказ',
@@ -308,7 +305,6 @@ const NIUS_I18N = {
     quickAdd: 'У кошик',
     inCart: 'У кошику',
     viewCart: 'Перейти до кошика',
-    addedToCart: 'Додано до кошика',
     optional: 'Необов’язково',
     total: 'Разом',
     cartHint: 'Додавання до кошика не оформлює замовлення',
@@ -798,7 +794,6 @@ class NiusMenu extends HTMLElement {
 
   disconnectedCallback() {
     this.closeModal();
-    clearTimeout(this.feedbackTimer);
   }
 
   readCartCodes() {
@@ -818,13 +813,6 @@ class NiusMenu extends HTMLElement {
       button.textContent = count > 0 ? `✓ ${label}` : label;
       button.setAttribute('aria-label', `${label}: ${button.dataset.name}`);
     });
-    if (this.pendingAdd && this.cartCodes.includes(this.pendingAdd)) {
-      const feedback = this.shadowRoot.querySelector('[data-cart-feedback]');
-      feedback.textContent = `✓ ${this.t.addedToCart}`;
-      this.pendingAdd = null;
-      clearTimeout(this.feedbackTimer);
-      this.feedbackTimer = setTimeout(() => { feedback.textContent = ''; }, 3500);
-    }
   }
 
   closeModal() {
@@ -858,7 +846,6 @@ class NiusMenu extends HTMLElement {
         ${(section === 'all' || section === 'packages' || section === 'menu-packages') ? this.renderPackages() : ''}
         ${(section === 'all' || section === 'subscription') ? this.renderSubscription() : ''}
       </div>
-      <div class="cart-feedback" role="status" aria-live="polite" data-cart-feedback></div>
       <dialog class="modal-content" data-modal aria-labelledby="service-modal-title"></dialog>
     `;
     this.attachListeners();
@@ -992,14 +979,6 @@ class NiusMenu extends HTMLElement {
         }
         .drip-info:hover { background: var(--gold-soft); }
         .drip-info span { width: 18px; height: 18px; border: 1.5px solid currentColor; border-radius: 50%; font: 600 12px/16px var(--serif); }
-        .cart-feedback {
-          position: fixed; left: 50%; bottom: calc(104px + env(safe-area-inset-bottom, 0px));
-          transform: translateX(-50%); z-index: 60; pointer-events: none;
-          width: max-content; max-width: calc(100vw - 32px); border-radius: 8px;
-          color: var(--white); background: var(--gold); font-size: 13px;
-          box-shadow: 0 4px 18px rgba(21,63,77,0.16);
-        }
-        .cart-feedback:not(:empty) { padding: 12px 16px; }
         .modal-content {
           background: var(--white); color: var(--ink); border: none; border-radius: 14px;
           max-width: 520px; width: calc(100% - 48px); max-height: 85vh; max-height: 85dvh;
@@ -1477,7 +1456,6 @@ class NiusMenu extends HTMLElement {
           if (this.cartCodes.includes(d.code)) {
             this.dispatchCartEvent('nius:open-cart', d.code, 'service_catalog');
           } else {
-            this.pendingAdd = d.code;
             this.dispatchCartEvent('nius:add-to-cart', d.code, 'service_catalog');
           }
           return;
@@ -1612,7 +1590,6 @@ class NiusMenu extends HTMLElement {
           this.dispatchCartEvent('nius:open-cart', code);
           return;
         }
-        this.pendingAdd = code;
         this.dispatchCartEvent('nius:add-to-cart', code, 'service_modal', selectedBoosters);
         this.closeModal();
       });

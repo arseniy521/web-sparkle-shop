@@ -75,6 +75,33 @@ describe('nius-menu custom element', () => {
     expect(button).toHaveAccessibleName(`${inCart} (2): ${name}`);
   });
 
+  it.each(['service_catalog', 'service_modal'])('adds from %s without a popup notification', (source) => {
+    const menu = mountMenu('en');
+    const listener = vi.fn();
+    window.addEventListener('nius:add-to-cart', listener);
+
+    try {
+      if (source === 'service_catalog') {
+        fireEvent.click(quickAddButton(menu));
+      } else {
+        const info = menu.shadowRoot!.querySelector<HTMLButtonElement>('[data-drip="immunity-0"] .drip-info')!;
+        fireEvent.click(info);
+        const addButton = menu.shadowRoot!.querySelector<HTMLButtonElement>('[data-modal-add]')!;
+        fireEvent.click(addButton);
+      }
+
+      expect(listener).toHaveBeenCalledTimes(1);
+      expect(listener.mock.calls[0][0].detail).toMatchObject({ code: 'immunity_lite', source });
+
+      menu.setAttribute('cart-codes', JSON.stringify(['immunity_lite']));
+
+      expect(quickAddButton(menu)).toHaveTextContent('✓ In cart');
+      expect(menu.shadowRoot!.querySelector('[data-cart-feedback], [role="status"]')).toBeNull();
+    } finally {
+      window.removeEventListener('nius:add-to-cart', listener);
+    }
+  });
+
   it('lets a selected service add boosters from the detail dialog', () => {
     const menu = mountMenu('en', ['immunity_lite']);
     const listener = vi.fn();
