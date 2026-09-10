@@ -77,7 +77,7 @@ export const FinalScreen = ({
     setLoginState('linking');
 
     try {
-      const sessionUser = await getPublicMe();
+      const sessionUser = user ?? (await getPublicMe());
       if (user && sessionUser.id !== user.id) {
         failLogin('account_mismatch');
         return;
@@ -105,12 +105,14 @@ export const FinalScreen = ({
       identifyUser(sessionUser.id);
 
       setLoginState('redirecting');
-      await Promise.race([
-        flushAnalytics().catch(() => undefined),
-        new Promise<void>((resolve) => window.setTimeout(resolve, 800)),
-      ]);
+      void flushAnalytics().catch(() => undefined);
       replaceWithIntakeForm();
     } catch (error) {
+      if (orderLinked) {
+        setLoginState('redirecting');
+        replaceWithIntakeForm();
+        return;
+      }
       failLogin(normalizeLinkError(error));
     }
   }, [failLogin, orderAccessToken, orderId, orderLinked]);

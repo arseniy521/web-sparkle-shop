@@ -124,7 +124,7 @@ describe('FinalScreen action exclusivity', () => {
     );
   });
 
-  it('does not redirect a linked order without a confirmed session', async () => {
+  it('redirects a linked order even if the public session probe fails', async () => {
     testState.authStatus = 'authenticated';
     testState.getPublicMe.mockRejectedValue(
       new OnboardingApiError('Unauthorized', 401),
@@ -132,10 +132,9 @@ describe('FinalScreen action exclusivity', () => {
 
     render(<FinalScreen {...baseProps} orderLinked />);
 
-    expect(
-      await screen.findByRole('button', { name: 'google-action' }),
-    ).toBeEnabled();
-    expect(testState.replaceWithIntakeForm).not.toHaveBeenCalled();
+    await waitFor(() =>
+      expect(testState.replaceWithIntakeForm).toHaveBeenCalledTimes(1),
+    );
     expect(
       screen.queryByRole('button', { name: 'onboarding.final.contactBtn' }),
     ).not.toBeInTheDocument();

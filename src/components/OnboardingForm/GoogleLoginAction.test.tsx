@@ -18,6 +18,7 @@ const oauthState = vi.hoisted(() => ({
   login: vi.fn(),
   options: null as CapturedLoginOptions | null,
   scriptError: null as (() => void) | null,
+  replaceWithIntakeForm: vi.fn(),
 }));
 
 const apiMocks = vi.hoisted(() => ({
@@ -53,6 +54,11 @@ vi.mock('react-i18next', () => ({
 vi.mock('@/lib/analytics', () => ({
   setAnalyticsOptOut: vi.fn(),
   track: vi.fn(),
+}));
+
+vi.mock('./authNavigation', () => ({
+  replaceWithIntakeForm: oauthState.replaceWithIntakeForm,
+  cabinetHref: () => 'https://app.nius.cz/cabinet',
 }));
 
 vi.mock('@/api/onboarding', async () => {
@@ -95,6 +101,7 @@ afterEach(() => {
   oauthState.options = null;
   oauthState.scriptError = null;
   oauthState.login.mockReset();
+  oauthState.replaceWithIntakeForm.mockReset();
   apiMocks.googleAuth.mockReset();
   apiMocks.getPublicMe.mockReset();
   failureSpy.mockReset();
@@ -202,6 +209,7 @@ describe('GoogleLoginAction', () => {
 
     expect(apiMocks.getPublicMe).toHaveBeenCalledTimes(1);
     expect(authenticatedSpy).toHaveBeenCalledWith(sessionUser);
+    expect(oauthState.replaceWithIntakeForm).toHaveBeenCalledTimes(1);
   });
 
   it('ignores popup callbacks after the final screen unmounts', async () => {
@@ -213,6 +221,28 @@ describe('GoogleLoginAction', () => {
     act(() => options?.onNonOAuthError({ type: 'popup_closed' }));
 
     expect(failureSpy).not.toHaveBeenCalled();
+  });
+
+  it('redirects after Google auth even if the dialog unmounted', async () => {
+    apiMocks.googleAuth.mockResolvedValue({
+      authenticated: true,
+      id: 'patient-1',
+      name: 'Patient',
+      picture: null,
+      role: 'PATIENT',
+      linked: true,
+    });
+    const { unmount } = render(<Harness />);
+    await waitFor(() => expect(screen.getByRole('button')).toBeEnabled());
+    const options = oauthState.options;
+    unmount();
+
+    await act(async () => {
+      await options?.onSuccess({ code: 'code' });
+    });
+
+    expect(oauthState.replaceWithIntakeForm).toHaveBeenCalledTimes(1);
+    expect(authenticatedSpy).not.toHaveBeenCalled();
   });
 
   it('resets Amplitude opt-out before tracking a patient after an admin login', async () => {
@@ -242,6 +272,7 @@ describe('GoogleLoginAction', () => {
     });
     expect(setAnalyticsOptOut).toHaveBeenCalledWith(true);
     expect(track).not.toHaveBeenCalled();
+    expect(oauthState.replaceWithIntakeForm).not.toHaveBeenCalled();
 
     await act(async () => {
       await oauthState.options?.onSuccess({ code: 'patient-code' });
@@ -250,5 +281,6 @@ describe('GoogleLoginAction', () => {
     expect(track).toHaveBeenCalledWith('login_completed', {
       linked_order: true,
     });
+    expect(oauthState.replaceWithIntakeForm).toHaveBeenCalledTimes(1);
   });
 });

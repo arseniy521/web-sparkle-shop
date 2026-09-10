@@ -16,6 +16,7 @@ import {
 } from '@/api/onboarding';
 import { AUTH_STATUS_QUERY_KEY } from '@/hooks/useAuthStatus';
 import { setAnalyticsOptOut, track } from '@/lib/analytics';
+import { replaceWithIntakeForm } from './authNavigation';
 
 export type LoginFlowState = 'idle' | 'popup' | 'linking' | 'redirecting' | 'error';
 
@@ -68,16 +69,17 @@ const GoogleLoginButton = ({
   const login = useGoogleLogin({
     flow: 'auth-code',
     onSuccess: async ({ code }) => {
-      if (!activeRef.current || disabledRef.current) return;
-      onStateChange('linking');
+      if (disabledRef.current) return;
+      if (activeRef.current) onStateChange('linking');
       try {
         const user = await googleAuth(code, orderId, orderAccessToken);
-        if (!activeRef.current) return;
         queryClient.setQueryData(AUTH_STATUS_QUERY_KEY, 'authenticated');
         setAnalyticsOptOut(user.role === 'SUPERADMIN');
         if (user.role !== 'SUPERADMIN') {
           track('login_completed', { linked_order: user.linked });
+          replaceWithIntakeForm();
         }
+        if (!activeRef.current) return;
         onAuthenticated(user);
       } catch (error) {
         const recoverable =
@@ -94,12 +96,13 @@ const GoogleLoginButton = ({
         // a fresh check proved that no previous session existed.
         try {
           const user = await getPublicMe();
-          if (!activeRef.current) return;
           queryClient.setQueryData(AUTH_STATUS_QUERY_KEY, 'authenticated');
           setAnalyticsOptOut(user.role === 'SUPERADMIN');
           if (user.role !== 'SUPERADMIN') {
             track('login_completed', { linked_order: false, recovered: true });
+            replaceWithIntakeForm();
           }
+          if (!activeRef.current) return;
           onAuthenticated(user);
         } catch {
           if (activeRef.current) onFailure(normalizeApiError(error));
