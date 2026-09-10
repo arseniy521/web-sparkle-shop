@@ -167,6 +167,7 @@ const EMPTY_DATA: Omit<OnboardingFormData, 'serviceCode'> = {
 
 export function useOnboardingForm(opts: {
   catalog: CartService[];
+  catalogReady: boolean;
   initialServiceCode?: string;
   initialServiceCodes?: string[];
   initialMode?: OnboardingMode;
@@ -176,6 +177,7 @@ export function useOnboardingForm(opts: {
 }): UseOnboardingFormResult {
   const {
     catalog,
+    catalogReady,
     initialServiceCode,
     initialServiceCodes,
     open,
@@ -210,7 +212,10 @@ export function useOnboardingForm(opts: {
       setCartHydratedKey(null);
       return;
     }
-    if (orderId || catalog.length === 0) return;
+    // Do not resolve codes against cached/stale data. Missing services would
+    // otherwise be removed from the cart and persisted draft before the
+    // current catalog refresh completes.
+    if (orderId || !catalogReady) return;
 
     const hasExplicitCart = initialServiceCodes !== undefined;
     const shouldKeepExplicitEmpty =
@@ -224,10 +229,10 @@ export function useOnboardingForm(opts: {
     cartInitializedForOpenRef.current = true;
     setCart(nextCart);
     setCartHydratedKey(codesKey);
-  }, [open, orderId, catalog, initialMode, initialServiceCode, initialServiceCodes, codesKey]);
+  }, [open, orderId, catalog, catalogReady, initialMode, initialServiceCode, initialServiceCodes, codesKey]);
 
   useEffect(() => {
-    if (!open || orderId || cartHydratedKey !== codesKey) return;
+    if (!open || orderId || !catalogReady || cartHydratedKey !== codesKey) return;
     onCartCodesChange?.(
       cart.flatMap((item) => Array.from({ length: item.quantity }, () => item.code)),
     );

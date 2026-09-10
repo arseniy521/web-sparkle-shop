@@ -1,13 +1,15 @@
 import { createElement } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useOnboardingCart } from '@/hooks/useOnboardingCart';
 
 export const MenuSection = () => {
   const { i18n } = useTranslation();
+  const { codes } = useOnboardingCart();
 
   return (
     <section id="menu" className="py-16 md:py-24" style={{ background: 'var(--color-bg)' }}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        {createElement('nius-menu', { section: 'menu', locale: i18n.language })}
+        {createElement('nius-menu', { section: 'menu', locale: i18n.language, 'cart-codes': JSON.stringify(codes) })}
       </div>
       <div className="sr-only" aria-hidden="true">
         <h2>IV Drip Menu — Prague Home Delivery</h2>

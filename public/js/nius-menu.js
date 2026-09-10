@@ -8,6 +8,15 @@ const NIUS_I18N = {
     nurseIncluded: 'nurse included',
     bookThisDrip: 'Book this drip →',
     addToCart: 'Add to cart',
+    addSelected: 'Add selected',
+    quickAdd: 'Add to cart',
+    inCart: 'In cart',
+    viewCart: 'View cart',
+    addedToCart: 'Added to cart',
+    optional: 'Optional',
+    total: 'Total',
+    cartHint: 'Adding to cart does not place an order',
+    close: 'Close',
     ctaInfo: 'Registered nurse · medical review included · all equipment',
     addBooster: 'Add a booster shot',
     boosterFoot: 'Administered by your nurse during the same visit — no extra visit fee.',
@@ -55,6 +64,15 @@ const NIUS_I18N = {
     nurseIncluded: 'sestra v ceně',
     bookThisDrip: 'Objednat →',
     addToCart: 'Přidat do košíku',
+    addSelected: 'Přidat vybrané',
+    quickAdd: 'Do košíku',
+    inCart: 'V košíku',
+    viewCart: 'Přejít do košíku',
+    addedToCart: 'Přidáno do košíku',
+    optional: 'Volitelné',
+    total: 'Celkem',
+    cartHint: 'Přidáním do košíku nevytváříte objednávku',
+    close: 'Zavřít',
     ctaInfo: 'Registrovaná sestra · lékařská kontrola · veškerý materiál',
     addBooster: 'Přidat booster',
     boosterFoot: 'Aplikuje vaše sestra během stejné návštěvy — bez příplatku.',
@@ -166,6 +184,15 @@ const NIUS_I18N = {
     nurseIncluded: 'медсестра включена',
     bookThisDrip: 'Заказать →',
     addToCart: 'Добавить в корзину',
+    addSelected: 'Добавить выбранное',
+    quickAdd: 'В корзину',
+    inCart: 'В корзине',
+    viewCart: 'Перейти в корзину',
+    addedToCart: 'Добавлено в корзину',
+    optional: 'Необязательно',
+    total: 'Итого',
+    cartHint: 'Добавление в корзину не оформляет заказ',
+    close: 'Закрыть',
     ctaInfo: 'Дипломированная медсестра · медицинский осмотр · всё оборудование',
     addBooster: 'Добавить бустер',
     boosterFoot: 'Вводится медсестрой во время того же визита — без доплаты.',
@@ -277,6 +304,15 @@ const NIUS_I18N = {
     nurseIncluded: 'медсестра включена',
     bookThisDrip: 'Замовити →',
     addToCart: 'Додати в кошик',
+    addSelected: 'Додати вибране',
+    quickAdd: 'У кошик',
+    inCart: 'У кошику',
+    viewCart: 'Перейти до кошика',
+    addedToCart: 'Додано до кошика',
+    optional: 'Необов’язково',
+    total: 'Разом',
+    cartHint: 'Додавання до кошика не оформлює замовлення',
+    close: 'Закрити',
     ctaInfo: 'Дипломована медсестра · медичний огляд · все обладнання',
     addBooster: 'Додати бустер',
     boosterFoot: 'Вводиться медсестрою під час того ж візиту — без доплати.',
@@ -730,13 +766,15 @@ class NiusMenu extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this.cartCodes = [];
   }
 
   static get observedAttributes() {
-    return ['locale', 'section', 'accent-color'];
+    return ['locale', 'section', 'accent-color', 'cart-codes'];
   }
 
   connectedCallback() {
+    this.readCartCodes();
     const section = this.getAttribute('section') || 'all';
     const accent = this.getAttribute('accent-color') || '#153f4d';
     const locale = this.getAttribute('locale') || this.detectLocale();
@@ -749,7 +787,59 @@ class NiusMenu extends HTMLElement {
   // the attributes and re-render instead of waiting for a fresh connect.
   attributeChangedCallback(name, oldValue, newValue) {
     if (!this.isConnected || oldValue === newValue) return;
+    if (name === 'cart-codes') {
+      this.readCartCodes();
+      this.syncCartButtons();
+      return;
+    }
+    this.closeModal();
     this.connectedCallback();
+  }
+
+  disconnectedCallback() {
+    this.closeModal();
+    clearTimeout(this.feedbackTimer);
+  }
+
+  readCartCodes() {
+    try {
+      const codes = JSON.parse(this.getAttribute('cart-codes') || '[]');
+      this.cartCodes = Array.isArray(codes) ? codes.filter(code => typeof code === 'string') : [];
+    } catch {
+      this.cartCodes = [];
+    }
+  }
+
+  syncCartButtons() {
+    this.shadowRoot.querySelectorAll('[data-quick-add]').forEach(button => {
+      const count = this.cartCodes.filter(code => code === button.dataset.code).length;
+      const label = count > 0 ? `${this.t.inCart}${count > 1 ? ` (${count})` : ''}` : this.t.quickAdd;
+      button.classList.toggle('is-added', count > 0);
+      button.textContent = count > 0 ? `✓ ${label}` : label;
+      button.setAttribute('aria-label', `${label}: ${button.dataset.name}`);
+    });
+    if (this.pendingAdd && this.cartCodes.includes(this.pendingAdd)) {
+      const feedback = this.shadowRoot.querySelector('[data-cart-feedback]');
+      feedback.textContent = `✓ ${this.t.addedToCart}`;
+      this.pendingAdd = null;
+      clearTimeout(this.feedbackTimer);
+      this.feedbackTimer = setTimeout(() => { feedback.textContent = ''; }, 3500);
+    }
+  }
+
+  closeModal() {
+    const modal = this.shadowRoot.querySelector('[data-modal]');
+    if (modal?.open) modal.close();
+    this.releaseModal();
+  }
+
+  releaseModal() {
+    if (this.bodyOverflow === undefined || this.shadowRoot.querySelector('[data-modal]')?.open) return;
+    document.body.style.overflow = this.bodyOverflow;
+    this.bodyOverflow = undefined;
+    this.modalTrigger?.focus({ preventScroll: true });
+    this.modalTrigger = null;
+    window.dispatchEvent(new CustomEvent('nius:service-modal', { detail: { open: false } }));
   }
 
   detectLocale() {
@@ -768,11 +858,11 @@ class NiusMenu extends HTMLElement {
         ${(section === 'all' || section === 'packages' || section === 'menu-packages') ? this.renderPackages() : ''}
         ${(section === 'all' || section === 'subscription') ? this.renderSubscription() : ''}
       </div>
-      <div class="modal-backdrop" data-modal>
-        <div class="modal-content" data-modal-body></div>
-      </div>
+      <div class="cart-feedback" role="status" aria-live="polite" data-cart-feedback></div>
+      <dialog class="modal-content" data-modal aria-labelledby="service-modal-title"></dialog>
     `;
     this.attachListeners();
+    this.syncCartButtons();
   }
 
   styles(accent) {
@@ -801,6 +891,7 @@ class NiusMenu extends HTMLElement {
           font-size: 14px;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
         .nius-root > section + section { margin-top: 64px; }
 
@@ -866,9 +957,11 @@ class NiusMenu extends HTMLElement {
 
         .drip-main {
           display: flex; flex-direction: column;
-          padding: 16px 18px;
+          padding: 16px 18px; height: 100%;
         }
+        .drip-heading { display: flex; align-items: flex-start; gap: 8px; }
         .drip-left { min-width: 0; }
+        .drip-heading .drip-left { flex: 1; }
         .drip-name-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
         .drip-name { font-family: var(--serif); font-size: 15px; font-weight: 600; line-height: 1.2; }
         .hero-badge {
@@ -884,38 +977,49 @@ class NiusMenu extends HTMLElement {
         }
         .drip-meta {
           display: flex; align-items: center; justify-content: space-between;
-          margin-top: 12px; padding-top: 10px; border-top: 0.5px solid var(--fog2);
+          gap: 10px; margin-top: auto; padding-top: 12px;
+          border-top: 0.5px solid var(--fog2);
         }
+        .drip-heading { margin-bottom: 12px; }
+        .drip-price { white-space: nowrap; }
         .drip-price { font-family: var(--serif); font-size: 17px; font-weight: 700; line-height: 1; }
         .drip-price small { font-size: 10px; color: var(--ink3); font-family: var(--sans); margin-left: 2px; }
         .drip-price-label { display: none; }
-        .drip-details-link {
-          font-size: 11px; font-weight: 500; color: var(--gold);
-          margin-top: 10px; display: inline-flex; align-items: center; gap: 4px;
-          opacity: 0.7; transition: opacity 0.2s;
+        .drip-info {
+          flex: 0 0 44px; width: 44px; height: 44px; margin: -8px -8px 0 0;
+          display: flex; align-items: center; justify-content: center;
+          color: var(--gold); background: transparent; border: none; border-radius: 50%; cursor: pointer;
         }
-        .drip-card:hover .drip-details-link { opacity: 1; }
-
-        .modal-backdrop {
-          display: none; position: fixed; inset: 0; z-index: 9999;
-          background: rgba(21,63,77,0.4); backdrop-filter: blur(4px);
-          align-items: center; justify-content: center; padding: 24px;
+        .drip-info:hover { background: var(--gold-soft); }
+        .drip-info span { width: 18px; height: 18px; border: 1.5px solid currentColor; border-radius: 50%; font: 600 12px/16px var(--serif); }
+        .cart-feedback {
+          position: fixed; left: 50%; bottom: calc(104px + env(safe-area-inset-bottom, 0px));
+          transform: translateX(-50%); z-index: 60; pointer-events: none;
+          width: max-content; max-width: calc(100vw - 32px); border-radius: 8px;
+          color: var(--white); background: var(--gold); font-size: 13px;
+          box-shadow: 0 4px 18px rgba(21,63,77,0.16);
         }
-        .modal-backdrop.open { display: flex; }
+        .cart-feedback:not(:empty) { padding: 12px 16px; }
         .modal-content {
-          background: var(--white); border-radius: 14px;
-          max-width: 520px; width: 100%; max-height: 85vh; overflow-y: auto;
-          padding: 32px 28px; position: relative;
+          background: var(--white); color: var(--ink); border: none; border-radius: 14px;
+          max-width: 520px; width: calc(100% - 48px); max-height: 85vh; max-height: 85dvh;
+          overflow: hidden; padding: 0; margin: auto; font-family: var(--sans);
           box-shadow: 0 24px 64px rgba(21,63,77,0.18);
-          animation: modal-in 0.25s ease-out;
         }
-        @keyframes modal-in {
-          from { opacity: 0; transform: translateY(16px) scale(0.97); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
+        .modal-content[open] { display: flex; flex-direction: column; }
+        .modal-content::backdrop { background: rgba(21,63,77,0.4); backdrop-filter: blur(4px); }
+        .modal-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 24px 12px; flex-shrink: 0; }
+        .modal-scroll { overflow-y: auto; overscroll-behavior: contain; min-height: 0; padding: 0 24px 24px; }
+        .modal-footer { padding: 16px 24px max(16px, env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--fog2); background: var(--white); flex-shrink: 0; }
+        .modal-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; font-size: 13px; }
+        .modal-hint { font-size: 11px; color: var(--ink2); text-align: center; margin-top: 8px; }
+        .modal-footer .btn-cart { width: 100%; }
+        .modal-content .modal-name { font-size: 22px; margin: 0; }
+        @media (prefers-reduced-motion: reduce) {
+          .drip-card { transition: none; }
         }
         .modal-close {
-          position: absolute; top: 16px; right: 16px;
-          width: 28px; height: 28px; border-radius: 50%;
+          flex: 0 0 44px; width: 44px; height: 44px; border-radius: 50%;
           background: var(--fog); border: none; cursor: pointer;
           display: flex; align-items: center; justify-content: center;
           font-size: 16px; color: var(--ink3); transition: background 0.2s;
@@ -933,9 +1037,7 @@ class NiusMenu extends HTMLElement {
           font-size: 10px; font-weight: 500; padding: 3px 10px; border-radius: 10px;
           background: var(--fog); color: var(--ink3); letter-spacing: 0.08em;
         }
-        .modal-detail-inner {
-          display: flex; flex-direction: column; gap: 20px;
-        }
+        .modal-detail-inner { display: flex; flex-direction: column; gap: 20px; }
         .detail-col-label {
           font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
           color: var(--ink3); margin-bottom: 12px;
@@ -960,18 +1062,18 @@ class NiusMenu extends HTMLElement {
           padding: 14px 16px;
         }
         .upsell-head {
-          display: flex; align-items: center; gap: 8px;
-          font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-          color: var(--gold); margin-bottom: 10px;
+          font-size: 13px; font-weight: 500; color: var(--gold); cursor: pointer;
+          min-height: 44px; padding: 10px 0;
         }
-        .upsell-head i { font-size: 14px; }
+        .upsell-head small { display: block; font-size: 11px; font-weight: 400; color: var(--ink2); }
+        .upsell-box[open] .upsell-head { margin-bottom: 10px; }
         .upsell-chips { display: flex; flex-wrap: wrap; gap: 6px; }
         .upsell-chip {
           font-size: 12px; padding: 7px 11px; border-radius: 6px;
           background: var(--white); border: 0.5px solid rgba(42,44,46,0.08);
           color: var(--ink); cursor: pointer;
           transition: border-color 0.15s, box-shadow 0.15s;
-          display: inline-flex; align-items: center; gap: 6px;
+          display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
         }
         .upsell-chip:hover {
           border-color: var(--gold);
@@ -981,7 +1083,15 @@ class NiusMenu extends HTMLElement {
           border-color: var(--ink);
           box-shadow: 0 0 0 1px var(--ink);
         }
+        .upsell-chip.is-added {
+          color: var(--ink3);
+          cursor: default;
+          opacity: 0.72;
+        }
         .upsell-chip .plus { color: var(--gold); font-weight: 500; }
+        .upsell-chip .status {
+          font-size: 10px; color: var(--ink3);
+        }
         .upsell-chip .price {
           font-family: var(--sans); font-size: 11px; color: var(--ink3);
           padding-left: 6px; border-left: 0.5px solid var(--fog2); margin-left: 2px;
@@ -990,30 +1100,16 @@ class NiusMenu extends HTMLElement {
           margin-top: 10px; font-size: 11px; color: var(--ink2); line-height: 1.55;
         }
 
-        .drip-cta-row {
-          grid-column: 1 / -1;
-          display: flex; justify-content: space-between; align-items: center;
-          gap: 16px; padding-top: 18px; margin-top: 4px;
-          border-top: 0.5px solid var(--fog2);
-          flex-wrap: wrap;
-        }
         .drip-cta-info { font-size: 11px; color: var(--ink3); }
-        .drip-cta-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .btn-book,
         .btn-cart {
-          padding: 11px 22px; border-radius: 4px;
-          font-family: var(--sans); font-size: 12px; font-weight: 500;
-          letter-spacing: 0.06em; cursor: pointer;
+          padding: 12px 16px; min-height: 48px; border-radius: 6px;
+          font-family: var(--sans); font-size: 13px; font-weight: 500; line-height: 1.4;
+          cursor: pointer; background: var(--gold); color: var(--white); border: 1px solid transparent;
           text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s;
         }
-        .btn-book {
-          background: var(--gold); color: var(--white); border: none;
-        }
-        .btn-cart {
-          background: transparent; color: var(--ink); border: 1px solid var(--border);
-        }
-        .btn-book:hover { background: #0d2a35; }
-        .btn-cart:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+        .btn-cart:hover { background: #0d2a35; }
+        .btn-cart.is-added { background: var(--gold-soft); color: var(--gold); }
+        .modal-total[hidden] { display: none; }
 
         .packages-grid {
           display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
@@ -1189,7 +1285,12 @@ class NiusMenu extends HTMLElement {
         }
         @media (max-width: 640px) {
           .drip-list { grid-template-columns: 1fr; }
-          .drip-detail-inner { grid-template-columns: 1fr; }
+          .modal-content { width: calc(100% - 16px); height: calc(100vh - 16px); height: calc(100dvh - 16px); max-height: none; }
+          .modal-header { padding: max(16px, env(safe-area-inset-top, 0px)) 16px 12px; }
+          .modal-scroll { flex: 1; padding: 0 16px 20px; }
+          .modal-footer { padding-left: 16px; padding-right: 16px; }
+          .upsell-chip { width: 100%; }
+          .upsell-chip .price { margin-left: auto; white-space: nowrap; }
           .packages-grid { grid-template-columns: 1fr; }
           .sub-section { padding: 32px 24px; border-radius: 12px; }
           .sub-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -1212,9 +1313,8 @@ class NiusMenu extends HTMLElement {
     `;
 
     const cats = catEntries.map(([catId, cat]) => {
-      const upsellIds = NIUS_UPSELLS_BY_CAT[catId] || [];
       const catT = t.categories[catId] || {};
-      const drips = cat.drips.map((d, i) => this.renderDripCard(d, catId, i, upsellIds)).join('');
+      const drips = cat.drips.map((d, i) => this.renderDripCard(d, catId, i)).join('');
       return `
         <div class="cat-block" data-cat="${catId}">
           <div class="cat-label"><i class="ti ${cat.icon}"></i>${catT.label || cat.label}</div>
@@ -1239,14 +1339,15 @@ class NiusMenu extends HTMLElement {
     `;
   }
 
-  renderDripCard(d, catId, idx, upsellIds) {
+  renderDripCard(d, catId, idx) {
     const dt = (this.t.drips && this.t.drips[d.name]) || {};
     const name = dt.name || d.name;
+    const nameAttribute = name.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
     const tagline = dt.tagline || d.tagline;
     return `
       <article class="drip-card${d.hero ? ' hero-card' : ''}" data-drip="${catId}-${idx}" data-cat-id="${catId}" data-idx="${idx}">
         <div class="drip-main">
-          <div class="drip-left">
+          <div class="drip-heading"><div class="drip-left">
             <div class="drip-name-row">
               <span class="drip-name">${name}</span>
               ${d.hero ? '<span class="hero-badge">Hero</span>' : ''}
@@ -1254,9 +1355,11 @@ class NiusMenu extends HTMLElement {
             <div class="drip-tagline">${tagline}</div>
             <span class="admin-pill">${d.admin} · ${d.duration}</span>
           </div>
+          <button type="button" class="drip-info" aria-label="${this.t.viewDetails}: ${nameAttribute}" aria-haspopup="dialog"><span aria-hidden="true">i</span></button>
+          </div>
           <div class="drip-meta">
             <div class="drip-price">${d.price.toLocaleString('cs-CZ')}<small>CZK</small></div>
-            <span class="drip-details-link">${this.t.viewDetails} →</span>
+            <button type="button" class="btn-cart" data-quick-add data-code="${d.code || ''}" data-name="${nameAttribute}">${this.t.quickAdd}</button>
           </div>
         </div>
       </article>
@@ -1348,7 +1451,6 @@ class NiusMenu extends HTMLElement {
 
   attachListeners() {
     const modal = this.shadowRoot.querySelector('[data-modal]');
-    const modalBody = this.shadowRoot.querySelector('[data-modal-body]');
 
     this.shadowRoot.querySelectorAll('.cat-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -1366,18 +1468,31 @@ class NiusMenu extends HTMLElement {
     });
 
     this.shadowRoot.querySelectorAll('.drip-card').forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (event) => {
         const catId = card.dataset.catId;
         const idx = parseInt(card.dataset.idx);
         const cat = NIUS_CATEGORIES[catId];
         const d = cat.drips[idx];
+        if (event.target.closest('[data-quick-add]')) {
+          if (this.cartCodes.includes(d.code)) {
+            this.dispatchCartEvent('nius:open-cart', d.code, 'service_catalog');
+          } else {
+            this.pendingAdd = d.code;
+            this.dispatchCartEvent('nius:add-to-cart', d.code, 'service_catalog');
+          }
+          return;
+        }
         window.dispatchEvent(new CustomEvent('nius:cta-click', {
           detail: { cta: 'view_service', source: 'service_catalog', service_code: d.code || '' }
         }));
         const upsellIds = NIUS_UPSELLS_BY_CAT[catId] || [];
-        modalBody.innerHTML = this.renderModal(d, upsellIds);
-        modal.classList.add('open');
-        this.attachModalListeners(modal, modalBody);
+        modal.innerHTML = this.renderModal(d, upsellIds);
+        this.modalTrigger = card.querySelector('.drip-info');
+        this.bodyOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        this.attachModalListeners(modal, d);
+        modal.showModal();
+        window.dispatchEvent(new CustomEvent('nius:service-modal', { detail: { open: true } }));
       });
     });
 
@@ -1397,11 +1512,12 @@ class NiusMenu extends HTMLElement {
       });
     });
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('open');
-      }
+    modal.addEventListener('click', (event) => {
+      const rect = modal.getBoundingClientRect();
+      if (event.target === modal && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) this.closeModal();
     });
+    modal.addEventListener('cancel', (event) => { event.preventDefault(); this.closeModal(); });
+    modal.addEventListener('close', () => this.releaseModal());
   }
 
   renderModal(d, upsellIds) {
@@ -1412,21 +1528,27 @@ class NiusMenu extends HTMLElement {
     const ingT = this.t.ingredients || {};
     const ingredients = d.ingredients.map(i => `<div class="ing-row">${ingT[i] || i}</div>`).join('');
     const shotT = this.t.shots || {};
+    const inCart = this.cartCodes.includes(d.code);
     const upsells = upsellIds.map(id => {
       const s = NIUS_SHOTS.find(x => x.id === id);
       if (!s || !s.code) return '';
       const shotName = shotT[s.name] || s.name;
+      const shotInCart = this.cartCodes.includes(s.code);
       return `
-        <button type="button" class="upsell-chip" data-shot="${s.id}" data-code="${s.code}">
-          <span class="plus">+</span>${shotName}
+        <button type="button" class="upsell-chip${shotInCart ? ' is-added' : ''}" aria-pressed="false" data-shot="${s.id}" data-code="${s.code}"${shotInCart ? ' disabled' : ''}>
+          <span class="plus">${shotInCart ? '✓' : '+'}</span>${shotName}
+          ${shotInCart ? `<span class="status">${this.t.inCart}</span>` : ''}
           <span class="price">+${s.price.toLocaleString('cs-CZ')} CZK</span>
         </button>
       `;
     }).join('');
 
     return `
-      <button class="modal-close" data-close>✕</button>
-      <div class="modal-name">${name}</div>
+      <div class="modal-header">
+        <h2 class="modal-name" id="service-modal-title">${name}</h2>
+        <button type="button" class="modal-close" data-close aria-label="${this.t.close}" autofocus>✕</button>
+      </div>
+      <div class="modal-scroll">
       <div class="modal-tagline">${tagline}</div>
       <div class="modal-meta">
         <div class="modal-price">${d.price.toLocaleString('cs-CZ')}<small>CZK</small></div>
@@ -1441,20 +1563,19 @@ class NiusMenu extends HTMLElement {
             ${bestfor}
           </div>
         </div>
-        <div>
-          <div class="upsell-box">
-            <div class="upsell-head"><i class="ti ti-arrow-up-circle"></i>${this.t.addBooster}</div>
+        ${upsells ? `
+          <details class="upsell-box">
+            <summary class="upsell-head">${this.t.addBooster}<small>${this.t.optional}</small></summary>
             <div class="upsell-chips">${upsells}</div>
             <div class="upsell-foot">${this.t.boosterFoot}</div>
-          </div>
-        </div>
-        <div class="drip-cta-row">
+          </details>` : ''}
           <div class="drip-cta-info">${this.t.ctaInfo}</div>
-          <div class="drip-cta-actions">
-            <button type="button" class="btn-cart" data-code="${d.code || ''}">${this.t.addToCart}</button>
-            <button type="button" class="btn-book" data-code="${d.code || ''}">${this.t.bookThisDrip}</button>
-          </div>
-        </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-total" data-total-row${inCart ? ' hidden' : ''}><span>${this.t.total}</span><div class="modal-price" aria-live="polite"><span data-total>${(inCart ? 0 : d.price).toLocaleString('cs-CZ')}</span><small>CZK</small></div></div>
+        <button type="button" class="btn-cart" data-modal-add data-code="${d.code || ''}" data-existing="${inCart ? 'true' : 'false'}">${inCart ? `${this.t.viewCart} →` : this.t.addToCart}</button>
+        ${!inCart ? `<div class="modal-hint">${this.t.cartHint}</div>` : ''}
       </div>
     `;
   }
@@ -1465,50 +1586,53 @@ class NiusMenu extends HTMLElement {
       .filter(Boolean);
   }
 
-  dispatchCartEvent(name, code) {
+  dispatchCartEvent(name, code, source = 'service_modal', boosterCodes = []) {
     if (!code) return;
     window.dispatchEvent(new CustomEvent(name, {
-      detail: { code },
+      detail: { code, source, boosterCodes },
       bubbles: true,
       composed: true,
     }));
   }
 
-  attachModalListeners(modal, modalBody) {
-    const closeBtn = modalBody.querySelector('[data-close]');
+  attachModalListeners(modal, service) {
+    const closeBtn = modal.querySelector('[data-close]');
     if (closeBtn) {
-      closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+      closeBtn.addEventListener('click', () => this.closeModal());
     }
-    const cartBtn = modalBody.querySelector('.btn-cart');
+    const cartBtn = modal.querySelector('[data-modal-add]');
     if (cartBtn) {
       cartBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         const code = cartBtn.dataset.code;
         if (!code) return;
-        for (const boosterCode of this.selectedBoosterCodes(modalBody)) {
-          this.dispatchCartEvent('nius:add-to-cart', boosterCode);
+        const selectedBoosters = this.selectedBoosterCodes(modal);
+        if (this.cartCodes.includes(code) && selectedBoosters.length === 0) {
+          this.closeModal();
+          this.dispatchCartEvent('nius:open-cart', code);
+          return;
         }
-        this.dispatchCartEvent('nius:add-to-cart', code);
-        modal.classList.remove('open');
+        this.pendingAdd = code;
+        this.dispatchCartEvent('nius:add-to-cart', code, 'service_modal', selectedBoosters);
+        this.closeModal();
       });
     }
-    const orderBtn = modalBody.querySelector('.btn-book');
-    if (orderBtn) {
-      orderBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const code = orderBtn.dataset.code;
-        if (!code) return;
-        for (const boosterCode of this.selectedBoosterCodes(modalBody)) {
-          this.dispatchCartEvent('nius:add-to-cart', boosterCode);
-        }
-        this.dispatchCartEvent('nius:order-service', code);
-        modal.classList.remove('open');
-      });
-    }
-    modalBody.querySelectorAll('.upsell-chip').forEach(chip => {
+    modal.querySelectorAll('.upsell-chip').forEach(chip => {
       chip.addEventListener('click', (e) => {
         e.stopPropagation();
-        chip.classList.toggle('is-selected');
+        if (chip.classList.contains('is-added')) return;
+        const selected = chip.classList.toggle('is-selected');
+        chip.setAttribute('aria-pressed', String(selected));
+        chip.querySelector('.plus').textContent = selected ? '✓' : '+';
+        const selectedCodes = this.selectedBoosterCodes(modal);
+        const selectedTotal = NIUS_SHOTS.filter(shot => selectedCodes.includes(shot.code)).reduce((sum, shot) => sum + shot.price, 0);
+        const serviceInCart = this.cartCodes.includes(service.code);
+        const total = (serviceInCart ? 0 : service.price) + selectedTotal;
+        const totalRow = modal.querySelector('[data-total-row]');
+        if (totalRow) totalRow.hidden = serviceInCart && selectedCodes.length === 0;
+        modal.querySelector('[data-total]').textContent = total.toLocaleString('cs-CZ');
+        const addButton = modal.querySelector('[data-modal-add]');
+        if (addButton && serviceInCart) addButton.textContent = selectedCodes.length > 0 ? this.t.addSelected : `${this.t.viewCart} →`;
       });
     });
   }

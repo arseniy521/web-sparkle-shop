@@ -48,10 +48,10 @@ function setState(next: Partial<OnboardingCartState>) {
   emit();
 }
 
-function addService(code: string, openSource: ConversionSource | null) {
+function addService(code: string, openSource: ConversionSource | null, source: ConversionSource = 'service_modal') {
   const normalized = normalizeServiceCode(code);
   if (!normalized) return;
-  track('cart_service_added', { service_code: normalized, source: 'service_modal' });
+  track('cart_service_added', { service_code: normalized, source });
   const codes = [...state.codes, normalized];
   setState(openSource ? { codes, open: true, openSource } : { codes });
   saveDraftCodes(codes);
@@ -65,7 +65,7 @@ export const onboardingCart = {
   },
 
   order(code: string, source: ConversionSource = 'service_modal') {
-    addService(code, source);
+    addService(code, source, source);
   },
 
   setCodes(nextCodes: string[]) {
@@ -101,12 +101,47 @@ export const onboardingCart = {
   },
 };
 
+interface MenuCartEvent {
+  code?: unknown;
+  source?: unknown;
+  boosterCodes?: unknown;
+}
+
+function menuSource(detail: MenuCartEvent | undefined): ConversionSource {
+  return detail?.source === 'service_catalog' ? 'service_catalog' : 'service_modal';
+}
+
 const addToCartListener = (event: Event) => {
-  const detail = (event as CustomEvent<{ code?: unknown }>).detail;
+  const detail = (event as CustomEvent<MenuCartEvent>).detail;
   const code = typeof detail?.code === 'string' ? normalizeServiceCode(detail.code) : '';
+  // Repeated taps in the menu must not silently increase the service quantity.
+  // Explicit quantity changes remain available in the cart form.
   if (!code) return;
-  trackCtaClick('add_to_cart', 'service_modal', { service_code: code });
-  onboardingCart.add(code);
+  const source = menuSource(detail);
+  const boosters = Array.isArray(detail?.boosterCodes)
+    ? [...new Set(normalizeCodes(detail.boosterCodes.filter((value): value is string => typeof value === 'string')))].filter(value => value !== code)
+    : [];
+  const addedCodes = [
+    ...(state.codes.includes(code) ? [] : [code]),
+    ...boosters.filter((booster) => !state.codes.includes(booster)),
+  ];
+  if (addedCodes.length === 0) return;
+  trackCtaClick('add_to_cart', source, {
+    service_code: code,
+    booster_count: addedCodes.filter((addedCode) => addedCode !== code).length,
+  });
+  const codes = [...state.codes, ...addedCodes];
+  setState({ codes });
+  saveDraftCodes(codes);
+  for (const addedCode of addedCodes) {
+    track('cart_service_added', { service_code: addedCode, source, is_addon: addedCode !== code });
+  }
+};
+
+const openCartListener = (event: Event) => {
+  const source = menuSource((event as CustomEvent<MenuCartEvent>).detail);
+  trackCtaClick('cart', source, { cart_items_count: state.codes.length });
+  onboardingCart.openForm(source);
 };
 
 const orderServiceListener = (event: Event) => {
@@ -158,6 +193,7 @@ if (typeof window !== 'undefined' && !window.__niusCartBridge) {
   window.__niusCartBridge = true;
   window.addEventListener('nius:add-to-cart', addToCartListener);
   window.addEventListener('nius:order-service', orderServiceListener);
+  window.addEventListener('nius:open-cart', openCartListener);
   window.addEventListener('nius:cta-click', ctaClickListener);
 }
 
@@ -166,6 +202,7 @@ if (import.meta.hot) {
     if (typeof window === 'undefined') return;
     window.removeEventListener('nius:add-to-cart', addToCartListener);
     window.removeEventListener('nius:order-service', orderServiceListener);
+    window.removeEventListener('nius:open-cart', openCartListener);
     window.removeEventListener('nius:cta-click', ctaClickListener);
     window.__niusCartBridge = false;
   });

@@ -60,11 +60,17 @@ export const OnboardingFormDialog = ({
     open &&
     (authStatus === 'loading' ||
       (authStatus === 'authenticated' && customerSummary.isFetching));
-  const { catalog, loading: catalogLoading, errorKey: catalogErrorKey } = useServices(open);
+  const {
+    catalog,
+    loading: catalogLoading,
+    catalogReady: catalogCurrent,
+    errorKey: catalogErrorKey,
+  } = useServices(open);
 
   const form = useOnboardingForm({
     open,
     catalog,
+    catalogReady: catalogCurrent,
     initialServiceCode: resolvedInitialCode,
     initialServiceCodes,
     initialMode,

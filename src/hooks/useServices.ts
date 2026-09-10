@@ -1,47 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import type { CartService } from '@/components/OnboardingForm/cartCatalog';
 import { fetchServicesCatalog } from '@/api/services';
 
 export interface UseServicesResult {
   catalog: CartService[];
   loading: boolean;
+  catalogReady: boolean;
   errorKey: string | null;
 }
 
-/**
- * Loads the catalog when the dialog opens (refreshes from the backend whenever open=true).
- */
+export const SERVICES_CATALOG_QUERY_KEY = ['services-catalog'] as const;
+
 export function useServices(open: boolean): UseServicesResult {
-  const [catalog, setCatalog] = useState<CartService[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [errorKey, setErrorKey] = useState<string | null>(null);
+  const query = useQuery<CartService[]>({
+    queryKey: SERVICES_CATALOG_QUERY_KEY,
+    queryFn: fetchServicesCatalog,
+    enabled: open,
+    staleTime: 0,
+    refetchOnMount: 'always',
+    retry: false,
+  });
 
-  useEffect(() => {
-    if (!open) return undefined;
-
-    let cancelled = false;
-    setLoading(true);
-    setErrorKey(null);
-
-    fetchServicesCatalog()
-      .then((rows) => {
-        if (cancelled) return;
-        setCatalog(rows);
-        setErrorKey(null);
-      })
-      .catch(() => {
-        if (cancelled) return;
-        setCatalog([]);
-        setErrorKey('onboarding.catalogLoadFailed');
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [open]);
-
-  return { catalog, loading, errorKey };
+  return {
+    catalog: query.data ?? [],
+    // Keep the cached catalog available for rendering, but do not treat it as
+    // checkout-safe while the form's refresh is in flight.
+    loading: open &&
+      (query.isPending || query.isFetching || query.fetchStatus === 'paused'),
+    catalogReady: open && query.isSuccess && query.fetchStatus === 'idle',
+    errorKey: query.isError ? 'onboarding.catalogLoadFailed' : null,
+  };
 }
