@@ -49,20 +49,32 @@ function mountMenu(locale: string, codes: string[] = []) {
 }
 
 function quickAddButton(menu: HTMLElement) {
-  const button = menu.shadowRoot?.querySelector<HTMLButtonElement>(
-    '[data-quick-add][data-code="immunity_lite"]',
-  );
+  const button = cartControl(menu).querySelector<HTMLButtonElement>('[data-quick-add]');
   expect(button).toBeTruthy();
   return button as HTMLButtonElement;
 }
 
+function cartControl(menu: HTMLElement) {
+  const control = menu.shadowRoot?.querySelector<HTMLElement>(
+    '[data-cart-control][data-code="immunity_lite"]',
+  );
+  expect(control).toBeTruthy();
+  return control as HTMLElement;
+}
+
 describe('nius-menu custom element', () => {
   it.each([
-    { locale: 'en', name: 'Immunity Lite', empty: 'Add to cart', inCart: 'In cart' },
-    { locale: 'cs', name: 'Imunita Lite', empty: 'Do košíku', inCart: 'V košíku' },
-    { locale: 'ru', name: 'Иммунитет Лайт', empty: 'В корзину', inCart: 'В корзине' },
-    { locale: 'uk', name: 'Імунітет Лайт', empty: 'У кошик', inCart: 'У кошику' },
-  ])('keeps the visible quick-add label in the accessible name for $locale', ({ locale, name, empty, inCart }) => {
+    { locale: 'en', name: 'Immunity Lite', empty: 'Add to cart', decrease: 'Decrease quantity', increase: 'Increase quantity' },
+    { locale: 'cs', name: 'Imunita Lite', empty: 'Do košíku', decrease: 'Snížit množství', increase: 'Zvýšit množství' },
+    { locale: 'ru', name: 'Иммунитет Лайт', empty: 'В корзину', decrease: 'Уменьшить количество', increase: 'Увеличить количество' },
+    { locale: 'uk', name: 'Імунітет Лайт', empty: 'У кошик', decrease: 'Зменшити кількість', increase: 'Збільшити кількість' },
+  ])('renders an accessible quantity stepper for $locale', ({
+    locale,
+    name,
+    empty,
+    decrease,
+    increase,
+  }) => {
     const menu = mountMenu(locale);
     const button = quickAddButton(menu);
 
@@ -71,8 +83,12 @@ describe('nius-menu custom element', () => {
 
     menu.setAttribute('cart-codes', JSON.stringify(['immunity_lite', 'immunity_lite']));
 
-    expect(button).toHaveTextContent(`✓ ${inCart} (2)`);
-    expect(button).toHaveAccessibleName(`${inCart} (2): ${name}`);
+    const control = cartControl(menu);
+    expect(control.querySelector('.cart-count')).toHaveTextContent('2');
+    expect(control.querySelector('[data-quantity-action="decrease"]'))
+      .toHaveAccessibleName(`${decrease}: ${name}`);
+    expect(control.querySelector('[data-quantity-action="increase"]'))
+      .toHaveAccessibleName(`${increase}: ${name}`);
   });
 
   it.each(['service_catalog', 'service_modal'])('adds from %s without a popup notification', (source) => {
@@ -95,11 +111,60 @@ describe('nius-menu custom element', () => {
 
       menu.setAttribute('cart-codes', JSON.stringify(['immunity_lite']));
 
-      expect(quickAddButton(menu)).toHaveTextContent('✓ In cart');
+      expect(cartControl(menu).querySelector('.cart-count')).toHaveTextContent('1');
       expect(menu.shadowRoot!.querySelector('[data-cart-feedback], [role="status"]')).toBeNull();
     } finally {
       window.removeEventListener('nius:add-to-cart', listener);
     }
+  });
+
+  it('uses the same quantity controls as the cart', () => {
+    const menu = mountMenu('en', ['immunity_lite']);
+    const listener = vi.fn();
+    window.addEventListener('nius:change-cart-quantity', listener);
+
+    try {
+      const control = cartControl(menu);
+      const remove = control.querySelector<HTMLButtonElement>(
+        '[data-quantity-action="remove"]',
+      );
+      expect(remove).toHaveAccessibleName('Remove from cart: Immunity Lite');
+      fireEvent.click(remove!);
+
+      menu.setAttribute(
+        'cart-codes',
+        JSON.stringify(['immunity_lite', 'immunity_lite']),
+      );
+      const updatedControl = cartControl(menu);
+      fireEvent.click(
+        updatedControl.querySelector<HTMLButtonElement>(
+          '[data-quantity-action="decrease"]',
+        )!,
+      );
+      fireEvent.click(
+        updatedControl.querySelector<HTMLButtonElement>(
+          '[data-quantity-action="increase"]',
+        )!,
+      );
+
+      expect(listener.mock.calls.map(([event]) => event.detail.delta))
+        .toEqual([-1, -1, 1]);
+    } finally {
+      window.removeEventListener('nius:change-cart-quantity', listener);
+    }
+  });
+
+  it('does not open the service dialog from the quantity stepper', () => {
+    const menu = mountMenu('en', ['immunity_lite']);
+    const modal = menu.shadowRoot!.querySelector<HTMLDialogElement>('[data-modal]');
+    fireEvent.click(
+      cartControl(menu).querySelector<HTMLButtonElement>(
+        '[data-quantity-action="increase"]',
+      )!,
+    );
+    fireEvent.click(cartControl(menu).querySelector('.cart-count')!);
+
+    expect(modal).not.toHaveAttribute('open');
   });
 
   it('lets a selected service add boosters from the detail dialog', () => {

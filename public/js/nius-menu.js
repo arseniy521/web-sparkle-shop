@@ -11,6 +11,9 @@ const NIUS_I18N = {
     addSelected: 'Add selected',
     quickAdd: 'Add to cart',
     inCart: 'In cart',
+    removeFromCart: 'Remove from cart',
+    decreaseQuantity: 'Decrease quantity',
+    increaseQuantity: 'Increase quantity',
     viewCart: 'View cart',
     optional: 'Optional',
     total: 'Total',
@@ -66,6 +69,9 @@ const NIUS_I18N = {
     addSelected: 'Přidat vybrané',
     quickAdd: 'Do košíku',
     inCart: 'V košíku',
+    removeFromCart: 'Odebrat z košíku',
+    decreaseQuantity: 'Snížit množství',
+    increaseQuantity: 'Zvýšit množství',
     viewCart: 'Přejít do košíku',
     optional: 'Volitelné',
     total: 'Celkem',
@@ -185,6 +191,9 @@ const NIUS_I18N = {
     addSelected: 'Добавить выбранное',
     quickAdd: 'В корзину',
     inCart: 'В корзине',
+    removeFromCart: 'Удалить из корзины',
+    decreaseQuantity: 'Уменьшить количество',
+    increaseQuantity: 'Увеличить количество',
     viewCart: 'Перейти в корзину',
     optional: 'Необязательно',
     total: 'Итого',
@@ -304,6 +313,9 @@ const NIUS_I18N = {
     addSelected: 'Додати вибране',
     quickAdd: 'У кошик',
     inCart: 'У кошику',
+    removeFromCart: 'Видалити з кошика',
+    decreaseQuantity: 'Зменшити кількість',
+    increaseQuantity: 'Збільшити кількість',
     viewCart: 'Перейти до кошика',
     optional: 'Необов’язково',
     total: 'Разом',
@@ -806,13 +818,38 @@ class NiusMenu extends HTMLElement {
   }
 
   syncCartButtons() {
-    this.shadowRoot.querySelectorAll('[data-quick-add]').forEach(button => {
-      const count = this.cartCodes.filter(code => code === button.dataset.code).length;
-      const label = count > 0 ? `${this.t.inCart}${count > 1 ? ` (${count})` : ''}` : this.t.quickAdd;
-      button.classList.toggle('is-added', count > 0);
-      button.textContent = count > 0 ? `✓ ${label}` : label;
-      button.setAttribute('aria-label', `${label}: ${button.dataset.name}`);
+    this.shadowRoot.querySelectorAll('[data-cart-control]').forEach(control => {
+      control.innerHTML = this.renderCartControl(
+        control.dataset.code,
+        control.dataset.name,
+      );
     });
+  }
+
+  escapeAttr(value) {
+    return String(value ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
+  renderCartControl(code, name) {
+    const count = this.cartCodes.filter(cartCode => cartCode === code).length;
+    const safeName = this.escapeAttr(name);
+    if (count === 0) {
+      return `<button type="button" class="btn-cart" data-quick-add aria-label="${this.t.quickAdd}: ${safeName}">${this.t.quickAdd}</button>`;
+    }
+
+    const leftAction = count === 1 ? 'remove' : 'decrease';
+    const leftLabel = count === 1 ? this.t.removeFromCart : this.t.decreaseQuantity;
+    const leftIcon = count === 1
+      ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6m4 4v6m6-6v6"/></svg>`
+      : '<span aria-hidden="true">−</span>';
+
+    return `
+      <div class="cart-stepper" aria-label="${this.t.inCart}: ${safeName}">
+        <button type="button" data-quantity-action="${leftAction}" aria-label="${leftLabel}: ${safeName}">${leftIcon}</button>
+        <span class="cart-count" aria-live="polite">${count}</span>
+        <button type="button" data-quantity-action="increase" aria-label="${this.t.increaseQuantity}: ${safeName}"><span aria-hidden="true">+</span></button>
+      </div>
+    `;
   }
 
   closeModal() {
@@ -966,6 +1003,28 @@ class NiusMenu extends HTMLElement {
           display: flex; align-items: center; justify-content: space-between;
           gap: 10px; margin-top: auto; padding-top: 12px;
           border-top: 0.5px solid var(--fog2);
+        }
+        .quick-cart { flex: 0 0 auto; }
+        .cart-stepper {
+          min-height: 48px; display: inline-flex; align-items: center;
+          border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+          border-radius: 999px; background: var(--gold-soft); color: var(--gold);
+          overflow: hidden;
+        }
+        .cart-stepper button {
+          width: 42px; align-self: stretch; display: flex; align-items: center;
+          justify-content: center; border: 0; background: transparent; color: inherit;
+          font: 500 20px/1 var(--sans); cursor: pointer; transition: background 0.2s, color 0.2s;
+        }
+        .cart-stepper button:hover { background: color-mix(in srgb, var(--gold) 12%, transparent); }
+        .cart-stepper button[data-quantity-action="remove"]:hover { color: #a23a32; background: #fbeceb; }
+        .cart-stepper button svg {
+          width: 16px; height: 16px; fill: none; stroke: currentColor;
+          stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .cart-count {
+          min-width: 28px; text-align: center; font: 600 13px/1 var(--sans);
+          font-variant-numeric: tabular-nums;
         }
         .drip-heading { margin-bottom: 12px; }
         .drip-price { white-space: nowrap; }
@@ -1338,7 +1397,7 @@ class NiusMenu extends HTMLElement {
           </div>
           <div class="drip-meta">
             <div class="drip-price">${d.price.toLocaleString('cs-CZ')}<small>CZK</small></div>
-            <button type="button" class="btn-cart" data-quick-add data-code="${d.code || ''}" data-name="${nameAttribute}">${this.t.quickAdd}</button>
+            <div class="quick-cart" data-cart-control data-code="${d.code || ''}" data-name="${nameAttribute}">${this.renderCartControl(d.code || '', name)}</div>
           </div>
         </div>
       </article>
@@ -1452,10 +1511,19 @@ class NiusMenu extends HTMLElement {
         const idx = parseInt(card.dataset.idx);
         const cat = NIUS_CATEGORIES[catId];
         const d = cat.drips[idx];
-        if (event.target.closest('[data-quick-add]')) {
-          if (this.cartCodes.includes(d.code)) {
-            this.dispatchCartEvent('nius:open-cart', d.code, 'service_catalog');
-          } else {
+        const origin = event.target instanceof Element ? event.target : null;
+        if (origin?.closest('[data-cart-control]')) {
+          const quantityButton = origin.closest('[data-quantity-action]');
+          if (quantityButton) {
+            const delta = quantityButton.dataset.quantityAction === 'increase' ? 1 : -1;
+            this.dispatchCartEvent(
+              'nius:change-cart-quantity',
+              d.code,
+              'service_catalog',
+              [],
+              { delta },
+            );
+          } else if (origin.closest('[data-quick-add]')) {
             this.dispatchCartEvent('nius:add-to-cart', d.code, 'service_catalog');
           }
           return;
@@ -1564,10 +1632,10 @@ class NiusMenu extends HTMLElement {
       .filter(Boolean);
   }
 
-  dispatchCartEvent(name, code, source = 'service_modal', boosterCodes = []) {
+  dispatchCartEvent(name, code, source = 'service_modal', boosterCodes = [], extra = {}) {
     if (!code) return;
     window.dispatchEvent(new CustomEvent(name, {
-      detail: { code, source, boosterCodes },
+      detail: { code, source, boosterCodes, ...extra },
       bubbles: true,
       composed: true,
     }));

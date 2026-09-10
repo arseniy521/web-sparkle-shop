@@ -50,7 +50,7 @@ export const CartHeader = ({ cart, onDecrement, onIncrement, onRemove }: CartHea
           {cart.map((svc) => (
             <div
               key={svc.id}
-              className="relative rounded-xl border border-border bg-background p-3 pr-8"
+              className="rounded-xl border border-border bg-background p-3"
             >
               <div className="flex items-center gap-2 mb-1">
                 <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
@@ -73,11 +73,30 @@ export const CartHeader = ({ cart, onDecrement, onIncrement, onRemove }: CartHea
                 >
                   <button
                     type="button"
-                    onClick={() => onDecrement(svc.id)}
-                    className="flex h-6 w-6 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/10"
-                    aria-label={t('onboarding.cart.decreaseQuantity', { name: serviceTitle(t, svc) })}
+                    onClick={() => (
+                      svc.quantity === 1
+                        ? onRemove(svc.id)
+                        : onDecrement(svc.id)
+                    )}
+                    className={cn(
+                      'flex h-6 w-6 items-center justify-center rounded-full transition-colors',
+                      svc.quantity === 1
+                        ? 'text-muted-foreground hover:bg-destructive/10 hover:text-destructive'
+                        : 'text-primary hover:bg-primary/10',
+                    )}
+                    aria-label={
+                      svc.quantity === 1
+                        ? t('onboarding.cart.remove')
+                        : t('onboarding.cart.decreaseQuantity', {
+                            name: serviceTitle(t, svc),
+                          })
+                    }
                   >
-                    <Minus className="h-3.5 w-3.5" />
+                    {svc.quantity === 1 ? (
+                      <Trash2 className="h-3.5 w-3.5" />
+                    ) : (
+                      <Minus className="h-3.5 w-3.5" />
+                    )}
                   </button>
                   <span className="min-w-6 text-center text-xs font-bold tabular-nums" aria-live="polite">
                     {svc.quantity}
@@ -92,14 +111,6 @@ export const CartHeader = ({ cart, onDecrement, onIncrement, onRemove }: CartHea
                   </button>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => onRemove(svc.id)}
-                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-colors"
-                aria-label={t('onboarding.cart.remove')}
-              >
-                <Trash2 className="h-3.5 w-3.5" />
-              </button>
             </div>
           ))}
         </div>

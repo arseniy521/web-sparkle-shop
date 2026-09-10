@@ -9,6 +9,10 @@ function addFromMenu(detail: Record<string, unknown>) {
   window.dispatchEvent(new CustomEvent('nius:add-to-cart', { detail }));
 }
 
+function changeQuantity(detail: Record<string, unknown>) {
+  window.dispatchEvent(new CustomEvent('nius:change-cart-quantity', { detail }));
+}
+
 beforeEach(() => {
   onboardingCart.clear();
   vi.clearAllMocks();
@@ -81,5 +85,54 @@ describe('menu to cart bridge', () => {
 
     expect(loadDraft()?.codes).toEqual(['immunity_power', 'immunity_power']);
     expect(trackCtaClick).toHaveBeenCalledTimes(2);
+  });
+
+  it('increments and decrements from the catalog stepper without opening the form', () => {
+    addFromMenu({ code: 'immunity_power', source: 'service_catalog' });
+    changeQuantity({ code: 'immunity_power', source: 'service_catalog', delta: 1 });
+
+    expect(onboardingCart.getState()).toMatchObject({
+      codes: ['immunity_power', 'immunity_power'],
+      open: false,
+    });
+    expect(loadDraft()?.codes).toEqual(['immunity_power', 'immunity_power']);
+    expect(track).toHaveBeenCalledWith('cart_service_added', {
+      service_code: 'immunity_power', source: 'service_catalog',
+    });
+
+    changeQuantity({ code: 'immunity_power', source: 'service_catalog', delta: -1 });
+
+    expect(onboardingCart.getState().codes).toEqual(['immunity_power']);
+    expect(loadDraft()?.codes).toEqual(['immunity_power']);
+    expect(track).toHaveBeenCalledWith('cart_service_removed', {
+      service_code: 'immunity_power', source: 'service_catalog',
+    });
+  });
+
+  it('removes the last copy from the catalog stepper and decrements only one matching code', () => {
+    onboardingCart.setCodes(['immunity_power', 'pure_hydrate', 'immunity_power']);
+    changeQuantity({ code: 'immunity_power', source: 'service_catalog', delta: -1 });
+    expect(onboardingCart.getState().codes).toEqual(['immunity_power', 'pure_hydrate']);
+
+    changeQuantity({ code: 'immunity_power', source: 'service_catalog', delta: -1 });
+    expect(onboardingCart.getState().codes).toEqual(['pure_hydrate']);
+    expect(loadDraft()?.codes).toEqual(['pure_hydrate']);
+  });
+
+  it('ignores invalid quantity deltas and does not decrement a missing item', () => {
+    addFromMenu({ code: 'immunity_power' });
+    changeQuantity({ code: 'immunity_power', delta: 2 });
+    changeQuantity({ code: 'immunity_power', delta: 0 });
+    changeQuantity({ code: 'immunity_power', delta: '-1' });
+    changeQuantity({ code: 'immunity_power' });
+
+    expect(onboardingCart.getState().codes).toEqual(['immunity_power']);
+
+    onboardingCart.setCodes([]);
+    vi.clearAllMocks();
+    changeQuantity({ code: 'immunity_power', delta: -1 });
+
+    expect(onboardingCart.getState().codes).toEqual([]);
+    expect(track).not.toHaveBeenCalled();
   });
 });

@@ -105,6 +105,7 @@ interface MenuCartEvent {
   code?: unknown;
   source?: unknown;
   boosterCodes?: unknown;
+  delta?: unknown;
 }
 
 function menuSource(detail: MenuCartEvent | undefined): ConversionSource {
@@ -114,8 +115,8 @@ function menuSource(detail: MenuCartEvent | undefined): ConversionSource {
 const addToCartListener = (event: Event) => {
   const detail = (event as CustomEvent<MenuCartEvent>).detail;
   const code = typeof detail?.code === 'string' ? normalizeServiceCode(detail.code) : '';
-  // Repeated taps in the menu must not silently increase the service quantity.
-  // Explicit quantity changes remain available in the cart form.
+  // Repeated taps on Add to cart must not silently increase the quantity.
+  // The catalog and cart steppers emit nius:change-cart-quantity instead.
   if (!code) return;
   const source = menuSource(detail);
   const boosters = Array.isArray(detail?.boosterCodes)
@@ -136,6 +137,33 @@ const addToCartListener = (event: Event) => {
   for (const addedCode of addedCodes) {
     track('cart_service_added', { service_code: addedCode, source, is_addon: addedCode !== code });
   }
+};
+
+const changeCartQuantityListener = (event: Event) => {
+  const detail = (event as CustomEvent<MenuCartEvent>).detail;
+  const code =
+    typeof detail?.code === 'string'
+      ? normalizeServiceCode(detail.code)
+      : '';
+  const delta = detail?.delta === 1 ? 1 : detail?.delta === -1 ? -1 : 0;
+  if (!code || delta === 0) return;
+
+  const source = menuSource(detail);
+  const currentCount = state.codes.filter((item) => item === code).length;
+  if (delta < 0 && currentCount === 0) return;
+
+  let codes: string[];
+  if (delta > 0) {
+    codes = [...state.codes, code];
+    track('cart_service_added', { service_code: code, source });
+  } else {
+    const index = state.codes.lastIndexOf(code);
+    codes = state.codes.filter((_, itemIndex) => itemIndex !== index);
+    track('cart_service_removed', { service_code: code, source });
+  }
+
+  setState({ codes });
+  saveDraftCodes(codes);
 };
 
 const openCartListener = (event: Event) => {
@@ -192,6 +220,7 @@ const ctaClickListener = (event: Event) => {
 if (typeof window !== 'undefined' && !window.__niusCartBridge) {
   window.__niusCartBridge = true;
   window.addEventListener('nius:add-to-cart', addToCartListener);
+  window.addEventListener('nius:change-cart-quantity', changeCartQuantityListener);
   window.addEventListener('nius:order-service', orderServiceListener);
   window.addEventListener('nius:open-cart', openCartListener);
   window.addEventListener('nius:cta-click', ctaClickListener);
@@ -201,6 +230,7 @@ if (import.meta.hot) {
   import.meta.hot.dispose(() => {
     if (typeof window === 'undefined') return;
     window.removeEventListener('nius:add-to-cart', addToCartListener);
+    window.removeEventListener('nius:change-cart-quantity', changeCartQuantityListener);
     window.removeEventListener('nius:order-service', orderServiceListener);
     window.removeEventListener('nius:open-cart', openCartListener);
     window.removeEventListener('nius:cta-click', ctaClickListener);
