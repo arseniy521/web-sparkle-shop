@@ -732,6 +732,10 @@ class NiusMenu extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
+  static get observedAttributes() {
+    return ['locale', 'section', 'accent-color'];
+  }
+
   connectedCallback() {
     const section = this.getAttribute('section') || 'all';
     const accent = this.getAttribute('accent-color') || '#153f4d';
@@ -739,6 +743,13 @@ class NiusMenu extends HTMLElement {
     this.locale = locale;
     this.t = NIUS_I18N[locale] || NIUS_I18N.en;
     this.render(section, accent);
+  }
+
+  // The host is an SPA: switching language never reloads the page, so re-read
+  // the attributes and re-render instead of waiting for a fresh connect.
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (!this.isConnected || oldValue === newValue) return;
+    this.connectedCallback();
   }
 
   detectLocale() {
