@@ -29,6 +29,7 @@ export const onboardingOrderItemSchema = z.object({
 export type OnboardingOrderItem = z.infer<typeof onboardingOrderItemSchema>;
 
 export const onboardingOrderSchema = z.object({
+  participantCount: z.number().int().min(1).max(100).optional(),
   id: z.string(),
   status: z.string(),
   phone: z.string().nullable(),
@@ -303,6 +304,7 @@ async function requestOrder(path: string, init?: RequestInit): Promise<Onboardin
 }
 
 export interface CreateOrderPayload extends OnboardingUpdate {
+  participantCount?: number;
   phone: string;
   items: { serviceId: string; quantity?: number }[];
 }

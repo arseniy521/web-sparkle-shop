@@ -124,6 +124,13 @@ describe('FinalScreen action exclusivity', () => {
     );
   });
 
+  it('opens the group order instead of the organizer’s personal intake', async () => {
+    testState.authStatus = 'authenticated';
+    testState.getPublicMe.mockResolvedValue({ authenticated: true, id: 'patient-1', role: 'PATIENT' });
+    render(<FinalScreen {...baseProps} orderLinked participantCount={4} />);
+    await waitFor(() => expect(testState.replaceWithIntakeForm).toHaveBeenCalledWith('order-1'));
+  });
+
   it('redirects a linked order even if the public session probe fails', async () => {
     testState.authStatus = 'authenticated';
     testState.getPublicMe.mockRejectedValue(

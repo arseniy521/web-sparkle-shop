@@ -25,6 +25,7 @@ import { ActiveOrderGate } from './ActiveOrderGate';
 const GoogleLoginAction = lazy(() => import('./GoogleLoginAction'));
 
 interface FinalScreenProps {
+  participantCount?: number;
   cart: CartItem[];
   orderId: string;
   orderAccessToken: string;
@@ -45,6 +46,7 @@ function normalizeLinkError(error: unknown): string {
 }
 
 export const FinalScreen = ({
+  participantCount = 1,
   cart,
   orderId,
   orderAccessToken,
@@ -106,16 +108,16 @@ export const FinalScreen = ({
 
       setLoginState('redirecting');
       void flushAnalytics().catch(() => undefined);
-      replaceWithIntakeForm();
+      replaceWithIntakeForm(participantCount > 1 ? orderId : undefined);
     } catch (error) {
       if (orderLinked) {
         setLoginState('redirecting');
-        replaceWithIntakeForm();
+        replaceWithIntakeForm(participantCount > 1 ? orderId : undefined);
         return;
       }
       failLogin(normalizeLinkError(error));
     }
-  }, [failLogin, orderAccessToken, orderId, orderLinked]);
+  }, [failLogin, orderAccessToken, orderId, orderLinked, participantCount]);
 
   useEffect(() => {
     if (orderLinked || authStatus === 'authenticated') {
@@ -209,6 +211,7 @@ export const FinalScreen = ({
           >
             <GoogleLoginAction
               orderId={orderId}
+              groupOrderId={participantCount > 1 ? orderId : undefined}
               orderAccessToken={orderAccessToken}
               state={loginState}
               disabled={isLoading}

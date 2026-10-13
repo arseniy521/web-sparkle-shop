@@ -111,6 +111,7 @@ export interface AddressGeo {
 }
 
 export interface OnboardingFormData {
+  participantCount: number;
   phone: string;
   serviceCode: string | null;
   address: string;
@@ -163,6 +164,7 @@ const EMPTY_DATA: Omit<OnboardingFormData, 'serviceCode'> = {
   desiredDate: null,
   paymentPreference: null,
   patientNote: '',
+  participantCount: 1,
 };
 
 export function useOnboardingForm(opts: {
@@ -339,6 +341,7 @@ export function useOnboardingForm(opts: {
         desiredDate: order.desiredDate,
         paymentPreference: order.paymentPreference,
         patientNote: order.patientNote ?? '',
+        participantCount: order.participantCount ?? 1,
       });
       setCart(nextCart);
       setStep(1);
@@ -407,6 +410,7 @@ export function useOnboardingForm(opts: {
       const order = await createOrder({
         phone: data.phone,
         items: orderItems,
+        ...(data.participantCount > 1 ? { participantCount: data.participantCount } : {}),
         address: data.address,
         ...(data.addressGeo ? { addressGeo: data.addressGeo } : {}),
         ...(data.addressTo.trim() ? { addressTo: data.addressTo } : {}),

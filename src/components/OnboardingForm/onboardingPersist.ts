@@ -27,6 +27,7 @@ const EMPTY_DATA: OnboardingFormData = {
   desiredDate: null,
   paymentPreference: null,
   patientNote: '',
+  participantCount: 1,
 };
 
 function getSessionStorage(): Storage | undefined {
@@ -126,6 +127,7 @@ function sanitizeData(value: unknown): OnboardingFormData {
     desiredDate: asNullableString(v.desiredDate),
     paymentPreference,
     patientNote: asString(v.patientNote),
+    participantCount: typeof v.participantCount === 'number' && Number.isInteger(v.participantCount) && v.participantCount >= 1 && v.participantCount <= 100 ? v.participantCount : 1,
   };
 }
 

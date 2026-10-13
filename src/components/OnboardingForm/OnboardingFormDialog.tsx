@@ -18,6 +18,7 @@ import { ReturningCustomerHint } from './ReturningCustomerHint';
 import { ActiveOrderGate } from './ActiveOrderGate';
 import { ThankYouScreen } from './ThankYouScreen';
 import { normalizeServiceCode } from './cartCatalog';
+import { applyParticipantDraft } from './participantCount';
 import { isValidPhoneNumber, useOnboardingForm } from './useOnboardingForm';
 import { track, trackCtaClick } from '@/lib/analytics';
 import type { ConversionSource } from '@/lib/analytics';
@@ -85,6 +86,14 @@ export const OnboardingFormDialog = ({
 
   const [openSection, setOpenSection] = useState<SectionId>('address');
   const [authBusy, setAuthBusy] = useState(false);
+  const [participantDraft, setParticipantDraft] = useState(String(form.data.participantCount));
+  useEffect(() => {
+    setParticipantDraft((current) => {
+      const committed = String(form.data.participantCount);
+      if (current === '' || Number(current) === form.data.participantCount) return current;
+      return committed;
+    });
+  }, [form.data.participantCount]);
   const errorToastNonce = useRef(0);
 
   const addressFilled =
@@ -319,6 +328,7 @@ export const OnboardingFormDialog = ({
             ) : isFinal && form.orderId && form.orderAccessToken ? (
               <FinalScreen
                 cart={form.cart}
+                participantCount={form.data.participantCount}
                 orderId={form.orderId}
                 orderAccessToken={form.orderAccessToken}
                 orderLinked={form.orderLinked}
@@ -393,6 +403,23 @@ export const OnboardingFormDialog = ({
                 {catalogReady && !cartEmpty && (
                   <>
                 <ReturningCustomerHint />
+                <label className="block space-y-1 text-sm">
+                  <span>{t('onboarding.group.count')}</span>
+                  <input type="text" inputMode="numeric" autoComplete="off"
+                    className="block w-24 rounded-md border border-border px-3 py-2"
+                    value={participantDraft}
+                    onChange={(event) => {
+                      const next = applyParticipantDraft(
+                        form.data.participantCount,
+                        participantDraft,
+                        event.currentTarget.value,
+                      );
+                      setParticipantDraft(next.draft);
+                      if (next.count !== form.data.participantCount) form.setField('participantCount', next.count);
+                    }}
+                    onBlur={() => setParticipantDraft(String(form.data.participantCount))} />
+                  <span className="block text-xs text-muted-foreground">{t('onboarding.group.hint')}</span>
+                </label>
                 <CartHeader
                   cart={form.cart}
                   onDecrement={(id) => {

@@ -11,6 +11,6 @@ export function cabinetHref(): string {
   return `${appOrigin()}/cabinet`;
 }
 
-export function replaceWithIntakeForm(): void {
-  window.location.replace(`${appOrigin()}/form`);
+export function replaceWithIntakeForm(groupOrderId?: string): void {
+  window.location.replace(groupOrderId ? `${appOrigin()}/cabinet/orders/${encodeURIComponent(groupOrderId)}` : `${appOrigin()}/form`);
 }

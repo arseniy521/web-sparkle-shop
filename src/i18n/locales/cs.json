@@ -2153,6 +2153,10 @@
       "title": "Košík je prázdný",
       "hint": "Vyberte službu z nabídky a přidejte ji do košíku.",
       "cta": "Vybrat služby"
+    },
+    "group": {
+      "count": "Počet účastníků",
+      "hint": "Počet osob nezávisí na množství služeb. Každá osoba potřebuje vlastní dotazník."
     }
   },
   "heroNew": {

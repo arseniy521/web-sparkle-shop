@@ -21,6 +21,7 @@ import { replaceWithIntakeForm } from './authNavigation';
 export type LoginFlowState = 'idle' | 'popup' | 'linking' | 'redirecting' | 'error';
 
 interface GoogleLoginActionProps {
+  groupOrderId?: string;
   orderId: string;
   orderAccessToken: string;
   state: LoginFlowState;
@@ -42,6 +43,7 @@ function normalizeApiError(error: unknown): string {
 }
 
 const GoogleLoginButton = ({
+  groupOrderId,
   orderId,
   orderAccessToken,
   state,
@@ -77,7 +79,7 @@ const GoogleLoginButton = ({
         setAnalyticsOptOut(user.role === 'SUPERADMIN');
         if (user.role !== 'SUPERADMIN') {
           track('login_completed', { linked_order: user.linked });
-          replaceWithIntakeForm();
+          replaceWithIntakeForm(groupOrderId);
         }
         if (!activeRef.current) return;
         onAuthenticated(user);
@@ -100,7 +102,7 @@ const GoogleLoginButton = ({
           setAnalyticsOptOut(user.role === 'SUPERADMIN');
           if (user.role !== 'SUPERADMIN') {
             track('login_completed', { linked_order: false, recovered: true });
-            replaceWithIntakeForm();
+            replaceWithIntakeForm(groupOrderId);
           }
           if (!activeRef.current) return;
           onAuthenticated(user);

@@ -2153,6 +2153,10 @@
       "title": "Your cart is empty",
       "hint": "Pick a service from the menu and add it to your cart.",
       "cta": "Browse services"
+    },
+    "group": {
+      "count": "Number of participants",
+      "hint": "The number of people is independent of service quantities. Each person needs a separate intake."
     }
   },
   "heroNew": {
