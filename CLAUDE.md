@@ -74,3 +74,11 @@ public/brand/       — SVG logos (mark, wordmark, favicon)
 
 - Production: www.nius.cz (GitHub Pages + CNAME)
 - Google Business: g.page/r/Cb4BmqPTZRSSEBE/review
+
+## Shared OpenSpec
+
+For feature planning, requirement changes, or continuing an existing change, read
+[the shared NIUS OpenSpec workflow](../nius-specs/README.md).
+`openspec/config.yaml` points to store `nius`; specs and changes live in
+`../nius-specs/openspec/`. Read the change before editing implementation.
+Commit, push, publish, deploy, spec sync and archive require the owner's explicit request.
