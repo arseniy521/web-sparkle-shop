@@ -84,9 +84,9 @@ function getWeekdays(locale: string): string[] {
   const base = new Date(2026, 0, 4);
   const firstDay = (() => {
     try {
-      return (new (Intl as typeof Intl & {
-        Locale: new (value: string) => { weekInfo?: { firstDay?: number } };
-      }).Locale(locale)).weekInfo?.firstDay ?? 1;
+      return (new Intl.Locale(locale) as {
+        weekInfo?: { firstDay?: number };
+      }).weekInfo?.firstDay ?? 1;
     } catch {
       return 1;
     }
@@ -103,9 +103,9 @@ function firstDayOffset(date: Date, locale: string): number {
   const day = date.getDay();
   const firstDay = (() => {
     try {
-      return (new (Intl as typeof Intl & {
-        Locale: new (value: string) => { weekInfo?: { firstDay?: number } };
-      }).Locale(locale)).weekInfo?.firstDay ?? 1;
+      return (new Intl.Locale(locale) as {
+        weekInfo?: { firstDay?: number };
+      }).weekInfo?.firstDay ?? 1;
     } catch {
       return 1;
     }
