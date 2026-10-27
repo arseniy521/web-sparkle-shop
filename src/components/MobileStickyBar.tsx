@@ -12,7 +12,7 @@ export const MobileStickyBar = () => {
   const { codes, open: cartOpen } = useOnboardingCart();
   const { catalog } = useServices(codes.length > 0);
   const selectedServices = codes.map(code => catalog.find(service => service.code === code));
-  const total = codes.length > 0 && selectedServices.every(Boolean)
+  const total = codes.length > 0 && selectedServices.every(service => service !== undefined)
     ? selectedServices.reduce((sum, service) => sum + service.priceCzk, 0)
     : null;
   const formattedTotal = total === null ? null : new Intl.NumberFormat(i18n.language, {

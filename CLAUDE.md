@@ -7,7 +7,8 @@ Marketing website for **NIUS** (www.nius.cz) — a home nursing and IV drip serv
 ## Commands
 
 - `npm run dev` — dev server on port 8080
-- `npm run build` — production build + prerender (Vite + Puppeteer)
+- `npm run build` — typecheck + production build + prerender (TypeScript + Vite + Puppeteer)
+- `npm run typecheck` — check app and Node TypeScript projects; strictNullChecks enabled
 - `npm run lint` — ESLint
 - `npm run i18n:check` — validate i18n key consistency across locales
 - `npm run deploy` — build + deploy to GitHub Pages (gh-pages)
