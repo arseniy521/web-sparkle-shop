@@ -7,7 +7,8 @@ import { getConsent } from '@/lib/consent';
  *
  * Privacy rules (see nius/docs/analytics.md — PHI policy):
  * - initialized only after cookie-banner consent (nius-cookie-consent);
- * - EU server zone, no IP capture, no form/element autocapture;
+ * - US server zone (the project and its API key live in the US region), no IP capture,
+ *   no form/element autocapture;
  * - never pass phone/address/name/note or onboarding access tokens as props.
  *
  * The device_id cookie is scoped to `.nius.cz` so the journey continues
@@ -23,7 +24,7 @@ const hasConsent = (): boolean => getConsent() === 'accepted';
 const init = () => {
   if (!API_KEY || initialized) return;
   amplitude.init(API_KEY, {
-    serverZone: 'EU',
+    serverZone: 'US',
     autocapture: {
       pageViews: true,
       sessions: true,
