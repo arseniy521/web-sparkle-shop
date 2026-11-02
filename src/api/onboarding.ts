@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { getReferralCode } from '@/lib/referral';
 
 const MAX_ERROR_MESSAGE_LEN = 200;
 
@@ -310,9 +311,10 @@ export interface CreateOrderPayload extends OnboardingUpdate {
 }
 
 export function createOrder(payload: CreateOrderPayload): Promise<OnboardingOrder> {
+  const referralCode = getReferralCode();
   return requestOrder('/onboarding/order', {
     method: 'POST',
-    body: JSON.stringify(payload),
+    body: JSON.stringify(referralCode ? { ...payload, referralCode } : payload),
   });
 }
 

@@ -83,3 +83,9 @@ For feature planning, requirement changes, or continuing an existing change, rea
 `openspec/config.yaml` points to store `nius`; specs and changes live in
 `../nius-specs/openspec/`. Read the change before editing implementation.
 Commit, push, publish, deploy, spec sync and archive require the owner's explicit request.
+
+## Referral codes (NIU-28)
+
+- `?ref=<CODE>` (QR links) is captured in `src/lib/referral.ts` into the `nius_ref` cookie (`.nius.cz`, 30 days). No cookie consent is required (owner decision).
+- The code is sent as `referralCode` on `POST /onboarding/order` (only when present; never `""`).
+- Release the site only after the backend that accepts `referralCode` is deployed, otherwise order creation returns 400.
