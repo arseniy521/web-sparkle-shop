@@ -52,7 +52,7 @@ export const AccordionStep = ({
   }
 
   return (
-    <div className="rounded-xl border border-primary/30 bg-background shadow-sm">
+    <div className="rounded-xl border border-primary/30 bg-background shadow-xs">
       <div className="flex items-center gap-3 px-4 pt-4 pb-2">
         <div className="h-6 w-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-semibold flex-shrink-0">
           {number}

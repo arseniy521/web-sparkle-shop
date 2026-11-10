@@ -165,7 +165,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
           'flex items-center gap-1.5 px-3 h-11',
           'rounded-s-lg border border-r-0 border-input bg-background',
           'hover:bg-accent hover:text-accent-foreground',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+          'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
           'disabled:cursor-not-allowed disabled:opacity-50',
         )}
       >
@@ -190,7 +190,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
                   containerRef.current?.querySelector('button')?.focus();
                 }
               }}
-              className="flex h-11 w-full bg-transparent py-3 text-base outline-none placeholder:text-muted-foreground"
+              className="flex h-11 w-full bg-transparent py-3 text-base outline-hidden placeholder:text-muted-foreground"
             />
           </div>
           <ul className="max-h-56 overflow-y-auto p-1">
