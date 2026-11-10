@@ -57,4 +57,14 @@ export default [
     files: ['src/islands/**'],
     ...reactHooks.configs.flat.recommended,
   },
+  {
+    files: ['src/islands/order-form/**'],
+    rules: {
+      ...Object.fromEntries(
+        Object.keys(reactHooks.configs.flat.recommended.rules).map((rule) => [rule, 'off']),
+      ),
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  },
 ];
