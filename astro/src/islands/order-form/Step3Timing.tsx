@@ -230,7 +230,7 @@ export const Step3Timing = ({ data, setField, onNext, isLoading, dialogOpen }: S
         </div>
       </div>
 
-      <div className="flex justify-center gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 snap-x scrollbar-none">
+      <div className="flex justify-center gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 snap-x">
         {next7.map((day) => {
           const { short, num, isToday } = formatDayPill(day, i18n.language);
           const isSelected = selectedDayStr === dateKey(day);
