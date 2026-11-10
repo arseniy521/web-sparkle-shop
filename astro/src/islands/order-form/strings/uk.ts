@@ -1,1 +1,1 @@
-export { onboarding, serviceCatalog, nav } from '@old/i18n/locales/uk.json';
+export { onboarding, serviceCatalog, services, nav } from '@old/i18n/locales/uk.json';

@@ -8,6 +8,7 @@ describe('loadFormI18n', () => {
     const i18n = await loadFormI18n('cs');
     expect(i18n.t('onboarding.errors.network')).toBe(cs.onboarding.errors.network);
     expect(i18n.exists('serviceCatalog')).toBe(true);
+    expect(i18n.t('services.ivInfusion.title')).toBe(cs.services.ivInfusion.title);
   });
   it('falls back to English for a key missing in the page language', async () => {
     const i18n = await loadFormI18n('ru');
