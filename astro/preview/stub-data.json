@@ -1,0 +1,67 @@
+{
+  "services": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "code": "immunity_lite",
+      "name": "Immunity Lite",
+      "description": "Basic immune support.",
+      "priceHalers": 290000,
+      "kind": "standard",
+      "iconKey": "drop",
+      "durationMin": 45
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "code": "pure_hydrate",
+      "name": "Pure Hydrate",
+      "description": "Fast rehydration.",
+      "priceHalers": 250000,
+      "kind": "standard",
+      "iconKey": "drop",
+      "durationMin": 40
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "code": "b12_energy_shot",
+      "name": "B12 Energy Shot",
+      "description": "Vitamin B12 injection.",
+      "priceHalers": 90000,
+      "kind": "standard",
+      "iconKey": "syringe",
+      "durationMin": 15
+    }
+  ],
+  "order": {
+    "id": "ord_test_1",
+    "status": "NEW",
+    "phone": "+420600000000",
+    "address": null,
+    "addressFloor": null,
+    "addressIntercom": null,
+    "desiredTiming": null,
+    "desiredDate": null,
+    "paymentPreference": null,
+    "patientNote": null,
+    "items": [
+      {
+        "id": "item_test_1",
+        "serviceId": "00000000-0000-4000-8000-000000000001",
+        "serviceName": "Immunity Lite",
+        "priceHalers": 290000,
+        "quantity": 1,
+        "serviceCode": "immunity_lite"
+      }
+    ],
+    "totalHalers": 290000,
+    "currency": "CZK",
+    "accessToken": "test-order-token"
+  },
+  "authUser": {
+    "id": "usr_test_1",
+    "email": "patient@example.test",
+    "name": "Test Patient",
+    "picture": null,
+    "role": "PATIENT",
+    "linked": true
+  }
+}
