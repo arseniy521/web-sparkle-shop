@@ -2,12 +2,24 @@
 import '../../styles/global.css';
 ---
 
-<html lang="en">
+<html lang="cs">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Prototype</title>
   </head>
   <body>
-    <h1>Prototype</h1>
+    <button id="open" type="button">Open the order form</button>
+    <div id="order-form-root"></div>
+    <script>
+      const root = document.getElementById('order-form-root')!;
+      let mounted: Promise<void> | undefined;
+      document.getElementById('open')!.addEventListener('click', async () => {
+        mounted ??= import('@/islands/order-form/mount').then((m) => m.mountOrderForm(root, 'cs'));
+        await mounted;
+        const { onboardingCart } = await import('@/islands/order-form/hooks/useOnboardingCart');
+        onboardingCart.openForm('header');
+      });
+    </script>
   </body>
 </html>
