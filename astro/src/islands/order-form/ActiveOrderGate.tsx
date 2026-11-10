@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { ClipboardList } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { track } from '@/lib/analytics';
+import { Button } from './ui/button';
+import { track } from '@/scripts/analytics';
 import { cabinetHref } from './authNavigation';
 
 export const ActiveOrderGate = () => {

@@ -1,5 +1,5 @@
-import { OnboardingFormDialog } from './OnboardingForm/OnboardingFormDialog';
-import { onboardingCart, useOnboardingCart } from '@/hooks/useOnboardingCart';
+import { OnboardingFormDialog } from './OnboardingFormDialog';
+import { onboardingCart, useOnboardingCart } from './hooks/useOnboardingCart';
 
 const handleOpenChange = (next: boolean) => onboardingCart.setOpen(next);
 const handleOrderComplete = () => onboardingCart.clearItems();

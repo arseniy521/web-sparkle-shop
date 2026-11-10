@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getCustomerSummary, type CustomerSummary } from '@/api/onboarding';
+import { getCustomerSummary, type CustomerSummary } from '../api/onboarding';
 
 export const CUSTOMER_SUMMARY_QUERY_KEY = ['customer-summary'] as const;
 

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { ArrowRight, Loader2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { PhoneInput } from '@/components/ui/phone-input';
-import { isValidPhoneNumber, OnboardingFormData } from './useOnboardingForm';
+import { Button } from './ui/button';
+import { Label } from './ui/label';
+import { PhoneInput } from './ui/phone-input';
+import { isValidPhoneNumber, type OnboardingFormData } from './useOnboardingForm';
 
 interface Step1PhoneProps {
   data: OnboardingFormData;

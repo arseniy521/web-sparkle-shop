@@ -2,11 +2,11 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { ActiveOrderGate } from './ActiveOrderGate';
 
-vi.mock('react-i18next', () => ({
+vi.mock('./i18n', () => ({
   useTranslation: () => ({ t: (key: string) => key }),
 }));
 
-vi.mock('@/lib/analytics', () => ({
+vi.mock('@/scripts/analytics', () => ({
   track: vi.fn(),
 }));
 

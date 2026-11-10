@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { toast } from 'sonner';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { X, Loader2, ShoppingBag } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/skeleton';
-import { useServices } from '@/hooks/useServices';
+import { cn } from './ui/cn';
+import { Button } from './ui/button';
+import { Skeleton } from './ui/skeleton';
+import { useServices } from './hooks/useServices';
 import { CartHeader } from './Step0Cart';
 import { AccordionStep } from './AccordionStep';
 import { Step1Phone } from './Step1Phone';
@@ -20,10 +20,10 @@ import { ThankYouScreen } from './ThankYouScreen';
 import { normalizeServiceCode } from './cartCatalog';
 import { applyParticipantDraft } from './participantCount';
 import { isValidPhoneNumber, useOnboardingForm } from './useOnboardingForm';
-import { track, trackCtaClick } from '@/lib/analytics';
-import type { ConversionSource } from '@/lib/analytics';
-import { useAuthStatus } from '@/hooks/useAuthStatus';
-import { useCustomerSummary } from '@/hooks/useCustomerSummary';
+import { track, trackCtaClick } from '@/scripts/analytics';
+import type { ConversionSource } from '@/scripts/analytics';
+import { useAuthStatus } from './hooks/useAuthStatus';
+import { useCustomerSummary } from './hooks/useCustomerSummary';
 
 interface OnboardingFormDialogProps {
   open: boolean;

@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
-import { OnboardingFormData } from './useOnboardingForm';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+import { useTranslation } from './i18n';
+import type { OnboardingFormData } from './useOnboardingForm';
+import { Textarea } from './ui/textarea';
+import { Label } from './ui/label';
 
 interface Step5NoteProps {
   data: OnboardingFormData;

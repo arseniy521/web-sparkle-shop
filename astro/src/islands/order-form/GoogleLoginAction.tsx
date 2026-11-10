@@ -6,16 +6,16 @@ import {
 } from '@react-oauth/google';
 import { Loader2, LogIn } from 'lucide-react';
 import { useQueryClient } from '@tanstack/react-query';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
+import { useTranslation } from './i18n';
+import { Button } from './ui/button';
 import {
   getPublicMe,
   googleAuth,
   OnboardingApiError,
   type AuthenticatedUser,
-} from '@/api/onboarding';
-import { AUTH_STATUS_QUERY_KEY } from '@/hooks/useAuthStatus';
-import { setAnalyticsOptOut, track } from '@/lib/analytics';
+} from './api/onboarding';
+import { AUTH_STATUS_QUERY_KEY } from './hooks/useAuthStatus';
+import { setAnalyticsOptOut, track } from '@/scripts/analytics';
 import { replaceWithIntakeForm } from './authNavigation';
 
 export type LoginFlowState = 'idle' | 'popup' | 'linking' | 'redirecting' | 'error';

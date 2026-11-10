@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { Trash2, Droplet, Syringe, Bandage, Microscope, HandHeart, Citrus, Ambulance, Check, Minus, Plus } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from './ui/cn';
 import type { CartItem, CartService } from './cartCatalog';
 import { serviceTitle, serviceHint } from './serviceDisplay';
 

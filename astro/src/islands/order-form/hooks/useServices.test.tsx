@@ -2,11 +2,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, waitFor } from '@testing-library/react';
 import type { ReactElement, ReactNode } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { fetchServicesCatalog } from '@/api/services';
-import type { CartService } from '@/components/OnboardingForm/cartCatalog';
+import { fetchServicesCatalog } from '../api/services';
+import type { CartService } from '../cartCatalog';
 import { useServices } from './useServices';
 
-vi.mock('@/api/services', () => ({ fetchServicesCatalog: vi.fn() }));
+vi.mock('../api/services', () => ({ fetchServicesCatalog: vi.fn() }));
 
 const mockedFetchServicesCatalog = vi.mocked(fetchServicesCatalog);
 

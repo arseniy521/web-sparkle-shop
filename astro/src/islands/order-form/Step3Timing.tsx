@@ -1,9 +1,9 @@
 import { useEffect, useState, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { ArrowRight, Loader2, ChevronRight, Check, Zap } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { OnboardingFormData } from './useOnboardingForm';
+import { Button } from './ui/button';
+import { cn } from './ui/cn';
+import type { OnboardingFormData } from './useOnboardingForm';
 
 interface Step3TimingProps {
   data: OnboardingFormData;

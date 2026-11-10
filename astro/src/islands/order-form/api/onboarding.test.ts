@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createOrder } from './onboarding';
-import { captureReferral, resetReferralForTests } from '@/lib/referral';
+import { captureReferral, resetReferralForTests } from '@/scripts/referral';
 
 const orderResponse = {
   id: 'o1', status: 'DRAFT', phone: null, address: null, addressFloor: null,

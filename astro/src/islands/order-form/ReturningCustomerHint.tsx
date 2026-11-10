@@ -1,8 +1,8 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { UserRound } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useAuthStatus } from '@/hooks/useAuthStatus';
-import { track } from '@/lib/analytics';
+import { Button } from './ui/button';
+import { useAuthStatus } from './hooks/useAuthStatus';
+import { track } from '@/scripts/analytics';
 
 const appUrl = (import.meta.env.VITE_APP_URL as string | undefined)?.trim() || 'https://app.nius.cz';
 

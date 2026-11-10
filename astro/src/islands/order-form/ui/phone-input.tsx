@@ -4,8 +4,8 @@ import * as RPNInput from 'react-phone-number-input';
 import flags from 'react-phone-number-input/flags';
 import countryLabels from 'react-phone-number-input/locale/en.json';
 
-import { cn } from '@/lib/utils';
-import { Input } from '@/components/ui/input';
+import { cn } from './cn';
+import { Input } from './input';
 
 export type PhoneInputValue = RPNInput.Value;
 

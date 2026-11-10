@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { OnboardingApiError } from '@/api/onboarding';
+import { OnboardingApiError } from './api/onboarding';
 import { FinalScreen } from './FinalScreen';
 
 const testState = vi.hoisted(() => ({
@@ -11,27 +11,27 @@ const testState = vi.hoisted(() => ({
   replaceWithIntakeForm: vi.fn(),
 }));
 
-vi.mock('react-i18next', () => ({
+vi.mock('./i18n', () => ({
   useTranslation: () => ({
     t: (key: string, options?: { defaultValue?: string }) =>
       options?.defaultValue ?? key,
   }),
 }));
 
-vi.mock('@/hooks/useAuthStatus', () => ({
+vi.mock('./hooks/useAuthStatus', () => ({
   useAuthStatus: () => testState.authStatus,
 }));
 
-vi.mock('@/lib/analytics', () => ({
+vi.mock('@/scripts/analytics', () => ({
   flushAnalytics: testState.flushAnalytics,
   identifyUser: vi.fn(),
   setAnalyticsOptOut: vi.fn(),
   track: vi.fn(),
 }));
 
-vi.mock('@/api/onboarding', async () => {
-  const actual = await vi.importActual<typeof import('@/api/onboarding')>(
-    '@/api/onboarding',
+vi.mock('./api/onboarding', async () => {
+  const actual = await vi.importActual<typeof import('./api/onboarding')>(
+    './api/onboarding',
   );
   return {
     ...actual,

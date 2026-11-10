@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { ArrowRight, Loader2, MapPin, Flag } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
 import { AddressAutocomplete } from './AddressAutocomplete';
-import { OnboardingFormData } from './useOnboardingForm';
+import type { OnboardingFormData } from './useOnboardingForm';
 
 interface Step2AddressProps {
   data: OnboardingFormData;

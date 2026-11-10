@@ -1,7 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { CheckCircle2, PhoneCall, Loader2, ClipboardList, Pencil, Activity } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from './ui/button';
 import type { CartItem } from './cartCatalog';
 import { ServiceIcon } from './Step0Cart';
 import { serviceTitle } from './serviceDisplay';
@@ -10,14 +10,14 @@ import {
   linkOrder,
   OnboardingApiError,
   type AuthenticatedUser,
-} from '@/api/onboarding';
-import { useAuthStatus } from '@/hooks/useAuthStatus';
+} from './api/onboarding';
+import { useAuthStatus } from './hooks/useAuthStatus';
 import {
   flushAnalytics,
   identifyUser,
   setAnalyticsOptOut,
   track,
-} from '@/lib/analytics';
+} from '@/scripts/analytics';
 import type { LoginFlowState } from './GoogleLoginAction';
 import { replaceWithIntakeForm } from './authNavigation';
 import { ActiveOrderGate } from './ActiveOrderGate';

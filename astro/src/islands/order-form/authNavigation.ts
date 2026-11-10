@@ -1,4 +1,4 @@
-import { APP_NIUS_URL } from '@/constants/siteContacts';
+import { APP_NIUS_URL } from '@old/constants/siteContacts';
 
 const appUrl =
   (import.meta.env.VITE_APP_URL as string | undefined)?.trim() || APP_NIUS_URL;

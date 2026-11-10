@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import type { CartService } from '@/components/OnboardingForm/cartCatalog';
-import { fetchServicesCatalog } from '@/api/services';
+import type { CartService } from '../cartCatalog';
+import { fetchServicesCatalog } from '../api/services';
 
 export interface UseServicesResult {
   catalog: CartService[];

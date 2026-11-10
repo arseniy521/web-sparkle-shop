@@ -7,12 +7,12 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { Loader2, MapPin } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { useMapyCzSuggest, MapySuggestion } from '@/hooks/useMapyCzSuggest';
-import { AddressGeo } from './useOnboardingForm';
-import { cn } from '@/lib/utils';
+import { Input } from './ui/input';
+import { useMapyCzSuggest, type MapySuggestion } from './hooks/useMapyCzSuggest';
+import type { AddressGeo } from './useOnboardingForm';
+import { cn } from './ui/cn';
 
 interface AddressAutocompleteProps
   extends Omit<React.ComponentProps<typeof Input>, 'onChange' | 'onSelect' | 'value'> {

@@ -3,8 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const init = vi.fn();
 
 vi.mock('@amplitude/analytics-browser', () => ({ init, setOptOut: vi.fn() }));
-vi.mock('@/i18n/config', () => ({ default: { language: 'cs' } }));
-vi.mock('@/lib/consent', () => ({ getConsent: () => 'accepted' }));
+vi.mock('@/scripts/consent', () => ({ getConsent: () => 'accepted' }));
 
 describe('analytics', () => {
   beforeEach(() => {

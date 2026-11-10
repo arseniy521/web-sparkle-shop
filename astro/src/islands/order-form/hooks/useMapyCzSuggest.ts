@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../i18n';
 
 const API_KEY = import.meta.env.VITE_MAPY_API_KEY as string | undefined;
 const BASE = 'https://api.mapy.com/v1/suggest';

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { OnboardingApiError } from '@/api/onboarding';
-import { setAnalyticsOptOut, track } from '@/lib/analytics';
+import { OnboardingApiError } from './api/onboarding';
+import { setAnalyticsOptOut, track } from '@/scripts/analytics';
 import GoogleLoginAction, { type LoginFlowState } from './GoogleLoginAction';
 
 interface CapturedLoginOptions {
@@ -47,11 +47,11 @@ vi.mock('@react-oauth/google', () => ({
   },
 }));
 
-vi.mock('react-i18next', () => ({
+vi.mock('./i18n', () => ({
   useTranslation: () => ({ t: (key: string) => key }),
 }));
 
-vi.mock('@/lib/analytics', () => ({
+vi.mock('@/scripts/analytics', () => ({
   setAnalyticsOptOut: vi.fn(),
   track: vi.fn(),
 }));
@@ -61,9 +61,9 @@ vi.mock('./authNavigation', () => ({
   cabinetHref: () => 'https://app.nius.cz/cabinet',
 }));
 
-vi.mock('@/api/onboarding', async () => {
-  const actual = await vi.importActual<typeof import('@/api/onboarding')>(
-    '@/api/onboarding',
+vi.mock('./api/onboarding', async () => {
+  const actual = await vi.importActual<typeof import('./api/onboarding')>(
+    './api/onboarding',
   );
   return {
     ...actual,

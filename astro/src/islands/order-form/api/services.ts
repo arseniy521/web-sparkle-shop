@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { mapDtoToCartService, type CartService } from '@/components/OnboardingForm/cartCatalog';
+import { mapDtoToCartService, type CartService } from '../cartCatalog';
 
 const envUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
 const BASE_URL = envUrl || (import.meta.env.DEV ? '/api' : 'https://app.nius.cz/api');

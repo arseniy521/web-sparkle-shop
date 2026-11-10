@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { getReferralCode } from '@/lib/referral';
+import { getReferralCode } from '@/scripts/referral';
 
 const MAX_ERROR_MESSAGE_LEN = 200;
 

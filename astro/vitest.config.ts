@@ -8,4 +8,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  define: {
+    'import.meta.env.VITE_GOOGLE_CLIENT_ID': JSON.stringify(
+      'test-client.apps.googleusercontent.com',
+    ),
+  },
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/test-setup.ts'],
+    clearMocks: true,
+  },
 });

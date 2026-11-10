@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './i18n';
 import { PartyPopper } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from './ui/button';
 
 interface ThankYouScreenProps {
   onClose: () => void;

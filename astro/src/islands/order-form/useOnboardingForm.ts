@@ -3,16 +3,16 @@ import { isValidPhoneNumber as isValidIntlPhoneNumber } from 'react-phone-number
 import {
   contactMe,
   createOrder,
-  DesiredTiming,
+  type DesiredTiming,
   OnboardingApiError,
-  OnboardingOrder,
-  OnboardingOrderItem,
-  PaymentPreference,
-} from '@/api/onboarding';
+  type OnboardingOrder,
+  type OnboardingOrderItem,
+  type PaymentPreference,
+} from './api/onboarding';
 import type { CartItem, CartService } from './cartCatalog';
 import { normalizeServiceCode } from './cartCatalog';
 import { loadDraft, saveDraftData } from './onboardingPersist';
-import { track, trackCtaClick, type ConversionSource } from '@/lib/analytics';
+import { track, trackCtaClick, type ConversionSource } from '@/scripts/analytics';
 
 export type OnboardingMode = 'standard' | 'escort';
 

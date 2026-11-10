@@ -1,6 +1,5 @@
 import * as amplitude from '@amplitude/analytics-browser';
-import i18n from '@/i18n/config';
-import { getConsent } from '@/lib/consent';
+import { getConsent } from '@/scripts/consent';
 
 /**
  * Amplitude wrapper for the landing (www.nius.cz).
@@ -57,14 +56,14 @@ export const disableAnalytics = () => {
 
 export const track = (event: string, props?: Record<string, unknown>) => {
   if (!initialized) return;
-  amplitude.track(event, { language: i18n.language, ...props });
+  amplitude.track(event, { language: document.documentElement.lang, ...props });
 };
 
 export const identifyUser = (userId: string) => {
   if (!initialized) return;
   amplitude.setUserId(userId);
   const identify = new amplitude.Identify();
-  identify.set('language', i18n.language);
+  identify.set('language', document.documentElement.lang);
   amplitude.identify(identify);
 };
 

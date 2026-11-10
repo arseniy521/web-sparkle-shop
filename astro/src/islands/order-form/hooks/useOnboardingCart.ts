@@ -1,12 +1,12 @@
 import { useSyncExternalStore } from 'react';
-import { loadDraft, clearDraft, saveDraftCodes } from '@/components/OnboardingForm/onboardingPersist';
-import { normalizeServiceCode } from '@/components/OnboardingForm/cartCatalog';
+import { loadDraft, clearDraft, saveDraftCodes } from '../onboardingPersist';
+import { normalizeServiceCode } from '../cartCatalog';
 import {
   track,
   trackCtaClick,
   type ConversionCta,
   type ConversionSource,
-} from '@/lib/analytics';
+} from '@/scripts/analytics';
 
 
 export interface OnboardingCartState {
