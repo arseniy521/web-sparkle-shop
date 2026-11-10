@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+public/
+.baseline/
+.checks/
+.preview/
+release-dist/
+test-results/
