@@ -52,7 +52,21 @@ test('Metrics of a page view', async ({ page, context }) => {
   const first = await withConsent(page);
   await page.goto(PILOT);
   await page.waitForLoadState('networkidle');
+  // The visitor has seen the page: LCP and CLS exist only once it has painted. The first paint
+  // of a fresh browser can come after 'networkidle'.
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolve) =>
+        new PerformanceObserver((_, observer) => {
+          observer.disconnect();
+          resolve();
+        }).observe({ type: 'largest-contentful-paint', buffered: true }),
+      ),
+  );
+  // close() with runBeforeUnload returns before the page unloads; 'close' fires after it.
+  const closed = page.waitForEvent('close');
   await page.close({ runBeforeUnload: true });
+  await closed;
 
   // What the closed tab sent, or left for the next page of the site to send. The next page is
   // another path, so a metric with the pilot's path can only come from the closed tab.
