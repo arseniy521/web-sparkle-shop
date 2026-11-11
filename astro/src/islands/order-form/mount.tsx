@@ -1,8 +1,12 @@
 import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'sonner';
-import { FormI18nProvider, loadFormI18n, type Lang } from './i18n';
+import { FormI18nProvider, loadFormI18n, prefetchFormStrings, type Lang } from './i18n';
 import { OnboardingHost } from './OrderFormHost';
+
+// This module is fetched in the background when the cart is not empty: fetch the texts with it,
+// so that opening the form does not wait for them.
+prefetchFormStrings(document.documentElement.lang);
 
 export async function mountOrderForm(root: HTMLElement, lang: Lang): Promise<void> {
   const queryClient = new QueryClient();

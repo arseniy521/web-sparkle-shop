@@ -10,6 +10,12 @@ const strings = {
   uk: () => import('./strings/uk'),
 };
 
+/** Starts fetching the texts of the page language; loadFormI18n then reuses the loaded modules. */
+export function prefetchFormStrings(lang: string): void {
+  if (!(lang in strings)) return;
+  Promise.all([strings[lang as Lang](), strings.en()]).catch(() => undefined);
+}
+
 export async function loadFormI18n(lang: Lang): Promise<i18n> {
   const [page, en] = await Promise.all([strings[lang](), strings.en()]);
   const instance = i18next.createInstance();
