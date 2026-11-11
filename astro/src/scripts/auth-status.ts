@@ -20,7 +20,8 @@ async function fetchStatus(): Promise<AuthStatus> {
 }
 
 function request(): Promise<AuthStatus> {
-  const pending = fetchStatus().then((next) => {
+  const pending: Promise<AuthStatus> = fetchStatus().then((next) => {
+    if (inflight !== pending) return inflight ?? current;
     current = next;
     inflight = null;
     for (const listener of listeners) listener();

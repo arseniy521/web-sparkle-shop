@@ -65,6 +65,19 @@ describe('authStatus', () => {
     expect(authStatus.get()).toBe('anonymous');
   });
 
+  it('keeps the latest refresh when an earlier request resolves after it', async () => {
+    const responses: Array<(response: Response) => void> = [];
+    fetchMock.mockImplementation(() => new Promise<Response>((resolve) => responses.push(resolve)));
+    const { authStatus } = await load();
+    const first = authStatus.refresh();
+    const second = authStatus.refresh();
+    responses[1](new Response(null, { status: 200 }));
+    await second;
+    responses[0](new Response(null, { status: 401 }));
+    await first;
+    expect(authStatus.get()).toBe('authenticated');
+  });
+
   it('stops notifying after unsubscribe', async () => {
     const { authStatus } = await load();
     const listener = vi.fn();
