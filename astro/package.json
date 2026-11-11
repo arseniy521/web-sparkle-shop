@@ -18,6 +18,7 @@
     "check:env": "node scripts/check-env.mjs",
     "baseline": "node scripts/baseline/build.mjs",
     "check:seo": "node scripts/checks/seo-check.ts",
+    "check:content": "node scripts/checks/compare-content.ts --old .baseline/dist --new dist",
     "checks:report": "node scripts/checks/registry.ts"
   },
   "dependencies": {

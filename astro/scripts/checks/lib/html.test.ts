@@ -35,6 +35,17 @@ describe('extractFacts', () => {
     expect(f.canonicals).toHaveLength(2);
   });
 
+  it('marks the canonical and robots tags set by react-helmet', () => {
+    const f = facts(
+      `<link rel="canonical" href="https://www.nius.cz/"><meta name="robots" content="index, follow">
+       <link rel="canonical" href="https://www.nius.cz/a/" data-rh="true">
+       <meta name="robots" content="noindex, follow" data-rh="true">`,
+    );
+    expect(f.helmetCanonicals).toEqual(['https://www.nius.cz/a/']);
+    expect(f.helmetRobots).toEqual(['noindex, follow']);
+    expect(facts('<link rel="canonical" href="https://www.nius.cz/a/">').helmetCanonicals).toEqual([]);
+  });
+
   it('collects hreflang alternates only', () => {
     const f = facts(
       `<link rel="alternate" hreflang="cs" href="https://www.nius.cz/">
@@ -83,6 +94,10 @@ describe('extractFacts', () => {
 
   it('keeps text placed directly in the body', () => {
     expect(facts('<body>Direct <b>bold</b></body>').textBlocks.sort()).toEqual(['Direct', 'bold']);
+  });
+
+  it('keeps text blocks in document order', () => {
+    expect(facts('<body><p><b>A</b> B <i>C</i></p>D</body>').textBlocks).toEqual(['A', 'B', 'C', 'D']);
   });
 
   it('reduces internal links to the path without query and hash', () => {

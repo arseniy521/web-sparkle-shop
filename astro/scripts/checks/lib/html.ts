@@ -12,6 +12,9 @@ export interface PageFacts {
   keywords: string[];
   robots: string[];
   canonicals: string[];
+  // The old site carries a static tag from index.html and the page-specific one from react-helmet.
+  helmetCanonicals: string[];
+  helmetRobots: string[];
   hreflang: Array<{ hreflang: string; href: string }>;
   og: Record<string, string[]>;
   metaRefresh: string | null;
@@ -77,15 +80,17 @@ export function extractFacts(html: string, pagePath: string): PageFacts {
   const textBlocks: string[] = [];
   const $text = load(html);
   $text('script, style, nius-menu').remove();
-  $text('body')
-    .find('*')
-    .addBack()
-    .contents()
-    .each((_, node) => {
-      if (node.type !== 'text') return;
-      const text = normalizeText((node as unknown as { data: string }).data);
-      if (text) textBlocks.push(text);
+  // Depth-first, so the blocks keep document order and can be joined into the page text.
+  const walk = (nodes: ReturnType<typeof $text>) =>
+    nodes.contents().each((_, node) => {
+      if (node.type === 'text') {
+        const text = normalizeText((node as unknown as { data: string }).data);
+        if (text) textBlocks.push(text);
+      } else if (node.type === 'tag') {
+        walk($text(node));
+      }
     });
+  walk($text('body'));
 
   return {
     path: pagePath,
@@ -99,6 +104,10 @@ export function extractFacts(html: string, pagePath: string): PageFacts {
     canonicals: $('link[rel="canonical"]')
       .map((_, el) => $(el).attr('href') ?? '')
       .get(),
+    helmetCanonicals: $('link[rel="canonical"][data-rh]')
+      .map((_, el) => $(el).attr('href') ?? '')
+      .get(),
+    helmetRobots: metaContents($, 'meta[name="robots"][data-rh]'),
     hreflang: $('link[rel="alternate"][hreflang]')
       .map((_, el) => ({ hreflang: $(el).attr('hreflang') as string, href: $(el).attr('href') ?? '' }))
       .get(),
