@@ -111,35 +111,40 @@ export const setAnalyticsOptOut = (optOut: boolean): void => {
 export const cleanPath = (url?: string): string =>
   url === undefined ? window.location.pathname : new URL(url, window.location.origin).pathname;
 
-export type ConversionCta =
-  | 'choose_service'
-  | 'view_service'
-  | 'add_to_cart'
-  | 'order_service'
-  | 'cart'
-  | 'account'
-  | 'phone'
-  | 'whatsapp';
+export const CONVERSION_CTAS = [
+  'choose_service',
+  'view_service',
+  'add_to_cart',
+  'order_service',
+  'cart',
+  'account',
+  'phone',
+  'whatsapp',
+] as const;
 
-export type ConversionSource =
-  | 'header_navigation'
-  | 'header_contact_menu'
-  | 'header'
-  | 'mobile_header'
-  | 'mobile_menu'
-  | 'hero'
-  | 'mobile_sticky'
-  | 'final_cta'
-  | 'service_catalog'
-  | 'service_modal'
-  | 'package_card'
-  | 'subscription_card'
-  | 'booster'
-  | 'footer'
-  | 'floating_contact'
-  | 'contacts_section'
-  | 'order_form'
-  | 'page_content';
+export const CONVERSION_SOURCES = [
+  'header_navigation',
+  'header_contact_menu',
+  'header',
+  'mobile_header',
+  'mobile_menu',
+  'hero',
+  'mobile_sticky',
+  'final_cta',
+  'service_catalog',
+  'service_modal',
+  'package_card',
+  'subscription_card',
+  'booster',
+  'footer',
+  'floating_contact',
+  'contacts_section',
+  'order_form',
+  'page_content',
+] as const;
+
+export type ConversionCta = (typeof CONVERSION_CTAS)[number];
+export type ConversionSource = (typeof CONVERSION_SOURCES)[number];
 
 /**
  * One normalized click event for the public conversion funnel.
