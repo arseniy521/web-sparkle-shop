@@ -11,11 +11,6 @@ on:
         type: boolean
         default: true
 
-# Shared with the rollback workflow so that two writers never push to gh-pages at once.
-concurrency:
-  group: publish-gh-pages
-  cancel-in-progress: false
-
 permissions:
   contents: read
 
@@ -128,6 +123,12 @@ jobs:
     if: ${{ github.event.inputs.dry_run == 'false' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     environment: production
+    # Shared with the rollback job so that two writers never push to gh-pages at once; queue: max
+    # keeps a waiting rollback from being cancelled by a later run.
+    concurrency:
+      group: publish-gh-pages
+      cancel-in-progress: false
+      queue: max
     permissions:
       contents: write
       pages: write

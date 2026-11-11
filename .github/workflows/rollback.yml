@@ -9,11 +9,6 @@ on:
         required: true
         type: string
 
-# Shared with the publish workflow so that two writers never push to gh-pages at once.
-concurrency:
-  group: publish-gh-pages
-  cancel-in-progress: false
-
 permissions:
   contents: write
   pages: write
@@ -22,6 +17,12 @@ jobs:
   rollback:
     runs-on: ubuntu-latest
     environment: production
+    # Shared with the publish job so that two writers never push to gh-pages at once; queue: max
+    # keeps a waiting rollback from being cancelled by a later run.
+    concurrency:
+      group: publish-gh-pages
+      cancel-in-progress: false
+      queue: max
 
     steps:
       - name: Refuse unless started from main
