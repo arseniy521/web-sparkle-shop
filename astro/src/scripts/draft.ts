@@ -5,8 +5,8 @@ const STORAGE_KEY = 'nius_onboarding_draft_v2';
 const LEGACY_LOCAL_STORAGE_KEY = 'nius_onboarding_draft_v1';
 const TTL_MS = 24 * 60 * 60 * 1000;
 
-const DESIRED_TIMINGS = new Set(['ASAP', 'MORNING', 'AFTERNOON', 'EVENING', 'CUSTOM_DATE']);
-const PAYMENT_PREFERENCES = new Set(['CARD_ONLINE', 'CASH', 'BANK_TRANSFER']);
+export const DESIRED_TIMINGS = new Set(['ASAP', 'MORNING', 'AFTERNOON', 'EVENING', 'CUSTOM_DATE']);
+export const PAYMENT_PREFERENCES = new Set(['CARD_ONLINE', 'CASH', 'BANK_TRANSFER']);
 
 export interface OnboardingDraft {
   codes: string[];
