@@ -25,6 +25,7 @@ function recordRequests(page: Page): Request[] {
 test('First visit', async ({ page }) => {
   await installApiStub(page);
   const requests = recordRequests(page);
+  const thirdPartyScripts = new Set<string>();
 
   for (const path of [PILOT, '/no-such-page/']) {
     await page.goto(path);
@@ -37,11 +38,18 @@ test('First visit', async ({ page }) => {
     );
     const scripts = requests.filter((request) => request.resourceType() === 'script').map((request) => request.url());
     for (const url of new Set([...scripts, ...preloads])) {
+      // Only the site's own code is read back (page.request bypasses the network guard); any
+      // third-party script before consent is itself the failure and is never fetched.
+      if (new URL(url).host !== 'localhost:8090') {
+        thirdPartyScripts.add(url);
+        continue;
+      }
       const code = await (await page.request.get(url)).text();
       for (const marker of ANALYTICS_CODE) expect(code, `${url} contains ${marker}`).not.toContain(marker);
     }
   }
 
+  expect([...thirdPartyScripts], 'third-party scripts before consent').toEqual([]);
   expect(analyticsRequests(requests)).toEqual([]);
   const cookies = (await page.context().cookies()).map((cookie) => cookie.name);
   expect(cookies.filter((name) => /^(AMP_|_ga)/.test(name))).toEqual([]);

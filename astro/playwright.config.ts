@@ -31,7 +31,14 @@ export default defineConfig({
     {
       name: 'e2e',
       testDir: 'tests/e2e',
-      use: { ...devices['Desktop Chrome'], baseURL: 'http://localhost:8090' },
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'http://localhost:8090',
+        // No host but the local server resolves, so nothing leaves the machine even where request
+        // routing does not reach: requests sent while a page unloads (sendBeacon, keepalive fetch),
+        // preconnects. Page routes still answer stubbed hosts; the network guard reports the rest.
+        launchOptions: { args: ['--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost, EXCLUDE 127.0.0.1'] },
+      },
     },
   ],
 });
