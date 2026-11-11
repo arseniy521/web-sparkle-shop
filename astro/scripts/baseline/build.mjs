@@ -45,7 +45,8 @@ try {
     await page.route(/^https?:\/\/([^/]*\.)?(googletagmanager\.com|google-analytics\.com|amplitude\.com)\//, (r) =>
       r.abort(),
     );
-    await page.goto(`${server.url}${route}`, { waitUntil: 'networkidle' });
+    // The old prerender opens routes without a trailing slash; the old app reads it from location.
+    await page.goto(`${server.url}${route.replace(/\/$/, '')}`, { waitUntil: 'networkidle' });
     await page.locator('link[rel="canonical"][data-rh]').waitFor({ state: 'attached' });
     await page.waitForLoadState('networkidle');
     const html = await page.content();
