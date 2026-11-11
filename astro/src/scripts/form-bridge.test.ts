@@ -90,6 +90,11 @@ describe('initFormBridge', () => {
     expect(cart.getState().open).toBe(false);
     cart.openForm('header');
     expect(load).toHaveBeenCalledTimes(2);
+    resolveLoad();
+    await flushPromises();
+    expect(mount).toHaveBeenCalledWith(document.getElementById('order-form-root'), 'cs');
+    expect(fallback().hidden).toBe(true);
+    expect(cart.getState().open).toBe(true);
   });
 
   it('starts once when initialised twice', async () => {
