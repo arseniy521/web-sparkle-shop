@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { blogImageReplacements, finalPath, hotelTextReplacements, sameAsset } from '../../checks/approved-differences.ts';
+import { NOT_FOUND_PATH } from '../../src/routes/manifest.ts';
 import { SITE_ORIGIN, absoluteUrl, allPageEntries, canonicalPath, hreflangFor } from '../../src/routes/urls.ts';
 import { extractFacts, listPages, sitePathOf } from './lib/html.ts';
 import type { PageFacts } from './lib/html.ts';
@@ -53,7 +54,8 @@ const typeOf = (value: unknown) =>
 export function comparePage(oldFacts: PageFacts, newFacts: PageFacts): { missing: Finding[]; added: Finding[] } {
   const p = newFacts.path;
   const entry = allPageEntries().find((e) => e.path === p);
-  if (!entry) throw new Error(`${p} is not a page of the manifest`);
+  // The 404 page has no manifest entry: its head values come from the old 404 page alone.
+  if (!entry && p !== NOT_FOUND_PATH) throw new Error(`${p} is not a page of the manifest`);
   const missing: Finding[] = [];
   const added: Finding[] = [];
   const miss = (rule: string, detail: string) => missing.push({ rule, path: p, detail });
@@ -69,15 +71,15 @@ export function comparePage(oldFacts: PageFacts, newFacts: PageFacts): { missing
   // Approved difference 11: a page with canonicalLang takes its canonical from the manifest.
   head(
     'canonical',
-    entry.route.canonicalLang
+    entry?.route.canonicalLang
       ? [absoluteUrl(canonicalPath(entry.route, entry.lang))]
       : helmetOr(oldFacts.helmetCanonicals, oldFacts.canonicals),
     newFacts.canonicals,
   );
 
-  // Approved difference 7: the new hreflang equals the manifest set; the old set is not compared.
+  // Approved difference 7: the new hreflang of a page equals the manifest set; the old set is not compared.
   const pairs = (list: Array<{ hreflang: string; href: string }>) => list.map((h) => `${h.hreflang} ${h.href}`).sort();
-  const expectedHreflang = pairs(hreflangFor(entry.route, entry.lang));
+  const expectedHreflang = pairs(entry ? hreflangFor(entry.route, entry.lang) : oldFacts.hreflang);
   if (!isDeepStrictEqual(expectedHreflang, pairs(newFacts.hreflang))) {
     miss('hreflang', `expected ${quote(expectedHreflang)}, new ${quote(pairs(newFacts.hreflang))}`);
   }
@@ -209,20 +211,18 @@ function main() {
   }
 
   const built = new Set(listPages(options.new));
-  // No 404 page here, by the controller's ruling: the visual check compares it, and the SEO rule
-  // notfound-content checks the new 404.html.
-  let paths = allPageEntries()
-    .map((e) => e.path)
-    .filter((p) => built.has(p));
+  // The 404 page is compared with the old static 404.html, the page GitHub Pages serves for an unknown address.
+  let paths = [...allPageEntries().map((e) => e.path), NOT_FOUND_PATH].filter((p) => built.has(p));
   if (options.only !== undefined) {
-    if (!paths.includes(options.only)) usageError(`${options.only} is not a built page of the manifest`);
+    if (!paths.includes(options.only)) usageError(`${options.only} is not a built page of the manifest or the 404 page`);
     paths = [options.only];
   }
 
   let failed = false;
   for (const p of paths) {
-    const read = (dir: string) => fs.readFileSync(path.join(dir, p, 'index.html'), 'utf8');
-    const oldFile = path.join(options.old, p, 'index.html');
+    const file = (dir: string) => (p === NOT_FOUND_PATH ? path.join(dir, '404.html') : path.join(dir, p, 'index.html'));
+    const read = (dir: string) => fs.readFileSync(file(dir), 'utf8');
+    const oldFile = file(options.old);
     const { missing, added } = fs.existsSync(oldFile)
       ? comparePage(extractFacts(read(options.old), p), extractFacts(read(options.new), p))
       : { missing: [{ rule: 'reference-missing', path: p, detail: oldFile }], added: [] };

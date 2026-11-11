@@ -208,6 +208,15 @@ describe('comparePage', () => {
     expect(rules(comparePage(page({}), page({ hreflang: '' })).missing)).toContain('hreflang');
   });
 
+  it('compares the 404 page, which has no manifest entry, with the old static 404 page', () => {
+    const notFound = (body: string) =>
+      extractFacts(`<html lang="en"><head><title>Page Not Found</title><meta name="robots" content="noindex"></head><body>${body}</body></html>`, '/404.html');
+    const old = notFound('<h1>404</h1><p>Missing page.</p><a href="/">Go to Homepage</a>');
+    expect(comparePage(old, old)).toEqual({ missing: [], added: [] });
+    const r = comparePage(old, notFound('<h1>404</h1><a href="/">Go to Homepage</a>'));
+    expect(r.missing).toEqual([expect.objectContaining({ rule: 'text-missing', path: '/404.html', detail: 'Missing page.' })]);
+  });
+
   it('accepts approved difference 11: the privacy canonical follows the manifest', () => {
     const p = '/en/privacy/';
     const old = page({ path: p, hreflang: '', canonical: '<link rel="canonical" href="https://www.nius.cz/en/privacy/">' });

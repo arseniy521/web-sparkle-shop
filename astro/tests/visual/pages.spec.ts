@@ -33,11 +33,11 @@ const pages = allPageEntries()
   .map((e) => e.path)
   .filter((p) => fs.existsSync(path.join(TEST_DIST, p, 'index.html')));
 
-// The 404 page is reached through an unknown address: the old SPA renders its NotFound
-// screen there, the new static server answers 404 with 404.html.
-const targets = [
-  ...pages.map((p) => ({ path: p, url: p })),
-  { path: NOT_FOUND_PATH, url: '/no-such-page/' },
+// The old 404 page is its static 404.html, which GitHub Pages serves for an unknown address;
+// the new static server answers an unknown address with 404 and the new 404.html.
+const targets: Array<{ path: string; urls: Record<Site, string> }> = [
+  ...pages.map((p) => ({ path: p, urls: { old: p, new: p } })),
+  { path: NOT_FOUND_PATH, urls: { old: NOT_FOUND_PATH, new: '/no-such-page/' } },
 ];
 
 async function open(
@@ -88,13 +88,13 @@ function expectResult(result: ReturnType<typeof compare>) {
 
 async function shoot(
   browser: Browser,
-  urlPath: string,
+  urls: Record<Site, string>,
   viewport: ViewportId,
   options: { consent: boolean; fullPage: boolean; prepare?: (page: Page) => Promise<void> },
 ) {
   return Promise.all(
     (['old', 'new'] as const).map(async (site) => {
-      const page = await open(browser, site, urlPath, viewport, options);
+      const page = await open(browser, site, urls[site], viewport, options);
       try {
         if (options.prepare) {
           await options.prepare(page);
@@ -119,7 +119,7 @@ for (const target of targets) {
       const check = viewport === 'phone' ? 'visual-phone' : 'visual-desktop';
       // Overwritten below; a crash must not leave the result of an earlier run.
       record(check, target.path, 'fail', 'not completed');
-      const [o, n] = await shoot(browser, target.url, viewport, { consent: true, fullPage: true });
+      const [o, n] = await shoot(browser, target.urls, viewport, { consent: true, fullPage: true });
       const result = compare(target.path, viewport, o, n);
       record(check, target.path, result.status, result.status === 'pass' ? undefined : summary(result.pixels));
       expectResult(result);
@@ -145,7 +145,7 @@ for (const { state, viewports, consent, prepare } of STATES) {
   for (const viewport of viewports) {
     test(`${SLICE} ${state} ${viewport}`, async ({ browser }) => {
       test.setTimeout(120_000);
-      const [o, n] = await shoot(browser, SLICE, viewport, { consent, fullPage: false, prepare });
+      const [o, n] = await shoot(browser, { old: SLICE, new: SLICE }, viewport, { consent, fullPage: false, prepare });
       expectResult(compare(`${SLICE} ${state}`, viewport, o, n));
     });
   }
