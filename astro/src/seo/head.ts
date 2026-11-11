@@ -47,3 +47,7 @@ export function buildHead(route: PageRoute, lang: Lang, meta: PageMeta): HeadMod
     ogType: meta.ogType ?? 'website',
   };
 }
+
+export function serializeJsonLd(value: unknown): string {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
+}

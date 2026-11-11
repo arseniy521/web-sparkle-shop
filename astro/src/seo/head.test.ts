@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getPage } from '@/routes/urls.ts';
-import { buildHead } from './head';
+import { buildHead, serializeJsonLd } from './head';
 
 const meta = { title: 'T', description: 'D' };
 
@@ -27,4 +27,12 @@ describe('buildHead', () => {
     expect(h.ogImage).toBe('https://www.nius.cz/og-image.jpg');
     expect(h.ogType).toBe('website');
   });
+});
+
+describe('serializeJsonLd', () => {
+  const v = { name: 'a </script><script>alert(1)</script> b', note: '<!-- x' };
+  it('emits no angle bracket that could close the script element', () =>
+    expect(serializeJsonLd(v)).not.toContain('<'));
+  it('round-trips through JSON.parse', () =>
+    expect(JSON.parse(serializeJsonLd(v))).toEqual(v));
 });

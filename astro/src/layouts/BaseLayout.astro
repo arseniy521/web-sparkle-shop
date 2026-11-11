@@ -1,6 +1,6 @@
 ---
 import '@/styles/global.css';
-import { buildHead } from '@/seo/head.ts';
+import { buildHead, serializeJsonLd } from '@/seo/head.ts';
 import type { PageMeta } from '@/seo/head.ts';
 import type { Lang, PageRoute } from '@/routes/types.ts';
 
@@ -46,7 +46,7 @@ const schemas = meta.schema === undefined ? [] : Array.isArray(meta.schema) ? me
     <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-    {schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+    {schemas.map((schema) => <script type="application/ld+json" set:html={serializeJsonLd(schema)} />)}
     <slot name="head" />
   </head>
   <body>
