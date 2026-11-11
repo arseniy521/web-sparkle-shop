@@ -237,8 +237,8 @@ interface ElementStyles {
   outline: boolean;
 }
 
-function readStyles(root: Locator, props: readonly string[]): Promise<ElementStyles[]> {
-  return root.evaluate((dialog, names) => {
+async function readStyles(root: Locator, props: readonly string[]): Promise<ElementStyles[]> {
+  const list = await root.evaluate((dialog, names) => {
     const describe = (el: Element, kind: string, i: number) =>
       `${kind}:nth(${i}) "${(el.getAttribute('aria-label') ?? (el as HTMLElement).innerText ?? '').trim().slice(0, 40)}"`;
     const els: [Element, string][] = [[dialog, '[role="dialog"]']];
@@ -252,7 +252,8 @@ function readStyles(root: Locator, props: readonly string[]): Promise<ElementSty
         computed.outlineStyle !== 'none' && parseFloat(computed.outlineWidth) > 0 ? computed.outlineColor : 'none';
       return { selector, styles, outline };
     });
-  }, props as string[]).then((list) => list.map((e) => ({ ...e, outline: outlineVisible(e.outline) })));
+  }, props as string[]);
+  return list.map((e) => ({ ...e, outline: outlineVisible(e.outline) }));
 }
 
 function outlineVisible(color: string) {
@@ -319,11 +320,9 @@ function record(viewport: string, state: string, kind: string, diffs: Difference
   writeFileSync(join(OUT, 'differences.json'), JSON.stringify(all, null, 2));
 }
 
-function open(browser: Browser, viewport: { width: number; height: number }): Promise<Pages> {
-  return Promise.all([openForm(browser, 'old', viewport), openForm(browser, 'new', viewport)]).then(([o, n]) => ({
-    old: o,
-    new: n,
-  }));
+async function open(browser: Browser, viewport: { width: number; height: number }): Promise<Pages> {
+  const [o, n] = await Promise.all([openForm(browser, 'old', viewport), openForm(browser, 'new', viewport)]);
+  return { old: o, new: n };
 }
 
 async function close(pages: Pages | undefined) {
