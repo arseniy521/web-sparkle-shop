@@ -25,6 +25,7 @@ jobs:
   build:
     needs: checks
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     env:
       VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
       VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
@@ -55,16 +56,13 @@ jobs:
       - name: Check the new site's build environment
         run: npm run check:env
 
-      # The old site's check imports vite, so it needs the old site's dependencies installed.
+      # check:env above reads the same variables and root .env files as the old site's own check.
+      # The old site's lint and tests need its dependencies; baseline reinstalls them later.
       - name: Install the old site's dependencies
         working-directory: .
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
         run: npm ci
-
-      - name: Check the old site's build environment
-        working-directory: .
-        run: node scripts/check-release-env.mjs
 
       # The root configs would also pick up astro/, so the old site's own files are named.
       - name: Lint the old site
@@ -124,6 +122,8 @@ jobs:
           # .nojekyll is a hidden file; upload-artifact skips hidden files by default.
           include-hidden-files: true
           if-no-files-found: error
+          # A re-run of build replaces the artifact of its earlier attempt.
+          overwrite: true
 
   publish:
     needs: build
@@ -132,6 +132,8 @@ jobs:
     if: ${{ github.event.inputs.dry_run == 'false' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     environment: production
+    # 15 minutes for the job itself plus up to 10 minutes of waiting for GitHub Pages.
+    timeout-minutes: 25
     # Shared with the rollback job so that two writers never push to gh-pages at once; queue: max
     # keeps a waiting rollback from being cancelled by a later run.
     concurrency:
@@ -177,6 +179,13 @@ jobs:
           if [ -z "$(ls -A _astro 2>/dev/null)" ]; then echo "::error::release-dist has no _astro/."; status=1; fi
           if [ -f CNAME ] && [ "$(cat CNAME)" != "www.nius.cz" ]; then echo "::error::CNAME is not www.nius.cz."; status=1; fi
           if [ -e .git ]; then echo "::error::release-dist contains .git."; status=1; fi
+          # A truncated artifact must not replace a fuller site.
+          new_pages=$(find . -type f -name index.html | wc -l)
+          old_pages=$(git -C "$GITHUB_WORKSPACE/gh-pages" ls-tree -r --name-only HEAD | grep -cE '(^|/)index\.html$' || true)
+          if [ "$new_pages" -lt "$old_pages" ]; then
+            echo "::error::release-dist has $new_pages index.html files, gh-pages has $old_pages."
+            status=1
+          fi
           exit $status
 
       - name: Replace the tree of gh-pages with release-dist
