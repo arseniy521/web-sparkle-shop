@@ -83,3 +83,7 @@ export function visitorDataIn(payloads: string[]): string[] {
   ];
   return [...(phone.test(text) ? ['phone'] : []), ...needles.filter((needle) => text.includes(needle))];
 }
+
+/** Properties of the captured events of one type, in upload order. */
+export const events = (amplitude: AmplitudeCapture, type: string) =>
+  amplitude.events().filter((event) => event.event_type === type).map((event) => event.event_properties);

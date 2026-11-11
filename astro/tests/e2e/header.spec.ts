@@ -1,5 +1,5 @@
 import { devices, type Page } from '@playwright/test';
-import { captureAmplitude, type AmplitudeCapture } from '../fixtures/amplitude.ts';
+import { captureAmplitude, events } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa } from '../fixtures/google.ts';
 import { expect, serveSiteAt, test } from '../fixtures/network-guard.ts';
@@ -7,9 +7,6 @@ import { E2E_ORIGIN } from '../fixtures/servers.ts';
 import { PILOT } from '../fixtures/pilot.ts';
 
 const PRODUCTION = 'https://www.nius.cz';
-
-const events = (amplitude: AmplitudeCapture, type: string) =>
-  amplitude.events().filter((event) => event.event_type === type).map((event) => event.event_properties);
 
 async function stubApp(page: Page) {
   await page.route('https://app.nius.cz/**', (route) =>

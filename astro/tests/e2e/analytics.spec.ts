@@ -1,13 +1,12 @@
 import type { Page } from '@playwright/test';
 import cs from '../../../src/i18n/locales/cs.json' with { type: 'json' };
 import stubData from '../../preview/stub-data.json' with { type: 'json' };
-import { captureAmplitude, visitorDataIn, VISITOR, type AmplitudeCapture } from '../fixtures/amplitude.ts';
+import { captureAmplitude, visitorDataIn, VISITOR, type AmplitudeCapture, events } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa, stubGoogleIdentity, type GaCapture } from '../fixtures/google.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
 import { E2E_ORIGIN } from '../fixtures/servers.ts';
 import { PILOT } from '../fixtures/pilot.ts';
-
 
 // Every scenario here runs for a visitor who has accepted analytics.
 async function withConsent(page: Page): Promise<{ amplitude: AmplitudeCapture; ga: GaCapture }> {
@@ -18,8 +17,6 @@ async function withConsent(page: Page): Promise<{ amplitude: AmplitudeCapture; g
   return { amplitude, ga };
 }
 
-const events = (amplitude: AmplitudeCapture, type: string) =>
-  amplitude.events().filter((event) => event.event_type === type).map((event) => event.event_properties);
 const payloads = (amplitude: AmplitudeCapture, ga: GaCapture) => [
   ...amplitude.requests().map((r) => `${r.url}\n${r.body}`),
   ...ga.hits().map((h) => `${h.url}\n${h.body}`),

@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 import cs from '../../../src/i18n/locales/cs.json' with { type: 'json' };
 import stubData from '../../preview/stub-data.json' with { type: 'json' };
-import { captureAmplitude, visitorDataIn, VISITOR, type AmplitudeCapture } from '../fixtures/amplitude.ts';
+import { captureAmplitude, visitorDataIn, VISITOR, type AmplitudeCapture, events } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa, stubGoogleIdentity, type GaCapture } from '../fixtures/google.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
@@ -39,8 +39,6 @@ async function openPilot(page: Page, codes: string[] = [LITE.code]): Promise<Ope
 }
 
 const dialog = (page: Page) => page.getByRole('dialog', { name: cs.onboarding.dialogTitle });
-const events = (amplitude: AmplitudeCapture, type: string) =>
-  amplitude.events().filter((event) => event.event_type === type).map((event) => event.event_properties);
 const payloads = ({ amplitude, ga }: Opened) => [
   ...amplitude.requests().map((r) => `${r.url}\n${r.body}`),
   ...ga.hits().map((h) => `${h.url}\n${h.body}`),
