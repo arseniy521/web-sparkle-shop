@@ -10,6 +10,9 @@ const calls = vi.hoisted(() => ({
   initWebVitals: vi.fn(),
   initCookieBanner: vi.fn(),
   initLinkTracker: vi.fn(),
+  installCartBridge: vi.fn(),
+  initHeaderState: vi.fn(),
+  ensureAuthStatus: vi.fn(),
 }));
 
 vi.mock('@/scripts/referral', () => ({ captureReferral: calls.captureReferral }));
@@ -23,6 +26,9 @@ vi.mock('@/scripts/ga', () => ({ loadGa: calls.loadGa }));
 vi.mock('@/scripts/web-vitals', () => ({ initWebVitals: calls.initWebVitals }));
 vi.mock('@/scripts/cookie-banner', () => ({ initCookieBanner: calls.initCookieBanner }));
 vi.mock('@/scripts/link-tracker', () => ({ initLinkTracker: calls.initLinkTracker }));
+vi.mock('@/scripts/cart-core', () => ({ installCartBridge: calls.installCartBridge }));
+vi.mock('@/scripts/header-state', () => ({ initHeaderState: calls.initHeaderState }));
+vi.mock('@/scripts/auth-status', () => ({ authStatus: { ensure: calls.ensureAuthStatus } }));
 
 describe('boot', () => {
   beforeEach(() => {
@@ -60,4 +66,14 @@ describe('boot', () => {
       expect(calls.initLinkTracker).toHaveBeenCalledOnce();
     },
   );
+
+  it('starts the cart, the header state and the sign-in check, the cart first', async () => {
+    await import('./boot');
+    expect(calls.installCartBridge).toHaveBeenCalledOnce();
+    expect(calls.initHeaderState).toHaveBeenCalledOnce();
+    expect(calls.ensureAuthStatus).toHaveBeenCalledOnce();
+    expect(calls.installCartBridge.mock.invocationCallOrder[0]).toBeLessThan(
+      calls.initHeaderState.mock.invocationCallOrder[0],
+    );
+  });
 });

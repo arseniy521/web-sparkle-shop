@@ -4,6 +4,9 @@ import { getConsent } from '@/scripts/consent';
 import { installGlobalErrorHandlers } from '@/scripts/client-error';
 import { loadGa } from '@/scripts/ga';
 import { initLinkTracker } from '@/scripts/link-tracker';
+import { authStatus } from '@/scripts/auth-status';
+import { installCartBridge } from '@/scripts/cart-core';
+import { initHeaderState } from '@/scripts/header-state';
 import { captureReferral } from '@/scripts/referral';
 import { initWebVitals } from '@/scripts/web-vitals';
 
@@ -16,3 +19,6 @@ if (getConsent() === 'accepted') {
 }
 initCookieBanner();
 initLinkTracker();
+installCartBridge();
+initHeaderState();
+void authStatus.ensure();
