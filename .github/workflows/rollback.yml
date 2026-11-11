@@ -1,0 +1,64 @@
+name: Roll back NIUS to a published build
+
+# Restores the tree of a tag published-YYYYMMDD-HHMM onto gh-pages as an ordinary commit.
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag of the build to restore, e.g. published-20260101-1200'
+        required: true
+        type: string
+
+# Shared with the publish workflow so that two writers never push to gh-pages at once.
+concurrency:
+  group: publish-gh-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Check out gh-pages with its history
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Check the tag
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          if ! printf '%s' "$TAG" | grep -Eq '^published-[0-9]{8}-[0-9]{4}$'; then
+            echo "::error::The tag must look like published-YYYYMMDD-HHMM."
+            exit 1
+          fi
+          if ! git rev-parse --verify --quiet "refs/tags/$TAG^{commit}" > /dev/null; then
+            echo "::error::The tag $TAG does not exist."
+            exit 1
+          fi
+
+      - name: Replace the working tree with the tree of the tag
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          git rm -rq .
+          git checkout "refs/tags/$TAG" -- .
+
+      - name: Commit and push
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "gh-pages already equals $TAG, nothing to roll back."
+            exit 0
+          fi
+          git commit -q -m "rollback: $TAG"
+          git push origin HEAD:gh-pages
