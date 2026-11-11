@@ -1,12 +1,12 @@
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, test, type Browser, type Locator, type Page } from '@playwright/test';
-import pixelmatch from 'pixelmatch';
-import { PNG } from 'pngjs';
 import cs from '../../../src/i18n/locales/cs.json' with { type: 'json' };
 import stubData from '../../preview/stub-data.json' with { type: 'json' };
+import { record as recordCheck } from '../../scripts/checks/registry.ts';
 import { installApiStub } from '../fixtures/api-stub';
+import { MAX_RATIO, comparePngs, settle } from './compare.ts';
 
 const OUT = fileURLToPath(new URL('../../.checks/visual/form/', import.meta.url));
 const SITES = {
@@ -70,7 +70,7 @@ interface Difference {
 type Pages = Record<Site, Page>;
 
 async function openForm(browser: Browser, site: Site, viewport: { width: number; height: number }) {
-  const context = await browser.newContext({ viewport });
+  const context = await browser.newContext({ viewport, reducedMotion: 'reduce' });
   await context.addCookies([{ name: 'nius_consent', value: 'rejected', url: SITES[site].origin }]);
   await context.route(/^https?:\/\/([^/]*\.)?(googletagmanager\.com|google-analytics\.com|amplitude\.com)\//, (route) =>
     route.abort(),
@@ -121,16 +121,6 @@ async function reach(pages: Pages, state: State) {
   for (const step of STATES.slice(1, STATES.indexOf(state) + 1)) {
     await Promise.all([advance(pages.old, step), advance(pages.new, step)]);
   }
-}
-
-async function settle(page: Page) {
-  await page.mouse.move(0, 0);
-  await page.evaluate(() => document.fonts.ready);
-  await page.waitForFunction(() =>
-    document
-      .getAnimations()
-      .every((a) => a.playState !== 'running' || a.effect?.getTiming().iterations === Infinity),
-  );
 }
 
 function parseColor(value: string): [number, number, number, number] {
@@ -280,26 +270,13 @@ function compareStyles(old: ElementStyles[], neu: ElementStyles[], base: Omit<Di
 }
 
 function comparePixels(oldPng: Buffer, newPng: Buffer, dir: string, base: Omit<Difference, 'kind' | 'old' | 'new'>) {
-  mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'old.png'), oldPng);
-  writeFileSync(join(dir, 'new.png'), newPng);
-  const [a, b] = [PNG.sync.read(oldPng), PNG.sync.read(newPng)];
-  const [width, height] = [Math.min(a.width, b.width), Math.min(a.height, b.height)];
-  const crop = (img: PNG) => {
-    const out = new PNG({ width, height });
-    PNG.bitblt(img, out, 0, 0, width, height, 0, 0);
-    return out;
-  };
-  const diff = new PNG({ width, height });
-  const count = pixelmatch(crop(a).data, crop(b).data, diff.data, width, height, { threshold: 0.1 });
-  writeFileSync(join(dir, 'diff.png'), PNG.sync.write(diff));
-  const ratio = count / (width * height);
+  const p = comparePngs(oldPng, newPng, dir);
   const diffs: Difference[] = [];
-  if (a.width !== b.width || a.height !== b.height) {
-    diffs.push({ ...base, kind: 'pixels', property: 'size', old: `${a.width}x${a.height}`, new: `${b.width}x${b.height}` });
+  if (!p.sameSize) {
+    diffs.push({ ...base, kind: 'pixels', property: 'size', old: `${p.old.width}x${p.old.height}`, new: `${p.new.width}x${p.new.height}` });
   }
-  if (ratio > 0.001) {
-    diffs.push({ ...base, kind: 'pixels', property: 'differing pixels', old: 0, new: `${count} (${(ratio * 100).toFixed(3)} %)` });
+  if (p.ratio > MAX_RATIO) {
+    diffs.push({ ...base, kind: 'pixels', property: 'differing pixels', old: 0, new: `${p.count} (${(p.ratio * 100).toFixed(3)} %)` });
   }
   return diffs;
 }
@@ -329,6 +306,33 @@ async function close(pages: Pages | undefined) {
   await pages?.old.context().close();
   await pages?.new.context().close();
 }
+
+// The registry row order-form: a viewport passes only when all its tests ran and passed.
+const STATUS_DIR = join(OUT, 'status');
+const TESTS_PER_VIEWPORT = STATES.length * 3 + 3;
+const checkOf = (vp: string) => (vp === '390x844' ? 'visual-phone' : 'visual-desktop');
+
+test.beforeAll(() => {
+  for (const { width, height } of VIEWPORTS) {
+    const vp = `${width}x${height}`;
+    if (!existsSync(join(STATUS_DIR, vp))) recordCheck(checkOf(vp), 'order-form', 'fail', 'not completed');
+  }
+});
+
+// Playwright requires the fixtures argument to be a destructuring pattern.
+// eslint-disable-next-line no-empty-pattern
+test.afterEach(({}, testInfo) => {
+  const vp = (testInfo.titlePath.find((t) => /^\d+x\d+ /.test(t)) as string).split(' ')[0];
+  const dir = join(STATUS_DIR, vp);
+  mkdirSync(dir, { recursive: true });
+  const passed = testInfo.status === testInfo.expectedStatus;
+  writeFileSync(join(dir, `${testInfo.titlePath.join(' ').replace(/[^\w-]+/g, '_')}.txt`), passed ? 'passed' : 'failed');
+  const statuses = readdirSync(dir).map((file) => readFileSync(join(dir, file), 'utf8'));
+  const failed = statuses.filter((status) => status !== 'passed').length;
+  const missing = TESTS_PER_VIEWPORT - statuses.length;
+  if (failed === 0 && missing === 0) recordCheck(checkOf(vp), 'order-form', 'pass');
+  else recordCheck(checkOf(vp), 'order-form', 'fail', `${failed} failed, ${missing} not completed`);
+});
 
 for (const viewport of VIEWPORTS) {
   const vp = `${viewport.width}x${viewport.height}`;

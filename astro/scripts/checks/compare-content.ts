@@ -209,6 +209,8 @@ function main() {
   }
 
   const built = new Set(listPages(options.new));
+  // No 404 page here, by the controller's ruling: the visual check compares it, and the SEO rule
+  // notfound-content checks the new 404.html.
   let paths = allPageEntries()
     .map((e) => e.path)
     .filter((p) => built.has(p));

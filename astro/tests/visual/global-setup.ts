@@ -1,6 +1,7 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import { startStaticServer } from '../fixtures/static-server.ts';
+import { writeReport } from './compare.ts';
 
 export const OLD_DIST = '.baseline/dist';
 // The test build calls the stubbed relative API, so it lives apart from the publishable dist/.
@@ -22,5 +23,6 @@ export default async function globalSetup() {
   ]);
   return async () => {
     await Promise.all(servers.map((s) => s.close()));
+    writeReport(VISUAL_DIR);
   };
 }
