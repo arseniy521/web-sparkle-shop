@@ -12,7 +12,7 @@ import {
   redirectTarget,
   sitemapEntries,
 } from '../../src/routes/urls.ts';
-import { extractFacts, listPages, normalizeText } from './lib/html.ts';
+import { extractFacts, listPages, normalizeText, sitePathOf } from './lib/html.ts';
 import type { PageFacts } from './lib/html.ts';
 
 export interface Finding {
@@ -343,8 +343,8 @@ function checkLinksAndImages(ctx: Ctx, { entry, facts }: PageInfo): void {
 
   for (const image of facts.images) {
     if (image.alt === null) ctx.add('image-no-alt', p, `image ${image.src} has no alt attribute`);
-    const urlPath = image.src.startsWith('/') ? image.src : sitePath(image.src);
-    if (urlPath?.startsWith('/') && !urlPath.startsWith('//') && !fileExists(ctx, urlPath)) {
+    const urlPath = sitePathOf(image.src, p);
+    if (urlPath !== null && !fileExists(ctx, urlPath)) {
       ctx.add('image-missing', p, `image file ${image.src} is not in the build`);
     }
   }

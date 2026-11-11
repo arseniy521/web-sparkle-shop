@@ -93,6 +93,25 @@ describe('extractFacts', () => {
     expect(f.internalLinks).toEqual(['/en/blog/', '/brand/logo.svg']);
   });
 
+  it('follows absolute, protocol-relative and relative links to the site itself', () => {
+    const f = facts(
+      `<a href="https://www.nius.cz/a/?q=1#h">1</a><a href="http://nius.cz/b/">2</a>
+       <a href="//www.nius.cz/c/">3</a><a href="d/">4</a><a href="../e/">5</a>
+       <a href="./f.html">6</a><a href="/p%C5%99/">7</a><a href="https://www.nius.cz">8</a>`,
+      '/en/x/',
+    );
+    expect(f.internalLinks).toEqual(['/a/', '/b/', '/c/', '/en/x/d/', '/en/e/', '/en/x/f.html', '/př/', '/']);
+  });
+
+  it('ignores other hosts, other schemes, hash-only and query-only links', () => {
+    const f = facts(
+      `<a href="https://example.com/a/">1</a><a href="https://www.nius.com/">2</a>
+       <a href="https://evilnius.cz/">3</a><a href="javascript:void(0)">4</a>
+       <a href="mailto:a@b.cz">5</a><a href="tel:+420">6</a><a href="#a">7</a><a href="?x=1">8</a><a href="">9</a>`,
+    );
+    expect(f.internalLinks).toEqual([]);
+  });
+
   it('reads images with a missing alt as null and an empty alt as empty', () => {
     const f = facts('<img src="/a.jpg"><img src="/b.jpg" alt=""><img src="/c.jpg" alt="C">');
     expect(f.images).toEqual([

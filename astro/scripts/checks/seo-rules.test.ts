@@ -488,6 +488,15 @@ describe('links and images', () => {
     expect(rulesOf(findings)).toEqual(['link-to-redirect']);
   });
 
+  it('link-to-redirect: an absolute link to the site', () => {
+    expectOnly(withBody(link('https://www.nius.cz/iv-drips-prague/')), 'link-to-redirect', '/iv-drips-prague/');
+  });
+  it('link-to-redirect: a relative link', () => {
+    expectOnly(withBody(link('../../iv-drips-prague/')), 'link-to-redirect', '/iv-drips-prague/');
+  });
+  it('link-broken: an absolute link to a missing page', () => {
+    expectOnly(withBody(link('http://nius.cz/nowhere/')), 'link-broken', '/nowhere/');
+  });
   it('link-broken: a link to an address that does not exist', () => {
     expectOnly(withBody(link('/nowhere/')), 'link-broken', '/nowhere/');
   });
@@ -524,6 +533,13 @@ describe('links and images', () => {
       'image-missing',
       'photos/missing.jpg',
     );
+  });
+  it('image-missing: a relative path and a percent-encoded path', () => {
+    expectOnly(withBody('<img src="../../photos/missing.jpg" alt="x">'), 'image-missing', 'missing.jpg');
+    expectOnly(withBody('<img src="/photos/m%C5%99.jpg" alt="x">'), 'image-missing', 'm%C5%99.jpg');
+  });
+  it('image-missing: a relative path to an existing file is fine', () => {
+    expect(checkDist({ distDir: withBody('<img src="../../og-image.jpg" alt="x">') })).toEqual([]);
   });
   it('image-missing: external and inline images are not checked', () => {
     const body = '<img src="https://cdn.example.com/a.jpg" alt="x"><img src="data:image/gif;base64,AAAA" alt="x">';

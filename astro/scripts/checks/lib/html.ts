@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { load } from 'cheerio';
 import type { CheerioAPI } from 'cheerio';
+import { SITE_ORIGIN } from '../../../src/routes/urls.ts';
 
 export interface PageFacts {
   path: string;
@@ -33,9 +34,25 @@ function metaContents($: CheerioAPI, selector: string): string[] {
     .get();
 }
 
-function internalPath(href: string): string | null {
-  if (!href.startsWith('/') || href.startsWith('//')) return null;
-  return href.replace(/[?#].*$/, '');
+const SITE_HOSTS = [new URL(SITE_ORIGIN).hostname, new URL(SITE_ORIGIN).hostname.replace(/^www./, '')];
+
+// The decoded path of a link or image address that points to the site itself, else null.
+// Query and hash are dropped; relative addresses resolve against the page path.
+export function sitePathOf(href: string, pagePath: string): string | null {
+  const value = href.trim();
+  if (value === '' || value.startsWith('#') || value.startsWith('?')) return null;
+  let url: URL;
+  try {
+    url = new URL(value, SITE_ORIGIN + pagePath);
+  } catch {
+    return null;
+  }
+  if (!['http:', 'https:'].includes(url.protocol) || !SITE_HOSTS.includes(url.hostname)) return null;
+  try {
+    return decodeURIComponent(url.pathname);
+  } catch {
+    return url.pathname;
+  }
 }
 
 export function extractFacts(html: string, pagePath: string): PageFacts {
@@ -98,9 +115,9 @@ export function extractFacts(html: string, pagePath: string): PageFacts {
       .get(),
     textBlocks,
     internalLinks: $('a[href]')
-      .map((_, el) => internalPath($(el).attr('href') as string))
+      .map((_, el) => sitePathOf($(el).attr('href') as string, pagePath))
       .get()
-      .filter((href): href is string => href !== null && href !== ''),
+      .filter((href): href is string => href !== null),
     images: $('img')
       .map((_, el) => ({ src: $(el).attr('src') ?? '', alt: $(el).attr('alt') ?? null }))
       .get(),
