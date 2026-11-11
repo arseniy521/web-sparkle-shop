@@ -212,6 +212,10 @@ describe('head of a page', () => {
   it('single-title: two titles', () => {
     expectOnly(breakPage((t) => t.replace('</head>', '<title>Second</title></head>')), 'single-title');
   });
+  it('single-title: the title of an inline SVG icon in the body is not a page title', () => {
+    const dir = breakPage((t) => t.replace('</body>', '<svg viewBox="0 0 24 24"><title>Icon</title></svg></body>'));
+    expect(checkDist({ distDir: dir })).toEqual([]);
+  });
   it('single-title: an empty title', () => {
     expectOnly(breakPage((t) => t.replace(/<title>.*?<\/title>/, '<title> </title>')), 'single-title');
   });

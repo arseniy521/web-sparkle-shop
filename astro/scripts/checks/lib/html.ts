@@ -135,7 +135,8 @@ export function extractFacts(html: string, pagePath: string, exclude?: string): 
   return {
     path: pagePath,
     lang: $('html').attr('lang') ?? null,
-    titles: $('title')
+    // Only the page title: an inline SVG icon in the body has <title> elements of its own.
+    titles: $('head > title')
       .map((_, el) => $(el).text())
       .get(),
     descriptions: metaContents($, 'meta[name="description"]'),
