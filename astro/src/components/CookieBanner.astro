@@ -1,0 +1,41 @@
+---
+import { pageUrl } from '@/routes/urls.ts';
+
+const privacyUrl = pageUrl('privacy', 'cs');
+---
+
+<div
+  data-cookie-banner
+  hidden
+  class="fixed bottom-0 left-0 right-0 z-[60] px-4 pb-4 md:px-6 md:pb-6"
+  role="dialog"
+  aria-label="Cookie consent"
+>
+  <div
+    class="max-w-[600px] mx-auto rounded-lg p-4 md:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 shadow-lg"
+    style="background-color: white; border: 0.5px solid var(--color-line);"
+  >
+    <p class="text-xs font-body flex-1" style="color: var(--color-text-secondary);">
+      We use cookies for analytics (Google Analytics) to improve our service.{' '}
+      <a href={privacyUrl} class="underline" style="color: var(--color-indigo);">Privacy Policy</a>
+    </p>
+    <div class="flex gap-2 flex-shrink-0">
+      <button
+        type="button"
+        data-consent="reject"
+        class="px-3 py-1.5 rounded text-xs font-body font-medium transition-colors"
+        style="color: var(--color-text-secondary); border: 0.5px solid var(--color-line);"
+      >
+        Reject
+      </button>
+      <button
+        type="button"
+        data-consent="accept"
+        class="px-3 py-1.5 rounded text-xs font-body font-medium text-white transition-colors"
+        style="background-color: var(--color-indigo);"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
