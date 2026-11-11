@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { buildLanguageUrl } from "@/utils/languageUtils";
 import { enableAnalytics, disableAnalytics } from "@/lib/analytics";
 import { getConsent, setConsent } from "@/lib/consent";
+import { useOnboardingCart } from "@/hooks/useOnboardingCart";
 
 const COPY: Record<string, { text: string; policy: string; reject: string; accept: string; label: string }> = {
   cs: { text: "Používáme cookies pro analytiku a měření reklamy (Google, Amplitude), abychom službu zlepšovali. Bez vašeho souhlasu je nenastavujeme.", policy: "Zásady ochrany osobních údajů", reject: "Odmítnout", accept: "Souhlasím", label: "Souhlas s cookies" },
@@ -16,6 +17,7 @@ export const CookieConsent = () => {
   const { i18n } = useTranslation();
   const copy = COPY[i18n.language] ?? COPY.cs;
   const [visible, setVisible] = useState(false);
+  const { open: orderFormOpen } = useOnboardingCart();
 
   useEffect(() => {
     const consent = getConsent();
@@ -45,7 +47,8 @@ export const CookieConsent = () => {
     document.cookie = "_ga_VNMLWF0XZG=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
 
-  if (!visible) return null;
+  // Keep the banner out of the way while the order form is open; consent stays pending.
+  if (!visible || orderFormOpen) return null;
 
   return (
     <div
