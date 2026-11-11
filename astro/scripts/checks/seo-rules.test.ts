@@ -672,7 +672,7 @@ describe('known defects', () => {
     expect(findings.find((f) => f.path === '/new-page/')?.known).toBeUndefined();
   });
 
-  it('does not downgrade an unlisted finding', () => {
+  it('downgrades only the listed path and keeps the other finding as it is', () => {
     const dir = withExtras();
     const scope = new Set(listPages(dir).filter((p) => p !== '/old-page/' && p !== '/new-page/'));
     const findings = checkDist({ distDir: dir, scope, knownDefects: [known[0]] });

@@ -21,8 +21,57 @@ function run(args: string[], checksDir = tmp()) {
   });
   const registryFile = path.join(checksDir, 'registry.json');
   const registry = fs.existsSync(registryFile) ? JSON.parse(fs.readFileSync(registryFile, 'utf8')) : null;
-  return { status: result.status, stdout: result.stdout, registry };
+  return { status: result.status, stdout: result.stdout, stderr: result.stderr, registry };
 }
+
+describe('seo-check usage errors', () => {
+  const goodDist = () => {
+    const dist = tmp();
+    writeGoodDist(dist);
+    return dist;
+  };
+  const file = (content: string) => {
+    const f = path.join(tmp(), 'input.json');
+    fs.writeFileSync(f, content);
+    return f;
+  };
+  const expectUsageError = (args: string[], message: RegExp) => {
+    const r = run(args);
+    expect(r.status).toBe(2);
+    expect(r.stderr.trim().split(/\r?\n/)).toHaveLength(1);
+    expect(r.stderr).toMatch(message);
+    expect(r.stderr).not.toMatch(/\bat .*:\d+/);
+    expect(r.stdout).toBe('');
+  };
+
+  it('a missing dist directory', () => {
+    expectUsageError(['--dist', path.join(tmp(), 'nope')], /dist/);
+  });
+  it('a dist that is a file', () => {
+    expectUsageError(['--dist', file('{}')], /dist/);
+  });
+  it('a missing scope file', () => {
+    expectUsageError(['--dist', goodDist(), '--scope', path.join(tmp(), 'nope.json')], /scope/);
+  });
+  it('a scope file that is not JSON', () => {
+    expectUsageError(['--dist', goodDist(), '--scope', file('not json')], /scope/);
+  });
+  it('a scope file that is not an array of strings', () => {
+    expectUsageError(['--dist', goodDist(), '--scope', file('{"a":1}')], /scope/);
+  });
+  it('a scope entry that is not a manifest path', () => {
+    expectUsageError(['--dist', goodDist(), '--scope', file('["/", "/nowhere/"]')], /\/nowhere\//);
+  });
+  it('a missing known-defects file', () => {
+    expectUsageError(['--dist', goodDist(), '--known', path.join(tmp(), 'nope.json')], /known/);
+  });
+  it('a known-defects file with a malformed entry', () => {
+    expectUsageError(['--dist', goodDist(), '--known', file('[{"rule":"x"}]')], /known/);
+  });
+  it('an unknown argument', () => {
+    expectUsageError(['--dist', goodDist(), '--bogus'], /--bogus/);
+  });
+});
 
 describe('seo-check CLI', () => {
   it('exits 0, prints nothing and records pass for every page of a good dist', () => {
@@ -71,6 +120,7 @@ describe('seo-check CLI', () => {
     const r = run(['--dist', dist, '--scope', 'built', '--known', knownFile]);
     expect(r.stdout).toMatch(/^page-not-in-manifest \/old-page\/ .+ \[known\]$/m);
     expect(r.status).toBe(0);
+    expect(r.registry.pages['/old-page/'].seo).toEqual({ status: 'accepted', detail: 'page-not-in-manifest' });
   });
 
   it('--production fails on a preview artifact', () => {
