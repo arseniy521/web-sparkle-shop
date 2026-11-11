@@ -52,9 +52,9 @@ const schemas = meta.schema === undefined ? [] : Array.isArray(meta.schema) ? me
     <slot name="head" />
   </head>
   <body>
+    <CookieBanner />
     <slot />
     <OrderFormRoot lang={lang} />
-    <CookieBanner />
     <script>
       import '@/scripts/boot';
     </script>
