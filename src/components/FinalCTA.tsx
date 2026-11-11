@@ -5,14 +5,18 @@ export const FinalCTA = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--color-indigo) 0%, var(--color-indigo-deep) 100%)' }}>
-      {/* Watermark */}
-      <div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-        style={{ fontSize: '320px', color: 'rgba(255,255,255,0.04)', fontFamily: 'var(--font-display)', fontWeight: 800, lineHeight: 1 }}
-      >
-        NIUS
-      </div>
+    <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: 'var(--color-indigo)' }}>
+      {/* Brand mark watermark */}
+      <img
+        src="/brand/logo-mark-light.svg"
+        alt=""
+        aria-hidden="true"
+        width={420}
+        height={420}
+        loading="lazy"
+        className="absolute -right-16 -bottom-20 w-[280px] md:w-[420px] pointer-events-none select-none"
+        style={{ opacity: 0.06 }}
+      />
 
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 text-center">
         {/* Eyebrow */}

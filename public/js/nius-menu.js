@@ -864,13 +864,13 @@ class NiusMenu extends HTMLElement {
         .drip-left { min-width: 0; }
         .drip-heading .drip-left { flex: 1; }
         .drip-name-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
-        .drip-name { font-family: var(--serif); font-size: 15px; font-weight: 600; line-height: 1.2; }
+        .drip-name { font-family: var(--serif); font-size: 17px; font-weight: 600; line-height: 1.2; }
         .hero-badge {
           font-size: 8px; font-weight: 500; padding: 2px 7px; border-radius: 10px;
           background: var(--gold-light); color: var(--gold);
           letter-spacing: 0.1em; text-transform: uppercase;
         }
-        .drip-tagline { font-size: 11px; color: var(--ink2); margin-top: 0; line-height: 1.45; }
+        .drip-tagline { font-size: 12px; color: var(--ink2); margin-top: 0; line-height: 1.45; }
         .admin-pill {
           font-size: 9px; font-weight: 500; padding: 2px 8px; border-radius: 10px;
           background: var(--fog); color: var(--ink3);
@@ -905,7 +905,7 @@ class NiusMenu extends HTMLElement {
         }
         .drip-heading { margin-bottom: 12px; }
         .drip-price { white-space: nowrap; }
-        .drip-price { font-family: var(--serif); font-size: 17px; font-weight: 700; line-height: 1; }
+        .drip-price { font-family: var(--serif); font-size: 20px; font-weight: 700; line-height: 1; }
         .drip-price small { font-size: 10px; color: var(--ink3); font-family: var(--sans); margin-left: 2px; }
         .drip-price-label { display: none; }
         .drip-info {

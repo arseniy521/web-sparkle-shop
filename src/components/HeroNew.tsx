@@ -13,7 +13,7 @@ export const HeroNew = () => {
           <div className="space-y-6">
             {/* Eyebrow */}
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full animate-pulse-dot" style={{ backgroundColor: '#22c55e' }} />
+              <span className="w-2 h-2 rounded-full animate-pulse-dot" style={{ backgroundColor: 'var(--color-blue)' }} />
               <span className="text-sm font-body font-medium" style={{ color: 'var(--color-text-secondary)' }}>
                 {t('heroNew.eyebrow')}
               </span>
@@ -57,16 +57,15 @@ export const HeroNew = () => {
           </div>
 
           {/* Right column — hero image */}
-          <div className="relative hidden md:flex justify-center">
+          <div className="relative flex justify-center md:justify-end">
             <img
               src="/photos/hero-iv-bag.webp"
               alt="NIUS branded IV drip bag"
               width={1086}
               height={1448}
               fetchPriority="high"
-              className="rounded-lg object-cover"
+              className="rounded-lg object-cover w-auto max-h-[340px] md:max-h-[600px]"
               style={{
-                maxHeight: '600px',
                 aspectRatio: '3/4',
                 boxShadow: '0 24px 60px rgba(21,63,77,0.12)',
               }}
