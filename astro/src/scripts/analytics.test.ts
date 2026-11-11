@@ -230,6 +230,81 @@ describe('analytics', () => {
     expect(amplitude.setOptOut).toHaveBeenLastCalledWith(true);
   });
 
+  it('counts the events the loaded, opted-in SDK accepts', async () => {
+    const { enableAnalytics, disableAnalytics, setAnalyticsOptOut, track, trackedEvents } = await load();
+    setConsent('accepted');
+    track('before_consent');
+    expect(trackedEvents()).toBe(0);
+    enableAnalytics();
+    track('while_loading');
+    expect(trackedEvents()).toBe(0);
+    await flushPromises();
+    expect(trackedEvents()).toBe(1);
+    track('ready');
+    expect(trackedEvents()).toBe(2);
+    disableAnalytics();
+    track('opted_out');
+    expect(trackedEvents()).toBe(2);
+    setAnalyticsOptOut(false);
+    track('opted_in_again');
+    expect(trackedEvents()).toBe(3);
+  });
+
+  describe('flushAnalyticsWithin', () => {
+    const ready = async () => {
+      const module = await load();
+      module.enableAnalytics();
+      await flushPromises();
+      return module;
+    };
+
+    it('resolves at once and uploads nothing without a loaded SDK', async () => {
+      const { flushAnalyticsWithin } = await load();
+      await expect(flushAnalyticsWithin(300)).resolves.toBeUndefined();
+      expect(amplitude.flush).not.toHaveBeenCalled();
+    });
+
+    it('starts the upload at once and resolves when it is done', async () => {
+      const { flushAnalyticsWithin } = await ready();
+      let done!: () => void;
+      amplitude.flush.mockImplementationOnce(() => ({ promise: new Promise<void>((resolve) => (done = resolve)) }));
+      let resolved = false;
+      void flushAnalyticsWithin(300).then(() => (resolved = true));
+      expect(amplitude.flush).toHaveBeenCalledOnce();
+      await Promise.resolve();
+      expect(resolved).toBe(false);
+      done();
+      await flushPromises();
+      expect(resolved).toBe(true);
+    });
+
+    it('gives up after the limit when the upload hangs', async () => {
+      const { flushAnalyticsWithin } = await ready();
+      vi.useFakeTimers();
+      try {
+        amplitude.flush.mockImplementationOnce(() => ({ promise: new Promise<void>(() => undefined) }));
+        let resolved = false;
+        void flushAnalyticsWithin(300).then(() => (resolved = true));
+        await vi.advanceTimersByTimeAsync(299);
+        expect(resolved).toBe(false);
+        await vi.advanceTimersByTimeAsync(1);
+        expect(resolved).toBe(true);
+      } finally {
+        vi.useRealTimers();
+      }
+    });
+
+    it('resolves when the upload fails or the SDK throws', async () => {
+      const { flushAnalyticsWithin } = await ready();
+      amplitude.flush.mockImplementationOnce(() => ({ promise: Promise.reject(new Error('blocked')) }));
+      await expect(flushAnalyticsWithin(300)).resolves.toBeUndefined();
+      amplitude.flush.mockImplementationOnce(() => {
+        throw new Error('broken');
+      });
+      await expect(flushAnalyticsWithin(300)).resolves.toBeUndefined();
+    });
+  });
+
   it('opts back in only with stored consent', async () => {
     const { enableAnalytics, setAnalyticsOptOut } = await load();
     setConsent('accepted');

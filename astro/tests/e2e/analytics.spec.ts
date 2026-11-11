@@ -117,6 +117,13 @@ test('Analytics blocked by the browser', async ({ page }) => {
   await page.waitForTimeout(2000);
   expect(blocked.some((url) => url.includes('googletagmanager.com'))).toBe(true);
   expect(blocked.some((url) => url.includes('amplitude.com'))).toBe(true);
+
+  // A tracked link that leaves the page still leaves it, though its event cannot be uploaded.
+  await page.keyboard.press('Escape');
+  const uploads = blocked.length;
+  await page.locator('header a[data-cta="choose_service"]').first().click();
+  await expect(page).toHaveURL('/#menu');
+  expect(blocked.slice(uploads).some((url) => url.includes('api2.amplitude.com')), 'the click tried to upload').toBe(true);
   expect(errors).toEqual([]);
 });
 

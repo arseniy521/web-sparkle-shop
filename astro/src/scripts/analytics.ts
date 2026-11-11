@@ -25,6 +25,8 @@ let sdk: Sdk | undefined;
 let loading: Promise<void> | undefined;
 let queue: Array<(loaded: Sdk) => void> = [];
 let pendingOptOut: boolean | undefined;
+let optedOut = false;
+let tracked = 0;
 
 const run = (action: (loaded: Sdk) => void) => {
   if (state === 'ready' && sdk) action(sdk);
@@ -32,8 +34,10 @@ const run = (action: (loaded: Sdk) => void) => {
 };
 
 const applyOptOut = (optOut: boolean) => {
-  if (state === 'ready' && sdk) sdk.setOptOut(optOut);
-  else if (state === 'loading') pendingOptOut = optOut;
+  if (state === 'ready' && sdk) {
+    sdk.setOptOut(optOut);
+    optedOut = optOut;
+  } else if (state === 'loading') pendingOptOut = optOut;
 };
 
 const init = () => {
@@ -58,7 +62,10 @@ const init = () => {
       });
       sdk = loaded;
       state = 'ready';
-      if (pendingOptOut !== undefined) loaded.setOptOut(pendingOptOut);
+      if (pendingOptOut !== undefined) {
+        loaded.setOptOut(pendingOptOut);
+        optedOut = pendingOptOut;
+      }
       const pending = queue;
       queue = [];
       pending.forEach((action) => action(loaded));
@@ -87,8 +94,29 @@ export const disableAnalytics = (): void => {
 
 export const track = (event: string, props?: Record<string, unknown>): void => {
   const language = document.documentElement.lang;
-  run((loaded) => loaded.track(event, { language, ...props }));
+  run((loaded) => {
+    if (!optedOut) tracked += 1;
+    loaded.track(event, { language, ...props });
+  });
 };
+
+/** How many events the loaded, opted-in SDK has accepted; a click handler compares it to tell a tracked click. */
+export const trackedEvents = (): number => tracked;
+
+/**
+ * Starts uploading the queued events now. Resolves once they are sent, when the upload fails,
+ * or after limitMs, whichever comes first; never rejects. Resolves at once without a loaded SDK.
+ */
+export const flushAnalyticsWithin = (limitMs: number): Promise<void> =>
+  new Promise((resolve) => {
+    if (state !== 'ready' || !sdk) return resolve();
+    setTimeout(resolve, limitMs);
+    try {
+      sdk.flush().promise.then(() => resolve(), () => resolve());
+    } catch {
+      resolve();
+    }
+  });
 
 export const identifyUser = (userId: string): void => {
   const language = document.documentElement.lang;
