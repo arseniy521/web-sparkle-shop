@@ -16,6 +16,7 @@
     "test": "vitest run",
     "i18n:check": "npm --prefix .. run i18n:check",
     "check:env": "node scripts/check-env.mjs",
+    "baseline": "node scripts/baseline/build.mjs",
     "check:seo": "node scripts/checks/seo-check.ts",
     "checks:report": "node scripts/checks/registry.ts"
   },
