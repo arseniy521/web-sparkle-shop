@@ -35,6 +35,8 @@ export function safeRichHtml(html: string): string {
   let out = '';
   const closers: string[] = [];
   let strongDepth = 0;
+  const open: string[] = [];
+  const closeOpen = (closer: string) => open.splice(open.lastIndexOf(closer), 1);
   for (let i = 0; i < html.length; ) {
     const match = html[i] === '<' ? TOKEN.exec(html.slice(i)) : null;
     if (!match) {
@@ -45,14 +47,18 @@ export function safeRichHtml(html: string): string {
     const token = match[1] as string;
     if (token === '<strong>') {
       strongDepth += 1;
+      open.push('</strong>');
       out += token;
     } else if (token === '</strong>') {
       if (strongDepth > 0) {
         strongDepth -= 1;
+        closeOpen('</strong>');
         out += token;
       } else out += '&lt;/strong&gt;';
     } else if (token === '</a>') {
-      out += closers.length > 0 ? (closers.pop() as string) : '&lt;/a&gt;';
+      const closer = closers.pop();
+      if (closer) closeOpen(closer);
+      out += closer ?? '&lt;/a&gt;';
     } else {
       const href = match[2] as string;
       if (isSafeHref(href)) {
@@ -61,14 +67,16 @@ export function safeRichHtml(html: string): string {
           external ? ' target="_blank" rel="noopener noreferrer"' : ''
         }>`;
         closers.push('</a>');
+        open.push('</a>');
       } else {
         out += `<span class="${CLASS}">`;
         closers.push('</span>');
+        open.push('</span>');
       }
     }
     i += token.length;
   }
-  return out;
+  return out + open.reverse().join('');
 }
 
 export function stripTags(html: string): string {

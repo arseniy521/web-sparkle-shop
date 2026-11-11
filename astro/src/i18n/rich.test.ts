@@ -14,6 +14,15 @@ describe('safeRichHtml', () => {
   });
 });
 
+describe('safeRichHtml open tags', () => {
+  it('closes tags left open, innermost first', () => {
+    expect(safeRichHtml('<strong>a')).toBe('<strong>a</strong>');
+    expect(safeRichHtml('<a href="/x">t').endsWith('</a>')).toBe(true);
+    expect(safeRichHtml('<a href="javascript:x">t').endsWith('</span>')).toBe(true);
+    expect(safeRichHtml('<a href="/x"><strong>t').endsWith('</strong></a>')).toBe(true);
+  });
+});
+
 describe('stripTags', () => {
   it('strips tags for JSON-LD', () => expect(stripTags('a <strong>b</strong>')).toBe('a b'));
 });
