@@ -2301,5 +2301,22 @@
     "doctor": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.",
     "emergency": "NIUS není pohotovostní služba. V akutních případech volejte 155 nebo 112.",
     "provider": "Poskytovatel: Nius Services s.r.o., IČO 21908494, sídlo: Rybná 716/24, 110 00 Praha 1, provozovna: Na Zámecké 1518/9, 140 00 Praha 4. Oprávnění k poskytování zdravotních služeb: Magistrát hl. m. Prahy, rozhodnutí ze dne 1. 10. 2025, č. j. MHMP 1000311/2025, sp. zn. S-MHMP 908522/2025."
+  },
+  "whatsIncluded": {
+    "title": "Co je v ceně",
+    "items": [
+      {
+        "title": "Výjezd sestry",
+        "desc": "Registrovaná sestra přijede do vašeho hotelu, bytu nebo domů v Praze."
+      },
+      {
+        "title": "Konzultace s lékařem",
+        "desc": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení."
+      },
+      {
+        "title": "Vybavení a materiál",
+        "desc": "Sterilní pomůcky na jedno použití a vše potřebné k výkonu."
+      }
+    ]
   }
 }

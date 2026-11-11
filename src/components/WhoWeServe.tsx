@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { PHOTO_FILTER } from "@/constants/photoFilter";
 
-const PHOTO_FILTER = 'brightness(1.02) contrast(0.98) saturate(0.92)';
 
 interface CardData {
   title: string;

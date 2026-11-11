@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Check, ChevronDown, Phone, Menu, X, UserCircle, ShoppingBag } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { LanguageFlag } from "@/components/LanguageFlag";
 import { getLanguageFromPath, getLanguagePrefix, getLocalizedUrl, getBasePath, buildLanguageUrl } from "@/utils/languageUtils";
 import { useAuthStatus } from "@/hooks/useAuthStatus";
 import { onboardingCart, useOnboardingCart } from "@/hooks/useOnboardingCart";
@@ -156,14 +157,15 @@ export const NavBar = () => {
         </ul>
 
         <div className="flex items-center gap-3">
-          <div className="hidden xl:flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button
                   type="button"
                   aria-label={t('nav.language')}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] px-3 py-2 text-xs font-medium font-body text-[var(--color-text-secondary)] outline-none transition-colors hover:border-[var(--color-indigo)] hover:text-[var(--color-indigo)] data-[state=open]:border-[var(--color-indigo)]"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] px-2.5 py-2 text-xs font-medium font-body text-[var(--color-text-secondary)] outline-none transition-colors hover:border-[var(--color-indigo)] hover:text-[var(--color-indigo)] data-[state=open]:border-[var(--color-indigo)]"
                 >
+                  <LanguageFlag lang={currentLang} />
                   {langLabels[currentLang]}
                   <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
                 </button>
@@ -175,7 +177,7 @@ export const NavBar = () => {
                     onSelect={() => handleLanguageChange(lang, 'header')}
                     className="cursor-pointer gap-2 font-body text-[var(--color-text-secondary)] focus:bg-[rgba(21,63,77,0.06)] focus:text-[var(--color-indigo)]"
                   >
-                    <span className="w-5 text-xs font-semibold">{langLabels[lang]}</span>
+                    <LanguageFlag lang={lang} />
                     <span className="flex-1">{langNames[lang]}</span>
                     {currentLang === lang && <Check className="h-4 w-4" aria-hidden="true" />}
                   </DropdownMenuItem>
@@ -183,7 +185,7 @@ export const NavBar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <div className="h-6 w-px bg-[var(--color-border)]" aria-hidden="true" />
+            <div className="hidden xl:block h-6 w-px bg-[var(--color-border)]" aria-hidden="true" />
           </div>
 
           <DropdownMenu>
@@ -327,7 +329,7 @@ export const NavBar = () => {
                         : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-indigo)] hover:text-[var(--color-indigo)]'
                     }`}
                   >
-                    {langLabels[lang]}
+                    <span className="inline-flex items-center gap-1.5"><LanguageFlag lang={lang} />{langLabels[lang]}</span>
                   </button>
                 ))}
               </div>

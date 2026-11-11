@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { trackCtaClick } from "@/lib/analytics";
+import { PHOTO_FILTER } from "@/constants/photoFilter";
 
 export const HeroNew = () => {
   const { t } = useTranslation();
@@ -66,6 +67,7 @@ export const HeroNew = () => {
               className="rounded-lg object-cover w-auto max-h-[340px] md:max-h-[600px]"
               style={{
                 aspectRatio: '3/4',
+                filter: PHOTO_FILTER,
                 boxShadow: '0 24px 60px rgba(21,63,77,0.12)',
               }}
             />

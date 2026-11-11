@@ -2301,5 +2301,22 @@
     "doctor": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.",
     "emergency": "NIUS is not an emergency service. In urgent cases call 155 or 112.",
     "provider": "Provider: Nius Services s.r.o., ID 21908494, registered office: Rybná 716/24, 110 00 Prague 1, premises: Na Zámecké 1518/9, 140 00 Prague 4. Healthcare services authorisation: Prague City Hall, decision of 1 October 2025, ref. MHMP 1000311/2025, case S-MHMP 908522/2025."
+  },
+  "whatsIncluded": {
+    "title": "What's included in the price",
+    "items": [
+      {
+        "title": "Nurse visit",
+        "desc": "A registered nurse comes to your hotel, apartment or home in Prague."
+      },
+      {
+        "title": "Doctor's consultation",
+        "desc": "Every infusion is prescribed by a doctor after a short health assessment."
+      },
+      {
+        "title": "Equipment and supplies",
+        "desc": "Sterile single-use supplies and everything needed for the procedure."
+      }
+    ]
   }
 }

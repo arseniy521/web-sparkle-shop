@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
+import { PHOTO_FILTER } from "@/constants/photoFilter";
 
-const PHOTO_FILTER = 'brightness(1.02) contrast(0.98) saturate(0.92)';
 
 export const OurNurses = () => {
   const { t } = useTranslation();

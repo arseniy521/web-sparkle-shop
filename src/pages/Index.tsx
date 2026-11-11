@@ -3,6 +3,7 @@ import { NavBar } from "@/components/NavBar";
 import { HeroNew } from "@/components/HeroNew";
 import { TrustStrip } from "@/components/TrustStrip";
 import { MenuSection, BundlesSection, SubscriptionSection } from "@/components/MenuSection";
+import { WhatsIncluded } from "@/components/WhatsIncluded";
 import { MobileStickyBar } from "@/components/MobileStickyBar";
 import { WhoWeServe } from "@/components/WhoWeServe";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -219,6 +220,7 @@ const Index = () => {
         <HeroNew />
         <TrustStrip />
         <MenuSection />
+        <WhatsIncluded />
         <WhoWeServe />
         <HowItWorks />
         <OurNurses />
