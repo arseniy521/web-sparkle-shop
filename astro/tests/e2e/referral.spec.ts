@@ -6,8 +6,8 @@ import { installApiStub } from '../fixtures/api-stub.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
 
 const PILOT = '/sestricka-praha-1/';
-// Neither the spec's example `hotel42` nor the plan's `HTL42K` (L is excluded) matches the code
-// format ^[A-HJKMNP-Z2-9]{6}$; K7M2QX does.
+// The spec's example: the visitor arrives with ?ref=k7m2qx (lower case) and the site keeps the code
+// in the format ^[A-HJKMNP-Z2-9]{6}$, upper case.
 const CODE = 'K7M2QX';
 const THIRTY_DAYS = 2_592_000;
 
@@ -32,7 +32,7 @@ test('Entry by a partner link', async ({ page }) => {
     void dialog.dismiss();
   });
 
-  await page.goto(`${PILOT}?ref=${CODE}`);
+  await page.goto(`${PILOT}?ref=${CODE.toLowerCase()}`);
   const enteredAt = Date.now() / 1000;
   await page.goto('/');
 
@@ -51,7 +51,7 @@ test('Entry by a partner link', async ({ page }) => {
 
 test('Order after a partner visit', async ({ page, context }) => {
   await prepare(page);
-  await page.goto(`${PILOT}?ref=${CODE}`);
+  await page.goto(`${PILOT}?ref=${CODE.toLowerCase()}`);
   await page.close();
   // Still valid a week later.
   expect((await referralCookie(context))!.expires).toBeGreaterThan(Date.now() / 1000 + 7 * 86_400);
