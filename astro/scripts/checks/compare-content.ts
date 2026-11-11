@@ -226,6 +226,8 @@ function main() {
     paths = [options.only];
   }
 
+  if (paths.length === 0) usageError('no page to compare');
+
   let failed = false;
   for (const p of paths) {
     const file = (dir: string) => (p === NOT_FOUND_PATH ? path.join(dir, '404.html') : path.join(dir, p, 'index.html'));

@@ -1,4 +1,8 @@
 // @vitest-environment node
+import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { comparePage } from './compare-content.ts';
 import { extractFacts } from './lib/html.ts';
@@ -247,5 +251,21 @@ describe('comparePage', () => {
     });
     expect(rules(comparePage(old, neu).missing)).toEqual(expect.arrayContaining(['text-missing', 'link-missing']));
     expect(comparePage(old, neu).added).toEqual([]);
+  });
+});
+
+describe('compare-content command', () => {
+  it('exits with code 2 when no page is compared', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'compare-content-'));
+    try {
+      const r = spawnSync(process.execPath, ['scripts/checks/compare-content.ts', '--old', dir, '--new', dir], {
+        encoding: 'utf8',
+        env: { ...process.env, NIUS_CHECKS_DIR: path.join(dir, 'checks') },
+      });
+      expect(r.status).toBe(2);
+      expect(r.stderr).toContain('no page to compare');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
