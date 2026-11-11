@@ -58,11 +58,11 @@ export const WhoWeServe = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 pb-2 md:pb-0 scrollbar-hide">
           {cards.map((card, i) => (
             <article
               key={i}
-              className="group bg-white rounded-lg relative overflow-hidden transition-all duration-200 hover:shadow-card-hover"
+              className="group bg-white rounded-lg relative overflow-hidden transition-all duration-200 hover:shadow-card-hover shrink-0 w-[82%] sm:w-[60%] md:w-auto snap-start"
               style={{ border: 'none' }}
             >
               {/* Image */}

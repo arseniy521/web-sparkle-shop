@@ -781,7 +781,7 @@ class NiusMenu extends HTMLElement {
           --teal: #569acd;
           --teal-soft: #eef5fb;
           --white: #ffffff;
-          --serif: 'Onest', system-ui, sans-serif;
+          --serif: 'Plus Jakarta Sans', 'Montserrat', system-ui, sans-serif;
           --sans: 'Montserrat', system-ui, sans-serif;
           --mono: 'Montserrat', system-ui, sans-serif;
 
@@ -1199,7 +1199,27 @@ class NiusMenu extends HTMLElement {
           .drip-list { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 640px) {
-          .drip-list { grid-template-columns: 1fr; }
+          .drip-list { grid-template-columns: 1fr; gap: 8px; }
+          .cat-tabs {
+            flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+            position: sticky; top: 64px; z-index: 5;
+            margin: 0 -24px 16px; padding: 10px 24px; background: var(--fog);
+          }
+          .cat-tabs::-webkit-scrollbar { display: none; }
+          .cat-tab { flex: 0 0 auto; white-space: nowrap; }
+          .cat-desc { display: none; }
+          .cat-block { margin-bottom: 24px; }
+          .drip-card:hover { transform: none; box-shadow: none; }
+          .drip-main { flex-direction: row; align-items: center; gap: 12px; padding: 12px 14px; }
+          .drip-heading { flex: 1; min-width: 0; }
+          .drip-tagline {
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+          }
+          .admin-pill { margin-top: 6px; }
+          .drip-meta {
+            flex-direction: column; align-items: flex-end; justify-content: center;
+            gap: 8px; margin-top: 0; padding-top: 0; border-top: none; flex: 0 0 auto;
+          }
           .modal-content { width: calc(100% - 16px); height: calc(100vh - 16px); height: calc(100dvh - 16px); max-height: none; }
           .modal-header { padding: max(16px, env(safe-area-inset-top, 0px)) 16px 12px; }
           .modal-scroll { flex: 1; padding: 0 16px 20px; }
@@ -1265,7 +1285,6 @@ class NiusMenu extends HTMLElement {
           <div class="drip-heading"><div class="drip-left">
             <div class="drip-name-row">
               <span class="drip-name">${name}</span>
-              ${d.hero ? '<span class="hero-badge">Hero</span>' : ''}
             </div>
             <div class="drip-tagline">${tagline}</div>
             <span class="admin-pill">${d.admin} · ${d.duration}</span>
