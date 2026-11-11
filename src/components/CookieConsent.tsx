@@ -65,14 +65,14 @@ export const CookieConsent = () => {
         <div className="flex gap-2 flex-shrink-0">
           <button
             onClick={reject}
-            className="flex-1 sm:flex-none px-4 py-2 rounded text-xs font-body font-medium transition-colors"
+            className="flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-body font-medium transition-colors"
             style={{ color: 'var(--color-text-secondary)', border: '0.5px solid var(--color-border)' }}
           >
             {copy.reject}
           </button>
           <button
             onClick={accept}
-            className="flex-1 sm:flex-none px-4 py-2 rounded text-xs font-body font-medium text-white transition-colors"
+            className="flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-body font-medium text-white transition-colors"
             style={{ backgroundColor: 'var(--color-indigo)' }}
           >
             {copy.accept}

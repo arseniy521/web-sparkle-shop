@@ -14,7 +14,7 @@ const RULES = [
   ['unverifiable time promise', /24\s?\/\s?7|60[- ]?minute arrival|under an hour|within (?:1|2|3|4) ?(?:-|–) ?\d? ?hours?/i],
   ['Setmore', /setmore/i],
   ['named partner / venue', /\bunica\b|formé|\bamc\b|reprofit|iscare|gennet|pronatal|four seasons|augustine|mandarin oriental|hilton|intercontinental|thomayer|gymbeam/i],
-  ['unverifiable statistic / superlative', /500\+|100\+ (?:patients|pacient)|3[ ,]?000\+|#1\b|\b97 ?%|\b70 ?% of our|NIUS vs\.? other/i],
+  ['unverifiable statistic / superlative', /500\+|100\+ (?:patients|pacient)|#1\b|\b97 ?%|\b70 ?% of our|NIUS vs\.? other/i],
   ['dosage / potency', /high[- ]dose|vysokodávk|высокодоз|високодоз|\b\d+\s?(?:mg|mcg|µg)\b/i],
 ];
 

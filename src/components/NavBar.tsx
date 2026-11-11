@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Check, ChevronDown, Phone, Menu, X, UserCircle, ShoppingBag } from "lucide-react";
+import { Check, Phone, Menu, X, UserCircle, ShoppingBag } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { LanguageFlag } from "@/components/LanguageFlag";
 import { getLanguageFromPath, getLanguagePrefix, getLocalizedUrl, getBasePath, buildLanguageUrl } from "@/utils/languageUtils";
@@ -103,20 +103,22 @@ export const NavBar = () => {
   return (
     <header
       role="banner"
-      className="sticky top-0 z-50 w-full px-4 sm:px-6 xl:px-10 transition-all duration-300 border-b"
-      style={{
-        background: 'rgba(245,244,238,0.92)',
-        backdropFilter: 'blur(12px)',
-        borderBottomColor: 'var(--color-border)',
-        borderBottomWidth: '0.5px',
-        paddingTop: isScrolled ? '12px' : '18px',
-        paddingBottom: isScrolled ? '12px' : '18px',
-      }}
+      className="sticky top-0 z-50 w-full px-3 sm:px-4 xl:px-8 pt-3 pointer-events-none"
     >
+      <div
+        className="pointer-events-auto max-w-[1400px] mx-auto rounded-[28px] bg-white px-4 sm:px-6 xl:px-8 transition-all duration-300"
+        style={{
+          boxShadow: isScrolled
+            ? '0 10px 32px rgba(21,63,77,0.14)'
+            : '0 4px 20px rgba(21,63,77,0.08)',
+          paddingTop: isScrolled ? '8px' : '10px',
+          paddingBottom: isScrolled ? '8px' : '10px',
+        }}
+      >
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-indigo focus:text-white focus:px-4 focus:py-2 focus:rounded">
         Skip to content
       </a>
-      <nav role="navigation" aria-label="Main navigation" className="flex items-center justify-between max-w-[1400px] mx-auto">
+      <nav role="navigation" aria-label="Main navigation" className="flex items-center justify-between">
         <Link
           to={langPrefix ? `${langPrefix}/` : "/"}
           className="flex items-center gap-2 group"
@@ -127,7 +129,7 @@ export const NavBar = () => {
             }
           }}
         >
-          <img src="/brand/logo-wordmark-dark.svg" alt="NIUS" height="56" className="h-12 xl:h-14" />
+          <img src="/brand/logo-wordmark-dark.svg" alt="NIUS" height="56" className="h-10 xl:h-12" />
         </Link>
 
         <ul className="hidden xl:flex items-center gap-7 2xl:gap-8">
@@ -162,12 +164,10 @@ export const NavBar = () => {
               <DropdownMenuTrigger asChild>
                 <button
                   type="button"
-                  aria-label={t('nav.language')}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] px-2.5 py-2 text-xs font-medium font-body text-[var(--color-text-secondary)] outline-none transition-colors hover:border-[var(--color-indigo)] hover:text-[var(--color-indigo)] data-[state=open]:border-[var(--color-indigo)]"
+                  aria-label={`${t('nav.language')}: ${langNames[currentLang]}`}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full outline-none transition-shadow hover:shadow-[0_0_0_2px_var(--color-indigo)] focus-visible:shadow-[0_0_0_2px_var(--color-indigo)] data-[state=open]:shadow-[0_0_0_2px_var(--color-indigo)]"
                 >
-                  <LanguageFlag lang={currentLang} />
-                  {langLabels[currentLang]}
-                  <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
+                  <LanguageFlag lang={currentLang} round />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="min-w-[168px] border-[var(--color-border)] bg-[var(--color-bg)]">
@@ -177,7 +177,7 @@ export const NavBar = () => {
                     onSelect={() => handleLanguageChange(lang, 'header')}
                     className="cursor-pointer gap-2 font-body text-[var(--color-text-secondary)] focus:bg-[rgba(21,63,77,0.06)] focus:text-[var(--color-indigo)]"
                   >
-                    <LanguageFlag lang={lang} />
+                    <LanguageFlag lang={lang} round className="h-6 w-6" />
                     <span className="flex-1">{langNames[lang]}</span>
                     {currentLang === lang && <Check className="h-4 w-4" aria-hidden="true" />}
                   </DropdownMenuItem>
@@ -188,49 +188,12 @@ export const NavBar = () => {
             <div className="hidden xl:block h-6 w-px bg-[var(--color-border)]" aria-hidden="true" />
           </div>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                type="button"
-                className="hidden xl:inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium font-body text-[var(--color-text-secondary)] outline-none transition-colors hover:bg-[rgba(21,63,77,0.06)] hover:text-[var(--color-indigo)] data-[state=open]:bg-[rgba(21,63,77,0.06)] data-[state=open]:text-[var(--color-indigo)]"
-              >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                <span>{t('nav.contacts')}</span>
-                <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="min-w-[230px] border-[var(--color-border)] bg-[var(--color-bg)]">
-              <DropdownMenuItem asChild className="cursor-pointer font-body focus:bg-[rgba(21,63,77,0.06)] focus:text-[var(--color-indigo)]">
-                <a
-                  href="tel:+420773629123"
-                  data-analytics-source="header_contact_menu"
-                  className="flex items-center gap-3"
-                >
-                  <Phone className="h-4 w-4" aria-hidden="true" />
-                  <span>+420 773 629 123</span>
-                </a>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild className="cursor-pointer font-body focus:bg-[rgba(21,63,77,0.06)] focus:text-[var(--color-indigo)]">
-                <a
-                  href="https://wa.me/420773629123"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-analytics-source="header_contact_menu"
-                  className="flex items-center gap-3"
-                >
-                  <WhatsAppIcon className="h-4 w-4" />
-                  <span>WhatsApp</span>
-                </a>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
           {isAccountLoading ? (
             <button
               type="button"
               disabled
               aria-label={t('nav.account')}
-              className="hidden xl:inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-text-secondary)] opacity-60 cursor-wait"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(21,63,77,0.08)] text-[var(--color-indigo)] opacity-60 cursor-wait"
             >
               <UserCircle className="h-5 w-5" />
             </button>
@@ -239,7 +202,7 @@ export const NavBar = () => {
               href={accountHref}
               aria-label={t('nav.account')}
               onClick={() => trackCtaClick('account', 'header', { authenticated: authStatus === 'authenticated' })}
-              className="hidden xl:inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-text-secondary)] hover:bg-[rgba(21,63,77,0.06)] hover:text-[var(--color-indigo)] transition-colors"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(21,63,77,0.08)] text-[var(--color-indigo)] hover:bg-[rgba(21,63,77,0.16)] transition-colors"
             >
               <UserCircle className="h-5 w-5" />
             </a>
@@ -252,11 +215,11 @@ export const NavBar = () => {
               onboardingCart.openForm('header');
             }}
             aria-label={t('nav.cart')}
-            className="relative hidden xl:inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(21,63,77,0.06)] text-[var(--color-indigo)] transition-colors hover:bg-[rgba(21,63,77,0.12)]"
+            className="relative hidden xl:inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-indigo)] text-white transition-opacity hover:opacity-90"
           >
             <ShoppingBag className="h-5 w-5" />
             {cartCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 flex items-center justify-center rounded-full bg-[var(--color-indigo)] text-white text-[10px] font-semibold leading-none">
+              <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 flex items-center justify-center rounded-full bg-white text-[var(--color-indigo)] ring-2 ring-[var(--color-indigo)] text-[10px] font-semibold leading-none">
                 {cartCount}
               </span>
             )}
@@ -269,11 +232,11 @@ export const NavBar = () => {
               onboardingCart.openForm('mobile_header');
             }}
             aria-label={t('nav.cart')}
-            className="relative inline-flex xl:hidden h-10 w-10 items-center justify-center rounded-full bg-[rgba(21,63,77,0.06)] text-[var(--color-indigo)]"
+            className="relative inline-flex xl:hidden h-10 w-10 items-center justify-center rounded-full bg-[var(--color-indigo)] text-white hover:opacity-90"
           >
             <ShoppingBag className="h-5 w-5" />
             {cartCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 flex items-center justify-center rounded-full bg-[var(--color-indigo)] text-white text-[10px] font-semibold leading-none">
+              <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 flex items-center justify-center rounded-full bg-white text-[var(--color-indigo)] ring-2 ring-[var(--color-indigo)] text-[10px] font-semibold leading-none">
                 {cartCount}
               </span>
             )}
@@ -398,6 +361,7 @@ export const NavBar = () => {
           </ul>
         </div>
       )}
+      </div>
     </header>
   );
 };

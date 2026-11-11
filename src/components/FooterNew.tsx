@@ -32,7 +32,7 @@ export const FooterNew = () => {
               target="_blank"
               rel="noopener noreferrer"
               data-analytics-source="footer"
-              className="inline-flex items-center mt-4 px-4 py-2 rounded text-xs font-body font-medium"
+              className="inline-flex items-center mt-4 px-4 py-2 rounded-full text-xs font-body font-medium"
               style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', border: '0.5px solid rgba(255,255,255,0.12)' }}
             >
               {t('footerNew.whatsapp')}

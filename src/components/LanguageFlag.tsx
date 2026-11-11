@@ -1,10 +1,13 @@
 interface LanguageFlagProps {
   lang: string;
   className?: string;
+  /** Circular crop (square box); otherwise a small rectangular flag. */
+  round?: boolean;
 }
 
 /** Small inline SVG flags (no emoji, so they render the same on every OS). */
-export const LanguageFlag = ({ lang, className = 'h-3.5 w-[21px]' }: LanguageFlagProps) => {
+export const LanguageFlag = ({ lang, className, round = false }: LanguageFlagProps) => {
+  const boxClass = className ?? (round ? 'h-10 w-10' : 'h-3.5 w-[21px]');
   const art = (() => {
     switch (lang) {
       case 'cs':
@@ -48,7 +51,8 @@ export const LanguageFlag = ({ lang, className = 'h-3.5 w-[21px]' }: LanguageFla
   return (
     <svg
       viewBox="0 0 24 16"
-      className={`${className} rounded-[2px] flex-shrink-0`}
+      className={`${boxClass} ${round ? 'rounded-full' : 'rounded-[2px]'} flex-shrink-0`}
+      preserveAspectRatio={round ? (lang === 'cs' ? 'xMinYMid slice' : 'xMidYMid slice') : undefined}
       style={{ boxShadow: '0 0 0 0.5px rgba(42,44,46,0.25)' }}
       aria-hidden="true"
       focusable="false"

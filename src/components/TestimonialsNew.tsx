@@ -86,7 +86,7 @@ export const TestimonialsNew = () => {
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded font-body font-medium text-sm text-white transition-colors hover:opacity-90"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-body font-medium text-sm text-white transition-colors hover:opacity-90"
             style={{ backgroundColor: 'var(--color-indigo)' }}
           >
             {t('testimonialsNew.reviewCta')} →
