@@ -8,10 +8,10 @@ import cs from '../../../src/i18n/locales/cs.json' with { type: 'json' };
 import stubData from '../../preview/stub-data.json' with { type: 'json' };
 import { installApiStub } from '../fixtures/api-stub';
 
-const OUT = fileURLToPath(new URL('../../../.superpowers/sdd/plan/parity/', import.meta.url));
+const OUT = fileURLToPath(new URL('../../.checks/visual/form/', import.meta.url));
 const SITES = {
-  old: { url: 'http://localhost:8081/', origin: 'http://localhost:8081' },
-  new: { url: 'http://localhost:8080/prototype/', origin: 'http://localhost:8080' },
+  old: { url: 'http://localhost:8081/sestricka-praha-1/', origin: 'http://localhost:8081' },
+  new: { url: 'http://localhost:8080/sestricka-praha-1/', origin: 'http://localhost:8080' },
 } as const;
 type Site = keyof typeof SITES;
 const VIEWPORTS = [
@@ -84,18 +84,18 @@ async function openForm(browser: Browser, site: Site, viewport: { width: number;
   if (site === 'old') {
     await page.getByRole('button', { name: cs.nav.cart, exact: true }).filter({ visible: true }).click();
   } else {
-    await page.locator('#open').click();
+    await page.locator('[data-open-cart]').filter({ visible: true }).click();
   }
   await page.locator('#onboarding-address').waitFor();
   return page;
 }
 
 function nextButton(page: Page) {
-  return page.locator('[role="dialog"]').getByRole('button', { name: cs.onboarding.next });
+  return page.locator('[role="dialog"]:visible').getByRole('button', { name: cs.onboarding.next });
 }
 
 async function advance(page: Page, state: State) {
-  const dialog = page.locator('[role="dialog"]');
+  const dialog = page.locator('[role="dialog"]:visible');
   if (state === 'address') {
     await page.locator('#onboarding-address').fill(ADDRESS);
     await page.locator('#onboarding-floor').fill(FLOOR);
@@ -348,8 +348,8 @@ for (const viewport of VIEWPORTS) {
 
       test('text', async () => {
         const [o, n] = await Promise.all([
-          pages.old.locator('[role="dialog"]').innerText(),
-          pages.new.locator('[role="dialog"]').innerText(),
+          pages.old.locator('[role="dialog"]:visible').innerText(),
+          pages.new.locator('[role="dialog"]:visible').innerText(),
         ]);
         const diffs: Difference[] = o === n ? [] : [{ viewport: vp, state, kind: 'text', old: o, new: n }];
         record(vp, state, 'text', diffs);
@@ -358,8 +358,8 @@ for (const viewport of VIEWPORTS) {
 
       test('styles', async () => {
         const [o, n] = await Promise.all([
-          readStyles(pages.old.locator('[role="dialog"]'), STYLE_PROPS),
-          readStyles(pages.new.locator('[role="dialog"]'), STYLE_PROPS),
+          readStyles(pages.old.locator('[role="dialog"]:visible'), STYLE_PROPS),
+          readStyles(pages.new.locator('[role="dialog"]:visible'), STYLE_PROPS),
         ]);
         const diffs = compareStyles(o, n, { viewport: vp, state });
         record(vp, state, 'style', diffs);
@@ -368,8 +368,8 @@ for (const viewport of VIEWPORTS) {
 
       test('pixels', async () => {
         const [o, n] = await Promise.all([
-          pages.old.locator('[role="dialog"]').screenshot({ animations: 'disabled' }),
-          pages.new.locator('[role="dialog"]').screenshot({ animations: 'disabled' }),
+          pages.old.locator('[role="dialog"]:visible').screenshot({ animations: 'disabled' }),
+          pages.new.locator('[role="dialog"]:visible').screenshot({ animations: 'disabled' }),
         ]);
         const diffs = comparePixels(o, n, join(OUT, vp, state), { viewport: vp, state });
         record(vp, state, 'pixels', diffs);
@@ -399,13 +399,13 @@ for (const viewport of VIEWPORTS) {
       await reach(pages, 'note');
       const toasts = await Promise.all(
         Object.values(pages).map(async (page) => {
-          await page.locator('[role="dialog"]').getByRole('button', { name: cs.onboarding.finish }).click();
+          await page.locator('[role="dialog"]:visible').getByRole('button', { name: cs.onboarding.finish }).click();
           const toast = page.locator('[data-sonner-toast]');
           await toast.waitFor();
           await settle(page);
           await expect(page.locator('#onboarding-note')).toHaveValue(NOTE);
-          await expect(page.locator('[role="dialog"]')).toContainText(ADDRESS);
-          await expect(page.locator('[role="dialog"]')).toContainText('+420600000000');
+          await expect(page.locator('[role="dialog"]:visible')).toContainText(ADDRESS);
+          await expect(page.locator('[role="dialog"]:visible')).toContainText('+420600000000');
           return { text: await toast.innerText(), png: await toast.screenshot({ animations: 'disabled' }) };
         }),
       );
@@ -425,7 +425,7 @@ for (const viewport of VIEWPORTS) {
       pages = await open(browser, viewport);
       await reach(pages, 'final');
       for (const page of Object.values(pages)) {
-        await expect(page.locator('[role="dialog"]').getByText(cs.onboarding.final.title)).toBeVisible();
+        await expect(page.locator('[role="dialog"]:visible').getByText(cs.onboarding.final.title)).toBeVisible();
       }
     });
 
