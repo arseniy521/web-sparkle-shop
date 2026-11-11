@@ -145,8 +145,9 @@ test('Consent stored by the old site', async ({ page, context }) => {
   const requests = recordRequests(page);
 
   for (const value of ['accepted', 'rejected'] as const) {
-    // Only the old site's localStorage record, no cookie (the 404 page itself migrates a record).
-    await page.goto('/no-such-page/');
+    // Only the old site's localStorage record, no cookie. robots.txt runs none of the site's
+    // code, so nothing migrates the record or sends analytics before the page under test.
+    await page.goto('/robots.txt');
     await page.evaluate((stored) => {
       localStorage.clear();
       localStorage.setItem('nius-cookie-consent', stored);
