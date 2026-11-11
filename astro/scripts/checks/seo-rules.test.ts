@@ -174,6 +174,256 @@ describe('robots.txt and required files', () => {
   });
 });
 
+describe('head of a page', () => {
+  const page = 'en/birthday-gift-prague/index.html';
+  const url = 'https://www.nius.cz/en/birthday-gift-prague/';
+  const breakPage = (change: (text: string) => string) => build((d) => edit(d, page, change));
+  const drop = (pattern: RegExp) => (t: string) => t.replace(pattern, '');
+  const expectOnly = (dir: string, rule: string, pagePath = '/en/birthday-gift-prague/') => {
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual([rule]);
+    expect(findings).toContainEqual(expect.objectContaining({ path: pagePath }));
+  };
+
+  it('single-title: no title', () => {
+    expectOnly(breakPage(drop(/<title>.*?<\/title>/)), 'single-title');
+  });
+  it('single-title: two titles', () => {
+    expectOnly(breakPage((t) => t.replace('</head>', '<title>Second</title></head>')), 'single-title');
+  });
+  it('single-title: an empty title', () => {
+    expectOnly(breakPage((t) => t.replace(/<title>.*?<\/title>/, '<title> </title>')), 'single-title');
+  });
+
+  it('single-description: no description', () => {
+    expectOnly(breakPage(drop(/<meta name="description"[^>]*>/)), 'single-description');
+  });
+  it('single-description: an empty description', () => {
+    expectOnly(
+      breakPage((t) => t.replace(/(<meta name="description" content=")[^"]*"/, '$1"')),
+      'single-description',
+    );
+  });
+
+  it('single-robots: no robots', () => {
+    expectOnly(breakPage(drop(/<meta name="robots"[^>]*>/)), 'single-robots');
+  });
+  it('single-robots: two robots', () => {
+    expectOnly(
+      breakPage((t) => t.replace('</head>', '<meta name="robots" content="index"></head>')),
+      'single-robots',
+    );
+  });
+
+  it('single-canonical: no canonical', () => {
+    expectOnly(breakPage(drop(/<link rel="canonical"[^>]*>/)), 'single-canonical');
+  });
+  it('single-canonical: two canonicals', () => {
+    expectOnly(
+      breakPage((t) => t.replace('</head>', `<link rel="canonical" href="${url}"></head>`)),
+      'single-canonical',
+    );
+  });
+
+  it('single-h1: no h1', () => {
+    expectOnly(breakPage(drop(/<h1>.*?<\/h1>/)), 'single-h1');
+  });
+  it('single-h1: two h1', () => {
+    expectOnly(breakPage((t) => t.replace('</body>', '<h1>Another</h1></body>')), 'single-h1');
+  });
+
+  it('html-lang: lang differs from the language of the address', () => {
+    expectOnly(breakPage((t) => t.replace('<html lang="en">', '<html lang="cs">')), 'html-lang');
+  });
+
+  it('canonical-value: canonical points to another page', () => {
+    const other = 'https://www.nius.cz/en/blog/';
+    const dir = breakPage((t) =>
+      t
+        .replace(`<link rel="canonical" href="${url}">`, `<link rel="canonical" href="${other}">`)
+        .replace(`property="og:url" content="${url}"`, `property="og:url" content="${other}"`),
+    );
+    expectOnly(dir, 'canonical-value');
+  });
+  it('canonical-value: a privacy page under a prefix must point to /privacy/', () => {
+    const own = 'https://www.nius.cz/ru/privacy/';
+    const dir = build((d) =>
+      edit(d, 'ru/privacy/index.html', (t) =>
+        t.replaceAll('https://www.nius.cz/privacy/', own),
+      ),
+    );
+    expectOnly(dir, 'canonical-value', '/ru/privacy/');
+  });
+
+  it('canonical-target-missing: the canonical target is not in the build', () => {
+    const dir = build((d) => remove(d, 'privacy'));
+    const scope = new Set(listPages(dir));
+    const findings = checkDist({ distDir: dir, scope });
+    expect(rulesOf(findings)).toEqual(['canonical-target-missing']);
+    expect(findings).toContainEqual(expect.objectContaining({ path: '/ru/privacy/' }));
+  });
+
+  it('hreflang-set: the set differs from the manifest', () => {
+    const dir = build((d) => {
+      for (const p of ['narozeninovy-darek-praha', 'en/birthday-gift-prague', 'ru/podatok-k-dnju-rozhdenija-praga']) {
+        edit(d, `${p}/index.html`, drop(/<link rel="alternate" hreflang="x-default"[^>]*>/));
+      }
+    });
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual(['hreflang-set']);
+    expect(findings).toContainEqual(expect.objectContaining({ path: '/en/birthday-gift-prague/' }));
+  });
+  it('hreflang-set: a page that must have no hreflang lists one', () => {
+    const dir = build((d) =>
+      edit(d, 'ru/privacy/index.html', (t) =>
+        t.replace('</head>', '<link rel="alternate" hreflang="ru" href="https://www.nius.cz/ru/privacy/"></head>'),
+      ),
+    );
+    expectOnly(dir, 'hreflang-set', '/ru/privacy/');
+  });
+
+  it('hreflang-not-reciprocal: a listed page is not in the build', () => {
+    const dir = build((d) => remove(d, 'ru/podatok-k-dnju-rozhdenija-praga'));
+    const findings = checkDist({ distDir: dir, scope: new Set(listPages(dir)) });
+    expect(rulesOf(findings)).toEqual(['hreflang-not-reciprocal']);
+    expect(findings.map((f) => f.detail).join('\n')).toContain('not in the build');
+  });
+  it('hreflang-not-reciprocal: a listed page is closed to indexing', () => {
+    const dir = build((d) =>
+      edit(d, 'ru/podatok-k-dnju-rozhdenija-praga/index.html', (t) =>
+        t.replace('index, follow', 'noindex, follow'),
+      ),
+    );
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual(['hreflang-not-reciprocal', 'unexpected-noindex']);
+    expect(findings.map((f) => f.detail).join('\n')).toContain('noindex');
+  });
+  it('hreflang-not-reciprocal: a listed page lists another set', () => {
+    const dir = build((d) =>
+      edit(d, 'ru/podatok-k-dnju-rozhdenija-praga/index.html', drop(/<link rel="alternate" hreflang="x-default"[^>]*>/)),
+    );
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual(['hreflang-not-reciprocal', 'hreflang-set']);
+    expect(findings.map((f) => f.detail).join('\n')).toContain('different set');
+  });
+
+  it('unexpected-noindex: noindex on a page that must be indexed', () => {
+    const dir = build((d) =>
+      edit(d, 'en/iv-drip-hotel-prague/index.html', (t) => t.replace('index, follow', 'noindex, follow')),
+    );
+    expectOnly(dir, 'unexpected-noindex', '/en/iv-drip-hotel-prague/');
+  });
+
+  const ogCases: Array<[string, (t: string) => string]> = [
+    ['og:url differs from canonical', (t) => t.replace(`property="og:url" content="${url}"`, 'property="og:url" content="https://www.nius.cz/en/"')],
+    ['og:title differs from title', (t) => t.replace(/(property="og:title" content=")[^"]*/, '$1Other')],
+    ['og:description differs from description', (t) => t.replace(/(property="og:description" content=")[^"]*/, '$1Other')],
+    ['no og:locale', drop(/<meta property="og:locale" content="[^"]*">/)],
+    ['og:image is not absolute', (t) => t.replace('content="https://www.nius.cz/og-image.jpg"', 'content="/og-image.jpg"')],
+    ['og:image file is missing', (t) => t.replace('og-image.jpg', 'missing.jpg')],
+  ];
+  for (const [name, change] of ogCases) {
+    it(`og-mismatch: ${name}`, () => {
+      expectOnly(breakPage(change), 'og-mismatch');
+    });
+  }
+
+  it('jsonld-invalid: JSON-LD that does not parse', () => {
+    expectOnly(breakPage((t) => t.replace('"@type":"WebPage"', '"@type":')), 'jsonld-invalid');
+  });
+
+  it('jsonld-url-not-page: a site address that is a redirect', () => {
+    const dir = breakPage((t) =>
+      t.replace(`"url":"${url}"`, `"url":"${url}","sameAs":"https://www.nius.cz/iv-drips-prague/"`),
+    );
+    expectOnly(dir, 'jsonld-url-not-page');
+  });
+  it('jsonld-url-not-page: a site address that is not in the manifest', () => {
+    const dir = breakPage((t) =>
+      t.replace(`"url":"${url}"`, `"url":"${url}","sameAs":"https://www.nius.cz/nowhere/"`),
+    );
+    expectOnly(dir, 'jsonld-url-not-page');
+  });
+  it('jsonld-url-not-page: files and external addresses are fine', () => {
+    const dir = breakPage((t) =>
+      t.replace(
+        `"url":"${url}"`,
+        `"url":"${url}","logo":"https://www.nius.cz/og-image.jpg","sameAs":"https://example.com/x/"`,
+      ),
+    );
+    expect(checkDist({ distDir: dir })).toEqual([]);
+  });
+});
+
+describe('FAQ markup', () => {
+  const page = 'en/birthday-gift-prague/index.html';
+  const questions = [
+    { q: 'How fast?', a: 'Within <b>one</b> hour.' },
+    { q: 'How much?', a: 'See the price list.' },
+  ];
+
+  function withFaq(options: { block?: boolean; ld?: unknown; items?: typeof questions } = {}) {
+    const { block = true, items = questions } = options;
+    const ld =
+      'ld' in options
+        ? options.ld
+        : {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: questions.map((x) => ({
+              '@type': 'Question',
+              name: x.q,
+              acceptedAnswer: { '@type': 'Answer', text: `<p>${x.a}</p>` },
+            })),
+          };
+    const html = items
+      .map(
+        (x) =>
+          `<div data-faq-item><h3 data-faq-question>  ${x.q} </h3><div data-faq-answer><p>${x.a}</p>\n</div></div>`,
+      )
+      .join('');
+    return build((d) =>
+      edit(d, page, (t) => {
+        let out = t;
+        if (ld) out = out.replace('</head>', `<script type="application/ld+json">${JSON.stringify(ld)}</script></head>`);
+        if (block) out = out.replace('</body>', `<section data-faq>${html}</section></body>`);
+        return out;
+      }),
+    );
+  }
+
+  it('passes when the markup equals the block, tags and spacing aside', () => {
+    expect(checkDist({ distDir: withFaq() })).toEqual([]);
+  });
+  it('passes for a FAQPage inside @graph', () => {
+    const ld = { '@graph': [{ '@type': 'FAQPage', mainEntity: [{ name: 'Q', acceptedAnswer: { text: 'A' } }] }] };
+    expect(checkDist({ distDir: withFaq({ ld, items: [{ q: 'Q', a: 'A' }] }) })).toEqual([]);
+  });
+
+  it('jsonld-faq-mismatch: an answer differs', () => {
+    const dir = withFaq({ items: [questions[0], { q: 'How much?', a: 'Another answer.' }] });
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual(['jsonld-faq-mismatch']);
+    expect(findings[0].path).toBe('/en/birthday-gift-prague/');
+  });
+  it('jsonld-faq-mismatch: the order differs', () => {
+    expect(rulesOf(checkDist({ distDir: withFaq({ items: [...questions].reverse() }) }))).toEqual([
+      'jsonld-faq-mismatch',
+    ]);
+  });
+  it('jsonld-faq-mismatch: a question is missing from the block', () => {
+    expect(rulesOf(checkDist({ distDir: withFaq({ items: [questions[0]] }) }))).toEqual([
+      'jsonld-faq-mismatch',
+    ]);
+  });
+  it('jsonld-faq-mismatch: FAQPage without a FAQ block', () => {
+    expect(rulesOf(checkDist({ distDir: withFaq({ block: false }) }))).toEqual(['jsonld-faq-mismatch']);
+  });
+  it('jsonld-faq-mismatch: a FAQ block without FAQPage', () => {
+    expect(rulesOf(checkDist({ distDir: withFaq({ ld: null }) }))).toEqual(['jsonld-faq-mismatch']);
+  });
+});
+
 describe('known defects', () => {
   const known = [
     { rule: 'page-not-in-manifest', path: '/old-page/', note: 'old page' },

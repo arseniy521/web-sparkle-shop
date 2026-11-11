@@ -2,8 +2,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { load } from 'cheerio';
 import { NOT_FOUND_PATH, redirects } from '../../src/routes/manifest.ts';
-import { SITE_ORIGIN, allPageEntries, redirectTarget } from '../../src/routes/urls.ts';
-import { extractFacts, listPages } from './lib/html.ts';
+import {
+  SITE_ORIGIN,
+  absoluteUrl,
+  allPageEntries,
+  canonicalPath,
+  hreflangFor,
+  isIndexable,
+  redirectTarget,
+} from '../../src/routes/urls.ts';
+import { extractFacts, listPages, normalizeText } from './lib/html.ts';
 import type { PageFacts } from './lib/html.ts';
 
 export interface Finding {
@@ -18,9 +26,16 @@ export interface KnownDefect {
   note: string;
 }
 
+interface PageInfo {
+  entry: ReturnType<typeof allPageEntries>[number];
+  facts: PageFacts;
+  html: string;
+}
+
 interface Ctx {
   distDir: string;
   built: ReadonlySet<string>;
+  pages: ReadonlyMap<string, PageInfo>;
   pagePaths: ReadonlySet<string>;
   redirectSources: ReadonlySet<string>;
   add: (rule: string, path: string, detail: string) => void;
@@ -120,6 +135,155 @@ function checkRobotsAndRequiredFiles(ctx: Ctx): void {
   }
 }
 
+const nonEmpty = (values: string[]) => values.length === 1 && values[0].trim() !== '';
+const sitePath = (url: string) => (url.startsWith(SITE_ORIGIN) ? url.slice(SITE_ORIGIN.length) || '/' : null);
+const pairKey = (pairs: Array<{ hreflang: string; href: string }>) =>
+  pairs.map((p) => `${p.hreflang} ${p.href}`).sort();
+
+function checkHead(ctx: Ctx, { entry, facts }: PageInfo): void {
+  const { route, lang, path: p } = entry;
+  const exactlyOne: Array<[string, string, string[]]> = [
+    ['single-title', 'title', facts.titles],
+    ['single-description', 'meta description', facts.descriptions],
+    ['single-robots', 'meta robots', facts.robots],
+    ['single-canonical', 'canonical', facts.canonicals],
+    ['single-h1', 'h1', facts.h1],
+  ];
+  for (const [rule, what, values] of exactlyOne) {
+    if (!nonEmpty(values)) ctx.add(rule, p, `expected exactly one non-empty ${what}, found ${values.length}`);
+  }
+
+  if (facts.lang !== lang) ctx.add('html-lang', p, `lang is ${facts.lang ?? 'missing'}, expected ${lang}`);
+
+  if (hasNoindex(facts) && isIndexable(route, lang)) {
+    ctx.add('unexpected-noindex', p, `noindex on a page that must be indexed: ${facts.robots.join('; ')}`);
+  }
+
+  const expectedCanonical = absoluteUrl(canonicalPath(route, lang));
+  if (nonEmpty(facts.canonicals) && facts.canonicals[0] !== expectedCanonical) {
+    ctx.add('canonical-value', p, `canonical is ${facts.canonicals[0]}, expected ${expectedCanonical}`);
+  }
+  for (const canonical of facts.canonicals.filter((c) => c.trim() !== '')) {
+    const target = sitePath(canonical);
+    if (target === null || !ctx.built.has(target)) {
+      ctx.add('canonical-target-missing', p, `canonical target ${canonical} is not in the build`);
+    }
+  }
+}
+
+function checkHreflang(ctx: Ctx, { entry, facts }: PageInfo): void {
+  const { route, lang, path: p } = entry;
+  const expected = hreflangFor(route, lang);
+  if (pairKey(facts.hreflang).join('\n') !== pairKey(expected).join('\n')) {
+    const list = (pairs: Array<{ hreflang: string; href: string }>) =>
+      pairs.map((x) => `${x.hreflang}=${x.href}`).join(', ') || 'none';
+    ctx.add('hreflang-set', p, `hreflang is [${list(facts.hreflang)}], expected [${list(expected)}]`);
+  }
+
+  const own = pairKey(facts.hreflang).join('\n');
+  for (const target of new Set(facts.hreflang.map((a) => sitePath(a.href)))) {
+    if (target === p) continue;
+    const other = target === null ? undefined : ctx.pages.get(target);
+    if (!other) {
+      ctx.add('hreflang-not-reciprocal', p, `alternate ${target} is not in the build or is not a page`);
+    } else if (hasNoindex(other.facts)) {
+      ctx.add('hreflang-not-reciprocal', p, `alternate ${target} is closed with noindex`);
+    } else if (pairKey(other.facts.hreflang).join('\n') !== own) {
+      ctx.add('hreflang-not-reciprocal', p, `alternate ${target} lists a different set`);
+    }
+  }
+}
+
+function checkSocial(ctx: Ctx, { entry, facts }: PageInfo): void {
+  const p = entry.path;
+  const first = (key: string) => facts.og[key]?.[0];
+  const expectEqual = (key: string, actual: string | undefined, expected: string | undefined) => {
+    if (expected === undefined) return; // the single-* rule already reports the page
+    if (actual !== expected) ctx.add('og-mismatch', p, `${key} is ${actual ?? 'missing'}, expected ${expected}`);
+  };
+  expectEqual('og:url', first('og:url'), nonEmpty(facts.canonicals) ? facts.canonicals[0] : undefined);
+  expectEqual('og:title', first('og:title'), nonEmpty(facts.titles) ? facts.titles[0] : undefined);
+  expectEqual(
+    'og:description',
+    first('og:description'),
+    nonEmpty(facts.descriptions) ? facts.descriptions[0] : undefined,
+  );
+  if (!first('og:locale')) ctx.add('og-mismatch', p, 'og:locale is missing');
+
+  const image = first('og:image');
+  if (!image || !/^https?:\/\//.test(image)) {
+    ctx.add('og-mismatch', p, `og:image is not an absolute address: ${image ?? 'missing'}`);
+  } else if (image.startsWith(SITE_ORIGIN) && !fileExists(ctx, image.slice(SITE_ORIGIN.length))) {
+    ctx.add('og-mismatch', p, `og:image file is not in the build: ${image}`);
+  }
+}
+
+function fileExists(ctx: Ctx, urlPath: string): boolean {
+  const file = path.join(ctx.distDir, urlPath.replace(/[?#].*$/, ''));
+  return fs.existsSync(file) && fs.statSync(file).isFile();
+}
+
+function collectStrings(node: unknown, out: string[] = []): string[] {
+  if (typeof node === 'string') out.push(node);
+  else if (Array.isArray(node)) node.forEach((n) => collectStrings(n, out));
+  else if (node && typeof node === 'object') Object.values(node).forEach((n) => collectStrings(n, out));
+  return out;
+}
+
+function collectFaqPages(node: unknown, out: Array<Record<string, unknown>> = []) {
+  if (Array.isArray(node)) node.forEach((n) => collectFaqPages(n, out));
+  else if (node && typeof node === 'object') {
+    const record = node as Record<string, unknown>;
+    if ([record['@type']].flat().includes('FAQPage')) out.push(record);
+    Object.values(record).forEach((n) => collectFaqPages(n, out));
+  }
+  return out;
+}
+
+const plainText = (html: unknown) =>
+  normalizeText(typeof html === 'string' ? load(html, null, false).text() : '');
+
+function checkStructuredData(ctx: Ctx, { entry, facts, html }: PageInfo): void {
+  const p = entry.path;
+  for (const error of facts.jsonLdErrors) ctx.add('jsonld-invalid', p, error);
+
+  for (const text of collectStrings(facts.jsonLd)) {
+    const target = sitePath(text.replace(/[?#].*$/, ''));
+    const lastSegment = target?.split('/').pop() ?? '';
+    if (target !== null && !lastSegment.includes('.') && !ctx.pagePaths.has(target)) {
+      ctx.add('jsonld-url-not-page', p, `${text} is not a page of the manifest`);
+    }
+  }
+
+  const faqPages = collectFaqPages(facts.jsonLd);
+  const $ = load(html);
+  const hasBlock = $('[data-faq]').length > 0;
+  if (faqPages.length === 0 && !hasBlock) return;
+  if (faqPages.length === 0) return ctx.add('jsonld-faq-mismatch', p, 'FAQ block without FAQPage JSON-LD');
+  if (!hasBlock) return ctx.add('jsonld-faq-mismatch', p, 'FAQPage JSON-LD without a FAQ block');
+
+  const fromJson = faqPages.flatMap((faq) =>
+    [faq.mainEntity ?? []].flat().map((q) => {
+      const question = q as { name?: unknown; acceptedAnswer?: { text?: unknown } };
+      return { q: plainText(question.name), a: plainText(question.acceptedAnswer?.text) };
+    }),
+  );
+  const fromPage = $('[data-faq] [data-faq-item]')
+    .map((_, item) => ({
+      q: normalizeText($(item).find('[data-faq-question]').first().text()),
+      a: normalizeText($(item).find('[data-faq-answer]').first().text()),
+    }))
+    .get();
+  if (fromJson.length !== fromPage.length) {
+    ctx.add('jsonld-faq-mismatch', p, `JSON-LD has ${fromJson.length} questions, the block ${fromPage.length}`);
+    return;
+  }
+  fromJson.forEach((item, i) => {
+    if (item.q !== fromPage[i].q) ctx.add('jsonld-faq-mismatch', p, `question ${i + 1}: "${item.q}" vs "${fromPage[i].q}"`);
+    else if (item.a !== fromPage[i].a) ctx.add('jsonld-faq-mismatch', p, `answer ${i + 1} differs: "${item.a}" vs "${fromPage[i].a}"`);
+  });
+}
+
 export function checkDist(input: {
   distDir: string;
   scope?: ReadonlySet<string>;
@@ -128,15 +292,29 @@ export function checkDist(input: {
 }): Finding[] {
   const { distDir, scope, knownDefects = [] } = input;
   const findings: Finding[] = [];
+  const built = new Set(listPages(distDir));
+  const pages = new Map<string, PageInfo>();
+  for (const entry of allPageEntries()) {
+    if (!built.has(entry.path)) continue;
+    const html = readPage(distDir, entry.path);
+    pages.set(entry.path, { entry, facts: extractFacts(html, entry.path), html });
+  }
   const ctx: Ctx = {
     distDir,
-    built: new Set(listPages(distDir)),
+    built,
+    pages,
     pagePaths: new Set(allPageEntries().map((e) => e.path)),
     redirectSources: new Set(redirects.map((r) => r.from)),
     add: (rule, pagePath, detail) => findings.push({ rule, path: pagePath, detail }),
   };
 
   checkManifestPages(ctx, scope);
+  for (const info of pages.values()) {
+    checkHead(ctx, info);
+    checkHreflang(ctx, info);
+    checkSocial(ctx, info);
+    checkStructuredData(ctx, info);
+  }
   checkRedirects(ctx);
   checkRobotsAndRequiredFiles(ctx);
 
