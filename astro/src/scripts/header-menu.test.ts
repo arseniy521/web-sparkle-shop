@@ -3,8 +3,8 @@ import { initHeaderMenu } from './header-menu';
 
 const dropdown = (id: string) => `
   <div data-dropdown>
-    <button type="button" id="trigger-${id}" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false" data-state="closed"></button>
-    <div id="panel-${id}" data-dropdown-panel role="menu" hidden><a id="item-${id}" href="/x/" role="menuitem">x</a></div>
+    <button type="button" id="trigger-${id}" data-dropdown-trigger aria-expanded="false" data-state="closed"></button>
+    <div id="panel-${id}" data-dropdown-panel hidden><a id="item-${id}" href="/x/">x</a></div>
   </div>`;
 
 const html = (id: string) => document.getElementById(id) as HTMLElement;
@@ -91,5 +91,14 @@ describe('header menu', () => {
     expect(html('panel-a').hidden).toBe(true);
     expect(trigger.dataset.state).toBe('closed');
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  it('returns focus to the trigger when Escape closes a dropdown', () => {
+    const trigger = html('trigger-a');
+    trigger.click();
+    html('item-a').focus();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    expect(html('panel-a').hidden).toBe(true);
+    expect(document.activeElement).toBe(trigger);
   });
 });

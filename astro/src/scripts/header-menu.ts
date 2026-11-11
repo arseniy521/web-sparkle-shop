@@ -59,6 +59,9 @@ export function initHeaderMenu(doc: Document = document): void {
   });
 
   doc.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeDropdowns();
+    if (event.key !== 'Escape') return;
+    const open = doc.querySelector<HTMLElement>('[data-dropdown-trigger][data-state="open"]');
+    closeDropdowns();
+    open?.focus();
   });
 }

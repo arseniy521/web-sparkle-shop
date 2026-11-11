@@ -73,7 +73,6 @@ const itemClass =
           <button
             type="button"
             data-dropdown-trigger
-            aria-haspopup="menu"
             aria-expanded="false"
             data-state="closed"
             aria-label={t('nav.language')}
@@ -82,11 +81,10 @@ const itemClass =
             {langLabels[lang]}
             <ChevronDown class="h-3.5 w-3.5" aria-hidden="true" />
           </button>
-          <div data-dropdown-panel role="menu" hidden class={`${panelClass} min-w-[168px]`}>
+          <div data-dropdown-panel hidden class={`${panelClass} min-w-[168px]`}>
             {langs.map((code) => (
               <a
                 href={targets[code]}
-                role="menuitem"
                 data-lang-switch="header"
                 data-lang={code}
                 class={`${itemClass} gap-2 text-[var(--color-text-secondary)]`}
@@ -106,7 +104,6 @@ const itemClass =
         <button
           type="button"
           data-dropdown-trigger
-          aria-haspopup="menu"
           aria-expanded="false"
           data-state="closed"
           class="hidden xl:inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium font-body text-[var(--color-text-secondary)] outline-hidden transition-colors hover:bg-[rgba(21,63,77,0.06)] hover:text-[var(--color-indigo)] data-[state=open]:bg-[rgba(21,63,77,0.06)] data-[state=open]:text-[var(--color-indigo)]"
@@ -115,10 +112,9 @@ const itemClass =
           <span>{t('nav.contacts')}</span>
           <ChevronDown class="h-3.5 w-3.5" aria-hidden="true" />
         </button>
-        <div data-dropdown-panel role="menu" hidden class={`${panelClass} min-w-[230px]`}>
+        <div data-dropdown-panel hidden class={`${panelClass} min-w-[230px]`}>
           <a
             href="tel:+420773629123"
-            role="menuitem"
             data-analytics-source="header_contact_menu"
             class={`${itemClass} gap-3`}
           >
@@ -129,7 +125,6 @@ const itemClass =
             href="https://wa.me/420773629123"
             target="_blank"
             rel="noopener noreferrer"
-            role="menuitem"
             data-analytics-source="header_contact_menu"
             class={`${itemClass} gap-3`}
           >
