@@ -1938,7 +1938,7 @@
       "closeBtn": "Zavřít"
     },
     "catalogLoading": "Načítám služby…",
-    "catalogLoadFailed": "Nepodařilo se načíst seznam služeb. Zavřete okno a zkuste to znovu.",
+    "catalogLoadFailed": "Nepodařilo se načíst seznam služeb.",
     "errors": {
       "rateLimit": "Příliš mnoho pokusů. Zkuste to prosím za chvíli.",
       "network": "Připojení selhalo. Zkontrolujte internet a zkuste znovu.",
@@ -2000,7 +2000,8 @@
     "group": {
       "count": "Počet účastníků",
       "hint": "Počet osob nezávisí na množství služeb. Každá osoba potřebuje vlastní dotazník."
-    }
+    },
+    "catalogRetry": "Zkusit znovu"
   },
   "heroNew": {
     "headline": "Registrovaná sestra u vašich dveří ještě dnes.",

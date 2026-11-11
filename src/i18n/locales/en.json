@@ -1938,7 +1938,7 @@
       "closeBtn": "Close"
     },
     "catalogLoading": "Loading services…",
-    "catalogLoadFailed": "Could not load the service list. Please close and try again.",
+    "catalogLoadFailed": "Could not load the service list.",
     "errors": {
       "rateLimit": "Too many attempts. Please try again in a while.",
       "network": "Connection failed. Check your internet and try again.",
@@ -2000,7 +2000,8 @@
     "group": {
       "count": "Number of participants",
       "hint": "The number of people is independent of service quantities. Each person needs a separate intake."
-    }
+    },
+    "catalogRetry": "Try again"
   },
   "heroNew": {
     "headline": "Registered nurse at your door, same day.",
