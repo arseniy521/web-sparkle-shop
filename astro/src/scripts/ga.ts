@@ -1,3 +1,5 @@
+import { sharedCookieDomain } from '@/scripts/cookie-domain';
+
 export const GA_ID = 'G-VNMLWF0XZG';
 
 declare global {
@@ -30,6 +32,10 @@ export function loadGa(): void {
 /** Cookie banner "Reject" and a stored rejection. */
 export function disableGa(): void {
   (window as unknown as Record<string, boolean>)[`ga-disable-${GA_ID}`] = true;
-  document.cookie = '_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-  document.cookie = '_ga_VNMLWF0XZG=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  const domain = sharedCookieDomain();
+  for (const name of ['_ga', '_ga_VNMLWF0XZG']) {
+    const expired = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+    document.cookie = `${expired};`;
+    if (domain) document.cookie = `${expired}; domain=${domain}`;
+  }
 }
