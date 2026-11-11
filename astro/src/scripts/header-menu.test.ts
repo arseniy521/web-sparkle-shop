@@ -17,7 +17,7 @@ describe('header menu', () => {
       <header role="banner">
         <button type="button" id="toggle" data-menu-toggle aria-expanded="false">
           <svg id="icon-open" data-menu-icon="menu"></svg>
-          <svg id="icon-close" data-menu-icon="close" hidden></svg>
+          <svg id="icon-close" data-menu-icon="close" class='hidden'></svg>
         </button>
         ${dropdown('a')}
         ${dropdown('b')}
@@ -31,13 +31,13 @@ describe('header menu', () => {
     toggle.click();
     expect(menu.hidden).toBe(false);
     expect(toggle.getAttribute('aria-expanded')).toBe('true');
-    expect(html('icon-open').hasAttribute('hidden')).toBe(true);
-    expect(html('icon-close').hasAttribute('hidden')).toBe(false);
+    expect(html('icon-open').classList.contains('hidden')).toBe(true);
+    expect(html('icon-close').classList.contains('hidden')).toBe(false);
     toggle.click();
     expect(menu.hidden).toBe(true);
     expect(toggle.getAttribute('aria-expanded')).toBe('false');
-    expect(html('icon-open').hasAttribute('hidden')).toBe(false);
-    expect(html('icon-close').hasAttribute('hidden')).toBe(true);
+    expect(html('icon-open').classList.contains('hidden')).toBe(false);
+    expect(html('icon-close').classList.contains('hidden')).toBe(true);
   });
 
   it('opens a dropdown on trigger click and closes it on outside click and Escape', () => {

@@ -11,8 +11,8 @@ export function initHeaderMenu(doc: Document = document): void {
     toggle.setAttribute('aria-expanded', String(open));
     const menuIcon = toggle.querySelector<SVGElement | HTMLElement>('[data-menu-icon="menu"]');
     const closeIcon = toggle.querySelector<SVGElement | HTMLElement>('[data-menu-icon="close"]');
-    if (menuIcon) menuIcon.toggleAttribute('hidden', open);
-    if (closeIcon) closeIcon.toggleAttribute('hidden', !open);
+    if (menuIcon) menuIcon.classList.toggle('hidden', open);
+    if (closeIcon) closeIcon.classList.toggle('hidden', !open);
   };
 
   const setDropdown = (root: Element, open: boolean) => {
@@ -44,7 +44,7 @@ export function initHeaderMenu(doc: Document = document): void {
     if (root) {
       const panel = root.querySelector<HTMLElement>('[data-dropdown-panel]');
       closeDropdowns(root);
-      setDropdown(root, panel?.hidden ?? false);
+      setDropdown(root, Boolean(panel?.hidden));
       return;
     }
     if (!target.closest('[data-dropdown]')) closeDropdowns();
@@ -52,7 +52,7 @@ export function initHeaderMenu(doc: Document = document): void {
     const toggle = target.closest('[data-menu-toggle]');
     if (toggle) {
       const menu = doc.querySelector<HTMLElement>('[data-mobile-menu]');
-      setMenu(menu?.hidden ?? false);
+      setMenu(Boolean(menu?.hidden));
       return;
     }
     if (target.closest('[data-mobile-menu] a[href]')) setMenu(false);
