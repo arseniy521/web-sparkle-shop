@@ -6,6 +6,8 @@
  * A twin helper lives in nius/frontend/src/lib/consent.ts; keep them in sync.
  */
 
+import { cookieAttributes } from './cookie-domain';
+
 const CONSENT_COOKIE = 'nius_consent';
 const LEGACY_STORAGE_KEY = 'nius-cookie-consent';
 const MAX_AGE_SECONDS = 180 * 86_400;
@@ -16,18 +18,24 @@ const isConsentValue = (v: string | undefined | null): v is ConsentValue =>
   v === 'accepted' || v === 'rejected';
 
 const readCookie = (): ConsentValue | null => {
-  const match = document.cookie
-    .split('; ')
-    .find((row) => row.startsWith(`${CONSENT_COOKIE}=`))
-    ?.split('=')[1];
-  return isConsentValue(match) ? match : null;
+  try {
+    const match = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith(`${CONSENT_COOKIE}=`))
+      ?.split('=')[1];
+    return isConsentValue(match) ? match : null;
+  } catch {
+    return null;
+  }
 };
 
 export const setConsent = (value: ConsentValue): void => {
-  const domain = import.meta.env.PROD ? '; domain=.nius.cz' : '';
-  const secure = import.meta.env.PROD ? '; Secure' : '';
-  document.cookie =
-    `${CONSENT_COOKIE}=${value}; max-age=${MAX_AGE_SECONDS}; path=/${domain}; SameSite=Lax${secure}`;
+  try {
+    document.cookie =
+      `${CONSENT_COOKIE}=${value}; max-age=${MAX_AGE_SECONDS}; path=/; SameSite=Lax${cookieAttributes()}`;
+  } catch {
+    // ignore — cookies may be unavailable
+  }
   try {
     // Keep the legacy key updated so older cached bundles stay consistent.
     localStorage.setItem(LEGACY_STORAGE_KEY, value);
