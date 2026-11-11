@@ -1,6 +1,7 @@
 import { initAnalyticsIfConsented } from '@/scripts/analytics';
 import { initCookieBanner } from '@/scripts/cookie-banner';
 import { initDripFilter } from '@/scripts/drip-filter';
+import { initFloatingWhatsApp } from '@/scripts/floating-whatsapp';
 import { getConsent } from '@/scripts/consent';
 import { installGlobalErrorHandlers } from '@/scripts/client-error';
 import { loadGa } from '@/scripts/ga';
@@ -26,3 +27,4 @@ initHeaderState();
 void authStatus.ensure();
 initFormBridge();
 initDripFilter();
+initFloatingWhatsApp();
