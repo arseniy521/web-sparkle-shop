@@ -3,7 +3,7 @@ import { useTranslation } from './i18n';
 import { ArrowRight, Loader2, ChevronRight, Check, Zap } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from './ui/cn';
-import type { OnboardingFormData } from './useOnboardingForm';
+import type { OnboardingFormData } from '@/scripts/draft-types';
 
 interface Step3TimingProps {
   data: OnboardingFormData;

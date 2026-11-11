@@ -2,7 +2,7 @@ import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from './i18n';
 import { CheckCircle2, PhoneCall, Loader2, ClipboardList, Pencil, Activity } from 'lucide-react';
 import { Button } from './ui/button';
-import type { CartItem } from './cartCatalog';
+import type { CartItem } from '@/scripts/cart-catalog';
 import { ServiceIcon } from './Step0Cart';
 import { serviceTitle } from './serviceDisplay';
 import {

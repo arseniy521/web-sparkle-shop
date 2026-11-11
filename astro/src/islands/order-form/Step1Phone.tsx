@@ -4,7 +4,8 @@ import { ArrowRight, Loader2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Label } from './ui/label';
 import { PhoneInput } from './ui/phone-input';
-import { isValidPhoneNumber, type OnboardingFormData } from './useOnboardingForm';
+import { isValidPhoneNumber } from './useOnboardingForm';
+import type { OnboardingFormData } from '@/scripts/draft-types';
 
 interface Step1PhoneProps {
   data: OnboardingFormData;

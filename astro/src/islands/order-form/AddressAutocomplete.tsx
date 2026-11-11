@@ -11,7 +11,7 @@ import { useTranslation } from './i18n';
 import { Loader2, MapPin } from 'lucide-react';
 import { Input } from './ui/input';
 import { useMapyCzSuggest, type MapySuggestion } from './hooks/useMapyCzSuggest';
-import type { AddressGeo } from './useOnboardingForm';
+import type { AddressGeo } from '@/scripts/draft-types';
 import { cn } from './ui/cn';
 
 interface AddressAutocompleteProps

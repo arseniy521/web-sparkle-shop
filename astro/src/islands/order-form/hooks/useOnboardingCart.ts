@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react';
-import { loadDraft, clearDraft, saveDraftCodes } from '../onboardingPersist';
-import { normalizeServiceCode } from '../cartCatalog';
+import { loadDraft, clearDraft, saveDraftCodes } from '@/scripts/draft';
+import { normalizeServiceCode } from '@/scripts/cart-catalog';
 import {
   track,
   trackCtaClick,

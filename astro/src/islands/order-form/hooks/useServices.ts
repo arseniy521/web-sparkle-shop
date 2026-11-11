@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import type { CartService } from '../cartCatalog';
+import type { CartService } from '@/scripts/cart-catalog';
 import { fetchServicesCatalog } from '../api/services';
 
 export interface UseServicesResult {

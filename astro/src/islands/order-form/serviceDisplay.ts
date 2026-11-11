@@ -1,5 +1,5 @@
 import type { TFunction } from 'i18next';
-import type { CartService } from './cartCatalog';
+import type { CartService } from '@/scripts/cart-catalog';
 
 export function serviceTitle(t: TFunction, svc: CartService): string {
   if (svc.nameKey) return t(svc.nameKey, { defaultValue: svc.displayNameFallback });

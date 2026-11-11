@@ -1,5 +1,5 @@
 import { useTranslation } from './i18n';
-import type { OnboardingFormData } from './useOnboardingForm';
+import type { OnboardingFormData } from '@/scripts/draft-types';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 

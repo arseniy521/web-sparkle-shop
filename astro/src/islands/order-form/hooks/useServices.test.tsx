@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import type { ReactElement, ReactNode } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fetchServicesCatalog } from '../api/services';
-import type { CartService } from '../cartCatalog';
+import type { CartService } from '@/scripts/cart-catalog';
 import { useServices } from './useServices';
 
 vi.mock('../api/services', () => ({ fetchServicesCatalog: vi.fn() }));

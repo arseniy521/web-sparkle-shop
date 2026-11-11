@@ -17,7 +17,7 @@ import { FinalScreen } from './FinalScreen';
 import { ReturningCustomerHint } from './ReturningCustomerHint';
 import { ActiveOrderGate } from './ActiveOrderGate';
 import { ThankYouScreen } from './ThankYouScreen';
-import { normalizeServiceCode } from './cartCatalog';
+import { normalizeServiceCode } from '@/scripts/cart-catalog';
 import { applyParticipantDraft } from './participantCount';
 import { isValidPhoneNumber, useOnboardingForm } from './useOnboardingForm';
 import { track, trackCtaClick } from '@/scripts/analytics';

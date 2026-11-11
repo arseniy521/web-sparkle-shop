@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { AddressAutocomplete } from './AddressAutocomplete';
-import type { OnboardingFormData } from './useOnboardingForm';
+import type { OnboardingFormData } from '@/scripts/draft-types';
 
 interface Step2AddressProps {
   data: OnboardingFormData;

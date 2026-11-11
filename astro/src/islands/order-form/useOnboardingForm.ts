@@ -3,15 +3,14 @@ import { isValidPhoneNumber as isValidIntlPhoneNumber } from 'react-phone-number
 import {
   contactMe,
   createOrder,
-  type DesiredTiming,
   OnboardingApiError,
   type OnboardingOrder,
   type OnboardingOrderItem,
-  type PaymentPreference,
 } from './api/onboarding';
-import type { CartItem, CartService } from './cartCatalog';
-import { normalizeServiceCode } from './cartCatalog';
-import { loadDraft, saveDraftData } from './onboardingPersist';
+import type { CartItem, CartService } from '@/scripts/cart-catalog';
+import { normalizeServiceCode } from '@/scripts/cart-catalog';
+import { loadDraft, saveDraftData } from '@/scripts/draft';
+import type { OnboardingFormData } from '@/scripts/draft-types';
 import { track, trackCtaClick, type ConversionSource } from '@/scripts/analytics';
 
 export type OnboardingMode = 'standard' | 'escort';
@@ -98,33 +97,6 @@ function cartFromOrder(order: OnboardingOrder, catalog: CartService[]): CartItem
 }
 
 export type OnboardingStep = 1 | 2 | 3 | 'final' | 'thankyou';
-
-export interface AddressGeo {
-  label: string;
-  lat: number;
-  lon: number;
-  zip: string | null;
-  city: string | null;
-  cityPart: string | null;
-  country: string;
-  source: 'mapy' | 'manual';
-}
-
-export interface OnboardingFormData {
-  participantCount: number;
-  phone: string;
-  serviceCode: string | null;
-  address: string;
-  addressGeo: AddressGeo | null;
-  addressTo: string;
-  addressToGeo: AddressGeo | null;
-  addressFloor: string;
-  addressIntercom: string;
-  desiredTiming: DesiredTiming | null;
-  desiredDate: string | null;
-  paymentPreference: PaymentPreference | null;
-  patientNote: string;
-}
 
 export interface UseOnboardingFormResult {
   step: OnboardingStep;

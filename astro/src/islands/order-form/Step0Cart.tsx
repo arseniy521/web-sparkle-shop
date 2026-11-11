@@ -2,7 +2,7 @@ import { useTranslation } from './i18n';
 import { Trash2, Droplet, Syringe, Bandage, Microscope, HandHeart, Citrus, Ambulance, Check, Minus, Plus } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { cn } from './ui/cn';
-import type { CartItem, CartService } from './cartCatalog';
+import type { CartItem, CartService } from '@/scripts/cart-catalog';
 import { serviceTitle, serviceHint } from './serviceDisplay';
 
 const ICON_MAP = {

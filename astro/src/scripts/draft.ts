@@ -1,4 +1,4 @@
-import type { OnboardingFormData, AddressGeo } from './useOnboardingForm';
+import type { OnboardingFormData, AddressGeo } from '@/scripts/draft-types';
 
 
 const STORAGE_KEY = 'nius_onboarding_draft_v2';
