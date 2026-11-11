@@ -13,6 +13,7 @@ const calls = vi.hoisted(() => ({
   installCartBridge: vi.fn(),
   initHeaderState: vi.fn(),
   ensureAuthStatus: vi.fn(),
+  initFormBridge: vi.fn(),
 }));
 
 vi.mock('@/scripts/referral', () => ({ captureReferral: calls.captureReferral }));
@@ -29,6 +30,7 @@ vi.mock('@/scripts/link-tracker', () => ({ initLinkTracker: calls.initLinkTracke
 vi.mock('@/scripts/cart-core', () => ({ installCartBridge: calls.installCartBridge }));
 vi.mock('@/scripts/header-state', () => ({ initHeaderState: calls.initHeaderState }));
 vi.mock('@/scripts/auth-status', () => ({ authStatus: { ensure: calls.ensureAuthStatus } }));
+vi.mock('@/scripts/form-bridge', () => ({ initFormBridge: calls.initFormBridge }));
 
 describe('boot', () => {
   beforeEach(() => {
@@ -75,5 +77,12 @@ describe('boot', () => {
     expect(calls.installCartBridge.mock.invocationCallOrder[0]).toBeLessThan(
       calls.initHeaderState.mock.invocationCallOrder[0],
     );
+  });
+
+  it('starts the form bridge last', async () => {
+    await import('./boot');
+    expect(calls.initFormBridge).toHaveBeenCalledOnce();
+    const last = Math.max(...Object.values(calls).flatMap((mock) => mock.mock.invocationCallOrder));
+    expect(calls.initFormBridge.mock.invocationCallOrder[0]).toBe(last);
   });
 });

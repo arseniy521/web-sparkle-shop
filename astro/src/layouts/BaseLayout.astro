@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css';
 import CookieBanner from '@/components/CookieBanner.astro';
+import OrderFormRoot from '@/components/OrderFormRoot.astro';
 import { buildHead, serializeJsonLd } from '@/seo/head.ts';
 import type { PageMeta } from '@/seo/head.ts';
 import type { Lang, PageRoute } from '@/routes/types.ts';
@@ -52,6 +53,7 @@ const schemas = meta.schema === undefined ? [] : Array.isArray(meta.schema) ? me
   </head>
   <body>
     <slot />
+    <OrderFormRoot lang={lang} />
     <CookieBanner />
     <script>
       import '@/scripts/boot';
