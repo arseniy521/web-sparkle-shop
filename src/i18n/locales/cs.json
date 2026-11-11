@@ -1,8 +1,8 @@
 {
   "seo": {
     "home": {
-      "title": "Sestřička Praha | Domácí Sestra - IV Kapačky Praha & Injekce",
-      "description": "Sestřička Praha na zavolání! Profesionální domácí sestra v Praze pro IV kapačky Praha, IV infuze, pooperační péči a zdravotní péči doma. Anglicky mluvící sestřička ve vašem hotelu/domě. Rezervujte denně 8–21 pro IV terapii, ošetření ran, IVF injekce a péči o zdravotně postižené.",
+      "title": "IV kapačky Praha | Domácí sestra a sestřička Praha",
+      "description": "Sestřička Praha: domácí sestra přijede s IV kapačkami, injekcemi i ošetřením ran k vám do hotelu nebo domů. Anglicky, česky, rusky, ukrajinsky. Denně 8–21.",
       "keywords": "sestřička praha, domácí sestra praha, iv kapačky praha, iv terapie praha, ošetřovatelka praha, sestra na doma praha, zdravotní péče doma praha, ivf injekce praha"
     }
   },
@@ -10,14 +10,14 @@
     "businessName": "Sestřička Praha",
     "businessLegalName": "Nius Services s.r.o.",
     "businessDescription": "Profesionální domácí zdravotní péče v Praze: IV kapačky, IV infuze, injekce, ošetření ran a ošetřovatelské služby přímo u vás doma nebo v hotelu po celé Praze.",
-    "businessSlogan": "Rychlá, spolehlivá a profesionální zdravotní péče v pohodlí vašeho domova",
+    "businessSlogan": "Spolehlivá a profesionální zdravotní péče v pohodlí vašeho domova",
     "areaServed": "Praha",
     "bookingAction": "Objednat zdravotní sestru",
     "services": {
       "ivDrip": {
         "name": "IV kapačky Praha",
         "alternateName": "Kapačky Praha",
-        "description": "Profesionální IV kapačky a vitamínové infuze na vaší adrese v Praze - hotely, domovy, Airbnb",
+        "description": "IV kapačky s vitamíny a hydratací na vaší adrese v Praze: hotely, domovy, Airbnb. Každou infuzi indikuje lékař.",
         "type": "IV kapačky Praha"
       },
       "homeNurse": {
@@ -64,7 +64,7 @@
     },
     "performedBy": "registrovanou sestrou",
     "inYourHome": "na vaší pražské adrese",
-    "description": "Návštěvy tentýž den anglicky mluvícími sestrami. IV kapačky, injekce, péče o rány a více — v hotelu, doma i v Airbnb.",
+    "description": "Návštěvy tentýž den anglicky mluvícími sestrami. IV kapačky, injekce, péče o rány a další služby v hotelu, doma i v Airbnb.",
     "bookNurse": "Rezervovat sestru",
     "ourServices": "Naše služby",
     "certifiedNurses": "Certifikované sestry",
@@ -77,35 +77,35 @@
     "description": "Poskytujeme profesionální zdravotní péči na míru vašim potřebám. Všechny služby provádějí kvalifikované sestry pod řádným lékařským dohledem.",
     "ivInfusion": {
       "title": "IV Infuze",
-      "description": "💡 Pro hydrataci, vitaminovou terapii nebo předepsané IV léčby. 👉 Podání IV sestrou s monitorováním u vás doma nebo v hotelu."
+      "description": "Pro hydrataci, vitamíny nebo infuze předepsané lékařem. Podání registrovanou sestrou u vás doma nebo v hotelu."
     },
     "injection": {
       "title": "Injekce",
-      "description": "💡 Pro IVF, antibiotika, inzulín nebo vitaminovou terapii. 👉 Včasné, přesné podání předepsaných injekcí."
+      "description": "Pro léky předepsané lékařem nebo vaší klinikou, včetně IVF. Včasné a přesné podání injekcí."
     },
     "woundCare": {
       "title": "Převazy a ošetření ran",
-      "description": "💡 Pro pacienty, kteří se zotavují z operace nebo po úrazech. 👉 Sterilní výměna obvazu, čištění ran a kontrola infekce."
+      "description": "Pro pacienty po operaci nebo úrazu. Sterilní výměna obvazů a péče o rány podle pokynů lékaře."
     },
     "hygiene": {
       "title": "Asistence s hygienou",
-      "description": "💡 Pro starší nebo zdravotně postižené klienty potřebující denní péči. 👉 Jemná podpora s osobní hygienou a pohodlím."
+      "description": "Pro starší nebo zdravotně postižené klienty, kteří potřebují denní péči. Pomoc s osobní hygienou a pohodlím."
     },
     "escort": {
       "title": "Doprovod do/z nemocnice",
-      "description": "💡 Pro pacienty potřebující podporu při cestě nebo návštěvě nemocnice. 👉 Doprovod sestry s pomocí při pohybu a tlumočením."
+      "description": "Pro pacienty, kteří potřebují podporu při cestě nebo návštěvě nemocnice. Sestra je doprovodí, pomůže s pohybem a tlumočí."
     },
     "massage": {
       "title": "Terapeutická masáž",
-      "description": "💡 Pro klienty s bolestí, otoky nebo omezenou pohyblivostí. 👉 Léčebná masáž pro zmírnění bolesti a zlepšení cirkulace."
+      "description": "Pro klienty, kteří chtějí uvolnění a pohodlí. Masáž v pohodlí domova."
     }
   },
   "workflow": {
     "title": "Jak to funguje",
-    "description": "Od objednávky k ošetření ve 3 krocích — většina pacientů ošetřena během hodin",
+    "description": "Od objednávky k návštěvě ve 3 krocích",
     "step1": {
       "title": "Zavolejte, napište WhatsApp nebo rezervujte online",
-      "description": "Řekněte nám, co potřebujete a kdy. Potvrdíme sestřičku a čas příjezdu během minut."
+      "description": "Řekněte nám, co potřebujete a kdy. Čas příjezdu sestřičky potvrdíme po objednání."
     },
     "step2": {
       "title": "Sestřička přijede k vám",
@@ -113,7 +113,7 @@
     },
     "step3": {
       "title": "Odpočívejte, my se postaráme",
-      "description": "Profesionální ošetření ve vašem prostředí — žádné fronty v nemocnici, žádné čekárny, žádné jazykové bariéry."
+      "description": "Profesionální ošetření ve vašem prostředí. Bez front v nemocnici, bez čekáren a bez jazykových bariér."
     }
   },
   "benefits": {
@@ -125,15 +125,15 @@
     },
     "benefit2": {
       "title": "Návštěvy tentýž den, 7 dní v týdnu",
-      "description": "K dispozici denně 8:00–21:00 včetně víkendů a svátků. Většina pacientů ošetřena do 2–4 hodin."
+      "description": "Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání."
     },
     "benefit3": {
       "title": "Anglicky, česky, rusky, ukrajinsky",
-      "description": "Žádné jazykové bariéry — komunikujte pohodlně ve svém jazyce"
+      "description": "Bez jazykových bariér: komunikujte ve svém jazyce"
     },
     "benefit4": {
       "title": "Přijedeme za vámi",
-      "description": "Hotely, Airbnb, domovy — vynechte nemocniční frontu a léčte se tam, kde je vám pohodlně"
+      "description": "Hotely, Airbnb, domovy: vynechte nemocniční frontu a nechte se ošetřit tam, kde je vám pohodlně"
     }
   },
   "team": {
@@ -146,24 +146,24 @@
       "nigina": {
         "name": "Nigina Jebrak",
         "role": "Vedoucí sestra",
-        "description": "S neochvějným odhodláním k péči o pacienty je Nigina naší nejzkušenější sestrou, oceňovanou pro svou klinickou bystrost a vizionářské vedení."
+        "description": "Nigina je zkušená sestra, která se pacientům věnuje pozorně a dobře organizuje práci týmu."
       },
       "jana": {
         "name": "Jana Králová",
         "role": "Sestra interního oddělení",
-        "description": "10 let pracovala na interním oddělení Thomayerovy nemocnice, kde získala hluboké znalosti v oblasti léčby chronických a akutních stavů."
+        "description": "10 let pracovala na interním oddělení pražské nemocnice, kde získala hluboké znalosti v péči o pacienty s akutními i chronickými potížemi."
       },
       "tomas": {
         "name": "Tomáš Dvořák",
         "role": "Bratr na pohotovosti",
-        "description": "Zkušený bratr se silným zázemím v urgentní péči. 8 let pracoval na pohotovostních odděleních a zvládal kritické situace s přesností."
+        "description": "Zkušený bratr s dlouholetou nemocniční praxí. 8 let pracoval na pohotovostních odděleních a zvládal náročné situace s klidem a přesností."
       }
     }
   },
   "pricing": {
     "title": "Jasné a jednoduché ceny",
     "description": "Profesionální ošetřovatelská péče za transparentní ceny. Sleva 10% pro 2+ návštěvy.",
-    "prescriptionNote": "Lékařský předpis v případě potřeby: +900 CZK",
+    "prescriptionNote": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.",
     "table": {
       "service": "Služba",
       "singleVisit": "Jednorázová návštěva",
@@ -172,7 +172,7 @@
     "items": {
       "imInjection": {
         "name": "Intramuskulární / Podkožní injekce",
-        "example": "Vitamin B, antibiotika, inzulin"
+        "example": "Léky předepsané lékařem nebo vaší klinikou"
       },
       "vitaminInjection": {
         "name": "Vitaminová injekce",
@@ -180,7 +180,7 @@
       },
       "ivDrips": {
         "name": "IV kapačky a infuze",
-        "example": "Imunita, energie, hydratace, železo a další.",
+        "example": "Vitamíny, minerály a hydratace.",
         "menuLink": "Zobrazit celé menu IV kapačky"
       },
       "woundCare": {
@@ -225,7 +225,7 @@
         "author": "Anna V."
       },
       "testimonial5": {
-        "text": "Objednal jsem si IV kapačku na kocovinu do svého Airbnb — sestřička přijela za 2 hodiny a cítil jsem se jako nový člověk. Stálo to za to.",
+        "text": "Po dlouhém letu jsem si objednal IV kapačku do svého Airbnb — sestřička přijela v domluvený čas, vše vysvětlila a byla velmi milá. Stálo to za to.",
         "author": "James T."
       },
       "testimonial6": {
@@ -240,7 +240,7 @@
     "serviceArea": "Oblast služeb",
     "serviceAreaText": "Praha 1-10, Vinohrady, Žižkov, Staré Město, Nové Město a okolí (až 20 km od centra)",
     "responseTime": "Reakční čas",
-    "responseTimeText": "Obvykle 2-4 hodiny pro rezervace tentýž den po celé Praze"
+    "responseTimeText": "Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání."
   },
   "contacts": {
     "title": "Kontaktujte nás",
@@ -252,7 +252,7 @@
     "email": "E-mail",
     "availability": "Dostupnost",
     "availabilityHours": "Každý den 8:00 – 21:00",
-    "urgentNote": "V naléhavých případech mimo standardní hodiny prosím volejte přímo"
+    "urgentNote": "NIUS není záchranná služba. V případě ohrožení volejte 155/112."
   },
   "faq": {
     "title": "Často kladené otázky",
@@ -263,24 +263,24 @@
         "answer": "Sestru si můžete objednat několika způsoby: vyplněním online formuláře, telefonicky na čísle +420 773 629 123, e-mailem na info@nius.cz nebo přes WhatsApp/Telegram. Po objednání vás budeme kontaktovat pro potvrzení termínu návštěvy."
       },
       "q2": {
-        "question": "Jak rychle může sestra dorazit?",
-        "answer": "Snažíme se poskytnout péči co nejrychleji. V závislosti na vaší lokalitě v Praze a aktuální dostupnosti sester můžeme typicky dorazit do 2-3 hodin od potvrzení objednávky. Pro plánované návštěvy doporučujeme objednat sestru alespoň jeden den předem."
+        "question": "Kdy může sestra dorazit?",
+        "answer": "Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání. Pro plánované návštěvy doporučujeme objednat alespoň jeden den předem."
       },
       "q3": {
         "question": "Navštěvujete hotely a Airbnb ubytování?",
-        "answer": "Ano! Pravidelně navštěvujeme mezinárodní pacienty ubytované v hotelech, Airbnb a krátkodobých pronájmech po celé Praze. To je obzvláště časté u pacientů s IVF a zdravotních turistů potřebujících péči po operaci. Stačí uvést adresu vašeho ubytování při objednávání."
+        "answer": "Ano. Pravidelně navštěvujeme mezinárodní hosty ubytované v hotelech, Airbnb a krátkodobých pronájmech po celé Praze. Stačí uvést adresu vašeho ubytování při objednávání."
       },
       "q4": {
-        "question": "Pracujete s pacienty s IVF a klinkami plodnosti?",
-        "answer": "Rozhodně. Máme rozsáhlé zkušenosti s pacienty s IVF, včetně časově citlivých hormonálních injekcí a trigger shots. Jsme obeznámeni s protokoly hlavních pražských klinik plodnosti jako Reprofit, ISCARE a Gennet. Nabízíme večerní a víkendové schůzky pro přesné časové požadavky."
+        "question": "Podáváte injekce pacientkám s IVF?",
+        "answer": "Ano. Podáváme léky předepsané vaší klinikou podle jejích písemných pokynů, včetně injekcí s přesně daným časem. Čas návštěvy domlouváme předem v rámci provozní doby 8:00–21:00."
       },
       "q5": {
         "question": "Můžete pomoci s rekonvalescencí po operaci pro zdravotní turisty?",
         "answer": "Ano, to je jedna z našich specialit. Poskytujeme péči o rány, výměnu obvazů, správu drénů, pomoc s hygienou a doprovodné služby pro pacienty, kteří se zotavují z plastické chirurgie, zubních zákroků nebo jiných lékařských ošetření v Praze. Rozumíme jedinečným potřebám mezinárodních pacientů."
       },
       "q6": {
-        "question": "Potřebuji lékařský předpis pro IV terapii?",
-        "answer": "Ano, předepsané IV terapie vyžadují lékařský předpis. Naše sestry mohou podávat pouze léky předepsané lékařem. Pokud máte zájem o vitamínové nebo hydratační IV, ty lze podávat bez předpisu, protože jsou považovány za doplňky stravy."
+        "question": "Kdo indikuje IV terapii?",
+        "answer": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně."
       },
       "q7": {
         "question": "Jaké platební metody přijímáte?",
@@ -292,7 +292,7 @@
       },
       "q9": {
         "question": "Jaká je vaše provozní doba?",
-        "answer": "Jsme k dispozici 7 dní v týdnu od 8:00 do 21:00. Pro naléhavé případy a IVF injekce vyžadující specifické načasování nabízíme také večerní návštěvy po dohodě. Volejte +420 773 629 123 denně pro rezervace."
+        "answer": "Jsme k dispozici 7 dní v týdnu od 8:00 do 21:00. Pro IVF injekce vyžadující specifické načasování domluvíme čas předem. Volejte +420 773 629 123 denně pro rezervace. NIUS není záchranná služba. V případě ohrožení volejte 155/112."
       },
       "q10": {
         "question": "Nabízíte dlouhodobou péči pro zdravotně postižené pacienty?",
@@ -304,7 +304,7 @@
       },
       "q12": {
         "question": "Potřebuji něco připravit před příjezdem sestry?",
-        "answer": "Pro co nejhladší možnou návštěvu doporučujeme: mít připravený lékařský předpis (pokud je vyžadován), zajistit klidný a čistý prostor pro proceduru, informovat nás předem o vašem zdravotním stavu a alergiích a mít po ruce kontakt na vašeho lékaře."
+        "answer": "Pro co nejhladší návštěvu doporučujeme: zajistit klidný a čistý prostor, informovat nás předem o vašem zdravotním stavu a alergiích, mít připravený seznam užívaných léků a po ruce kontakt na vašeho lékaře."
       }
     }
   },
@@ -331,49 +331,49 @@
     "ivDrip": "IV Kapačková terapie",
     "postSurgery": "Rekonvalescence po operaci",
     "disabled": "Denní komfortní péče",
-    "hangover": "Kapačka na kocovinu",
-    "hangoverDesc": "Mobilní kapačka na kocovinu — sestra přijede do vašeho hotelu, Airbnb nebo domů v Praze ve stejný den. Lék proti nevolnosti, rehydratace a elektrolyty od 2 450 Kč.",
+    "hydration": "Rehydratace po cestě",
+    "hydrationDesc": "Mobilní rehydratace: sestra přijede do vašeho hotelu, Airbnb nebo domů v Praze. Infuze s tekutinami a vitamíny od 2 550 Kč, každou indikuje lékař.",
     "womensDayGift": "Dárek na 8. března",
     "birthdayGift": "Dárek k narozeninám"
   },
   "ivfSupport": {
     "seo": {
-      "title": "IVF podpora Praha | Injekce, Intralipid a léčba NK buněk",
-      "description": "Profesionální podpora IVF v Praze: injekce pro plodnost, Intralipid infuze, léčba NK buněk a wellness IV kapačky ve vašem hotelu. Anglicky mluvící sestry dostupné denně 8–21. Důvěřuje nám přes 500 IVF pacientek z Reprofit, ISCARE, Gennet.",
-      "keywords": "ivf praha, ivf podpora praha, ivf injekce praha, intralipid praha, léčba nk buněk praha, injekce plodnosti praha, ivf sestra praha"
+      "title": "IVF injekce Praha | Sestřička k vám do hotelu i domů",
+      "description": "Podpora IVF injekcí v Praze: sestřička Praha podá léky předepsané vaší klinikou u vás v hotelu nebo doma. Anglicky mluvící sestry, denně 8:00–21:00.",
+      "keywords": "ivf praha, ivf podpora praha, ivf injekce praha, injekce plodnosti praha, ivf sestra praha, sestřička praha, domácí sestra praha"
     },
-    "badge": "Důvěryhodná IVF podpora v Praze",
-    "title": "IVF podpora Praha — Injekce, Intralipid a wellness IV kapačky",
-    "subtitle": "Vaše cesta k plodnosti si zaslouží odbornou ošetřovatelskou péči",
-    "description": "Profesionální podpora IVF v Praze od zkušených anglicky mluvících sester. Aplikujeme injekce pro plodnost, Intralipid infuze pro léčbu NK buněk a wellness IV kapačky — ve vašem hotelu, Airbnb nebo doma, ve dne i v noci.",
+    "badge": "Podpora IVF injekcí v Praze",
+    "title": "IVF podpora Praha: injekce u vás v hotelu nebo doma",
+    "subtitle": "Přesné načasování a klidná návštěva sestry podle pokynů vaší kliniky",
+    "description": "Podpora IVF injekcí v Praze od zkušených anglicky mluvících sester. Podáváme léky předepsané vaší klinikou podle jejích písemných pokynů, ve vašem hotelu, Airbnb nebo doma. Denně 8:00–21:00.",
     "bookNow": "Rezervovat IVF podporu",
     "call247": "Zavolejte nám",
     "whatsapp": "Napište nám na WhatsApp",
     "trustBadges": {
       "available": "Denně 8:00–21:00",
       "nurses": "Licencované sestry",
-      "patients": "Přes 500 IVF pacientek",
+      "patients": "Anglicky, česky, rusky, ukrajinsky",
       "rating": "4.9★ Hodnocení Google"
     },
     "whyMatters": {
-      "title": "Proč je profesionální podpora IVF v Praze důležitá",
-      "description": "Tisíce žen každoročně cestují do Prahy za IVF léčbou na špičkových klinikách jako Reprofit, ISCARE a Gennet. Ale po odchodu z kliniky stále potřebujete kvalifikovanou sestru pro aplikaci denních injekcí, Intralipid infuzí a dalších léků — včas, pokaždé.",
+      "title": "Proč se hodí podpora IVF injekcí u vás",
+      "description": "Spousta žen cestuje do Prahy kvůli IVF na pražské kliniky. Po odchodu z kliniky se vám hodí kvalifikovaná sestra, která podá předepsané léky v domluvený čas, pokaždé.",
       "items": {
         "timing": {
-          "title": "Garantované přesné načasování",
-          "description": "Léky na plodnost jako Gonal-F, Menopur a Cetrotide vyžadují přesné načasování. I 30minutová odchylka může ovlivnit váš cyklus. Garantujeme příjezd včas — včetně trigger injekcí v 5 ráno."
+          "title": "Přesné načasování podle plánu kliniky",
+          "description": "Léky předepsané vaší klinikou se podávají podle jejího plánu. Čas návštěvy s vámi domluvíme předem v rámci provozní doby 8:00–21:00."
         },
         "expertise": {
-          "title": "Specializované zkušenosti s IVF",
-          "description": "Naše sestry jsou vyškoleny ve všech IVF lécích: podkožní a intramuskulární injekce, Intralipid infuze pro léčbu NK buněk a progesteron v oleji. Dodržujeme přesný protokol vaší kliniky."
+          "title": "Zkušenosti s IVF injekcemi",
+          "description": "Naše sestry jsou zaškoleny v podkožních i nitrosvalových injekcích. Postupujeme podle písemných pokynů vaší kliniky."
         },
         "comfort": {
           "title": "Pohodlí na vaší adrese",
-          "description": "Nemusíte jezdit na kliniku kvůli denním injekcím. Přijedeme do vašeho hotelu, Airbnb nebo domova kdekoli v Praze — diskrétně a profesionálně. Soustřeďte se na léčbu, ne na logistiku."
+          "description": "Nemusíte jezdit na kliniku kvůli denním injekcím. Přijedeme do vašeho hotelu, Airbnb nebo domova kdekoli v Praze, diskrétně a profesionálně. Vy se soustřeďte na to důležité, o logistiku se postaráme."
         },
         "safety": {
-          "title": "Licencované a bezpečné",
-          "description": "Všechny sestry jsou licencované zdravotní profesionálky. Přivážíme sterilní pomůcky, před každou injekcí ověřujeme lék a dávkování a bezpečně likvidujeme ostré předměty."
+          "title": "Registrované sestry",
+          "description": "Všechny sestry jsou registrované zdravotní profesionálky. Přivážíme sterilní pomůcky, před každou injekcí si ověříme lék a dávkování podle pokynů kliniky a ostré předměty likvidujeme v souladu s předpisy."
         }
       }
     },
@@ -381,174 +381,174 @@
       "title": "Naše IVF podpůrné služby v Praze",
       "medication": {
         "name": "Aplikace léků",
-        "subtitle": "Stimulační a progesteronové injekce",
-        "description": "Podkožní a intramuskulární injekce všech IVF léků: Gonal-F, Menopur, Cetrotide, Orgalutran, trigger injekce (Ovitrelle, Decapeptyl) a progesteron v oleji. Garantované přesné načasování.",
-        "price": "1 890 Kč",
+        "subtitle": "Injekce podle pokynů vaší kliniky",
+        "description": "Podkožní a nitrosvalové injekce léků předepsaných vaší klinikou. Podáváme je podle jejích písemných pokynů v domluvený čas.",
+        "price": "1 900 Kč",
         "duration": "~15 min",
         "benefits": [
-          "Všechny podkožní a intramuskulární injekce",
-          "Trigger injekce v kteroukoli hodinu (včetně 5 ráno)",
-          "Ověření léků a správného dávkování",
+          "Podkožní a nitrosvalové injekce",
+          "Čas návštěvy domluvený předem (8:00–21:00)",
+          "Ověření léku podle pokynů kliniky",
           "Sterilní pomůcky a likvidace ostrých předmětů v ceně"
         ],
         "cta": "Rezervovat návštěvu pro injekci"
       },
       "intralipid": {
-        "name": "Intralipid infuze",
-        "subtitle": "Podpora NK buněk pro implantaci",
-        "description": "Intralipid IV infuze se používá k potlačení zvýšených přirozených zabíječských (NK) buněk, které mohou narušit implantaci embrya. Naše sestry mají zkušenosti s protokoly klinik plodnosti pro Intralipid terapii v Praze.",
-        "price": "Kontaktujte nás pro cenovou nabídku",
-        "duration": "30–45 min",
+        "name": "Infuze předepsané klinikou",
+        "subtitle": "Podle písemných pokynů vaší kliniky",
+        "description": "Pokud vám klinika předepsala infuzi, podáme ji u vás v hotelu nebo doma podle jejích písemných pokynů. Rádi s vámi předem probereme termín.",
+        "price": "Cena podle zadání, kontaktujte nás",
+        "duration": "dle pokynů kliniky",
         "benefits": [
-          "Potlačení NK buněk pro lepší implantaci",
-          "Aplikace sestrami se zkušenostmi s IV",
-          "Koordinace s protokolem vaší kliniky plodnosti",
-          "Komfortní aplikace na vaší adrese"
+          "Podání registrovanou sestrou se zkušenostmi s IV",
+          "Postup podle pokynů vaší kliniky",
+          "Komfortní podání na vaší adrese",
+          "Termín domluvený předem"
         ],
-        "cta": "Dotaz na Intralipid"
+        "cta": "Zeptat se na termín"
       },
       "wellness": {
-        "name": "Wellness IV kapačky",
-        "subtitle": "Zaměřené na plodnost: Glutathion, NAD+, Vitamin C",
-        "description": "Podpořte své tělo během IVF cílenou IV kapačkovou terapií. Glutathion pro kvalitu vajíček, NAD+ pro buněčnou energii a Vitamin C pro podporu imunity — vše aplikováno ve vašem hotelu nebo doma v Praze.",
-        "price": "od 1 290 Kč",
-        "duration": "20–30 min",
+        "name": "IV kapačky s vitamíny a hydratací",
+        "subtitle": "Vitamíny, minerály a tekutiny",
+        "description": "Chcete k injekční návštěvě přidat vitamíny a hydrataci? Po krátkém zdravotním posouzení infuzi indikuje lékař a sestra ji podá ve vašem hotelu nebo doma. Doporučujeme předem informovat vaši kliniku.",
+        "price": "od 1 650 Kč",
+        "duration": "45–60 min",
         "benefits": [
-          "Glutathion pro antioxidační podporu a kvalitu vajíček",
-          "NAD+ pro buněčnou energii a regeneraci",
-          "Vitamin C a B-komplex pro podporu imunity",
-          "Kombinujte s vaší IVF injekční návštěvou"
+          "Vitamíny a minerály s hydratací",
+          "Každou infuzi indikuje lékař",
+          "Konzultace je v ceně",
+          "Lze spojit s injekční návštěvou"
         ],
-        "cta": "Zobrazit menu IV kapačků"
+        "cta": "Zobrazit menu IV kapaček"
       }
     },
     "included": {
       "title": "Co je zahrnuto v každé IVF návštěvě",
-      "subtitle": "Vše, co potřebujete, doručeno až k vašim dveřím — žádné skryté poplatky",
+      "subtitle": "Vše, co potřebujete, přivezeme až k vašim dveřím. Žádné skryté poplatky",
       "items": [
         "Sterilní injekční pomůcky a alkoholové tampóny",
         "Kontejner na ostré předměty a bezpečná likvidace",
         "Ověření léků a kontrola dávkování",
         "Doprava na jakoukoli adresu v Praze",
-        "Přímá koordinace s vaší klinikou plodnosti",
+        "Čas návštěvy domluvený předem",
         "Denní dostupnost včetně víkendů a svátků"
       ]
     },
     "experience": {
       "title": "Průběh IVF návštěvy",
-      "subtitle": "Od prvního kontaktu po profesionální péči — co můžete očekávat",
+      "subtitle": "Od prvního kontaktu po návštěvu sestry: co můžete očekávat",
       "steps": {
         "step1": {
           "title": "Kontaktujte nás",
-          "description": "Ozvěte se přes WhatsApp, telefon nebo online rezervaci. Sdělte nám svůj harmonogram injekcí, detaily léků a adresu ubytování v Praze."
+          "description": "Ozvěte se přes WhatsApp, telefon nebo objednávkový formulář. Sdělte nám harmonogram injekcí, léky předepsané vaší klinikou a adresu ubytování v Praze."
         },
         "step2": {
           "title": "Potvrzení harmonogramu",
-          "description": "Potvrdíme načasování, léky a místo. Vícedenní harmonogramy nastavíme předem, takže se nikdy nemusíte starat o přeobjednání."
+          "description": "Potvrdíme načasování a místo. Vícedenní harmonogramy nastavíme předem, takže se nikdy nemusíte starat o přeobjednání."
         },
         "step3": {
-          "title": "Sestra dorazí včas",
-          "description": "Anglicky mluvící sestra dorazí do vašeho hotelu, Airbnb nebo domova se všemi sterilními pomůckami — přesně podle plánu, i v 5 ráno."
+          "title": "Sestra dorazí v domluvený čas",
+          "description": "Anglicky mluvící sestra dorazí do vašeho hotelu, Airbnb nebo domova se všemi sterilními pomůckami, podle domluveného plánu."
         },
         "step4": {
           "title": "Profesionální péče",
-          "description": "Lék aplikován podle přesného protokolu vaší kliniky. Dávkování ověřeno, injekce podána jemně, ostré předměty bezpečně zlikvidovány. Typická návštěva: 15–20 minut."
+          "description": "Lék podán podle písemných pokynů vaší kliniky. Dávkování ověřeno, injekce podána jemně, ostré předměty bezpečně zlikvidovány. Typická návštěva: 15–20 minut."
         }
       }
     },
     "pricingCard": {
       "title": "Ceník IVF podpory",
       "subtitle": "Transparentní ceny se vším v ceně",
-      "price": "1 890",
+      "price": "1 900",
       "currency": "Kč",
       "perVisit": "za návštěvu · ~15 min",
-      "multiVisit": "Sleva při více návštěvách: 1 700 Kč/návštěva (10% sleva)",
+      "multiVisit": "Sleva při více návštěvách: 10 %",
       "ctaWhatsApp": "Získat cenovou nabídku na WhatsApp",
       "ctaCall": "Zavolat a rezervovat",
-      "includes": "Zahrnuje dopravu, sterilní pomůcky, likvidaci ostrých předmětů a koordinaci s klinikou."
+      "includes": "Zahrnuje dopravu, sterilní pomůcky a likvidaci ostrých předmětů."
     },
     "clinics": {
-      "title": "Spolupracujeme s předními pražskými IVF klinikami",
-      "description": "Naše sestry pravidelně podporují pacientky z předních klinik plodnosti v Praze. Známe jejich protokoly a můžeme koordinovat přímo s vaším lékařským týmem.",
+      "title": "Podle pokynů vaší kliniky",
+      "description": "Naše sestry podávají léky předepsané vaší klinikou podle jejích písemných pokynů. Čas návštěvy domluvíme předem.",
       "items": [
-        "Reprofit International — stimulační protokoly, trigger injekce, Intralipid terapie",
-        "ISCARE — kompletní podpora IVF cyklu včetně progesteronových injekcí",
-        "Gennet — aplikace léků a ranní trigger injekce",
-        "Pronatal — podpora injekcí a přímá koordinace s klinikou"
+        "Stimulační injekce podle plánu vaší kliniky",
+        "Spouštěcí (trigger) injekce v domluvený čas",
+        "Injekce předepsané vaším lékařem",
+        "Návštěvy v hotelu, Airbnb i doma"
       ],
-      "cta": "Zeptejte se na vaši kliniku"
+      "cta": "Zeptejte se na termín"
     },
     "testimonials": {
       "title": "Co říkají IVF pacientky o nás",
       "items": [
         {
-          "text": "Měla jsem velký strach z vlastních injekcí v hotelu. Sestra přijížděla každý večer přesně ve správný čas a byla neuvěřitelně jemná. Konečně jsem se mohla uvolnit a soustředit na léčbu.",
+          "text": "Měla jsem velký strach z vlastních injekcí v hotelu. Sestra přijížděla každý večer přesně ve správný čas a byla neuvěřitelně jemná. Konečně jsem se mohla uvolnit a soustředit na celý proces.",
           "author": "Emily R.",
-          "context": "IVF cyklus na ISCARE, pobyt v hotelu v Praze 2"
+          "context": "IVF cyklus, pobyt v hotelu v Praze 2"
         },
         {
-          "text": "Moje klinika předepsala Intralipid infuze kvůli zvýšeným NK buňkám. Najít sestru v Praze, která to mohla udělat v mém Airbnb, bylo záchranou. Profesionální, laskavá a dochvilná.",
+          "text": "Moje klinika předepsala infuze, které jsem potřebovala dostávat v Airbnb. Najít sestru v Praze, která to mohla udělat u mě, bylo záchranou. Profesionální, laskavá a dochvilná.",
           "author": "Sarah M.",
-          "context": "Intralipid léčba, pacientka Reprofit"
+          "context": "Infuze předepsané klinikou"
         },
         {
-          "text": "Potřebovala jsem trigger injekci v 5 ráno a skutečně přijely v 4:55. Taková spolehlivost během IVF je k nezaplacení. Doporučila jsem je všem ve své skupině pro plodnost.",
+          "text": "Potřebovala jsem injekci v domluvený čas a sestra byla přesně tam, kde měla být. Taková spolehlivost během IVF je k nezaplacení. Doporučila jsem je všem ve své skupině.",
           "author": "Jessica K.",
-          "context": "IVF cyklus na Gennet, ranní trigger injekce"
+          "context": "IVF cyklus, injekce v domluvený čas"
         }
       ]
     },
     "pricing": {
-      "note": "Všechny ceny zahrnují dopravu po Praze, sterilní pomůcky, likvidaci ostrých předmětů a koordinaci s vaší klinikou. Žádné skryté poplatky."
+      "note": "Ceny zahrnují dopravu po Praze, sterilní pomůcky a likvidaci ostrých předmětů. Žádné skryté poplatky."
     },
     "faq": {
-      "title": "IVF podpora v Praze — Často kladené otázky",
+      "title": "IVF podpora v Praze: často kladené otázky",
       "items": [
         {
-          "question": "Co je Intralipid infuze a proč se používá při IVF?",
-          "answer": "Intralipid je intravenózní tuková emulze používaná k potlačení zvýšených přirozených zabíječských (NK) buněk v děloze. Někteří specialisté na plodnost v Praze předepisují Intralipid infuze před přenosem embrya pro zlepšení míry implantace. Naše sestry mají zkušenosti s aplikací Intralipid terapie ve vašem hotelu nebo doma v Praze podle protokolu vaší kliniky."
+          "question": "Jaké infuze můžete podat v rámci IVF?",
+          "answer": "Podáme infuzi, kterou vám předepsala vaše klinika, podle jejích písemných pokynů. Termín domluvíme předem a sestra přijede do vašeho hotelu nebo domů v Praze."
         },
         {
-          "question": "Co je léčba NK buněk pro plodnost?",
-          "answer": "Léčba NK (přirozených zabíječských) buněk má za cíl snížit nadměrně aktivní imunitní buňky, které mohou napadat implantující se embryo. Nejběžnější léčbou je Intralipid infuze, která se podává intravenózně. Pražské kliniky plodnosti jako Reprofit a ISCARE mohou předepsat testování NK buněk a následnou Intralipid terapii jako součást vašeho IVF protokolu. Tyto infuze aplikujeme na vaší adrese v Praze."
+          "question": "Kdo určuje, jaké léky mi sestra podá?",
+          "answer": "Léky vám předepisuje vaše klinika nebo lékař. Sestra je podává podle jejich písemných pokynů. Vlastní léčbu neměníme a na vyžádání můžeme s vaší klinikou předem ověřit detaily."
         },
         {
-          "question": "Proč je načasování injekcí během IVF kritické?",
-          "answer": "IVF léky musí být podávány v přesných časech pro synchronizaci růstu folikulů a ovulace. I 30minutová odchylka může ovlivnit váš cyklus. Trigger injekce (Ovitrelle, Decapeptyl) jsou obzvláště časově citlivé, často předepsané v neobvyklých hodinách. Naše sestry garantují příjezd včas pro každou injekci."
+          "question": "Proč je načasování injekcí během IVF důležité?",
+          "answer": "Klinika obvykle stanoví přesný čas podání jednotlivých léků. Čas návštěvy s vámi proto domluvíme předem tak, aby odpovídal pokynům vaší kliniky, v rámci provozní doby 8:00–21:00."
         },
         {
-          "question": "Můžete přijet v 5 ráno na trigger injekci?",
-          "answer": "Ano! Jsme k dispozici každý den od 8:00 do 21:00, včetně víkendů a svátků. Pro ranní nebo večerní IVF návštěvy nám prosím zavolejte předem."
+          "question": "V kolik hodin můžete přijet?",
+          "answer": "Jsme k dispozici každý den od 8:00 do 21:00, včetně víkendů a svátků. Čas návštěvy domluvíme předem po objednání. Pokud vám klinika určí čas mimo naši provozní dobu, kontaktujte nás co nejdříve."
         },
         {
-          "question": "Spolupracujete s pražskými IVF klinikami jako Reprofit, ISCARE, Gennet?",
-          "answer": "Ano. Pravidelně podporujeme pacientky z Reprofit, ISCARE, Gennet, Pronatal a dalších pražských klinik plodnosti. Jsme obeznámeni s jejich standardními protokoly pro stimulaci, trigger injekce a Intralipid terapii. Na vyžádání můžeme koordinovat přímo s vaší klinikou."
+          "question": "Musím mít od kliniky písemné pokyny?",
+          "answer": "Ano. Podáváme léky předepsané vaší klinikou podle jejích písemných pokynů. Pošlete nám pokyny předem, ať vše domluvíme v klidu."
         },
         {
-          "question": "Jaké léky na plodnost můžete aplikovat?",
-          "answer": "Aplikujeme všechny běžné IVF léky: Gonal-F, Menopur, Cetrotide, Orgalutran, Decapeptyl, Ovitrelle (trigger injekce), progesteron v oleji (intramuskulárně), Clexane a další. Podkožní i intramuskulární injekce. Před každou aplikací ověříme lék, dávkování a načasování."
+          "question": "Jaké injekce můžete podat?",
+          "answer": "Podáváme podkožní i nitrosvalové injekce léků předepsaných vaší klinikou nebo lékařem. Před každým podáním ověříme lék, dávkování a načasování podle vašich písemných pokynů."
         },
         {
           "question": "Jaké IVF podpůrné služby nabízíte v Praze?",
-          "answer": "Nabízíme tři hlavní IVF podpůrné služby: (1) Aplikace léků — všechny injekce pro plodnost včetně stimulačních léků a trigger injekcí; (2) Intralipid infuze — IV terapie pro potlačení NK buněk před přenosem embrya; (3) Wellness IV kapačky — Glutathion, NAD+ a Vitamin C kapačky pro podporu vašeho těla během IVF. Všechny služby jsou dostupné ve vašem hotelu, Airbnb nebo doma v Praze."
+          "answer": "Nabízíme tři služby: (1) podání injekcí předepsaných vaší klinikou, (2) podání infuzí předepsaných vaší klinikou, (3) IV kapačky s vitamíny a hydratací, které po krátkém zdravotním posouzení indikuje lékař. Všechny služby jsou dostupné ve vašem hotelu, Airbnb nebo doma v Praze."
         },
         {
           "question": "Kolik stojí IVF injekce v Praze?",
-          "answer": "Jedna návštěva pro IVF injekci stojí 1 890 Kč, což zahrnuje návštěvu sestry, všechny sterilní pomůcky, likvidaci ostrých předmětů a dopravu kamkoli v Praze. Pro více injekcí během vašeho cyklu nabízíme 10% slevu (1 700 Kč za návštěvu). Intralipid infuze jsou ceněny individuálně podle protokolu vaší kliniky. Kontaktujte nás pro cenovou nabídku."
+          "answer": "Jedna návštěva pro IVF injekci stojí 1 900 Kč, což zahrnuje návštěvu sestry, sterilní pomůcky, likvidaci ostrých předmětů a dopravu kamkoli v Praze. Pro více návštěv během cyklu nabízíme 10% slevu. Cenu infuzí předepsaných klinikou sdělíme na dotaz."
         },
         {
-          "question": "Můžete aplikovat Glutathion nebo NAD+ IV kapačky během IVF?",
-          "answer": "Ano! Mnoho IVF pacientek přidává wellness IV kapačky na podporu svého cyklu. Glutathion je oblíbený pro své antioxidační vlastnosti a potenciální přínosy pro kvalitu vajíček. NAD+ podporuje buněčnou energii. Vitamin C posiluje imunitu. Tyto kapačky lze kombinovat s vaší injekční návštěvou pro pohodlí. Prohlédněte si naše kompletní menu IV kapaček pro možnosti a ceny."
+          "question": "Mohu k injekční návštěvě přidat vitamínovou kapačku?",
+          "answer": "Ano, IV kapačky s vitamíny a hydratací lze spojit s injekční návštěvou. Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně. Doporučujeme předem informovat vaši kliniku. Možnosti najdete v menu IV kapaček."
         },
         {
           "question": "Co když bydlím v hotelu?",
-          "answer": "Návštěvy hotelů jsou naše specialita! Obsluhujeme všechny pražské hotely, Airbnb apartmány a krátkodobé pronájmy. Stačí uvést název hotelu, číslo pokoje a preferovaný čas. Sestra dorazí diskrétně se všemi potřebnými pomůckami. Není třeba opouštět pokoj nebo zajišťovat dopravu na kliniku."
+          "answer": "Hotelové návštěvy děláme pravidelně. Obsluhujeme všechny pražské hotely, Airbnb apartmány a krátkodobé pronájmy. Stačí uvést název hotelu, číslo pokoje a preferovaný čas. Sestra dorazí diskrétně se všemi potřebnými pomůckami. Není třeba opouštět pokoj nebo zajišťovat dopravu na kliniku."
         }
       ]
     },
     "finalCta": {
       "title": "Jste připraveni rezervovat IVF podporu v Praze?",
-      "description": "Nestresujte se načasováním injekcí, Intralipid infuzemi nebo hledáním sestry v Praze. Jsme tu pro vás — každý den 8–21, na vaší adrese.",
+      "description": "Nestresujte se načasováním injekcí ani hledáním sestry v Praze. Jsme tu pro vás každý den 8–21, na vaší adrese.",
       "whatsapp": "Napište nám na WhatsApp",
       "call": "Zavolejte nám",
       "email": "Napište nám e-mail"
@@ -563,13 +563,13 @@
     "call": "Zavolat nám",
     "plasticSurgery": "Specialisté na plastickou chirurgii",
     "licensedNurses": "Licencované sestry",
-    "touristsServed": "Přes 300 turistů",
+    "touristsServed": "Pro zahraniční pacienty",
     "servicesTitle": "Zahrnuté služby zotavení",
     "services": {
       "woundCare": "Péče o rány a výměna obvazů (chirurgické řezy, drény)",
       "drainManagement": "Správa drénů a péče",
       "hygiene": "Pomoc s hygienou a koupáním (když je sprchování zakázáno)",
-      "painMeds": "Pomoc s léky proti bolesti a předepsanými léky",
+      "painMeds": "Pomoc s podáváním léků předepsaných lékařem",
       "escort": "Doprovod do/z nemocnice pro následné návštěvy",
       "ivManagement": "Správa IV a podávání léků",
       "compression": "Pomoc s kompresním oblečením",
@@ -580,7 +580,7 @@
       "escort": "Doprovod do nemocnice",
       "escortPrice": "1 900 Kč",
       "escortDesc": "Sestra vás doprovází z nemocnice do vašeho hotelu po zákroku",
-      "popular": "Nejoblíbenější",
+      "popular": "Oblíbená volba",
       "first48": "První 48 hodin",
       "first48Price": "8500 Kč",
       "first48Desc": "Doprovod + péče po dobu 2 hodin první den po operaci",
@@ -601,17 +601,17 @@
       "day0": {
         "label": "Den operace",
         "title": "Doprovod z nemocnice a ubytování",
-        "description": "Doprovodíme vás z kliniky do hotelu, sledujeme životní funkce, řídíme léky proti bolesti a zajistíme bezpečné ubytování."
+        "description": "Doprovodíme vás z kliniky do hotelu, pomůžeme s léky předepsanými lékařem a zajistíme klidné ubytování."
       },
       "day1": {
         "label": "Den 1–2",
-        "title": "Kritické období sledování",
-        "description": "Kontrola rány, výměna obvazu, léčba bolesti, pomoc s hygienou. Sledujeme případné známky komplikací."
+        "title": "První dny po zákroku",
+        "description": "Kontrola rány, výměna obvazu, pomoc s léky a hygienou. Všímáme si změn, které je třeba probrat s vaším lékařem."
       },
       "day3": {
         "label": "Den 3–5",
         "title": "Aktivní zotavení",
-        "description": "Každodenní péče o rány, péče o drény v případě potřeby, šetrná podpora pohyblivosti. Otoky vrcholí a začínají ustupovat."
+        "description": "Každodenní péče o rány, péče o drény v případě potřeby, šetrná podpora pohyblivosti."
       },
       "day7": {
         "label": "Den 5–7",
@@ -620,46 +620,46 @@
       }
     },
     "clinics": {
-      "title": "Spolupracujeme s předními klinikami v Praze",
-      "subtitle": "Naše sestry přímo koordinují s vaším chirurgickým týmem pro bezproblémovou následnou péči",
+      "title": "Postupujeme podle pokynů vašeho chirurga",
+      "subtitle": "Naše sestry se řídí písemnými pokyny vašeho chirurgického týmu",
       "items": [
         {
-          "name": "Beaute Clinic",
-          "specialty": "Plastická chirurgie"
+          "name": "Plastická chirurgie",
+          "specialty": "Péče o rány a kontrolní návštěvy"
         },
         {
-          "name": "Praga Medica",
-          "specialty": "Plastická a estetická chirurgie"
+          "name": "Estetická chirurgie",
+          "specialty": "Výměna obvazů a péče o drény"
         },
         {
-          "name": "Canadian Medical",
-          "specialty": "Stomatologie a estetika"
+          "name": "Stomatologie a estetika",
+          "specialty": "Doprovod a pomoc po zákroku"
         },
         {
-          "name": "Prague Medical Institute",
-          "specialty": "Ortopedická chirurgie"
+          "name": "Ortopedická chirurgie",
+          "specialty": "Pomoc s pohybem a péče o rány"
         },
         {
-          "name": "Motol University Hospital",
-          "specialty": "Obecná chirurgie"
+          "name": "Obecná chirurgie",
+          "specialty": "Převazy a kontrolní návštěvy"
         },
         {
-          "name": "Na Homolce Hospital",
-          "specialty": "Kardiochirurgie"
+          "name": "Nemocniční praxe",
+          "specialty": "Doprovod z nemocnice do hotelu"
         }
       ],
-      "note": "Nevidíte svou kliniku? Spolupracujeme s jakýmkoli chirurgem nebo nemocnicí v Praze. Kontaktujte nás pro koordinaci."
+      "note": "Podle pokynů vašeho chirurga nebo nemocnice v Praze. Kontaktujte nás a vše domluvíme."
     },
     "faq": {
       "title": "Často kladené otázky",
       "q1": "Mohu si rezervovat před mou operací?",
-      "a1": "Ano! Důrazně doporučujeme rezervovat si pooperační péči předem. Koordinujeme s vaší nemocnicí přesný čas vyzvednutí a potřeby péče.",
+      "a1": "Ano. Pooperační péči doporučujeme rezervovat předem. S vaší nemocnicí si domluvíme přesný čas vyzvednutí a potřeby péče.",
       "q2": "Co když budu potřebovat více dnů zotavení?",
       "a2": "Žádný problém. Můžeme prodloužit vaši péči denně. Stačí nás kontaktovat a upravíme váš harmonogram.",
       "q3": "Je to pokryto pojištěním?",
       "a3": "Záleží na vašem pojištění. Poskytujeme detailní faktury, které můžete podat k náhradě. Mnoho mezinárodních pojišťoven pokrývá pooperační péči.",
       "q4": "Mluví sestry anglicky?",
-      "a4": "Ano! Všechny naše sestry mluví anglicky, což je kritické pro zdravotní turisty. Můžeme také koordinovat v ruštině nebo ukrajinštině."
+      "a4": "Ano. Všechny naše sestry mluví anglicky, což je důležité pro zdravotní turisty. Domluvíme se také rusky nebo ukrajinsky."
     },
     "testimonials": {
       "title": "Zkušenosti pacientů",
@@ -684,7 +684,7 @@
   "disabledCare": {
     "badge": "Důvěryhodná denní péče v Praze",
     "title": "Váš blízký si zaslouží soucitnou každodenní péči",
-    "description": "Nemůžete být vždy přítomni — ale my ano. Naše anglicky mluvící sestry poskytují šetrnou denní podporu s hygienou, léky a pohyblivostí. Dopřejte svému rodiči nebo partnerovi péči, kterou si zaslouží, přímo doma v Praze.",
+    "description": "Nemůžete být vždy přítomni, ale my ano. Naše anglicky mluvící sestry poskytují šetrnou denní podporu s hygienou, léky a pohyblivostí. Váš rodič nebo partner bude mít péči přímo doma v Praze.",
     "bookVisit": "Domluvit péči",
     "call": "Zavolejte k diskuzi",
     "compassionate": "Soucitná péče",
@@ -708,7 +708,7 @@
       "singleDesc": "Za hodinu pomoci s hygienou, léky nebo potřebami denní péče",
       "package10": "Balíček 10 návštěv",
       "package10Price": "19 700 Kč",
-      "package10Desc": "10 hodin péče - nejlepší pro týdenní návštěvy, ušetříte 2 200 Kč",
+      "package10Desc": "10 hodin péče, výhodné pro týdenní návštěvy, ušetříte 2 200 Kč",
       "monthly": "Měsíční předplatné",
       "monthlyPrice": "39 400 Kč",
       "monthlyDesc": "20 hodin měsíčně - ideální pro denní nebo pravidelné potřeby péče",
@@ -719,7 +719,7 @@
         "Prioritní telefonická podpora",
         "Ušetřete 10% oproti jednotlivým návštěvám"
       ],
-      "bestValue": "Nejlepší hodnota",
+      "bestValue": "Výhodná cena",
       "extended": "Rozšířená péče k dispozici: 40 hodin/měsíc = 78 800 Kč | 60 hodin/měsíc = 118 200 Kč",
       "includes": "Všechny balíčky zahrnují dopravu v rámci Prahy, pomůcky a anglicky mluvící sestry",
       "subscribe": "Zavolat pro předplatné"
@@ -753,20 +753,20 @@
           "Péče o diabetes",
           "Péče o rány",
           "Péče o katétr",
-          "Léčba bolesti"
+          "Podávání předepsaných léků"
         ]
       }
     },
     "faq": {
       "title": "Často kladené otázky",
       "q1": "Mohu mít stejnou sestru při každé návštěvě?",
-      "a1": "Ano! S našim měsíčním předplatným přiřadíme konzistentního pečovatele, který pozná vaše potřeby a preference. To vytváří kontinuitu a pohodlí.",
+      "a1": "Ano. S naším měsíčním předplatným přiřadíme stálého pečovatele, který pozná vaše potřeby a preference. Péče tak navazuje a je pro klienta příjemnější.",
       "q2": "Co když potřebuji pomoc s intimní péčí?",
       "a2": "Naše sestry jsou profesionálně vyškoleny ve všech aspektech osobní péče, včetně koupání, toalety, zavádění čípků a péče o katétry. Poskytujeme důstojnou, respektující pomoc.",
       "q3": "Mluvíte anglicky?",
-      "a3": "Ano! Všechny naše sestry mluví anglicky, což je zvláště důležité pro expatrioty a cizince bez znalosti češtiny nebo rodinné podpory v Praze.",
+      "a3": "Ano. Všechny naše sestry mluví anglicky, což oceníte zvlášť jako expatriot nebo cizinec bez znalosti češtiny či rodinné podpory v Praze.",
       "q4": "Mohu upravit své měsíční hodiny?",
-      "a4": "Absolutně. Měsíční předplatné je flexibilní. Pokud potřebujete více nebo méně hodin, můžeme upravit váš plán. Nevyužité hodiny mohou být převedeny nebo připsány.",
+      "a4": "Ano. Měsíční předplatné je flexibilní. Pokud potřebujete více nebo méně hodin, můžeme upravit váš plán. Nevyužité hodiny mohou být převedeny nebo připsány.",
       "q5": "Které oblasti Prahy obsluhujete?",
       "a5": "Obsluhujeme všechny pražské čtvrti a okolní oblasti až do 30 km od centra města. Doprava je zahrnuta ve všech cenách."
     },
@@ -793,16 +793,16 @@
   },
   "womensDayGift": {
     "seo": {
-      "title": "Dárek na 8. března Praha | Luxusní wellness zážitek 2026",
-      "description": "Nejlepší dárek na 8. března v Praze — Glow IV infuze za 3 650 Kč. Luxusní wellness zážitek s registrovanou zdravotní sestrou u vás doma nebo v hotelu. Objednejte dárkový voucher.",
-      "keywords": "dárek na 8. března Praha, originální dárek pro ženu Praha, wellness dárek Praha, luxusní zážitek pro ženu, dárek pro manželku Praha, dárek pro přítelkyni Praha"
+      "title": "Dárek na 8. března Praha | Wellness návštěva sestry",
+      "description": "Dárek na 8. března v Praze: voucher na wellness návštěvu s IV kapačkou u ní doma nebo v hotelu. Po posouzení sestrou a rozhodnutím lékaře, denně 8–21.",
+      "keywords": "dárek na 8. března praha, dárek pro ženu praha, wellness dárek praha, iv kapačky praha, dárek pro manželku praha, dárek pro přítelkyni praha, sestřička praha"
     },
     "breadcrumb": "Dárek na 8. března",
     "hero": {
-      "badge": "Prémiový dárkový zážitek",
-      "title": "Perfektní dárek na 8. března v Praze",
-      "subtitle": "Darujte jí zář a vitalitu — luxusní IV infuze s registrovanou zdravotní sestrou",
-      "description": "Hledáte originální dárek na 8. března v Praze? Glow IV infuze je prémiový wellness zážitek, který kombinuje živiny pro krásu pleti s podporou imunity. Registrovaná sestra přijede k ní do hotelu, domů nebo Airbnb — nejpromyšlenější dárek pro ženu v Praze.",
+      "badge": "Dárkový zážitek",
+      "title": "Dárek na 8. března v Praze",
+      "subtitle": "Darujte jí chvíli péče: wellness návštěva s IV kapačkou a registrovanou sestrou",
+      "description": "Hledáte originální dárek na 8. března v Praze? Voucher na IV kapačku s vitamíny a minerály je wellness návštěva (po posouzení sestrou a na základě rozhodnutí lékaře). Registrovaná sestra přijede k ní do hotelu, domů nebo Airbnb.",
       "cta": "Objednat dárkový voucher",
       "ctaSecondary": "Co je zahrnuto",
       "trustBadges": {
@@ -818,31 +818,31 @@
       "hours": "Hodin",
       "minutes": "Min",
       "seconds": "Sek",
-      "expired": "Dárkové vouchery stále dostupné — potěšte ji kdykoliv!"
+      "expired": "Dárkové vouchery jsou stále dostupné, potěšte ji kdykoliv."
     },
     "benefits": {
-      "title": "Proč je to nejlepší dárek na 8. března v Praze",
-      "subtitle": "Ne květiny. Ne čokoláda. Prémiový wellness zážitek, na který nezapomene.",
+      "title": "Proč darovat wellness návštěvu na 8. března",
+      "subtitle": "Ne květiny. Ne čokoláda. Pohodlná návštěva sestry u ní doma.",
       "items": {
         "unique": {
           "title": "Skutečně originální",
-          "description": "Vynikněte originálním dárkem — luxusní IV infuze, která kombinuje krásu a zdraví."
+          "description": "Darujte něco originálního: IV kapačku s vitamíny a minerály přímo u ní doma."
         },
         "luxury": {
-          "title": "Luxusní zážitek",
-          "description": "Profesionální IV terapie s živinami pro zářivou pleť, v pohodlí jejího domova nebo hotelového pokoje."
+          "title": "Pohodlí domova",
+          "description": "Infuze s vitamíny a minerály v pohodlí jejího domova nebo hotelového pokoje."
         },
         "health": {
-          "title": "Zdraví a krása",
-          "description": "Mikroelementy pro zářivou pleť a vlasy v kombinaci s vitamíny pro podporu imunity."
+          "title": "Vitamíny a minerály",
+          "description": "Infuze s vitamíny, minerály a hydratací. Složení vybírá lékař po krátkém posouzení."
         },
         "professional": {
           "title": "Registrovaná sestra",
-          "description": "Podáváno certifikovanou zdravotní sestrou. Bezpečné, pohodlné a profesionální."
+          "description": "Podává registrovaná zdravotní sestra po krátkém zdravotním posouzení. Pohodlně a profesionálně."
         },
         "convenient": {
           "title": "Přijedeme k ní",
-          "description": "Mobilní služba po celé Praze. Hotel, domov nebo Airbnb — sestra přijede za ní."
+          "description": "Mobilní služba po celé Praze. Sestra přijede za ní do hotelu, domů nebo do Airbnb."
         },
         "voucher": {
           "title": "Dárkový voucher",
@@ -851,23 +851,23 @@
       }
     },
     "included": {
-      "title": "Co je zahrnuto v Glow IV infuzi",
-      "subtitle": "Kompletní prémiový wellness zážitek — vše v ceně, žádné skryté poplatky.",
+      "title": "Co je zahrnuto ve voucheru",
+      "subtitle": "Wellness návštěva sestry: vše v ceně, žádné skryté poplatky.",
       "items": [
-        "Glow & Post-Flu IV infuze (60 minut)",
-        "Mikroelementy pro regeneraci pleti a vlasů",
-        "Podpůrné živiny pro imunitu a stopové vitamíny",
+        "IV infuze Vitamíny a minerály Classic (přibližně 60 minut)",
+        "Vitamíny, minerály a stopové prvky s hydratací",
+        "Indikace lékaře po krátkém zdravotním posouzení, konzultace je v ceně",
         "Návštěva registrované sestry u vás",
         "Veškerý sterilní zdravotnický materiál",
-        "Zdravotní screening před procedurou",
-        "Pokyny pro péči po ošetření",
+        "Krátké zdravotní posouzení před procedurou",
+        "Pokyny po ošetření",
         "Krásný digitální dárkový voucher"
       ],
       "learnMore": "Prohlédněte si celé menu IV infuzí"
     },
     "experience": {
       "title": "Originální dárek pro ženu v Praze",
-      "subtitle": "Představte si její překvapení, když zjistí, že na ni čeká prémiový wellness zážitek.",
+      "subtitle": "Představte si její překvapení, když zjistí, že na ni čeká voucher na wellness návštěvu.",
       "steps": {
         "step1": {
           "title": "Obdrží voucher",
@@ -882,8 +882,8 @@
           "description": "Registrovaná sestra přijede s veškerým potřebným vybavením."
         },
         "step4": {
-          "title": "60 minut záře",
-          "description": "Relaxuje, zatímco živiny obnovují její pleť, vlasy a imunitní systém."
+          "title": "Čas pro sebe",
+          "description": "Relaxuje, zatímco jí sestra podává infuzi s vitamíny, minerály a hydratací."
         }
       }
     },
@@ -893,20 +893,20 @@
       "redeemable": "Využitelný každý den, 8:00–21:00",
       "transferable": "Plně přenosný na jinou osobu",
       "personalized": "Přidejte svůj osobní vzkaz",
-      "instant": "Doručen okamžitě e-mailem"
+      "instant": "Doručen e-mailem"
     },
     "pricing": {
-      "title": "Prémiový dárek na 8. března",
-      "subtitle": "Nejlepší dárek pro přítelkyni, manželku nebo jakoukoli výjimečnou ženu ve vašem životě.",
-      "price": "3 650",
+      "title": "Dárek na 8. března",
+      "subtitle": "Dárek pro přítelkyni, manželku nebo jakoukoli výjimečnou ženu ve vašem životě.",
+      "price": "3 750",
       "currency": "Kč",
-      "approximateEur": "~148 €",
+      "approximateEur": "~150 €",
       "perSession": "za sezení",
       "cta": "Objednat dárek",
       "ctaWhatsApp": "Objednat přes WhatsApp",
       "ctaCall": "Zavolat a objednat",
       "includes": "Vše zahrnuto v ceně. Žádné skryté poplatky.",
-      "guarantee": "Profesionální péče, které můžete věřit"
+      "guarantee": "Profesionální péče registrovaných sester"
     },
     "testimonials": {
       "title": "Co říkají dárci",
@@ -922,7 +922,7 @@
           "location": "Vinohrady"
         },
         "t3": {
-          "text": "Byla po chřipce unavená. Tento dárek byl zároveň starostlivý i luxusní. Sestra byla skvělá a profesionální.",
+          "text": "Poslední dobou byla hodně vytížená. Tento dárek byl zároveň starostlivý i příjemný. Sestra byla skvělá a profesionální.",
           "author": "Aleš K.",
           "location": "Praha 1"
         }
@@ -934,7 +934,7 @@
       "steps": {
         "step1": {
           "title": "Kontaktujte nás",
-          "description": "WhatsApp, telefon nebo e-mail — řekněte nám, že je to dárek."
+          "description": "WhatsApp, telefon nebo e-mail. Řekněte nám, že je to dárek."
         },
         "step2": {
           "title": "Obdržíte voucher",
@@ -942,7 +942,7 @@
         },
         "step3": {
           "title": "Ona si rezervuje a užije si",
-          "description": "Vybere si datum a užije si prémiový wellness zážitek."
+          "description": "Vybere si datum a návštěvu si užije tam, kde jí to vyhovuje."
         }
       }
     },
@@ -950,8 +950,8 @@
       "title": "Často kladené dotazy",
       "items": {
         "q1": {
-          "question": "Je Glow IV infuze skutečný lékařský zákrok?",
-          "answer": "Ano. Glow & Post-Flu IV infuze je profesionální intravenózní infuze podávaná registrovanou zdravotní sestrou. Obsahuje lékařsky schválené mikroelementy, stopové vitamíny a živiny pro podporu imunity."
+          "question": "Je to skutečná zdravotní služba?",
+          "answer": "Ano. IV infuze Vitamíny a minerály Classic je profesionální intravenózní infuze podávaná registrovanou zdravotní sestrou. Jde o wellness návštěvu po posouzení sestrou a na základě rozhodnutí lékaře. Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně."
         },
         "q2": {
           "question": "Jak funguje dárkový voucher?",
@@ -962,12 +962,12 @@
           "answer": "Samozřejmě. Můžete buď předrezervovat na 8. března, nebo zakoupit otevřený voucher využitelný do 3 měsíců."
         },
         "q4": {
-          "question": "Je IV infuze bezpečná?",
-          "answer": "Zcela. Všechny procedury provádějí certifikované registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každým sezením provádíme krátký zdravotní screening."
+          "question": "Kdo infuzi podává?",
+          "answer": "Všechny procedury provádějí registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každým sezením provádíme krátké zdravotní posouzení. Jde o wellness návštěva po posouzení sestrou a na základě rozhodnutí lékaře."
         },
         "q5": {
           "question": "Co když nikdy neměla IV infuzi?",
-          "answer": "Žádný problém! Naše sestry jsou zkušené a jemné. Procedura je velmi pohodlná a trvá asi 60 minut, během kterých může relaxovat."
+          "answer": "Žádný problém. Naše sestry jsou zkušené a jemné. Procedura trvá přibližně 60 minut, během kterých může relaxovat."
         },
         "q6": {
           "question": "Lze voucher použít po 8. březnu?",
@@ -975,13 +975,13 @@
         },
         "q7": {
           "question": "Přijedete i do hotelu nebo Airbnb?",
-          "answer": "Ano! Obsluhujeme všechny pražské obvody včetně hotelů, Airbnb, soukromých bytů a kanceláří. Sestra přiveze veškeré potřebné vybavení."
+          "answer": "Ano. Obsluhujeme všechny pražské obvody včetně hotelů, Airbnb, soukromých bytů a kanceláří. Sestra přiveze veškeré potřebné vybavení."
         }
       }
     },
     "finalCta": {
       "title": "Udělejte letošní 8. března nezapomenutelným",
-      "description": "Objednejte prémiový wellness dárkový voucher. Omezená dostupnost kolem 8. března.",
+      "description": "Objednejte voucher na wellness návštěvu. Dostupnost kolem 8. března doporučujeme ověřit včas.",
       "cta": "Objednat dárkový voucher",
       "phone": "+420773629123",
       "whatsapp": "Objednat přes WhatsApp",
@@ -990,16 +990,16 @@
   },
   "birthdayGift": {
     "seo": {
-      "title": "Dárek k narozeninám Praha | Prémiový wellness zážitek s IV kapačkou",
-      "description": "Nejlepší narozeninový dárek v Praze — wellness zážitek Glow IV Drip za 3 650 Kč. Luxusní IV terapie aplikovaná registrovanou sestrou v hotelu nebo doma. Objednejte narozeninový dárkový voucher.",
-      "keywords": "dárek k narozeninám Praha, nejlepší narozeninový dárek Praha, unikátní narozeninový zážitek Praha, prémiový wellness dárek Praha, IV kapačka dárek Praha, dárek k narozeninám pro přítelkyni Praha, dárek k narozeninám pro manželku Praha"
+      "title": "Dárek k narozeninám Praha | Wellness návštěva sestry",
+      "description": "Dárek k narozeninám v Praze: voucher na wellness návštěvu s IV kapačkou u vás doma nebo v hotelu. Po posouzení sestrou a rozhodnutí lékaře. Denně 8–21.",
+      "keywords": "dárek k narozeninám praha, narozeninový dárek praha, wellness dárek praha, iv kapačky praha, iv kapačka dárek praha, dárek pro ženu praha, sestřička praha"
     },
     "breadcrumb": "Dárek k narozeninám",
     "hero": {
-      "badge": "Prémiový narozeninový zážitek",
-      "title": "Nejlepší narozeninový dárek v Praze",
-      "subtitle": "Darujte jí dar zářivé krásy — luxusní wellness zážitek s IV kapačkou aplikovanou registrovanou sestrou",
-      "description": "Hledáte unikátní narozeninový dárek v Praze? Glow IV Drip je prémiový wellness zážitek, který kombinuje živiny pro krásu s podporou imunity. Registrovaná sestra přijede do hotelu, bytu nebo Airbnb — ten nejpozornější a nejoriginálnější narozeninový dárek v Praze. Ideální pro přítelkyně, manželky, maminky i kolegyně.",
+      "badge": "Narozeninový dárek",
+      "title": "Dárek k narozeninám v Praze",
+      "subtitle": "Darujte jí chvíli péče: wellness návštěva s IV kapačkou a registrovanou sestrou",
+      "description": "Hledáte originální narozeninový dárek v Praze? Voucher na IV kapačku s vitamíny a minerály je wellness návštěva (po posouzení sestrou a na základě rozhodnutí lékaře). Registrovaná sestra přijede do hotelu, bytu nebo Airbnb. Ideální pro přítelkyně, manželky, maminky i kolegyně.",
       "cta": "Objednat narozeninový voucher",
       "ctaSecondary": "Co je zahrnuto",
       "trustBadges": {
@@ -1010,28 +1010,28 @@
       }
     },
     "benefits": {
-      "title": "Proč je to nejlepší narozeninový dárek v Praze",
-      "subtitle": "Žádné květiny. Žádná čokoláda. Prémiový wellness zážitek, na který nikdy nezapomene.",
+      "title": "Proč darovat wellness návštěvu k narozeninám",
+      "subtitle": "Žádné květiny. Žádná čokoláda. Pohodlná návštěva sestry u ní doma.",
       "items": {
         "unique": {
           "title": "Skutečně originální dárek",
-          "description": "Vynikněte s originálním narozeninovým zážitkem — luxusní IV kapačka, která spojuje krásu a zdraví. Něco, co ještě nikdy nedostala."
+          "description": "Darujte něco originálního: IV kapačku s vitamíny a minerály u ní doma. Něco, co ještě nikdy nedostala."
         },
         "luxury": {
-          "title": "Luxusní zážitek",
-          "description": "Profesionální IV terapie s živinami pro zářivou pleť, aplikovaná v pohodlí jejího domova nebo hotelového pokoje. Narozeninové lázně bez odchodu z domu."
+          "title": "Pohodlí domova",
+          "description": "Infuze s vitamíny a minerály v pohodlí jejího domova nebo hotelového pokoje. Žádné cestování, žádná čekárna."
         },
         "health": {
-          "title": "Zdraví a krása",
-          "description": "Mikroelementy pro zářivou pleť a vlasy v kombinaci s vitamíny a stopovými prvky pro podporu imunity. Bude se cítit i vypadat úžasně."
+          "title": "Vitamíny a minerály",
+          "description": "Infuze s vitamíny, minerály, stopovými prvky a hydratací. Složení vybírá lékař po krátkém posouzení."
         },
         "professional": {
           "title": "Registrovaná sestra",
-          "description": "Aplikováno certifikovanou zdravotní sestrou. Bezpečně, pohodlně a odborně. Včetně vstupního zdravotního screeningu."
+          "description": "Podává registrovaná zdravotní sestra. Včetně krátkého zdravotního posouzení před zahájením."
         },
         "convenient": {
           "title": "Přijedeme za ní",
-          "description": "Mobilní služba po celé Praze. Hotel, byt nebo Airbnb — sestra přijede v čase, který jí vyhovuje."
+          "description": "Mobilní služba po celé Praze. Sestra přijede do hotelu, bytu nebo Airbnb v čase, který jí vyhovuje."
         },
         "voucher": {
           "title": "Dárkový voucher",
@@ -1040,23 +1040,23 @@
       }
     },
     "included": {
-      "title": "Co zahrnuje Glow IV Drip",
-      "subtitle": "Kompletní prémiový wellness zážitek — vše v ceně, žádné skryté poplatky.",
+      "title": "Co zahrnuje voucher",
+      "subtitle": "Wellness návštěva sestry: vše v ceně, žádné skryté poplatky.",
       "items": [
-        "Glow & Post-Flu IV kapačka (60 minut)",
-        "Mikroelementy pro vitalitu pleti a vlasů",
-        "Živiny pro podporu imunity a stopové vitamíny",
+        "IV kapačka Vitamíny a minerály Classic (přibližně 60 minut)",
+        "Vitamíny, minerály a stopové prvky s hydratací",
+        "Indikace lékaře po krátkém zdravotním posouzení, konzultace je v ceně",
         "Návštěva registrované sestry na vámi zvoleném místě",
         "Veškerý sterilní zdravotnický materiál v ceně",
-        "Zdravotní screening před zahájením",
-        "Poradenství pro zdravý životní styl po ošetření",
+        "Krátké zdravotní posouzení před zahájením",
+        "Pokyny po ošetření",
         "Krásný digitální narozeninový dárkový voucher"
       ],
       "learnMore": "Prohlédněte si naši kompletní nabídku IV kapaček"
     },
     "experience": {
-      "title": "Unikátní narozeninový zážitek v Praze",
-      "subtitle": "Představte si její překvapení, když zjistí, že na ni čeká prémiová wellness procedura.",
+      "title": "Narozeninový dárek v Praze",
+      "subtitle": "Představte si její překvapení, když zjistí, že na ni čeká voucher na wellness návštěvu.",
       "steps": {
         "step1": {
           "title": "Obdrží voucher",
@@ -1071,8 +1071,8 @@
           "description": "Registrovaná sestra dorazí se vším potřebným pro proceduru."
         },
         "step4": {
-          "title": "60 minut záře",
-          "description": "Relaxuje, zatímco živiny obnovují její pleť, vlasy a imunitní systém."
+          "title": "Čas pro sebe",
+          "description": "Relaxuje, zatímco jí sestra podává infuzi s vitamíny, minerály a hydratací."
         }
       }
     },
@@ -1082,19 +1082,19 @@
       "redeemable": "Využitelný každý den, 8:00–21:00",
       "transferable": "Plně přenosný na jinou osobu",
       "personalized": "Přidejte své osobní narozeninové přání",
-      "instant": "Doručen okamžitě e-mailem"
+      "instant": "Doručen e-mailem"
     },
     "pricing": {
-      "title": "Prémiový narozeninový dárek",
-      "subtitle": "Nejlepší narozeninový dárek pro přítelkyni, manželku, maminku nebo jakoukoli výjimečnou ženu ve vašem životě.",
-      "price": "3,650",
-      "currency": "CZK",
-      "approximateEur": "~€148",
+      "title": "Narozeninový dárek",
+      "subtitle": "Dárek pro přítelkyni, manželku, maminku nebo jakoukoli výjimečnou ženu ve vašem životě.",
+      "price": "3 750",
+      "currency": "Kč",
+      "approximateEur": "~150 €",
       "perSession": "za proceduru",
       "ctaWhatsApp": "Objednat přes WhatsApp",
       "ctaCall": "Zavolat a objednat",
       "includes": "Vše v ceně. Žádné skryté poplatky.",
-      "guarantee": "Profesionální péče, které můžete věřit"
+      "guarantee": "Profesionální péče registrovaných sester"
     },
     "testimonials": {
       "title": "Co říkají ti, kdo darovali narozeninový dárek",
@@ -1118,11 +1118,11 @@
     },
     "corporate": {
       "title": "Firemní a týmové narozeninové dárky",
-      "subtitle": "Hledáte originální způsob, jak oslavit narozeniny členů týmu? Naše vouchery na Glow IV Drip jsou ideálním firemním wellness benefitem.",
+      "subtitle": "Hledáte originální způsob, jak oslavit narozeniny členů týmu? Naše vouchery na IV kapačku jsou příjemným firemním wellness benefitem.",
       "benefits": [
         "Množstevní slevy na vouchery při objednávce 5 a více",
         "Digitální vouchery s logem vaší společnosti",
-        "Flexibilní využití — zaměstnanci si zvolí svůj termín",
+        "Flexibilní využití: zaměstnanci si zvolí svůj termín",
         "Wellness benefit, který ukazuje, že vám na vašem týmu záleží",
         "Fakturace pro firmy k dispozici"
       ],
@@ -1134,7 +1134,7 @@
       "steps": {
         "step1": {
           "title": "Kontaktujte nás",
-          "description": "WhatsApp, telefon nebo e-mail — řekněte nám, že jde o narozeninový dárek, a sdělte nám případné osobní přání."
+          "description": "WhatsApp, telefon nebo e-mail. Řekněte nám, že jde o narozeninový dárek, a sdělte nám případné osobní přání."
         },
         "step2": {
           "title": "Obdržíte voucher",
@@ -1142,7 +1142,7 @@
         },
         "step3": {
           "title": "Rezervuje si a užije si to",
-          "description": "Vybere si termín a užije si prémiový wellness zážitek, kdy se jí to hodí."
+          "description": "Vybere si termín a návštěvu si užije tam, kde jí to vyhovuje."
         }
       }
     },
@@ -1150,8 +1150,8 @@
       "title": "Často kladené dotazy",
       "items": {
         "q1": {
-          "question": "Je Glow IV Drip skutečný lékařský zákrok?",
-          "answer": "Ano. Glow & Post-Flu IV kapačka je profesionální infuze aplikovaná registrovanou sestrou. Obsahuje lékařsky schválené mikroelementy, stopové vitamíny a živiny pro podporu imunity. Všechny procedury probíhají podle přísných zdravotnických protokolů."
+          "question": "Je to skutečná zdravotní služba?",
+          "answer": "Ano. IV kapačka Vitamíny a minerály Classic je profesionální infuze podávaná registrovanou sestrou. Jde o wellness návštěvu po posouzení sestrou a na základě rozhodnutí lékaře. Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně."
         },
         "q2": {
           "question": "Jak funguje narozeninový dárkový voucher?",
@@ -1162,36 +1162,36 @@
           "answer": "Samozřejmě. Můžete buď předem zarezervovat přímo na den narozenin, nebo zakoupit otevřený voucher, který lze využít kdykoli do 3 měsíců."
         },
         "q4": {
-          "question": "Je IV kapačka bezpečná?",
-          "answer": "Naprosto. Všechny procedury provádějí certifikované registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každou procedurou provádíme krátký zdravotní screening."
+          "question": "Kdo kapačku podává?",
+          "answer": "Všechny procedury provádějí registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každou procedurou provádíme krátké zdravotní posouzení. Jde o wellness návštěva po posouzení sestrou a na základě rozhodnutí lékaře."
         },
         "q5": {
           "question": "Co když nikdy neměla IV kapačku?",
-          "answer": "Žádný problém! Naše sestry jsou zkušené a šetrné. Procedura je velmi příjemná a trvá přibližně 60 minut, během kterých si může číst, relaxovat nebo sledovat něco na mobilu."
+          "answer": "Žádný problém. Naše sestry jsou zkušené a šetrné. Procedura trvá přibližně 60 minut, během kterých si může číst, relaxovat nebo sledovat něco na mobilu."
         },
         "q6": {
           "question": "Mohu k narozeninovému dárku přidat něco navíc?",
-          "answer": "Glow IV Drip je sám o sobě kompletní zážitek, ale můžeme zajistit koordinaci s místní donáškovou službou květin nebo šampaňského, aby byl dárek ještě výjimečnější. Stačí zmínit při objednávce."
+          "answer": "Voucher je sám o sobě kompletní dárek. Pokud chcete k narozeninám přidat osobní přání, uveďte ho při objednání."
         },
         "q7": {
           "question": "Přijedete i do hotelu nebo Airbnb?",
-          "answer": "Ano! Obsluhujeme všechny pražské obvody včetně hotelů, Airbnb, soukromých bytů a kanceláří. Sestra přiveze veškeré potřebné vybavení."
+          "answer": "Ano. Obsluhujeme všechny pražské obvody včetně hotelů, Airbnb, soukromých bytů a kanceláří. Sestra přiveze veškeré potřebné vybavení."
         }
       }
     },
     "finalCta": {
       "title": "Udělejte její narozeniny nezapomenutelné",
-      "description": "Objednejte prémiový narozeninový wellness dárkový voucher. K dispozici celoročně, 7 dní v týdnu.",
+      "description": "Objednejte narozeninový voucher na wellness návštěvu. K dispozici celoročně, 7 dní v týdnu.",
       "whatsapp": "Objednat přes WhatsApp",
       "email": "info@nius.cz"
     }
   },
   "ivDripTherapy": {
     "seo": {
-      "title": "IV kapačky Praha | Mobilní IV terapie u vás v hotelu/doma",
-      "description": "Profesionální IV kapačka Praha — objednejte IV kapačky v Praze s dojezdem do hotelu, domů nebo Airbnb. Vitamin C, Glutathion, Biotin, hydratační a regenerační infuze od registrovaných sester. Služba ve stejný den v Praze 1, Vinohradech, Starém Městě."
+      "title": "IV kapačky Praha | Sestra k vám do hotelu i domů",
+      "description": "IV kapačky Praha s dojezdem do hotelu, domů nebo Airbnb. Vitamíny, minerály a hydratace od registrované sestry, návštěva ve stejný den, denně 8–21."
     },
-    "whatsappMessage": "Dobrý den! Chtěl/a bych objednat IV kapačku v Praze.",
+    "whatsappMessage": "Dobrý den, chtěl/a bych objednat IV kapačku v Praze.",
     "trustBadges": {
       "licensedNurses": "Licencované sestry",
       "rating": "Hodnocení 4.9/5",
@@ -1201,9 +1201,9 @@
     "hero": {
       "h1": "IV kapačky Praha",
       "subtitle": "Mobilní IV terapie s dojezdem do hotelu, domů nebo Airbnb",
-      "paragraph": "Profesionální <strong>IV kapačky v Praze</strong> aplikované registrovanými sestrami na vámi zvoleném místě. Obsluhujeme <strong>Prahu 1, Prahu 2, Vinohrady, Staré Město, Nové Město</strong> a všechny okolní obvody. Vyberte si z hydratačních, imunitních, beauty a regeneračních <strong>IV kapaček v Praze</strong> s dostupností ve stejný den. Ideální pro zdravotní turisty, expaty a cestovatele hledající",
+      "paragraph": "Profesionální <strong>IV kapačky v Praze</strong> podávané registrovanými sestrami na vámi zvoleném místě. Obsluhujeme <strong>Prahu 1, Prahu 2, Vinohrady, Staré Město, Nové Město</strong> a všechny okolní obvody. Vyberte si z hydratačních a vitamínových <strong>IV kapaček v Praze</strong> s návštěvou ve stejný den. Ideální pro zdravotní turisty, expaty a cestovatele hledající",
       "postSurgeryLink": "pooperační regenerační péči v Praze",
-      "socialProof": "Důvěřuje nám <strong>100+ pacientů</strong> v Praze",
+      "socialProof": "Hodnocení <strong>4.9★</strong> na Google",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervovat přes WhatsApp",
       "bookBtn": "Rezervovat online",
@@ -1214,15 +1214,15 @@
     },
     "whyChoose": {
       "title": "Proč zvolit NIUS pro IV kapačky v Praze?",
-      "subtitle": "Nejdůvěryhodnější mobilní IV terapie v Praze pro zdravotní turisty, expaty a cestovatele od roku 2023",
+      "subtitle": "Mobilní IV kapačky v Praze pro zahraniční hosty, expaty i místní, od roku 2023",
       "cards": {
         "fullService": {
-          "title": "Jediná komplexní mobilní klinika",
-          "description": "Na rozdíl od ostatních poskytovatelů nabízíme <strong>IV kapačky + podporu IVF injekcí + ošetření ran + pooperační regeneraci</strong>. Kompletní zdravotní péče na vaší adrese."
+          "title": "Více služeb na jedné adrese",
+          "description": "Nabízíme <strong>IV kapačky, podporu IVF injekcí, ošetření ran i pooperační péči</strong>. Zdravotní péče na vaší adrese."
         },
         "availability": {
-          "title": "Denní dostupnost 8–21",
-          "description": "Skutečný nepřetržitý provoz, nejen \"úřední hodiny\". <strong>IV kapačky v Praze ve stejný den</strong> dostupné 365 dní v roce, včetně víkendů a svátků."
+          "title": "Denně 8–21",
+          "description": "<strong>IV kapačky v Praze ve stejný den</strong>, denně 8:00–21:00 včetně víkendů a svátků. Čas příjezdu potvrdíme po objednání."
         },
         "nurses": {
           "title": "Registrované sestry, ne technici",
@@ -1230,7 +1230,7 @@
         },
         "location": {
           "title": "Přijedeme na JAKÉKOLI místo",
-          "description": "Hotely (Four Seasons, Hilton atd.), Airbnb, soukromé byty, kanceláře. Obsluhujeme <strong>všechny pražské obvody</strong> do 20 km od centra."
+          "description": "Hotely, Airbnb, soukromé byty, kanceláře. Obsluhujeme <strong>všechny pražské obvody</strong> do 20 km od centra."
         },
         "rating": {
           "title": "Hodnocení pacientů 4.9★",
@@ -1242,58 +1242,27 @@
         }
       }
     },
-    "comparison": {
-      "title": "NIUS vs. ostatní služby IV kapaček v Praze",
-      "subtitle": "Proč si zdravotní turisté a expati vybírají NIUS pro IV terapii v Praze",
-      "feature": "Vlastnost",
-      "nius": "NIUS",
-      "otherMobile": "Ostatní mobilní služby",
-      "hospitalClinic": "Nemocnice/Klinika",
-      "rows": {
-        "mobile": "Mobilní služba (hotel/domov)",
-        "availability": "Denní dostupnost 8–21",
-        "nurses": "Registrované sestry (ne technici)",
-        "ivf": "Podpora IVF injekcí",
-        "postSurgery": "Pooperační péče",
-        "sameDay": "Dostupnost ve stejný den",
-        "pricing": "Transparentní ceny",
-        "english": "Anglicky mluvící personál",
-        "sessionTime": "Průměrná doba procedury"
-      },
-      "limitedHours": "Omezená pracovní doba",
-      "erOnly": "Pouze pohotovost",
-      "varies": "Různé",
-      "outpatientOnly": "Pouze ambulantně",
-      "sometimes": "Někdy",
-      "longWait": "Dlouhé čekání",
-      "variableFees": "Proměnlivé poplatky",
-      "limited": "Omezeně",
-      "sessionNius": "45–60 min",
-      "sessionOther": "45–90 min",
-      "sessionHospital": "2–4 hodiny",
-      "bookNow": "Rezervujte svou IV kapačku"
-    },
     "menu": {
       "title": "IV kapačky Praha: Nabídka a transparentní ceník",
       "subtitle": "Všechny ceny v CZK zahrnují návštěvu registrované sestry, monitoring, vybavení a poradenství po proceduře. Objednejte si <strong>IV kapačky v Praze 1, Vinohradech, Starém Městě</strong> nebo jakémkoli pražském obvodu ve stejný den.",
-      "mostPopular": "Nejoblíbenější",
-      "bestForLabel": "Nejlepší pro",
+      "mostPopular": "Oblíbená volba",
+      "bestForLabel": "Vhodné pro",
       "filterAll": "Všechny kapačky",
       "minutes": "minut",
       "book": "Objednat",
-      "bookMessage": "Dobrý den! Chtěl/a bych objednat kapačku {{drip}} v Praze. Kdy je nejbližší volný termín?",
+      "bookMessage": "Dobrý den, chtěl/a bych objednat kapačku {{drip}} v Praze. Kdy je nejbližší volný termín?",
       "onRequest": "Na vyžádání",
-      "medicalScreening": "<strong>Nutný zdravotní screening:</strong> Všechny IV kapačky v Praze vyžadují krátký zdravotní screening. Konečné složení se může lišit na základě zdravotní indikace a konzultace s lékařem (v případě potřeby).",
-      "pricingNote": "<strong>Ceník:</strong> 10% sleva na balíčky 2 a více návštěv. Lékařský předpis (pokud je vyžadován): +900 CZK",
+      "medicalScreening": "<strong>Krátké zdravotní posouzení:</strong> Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně. Konečné složení určuje lékař.",
+      "pricingNote": "<strong>Ceník:</strong> 10% sleva na balíčky 2 a více návštěv. Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.",
       "categories": {
         "immunity": {
-          "name": "🛡️ Imunita a regenerace",
+          "name": "Vitamíny a minerály",
           "items": {
             "immunityLite": {
               "name": "Immunity Lite",
-              "price": 2800,
+              "price": 2900,
               "duration": 45,
-              "short": "Základní posílení vitaminem C pro podporu imunity a prevenci.",
+              "short": "Vitamin C a hydratace: jednoduchý začátek.",
               "includes": [
                 "Infuze vitaminu C",
                 "Podpora hydratace",
@@ -1301,218 +1270,129 @@
                 "Veškerý materiál v ceně"
               ],
               "popular": false,
-              "bestFor": "Prevence"
+              "bestFor": "Vitamíny a hydratace"
             },
             "immunityPower": {
               "name": "Immunity Power",
-              "price": 3150,
+              "price": 3250,
               "duration": 60,
-              "short": "Vysokodávkový vitamin C (15 g) pro obranu proti virům a intenzivní podporu imunity.",
+              "short": "Vitamin C s hydratací a monitoringem registrovanou sestrou.",
               "includes": [
-                "Vysokodávkový vitamin C 15 g",
+                "Infuze vitaminu C",
                 "Podpůrná hydratace",
                 "Monitoring registrovanou sestrou",
                 "Veškerý sterilní materiál"
               ],
               "popular": true,
-              "bestFor": "Nachlazení a chřipka"
+              "bestFor": "Vitamíny a hydratace"
             },
             "defenseShield": {
-              "name": "Defense Shield (Hero)",
-              "price": 4250,
+              "name": "Vitamíny a minerály Plus",
+              "price": 4350,
               "duration": 60,
-              "short": "Ultimátní regenerace po chřipce a virech s vitaminem C a stopovými prvky.",
+              "short": "Vitamin C, minerály a stopové prvky s hydratací. Rozšířené složení indikované lékařem.",
               "includes": [
-                "Vitamin C + stopové prvky",
-                "Esenciální mikroelementy",
-                "Hydratační terapie",
+                "Vitamin C a stopové prvky",
+                "Minerály",
+                "Hydratační podpora",
                 "Návštěva registrované sestry"
               ],
               "popular": true,
-              "bestFor": "Posílení imunity"
+              "bestFor": "Vitamíny a minerály"
             },
             "glowPostFlu": {
-              "name": "Glow & Post-Flu",
-              "price": 3650,
+              "name": "Vitamíny a minerály Classic",
+              "price": 3750,
               "duration": 60,
-              "short": "Podpora regenerace pleti, vlasů a imunitní odolnosti po nemoci.",
+              "short": "Vitamíny, minerály a stopové prvky s hydratací.",
               "includes": [
-                "Mikroelementy pro pleť a vlasy",
-                "Živiny pro podporu imunity",
-                "Stopové prvky a vitamíny",
+                "Vitamíny",
+                "Minerály a stopové prvky",
+                "Hydratační podpora",
                 "Návštěva registrované sestry"
               ],
               "popular": false,
-              "bestFor": "Zotavení po nemoci"
+              "bestFor": "Vitamíny a minerály"
             }
           }
         },
         "energy": {
-          "name": "⚡ Energie a výkon",
+          "name": "Pro náročné dny",
           "items": {
             "ceoRecharge": {
               "name": "CEO Recharge (Hero)",
-              "price": 4450,
+              "price": 4550,
               "duration": 60,
-              "short": "Maximální soustředění a mentální jasnost s B-komplexem, minerály a hořčíkem pro náročné profesionály.",
+              "short": "B-komplex, minerály a hořčík s hydratací pro rušné pracovní dny.",
               "includes": [
                 "Vitamíny B-komplexu",
-                "Esenciální minerály",
-                "2000 mg hořčíku",
+                "Minerály",
+                "Hořčík",
                 "Návštěva registrované sestry"
               ],
               "popular": true,
-              "bestFor": "Soustředění a produktivita"
+              "bestFor": "Rušné pracovní dny"
             },
             "metabolicReset": {
               "name": "Metabolic Reset",
-              "price": 3950,
+              "price": 4050,
               "duration": 60,
-              "short": "Podpora energetického metabolismu a očisty organismu pro celkovou vitalitu.",
+              "short": "Vitamíny skupiny B a živiny s hydratací.",
               "includes": [
-                "Metabolické živiny",
-                "Prvky podpory očisty",
+                "Vitamíny a minerály",
+                "Hydratační podpora",
                 "Komplex vitamínů B",
                 "Návštěva registrované sestry"
               ],
               "popular": false,
-              "bestFor": "Očista a metabolismus"
+              "bestFor": "Vitamíny a hydratace"
             },
             "bPowerShot": {
               "name": "B-Power Shot",
-              "price": 1550,
+              "price": 1650,
               "duration": 10,
-              "short": "Rychlá energetická injekce B12 900 mcg (intramuskulárně, pouze 10 minut).",
+              "short": "Injekce vitaminu B12, krátká návštěva (přibližně 10 minut).",
               "includes": [
-                "Vitamín B12 900 mcg IM",
-                "Rychlá 10minutová procedura",
+                "Vitamin B12 (injekce)",
+                "Krátká procedura",
                 "Návštěva registrované sestry",
-                "Okamžitý nárůst energie"
+                "Indikace lékaře po krátkém posouzení"
               ],
               "popular": false,
-              "bestFor": "Rychlá energie"
+              "bestFor": "Vitamin B12"
             }
           }
         },
         "hydration": {
-          "name": "💧 Hydratace a rovnováha",
+          "name": "Hydratace a rovnováha",
           "items": {
             "pureHydrate": {
               "name": "Pure Hydrate",
-              "price": 2450,
+              "price": 2550,
               "duration": 45,
-              "short": "Rychlá rehydratace 500 ml–1000 ml fyziologického roztoku při dehydrataci.",
+              "short": "Rehydratace fyziologickým roztokem, jednoduchá volba po cestě nebo v horku.",
               "includes": [
-                "0,9% NaCl fyziologický roztok (500 ml–1000 ml)",
-                "Rychlá rehydratace",
+                "0,9% NaCl fyziologický roztok",
+                "Podpora hydratace",
                 "Návštěva registrované sestry",
                 "Veškerý materiál v ceně"
               ],
               "popular": false,
-              "bestFor": "Dehydratace"
+              "bestFor": "Rehydratace"
             },
             "electrolyteReset": {
               "name": "Electrolyte Reset",
-              "price": 2950,
+              "price": 3050,
               "duration": 45,
-              "short": "Hydratace s 2000 mg hořčíku pro svalovou regeneraci a lepší spánek.",
+              "short": "Hydratace s elektrolyty a hořčíkem.",
               "includes": [
                 "Vyvážené elektrolytové roztoky",
-                "2000 mg hořčíku",
-                "Podpora svalů a spánku",
+                "Hořčík",
+                "Podpora hydratace",
                 "Návštěva registrované sestry"
               ],
               "popular": true,
-              "bestFor": "Sportovní regenerace"
-            },
-            "nauseaRelief": {
-              "name": "Nausea Relief",
-              "price": 2850,
-              "duration": 45,
-              "short": "Rychlá pomoc při otravě jídlem, těžké kocovině nebo zažívacích potížích.",
-              "includes": [
-                "Lék proti nevolnosti",
-                "Podpora hydratace",
-                "Rovnováha elektrolytů",
-                "Návštěva registrované sestry"
-              ],
-              "popular": false,
-              "bestFor": "Kocovina a nevolnost"
-            }
-          }
-        },
-        "specialized": {
-          "name": "🩸 Specializovaná péče",
-          "items": {
-            "standardIron": {
-              "name": "Standard Iron",
-              "price": 2750,
-              "duration": 45,
-              "short": "Šetrné doplnění železa přípravkem Ferrlecit při mírné anémii.",
-              "includes": [
-                "Infuze železa Ferrlecit",
-                "Šetrné složení",
-                "Monitoring registrovanou sestrou",
-                "Veškerý materiál v ceně"
-              ],
-              "popular": false,
-              "bestFor": "Nedostatek železa"
-            },
-            "premiumIron": {
-              "name": "Premium Iron",
-              "price": 6350,
-              "duration": 60,
-              "short": "Vysoce účinná infuze železa (Ferinject) při chronické únavě a těžké anémii.",
-              "includes": [
-                "Vysoce účinné železo Ferinject",
-                "Prodloužený monitoring",
-                "Návštěva registrované sestry",
-                "Pokyny po proceduře"
-              ],
-              "popular": false,
-              "bestFor": "Těžká anémie"
-            },
-            "nerveRegen": {
-              "name": "Nerve Regen",
-              "price": 3350,
-              "duration": 45,
-              "short": "Podpora při bolestech zad a neurologické regeneraci intramuskulární injekcí B-komplexu.",
-              "includes": [
-                "Intramuskulární injekce B-komplexu",
-                "Živiny pro podporu nervů",
-                "Podpora úlevy od bolesti",
-                "Návštěva registrované sestry"
-              ],
-              "popular": false,
-              "bestFor": "Zdraví nervů"
-            },
-            "backacheRelief": {
-              "name": "🦴 Backache Relief",
-              "price": 3250,
-              "duration": 45,
-              "short": "Akutní úleva od svalové a nervové bolesti zad a kloubů.",
-              "includes": [
-                "Léky proti bolesti",
-                "Protizánětlivá podpora",
-                "Svalová relaxace",
-                "Návštěva registrované sestry"
-              ],
-              "popular": false,
-              "bestFor": "Úleva od bolesti"
-            },
-            "allergyStop": {
-              "name": "🌸 Allergy Stop",
-              "price": 2650,
-              "duration": 45,
-              "short": "Rychlá úleva od alergických reakcí a příznaků sezónních alergií.",
-              "includes": [
-                "Antihistaminická podpora",
-                "Protizánětlivé látky",
-                "Úleva od příznaků",
-                "Návštěva registrované sestry"
-              ],
-              "popular": false,
-              "bestFor": "Alergie"
+              "bestFor": "Rehydratace po náročných dnech"
             }
           }
         }
@@ -1520,61 +1400,52 @@
     },
     "treatments": {
       "title": "Oblíbené IV kapačkové procedury v Praze",
-      "subtitle": "Od <strong>IV kapaček s vitaminem C</strong> po <strong>infuze glutathionu</strong> — vyberte si správnou IV terapii pro vaše zdravotní cíle v Praze",
+      "subtitle": "Od <strong>IV kapaček s vitaminem C</strong> po <strong>rehydrataci po cestě</strong>: vyberte si vhodnou infuzi, kterou po krátkém posouzení indikuje lékař",
       "viewPricing": "Zobrazit ceník",
       "items": {
         "vitaminC": {
           "title": "IV kapačka s vitaminem C Praha",
-          "description": "Vysokodávkové infuze vitaminu C (až 15 g) pro obranu imunitního systému, ochranu proti virům a rychlejší zotavení z nemoci.",
+          "description": "Infuze vitaminu C s hydratací, podaná registrovanou sestrou po krátkém zdravotním posouzení.",
           "benefits": [
-            "Silná podpora imunity",
-            "Obrana proti virům",
-            "Antioxidační ochrana"
+            "Vitamin C",
+            "Podpora hydratace",
+            "Sterilní materiál v ceně"
           ]
         },
         "ceo": {
           "title": "CEO Recharge IV kapačka",
-          "description": "Formule pro špičkový mentální výkon s B-komplexem, minerály a hořčíkem. Navržena pro manažery a profesionály vyžadující soustředění a jasné myšlení.",
+          "description": "Infuze s B-komplexem, minerály a hořčíkem pro rušné pracovní dny.",
           "benefits": [
-            "Zvýšená mentální jasnost",
-            "Lepší soustředění",
-            "Odolnost vůči stresu"
+            "Vitamíny skupiny B",
+            "Minerály a hořčík",
+            "Pro rušné dny"
           ]
         },
         "hydration": {
           "title": "Hydratační a elektrolytová IV kapačka",
-          "description": "Hydratační terapie zdravotnické kvality s elektrolyty a hořčíkem. Ideální při kocovině, únavě z cestování, dehydrataci nebo svalové regeneraci.",
+          "description": "Rehydratace s elektrolyty a hořčíkem. Vhodná volba po cestování nebo v horku, podle indikace lékaře.",
           "benefits": [
-            "Rychlá rehydratace",
-            "Rovnováha elektrolytů",
-            "Podpora svalové regenerace"
-          ]
-        },
-        "iron": {
-          "title": "Infuze železa Praha",
-          "description": "Šetrné nebo vysoce účinné infuze železa (Ferrlecit nebo Ferinject) při anémii, chronické únavě a léčbě nedostatku železa.",
-          "benefits": [
-            "Léčba nedostatku železa",
-            "Zvýšení hladiny energie",
-            "Snížení únavy"
+            "Rehydratace",
+            "Elektrolyty",
+            "Hořčík"
           ]
         },
         "defense": {
-          "title": "Defense Shield (Hero)",
-          "description": "Ultimátní regenerace po chřipce a virech s vitaminem C a stopovými prvky. Komplexní podpora při příznacích nachlazení/chřipky a zotavení po nemoci.",
+          "title": "Vitamíny a minerály Plus",
+          "description": "Rozšířené složení s vitaminem C, minerály a stopovými prvky a hydratací.",
           "benefits": [
-            "Kompletní zotavení po chřipce",
-            "Podpora stopovými prvky",
-            "Posílení imunity"
+            "Vitamin C",
+            "Minerály a stopové prvky",
+            "Hydratace"
           ]
         },
         "glow": {
-          "title": "Glow & Post-Flu regenerace",
-          "description": "Podpora regenerace pleti, vlasů a imunitní odolnosti. Kombinuje beauty živiny s prvky pro zotavení po nemoci.",
+          "title": "Vitamíny a minerály Classic",
+          "description": "Vitamíny, minerály a stopové prvky s hydratací.",
           "benefits": [
-            "Podpora pleti a vlasů",
-            "Zotavení po nemoci",
-            "Imunitní odolnost"
+            "Vitamíny",
+            "Minerály a stopové prvky",
+            "Hydratace"
           ]
         }
       }
@@ -1582,40 +1453,40 @@
     "benefits": {
       "title": "Výhody mobilních IV kapaček v Praze",
       "faster": {
-        "title": "Rychlejší než tablety nebo nápoje",
-        "description": "IV kapačky dodávají živiny <strong>přímo do krevního oběhu</strong>, čímž obcházejí trávicí systém. Vysoká biologická dostupnost znamená efektivní vstřebávání — ideální pro hydrataci, podporu imunity nebo regeneraci."
+        "title": "Infuze přímo u vás",
+        "description": "Infuzi podává registrovaná sestra na vaší adrese, <strong>bez cesty do ordinace a bez čekárny</strong>. Složení vybírá lékař po krátkém zdravotním posouzení."
       },
       "comesToYou": {
         "title": "Přijedeme za vámi v Praze",
-        "description": "Žádné čekárny, žádné stání v dopravě. Naše sestry přivezou <strong>IV kapačky nemocniční kvality do vašeho hotelu, domů nebo Airbnb</strong> kdekoli v Praze. Služba ve stejný den v Praze 1, Vinohradech, Starém Městě a dalších obvodech."
+        "description": "Žádné čekárny, žádné stání v dopravě. Naše sestry přivezou <strong>IV kapačky do vašeho hotelu, domů nebo Airbnb</strong> kdekoli v Praze. Návštěvy ve stejný den v Praze 1, Vinohradech, Starém Městě a dalších obvodech."
       },
       "safety": {
-        "title": "Registrované sestry, bezpečnost zdravotnické kvality",
+        "title": "Registrované sestry se zkušeností z nemocnic",
         "description": "Všechny IV kapačky v Praze aplikují <strong>registrované sestry se zkušenostmi z nemocnic</strong>. Sterilní vybavení, řádný monitoring, zdravotnické protokoly. Poskytujeme také",
         "ivfLink": "podporu IVF injekcí",
         "nursingLink": "dlouhodobou ošetřovatelskou péči"
       },
       "customized": {
         "title": "Přizpůsobeno vašim cílům",
-        "description": "Ať potřebujete <strong>hydrataci po cestování</strong>, podporu imunity v období chřipek, beauty IV kapačky na společenské události nebo podporu regenerace — každou proceduru přizpůsobíme vašim zdravotním cílům."
+        "description": "Potřebujete <strong>rehydrataci po cestování</strong> nebo vitamíny pro rušné období? Složení vybírá lékař po krátkém zdravotním posouzení."
       }
     },
     "howItWorks": {
       "title": "Jak funguje naše služba IV kapaček v Praze",
-      "subtitle": "Od rezervace po následnou péči — co můžete očekávat s mobilní IV terapií NIUS",
+      "subtitle": "Od rezervace po následnou péči: co můžete očekávat s mobilní IV terapií NIUS",
       "step1": {
         "title": "Kontaktujte nás a vyberte si IV kapačku",
-        "description": "Zavolejte na <strong>{{phone}}</strong> nebo nám napište na <strong>WhatsApp</strong>. Sdělte nám svou polohu (název hotelu, adresu v Praze), příznaky a cíle. Doporučíme vám nejlepší IV kapačku a potvrdíme dostupnost ve stejný den.",
+        "description": "Zavolejte na <strong>{{phone}}</strong> nebo nám napište na <strong>WhatsApp</strong>. Sdělte nám svou polohu (název hotelu, adresu v Praze) a co potřebujete. Navrhneme vhodnou kapačku a potvrdíme dostupnost ve stejný den.",
         "callNow": "Zavolat",
         "whatsapp": "WhatsApp"
       },
       "step2": {
-        "title": "Rychlý zdravotní screening",
-        "description": "Zeptáme se na základní zdravotní otázky (alergie, aktuální léky, zdravotní anamnéza). Tím zajistíme, že vaše <strong>IV kapačka v Praze bude bezpečná a vhodná</strong> pro vaši situaci. V případě potřeby zajistíme konzultaci s lékařem (příplatek 900 CZK)."
+        "title": "Krátké zdravotní posouzení",
+        "description": "Zeptáme se na základní zdravotní otázky (alergie, aktuální léky, zdravotní anamnéza). Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně."
       },
       "step3": {
         "title": "Registrovaná sestra dorazí na vaši adresu",
-        "description": "Naše sestra přijede do vašeho <strong>hotelu, domů nebo Airbnb v Praze</strong> s veškerým sterilním vybavením, materiálem pro IV kapačky a pohotovostní sadou. Typická doba příjezdu: <strong>1–3 hodiny pro objednávky ve stejný den</strong>, nebo si rezervujte předem pro přesný čas."
+        "description": "Naše sestra přijede do vašeho <strong>hotelu, domů nebo Airbnb v Praze</strong> s veškerým sterilním vybavením a materiálem pro IV kapačky. Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání."
       },
       "step4": {
         "title": "45–60minutová IV terapie",
@@ -1624,7 +1495,7 @@
       "step5": {
         "title": "Poradenství po proceduře a platba",
         "description": "Po IV kapačce vám sestra poskytne <strong>pokyny pro následnou péči</strong> a zodpoví dotazy. Platba hotově, kartou nebo bankovním převodem. V případě jakýchkoli obav vás budeme kontaktovat.",
-        "tip": "<strong>Tip:</strong> Pro nejlepší výsledky zůstaňte po IV terapii hydratovaní a vyhněte se alkoholu po dobu 24 hodin."
+        "tip": "<strong>Tip:</strong> Po infuzi dostatečně pijte a dopřejte si klidný zbytek dne."
       }
     },
     "preparation": {
@@ -1644,7 +1515,7 @@
         "items": [
           "Odpočiňte si 15–30 minut před dalšími aktivitami",
           "Pijte dostatek vody (2–3 litry během 24 hodin)",
-          "Vyhněte se alkoholu po dobu 24 hodin",
+          "Dopřejte si klidný zbytek dne",
           "Lehký pohyb je v pořádku; vyhněte se intenzivnímu cvičení ve stejný den",
           "Kontaktujte nás, pokud máte jakékoli obavy nebo dotazy"
         ]
@@ -1666,44 +1537,36 @@
       "subtitle": "Vše, co potřebujete vědět o mobilní IV terapii v Praze",
       "items": {
         "safe": {
-          "question": "Jsou IV kapačky bezpečné?",
-          "answer": "Ano, pokud je aplikují vyškolení zdravotničtí profesionálové. Všechny naše <strong>IV kapačky v Praze provádějí registrované sestry</strong> za použití sterilního vybavení a zdravotnických protokolů. Všechny pacienty před ošetřením screenujeme a po celou dobu procedury monitorujeme."
+          "question": "Kdo IV kapačky podává?",
+          "answer": "Všechny naše <strong>IV kapačky v Praze podávají registrované sestry</strong> za použití sterilního vybavení a zdravotnických protokolů. Každého klienta před ošetřením posoudíme a po celou dobu procedury jsme s ním."
         },
         "duration": {
           "question": "Jak dlouho trvá IV kapačka v Praze?",
-          "answer": "Většina procedur IV kapaček trvá <strong>45–60 minut</strong> včetně přípravy, infuze a monitoringu. Složitější formule (jako MEGA Recovery) mohou trvat až 75 minut. K dispozici je objednání ve stejný den."
+          "answer": "Většina procedur trvá <strong>45–60 minut</strong> včetně přípravy, infuze a monitoringu. Některé formule mohou trvat o něco déle."
         },
         "hotels": {
           "question": "Přijedete do hotelů v Praze?",
-          "answer": "Samozřejmě! Poskytujeme <strong>mobilní IV kapačky v hotelech, Airbnb, soukromých bytech a kancelářích</strong> po celé Praze. Oblíbené hotely: Four Seasons, Hilton, jakýkoli hotel v Praze 1, Vinohradech, Starém Městě a dalších obvodech."
-        },
-        "hangover": {
-          "question": "Jaká je nejlepší IV kapačka na kocovinu?",
-          "answer": "Při kocovině doporučujeme <strong><a href='/kapacka-na-kocovinu-praha/'>Nausea Relief (2 850 CZK)</a></strong> pro okamžitou úlevu od příznaků, nebo <strong>Electrolyte Reset (2 950 CZK)</strong> s 2000 mg hořčíku pro hydrataci a svalovou regeneraci. Pure Hydrate (2 450 CZK) je také účinný pro rychlou rehydrataci. <a href='/kapacka-na-kocovinu-praha/'>Zjistěte více o naší kapačce na kocovinu →</a>"
+          "answer": "Samozřejmě. Podáváme <strong>IV kapačky v hotelech, Airbnb, soukromých bytech a kancelářích</strong> po celé Praze. Přijedeme do jakéhokoli hotelu v Praze 1, na Vinohradech, ve Starém Městě i v dalších obvodech."
         },
         "vitaminC": {
           "question": "Mohu dostat IV kapačku s vitaminem C v Praze?",
-          "answer": "Ano! Nabízíme tři úrovně: <strong>Immunity Lite (2 800 CZK)</strong> pro základní podporu, <strong>Immunity Power (3 150 CZK)</strong> s vysokodávkovým vitaminem C 15 g a <strong>Defense Shield Hero (4 250 CZK)</strong> pro ultimátní regeneraci po chřipce a virech."
-        },
-        "iron": {
-          "question": "Nabízíte infuze železa v Praze?",
-          "answer": "Ano, nabízíme <strong>Standard Iron s Ferrlecit (2 750 CZK)</strong> pro šetrné doplnění železa a <strong>Premium Iron s Ferinject (6 350 CZK)</strong> pro vysoce účinnou léčbu chronické únavy a těžké anémie."
+          "answer": "Ano. Nabízíme tři varianty: <strong>Immunity Lite</strong> (od 2 900 CZK) pro základní vitamin C s hydratací, <strong>Immunity Power</strong> s vitaminem C a hydratací a <strong>Vitamíny a minerály Plus</strong> s vitaminem C, minerály a stopovými prvky. Aktuální ceny najdete v menu výše."
         },
         "cost": {
           "question": "Kolik stojí IV kapačky v Praze?",
-          "answer": "Ceny se pohybují od <strong>1 550 CZK do 6 350 CZK</strong> (60–250 €) v závislosti na typu ošetření. Nejoblíbenější IV kapačky stojí 2 450–4 450 CZK. Všechny ceny zahrnují návštěvu sestry, vybavení a monitoring. 10% sleva na balíčky 2 a více návštěv."
+          "answer": "Ceny začínají od <strong>1 650 CZK</strong> v závislosti na typu ošetření. Aktuální ceny najdete v menu výše. Všechny ceny zahrnují návštěvu sestry, vybavení a monitoring. 10% sleva na balíčky 2 a více návštěv."
         },
         "sameDay": {
           "question": "Mohu dostat IV kapačku v Praze ve stejný den?",
-          "answer": "Ano! Nabízíme <strong>službu IV kapaček v Praze ve stejný den</strong> s typickým příjezdem do 1–3 hodin. Dostupné denně 8–21 včetně víkendů a svátků. Rezervujte předem pro přesné naplánování."
+          "answer": "Ano. Nabízíme <strong>IV kapačky v Praze ve stejný den</strong>, denně 8:00–21:00 včetně víkendů a svátků. Čas příjezdu potvrdíme po objednání. Rezervujte předem pro přesné naplánování."
         },
         "districts": {
           "question": "Které pražské obvody obsluhujete?",
           "answer": "Obsluhujeme <strong>všechny pražské obvody</strong>: Praha 1, Praha 2, Vinohrady, Žižkov, Staré Město, Nové Město, Karlín, Holešovice a okolní oblasti do 20 km od centra."
         },
         "prescription": {
-          "question": "Potřebuji na IV kapačky předpis?",
-          "answer": "Některé IV formule vyžadují lékařský předpis nebo konzultaci (příplatek 900 CZK v případě potřeby). Posoudíme to při zdravotním screeningu a v případě potřeby zajistíme. Mnoho formulí předpis nevyžaduje."
+          "question": "Kdo IV kapačku indikuje?",
+          "answer": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně."
         }
       }
     },
@@ -1727,38 +1590,38 @@
     },
     "cta": {
       "title": "Chcete si objednat IV kapačku v Praze?",
-      "subtitle": "Mobilní IV terapie ve stejný den dostupná denně 8–21 ve vašem hotelu, doma nebo Airbnb",
+      "subtitle": "Mobilní IV kapačky ve stejný den, denně 8–21, ve vašem hotelu, doma nebo Airbnb",
       "description": "Obsluhujeme Prahu 1, Vinohrady, Staré Město a všechny pražské obvody • Registrované sestry • Hodnocení 4.9★",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervace přes WhatsApp",
       "bookBtn": "Rezervovat online",
       "emailBtn": "Napište nám",
-      "hours": "K dispozici každý den 8:00–21:00 • Pro urgentní případy mimo pracovní dobu prosím volejte přímo"
+      "hours": "K dispozici každý den 8:00–21:00 • NIUS není záchranná služba. V případě ohrožení volejte 155/112."
     },
     "llmSummary": {
-      "title": "IV kapačky v Praze — shrnutí služeb",
-      "content": "NIUS (Nurse in Prague) poskytuje profesionální mobilní infuzní terapii po celé Praze. Certifikovaná zdravotní sestra přijede k vám do hotelu, Airbnb, domů nebo kanceláře s nemocničním vybavením a aplikuje zvolenou infuzi na místě. K dispozici denně 8:00–21:00 včetně víkendů a svátků, objednání ve stejný den, příjezd obvykle do 1–3 hodin.\n\nMožnosti infuzí: Biotin IV (vlasy, pleť, nehty), Glutathion IV (antioxidant a rozjasnění pleti), Vitamin C vysoká dávka (imunita), IV proti chřipce a nachlazení, All-in-One multivitamin, MEGA RECOVERY (ultimátní formule), CEO Recharge (mentální výkon), Hydratace a elektrolyty, Infuze železa (Ferrlecit nebo Ferinject), Immunity Lite, Immunity Power (15 g vitaminu C) a Defense Shield Hero (rekonvalescence po chřipce). Ceny od 1 550 Kč do 6 350 Kč. Sleva 10 % na balíčky 2 a více návštěv.\n\nPro kapačky na kocovinu nabízíme: Nausea Relief IV (2 850 Kč), Pure Hydrate (2 450 Kč), Electrolyte Reset (2 950 Kč) a Immunity Lite (2 800 Kč) — vše cca 60 minut.\n\nVšechny služby zajišťují registrované sestry s nemocniční praxí. Konzultace s lékařem 900 Kč. Jazyky: čeština, angličtina, ruština, ukrajinština. Kontakt: +420 773 629 123 (telefon/WhatsApp), info@nius.cz. Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz. Společnost: Nius Services s.r.o., Praha."
+      "title": "IV kapačky v Praze: shrnutí služeb",
+      "content": "NIUS (Nurse in Prague) poskytuje mobilní infuzní terapii po celé Praze. Registrovaná sestra přijede k vám do hotelu, Airbnb, domů nebo kanceláře a podá zvolenou infuzi na místě. Návštěva ve stejný den, denně 8:00–21:00 včetně víkendů a svátků; čas příjezdu potvrdíme po objednání.\n\nNabídka: Immunity Lite, Immunity Power, Vitamíny a minerály Plus, Vitamíny a minerály Classic, CEO Recharge, Metabolic Reset, B-Power Shot, Pure Hydrate, Electrolyte Reset a Jet Lag Recovery. Ceny od 1 650 Kč. Sleva 10 % na balíčky 2 a více návštěv.\n\nKaždou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně. Všechny služby zajišťují registrované sestry s nemocniční praxí. Jazyky: čeština, angličtina, ruština, ukrajinština. NIUS není záchranná služba. V případě ohrožení volejte 155/112. Kontakt: +420 773 629 123 (telefon/WhatsApp), info@nius.cz. Objednávka přes formulář na www.nius.cz nebo WhatsApp. Společnost: Nius Services s.r.o., Praha."
     },
     "breadcrumbs": {
       "services": "Služby",
       "ivDripsPrague": "IV kapačky Praha"
     }
   },
-  "hangoverIVDrip": {
+  "hydrationIV": {
     "seo": {
-      "title": "Kapačka na kocovinu Praha | Sestra k vám do hotelu | NIUS",
-      "description": "Kapačka na kocovinu v Praze — sestra přijede do hotelu nebo Airbnb ve stejný den. Infuze proti nevolnosti, rehydratace a vitaminy od 2 450 Kč. Registrované sestry.",
-      "keywords": "kapačka na kocovinu praha, kapačka kocovina praha, infuze kocovina praha, kapačka hotel praha, mobilní infuze praha, kapačka proti kocovině, infuze po alkoholu praha, kapačka po alkoholu praha"
+      "title": "Rehydratace Praha | Sestra k vám do hotelu | NIUS",
+      "description": "Rehydratace po cestě a náročných dnech v Praze: registrovaná sestra přijede do hotelu nebo domů ve stejný den. Tekutiny a vitamíny, denně 8–21.",
+      "keywords": "rehydratace praha, hydratační infuze praha, iv kapačky praha, kapačka hotel praha, mobilní infuze praha, sestřička praha, domácí sestra praha"
     },
     "breadcrumbs": {
       "services": "Služby",
       "ivDrips": "IV kapačky Praha",
-      "hangover": "Kapačka na kocovinu"
+      "hydration": "Rehydratace"
     },
-    "whatsappMessage": "Dobrý den! Chtěl/a bych si objednat kapačku na kocovinu v Praze. Můžete přijet k nám?",
+    "whatsappMessage": "Dobrý den, chtěl/a bych si objednat rehydratační infuzi v Praze. Můžete přijet k nám?",
     "hero": {
-      "h1": "Kapačka na kocovinu v Praze — Sestra u vás ve stejný den",
-      "subtitle": "Registrovaná sestra přijede přímo k vám do hotelu, Airbnb nebo domů se vším potřebným, abyste se rychle postavili na nohy.",
+      "h1": "Rehydratace v Praze: sestra u vás ve stejný den",
+      "subtitle": "Po cestě nebo náročných dnech: registrovaná sestra přijede do vašeho hotelu, Airbnb nebo domů a podá infuzi s tekutinami a vitamíny. Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Napsat na WhatsApp",
       "bookBtn": "Objednat online"
@@ -1770,208 +1633,188 @@
       "allDistricts": "Celá Praha"
     },
     "symptoms": {
-      "title": "Rychlá úleva od příznaků",
-      "subtitle": "Naše kapačka na kocovinu cílí na všechny příznaky najednou — takto jednotlivé složky fungují.",
+      "title": "Z čeho se rehydratace skládá",
+      "subtitle": "Po dlouhém letu, v horku nebo mezi schůzkami. Složení vybírá lékař po krátkém zdravotním posouzení.",
       "items": {
         "dehydration": {
-          "title": "Dehydratace",
-          "symptom": "Sucho v ústech, závratě, únava",
-          "solution": "1l fyziologického roztoku — doplní tekutiny přímo do krevního oběhu, mnohem rychleji než pití vody"
+          "title": "Tekutiny",
+          "symptom": "Po dlouhém letu nebo v horku",
+          "solution": "Fyziologický roztok: doplnění tekutin infuzí na vaší adrese"
         },
         "nausea": {
-          "title": "Bolest hlavy a nevolnost",
-          "symptom": "Tupá bolest hlavy, žaludeční nevolnost",
-          "solution": "Lék proti nevolnosti + analgetika — zastaví zvracení a bolesti hlavy, abyste mohli normálně fungovat"
+          "title": "Elektrolyty",
+          "symptom": "Při náročném programu",
+          "solution": "Vyvážený roztok elektrolytů podle indikace lékaře"
         },
         "fatigue": {
-          "title": "Únava a slabost",
-          "symptom": "Žádná energie, bolest svalů",
-          "solution": "Vitaminy skupiny B + hořčík — doplní to, co alkohol přes noc vyčerpal"
+          "title": "Vitamíny",
+          "symptom": "Pro rušné dny",
+          "solution": "Vitamíny skupiny B a vitamin C přidané do infuze podle indikace lékaře"
         },
         "brainFog": {
-          "title": "Zamlžené myšlení",
-          "symptom": "Nemůžete se soustředit, pomalé myšlení",
-          "solution": "Vyrovnání elektrolytů — obnoví minerální rovnováhu, kterou váš mozek potřebuje k jasnému myšlení"
+          "title": "Minerály",
+          "symptom": "Cesty a časové posuny",
+          "solution": "Hořčík a další minerály podle složení zvolené infuze"
         }
       }
     },
     "featured": {
-      "title": "Kapačka na kocovinu — Co obsahuje",
-      "name": "Infuze proti nevolnosti",
-      "price": 2850,
+      "title": "Jet Lag Recovery: co obsahuje",
+      "name": "Jet Lag Recovery",
+      "price": 3250,
       "currency": "Kč",
-      "duration": "~60 minut",
-      "short": "Naše nejdoporučovanější kapačka na kocovinu — rychlá úleva od nevolnosti, bolesti hlavy a dehydratace.",
+      "duration": "~45–60 minut",
+      "short": "Rehydratace a vitamíny po dlouhém letu. Tekutiny, elektrolyty a vitamíny podané registrovanou sestrou u vás v hotelu.",
       "includes": [
-        "Lék proti nevolnosti",
-        "Hydratační podpora (infuze fyziologického roztoku)",
-        "Vyrovnání elektrolytů",
+        "Hydratační infuze (fyziologický roztok)",
+        "Elektrolyty a vitamíny",
+        "Krátké zdravotní posouzení a indikace lékaře",
         "Návštěva registrované sestry u vás",
         "Veškerý sterilní materiál v ceně"
       ],
-      "bestFor": "Kocovina a nevolnost",
-      "bookMessage": "Dobrý den! Chtěl/a bych si objednat infuzi proti nevolnosti na kocovinu v Praze.",
+      "bestFor": "Rehydratace po cestě",
+      "bookMessage": "Dobrý den, chtěl/a bych si objednat infuzi Jet Lag Recovery v Praze.",
       "bookBtn": "Objednat tuto kapačku",
-      "priceNote": "Cena zahrnuje vše — žádné skryté poplatky"
+      "priceNote": "Cena zahrnuje vše, bez skrytých poplatků"
     },
     "alternatives": {
-      "title": "Další varianty kapačky na kocovinu",
-      "subtitle": "Nevíte, která kapačka je pro vás ta pravá? Zde jsou všechny naše varianty vhodné při kocovině — každá s příjezdem sestry až k vám.",
+      "title": "Další varianty rehydratace",
+      "subtitle": "Nevíte, kterou infuzi zvolit? Vyberte si z naší nabídky, lékař po krátkém posouzení indikuje tu vhodnou. Sestra přijede až k vám.",
       "items": {
         "pureHydrate": {
-          "name": "Čistá hydratace",
-          "price": 2450,
+          "name": "Pure Hydrate",
+          "price": 2550,
           "currency": "Kč",
-          "duration": "~60 minut",
-          "short": "Rychlá rehydratace 500ml–1000ml fyziologického roztoku. Ideální při lehčí kocovině, kdy je hlavním problémem dehydratace.",
+          "duration": "~45–60 minut",
+          "short": "Rehydratace fyziologickým roztokem, jednoduchá volba po cestě nebo v horku.",
           "includes": [
-            "0,9% NaCl fyziologický roztok (500ml–1000ml)",
-            "Rychlá rehydratace",
+            "0,9% NaCl fyziologický roztok",
+            "Podpora hydratace",
             "Návštěva registrované sestry",
             "Veškerý materiál v ceně"
           ],
-          "bestFor": "Lehká kocovina a dehydratace",
-          "tag": "Cenově výhodná",
-          "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Čistá hydratace na kocovinu v Praze."
+          "bestFor": "Základní rehydratace",
+          "tag": "Cenově dostupná",
+          "bookMessage": "Dobrý den, chtěl/a bych si objednat infuzi Pure Hydrate v Praze."
         },
         "electrolyteReset": {
-          "name": "Elektrolytový reset",
-          "price": 2950,
+          "name": "Electrolyte Reset",
+          "price": 3050,
           "currency": "Kč",
-          "duration": "~60 minut",
-          "short": "Hydratace plus 2000mg hořčíku pro svalovou regeneraci, úlevu od bolesti hlavy a lepší spánek po náročné noci.",
+          "duration": "~45–60 minut",
+          "short": "Hydratace s elektrolyty a hořčíkem, vyvážený roztok po náročných dnech.",
           "includes": [
             "Vyvážené elektrolytové roztoky",
-            "2000mg hořčíku",
-            "Podpora svalů a spánku",
+            "Hořčík",
+            "Podpora hydratace",
             "Návštěva registrované sestry"
           ],
-          "bestFor": "Kocovina + bolest svalů",
+          "bestFor": "Rehydratace po náročných dnech",
           "tag": "Oblíbená",
-          "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Elektrolytový reset na kocovinu v Praze."
+          "bookMessage": "Dobrý den, chtěl/a bych si objednat infuzi Electrolyte Reset v Praze."
         },
         "immunityLite": {
-          "name": "Imunita Lite",
-          "price": 2800,
+          "name": "Immunity Lite",
+          "price": 2900,
           "currency": "Kč",
-          "duration": "~60 minut",
-          "short": "Vitamin C s hydratací — ideální, pokud máte kocovinu a zároveň cítíte, že se na vás řítí nachlazení.",
+          "duration": "~45–60 minut",
+          "short": "Vitamin C s hydratací, jednoduchá vitamínová infuze.",
           "includes": [
             "Infuze vitaminu C",
             "Hydratační podpora",
             "Návštěva registrované sestry",
             "Veškerý materiál v ceně"
           ],
-          "bestFor": "Kocovina + začínající nachlazení",
-          "tag": "Posílení imunity",
-          "bookMessage": "Dobrý den! Chtěl/a bych si objednat kapačku Imunita Lite na kocovinu v Praze."
+          "bestFor": "Vitamíny a hydratace",
+          "tag": "S vitaminem C",
+          "bookMessage": "Dobrý den, chtěl/a bych si objednat infuzi Immunity Lite v Praze."
         }
       },
       "bookBtn": "Objednat tuto kapačku",
-      "compareNote": "Všechny ceny jsou konečné — zahrnují návštěvu sestry, materiál a léky. Žádné skryté poplatky."
+      "compareNote": "Ceny zahrnují návštěvu sestry a veškerý materiál. Žádné skryté poplatky."
     },
     "llmSummary": {
-      "title": "O službě kapačky na kocovinu v Praze",
-      "content": "NIUS poskytuje mobilní kapačky na kocovinu v Praze, Česká republika. Registrovaná sestra přijede k vám do hotelu, Airbnb nebo domů ve stejný den, typicky do 1–3 hodin. Služba je dostupná denně od 8:00 do 21:00, včetně víkendů a svátků. Všechny léčby jsou pod dohledem předepisujícího lékaře. NIUS obsluhuje všechny pražské obvody včetně Starého Města, Nového Města, Vinohrad, Karlína, Smíchova, Holešovic a Žižkova. K dispozici jsou čtyři varianty kapačky na kocovinu: Infuze proti nevolnosti (2 850 Kč) s lékem proti nevolnosti a rehydratací — nejoblíbenější volba při těžké kocovině; Čistá hydratace (2 450 Kč) pro základní rehydrataci; Elektrolytový reset (2 950 Kč) s 2000mg hořčíku pro svalovou regeneraci; a Imunita Lite (2 800 Kč) s vitaminem C při kocovině kombinované s nachlazením. Všechny ceny jsou konečné bez skrytých poplatků. Infuze trvá přibližně 60 minut. Kontakt: +420 773 629 123 (telefon/WhatsApp). Online rezervace: nurseinprague.setmore.com/book. Web: www.nius.cz."
+      "title": "O službě rehydratace v Praze",
+      "content": "NIUS poskytuje mobilní rehydratační infuze v Praze, Česká republika. Registrovaná sestra přijede k vám do hotelu, Airbnb nebo domů. Návštěva ve stejný den, denně 8:00–21:00 včetně víkendů a svátků; čas příjezdu potvrdíme po objednání. Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně. NIUS obsluhuje všechny pražské obvody včetně Starého Města, Nového Města, Vinohrad, Karlína, Smíchova, Holešovic a Žižkova. K dispozici jsou například: Pure Hydrate (od 2 550 Kč) s fyziologickým roztokem; Immunity Lite (2 900 Kč) s vitaminem C a hydratací; Electrolyte Reset (3 050 Kč) s elektrolyty a hořčíkem; a Jet Lag Recovery (3 250 Kč) s tekutinami, elektrolyty a vitamíny po dlouhém letu. Všechny ceny jsou konečné bez skrytých poplatků. Infuze trvá přibližně 45–60 minut. NIUS není záchranná služba. V případě ohrožení volejte 155/112. Kontakt: +420 773 629 123 (telefon/WhatsApp). Objednávka přes formulář na www.nius.cz nebo WhatsApp."
     },
     "howItWorks": {
       "title": "Jak to funguje",
-      "subtitle": "Od objednávky po úlevu — je to jednoduché.",
+      "subtitle": "Od objednávky po návštěvu. Je to jednoduché.",
       "steps": {
         "step1": {
           "title": "Objednejte se online nebo zavolejte",
-          "description": "Sdělte nám svou adresu (název hotelu, adresu) a kdy vás potřebujete. Objednávky na stejný den k dispozici."
+          "description": "Sdělte nám svou adresu (název hotelu, adresu) a kdy vás potřebujete. Návštěvy ve stejný den jsou k dispozici denně 8:00–21:00."
         },
         "step2": {
           "title": "Sestra přijede k vám",
-          "description": "Registrovaná sestra dorazí do vašeho hotelu, Airbnb nebo domů ve stejný den — se vším vybavením a léky."
+          "description": "Registrovaná sestra dorazí do vašeho hotelu, Airbnb nebo domů se vším sterilním vybavením. Čas příjezdu potvrdíme po objednání."
         },
         "step3": {
-          "title": "Rychlá zdravotní kontrola a zavedení kapačky",
+          "title": "Krátké zdravotní posouzení a zavedení kapačky",
           "description": "Krátký zdravotní screening, poté pohodlné zavedení infuze. Můžete relaxovat, sledovat TV nebo si zdřímnout."
         },
         "step4": {
-          "title": "Odpočívejte — za chvíli budete v pořádku",
-          "description": "Kapačka trvá přibližně 60 minut. Většina klientů se cítí výrazně lépe ještě před koncem infuze."
+          "title": "Odpočívejte, sestra je s vámi",
+          "description": "Infuze trvá přibližně 45–60 minut. Sestra je s vámi po celou dobu, můžete relaxovat, pracovat nebo sledovat TV."
         }
       }
     },
     "whereWeCome": {
       "title": "Přijedeme kamkoli v Praze",
-      "description": "Obsluhujeme celou Prahu — <strong>Staré Město, Nové Město, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong> a všechny hlavní hotely včetně Four Seasons, Hilton a stovek dalších. Ať jste kdekoli, přijedeme za vámi."
-    },
-    "testimonials": {
-      "title": "Co říkají naši klienti",
-      "items": {
-        "t1": {
-          "text": "Měl jsem nejhorší kocovinu v životě po rozlučce se svobodou v Praze. Sestra dorazila do hotelu za méně než hodinu a do 30 minut jsem se cítil jako nový člověk. Rozhodně to stálo za to.",
-          "author": "Jakub R.",
-          "context": "Hotelový host, Praha 1"
-        },
-        "t2": {
-          "text": "Objednali jsme kapačku pro celou skupinu po velkém večírku. Profesionální, rychlé a neuvěřitelně účinné. Nejlepší peníze, které jsem na výletě v Praze utratil.",
-          "author": "Šárka M.",
-          "context": "Host Airbnb, Vinohrady"
-        },
-        "t3": {
-          "text": "Byl jsem skeptický, ale zoufalý. Kapačka mi opravdu zachránila den — z neschopnosti se pohnout jsem šel na prohlídku města ještě před obědem. Sestra byla milá a profesionální.",
-          "author": "Tomáš K.",
-          "context": "Turista, Staré Město"
-        }
-      }
+      "description": "Obsluhujeme celou Prahu: <strong>Staré Město, Nové Město, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong> a jakýkoli hotel, Airbnb nebo byt. Přijedeme za vámi kamkoli."
     },
     "faq": {
-      "title": "Kapačka na kocovinu — Časté dotazy",
+      "title": "Rehydratace: časté dotazy",
       "subtitle": "Vše, co potřebujete vědět před objednáním.",
       "items": {
         "howFast": {
-          "question": "Jak rychle může sestra přijet?",
-          "answer": "Obvykle <strong>do 1–3 hodin</strong> od objednání, v závislosti na vaší poloze v Praze a aktuální dostupnosti. Objednávky na stejný den jsou k dispozici denně od 8:00 do 21:00."
+          "question": "Kdy může sestra přijet?",
+          "answer": "Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání."
         },
         "cost": {
-          "question": "Kolik stojí kapačka na kocovinu v Praze?",
-          "answer": "Naše doporučená kapačka na kocovinu (Infuze proti nevolnosti) stojí <strong>2 850 Kč (≈114 €)</strong>, vše v ceně. Alternativy: Elektrolytový reset za 2 950 Kč nebo Čistá hydratace za 2 450 Kč. Cena zahrnuje návštěvu sestry, veškerý materiál a léky."
+          "question": "Kolik stojí rehydratace v Praze?",
+          "answer": "Rehydratační infuze začínají od <strong>2 550 Kč</strong>, vše v ceně. Aktuální ceny najdete v menu IV kapaček. Cena zahrnuje návštěvu sestry a veškerý materiál."
         },
         "safe": {
-          "question": "Je to bezpečné? Kdo kapačku podává?",
-          "answer": "Samozřejmě. Všechny infuze podávají <strong>registrované zdravotní sestry</strong> za použití sterilního jednorázového zdravotnického materiálu. Všechny léčby jsou pod dohledem předepisujícího lékaře. Každého pacienta před zahájením vyšetříme."
+          "question": "Kdo infuzi podává?",
+          "answer": "Všechny infuze podávají <strong>registrované zdravotní sestry</strong> za použití sterilního jednorázového zdravotnického materiálu po krátkém zdravotním posouzení."
         },
         "hotels": {
           "question": "Přijedete i do hotelů a Airbnb?",
-          "answer": "Ano — přijedeme do <strong>jakéhokoli hotelu, Airbnb, bytu nebo soukromého domu</strong> v Praze. Pravidelně navštěvujeme všechny hlavní hotely v Praze 1, Vinohradech, Karlíně a dalších čtvrtích."
+          "answer": "Ano, přijedeme do <strong>jakéhokoli hotelu, Airbnb, bytu nebo soukromého domu</strong> v Praze. Pravidelně navštěvujeme všechny hlavní hotely v Praze 1, Vinohradech, Karlíně a dalších čtvrtích."
         },
         "whatsInside": {
-          "question": "Co kapačka na kocovinu obsahuje?",
-          "answer": "Infuze proti nevolnosti obsahuje <strong>lék proti nevolnosti, fyziologický roztok pro hydrataci a elektrolyty</strong>. Cílí na hlavní příznaky kocoviny: dehydrataci, nevolnost, bolest hlavy a únavu. Všechny složky jsou v lékařské kvalitě."
+          "question": "Co infuze obsahuje?",
+          "answer": "Základem je <strong>fyziologický roztok pro hydrataci</strong>, podle indikace lékaře doplněný elektrolyty a vitamíny. Konkrétní složení určuje lékař po krátkém zdravotním posouzení."
         },
         "howLong": {
           "question": "Jak dlouho kapačka trvá?",
-          "answer": "Infuze trvá <strong>přibližně 60 minut</strong> včetně zdravotní kontroly a přípravy. Většina klientů se cítí výrazně lépe ještě před koncem kapačky."
+          "answer": "Infuze trvá <strong>přibližně 45–60 minut</strong> včetně přípravy a krátkého zdravotního posouzení."
         },
         "prescription": {
-          "question": "Potřebuji recept?",
-          "answer": "Ne — <strong>o vše se postará náš předepisující lékař</strong>. Konzultace a předpis jsou zahrnuty v ceně. Stačí si objednat a o zbytek se postaráme my."
+          "question": "Kdo infuzi indikuje?",
+          "answer": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně."
         },
         "hours": {
-          "question": "Můžete přijet v noci nebo o víkendu?",
-          "answer": "Jsme k dispozici <strong>denně od 8:00 do 21:00</strong>, včetně víkendů a svátků. Pro naléhavé požadavky mimo tuto dobu nám prosím zavolejte přímo a uděláme maximum, abychom vám vyhověli."
+          "question": "Přijedete i večer nebo o víkendu?",
+          "answer": "Jsme k dispozici <strong>denně od 8:00 do 21:00</strong>, včetně víkendů a svátků. NIUS není záchranná služba. V případě ohrožení volejte 155/112."
         }
       }
     },
     "cta": {
-      "title": "Chcete se cítit lépe?",
-      "subtitle": "Objednejte si kapačku na kocovinu — sestra u vás do ~60 minut.",
+      "title": "Chcete rehydrataci u sebe v hotelu?",
+      "subtitle": "Objednejte si návštěvu sestry ve stejný den. Čas příjezdu potvrdíme po objednání.",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervace přes WhatsApp",
       "bookBtn": "Objednat online",
       "emailBtn": "Napište nám",
       "reassurance": "Registrované sestry • Celá Praha • Denně 8:00–21:00",
-      "hours": "K dispozici každý den 8:00–21:00 • Pro urgentní případy mimo pracovní dobu prosím volejte přímo"
+      "hours": "K dispozici každý den 8:00–21:00 • NIUS není záchranná služba. V případě ohrožení volejte 155/112."
     }
   },
   "onboarding": {
     "returningHint": {
-      "body": "Vypadá to, že už jste náš klient. V osobním účtu objednáte rychleji — vaše údaje a historie jsou už uložené.",
+      "body": "Vypadá to, že už jste náš klient. V osobním účtu objednáte rychleji, vaše údaje a historie jsou už uložené.",
       "ctaLogin": "Přihlásit se",
       "ctaCabinet": "Otevřít účet"
     },
@@ -2005,9 +1848,9 @@
       "floorPlaceholder": "Patro",
       "intercomLabel": "Zvonek / kód",
       "intercomPlaceholder": "Zvonek / kód",
-      "addressNoResults": "Adresa nenalezena — zadejte ručně",
+      "addressNoResults": "Adresa nenalezena, zadejte ji ručně",
       "addressSearching": "Vyhledávání adres…",
-      "addressRequestFailed": "Vyhledávání adres není dostupné — zadejte ji ručně",
+      "addressRequestFailed": "Vyhledávání adres není dostupné, zadejte ji ručně",
       "fromLabel": "Adresa vyzvednutí",
       "fromPlaceholder": "Kde pacienta vyzvednout",
       "toLabel": "Cílová adresa",
@@ -2017,7 +1860,7 @@
     "step3": {
       "title": "Kdy se vám to hodí?",
       "subtitle": "Vyberte preferovaný čas návštěvy.",
-      "asapHint": "Zavoláme vám do 60 min pro potvrzení",
+      "asapHint": "Zavoláme vám pro potvrzení času návštěvy",
       "orSpecific": "nebo zvolte konkrétní čas",
       "today": "Dnes",
       "more": "Více",
@@ -2060,7 +1903,7 @@
       "notePlaceholder": "Popište, co vás trápí: bolest, horečka, krevní tlak atd."
     },
     "final": {
-      "title": "Skoro hotovo!",
+      "title": "Skoro hotovo.",
       "subtitle": "Přijali jsme vaši žádost. Vyberte, jak chcete pokračovat.",
       "loginBtn": "Přihlásit se a sledovat rezervaci",
       "loginPopup": "Čekám na přihlášení Google…",
@@ -2090,7 +1933,7 @@
       }
     },
     "thankyou": {
-      "title": "Děkujeme!",
+      "title": "Děkujeme.",
       "subtitle": "Brzy vám zavoláme na zadané číslo pro potvrzení detailů.",
       "closeBtn": "Zavřít"
     },
@@ -2108,7 +1951,7 @@
     "cart": {
       "addServices": "Přidat služby",
       "selected": "Váš výběr",
-      "empty": "Košík je prázdný — přidejte službu výše",
+      "empty": "Košík je prázdný, přidejte službu výše",
       "added": "Přidáno",
       "remove": "Odebrat",
       "quantity": "Množství služby",
@@ -2125,9 +1968,9 @@
       "title": "Doporučujeme",
       "add": "Přidat",
       "added": "Přidáno",
-      "ivfHint": "Často se přidává ke kapačkám na kocovinu",
-      "b12Hint": "Zrychlete zotavení — stejná návštěva",
-      "vitaminCHint": "Často se přidává ke kapačkám na kocovinu",
+      "ivfHint": "Lze přidat k téže návštěvě",
+      "b12Hint": "Přidejte k téže návštěvě",
+      "vitaminCHint": "Často se přidává k hydratační kapačce",
       "ivHint": "Mobilní IV terapie na vaší adrese",
       "escortHint": "Asistovaná zdravotní doprava po Praze"
     },
@@ -2166,12 +2009,11 @@
       "IV kapačky",
       "IVF podpora",
       "Pooperační péče",
-      "Pomoc s kocovinou"
+      "Rehydratace po cestě"
     ],
-    "subheadline": "Registrované sestry s nemocniční praxí doručují IV kapačky, podporu IVF a pooperační péči k vám do hotelu, bytu Airbnb nebo domů — kdekoli v Praze.",
+    "subheadline": "Registrované sestry s nemocniční praxí přijedou s IV kapačkami, podporou IVF a pooperační péčí k vám do hotelu, bytu Airbnb nebo domů kdekoli v Praze.",
     "ctaPrimary": "Vybrat službu",
     "ctaSecondary": "Napsat na WhatsApp",
-    "statsVisits": "návštěv",
     "statsInternational": "mezinárodní klienti",
     "statsSameDay": "Stejný den",
     "statsSameDayLabel": "příjezd"
@@ -2183,9 +2025,6 @@
     "formulas": "Lékařské preparáty",
     "screening": "Lékařská kontrola"
   },
-  "partners": {
-    "label": "Důvěřují nám a doporučují nás"
-  },
   "whoWeServe": {
     "eyebrow": "Pro koho jsme",
     "title": "Pro každého, kdo nemůže čekat.",
@@ -2194,42 +2033,42 @@
     "cards": {
       "international": {
         "title": "Mezinárodní návštěvníci",
-        "desc": "Zdravotní turisté, obchodní cestovatelé, hosté pražských 5hvězdičkových hotelů. 70 % klientů je ze zahraničí.",
+        "desc": "Zdravotní turisté, obchodní cestovatelé, hosté pražských hotelů. Mluvíme anglicky, česky, rusky i ukrajinsky.",
         "bullets": [
-          "Hotelové infuze",
+          "Infuze v hotelu",
           "Airbnb pobyty",
-          "Regenerace po letu",
-          "Kocovina a dehydratace"
+          "Rehydratace po cestě",
+          "Vitamíny a hydratace"
         ]
       },
       "ivf": {
         "title": "IVF pacientky",
-        "desc": "Spolupráce s klinikami Unica a Formé. Večerní aplikace injekcí, abyste mohly být doma, v pohodlí.",
+        "desc": "Večerní návštěvy pro aplikaci injekcí, abyste mohly být doma, v pohodlí.",
         "bullets": [
           "Večerní IVF návštěvy",
-          "Progesteron, Gonal-F, Menopur",
-          "Intralipidové infuze",
-          "Školení s sestrou"
+          "Léky předepsané vaší klinikou",
+          "Podle písemných pokynů kliniky",
+          "Zaučení sestrou"
         ]
       },
       "hotel": {
-        "title": "Hosté luxusních hotelů",
-        "desc": "Služba doporučovaná concierge v Four Seasons, Augustine.",
+        "title": "Hosté hotelů",
+        "desc": "Přijedeme do jakéhokoli hotelu v Praze.",
         "bullets": [
-          "5hvězdičková partnerství",
-          "Doporučení od concierge",
+          "Jakýkoli hotel v Praze",
+          "Diskrétní návštěva",
           "Objednání ve stejný den",
           "Anglicky mluvící sestra"
         ]
       },
       "postSurgery": {
         "title": "Pooperační péče",
-        "desc": "Plastická chirurgie, ortopedie, estetické zákroky v Praze — NIUS zajistí následnou péči ve vašem ubytování.",
+        "desc": "Plastická chirurgie, ortopedie, estetické zákroky v Praze. NIUS zajistí následnou péči ve vašem ubytování.",
         "bullets": [
           "Péče o rány",
           "Správa drénů",
           "Doprovod pacientů",
-          "Pooperační IV výživa"
+          "Pomoc s léky předepsanými lékařem"
         ]
       }
     }
@@ -2241,12 +2080,12 @@
     "steps": [
       {
         "title": "Vyberte službu",
-        "desc": "Zvolte cíl — Energie, Imunita, IVF nebo pooperační péče. 2 minuty online nebo WhatsApp.",
+        "desc": "Zvolte službu: vitamíny a hydratace, IVF injekce nebo pooperační péče. 2 minuty online nebo na WhatsApp.",
         "time": "2 minuty"
       },
       {
-        "title": "Zdravotní screening",
-        "desc": "Krátký dotazník zdravotní historie. Sestra zkontroluje před příjezdem.",
+        "title": "Krátké zdravotní posouzení",
+        "desc": "Krátký dotazník o zdraví. Sestra a lékař ho zkontrolují před příjezdem.",
         "time": "5 minut"
       },
       {
@@ -2255,8 +2094,8 @@
         "time": "Stejný den"
       },
       {
-        "title": "Pocítíte účinek",
-        "desc": "45–75 min infuze. Většina klientů cítí efekt již během procedury.",
+        "title": "Klidná návštěva",
+        "desc": "Infuze trvá přibližně 45–75 minut. Sestra je s vámi po celou dobu.",
         "time": "45–75 min"
       }
     ]
@@ -2301,13 +2140,13 @@
   "serviceArea": {
     "title": "Oblast služeb",
     "responseTitle": "Doba příjezdu",
-    "responseDesc": "Obvykle 2–4 hodiny ve stejný den po celé Praze. 60minutový příjezd v centru."
+    "responseDesc": "Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání."
   },
   "finalCta": {
     "eyebrow": "Připraveni, kdy potřebujete",
     "titleBase": "Objednejte dnes.",
-    "titleItalic": "Ráno se budete cítit lépe.",
-    "sub": "Žádná klinika. Žádná čekárna. Vaše sestra dorazí za 60 minut.",
+    "titleItalic": "Přijedeme k vám.",
+    "sub": "Žádná klinika. Žádná čekárna. Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání.",
     "ctaPrimary": "Vybrat službu",
     "ctaSecondary": "Napsat na WhatsApp",
     "trustLine": "K dispozici 7 dní · Praha a okolí · Anglicky · Rusky · Česky"
@@ -2316,7 +2155,7 @@
     "eyebrow": "Náš tým",
     "titleBase": "Registrované sestry, kterým",
     "titleAccent": "skutečně záleží.",
-    "description": "Každá sestra NIUS má českou zdravotnickou licenci a více než 5 let nemocniční praxe. Spolupracujeme především se zkušenými sestrami z předních pražských nemocnic — Motol, IKEM, Na Homolce a dalších — které si zvolily soukromou praxi pro větší flexibilitu a osobní přístup k pacientům.",
+    "description": "Každá sestra NIUS má českou zdravotnickou licenci a více než 5 let nemocniční praxe. Spolupracujeme se zkušenými sestrami z pražských nemocnic, které si zvolily soukromou praxi pro větší flexibilitu a osobní přístup k pacientům.",
     "cta": "Více o našem týmu",
     "imageAlt": "Sestra NIUS v profesionálním úboru"
   },
@@ -2324,12 +2163,12 @@
     "title": "Časté dotazy",
     "items": [
       {
-        "q": "Potřebuji recept na IV terapii?",
-        "a": "Ne, recept není potřeba. Naše sestra provede zdravotní screening před každou infuzí."
+        "q": "Kdo infuzi indikuje?",
+        "a": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně."
       },
       {
-        "q": "Jak rychle může sestra dorazit?",
-        "a": "Obvykle do 1–3 hodin v centru Prahy. Objednání ve stejný den je k dispozici 7 dní v týdnu, 8:00–21:00."
+        "q": "Kdy může sestra dorazit?",
+        "a": "Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání."
       },
       {
         "q": "Jakou kvalifikaci mají vaše sestry?",
@@ -2337,7 +2176,7 @@
       },
       {
         "q": "Mohu dostat kapačku v hotelu?",
-        "a": "Ano. Navštěvujeme všechny pražské hotely včetně 5hvězdičkových. Mnohé concierge týmy nás přímo doporučují."
+        "a": "Ano. Navštěvujeme všechny pražské hotely a také Airbnb a soukromé byty."
       },
       {
         "q": "Jak dlouho trvá infuze?",
@@ -2345,7 +2184,7 @@
       },
       {
         "q": "Podporujete IVF pacientky?",
-        "a": "Ano. Spolupracujeme s klinikami Unica a Formé. Večerní aplikace progesteronu, Gonal-F, Menopuru a intralipidových infuzí."
+        "a": "Ano. Podáváme léky předepsané vaší klinikou podle jejích písemných pokynů."
       },
       {
         "q": "Jaké platební metody přijímáte?",
@@ -2358,7 +2197,7 @@
     ]
   },
   "footerNew": {
-    "tagline": "Registrované sestry doručují IV terapii, IVF podporu a pooperační péči kamkoli v Praze.",
+    "tagline": "Registrované sestry doručují IV kapačky, podporu IVF a pooperační péči kamkoli v Praze.",
     "services": "Služby",
     "forPartners": "Pro partnery",
     "partnerHotels": "Hotely",
@@ -2373,64 +2212,40 @@
   },
   "serviceCatalog": {
     "immunity_lite": {
-      "title": "Imunita Lite",
-      "description": "Základní imunitní podpora. Startovací protokol."
+      "title": "Immunity Lite",
+      "description": "Vitamin C a hydratace. Jednoduchý začátek."
     },
     "immunity_power": {
-      "title": "Imunita Power",
-      "description": "Vysokodávkový vitamín C — silná obrana proti virům."
+      "title": "Immunity Power",
+      "description": "Vitamin C s hydratací a monitoringem registrovanou sestrou."
     },
     "defense_shield": {
-      "title": "Obranný štít",
-      "description": "Ultimátní formule pro obnovu po chřipce a virech."
+      "title": "Vitamíny a minerály Plus",
+      "description": "Vitamin C, minerály a stopové prvky s hydratací."
     },
     "glow_post_flu": {
-      "title": "Záře & Post-Flu",
-      "description": "Pleť, vlasy a imunitní odolnost."
+      "title": "Vitamíny a minerály Classic",
+      "description": "Vitamíny, minerály a stopové prvky s hydratací."
     },
     "ceo_recharge": {
       "title": "CEO Recharge",
-      "description": "Maximální soustředění, mentální jasnost, reset energie."
+      "description": "B-komplex, minerály a hořčík pro rušné pracovní dny."
     },
     "metabolic_reset": {
-      "title": "Metabolický reset",
-      "description": "Podpora energetického metabolismu a zotavení z vyhoření."
+      "title": "Metabolic Reset",
+      "description": "Vitamíny skupiny B a živiny s hydratací."
     },
     "b_power_shot": {
       "title": "B-Power Shot",
-      "description": "Rychlý B12 boost. Energie za 10 minut."
+      "description": "Injekce vitaminu B12. Krátká návštěva."
     },
     "pure_hydrate": {
-      "title": "Čistá hydratace",
-      "description": "Rychlá rehydratace. Jednoduše, rychle, účinně."
+      "title": "Pure Hydrate",
+      "description": "Rehydratace fyziologickým roztokem. Jednoduše a bez zbytečností."
     },
     "electrolyte_reset": {
-      "title": "Elektrolytový reset",
-      "description": "Hydratace plus regenerace svalů a spánku."
-    },
-    "nausea_relief": {
-      "title": "Úleva od nevolnosti",
-      "description": "Rychlá úleva od nauzey a zvracení."
-    },
-    "standard_iron": {
-      "title": "Železo Standard",
-      "description": "Šetrné doplnění železa pro energii a vitalitu."
-    },
-    "premium_iron": {
-      "title": "Železo Premium",
-      "description": "Vysocedávkové železo, jednorázová dávka pro těžký deficit."
-    },
-    "nerve_regen": {
-      "title": "Regenerace nervů",
-      "description": "Obnova nervů a úleva od bolesti zad."
-    },
-    "backache_relief": {
-      "title": "Úleva od bolesti zad",
-      "description": "Akutní svalová a nervová bolest — rychlá úleva."
-    },
-    "allergy_stop": {
-      "title": "Stop alergii",
-      "description": "Rychlá úleva od alergických reakcí."
+      "title": "Electrolyte Reset",
+      "description": "Hydratace s elektrolyty a hořčíkem."
     },
     "post_op_wound_dressing": {
       "title": "Pooperační převaz",
@@ -2446,47 +2261,52 @@
     },
     "jet_lag_recovery": {
       "title": "Jet Lag Recovery",
-      "description": "Rehydratace a reset energie po dlouhém letu."
+      "description": "Rehydratace a vitamíny po dlouhém letu."
     },
     "b12_energy_shot": {
-      "title": "B12 Energetický shot",
-      "description": "Okamžitá energie a soustředění. Náš nejoblíbenější booster."
+      "title": "B12 vitamínový shot",
+      "description": "Injekce vitaminu B12. Krátká návštěva."
     },
     "b_vitamin_complex": {
       "title": "B-vitamínový komplex",
-      "description": "Plný komplex vitaminů B (B1, B6, B12). Podpora nervů a proti únavě."
+      "description": "Komplex vitamínů skupiny B (B1, B6, B12)."
     },
     "vitamin_d_shot": {
       "title": "Vitamín D shot",
-      "description": "Vysoká dávka vitaminu D3. Tříměsíční zásoba v jedné injekci."
+      "description": "Injekce vitaminu D3."
     },
     "vitamin_b1_thiamin": {
       "title": "Vitamín B1 (Thiamin)",
-      "description": "Podpora nervového systému a metabolické rovnováhy."
+      "description": "Injekce vitaminu B1."
     },
     "glutathione_glow": {
-      "title": "Glutathion Záře",
-      "description": "Hlavní antioxidant — rozjasnění pleti, podpora jater."
+      "title": "Glutathion",
+      "description": "Infuze glutathionu indikovaná lékařem."
     },
     "magnesium_boost": {
-      "title": "Hořčíkový boost",
-      "description": "Uvolnění svalů, úleva od migrén, lepší spánek."
+      "title": "Hořčíkový doplněk",
+      "description": "Hořčík podaný infuzí podle indikace lékaře."
     },
     "zinc_trace_minerals": {
       "title": "Zinek a stopové prvky",
-      "description": "Zinek, selen a klíčové stopové prvky — komplexní podpora imunity."
+      "description": "Zinek, selen a další stopové prvky."
     },
     "vitamin_c_upgrade": {
-      "title": "Vitamín C upgrade",
-      "description": "Dodatečná dávka vitaminu C během infuze pro silnější imunitní účinek."
+      "title": "Vitamín C navíc",
+      "description": "Dodatečný vitamin C přidaný k infuzi."
     },
     "vitamin_b6_shot": {
       "title": "Vitamín B6 shot",
-      "description": "Úleva od PMS, nevolnost v těhotenství, podpora nervů a nálady."
+      "description": "Injekce vitaminu B6."
     },
-    "anti_nausea_addon": {
-      "title": "Doplněk proti nevolnosti",
-      "description": "Rychlé zvládnutí nevolnosti přidané k jakékoli infuzi."
+    "ivf_hormone_injection_at_home_hotel": {
+      "title": "IVF injekce doma / v hotelu",
+      "description": "Podáme injekci předepsanou vaší klinikou podle jejích písemných pokynů."
     }
+  },
+  "medicalNotice": {
+    "doctor": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.",
+    "emergency": "NIUS není pohotovostní služba. V akutních případech volejte 155 nebo 112.",
+    "provider": "Poskytovatel: Nius Services s.r.o., IČO 21908494, Praha."
   }
 }

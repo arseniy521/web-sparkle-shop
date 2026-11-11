@@ -1,23 +1,23 @@
 {
   "seo": {
     "home": {
-      "title": "Home Nurse Prague | IV Drip Therapy & IV Drips Prague",
-      "description": "Professional home nurse in Prague for IV drip therapy, IV drips Prague, IV infusions, post-surgery care at your hotel/home. English-speaking nurses available daily. Book now for IV drips in Prague, wound care, IVF injections throughout Prague 1-10, Vinohrady, Old Town.",
+      "title": "Home Nurse Prague | IV Drips & IV Drip Therapy | NIUS",
+      "description": "Home nurse Prague: IV drips Prague at your hotel or home, IVF injections and post-surgery care by registered nurses. Same-day visits, daily 8:00–21:00.",
       "keywords": "home nurse prague, nurse in prague, iv drip therapy prague, iv drips prague, iv infusion prague, iv therapy prague, private nurse prague, medical tourism prague"
     }
   },
   "schema": {
     "businessName": "Nurse in Prague",
     "businessLegalName": "Nius Services s.r.o.",
-    "businessDescription": "Professional home healthcare services in Prague: IV drip therapy, IV drips, IV infusions, injections, wound care and nursing services directly at your home or hotel throughout Prague.",
-    "businessSlogan": "Fast, reliable and professional healthcare in the comfort of your home",
+    "businessDescription": "Home nursing in Prague: IV drips, vitamin and hydration infusions, injections, wound care and nursing services at your home or hotel, performed by registered nurses.",
+    "businessSlogan": "Registered nurses at your home or hotel in Prague",
     "areaServed": "Prague",
     "bookingAction": "Book Nurse Service",
     "services": {
       "ivDrip": {
         "name": "IV Drip Therapy Prague",
         "alternateName": "IV Drips Prague",
-        "description": "Professional IV drip therapy and vitamin infusions at your Prague location - hotels, homes, Airbnb",
+        "description": "IV drips with vitamins and hydration at your Prague location - hotels, homes, Airbnb. Prescribed by a doctor after a short health assessment.",
         "type": "IV Drips Prague"
       },
       "homeNurse": {
@@ -28,11 +28,11 @@
       },
       "ivf": {
         "name": "IVF Injection Support",
-        "description": "Specialized IVF medication administration for fertility patients at Prague hotels"
+        "description": "Administration of medication prescribed by your fertility clinic, at your hotel or home in Prague"
       },
       "postSurgery": {
         "name": "Post-Surgery Recovery Care",
-        "description": "Professional post-operative care for medical tourists in Prague"
+        "description": "Post-operative nursing care for medical tourists in Prague, following your surgeon's instructions"
       }
     }
   },
@@ -59,12 +59,12 @@
       "0": "IV Drips at Your Door",
       "1": "IVF Injections on Time",
       "2": "Post-Surgery Wound Care",
-      "3": "Recovery Support at Home",
+      "3": "Nursing Care at Home",
       "4": "Daily Nursing Care"
     },
     "performedBy": "by a registered nurse",
     "inYourHome": "at your Prague location",
-    "description": "Same-day home visits by English-speaking nurses. IV drips, injections, wound care, and more — at your hotel, home, or Airbnb.",
+    "description": "Same-day home visits by English-speaking nurses. IV drips, injections, wound care and more, at your hotel, home, or Airbnb.",
     "bookNurse": "Book a Nurse",
     "ourServices": "Our Services",
     "certifiedNurses": "Certified Nurses",
@@ -74,38 +74,38 @@
   },
   "services": {
     "title": "Our Services",
-    "description": "We provide professional home healthcare services tailored to your needs. All services are performed by qualified nurses with proper medical oversight.",
+    "description": "We provide home nursing services based on your needs. All services are performed by registered nurses.",
     "ivInfusion": {
       "title": "IV Infusion",
-      "description": "💡 For hydration, vitamin therapy, or prescribed IV treatments. 👉 Nurse-administered IV with monitoring at your home or hotel."
+      "description": "For hydration, vitamins, or infusions prescribed by a doctor. A nurse administers the IV at your home or hotel."
     },
     "injection": {
       "title": "Injection",
-      "description": "💡 For IVF, antibiotics, insulin, or vitamin therapy. 👉 Timely, precise administration of prescribed injections."
+      "description": "For IVF, antibiotics, insulin, or vitamins as prescribed. Prescribed injections given on time and with care."
     },
     "woundCare": {
       "title": "Wound Dressing & Bandage",
-      "description": "💡 For patients recovering from surgery or injuries. 👉 Sterile dressing change, wound cleaning, and infection check."
+      "description": "For patients recovering from surgery or injuries. Sterile dressing change and wound care by a nurse."
     },
     "hygiene": {
       "title": "Hygiene Assistance",
-      "description": "💡 For elderly or disabled clients needing daily care. 👉 Gentle support with personal hygiene and comfort."
+      "description": "For elderly or disabled clients needing daily care. Gentle help with personal hygiene and comfort."
     },
     "escort": {
       "title": "Escort to/from Hospital",
-      "description": "💡 For patients needing support during travel or hospital visits. 👉 Nurse escort with mobility help and translation."
+      "description": "For patients needing support during travel or hospital visits. A nurse escorts you, helps with mobility and translates."
     },
     "massage": {
       "title": "Therapeutic Massage",
-      "description": "💡 For clients with pain, swelling, or limited mobility. 👉 Medical massage to relieve pain and improve circulation."
+      "description": "For clients who want a calm, hands-on session at home. Massage by a trained professional."
     }
   },
   "workflow": {
     "title": "How It Works",
-    "description": "From booking to treatment in 3 simple steps — most patients receive care within hours",
+    "description": "From booking to your visit in 3 simple steps. Same-day visits, daily 8:00–21:00",
     "step1": {
       "title": "Call, WhatsApp, or Book Online",
-      "description": "Tell us what you need and when. We'll confirm your nurse and arrival time within minutes."
+      "description": "Tell us what you need and when. We confirm the arrival time after you book."
     },
     "step2": {
       "title": "Nurse Arrives at Your Door",
@@ -113,7 +113,7 @@
     },
     "step3": {
       "title": "Relax While We Take Care of You",
-      "description": "Professional treatment in your own space — no hospital queues, no waiting rooms, no language barriers."
+      "description": "Professional treatment in your own space. No hospital queues, no waiting rooms, no language barriers."
     }
   },
   "benefits": {
@@ -125,15 +125,15 @@
     },
     "benefit2": {
       "title": "Same-Day Visits, 7 Days a Week",
-      "description": "Available daily 8 AM – 9 PM including weekends and holidays. Most patients seen within 2–4 hours."
+      "description": "Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book."
     },
     "benefit3": {
       "title": "English, Czech, Russian, Ukrainian",
-      "description": "No language barriers — communicate comfortably in your own language"
+      "description": "No language barriers: speak in your own language"
     },
     "benefit4": {
       "title": "We Come to You",
-      "description": "Hotels, Airbnbs, homes — skip the hospital queue and heal where you're comfortable"
+      "description": "Hotels, Airbnbs, homes. Skip the hospital queue and stay where you're comfortable"
     }
   },
   "team": {
@@ -146,24 +146,24 @@
       "nigina": {
         "name": "Nigina Jebrak",
         "role": "Managing Nurse",
-        "description": "With unwavering dedication to patient care, Nigina stands as our most senior nurse, celebrated for her clinical acumen and visionary leadership."
+        "description": "Nigina is an experienced nurse who looks after patients closely and keeps the team running smoothly."
       },
       "jana": {
         "name": "Jana Králová",
         "role": "Internal Medicine Nurse",
-        "description": "She spent 10 years working in internal medicine at Thomayer Hospital, where she gained deep knowledge in managing chronic and acute conditions."
+        "description": "She spent 10 years working in internal medicine at a Prague hospital, where she gained deep experience in caring for patients with chronic and acute conditions."
       },
       "tomas": {
         "name": "Tomáš Dvořák",
-        "role": "Emergency Nurse",
-        "description": "An experienced nurse with a strong background in emergency care. He worked for 8 years in emergency departments, handling critical situations with precision."
+        "role": "Registered Nurse",
+        "description": "An experienced nurse with a strong hospital background. He worked for 8 years in acute-care departments, handling demanding situations with precision."
       }
     }
   },
   "pricing": {
     "title": "Clear & Simple Pricing",
     "description": "Professional nursing care at transparent rates. 10% discount for 2+ visits.",
-    "prescriptionNote": "Doctor's prescription if needed: +900 CZK",
+    "prescriptionNote": "Doctor's consultation is included in the price",
     "table": {
       "service": "Service",
       "singleVisit": "Single Visit",
@@ -180,7 +180,7 @@
       },
       "ivDrips": {
         "name": "IV Drips & Infusions",
-        "example": "Immunity, energy, hydration, iron & more.",
+        "example": "Vitamins, hydration & more.",
         "menuLink": "See Full IV Drip Menu"
       },
       "woundCare": {
@@ -225,7 +225,7 @@
         "author": "Anna V."
       },
       "testimonial5": {
-        "text": "Booked an IV drip for a hangover at my Airbnb — the nurse arrived in 2 hours and I felt like a new person. Worth every crown.",
+        "text": "Booked an IV drip at my Airbnb after a long flight — the nurse was friendly, on time and explained everything. Worth every crown.",
         "author": "James T."
       },
       "testimonial6": {
@@ -240,7 +240,7 @@
     "serviceArea": "Service Area",
     "serviceAreaText": "Prague 1-10, Vinohrady, Žižkov, Old Town, New Town and surrounding areas (up to 20km from city center)",
     "responseTime": "Response Time",
-    "responseTimeText": "Typically 2-4 hours for same-day bookings throughout Prague"
+    "responseTimeText": "Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book."
   },
   "contacts": {
     "title": "Get in Touch",
@@ -252,7 +252,7 @@
     "email": "Email",
     "availability": "Availability",
     "availabilityHours": "Every day 8:00 – 21:00",
-    "urgentNote": "For urgent cases outside standard hours, please call directly"
+    "urgentNote": "Questions outside standard hours? Message us on WhatsApp. NIUS is not an emergency service. In an emergency call 155/112."
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -264,23 +264,23 @@
       },
       "q2": {
         "question": "How quickly can a nurse arrive?",
-        "answer": "We strive to provide care as quickly as possible. Depending on your location in Prague and current nurse availability, we can typically arrive within 2-3 hours of confirming your booking. For planned visits, we recommend booking a nurse at least one day in advance."
+        "answer": "Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book. For planned visits, we recommend booking at least one day in advance."
       },
       "q3": {
         "question": "Do you visit hotels and Airbnb accommodations?",
-        "answer": "Yes! We regularly visit international patients staying in hotels, Airbnb, and short-term rentals throughout Prague. This is especially common for IVF patients and medical tourists needing post-surgery care. Just provide your accommodation address when booking."
+        "answer": "Yes. We regularly visit international patients staying in hotels, Airbnb, and short-term rentals throughout Prague. This is common for IVF patients and medical tourists needing post-surgery care. Just give us your accommodation address when booking."
       },
       "q4": {
-        "question": "Do you work with IVF patients and fertility clinics?",
-        "answer": "Absolutely. We have extensive experience with IVF patients, including time-sensitive hormone injections and trigger shots. We're familiar with protocols from major Prague fertility clinics like Reprofit, ISCARE, and Gennet. We offer evening and weekend appointments for precise timing requirements."
+        "question": "Do you work with IVF patients?",
+        "answer": "Yes. We have experience with IVF patients, including time-sensitive injections. We administer medication prescribed by your clinic, following their written instructions. We offer evening and weekend appointments within our daily hours of 8:00–21:00."
       },
       "q5": {
         "question": "Can you help with post-surgery recovery for medical tourists?",
         "answer": "Yes, this is one of our specialties. We provide wound care, bandage changes, drain management, hygiene assistance, and escort services for patients recovering from plastic surgery, dental procedures, or other medical treatments in Prague. We understand the unique needs of international patients."
       },
       "q6": {
-        "question": "Do I need a medical prescription for IV therapy?",
-        "answer": "Yes, prescribed IV therapies require a medical prescription. Our nurses can only administer medications prescribed by a doctor. If you're interested in vitamin or hydration IVs, these can be administered without a prescription as they are considered dietary supplements."
+        "question": "Do I need a prescription for IV therapy?",
+        "answer": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
       },
       "q7": {
         "question": "What payment methods do you accept?",
@@ -292,7 +292,7 @@
       },
       "q9": {
         "question": "What are your operating hours?",
-        "answer": "We are available 7 days a week from 8:00 AM to 9:00 PM. For urgent cases and IVF injections requiring specific timing, we also offer evening/night visits by arrangement. Call +420 773 629 123 anytime for daily booking."
+        "answer": "We are available 7 days a week from 8:00 to 21:00. Call +420 773 629 123 or message us on WhatsApp. NIUS is not an emergency service. In an emergency call 155/112."
       },
       "q10": {
         "question": "Do you offer long-term care for disabled patients?",
@@ -304,7 +304,7 @@
       },
       "q12": {
         "question": "Do I need to prepare anything before the nurse arrives?",
-        "answer": "For the smoothest possible visit, we recommend: having your medical prescription ready (if required), ensuring a calm and clean space for the procedure, informing us in advance about your health condition and any allergies, and having your doctor's contact information handy."
+        "answer": "For the smoothest possible visit, we recommend: having your doctor's instructions ready (if you have them), ensuring a calm and clean space for the procedure, informing us in advance about your health condition and any allergies, and having your doctor's contact information handy."
       }
     }
   },
@@ -331,49 +331,49 @@
     "ivDrip": "IV Drip Therapy",
     "postSurgery": "Post-Surgery Recovery",
     "disabled": "Daily Comfort Care",
-    "hangover": "Hangover IV Drip",
-    "hangoverDesc": "Mobile hangover IV drip delivered to your hotel, Airbnb, or home in Prague same day. Anti-nausea medication, rehydration, and electrolytes from 2,450 CZK.",
+    "hydration": "Rehydration IV Drip",
+    "hydrationDesc": "Mobile rehydration IV drip with fluids, electrolytes and vitamins, delivered to your hotel, Airbnb, or home in Prague from 2,550 CZK. Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.",
     "womensDayGift": "Women's Day Gift",
     "birthdayGift": "Birthday Gift"
   },
   "ivfSupport": {
     "seo": {
-      "title": "IVF Support Prague | Injections, Intralipid & NK Cell Treatment",
-      "description": "Professional IVF support in Prague: fertility injections, Intralipid infusions, NK cell treatment, and wellness IV drips at your hotel. English-speaking nurses available daily 8 AM – 9 PM. Trusted by 500+ IVF patients from Reprofit, ISCARE, Gennet.",
-      "keywords": "ivf prague, ivf support prague, ivf injections prague, intralipid prague, nk cell treatment prague, fertility injections prague, ivf nurse prague, reprofit nurse, iscare nurse, gennet nurse"
+      "title": "IVF Injections Prague | Nurse at Your Hotel or Home | NIUS",
+      "description": "IVF injections in Prague by English-speaking registered nurses at your hotel or home. Medication prescribed by your clinic. Daily 8:00–21:00.",
+      "keywords": "ivf prague, ivf support prague, ivf injections prague, fertility injections prague, ivf nurse prague, injection nurse prague, nurse for ivf injections prague"
     },
-    "badge": "Trusted IVF Support in Prague",
-    "title": "IVF Support Prague — Injections, Intralipid & Wellness IV Drips",
-    "subtitle": "Your fertility journey deserves expert nursing support",
-    "description": "Professional IVF support in Prague by experienced English-speaking nurses. We administer fertility injections, Intralipid infusions for NK cell treatment, and wellness IV drips — at your hotel, Airbnb, or home, day or night.",
+    "badge": "IVF Injection Support in Prague",
+    "title": "IVF Injection Support in Prague: Nurse at Your Hotel or Home",
+    "subtitle": "Calm, punctual nursing support during your treatment",
+    "description": "IVF injection support in Prague by English-speaking registered nurses. We administer medication prescribed by your clinic, following their written instructions. At your hotel, Airbnb, or home, daily 8:00–21:00.",
     "bookNow": "Book IVF Support",
     "call247": "Call Us",
     "whatsapp": "WhatsApp Us",
     "trustBadges": {
       "available": "Daily 8 AM – 9 PM",
-      "nurses": "Licensed Nurses",
-      "patients": "500+ IVF Patients",
+      "nurses": "Registered Nurses",
+      "patients": "English-Speaking Nurses",
       "rating": "4.9★ Google Rating"
     },
     "whyMatters": {
-      "title": "Why Professional IVF Support Matters in Prague",
-      "description": "Thousands of women travel to Prague each year for IVF treatment at world-class clinics like Reprofit, ISCARE, and Gennet. But once you leave the clinic, you still need a qualified nurse to administer daily injections, Intralipid infusions, and other medications — on time, every time.",
+      "title": "Why Nursing Support Helps During IVF in Prague",
+      "description": "Many women travel to Prague for IVF treatment. Once you leave the clinic, you may still need a registered nurse to give injections and other medication prescribed by your clinic, at the agreed time, at your hotel or home.",
       "items": {
         "timing": {
-          "title": "Precise Timing Guaranteed",
-          "description": "Fertility medications like Gonal-F, Menopur, and Cetrotide require exact timing. Even a 30-minute deviation can affect your cycle. We guarantee on-time arrival — including 5 AM trigger shots."
+          "title": "Agreed Timing",
+          "description": "Your clinic gives you written instructions for each injection. We plan the visit around them and confirm the arrival time after you book. We visit daily 8:00–21:00."
         },
         "expertise": {
-          "title": "Specialized IVF Experience",
-          "description": "Our nurses are trained in all IVF medications: subcutaneous and intramuscular injections, Intralipid infusions for NK cell treatment, and progesterone in oil. We follow your clinic's exact protocol."
+          "title": "Experience With IVF Visits",
+          "description": "Our nurses give subcutaneous and intramuscular injections prescribed by your clinic. We follow your clinic's written instructions."
         },
         "comfort": {
           "title": "Comfort at Your Location",
-          "description": "No need to travel to a clinic for daily injections. We come to your hotel, Airbnb, or home anywhere in Prague — discreetly and professionally. Focus on your treatment, not logistics."
+          "description": "No need to travel to a clinic for daily injections. We come to your hotel, Airbnb, or home anywhere in Prague, discreetly and professionally. You focus on your treatment, we handle the visits."
         },
         "safety": {
-          "title": "Licensed & Safe",
-          "description": "All nurses are licensed healthcare professionals. We bring sterile supplies, verify medication and dosage before every injection, and handle sharps disposal safely."
+          "title": "Registered Nurses",
+          "description": "All injections are administered by registered nurses. We bring sterile supplies, check the medication against your clinic's written instructions before every injection, and take care of sharps disposal."
         }
       }
     },
@@ -381,42 +381,42 @@
       "title": "Our IVF Support Services in Prague",
       "medication": {
         "name": "Medication Administration",
-        "subtitle": "Stimulation & Progesterone Injections",
-        "description": "Subcutaneous and intramuscular injections of all IVF medications: Gonal-F, Menopur, Cetrotide, Orgalutran, trigger shots (Ovitrelle, Decapeptyl), and progesterone in oil. Precise timing guaranteed.",
-        "price": "1,890 CZK",
+        "subtitle": "Injections prescribed by your clinic",
+        "description": "Subcutaneous and intramuscular injections of medication prescribed by your clinic, following their written instructions.",
+        "price": "1,900 CZK",
         "duration": "~15 min",
         "benefits": [
-          "All subcutaneous & intramuscular injections",
-          "Trigger shots at any hour (including 5 AM)",
-          "Medication verification & correct dosage",
+          "Subcutaneous & intramuscular injections",
+          "Visits planned around your clinic's schedule (daily 8:00–21:00)",
+          "Medication checked against your clinic's instructions",
           "Sterile supplies & sharps disposal included"
         ],
         "cta": "Book Injection Visit"
       },
       "intralipid": {
-        "name": "Intralipid Infusions",
-        "subtitle": "NK Cell Support for Implantation",
-        "description": "Intralipid IV infusion is used to suppress elevated Natural Killer (NK) cells that may interfere with embryo implantation. Our nurses are experienced with fertility clinic protocols for Intralipid therapy in Prague.",
+        "name": "Infusions Prescribed by Your Clinic",
+        "subtitle": "Following your clinic's written instructions",
+        "description": "If your clinic has prescribed an infusion as part of your plan, our nurses can administer it at your hotel or home, following their written instructions.",
         "price": "Contact for quote",
         "duration": "30–45 min",
         "benefits": [
-          "NK cell suppression for improved implantation",
           "Administered by IV-experienced nurses",
-          "Coordinated with your fertility clinic protocol",
+          "Prescribed and specified by your clinic",
+          "Following your clinic's written instructions",
           "Comfortable administration at your location"
         ],
-        "cta": "Inquire About Intralipid"
+        "cta": "Ask About Infusions"
       },
       "wellness": {
-        "name": "Wellness IV Drips",
-        "subtitle": "Fertility-Focused: Glutathione, NAD+, Vitamin C",
-        "description": "Support your body during IVF with targeted IV drip therapy. Glutathione for egg quality, NAD+ for cellular energy, and Vitamin C for immune support — all administered at your hotel or home in Prague.",
-        "price": "from 1,290 CZK",
-        "duration": "20–30 min",
+        "name": "Vitamin & Hydration IV Drips",
+        "subtitle": "Vitamins, minerals and fluids",
+        "description": "Add a vitamin and hydration IV drip to your visit if your doctor agrees. Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.",
+        "price": "from 2,550 CZK",
+        "duration": "45–60 min",
         "benefits": [
-          "Glutathione for antioxidant & egg quality support",
-          "NAD+ for cellular energy and recovery",
-          "Vitamin C & B-complex for immune support",
+          "Vitamins, minerals and fluids",
+          "Chosen after a short health assessment",
+          "Doctor's consultation included in the price",
           "Combine with your IVF injection visit"
         ],
         "cta": "See IV Drip Menu"
@@ -424,59 +424,59 @@
     },
     "included": {
       "title": "What's Included in Every IVF Visit",
-      "subtitle": "Everything you need, delivered to your door — no hidden fees",
+      "subtitle": "Everything you need comes to your door, with no hidden fees",
       "items": [
-        "Sterile injection supplies & alcohol swabs",
-        "Sharps container & safe disposal",
-        "Medication verification & dosage check",
+        "Sterile injection supplies & antiseptic swabs",
+        "Sharps container & disposal",
+        "Medication check against your clinic's instructions",
         "Travel to any location within Prague",
-        "Direct coordination with your fertility clinic",
+        "Visits planned around your clinic's written instructions",
         "Daily availability including weekends & holidays"
       ]
     },
     "experience": {
       "title": "The IVF Visit Experience",
-      "subtitle": "From first contact to professional care — here's what to expect",
+      "subtitle": "From first contact to the visit itself, here is what to expect",
       "steps": {
         "step1": {
           "title": "Contact Us",
-          "description": "Reach out via WhatsApp, phone, or online booking. Share your injection schedule, medication details, and Prague accommodation address."
+          "description": "Reach out via WhatsApp, phone, or the online order form. Share your injection schedule, your clinic's written instructions, and your Prague accommodation address."
         },
         "step2": {
           "title": "Confirm Your Schedule",
-          "description": "We confirm timing, medications, and location. Multi-day schedules are set up in advance so you never have to worry about rebooking."
+          "description": "We plan the visit around your clinic's instructions. Multi-day schedules are set up in advance so you never have to worry about rebooking. We confirm the arrival time after you book."
         },
         "step3": {
-          "title": "Nurse Arrives On Time",
-          "description": "An English-speaking nurse arrives at your hotel, Airbnb, or home with all sterile supplies — precisely when scheduled, even at 5 AM."
+          "title": "Nurse Arrives",
+          "description": "An English-speaking nurse arrives at your hotel, Airbnb, or home with all sterile supplies at the agreed time."
         },
         "step4": {
           "title": "Professional Care",
-          "description": "Medication administered per your clinic's exact protocol. Dosage verified, injection given gently, sharps disposed safely. Typical visit: 15–20 minutes."
+          "description": "Medication administered following your clinic's written instructions. Medication checked, injection given gently, sharps disposed safely. Typical visit: 15–20 minutes."
         }
       }
     },
     "pricingCard": {
       "title": "IVF Support Pricing",
       "subtitle": "Transparent pricing with everything included",
-      "price": "1,890",
+      "price": "1,900",
       "currency": "CZK",
       "perVisit": "per visit · ~15 min",
-      "multiVisit": "Multi-visit discount: 1,700 CZK/visit (10% off)",
+      "multiVisit": "Multi-visit discount: 1,710 CZK/visit (10% off)",
       "ctaWhatsApp": "Get a Quote on WhatsApp",
       "ctaCall": "Call to Book",
-      "includes": "Includes travel, sterile supplies, sharps disposal, and clinic coordination."
+      "includes": "Includes travel within Prague, sterile supplies and sharps disposal."
     },
     "clinics": {
-      "title": "We Work With Prague's Top IVF Clinics",
-      "description": "Our nurses regularly support patients from the leading fertility clinics in Prague. We're familiar with their protocols and can coordinate directly with your medical team.",
+      "title": "We Follow Your Clinic's Instructions",
+      "description": "Your fertility clinic prescribes and specifies your medication. Our nurses administer it at your hotel or home, following their written instructions.",
       "items": [
-        "Reprofit International — stimulation protocols, trigger shots, Intralipid therapy",
-        "ISCARE — full IVF cycle support including progesterone injections",
-        "Gennet — medication administration and early-morning trigger shots",
-        "Pronatal — injection support and direct clinic coordination"
+        "Stimulation injections, following your clinic's schedule",
+        "Trigger injections at the time your clinic specifies",
+        "Intramuscular injections given by registered nurses",
+        "Infusions prescribed by your clinic"
       ],
-      "cta": "Ask About Your Clinic"
+      "cta": "Ask About Your Schedule"
     },
     "testimonials": {
       "title": "What IVF Patients Say About Us",
@@ -484,71 +484,71 @@
         {
           "text": "I was so nervous about doing my own injections at the hotel. The nurse came every evening at exactly the right time and was incredibly gentle. I could finally relax and focus on my treatment.",
           "author": "Emily R.",
-          "context": "IVF cycle at ISCARE, stayed at hotel in Prague 2"
+          "context": "IVF cycle, stayed at hotel in Prague 2"
         },
         {
-          "text": "My clinic prescribed Intralipid infusions for elevated NK cells. Finding a nurse in Prague who could do this at my Airbnb was a lifesaver. Professional, kind, and punctual.",
+          "text": "My clinic prescribed an infusion as part of my plan. Finding a nurse in Prague who could do this at my Airbnb was a lifesaver. Professional, kind, and punctual.",
           "author": "Sarah M.",
-          "context": "Intralipid treatment, Reprofit patient"
+          "context": "Infusion prescribed by her clinic"
         },
         {
-          "text": "Needed a 5 AM trigger shot and they actually showed up at 4:55. That level of reliability during IVF is priceless. I've recommended them to everyone in my fertility group.",
+          "text": "I needed an early injection and the nurse arrived exactly when we agreed. That kind of reliability during IVF is priceless. I've recommended them to everyone in my fertility group.",
           "author": "Jessica K.",
-          "context": "IVF cycle at Gennet, early morning trigger shot"
+          "context": "IVF cycle, early-morning injection visit"
         }
       ]
     },
     "pricing": {
-      "note": "All prices include travel within Prague, sterile supplies, sharps disposal, and coordination with your clinic. No hidden fees."
+      "note": "All prices include travel within Prague, sterile supplies and sharps disposal. No hidden fees."
     },
     "faq": {
-      "title": "IVF Support in Prague — Frequently Asked Questions",
+      "title": "IVF Support in Prague: Frequently Asked Questions",
       "items": [
         {
-          "question": "What is Intralipid infusion and why is it used in IVF?",
-          "answer": "Intralipid is an intravenous fat emulsion used to suppress elevated Natural Killer (NK) cells in the uterus. Some fertility specialists in Prague prescribe Intralipid infusions before embryo transfer to improve implantation rates. Our nurses are experienced in administering Intralipid therapy at your hotel or home in Prague, following your clinic's protocol."
+          "question": "Can you administer an infusion prescribed by my clinic?",
+          "answer": "Yes, if your clinic has prescribed an infusion and provides written instructions, our nurses can administer it at your hotel or home in Prague. Please send us the instructions when you book."
         },
         {
-          "question": "What is NK cell treatment for fertility?",
-          "answer": "NK (Natural Killer) cell treatment aims to reduce overactive immune cells that may attack an implanting embryo. The most common treatment is Intralipid infusion, which is administered intravenously. Prague fertility clinics like Reprofit and ISCARE may prescribe NK cell testing and subsequent Intralipid therapy as part of your IVF protocol. We administer these infusions at your location in Prague."
+          "question": "What should I send you before the first visit?",
+          "answer": "Your clinic's written instructions: the medication prescribed to you, the schedule and the way it should be administered. We plan the visit around them and confirm the arrival time after you book."
         },
         {
-          "question": "Why is injection timing critical during IVF?",
-          "answer": "IVF medications must be administered at precise times to synchronize follicle growth and ovulation. Even a 30-minute deviation can affect your cycle. Trigger shots (Ovitrelle, Decapeptyl) are particularly time-sensitive, often prescribed at unusual hours. Our nurses guarantee on-time arrival for every injection."
+          "question": "What time can you visit for my injections?",
+          "answer": "We visit daily 8:00–21:00. If your clinic's schedule falls within these hours, we plan the visit around it. We confirm the arrival time after you book."
         },
         {
-          "question": "Can you come at 5 AM for a trigger shot?",
-          "answer": "Yes! We're available every day from 8 AM to 9 PM, including weekends and holidays. Early morning or evening IVF visits can be arranged by calling us in advance."
+          "question": "Can you come early in the morning or in the evening?",
+          "answer": "We are available every day from 8:00 to 21:00, including weekends and holidays. Early-morning and evening visits within these hours can be arranged when you book."
         },
         {
-          "question": "Do you work with Prague IVF clinics like Reprofit, ISCARE, Gennet?",
-          "answer": "Yes. We regularly support patients from Reprofit, ISCARE, Gennet, Pronatal, and other Prague fertility clinics. We're familiar with their standard protocols for stimulation, trigger shots, and Intralipid therapy. We can coordinate directly with your clinic if needed."
+          "question": "Do you follow my clinic's instructions?",
+          "answer": "Yes. Your fertility clinic prescribes and specifies your medication. We administer it following their written instructions, and we plan the visit around your schedule."
         },
         {
-          "question": "What fertility medications can you administer?",
-          "answer": "We administer all common IVF medications: Gonal-F, Menopur, Cetrotide, Orgalutran, Decapeptyl, Ovitrelle (trigger shots), progesterone in oil (intramuscular), Clexane, and more. Both subcutaneous and intramuscular injections. We verify medication, dosage, and timing before every administration."
+          "question": "What medication can you administer?",
+          "answer": "We administer medication prescribed by your clinic, following their written instructions. Both subcutaneous and intramuscular injections. We check the medication against the written instructions before every administration."
         },
         {
           "question": "What IVF support services do you offer in Prague?",
-          "answer": "We offer three core IVF support services: (1) Medication administration — all fertility injections including stimulation drugs and trigger shots; (2) Intralipid infusions — IV therapy for NK cell suppression before embryo transfer; (3) Wellness IV drips — Glutathione, NAD+, and Vitamin C drips to support your body during IVF. All services are available at your hotel, Airbnb, or home in Prague."
+          "answer": "We offer three core services: (1) Injection visits: medication prescribed by your clinic, following their written instructions; (2) Infusions prescribed by your clinic; (3) Vitamin and hydration IV drips, prescribed by a doctor after a short health assessment. All services are available at your hotel, Airbnb, or home in Prague."
         },
         {
           "question": "How much do IVF injections cost in Prague?",
-          "answer": "A single IVF injection visit costs 1,890 CZK, which includes the nurse visit, all sterile supplies, sharps disposal, and travel anywhere in Prague. For multiple injections during your cycle, we offer a 10% discount (1,700 CZK per visit). Intralipid infusions are quoted individually based on your clinic's protocol. Contact us for a personalized quote."
+          "answer": "A single IVF injection visit costs 1,900 CZK, which includes the nurse visit, all sterile supplies, sharps disposal, and travel anywhere in Prague. For multiple injection visits during your cycle, we offer a 10% discount (1,710 CZK per visit). Infusions prescribed by your clinic are quoted individually. Contact us for a quote."
         },
         {
-          "question": "Can you administer Glutathione or NAD+ IV drips during IVF?",
-          "answer": "Yes! Many IVF patients add wellness IV drips to support their cycle. Glutathione is popular for its antioxidant properties and potential egg quality benefits. NAD+ supports cellular energy. Vitamin C boosts immunity. These can be combined with your injection visit for convenience. See our full IV drip menu for options and pricing."
+          "question": "Can I add a vitamin and hydration IV drip during IVF?",
+          "answer": "Ask your clinic first. If they agree, a vitamin and hydration IV drip can be combined with your injection visit. Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price. See our full IV drip menu for options and pricing."
         },
         {
           "question": "What if I'm staying at a hotel?",
-          "answer": "Hotel visits are our specialty! We serve all Prague hotels, Airbnb apartments, and short-term rentals. Simply provide your hotel name, room number, and preferred time. The nurse arrives discreetly with all necessary supplies. No need to leave your room or arrange transport to a clinic."
+          "answer": "We visit all Prague hotels, Airbnb apartments, and short-term rentals. Just give us your hotel name, room number, and preferred time. The nurse arrives discreetly with all necessary supplies. No need to leave your room or arrange transport to a clinic."
         }
       ]
     },
     "finalCta": {
-      "title": "Ready to Book Your IVF Support in Prague?",
-      "description": "Don't stress about injection timing, Intralipid infusions, or finding a nurse in Prague. We're here for you — every day 8 AM – 9 PM, at your location.",
+      "title": "Ready to Book Your IVF Injection Support in Prague?",
+      "description": "Leave the injection logistics to us. Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.",
       "whatsapp": "WhatsApp Us",
       "call": "Call Us",
       "email": "Email Us"
@@ -563,13 +563,13 @@
     "call": "Call Us",
     "plasticSurgery": "Plastic Surgery Specialists",
     "licensedNurses": "Licensed Nurses",
-    "touristsServed": "100+ Medical Tourists Served",
+    "touristsServed": "Medical Tourists Welcome",
     "servicesTitle": "Post-Operative Care Services",
     "services": {
       "woundCare": "Wound care and bandage changes",
       "drainManagement": "Surgical drain management",
       "hygiene": "Post-operative hygiene assistance",
-      "painMeds": "Pain medication administration",
+      "painMeds": "Administration of medication prescribed by your surgeon",
       "escort": "Hospital-to-hotel escort service",
       "ivManagement": "IV line management and removal",
       "compression": "Compression garment assistance",
@@ -579,10 +579,10 @@
       "title": "Post-Surgery Recovery Packages",
       "escort": "Hospital Escort",
       "escortPrice": "1,900 CZK",
-      "escortDesc": "Safe transport from hospital/clinic to your hotel with professional nurse escort",
+      "escortDesc": "Accompanied transport from hospital/clinic to your hotel with a registered nurse",
       "first48": "First 48 Hours",
       "first48Price": "6,280 CZK",
-      "first48Desc": "Escort + 2x visits for wound checks and pain management",
+      "first48Desc": "Escort + 2x visits for wound checks and medication as prescribed",
       "popular": "Most Popular",
       "fiveDay": "5-Day Recovery",
       "fiveDayPrice": "28,900 CZK",
@@ -601,17 +601,17 @@
       "day0": {
         "label": "Surgery Day",
         "title": "Hospital Escort & Settlement",
-        "description": "We escort you from the clinic to your hotel, monitor vitals, manage pain medication, and ensure you're safely settled."
+        "description": "We escort you from the clinic to your hotel, help with medication prescribed by your surgeon, and make sure you are settled."
       },
       "day1": {
         "label": "Day 1–2",
-        "title": "Critical Monitoring Period",
-        "description": "Wound check, dressing change, pain management, hygiene assistance. We watch for any signs of complications."
+        "title": "Early Check-Ins",
+        "description": "Wound check, dressing change, medication as prescribed, hygiene assistance. We pass on any concerns to your surgeon."
       },
       "day3": {
         "label": "Day 3–5",
         "title": "Active Recovery",
-        "description": "Daily wound care, drain management if needed, gentle mobility support. Most swelling peaks and begins to reduce."
+        "description": "Daily wound care, drain management if needed, gentle mobility support, following your surgeon's instructions."
       },
       "day7": {
         "label": "Day 5–7",
@@ -620,46 +620,46 @@
       }
     },
     "clinics": {
-      "title": "We Work With Prague's Top Clinics",
-      "subtitle": "Our nurses coordinate directly with your surgical team for seamless aftercare",
+      "title": "We Follow Your Surgeon's Instructions",
+      "subtitle": "Your surgical team gives the aftercare instructions, and our nurses carry them out at your hotel or home",
       "items": [
         {
-          "name": "Beaute Clinic",
+          "name": "Plastic surgery clinics",
           "specialty": "Plastic Surgery"
         },
         {
-          "name": "Praga Medica",
+          "name": "Cosmetic surgery clinics",
           "specialty": "Plastic & Cosmetic Surgery"
         },
         {
-          "name": "Canadian Medical",
+          "name": "Dental clinics",
           "specialty": "Dental & Cosmetic"
         },
         {
-          "name": "Prague Medical Institute",
+          "name": "Orthopedic clinics",
           "specialty": "Orthopedic Surgery"
         },
         {
-          "name": "Motol University Hospital",
+          "name": "Hospital practice",
           "specialty": "General Surgery"
         },
         {
-          "name": "Na Homolce Hospital",
-          "specialty": "Cardiac & General"
+          "name": "Private surgical practice",
+          "specialty": "Day Surgery"
         }
       ],
-      "note": "Don't see your clinic? We work with any surgeon or hospital in Prague. Contact us for coordination."
+      "note": "Don't see your clinic? We follow the aftercare instructions of any surgeon or hospital in Prague. Contact us to plan your visits."
     },
     "faq": {
       "title": "Medical Tourist Questions",
       "q1": "I'm staying at a hotel/Airbnb. Can you visit there?",
-      "a1": "Absolutely! We visit hotels, Airbnb accommodations, and apartments throughout Prague. This is our specialty for medical tourists.",
+      "a1": "Yes. We visit hotels, Airbnb accommodations, and apartments throughout Prague. Many of our clients are medical tourists.",
       "q2": "Do I need Czech health insurance?",
       "a2": "No. Our service is private pay - you don't need Czech insurance. We accept cash (CZK/EUR), bank transfer, or card payment.",
       "q3": "What if I have complications?",
-      "a3": "Our nurses are trained to recognize complications and will coordinate with your surgeon or recommend emergency care if needed. With recovery packages, you have daily phone support.",
+      "a3": "If you have a concern, we pass it on to your surgeon. NIUS is not an emergency service. In an emergency call 155/112. With recovery packages, you have daily phone support.",
       "q4": "Can you help me with showering after surgery?",
-      "a4": "Yes! Hygiene assistance is included in our packages. We help with safe showering, keeping surgical sites dry, and post-shower wound care."
+      "a4": "Yes. Hygiene assistance is included in our packages. We help with showering, keeping surgical sites dry, and post-shower wound care."
     },
     "testimonials": {
       "title": "Patient Experiences",
@@ -678,13 +678,13 @@
     },
     "cta": {
       "title": "Planning Surgery in Prague?",
-      "description": "Book your post-operative care in advance for peace of mind. We're here to support your recovery."
+      "description": "Book your post-operative care in advance, so it is arranged before you need it. We're here to support your recovery."
     }
   },
   "disabledCare": {
     "badge": "Trusted Daily Care in Prague",
     "title": "Your Loved One Deserves Compassionate Daily Care",
-    "description": "You can't always be there — but we can. Our English-speaking nurses provide gentle daily support with hygiene, medication, and mobility. Give your parent, partner, or family member the care they deserve, right at home in Prague.",
+    "description": "You can't always be there, but we can. Our English-speaking nurses give daily support with hygiene, medication, and mobility. Your parent, partner, or family member gets care right at home in Prague.",
     "bookNow": "Arrange Care Now",
     "bookVisit": "Arrange Care Now",
     "call": "Call to Discuss",
@@ -720,7 +720,7 @@
         "Priority phone support",
         "Save 10% vs single visits"
       ],
-      "bestValue": "Best Value",
+      "bestValue": "Monthly Plan",
       "extended": "Extended care available: 40 hours/month = 72,000 CZK | 60 hours/month = 105,000 CZK",
       "includes": "All packages include travel within Prague, supplies, and English-speaking nurses",
       "subscribe": "Call to Subscribe"
@@ -729,7 +729,7 @@
       "title": "Families Trust Us With Their Loved Ones",
       "disabled": {
         "title": "Aging Parents",
-        "description": "Your parent needs daily help but wants to stay at home. We provide the care that keeps them safe, comfortable, and independent.",
+        "description": "Your parent needs daily help but wants to stay at home. We provide care that helps them stay comfortable and independent.",
         "items": [
           "Bathing and hygiene",
           "Dressing assistance",
@@ -754,20 +754,20 @@
           "Diabetes management",
           "Wound care",
           "Catheter care",
-          "Pain management"
+          "Medication support"
         ]
       }
     },
     "faq": {
       "title": "Frequently Asked Questions",
       "q1": "Can I have the same nurse each visit?",
-      "a1": "Yes! With our monthly subscription, we assign a consistent caregiver who gets to know your needs and preferences. This creates continuity and comfort.",
+      "a1": "Yes. With our monthly subscription, we assign a consistent caregiver who gets to know your needs and preferences. That means continuity and comfort.",
       "q2": "What if I need help with intimate care?",
       "a2": "Our nurses are professionally trained in all aspects of personal care, including bathing, toileting, suppository insertion, and catheter care. We provide dignified, respectful assistance.",
       "q3": "Do you speak English?",
-      "a3": "Yes! All our nurses speak English, which is especially important for expats and foreigners without Czech language skills or family support in Prague.",
+      "a3": "Yes. All our nurses speak English, which matters for expats and foreigners without Czech language skills or family support in Prague.",
       "q4": "Can I adjust my monthly hours?",
-      "a4": "Absolutely. Monthly subscriptions are flexible. If you need more or fewer hours, we can adjust your plan. Unused hours can roll over or be credited.",
+      "a4": "Yes. Monthly subscriptions are flexible. If you need more or fewer hours, we can adjust your plan. Unused hours can roll over or be credited.",
       "q5": "What areas of Prague do you serve?",
       "a5": "We serve all Prague districts and surrounding areas up to 30km from city center. Travel is included in all pricing."
     },
@@ -793,16 +793,16 @@
   },
   "womensDayGift": {
     "seo": {
-      "title": "Women's Day Gift Prague | Premium Wellness Experience 2026",
-      "description": "The best Women's Day gift in Prague — Glow IV Drip wellness experience at 3,650 CZK. Luxury IV therapy delivered by a registered nurse to her hotel or home. Order gift voucher now.",
-      "keywords": "gift for women's day Prague, best women's day gift Prague, women's day gift for girlfriend Prague, unique women's day experience Prague, premium wellness gift Prague, IV drip gift Prague, 8 march gift Prague"
+      "title": "Women's Day Gift Prague | IV Drip Wellness Voucher",
+      "description": "Women's Day gift in Prague: a Vitamin & Mineral Classic IV drip visit by a registered nurse at her hotel or home, 3,750 CZK. Order a gift voucher now.",
+      "keywords": "gift for women's day Prague, women's day gift for girlfriend Prague, unique women's day experience Prague, wellness gift Prague, IV drip gift Prague, 8 march gift Prague"
     },
     "breadcrumb": "Women's Day Gift",
     "hero": {
-      "badge": "Premium Gift Experience",
+      "badge": "Gift voucher",
       "title": "The Perfect Women's Day Gift in Prague",
-      "subtitle": "Give her the gift of radiance — a luxury IV drip wellness experience delivered by a registered nurse",
-      "description": "Looking for a unique Women's Day gift in Prague? The Glow IV Drip is a premium wellness experience that combines beauty-boosting nutrients with immune recovery support. A registered nurse comes to her hotel, home, or Airbnb — the most thoughtful and original gift for women's day in Prague.",
+      "subtitle": "Give her a calm wellness visit at home: an IV drip with vitamins and hydration, given by a registered nurse",
+      "description": "Looking for an original Women's Day gift in Prague? Give a Vitamin & Mineral Classic IV drip visit with vitamins and hydration. A registered nurse comes to her hotel, home, or Airbnb, subject to a nurse's assessment and a doctor's decision.",
       "cta": "Order Gift Voucher",
       "ctaSecondary": "See What's Included",
       "trustBadges": {
@@ -818,31 +818,31 @@
       "hours": "Hours",
       "minutes": "Min",
       "seconds": "Sec",
-      "expired": "Gift vouchers still available — treat her anytime!"
+      "expired": "Gift vouchers are still available. Give one anytime."
     },
     "benefits": {
-      "title": "Why This Is the Best Women's Day Gift in Prague",
-      "subtitle": "Not flowers. Not chocolate. A premium wellness experience she'll never forget.",
+      "title": "Why This Is a Thoughtful Women's Day Gift in Prague",
+      "subtitle": "Not flowers. Not chocolate. A wellness visit she'll remember.",
       "items": {
         "unique": {
           "title": "Truly Unique Gift",
-          "description": "Stand out from the crowd with an original Women's Day experience — a luxury IV drip that combines beauty and health."
+          "description": "An original Women's Day gift: a calm wellness visit at home."
         },
         "luxury": {
-          "title": "Luxury Experience",
-          "description": "Professional IV therapy with skin-glow nutrients, delivered in the comfort of her home or hotel room."
+          "title": "Comfort of home",
+          "description": "A wellness visit with vitamins and hydration, delivered in the comfort of her home or hotel room."
         },
         "health": {
-          "title": "Health & Beauty",
-          "description": "Microelements for radiant skin and hair, combined with immune support vitamins and trace elements."
+          "title": "Vitamins & Hydration",
+          "description": "Vitamins, minerals and fluids, chosen by the doctor after a short health assessment."
         },
         "professional": {
           "title": "Registered Nurse",
-          "description": "Administered by a certified medical professional. Safe, comfortable, and expertly done."
+          "description": "Administered by a registered nurse, subject to a nurse's assessment and a doctor's decision."
         },
         "convenient": {
           "title": "We Come to Her",
-          "description": "Mobile service across all Prague districts. Hotel, home, or Airbnb — the nurse comes to her."
+          "description": "Mobile service across all Prague districts. Hotel, home, or Airbnb, the nurse comes to her."
         },
         "voucher": {
           "title": "Gift Voucher",
@@ -851,23 +851,23 @@
       }
     },
     "included": {
-      "title": "What's Included in the Glow IV Drip",
-      "subtitle": "A complete premium wellness experience — everything included, no hidden fees.",
+      "title": "What's Included in the Vitamin & Mineral Classic Visit",
+      "subtitle": "Everything is included, with no hidden fees.",
       "items": [
-        "Glow & Post-Flu IV drip session (60 minutes)",
-        "Microelements for skin & hair vitality",
-        "Immune support nutrients and trace vitamins",
+        "Vitamin & Mineral Classic IV drip session (45–60 minutes)",
+        "Vitamins, minerals and trace elements in fluids",
+        "Short health assessment by the nurse",
         "Registered nurse visit to her location",
         "All sterile medical equipment included",
-        "Pre-session health screening",
-        "Post-treatment wellness guidance",
+        "Doctor's consultation included in the price",
+        "Post-visit aftercare guidance",
         "Beautiful digital gift voucher"
       ],
       "learnMore": "See our full IV drips menu"
     },
     "experience": {
       "title": "A Unique Women's Day Experience in Prague",
-      "subtitle": "Imagine her surprise when she discovers a premium wellness session waiting for her.",
+      "subtitle": "Imagine her surprise when she finds a wellness visit waiting for her.",
       "steps": {
         "step1": {
           "title": "She receives the voucher",
@@ -882,8 +882,8 @@
           "description": "A registered nurse comes to her with everything needed for the session."
         },
         "step4": {
-          "title": "60 minutes of glow",
-          "description": "She relaxes while nutrients replenish her skin, hair, and immune system."
+          "title": "A relaxing hour",
+          "description": "She relaxes for 45–60 minutes while the infusion runs and the nurse stays with her."
         }
       }
     },
@@ -893,14 +893,14 @@
       "redeemable": "Redeemable any day, 8:00–21:00",
       "transferable": "Fully transferable to another person",
       "personalized": "Add your personal message",
-      "instant": "Delivered instantly via email"
+      "instant": "Delivered by email"
     },
     "pricing": {
-      "title": "Premium Women's Day Gift",
-      "subtitle": "The best women's day gift for girlfriend, wife, or any special woman in your life.",
-      "price": "3,650",
+      "title": "Women's Day Gift",
+      "subtitle": "A thoughtful women's day gift for a girlfriend, wife, or any special woman in your life.",
+      "price": "3,750",
       "currency": "CZK",
-      "approximateEur": "~€148",
+      "approximateEur": "~€150",
       "perSession": "per session",
       "cta": "Order Gift Now",
       "ctaWhatsApp": "Order via WhatsApp",
@@ -922,7 +922,7 @@
           "location": "Vinohrady"
         },
         "t3": {
-          "text": "She had been feeling run-down after the flu. This gift was both caring and luxurious. The nurse was amazing and professional.",
+          "text": "She was so pleased with this gift. It was both caring and special. The nurse was friendly and professional.",
           "author": "Alex K.",
           "location": "Prague 1"
         }
@@ -934,7 +934,7 @@
       "steps": {
         "step1": {
           "title": "Contact us",
-          "description": "WhatsApp, call, or email — tell us it's a Women's Day gift."
+          "description": "WhatsApp, call, or email. Tell us it's a Women's Day gift."
         },
         "step2": {
           "title": "Receive the voucher",
@@ -942,7 +942,7 @@
         },
         "step3": {
           "title": "She books & enjoys",
-          "description": "She chooses her date and enjoys the premium wellness experience."
+          "description": "She picks a date and enjoys the visit where it suits her."
         }
       }
     },
@@ -950,8 +950,8 @@
       "title": "Frequently Asked Questions",
       "items": {
         "q1": {
-          "question": "Is the Glow IV Drip a real medical treatment?",
-          "answer": "Yes. The Glow & Post-Flu IV drip is a professional IV infusion administered by a registered nurse. It contains medically-approved microelements, trace vitamins, and immune support nutrients. All treatments follow strict medical protocols."
+          "question": "Is the IV drip administered by a nurse?",
+          "answer": "Yes. The Vitamin & Mineral Classic IV drip is administered by a registered nurse, subject to a nurse's assessment and a doctor's decision. Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
         },
         "q2": {
           "question": "How does the Women's Day gift voucher work?",
@@ -962,12 +962,12 @@
           "answer": "Absolutely. You can either pre-book for March 8 or purchase an open voucher she can redeem anytime within 3 months."
         },
         "q4": {
-          "question": "Is the IV drip safe?",
-          "answer": "Completely. All treatments are administered by certified registered nurses using sterile, single-use medical equipment. We conduct a brief health screening before every session."
+          "question": "Who administers the IV drip?",
+          "answer": "Registered nurses, using sterile, single-use medical equipment. The nurse makes a short health assessment before every session."
         },
         "q5": {
           "question": "What if she's never had an IV before?",
-          "answer": "No problem! Our nurses are experienced and gentle. The procedure is very comfortable and takes about 60 minutes while she can relax, read, or watch something."
+          "answer": "No problem. Our nurses are experienced and gentle. The visit is relaxed and takes about 45–60 minutes while she can rest, read, or watch something."
         },
         "q6": {
           "question": "Can the voucher be used after March 8?",
@@ -975,13 +975,13 @@
         },
         "q7": {
           "question": "Do you deliver to hotels and Airbnbs?",
-          "answer": "Yes! We serve all Prague districts including hotels, Airbnbs, private homes, and offices. The nurse brings all necessary equipment."
+          "answer": "Yes. We serve all Prague districts including hotels, Airbnbs, private homes, and offices. The nurse brings all necessary equipment."
         }
       }
     },
     "finalCta": {
       "title": "Make This Women's Day Unforgettable",
-      "description": "Order the premium wellness gift voucher now. Limited availability around March 8.",
+      "description": "Order the gift voucher now. Availability around March 8 is limited, so book early.",
       "cta": "Order Gift Voucher",
       "phone": "+420773629123",
       "whatsapp": "Order via WhatsApp",
@@ -990,16 +990,16 @@
   },
   "birthdayGift": {
     "seo": {
-      "title": "Birthday Gift Prague | Premium IV Drip Wellness Experience",
-      "description": "The best birthday gift in Prague — Glow IV Drip wellness experience at 3,650 CZK. Luxury IV therapy delivered by a registered nurse to her hotel or home. Order birthday gift voucher now.",
-      "keywords": "birthday gift Prague, best birthday gift Prague, unique birthday experience Prague, premium wellness gift Prague, IV drip gift Prague, birthday gift for girlfriend Prague, birthday gift for wife Prague"
+      "title": "Birthday Gift Prague | IV Drip Wellness Voucher",
+      "description": "Birthday gift in Prague: a Vitamin & Mineral Classic IV drip visit by a registered nurse at her hotel or home, 3,750 CZK. Order a voucher now.",
+      "keywords": "birthday gift Prague, unique birthday experience Prague, wellness gift Prague, IV drip gift Prague, birthday gift for girlfriend Prague, birthday gift for wife Prague"
     },
     "breadcrumb": "Birthday Gift",
     "hero": {
-      "badge": "Premium Birthday Experience",
-      "title": "The Best Birthday Gift in Prague",
-      "subtitle": "Give her the gift of radiance — a luxury IV drip wellness experience delivered by a registered nurse",
-      "description": "Looking for a unique birthday gift in Prague? The Glow IV Drip is a premium wellness experience that combines beauty-boosting nutrients with immune recovery support. A registered nurse comes to her hotel, home, or Airbnb — the most thoughtful and original birthday gift in Prague. Perfect for girlfriends, wives, mothers, and colleagues.",
+      "badge": "Gift voucher",
+      "title": "A Thoughtful Birthday Gift in Prague",
+      "subtitle": "Give her a calm wellness visit at home: an IV drip with vitamins and hydration, given by a registered nurse",
+      "description": "Looking for an original birthday gift in Prague? Give a Vitamin & Mineral Classic IV drip visit with vitamins and hydration. A registered nurse comes to her hotel, home, or Airbnb, subject to a nurse's assessment and a doctor's decision. A good fit for girlfriends, wives, mothers, and colleagues.",
       "cta": "Order Birthday Voucher",
       "ctaSecondary": "See What's Included",
       "trustBadges": {
@@ -1010,28 +1010,28 @@
       }
     },
     "benefits": {
-      "title": "Why This Is the Best Birthday Gift in Prague",
-      "subtitle": "Not flowers. Not chocolate. A premium wellness experience she'll never forget.",
+      "title": "Why This Is a Thoughtful Birthday Gift in Prague",
+      "subtitle": "Not flowers. Not chocolate. A wellness visit she'll remember.",
       "items": {
         "unique": {
           "title": "Truly Unique Gift",
-          "description": "Stand out with an original birthday experience — a luxury IV drip that combines beauty and health. Unlike anything she's received before."
+          "description": "An original birthday gift: a calm wellness visit at home, unlike the usual present."
         },
         "luxury": {
-          "title": "Luxury Experience",
-          "description": "Professional IV therapy with skin-glow nutrients, delivered in the comfort of her home or hotel room. A birthday spa without leaving home."
+          "title": "Comfort of home",
+          "description": "A wellness visit with vitamins and hydration, delivered in the comfort of her home or hotel room. A birthday treat without leaving home."
         },
         "health": {
-          "title": "Health & Beauty",
-          "description": "Microelements for radiant skin and hair, combined with immune support vitamins and trace elements. She'll feel and look amazing."
+          "title": "Vitamins & Hydration",
+          "description": "Vitamins, minerals and fluids, chosen by the doctor after a short health assessment."
         },
         "professional": {
           "title": "Registered Nurse",
-          "description": "Administered by a certified medical professional. Safe, comfortable, and expertly done. Full health screening included."
+          "description": "Administered by a registered nurse, subject to a nurse's assessment and a doctor's decision."
         },
         "convenient": {
           "title": "We Come to Her",
-          "description": "Mobile service across all Prague districts. Hotel, home, or Airbnb — the nurse comes to her at a time that suits her schedule."
+          "description": "Mobile service across all Prague districts. Hotel, home, or Airbnb, the nurse comes to her at a time that suits her."
         },
         "voucher": {
           "title": "Gift Voucher",
@@ -1040,23 +1040,23 @@
       }
     },
     "included": {
-      "title": "What's Included in the Glow IV Drip",
-      "subtitle": "A complete premium wellness experience — everything included, no hidden fees.",
+      "title": "What's Included in the Vitamin & Mineral Classic Visit",
+      "subtitle": "Everything is included, with no hidden fees.",
       "items": [
-        "Glow & Post-Flu IV drip session (60 minutes)",
-        "Microelements for skin & hair vitality",
-        "Immune support nutrients and trace vitamins",
+        "Vitamin & Mineral Classic IV drip session (45–60 minutes)",
+        "Vitamins, minerals and trace elements in fluids",
+        "Short health assessment by the nurse",
         "Registered nurse visit to her location",
         "All sterile medical equipment included",
-        "Pre-session health screening",
-        "Post-treatment wellness guidance",
+        "Doctor's consultation included in the price",
+        "Post-visit aftercare guidance",
         "Beautiful digital birthday gift voucher"
       ],
       "learnMore": "See our full IV drips menu"
     },
     "experience": {
       "title": "A Unique Birthday Experience in Prague",
-      "subtitle": "Imagine her surprise when she discovers a premium wellness session waiting for her.",
+      "subtitle": "Imagine her surprise when she finds a wellness visit waiting for her.",
       "steps": {
         "step1": {
           "title": "She receives the voucher",
@@ -1071,8 +1071,8 @@
           "description": "A registered nurse comes to her with everything needed for the session."
         },
         "step4": {
-          "title": "60 minutes of glow",
-          "description": "She relaxes while nutrients replenish her skin, hair, and immune system."
+          "title": "A relaxing hour",
+          "description": "She relaxes for 45–60 minutes while the infusion runs and the nurse stays with her."
         }
       }
     },
@@ -1082,14 +1082,14 @@
       "redeemable": "Redeemable any day, 8:00–21:00",
       "transferable": "Fully transferable to another person",
       "personalized": "Add your personal birthday message",
-      "instant": "Delivered instantly via email"
+      "instant": "Delivered by email"
     },
     "pricing": {
-      "title": "Premium Birthday Gift",
-      "subtitle": "The best birthday gift for girlfriend, wife, mother, or any special woman in your life.",
-      "price": "3,650",
+      "title": "Birthday Gift",
+      "subtitle": "A thoughtful birthday gift for a girlfriend, wife, mother, or any special woman in your life.",
+      "price": "3,750",
       "currency": "CZK",
-      "approximateEur": "~€148",
+      "approximateEur": "~€150",
       "perSession": "per session",
       "ctaWhatsApp": "Order via WhatsApp",
       "ctaCall": "Call to Order",
@@ -1105,7 +1105,7 @@
           "location": "Prague 3"
         },
         "t2": {
-          "text": "Wanted something special for my wife's 40th birthday. This was perfect — she felt pampered and refreshed. Way better than another piece of jewelry.",
+          "text": "Wanted something special for my wife's 40th birthday. This was perfect — she felt pampered. Way better than another piece of jewelry.",
           "author": "James R.",
           "location": "Prague 6"
         },
@@ -1118,11 +1118,11 @@
     },
     "corporate": {
       "title": "Corporate & Team Birthday Gifts",
-      "subtitle": "Looking for a unique way to celebrate team members' birthdays? Our Glow IV Drip vouchers make the perfect corporate wellness benefit.",
+      "subtitle": "Looking for a unique way to celebrate team members' birthdays? Our gift vouchers make a thoughtful corporate wellness benefit.",
       "benefits": [
         "Bulk voucher discounts for 5+ orders",
         "Branded digital vouchers with your company logo",
-        "Flexible redemption — employees choose their date",
+        "Flexible redemption: employees choose their date",
         "Wellness benefit that shows you care about your team",
         "Invoice billing available for companies"
       ],
@@ -1134,7 +1134,7 @@
       "steps": {
         "step1": {
           "title": "Contact us",
-          "description": "WhatsApp, call, or email — tell us it's a birthday gift and share any personal message."
+          "description": "WhatsApp, call, or email. Tell us it's a birthday gift and share any personal message."
         },
         "step2": {
           "title": "Receive the voucher",
@@ -1142,7 +1142,7 @@
         },
         "step3": {
           "title": "She books & enjoys",
-          "description": "She chooses her date and enjoys the premium wellness experience at her convenience."
+          "description": "She picks a date and enjoys the visit where it suits her."
         }
       }
     },
@@ -1150,8 +1150,8 @@
       "title": "Frequently Asked Questions",
       "items": {
         "q1": {
-          "question": "Is the Glow IV Drip a real medical treatment?",
-          "answer": "Yes. The Glow & Post-Flu IV drip is a professional IV infusion administered by a registered nurse. It contains medically-approved microelements, trace vitamins, and immune support nutrients. All treatments follow strict medical protocols."
+          "question": "Is the IV drip administered by a nurse?",
+          "answer": "Yes. The Vitamin & Mineral Classic IV drip is administered by a registered nurse, subject to a nurse's assessment and a doctor's decision. Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
         },
         "q2": {
           "question": "How does the birthday gift voucher work?",
@@ -1162,36 +1162,36 @@
           "answer": "Absolutely. You can either pre-book for the exact birthday date or purchase an open voucher she can redeem anytime within 3 months."
         },
         "q4": {
-          "question": "Is the IV drip safe?",
-          "answer": "Completely. All treatments are administered by certified registered nurses using sterile, single-use medical equipment. We conduct a brief health screening before every session."
+          "question": "Who administers the IV drip?",
+          "answer": "Registered nurses, using sterile, single-use medical equipment. The nurse makes a short health assessment before every session."
         },
         "q5": {
           "question": "What if she's never had an IV before?",
-          "answer": "No problem! Our nurses are experienced and gentle. The procedure is very comfortable and takes about 60 minutes while she can relax, read, or watch something."
+          "answer": "No problem. Our nurses are experienced and gentle. The visit is relaxed and takes about 45–60 minutes while she can rest, read, or watch something."
         },
         "q6": {
           "question": "Can I add extras to the birthday gift?",
-          "answer": "The Glow IV Drip is a complete experience on its own, but we can coordinate with local flower delivery or champagne services to make it even more special. Just ask when ordering."
+          "answer": "The Vitamin & Mineral Classic visit is a complete experience on its own, but we can note your wishes for a personal message or timing. Just ask when ordering."
         },
         "q7": {
           "question": "Do you deliver to hotels and Airbnbs?",
-          "answer": "Yes! We serve all Prague districts including hotels, Airbnbs, private homes, and offices. The nurse brings all necessary equipment."
+          "answer": "Yes. We serve all Prague districts including hotels, Airbnbs, private homes, and offices. The nurse brings all necessary equipment."
         }
       }
     },
     "finalCta": {
       "title": "Make Her Birthday Unforgettable",
-      "description": "Order the premium birthday wellness gift voucher now. Available year-round, 7 days a week.",
+      "description": "Order the birthday gift voucher now. Available year-round, 7 days a week.",
       "whatsapp": "Order via WhatsApp",
       "email": "info@nius.cz"
     }
   },
   "ivDripTherapy": {
     "seo": {
-      "title": "IV Drips Prague | Mobile IV Therapy at Your Hotel/Home",
-      "description": "Professional IV drip service in Prague — IV drips delivered to your hotel, home, or Airbnb by registered nurses. Vitamin C, Glutathione, Biotin, hydration & recovery infusions. Same-day IV drip in Prague 1, Vinohrady, Old Town."
+      "title": "IV Drips Prague | IV Drip Nurse at Your Hotel or Home",
+      "description": "IV drips Prague by registered nurses at your hotel, home or Airbnb. Vitamin, mineral and hydration drips prescribed by a doctor. Same-day, 8:00–21:00."
     },
-    "whatsappMessage": "Hi! I'd like to book an IV drip in Prague.",
+    "whatsappMessage": "Hi, I'd like to book an IV drip in Prague.",
     "trustBadges": {
       "licensedNurses": "Licensed Nurses",
       "rating": "4.9/5 Rating",
@@ -1201,9 +1201,9 @@
     "hero": {
       "h1": "IV Drips Prague",
       "subtitle": "Mobile IV Therapy Delivered to Your Hotel, Home, or Airbnb",
-      "paragraph": "Professional <strong>IV drips in Prague</strong> administered by registered nurses at your location. We serve <strong>Prague 1, Prague 2, Vinohrady, Old Town, New Town</strong>, and all surrounding districts. Choose from hydration, immunity, beauty, and recovery <strong>IV drips in Prague</strong> with same-day availability. Perfect for medical tourists, expats, and travelers seeking",
+      "paragraph": "Professional <strong>IV drips in Prague</strong> administered by registered nurses at your location. We serve <strong>Prague 1, Prague 2, Vinohrady, Old Town, New Town</strong>, and all surrounding districts. Choose from vitamin, mineral and hydration <strong>IV drips in Prague</strong> with same-day visits. Perfect for medical tourists, expats, and travelers seeking",
       "postSurgeryLink": "post-surgery recovery care in Prague",
-      "socialProof": "Trusted by <strong>100+ patients</strong> in Prague",
+      "socialProof": "Rated <strong>4.9★</strong> on Google",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "Book on WhatsApp",
       "bookBtn": "Book Online",
@@ -1214,23 +1214,23 @@
     },
     "whyChoose": {
       "title": "Why Choose NIUS for IV Drips in Prague?",
-      "subtitle": "Prague's most trusted mobile IV therapy service for medical tourists, expats, and travelers since 2023",
+      "subtitle": "Mobile IV drips for medical tourists, expats, and travelers in Prague",
       "cards": {
         "fullService": {
-          "title": "Only Full-Service Mobile Clinic",
-          "description": "Unlike other providers, we offer <strong>IV drips + IVF injection support + wound care + post-surgery recovery</strong>. Complete medical care at your location."
+          "title": "IV Drips, IVF Injections & Wound Care",
+          "description": "We offer <strong>IV drips, IVF injection support, wound care and post-surgery nursing</strong>, all at your location."
         },
         "availability": {
           "title": "Same-Day Availability",
-          "description": "Available <strong>daily 8 AM – 9 PM</strong>, including weekends and holidays. <strong>Same-day IV drips in Prague</strong> available 365 days a year."
+          "description": "<strong>Same-day visits, daily 8:00–21:00</strong>, including weekends and holidays. We confirm the arrival time after you book."
         },
         "nurses": {
           "title": "Registered Nurses, Not Technicians",
-          "description": "All IV drips administered by <strong>fully licensed registered nurses</strong> with hospital experience. Medical-grade protocols, sterile equipment, proper monitoring."
+          "description": "All IV drips administered by <strong>registered nurses</strong> with hospital experience. Sterile equipment and proper monitoring."
         },
         "location": {
           "title": "We Come to ANY Location",
-          "description": "Hotels (Four Seasons, etc.), Airbnbs, private homes, offices. Serving <strong>all Prague districts</strong> within 20km of city center."
+          "description": "Any hotel in Prague, Airbnbs, private homes, offices. Serving <strong>all Prague districts</strong> within 20km of city center."
         },
         "rating": {
           "title": "4.9★ Patient Rating",
@@ -1242,37 +1242,6 @@
         }
       }
     },
-    "comparison": {
-      "title": "NIUS vs. Other IV Drip Services in Prague",
-      "subtitle": "Why medical tourists and expats choose NIUS for IV therapy in Prague",
-      "feature": "Feature",
-      "nius": "NIUS",
-      "otherMobile": "Other Mobile Services",
-      "hospitalClinic": "Hospital/Clinic",
-      "rows": {
-        "mobile": "Mobile Service (Hotel/Home)",
-        "availability": "Same-Day Availability",
-        "nurses": "Registered Nurses (Not Technicians)",
-        "ivf": "IVF Injection Support",
-        "postSurgery": "Post-Surgery Care",
-        "sameDay": "Same-Day Availability",
-        "pricing": "Transparent Pricing",
-        "english": "English-Speaking Staff",
-        "sessionTime": "Average Session Time"
-      },
-      "limitedHours": "Limited hours",
-      "erOnly": "ER only",
-      "varies": "Varies",
-      "outpatientOnly": "Outpatient only",
-      "sometimes": "Sometimes",
-      "longWait": "Long wait",
-      "variableFees": "Variable fees",
-      "limited": "Limited",
-      "sessionNius": "45–60 min",
-      "sessionOther": "45–90 min",
-      "sessionHospital": "2–4 hours",
-      "bookNow": "Book Your IV Drip Now"
-    },
     "menu": {
       "title": "IV Drips Prague: Menu & Transparent Pricing",
       "subtitle": "All prices in CZK include registered nurse visit, monitoring, equipment, and aftercare guidance. Book same-day <strong>IV drips in Prague 1, Vinohrady, Old Town</strong>, or any Prague district.",
@@ -1281,19 +1250,19 @@
       "filterAll": "All Drips",
       "minutes": "minutes",
       "book": "Book",
-      "bookMessage": "Hi! I'd like to book the {{drip}} IV drip in Prague. When is the earliest available time?",
+      "bookMessage": "Hi, I'd like to book the {{drip}} IV drip in Prague. When is the earliest available time?",
       "onRequest": "On Request",
-      "medicalScreening": "<strong>Medical Screening Required:</strong> All IV drips in Prague require brief health screening. Final composition may vary based on medical indication and doctor consultation (when needed).",
-      "pricingNote": "<strong>Pricing:</strong> 10% discount on packages of 2+ visits. Doctor prescription (if required): +900 CZK",
+      "medicalScreening": "<strong>Short Health Assessment:</strong> Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.",
+      "pricingNote": "<strong>Pricing:</strong> 10% discount on packages of 2+ visits. The doctor's consultation is included in the price.",
       "categories": {
         "immunity": {
-          "name": "🛡️ Immunity & Recovery",
+          "name": "Vitamins & Minerals",
           "items": {
             "immunityLite": {
               "name": "Immunity Lite",
-              "price": 2800,
+              "price": 2900,
               "duration": 45,
-              "short": "Baseline Vitamin C boost for immune support and prevention.",
+              "short": "Vitamin C with fluids. A light starter drip.",
               "includes": [
                 "Vitamin C infusion",
                 "Hydration support",
@@ -1301,27 +1270,27 @@
                 "All equipment included"
               ],
               "popular": false,
-              "bestFor": "Prevention"
+              "bestFor": "Vitamins & Hydration"
             },
             "immunityPower": {
               "name": "Immunity Power",
-              "price": 3150,
+              "price": 3250,
               "duration": 60,
-              "short": "High-dose Vitamin C (15g) for viral defense and intensive immune support.",
+              "short": "Vitamin C with fluids and supportive hydration.",
               "includes": [
-                "Vitamin C 15g high-dose",
+                "Vitamin C infusion",
                 "Supportive hydration",
                 "Registered nurse monitoring",
                 "All sterile equipment"
               ],
               "popular": true,
-              "bestFor": "Cold & Flu"
+              "bestFor": "Vitamins & Hydration"
             },
             "defenseShield": {
-              "name": "Defense Shield (Hero)",
-              "price": 4250,
+              "name": "Vitamin & Mineral Plus",
+              "price": 4350,
               "duration": 60,
-              "short": "The ultimate flu & virus recovery with Vitamin C and trace elements.",
+              "short": "Vitamin C, trace elements and fluids, chosen by the doctor after a short health assessment.",
               "includes": [
                 "Vitamin C + trace elements",
                 "Essential microelements",
@@ -1329,190 +1298,101 @@
                 "Registered nurse visit"
               ],
               "popular": true,
-              "bestFor": "Immune Boost"
+              "bestFor": "Vitamins & Minerals"
             },
             "glowPostFlu": {
-              "name": "Glow & Post-Flu",
-              "price": 3650,
+              "name": "Vitamin & Mineral Classic",
+              "price": 3750,
               "duration": 60,
-              "short": "Recovery support for skin, hair, and immune resilience after illness.",
+              "short": "Vitamins, minerals and trace elements with fluids.",
               "includes": [
-                "Microelements for skin & hair",
-                "Immune support nutrients",
-                "Trace elements & vitamins",
+                "Vitamins & minerals",
+                "Trace elements",
+                "Fluids",
                 "Registered nurse visit"
               ],
               "popular": false,
-              "bestFor": "Post-Illness Recovery"
+              "bestFor": "Vitamins & Minerals"
             }
           }
         },
         "energy": {
-          "name": "⚡ Energy & Performance",
+          "name": "Vitamins & B-Complex",
           "items": {
             "ceoRecharge": {
               "name": "CEO Recharge (Hero)",
-              "price": 4450,
+              "price": 4550,
               "duration": 60,
-              "short": "Peak focus & mental clarity with B-Complex, minerals, and magnesium for high performers.",
+              "short": "B-Complex vitamins, minerals and magnesium in fluids.",
               "includes": [
                 "B-Complex vitamins",
                 "Essential minerals",
-                "2000mg Magnesium",
+                "Magnesium",
                 "Registered nurse visit"
               ],
               "popular": true,
-              "bestFor": "Focus & Productivity"
+              "bestFor": "Busy Schedules"
             },
             "metabolicReset": {
               "name": "Metabolic Reset",
-              "price": 3950,
+              "price": 4050,
               "duration": 60,
-              "short": "Energy metabolism boost and cleansing support for overall vitality.",
+              "short": "B-vitamins and minerals with fluids.",
               "includes": [
-                "Metabolic nutrients",
-                "Cleansing support elements",
+                "Vitamins and minerals",
+                "Fluids",
                 "B-vitamins complex",
                 "Registered nurse visit"
               ],
               "popular": false,
-              "bestFor": "Cleanse & Metabolism"
+              "bestFor": "Vitamins & Minerals"
             },
             "bPowerShot": {
               "name": "B-Power Shot",
-              "price": 1550,
+              "price": 1650,
               "duration": 10,
-              "short": "Quick 900mcg B12 energy injection (intramuscular, 10 minutes only).",
+              "short": "Vitamin B12 intramuscular injection (about 10 minutes).",
               "includes": [
-                "Vitamin B12 900mcg IM",
-                "Quick 10-minute procedure",
+                "Vitamin B12 IM injection",
+                "Short visit",
                 "Registered nurse visit",
-                "Immediate energy boost"
+                "Doctor's consultation included"
               ],
               "popular": false,
-              "bestFor": "Quick Energy"
+              "bestFor": "Vitamin Shot"
             }
           }
         },
         "hydration": {
-          "name": "💧 Hydration & Balance",
+          "name": "Hydration & Balance",
           "items": {
             "pureHydrate": {
               "name": "Pure Hydrate",
-              "price": 2450,
+              "price": 2550,
               "duration": 45,
-              "short": "Rapid rehydration with 500ml–1000ml saline for dehydration relief.",
+              "short": "Saline fluids (500–1000 ml) for simple rehydration.",
               "includes": [
-                "0.9% NaCl saline (500ml–1000ml)",
-                "Rapid rehydration",
+                "0.9% NaCl saline",
+                "Rehydration",
                 "Registered nurse visit",
                 "All equipment included"
               ],
               "popular": false,
-              "bestFor": "Dehydration"
+              "bestFor": "Hydration"
             },
             "electrolyteReset": {
               "name": "Electrolyte Reset",
-              "price": 2950,
+              "price": 3050,
               "duration": 45,
-              "short": "Hydration plus 2000mg Magnesium for muscle recovery and better sleep.",
+              "short": "Balanced electrolyte fluids with magnesium.",
               "includes": [
                 "Balanced electrolyte fluids",
-                "2000mg Magnesium",
-                "Muscle & sleep support",
+                "Magnesium",
+                "Fluids & electrolytes",
                 "Registered nurse visit"
               ],
               "popular": true,
-              "bestFor": "Sports Recovery"
-            },
-            "nauseaRelief": {
-              "name": "Nausea Relief",
-              "price": 2850,
-              "duration": 45,
-              "short": "Rapid help for food poisoning, severe hangovers, or digestive distress.",
-              "includes": [
-                "Anti-nausea medication",
-                "Hydration support",
-                "Electrolyte balance",
-                "Registered nurse visit"
-              ],
-              "popular": false,
-              "bestFor": "Hangover & Nausea"
-            }
-          }
-        },
-        "specialized": {
-          "name": "🩸 Specialized Care",
-          "items": {
-            "standardIron": {
-              "name": "Standard Iron",
-              "price": 2750,
-              "duration": 45,
-              "short": "Gentle iron replenishment with Ferrlecit for mild anemia.",
-              "includes": [
-                "Ferrlecit iron infusion",
-                "Gentle formula",
-                "Registered nurse monitoring",
-                "All equipment included"
-              ],
-              "popular": false,
-              "bestFor": "Iron Deficiency"
-            },
-            "premiumIron": {
-              "name": "Premium Iron",
-              "price": 6350,
-              "duration": 60,
-              "short": "High-potency iron infusion (Ferinject) for chronic fatigue and severe anemia.",
-              "includes": [
-                "Ferinject high-potency iron",
-                "Extended monitoring",
-                "Registered nurse visit",
-                "Post-treatment guidance"
-              ],
-              "popular": false,
-              "bestFor": "Severe Anemia"
-            },
-            "nerveRegen": {
-              "name": "Nerve Regen",
-              "price": 3350,
-              "duration": 45,
-              "short": "Back pain & neurological recovery support with B-Complex intramuscular injection.",
-              "includes": [
-                "B-Complex IM injection",
-                "Nerve support nutrients",
-                "Pain relief support",
-                "Registered nurse visit"
-              ],
-              "popular": false,
-              "bestFor": "Nerve Health"
-            },
-            "backacheRelief": {
-              "name": "🦴 Backache Relief",
-              "price": 3250,
-              "duration": 45,
-              "short": "Acute muscle & nerve pain relief for back and joint discomfort.",
-              "includes": [
-                "Pain relief medication",
-                "Anti-inflammatory support",
-                "Muscle relaxation",
-                "Registered nurse visit"
-              ],
-              "popular": false,
-              "bestFor": "Pain Relief"
-            },
-            "allergyStop": {
-              "name": "🌸 Allergy Stop",
-              "price": 2650,
-              "duration": 45,
-              "short": "Support during allergic reactions and seasonal allergy symptoms.",
-              "includes": [
-                "Antihistamine support",
-                "Anti-inflammatory agents",
-                "Symptom relief",
-                "Registered nurse visit"
-              ],
-              "popular": false,
-              "bestFor": "Allergies"
+              "bestFor": "Hydration After Activity"
             }
           }
         }
@@ -1520,61 +1400,52 @@
     },
     "treatments": {
       "title": "Popular IV Drip Treatments in Prague",
-      "subtitle": "From <strong>Vitamin C IV drips</strong> to <strong>Glutathione infusions</strong> — choose the right IV therapy for your health goals in Prague",
+      "subtitle": "From <strong>Vitamin C IV drips</strong> to <strong>hydration infusions</strong>: choose your IV drip in Prague together with your nurse and doctor",
       "viewPricing": "View Pricing",
       "items": {
         "vitaminC": {
           "title": "Vitamin C IV Drip Prague",
-          "description": "High-dose Vitamin C infusions (up to 15g) for immune system defense, viral protection, and faster recovery from illness.",
+          "description": "Vitamin C infusions with fluids, prescribed by a doctor after a short health assessment.",
           "benefits": [
-            "Powerful immune support",
-            "Viral defense",
-            "Antioxidant protection"
+            "Vitamin C with fluids",
+            "Registered nurse",
+            "At your location"
           ]
         },
         "ceo": {
           "title": "CEO Recharge IV Drip",
-          "description": "Peak mental performance formula with B-Complex, minerals, and magnesium. Designed for executives and high performers needing focus and clarity.",
+          "description": "B-Complex vitamins, minerals and magnesium in fluids. A popular choice for busy work schedules.",
           "benefits": [
-            "Enhanced mental clarity",
-            "Improved focus",
-            "Stress resilience"
+            "B-Complex vitamins",
+            "Minerals and magnesium",
+            "Registered nurse"
           ]
         },
         "hydration": {
           "title": "Hydration & Electrolyte IV",
-          "description": "Medical-grade hydration therapy with electrolytes and magnesium. Perfect for hangovers, travel fatigue, dehydration, or muscle recovery.",
+          "description": "Fluids with electrolytes and magnesium. A popular choice after travel or a busy day.",
           "benefits": [
-            "Rapid rehydration",
-            "Electrolyte balance",
-            "Muscle recovery support"
-          ]
-        },
-        "iron": {
-          "title": "Iron Infusion Prague",
-          "description": "Gentle or high-potency iron infusions (Ferrlecit or Ferinject) for anemia, chronic fatigue, and iron deficiency treatment.",
-          "benefits": [
-            "Treats iron deficiency",
-            "Boosts energy levels",
-            "Reduces fatigue"
+            "Fluids",
+            "Electrolytes",
+            "Magnesium"
           ]
         },
         "defense": {
-          "title": "Defense Shield (Hero)",
-          "description": "Ultimate flu & virus recovery with Vitamin C and trace elements. Comprehensive support for cold/flu symptoms and post-illness recovery.",
+          "title": "Vitamin & Mineral Plus",
+          "description": "Vitamin C, trace elements and fluids, chosen by the doctor after a short health assessment.",
           "benefits": [
-            "Complete flu recovery",
-            "Trace element support",
-            "Immune reinforcement"
+            "Vitamin C",
+            "Trace elements",
+            "Fluids"
           ]
         },
         "glow": {
-          "title": "Glow & Post-Flu Recovery",
-          "description": "Recovery support for skin, hair, and immune resilience. Combines beauty nutrients with post-illness recovery elements.",
+          "title": "Vitamin & Mineral Classic",
+          "description": "Vitamins, minerals and trace elements with fluids.",
           "benefits": [
-            "Skin & hair support",
-            "Post-illness recovery",
-            "Immune resilience"
+            "Vitamins and minerals",
+            "Trace elements",
+            "Fluids"
           ]
         }
       }
@@ -1582,40 +1453,40 @@
     "benefits": {
       "title": "Benefits of Mobile IV Drips in Prague",
       "faster": {
-        "title": "Faster Than Pills or Drinks",
-        "description": "IV drips deliver nutrients <strong>directly into your bloodstream</strong>, bypassing the digestive system. High bioavailability means efficient absorption — ideal for hydration, immune support, or recovery."
+        "title": "Fluids and Vitamins by IV",
+        "description": "IV drips deliver fluids and vitamins <strong>directly into a vein</strong>, administered by a registered nurse at your location."
       },
       "comesToYou": {
         "title": "We Come to You in Prague",
-        "description": "No waiting rooms, no traffic. Our nurses bring <strong>hospital-grade IV drips to your hotel, home, or Airbnb</strong> anywhere in Prague. Same-day service in Prague 1, Vinohrady, Old Town, and beyond."
+        "description": "No waiting rooms, no traffic. Our nurses bring <strong>IV drips to your hotel, home, or Airbnb</strong> anywhere in Prague. Same-day visits in Prague 1, Vinohrady, Old Town, and beyond."
       },
       "safety": {
-        "title": "Registered Nurses, Medical-Grade Safety",
-        "description": "All IV drips in Prague administered by <strong>registered nurses with hospital experience</strong>. Sterile equipment, proper monitoring, medical protocols. We also provide",
+        "title": "Registered Nurses, Careful Protocols",
+        "description": "All IV drips in Prague administered by <strong>registered nurses with hospital experience</strong> after a short health assessment. Sterile equipment and medical protocols. We also provide",
         "ivfLink": "IVF injection support",
         "nursingLink": "long-term nursing care"
       },
       "customized": {
         "title": "Customized for Your Goals",
-        "description": "Whether you need <strong>hydration after travel</strong>, immune support during flu season, beauty IV drips for events, or recovery support — we tailor each session to your health goals."
+        "description": "If you need <strong>hydration after travel</strong>, vitamins, or a top-up for busy days, your doctor and nurse choose the drip after a short health assessment."
       }
     },
     "howItWorks": {
       "title": "How Our IV Drip Service Works in Prague",
-      "subtitle": "From booking to aftercare — here's what to expect with NIUS mobile IV therapy",
+      "subtitle": "From booking to aftercare, here is what to expect with NIUS mobile IV therapy",
       "step1": {
         "title": "Contact Us & Choose Your IV Drip",
-        "description": "Call <strong>{{phone}}</strong> or message us on <strong>WhatsApp</strong>. Tell us your location (hotel name, address in Prague), symptoms, and goals. We'll recommend the best IV drip and confirm same-day availability.",
+        "description": "Call <strong>{{phone}}</strong> or message us on <strong>WhatsApp</strong>. Tell us your location (hotel name, address in Prague) and what you'd like. We'll recommend a drip and confirm same-day availability.",
         "callNow": "Call Now",
         "whatsapp": "WhatsApp"
       },
       "step2": {
         "title": "Quick Health Screening",
-        "description": "We'll ask basic health questions (allergies, current medications, medical history). This ensures your <strong>IV drip in Prague is safe and appropriate</strong> for your situation. Doctor consultation arranged if needed (additional 900 CZK)."
+        "description": "We'll ask basic health questions (allergies, current medications, medical history). Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
       },
       "step3": {
         "title": "Registered Nurse Arrives at Your Location",
-        "description": "Our nurse comes to your <strong>hotel, home, or Airbnb in Prague</strong> with all sterile equipment, IV supplies, and emergency kit. Typical arrival time: <strong>1–3 hours for same-day bookings</strong>, or schedule in advance for exact timing."
+        "description": "Our nurse comes to your <strong>hotel, home, or Airbnb in Prague</strong> with all sterile equipment and IV supplies. Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book."
       },
       "step4": {
         "title": "45–60 Minute IV Therapy Session",
@@ -1624,7 +1495,7 @@
       "step5": {
         "title": "Aftercare Guidance & Payment",
         "description": "After your IV drip, the nurse provides <strong>aftercare instructions</strong> and answers questions. Payment via cash, card, or bank transfer. We'll follow up if you have any concerns.",
-        "tip": "<strong>Tip:</strong> Stay hydrated and avoid alcohol for 24 hours after IV therapy for best results."
+        "tip": "<strong>Tip:</strong> Follow your nurse's aftercare advice and drink water after your session."
       }
     },
     "preparation": {
@@ -1643,14 +1514,14 @@
         "title": "After Your Session",
         "items": [
           "Rest for 15–30 minutes before activities",
-          "Drink plenty of water (2–3 liters over 24 hours)",
-          "Avoid alcohol for 24 hours",
+          "Drink water as advised by your nurse",
+          "Follow the nurse's aftercare advice",
           "Light exercise is fine; avoid intense workouts same day",
           "Contact us if you have any concerns or questions"
         ]
       },
       "contraindications": {
-        "title": "Contraindications & Safety",
+        "title": "When an IV Drip May Not Be Suitable",
         "description": "IV drips may not be suitable if you have:",
         "items": [
           "Severe kidney or heart disease (without medical approval)",
@@ -1666,36 +1537,28 @@
       "subtitle": "Everything you need to know about mobile IV therapy in Prague",
       "items": {
         "safe": {
-          "question": "Are IV drips safe?",
-          "answer": "Yes, when administered by trained medical professionals. All our <strong>IV drips in Prague are performed by registered nurses</strong> using sterile equipment and medical-grade protocols. We screen all patients before treatment and monitor throughout the session."
+          "question": "Who administers the IV drips?",
+          "answer": "All our <strong>IV drips in Prague are administered by registered nurses</strong> using sterile equipment, after a short health assessment, with monitoring throughout the session. Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
         },
         "duration": {
           "question": "How long does an IV drip take in Prague?",
-          "answer": "Most IV drip sessions take <strong>45–60 minutes</strong> including setup, infusion, and monitoring. Complex formulas (like MEGA Recovery) may take up to 75 minutes. Same-day bookings available."
+          "answer": "Most IV drip sessions take <strong>45–60 minutes</strong> including setup, infusion, and monitoring. Same-day bookings available."
         },
         "hotels": {
           "question": "Do you come to hotels in Prague?",
-          "answer": "Absolutely! We provide <strong>mobile IV drips at hotels, Airbnbs, private homes, and offices</strong> throughout Prague. Popular hotels: Four Seasons, Hilton, any hotel in Prague 1, Vinohrady, Old Town, and beyond."
-        },
-        "hangover": {
-          "question": "What's the best IV drip for hangovers?",
-          "answer": "For hangovers, try our <strong><a href='/en/hangover-iv-drip-prague/'>Nausea Relief (2,850 CZK)</a></strong> for immediate symptom relief, or <strong>Electrolyte Reset (2,950 CZK)</strong> with 2000mg Magnesium for hydration and muscle recovery. Pure Hydrate (2,450 CZK) is also effective for rapid rehydration. <a href='/en/hangover-iv-drip-prague/'>Learn more about our hangover IV drip service →</a>"
+          "answer": "Yes. We provide <strong>IV drips at hotels, Airbnbs, private homes, and offices</strong> throughout Prague, including any hotel in Prague 1, Vinohrady, Old Town, and beyond."
         },
         "vitaminC": {
           "question": "Can I get Vitamin C IV drips in Prague?",
-          "answer": "Yes! We offer three levels: <strong>Immunity Lite (2,800 CZK)</strong> for baseline support, <strong>Immunity Power (3,150 CZK)</strong> with 15g high-dose Vitamin C, and <strong>Defense Shield Hero (4,250 CZK)</strong> for ultimate flu & virus recovery."
-        },
-        "iron": {
-          "question": "Do you offer iron infusions in Prague?",
-          "answer": "Yes, we offer <strong>Standard Iron with Ferrlecit (2,750 CZK)</strong> for gentle iron replenishment and <strong>Premium Iron with Ferinject (6,350 CZK)</strong> for high-potency treatment of chronic fatigue and severe anemia."
+          "answer": "Yes. We offer <strong>Immunity Lite</strong> and <strong>Immunity Power</strong> with Vitamin C, and <strong>Vitamin & Mineral Plus</strong> with Vitamin C and trace elements. Prices start from 2,900 CZK, see the menu above."
         },
         "cost": {
           "question": "How much do IV drips cost in Prague?",
-          "answer": "Prices range from <strong>1,550 CZK to 6,350 CZK</strong> (€60–€250) depending on the treatment. Most popular IV drips are 2,450–4,450 CZK. All prices include nurse visit, equipment, and monitoring. 10% discount on packages of 2+ visits."
+          "answer": "IV drips start from <strong>2,550 CZK</strong> (about €100); a vitamin shot starts from 1,650 CZK. All prices include the nurse visit, equipment, and monitoring. 10% discount on packages of 2+ visits."
         },
         "sameDay": {
           "question": "Can I get same-day IV drips in Prague?",
-          "answer": "Yes! We offer <strong>same-day IV drip service in Prague</strong> with typical arrival within 1–3 hours. Available daily 8 AM – 9 PM including weekends and holidays. Book in advance for exact scheduling."
+          "answer": "Yes. Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book."
         },
         "districts": {
           "question": "Which Prague districts do you serve?",
@@ -1703,7 +1566,7 @@
         },
         "prescription": {
           "question": "Do I need a prescription for IV drips?",
-          "answer": "Some IV formulas require a doctor's prescription or consultation (additional 900 CZK if needed). We'll assess during health screening and arrange if necessary. Many formulas don't require prescription."
+          "answer": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
         }
       }
     },
@@ -1733,32 +1596,32 @@
       "whatsappBtn": "WhatsApp Booking",
       "bookBtn": "Book Online",
       "emailBtn": "Email Us",
-      "hours": "Available every day 8:00–21:00 • For urgent cases outside hours, please call directly"
+      "hours": "Available every day 8:00–21:00 • NIUS is not an emergency service. In an emergency call 155/112."
     },
     "llmSummary": {
-      "title": "IV Drip Therapy in Prague — Service Summary",
-      "content": "NIUS (Nurse in Prague) provides professional mobile IV drip therapy across all Prague districts. A certified registered nurse comes to your hotel, Airbnb, home, or office with hospital-grade equipment and administers your chosen IV drip on-site. Available daily 8 AM – 9 PM including weekends and holidays, with same-day booking and typical arrival within 1–3 hours.\n\nIV drip options include: Biotin IV (hair, skin & nails), Glutathione IV (antioxidant & skin glow), Vitamin C High-Dose (immune support), Cold & Flu Recovery IV, All-in-One Multivitamin, MEGA RECOVERY (ultimate formula), CEO Recharge (mental performance), Hydration & Electrolyte IV, Iron Infusion (Ferrlecit or Ferinject), Immunity Lite, Immunity Power (15 g Vitamin C), and Defense Shield Hero (flu & virus recovery). Prices range from 1,550 CZK to 6,350 CZK (approximately €60–€250). A 10% discount applies for packages of 2 or more visits.\n\nFor hangover-specific IV drips, NIUS offers dedicated formulas including Nausea Relief IV (2,850 CZK), Pure Hydrate (2,450 CZK), Electrolyte Reset (2,950 CZK), and Immunity Lite (2,800 CZK) — all with ~60-minute sessions.\n\nAll services are provided by licensed nurses with hospital experience. A doctor consultation can be arranged for 900 CZK if needed. Languages spoken: English, Czech, Russian, Ukrainian. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book online at nurseinprague.setmore.com/book. Website: www.nius.cz. Company: Nius Services s.r.o., Prague, Czech Republic."
+      "title": "IV Drip Therapy in Prague: Service Summary",
+      "content": "NIUS (Nurse in Prague) provides mobile IV drips across all Prague districts. A registered nurse comes to your hotel, Airbnb, home, or office with sterile equipment and administers your chosen IV drip on-site. Same-day visits, daily 8:00–21:00, including weekends and holidays. We confirm the arrival time after you book.\n\nIV drip options include: Immunity Lite and Immunity Power (Vitamin C with fluids), Vitamin & Mineral Classic and Vitamin & Mineral Plus (vitamins, minerals and trace elements), CEO Recharge (B-complex vitamins, minerals and magnesium), Metabolic Reset, Pure Hydrate, Electrolyte Reset and Jet Lag Recovery (fluids and electrolytes), plus a B-Power vitamin B12 shot. IV drips start from 2,550 CZK; a vitamin shot starts from 1,650 CZK.\n\nEvery infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price. Languages spoken: English, Czech, Russian, Ukrainian. NIUS is not an emergency service. In an emergency call 155/112. Contact: +420 773 629 123 (phone/WhatsApp), info@nius.cz. Book through the order form on www.nius.cz or on WhatsApp. Company: Nius Services s.r.o., Prague, Czech Republic."
     },
     "breadcrumbs": {
       "services": "Services",
       "ivDripsPrague": "IV Drips Prague"
     }
   },
-  "hangoverIVDrip": {
+  "hydrationIV": {
     "seo": {
-      "title": "Hangover IV Drip Prague | Mobile Nurse to Your Hotel | NIUS",
-      "description": "Hangover IV drip in Prague delivered to your hotel or Airbnb same day. Anti-nausea, rehydration & vitamins from 2,450 CZK. Licensed nurses, same-day booking.",
-      "keywords": "hangover iv drip prague, hangover drip prague, iv drip hotel prague, mobile iv therapy prague, iv hangover drip, hangover infusion prague, hangover recovery drip prague"
+      "title": "Rehydration IV Drip Prague | Nurse at Your Hotel | NIUS",
+      "description": "Rehydration IV drip in Prague at your hotel or Airbnb: fluids, electrolytes and vitamins by a registered nurse. Same-day visits, daily 8:00–21:00.",
+      "keywords": "rehydration iv drip prague, hydration drip prague, iv drip hotel prague, mobile iv therapy prague, iv drip after travel prague, jet lag iv drip prague"
     },
     "breadcrumbs": {
       "services": "Services",
       "ivDrips": "IV Drips Prague",
-      "hangover": "Hangover IV Drip"
+      "hydration": "Rehydration IV Drip"
     },
-    "whatsappMessage": "Hi! I'd like to book a Hangover IV Drip in Prague. Can you come to my location?",
+    "whatsappMessage": "Hi, I'd like to book a Rehydration IV Drip in Prague. Can you come to my location?",
     "hero": {
-      "h1": "Hangover IV Drip in Prague — Delivered to Your Hotel Same Day",
-      "subtitle": "Mobile nurse comes to your hotel, Airbnb, or home with everything needed to get you back on your feet.",
+      "h1": "Rehydration IV Drip in Prague: Nurse at Your Hotel",
+      "subtitle": "A registered nurse comes to your hotel, Airbnb, or home with everything needed for your vitamin and hydration drip. Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "WhatsApp Us",
       "bookBtn": "Book Online"
@@ -1770,208 +1633,188 @@
       "allDistricts": "All Prague Districts"
     },
     "symptoms": {
-      "title": "Feel Better Fast",
-      "subtitle": "Our hangover IV drip targets every symptom at once — here's how each ingredient works for you.",
+      "title": "Rehydration That Comes to You",
+      "subtitle": "Fluids, electrolytes and vitamins at your hotel, Airbnb or home. Here is when guests usually book.",
       "items": {
         "dehydration": {
-          "title": "Dehydration",
-          "symptom": "Dry mouth, dizziness, fatigue",
-          "solution": "1L saline rehydration — restores fluids directly into your bloodstream, faster than drinking water"
+          "title": "After a Flight",
+          "symptom": "Long journey, dry cabin air",
+          "solution": "Fluids by IV: a saline or electrolyte solution chosen by the doctor, administered by a registered nurse"
         },
         "nausea": {
-          "title": "Headache & Nausea",
-          "symptom": "Pounding head, upset stomach",
-          "solution": "Anti-nausea + pain relief medication — stops vomiting and headaches so you can function again"
+          "title": "Hot Days & Sightseeing",
+          "symptom": "Lots of walking, little water",
+          "solution": "Hydration with electrolytes at your hotel, no need to go out"
         },
         "fatigue": {
-          "title": "Fatigue & Weakness",
-          "symptom": "No energy, muscle aches",
-          "solution": "B-complex vitamins + magnesium — replenish what alcohol depleted overnight"
+          "title": "Busy Work Trips",
+          "symptom": "Back-to-back meetings",
+          "solution": "B-complex vitamins and magnesium with fluids, chosen after a short health assessment"
         },
         "brainFog": {
-          "title": "Brain Fog",
-          "symptom": "Can't focus, sluggish thinking",
-          "solution": "Electrolyte rebalance — restores the mineral balance your brain needs to function clearly"
+          "title": "Sport & Activity",
+          "symptom": "Hiking, running, gym",
+          "solution": "Electrolyte fluids with magnesium, at your hotel or home"
         }
       }
     },
     "featured": {
-      "title": "The Hangover Drip — What's Inside",
-      "name": "Nausea Relief IV Drip",
-      "price": 2850,
+      "title": "Our Featured Rehydration Drip: What's Inside",
+      "name": "Jet Lag Recovery IV Drip",
+      "price": "3250",
       "currency": "CZK",
-      "duration": "~60 minutes",
-      "short": "Our #1 recommended drip for hangovers — effective support for nausea, headache, and dehydration.",
+      "duration": "~45–60 minutes",
+      "short": "Fluids, electrolytes and vitamins, a popular choice after a long journey.",
       "includes": [
-        "Anti-nausea medication",
-        "Hydration support (saline infusion)",
-        "Electrolyte balance",
+        "Saline and electrolyte fluids",
+        "Vitamins chosen by the doctor",
+        "Short health assessment before the drip",
         "Registered nurse visit at your location",
         "All sterile equipment included"
       ],
-      "bestFor": "Hangover & Nausea",
-      "bookMessage": "Hi! I'd like to book the Nausea Relief IV Drip for a hangover in Prague.",
+      "bestFor": "After Travel",
+      "bookMessage": "Hi, I'd like to book the Jet Lag Recovery IV Drip in Prague.",
       "bookBtn": "Book This Drip",
-      "priceNote": "All-inclusive price — no hidden fees"
+      "priceNote": "All-inclusive price, no hidden fees"
     },
     "alternatives": {
-      "title": "More Hangover IV Drip Options",
-      "subtitle": "Not sure which drip is right for you? Here are all our hangover-friendly options — each delivered to your door by a registered nurse.",
+      "title": "More Rehydration IV Drip Options",
+      "subtitle": "Not sure which drip to pick? Here are our rehydration options. Each is delivered to your door by a registered nurse and chosen with the doctor after a short health assessment.",
       "items": {
         "pureHydrate": {
           "name": "Pure Hydrate",
-          "price": 2450,
+          "price": "2550",
           "currency": "CZK",
-          "duration": "~60 minutes",
-          "short": "Fast rehydration with 500ml–1000ml saline. Best for mild hangovers where dehydration is the main issue.",
+          "duration": "~45 minutes",
+          "short": "Saline fluids (500–1000 ml) for simple rehydration. A budget-friendly choice.",
           "includes": [
-            "0.9% NaCl saline (500ml–1000ml)",
-            "Rapid rehydration",
+            "0.9% NaCl saline",
+            "Rehydration",
             "Registered nurse visit",
             "All equipment included"
           ],
-          "bestFor": "Mild Hangover & Dehydration",
+          "bestFor": "Simple Hydration",
           "tag": "Budget-Friendly",
-          "bookMessage": "Hi! I'd like to book the Pure Hydrate IV Drip for a hangover in Prague."
+          "bookMessage": "Hi, I'd like to book the Pure Hydrate IV Drip in Prague."
         },
         "electrolyteReset": {
           "name": "Electrolyte Reset",
-          "price": 2950,
+          "price": "3050",
           "currency": "CZK",
-          "duration": "~60 minutes",
-          "short": "Hydration plus 2000mg Magnesium for muscle recovery, headache relief, and better sleep after a rough night.",
+          "duration": "~45 minutes",
+          "short": "Balanced electrolyte fluids with magnesium.",
           "includes": [
             "Balanced electrolyte fluids",
-            "2000mg Magnesium",
-            "Muscle & sleep support",
+            "Magnesium",
+            "Fluids & electrolytes",
             "Registered nurse visit"
           ],
-          "bestFor": "Hangover + Muscle Aches",
+          "bestFor": "Hydration After Activity",
           "tag": "Popular",
-          "bookMessage": "Hi! I'd like to book the Electrolyte Reset IV Drip for a hangover in Prague."
+          "bookMessage": "Hi, I'd like to book the Electrolyte Reset IV Drip in Prague."
         },
         "immunityLite": {
           "name": "Immunity Lite",
-          "price": 2800,
+          "price": "2900",
           "currency": "CZK",
-          "duration": "~60 minutes",
-          "short": "Vitamin C boost with hydration — ideal if you're hungover and feel a cold coming on at the same time.",
+          "duration": "~45 minutes",
+          "short": "Vitamin C with fluids, a light vitamin and hydration drip.",
           "includes": [
             "Vitamin C infusion",
             "Hydration support",
             "Registered nurse visit",
             "All equipment included"
           ],
-          "bestFor": "Hangover + Feeling Under the Weather",
-          "tag": "Immunity Boost",
-          "bookMessage": "Hi! I'd like to book the Immunity Lite IV Drip for a hangover in Prague."
+          "bestFor": "Vitamins & Hydration",
+          "tag": "Vitamin C",
+          "bookMessage": "Hi, I'd like to book the Immunity Lite IV Drip in Prague."
         }
       },
       "bookBtn": "Book This Drip",
-      "compareNote": "All prices are all-inclusive — nurse visit, equipment, and medication included. No hidden fees."
+      "compareNote": "All prices are all-inclusive: nurse visit, equipment and the doctor's consultation included. No hidden fees."
     },
     "llmSummary": {
-      "title": "About Hangover IV Drip Service in Prague",
-      "content": "NIUS provides mobile hangover IV drip therapy in Prague, Czech Republic. A registered nurse travels to your hotel, Airbnb, or home same day, typically within 1–3 hours. The service is available daily from 8:00 AM to 9:00 PM, including weekends and holidays. All treatments are overseen by a prescribing doctor. NIUS serves all Prague districts including Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, and Žižkov. Four hangover IV drip options are available: Nausea Relief (2,850 CZK) with anti-nausea medication and rehydration — the most popular choice for severe hangovers; Pure Hydrate (2,450 CZK) for basic saline rehydration; Electrolyte Reset (2,950 CZK) with 2000mg Magnesium for muscle recovery; and Immunity Lite (2,800 CZK) with Vitamin C for hangover combined with cold symptoms. All prices are all-inclusive with no hidden fees. The infusion takes approximately 45–60 minutes. Contact: +420 773 629 123 (phone/WhatsApp). Online booking: nurseinprague.setmore.com/book. Website: www.nius.cz."
+      "title": "About Rehydration IV Drip Service in Prague",
+      "content": "NIUS provides mobile rehydration IV drips in Prague, Czech Republic. A registered nurse comes to your hotel, Airbnb, or home. Same-day visits, daily 8:00–21:00, including weekends and holidays; we confirm the arrival time after you book. Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price. NIUS serves all Prague districts including Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, and Žižkov. Rehydration options: Jet Lag Recovery (fluids, electrolytes and vitamins), Pure Hydrate (saline fluids), Electrolyte Reset (electrolyte fluids with magnesium) and Immunity Lite (vitamin C with fluids). Rehydration drips start from 2,550 CZK, all-inclusive with no hidden fees. The infusion takes approximately 45–60 minutes. NIUS is not an emergency service. In an emergency call 155/112. Contact: +420 773 629 123 (phone/WhatsApp). Book through the order form on www.nius.cz or on WhatsApp."
     },
     "howItWorks": {
       "title": "How It Works",
-      "subtitle": "From booking to feeling human again — it's simple.",
+      "subtitle": "From booking to your visit, it's simple.",
       "steps": {
         "step1": {
           "title": "Book Online or Call Us",
-          "description": "Tell us your location (hotel name, address) and when you need us. Same-day bookings available."
+          "description": "Tell us your location (hotel name, address) and when you'd like us to come. Same-day visits, daily 8:00–21:00."
         },
         "step2": {
           "title": "Nurse Arrives at Your Location",
-          "description": "A registered nurse comes to your hotel, Airbnb, or home same day — with all equipment and medication."
+          "description": "A registered nurse comes to your hotel, Airbnb, or home with all equipment. We confirm the arrival time after you book."
         },
         "step3": {
           "title": "Quick Health Check & IV Setup",
-          "description": "Brief health screening, then comfortable IV insertion. You can relax, watch TV, or even nap."
+          "description": "Short health assessment, then comfortable IV insertion. You can relax, watch TV, or even nap."
         },
         "step4": {
-          "title": "Relax — Feel Human Again",
-          "description": "The drip takes about 60 minutes. Most clients feel dramatically better before the session even ends."
+          "title": "Relax During Your Drip",
+          "description": "The drip takes about 45–60 minutes. Your nurse stays with you throughout."
         }
       }
     },
     "whereWeCome": {
-      "title": "We Come to You — Anywhere in Prague",
-      "description": "We serve all of Prague — <strong>Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong>, and all major hotels including Four Seasons, Hilton, and hundreds more. Wherever you're staying, we'll be there."
-    },
-    "testimonials": {
-      "title": "What Our Clients Say",
-      "items": {
-        "t1": {
-          "text": "Had a rough morning after a stag do in Prague. The nurse arrived at our hotel in under an hour and the IV drip really helped me get back on my feet. Absolutely worth it.",
-          "author": "James R.",
-          "context": "Hotel guest, Prague 1"
-        },
-        "t2": {
-          "text": "We booked for the whole group after a big night out. Professional, quick, and incredibly effective. Best money I've spent on a trip to Prague.",
-          "author": "Sarah M.",
-          "context": "Airbnb guest, Vinohrady"
-        },
-        "t3": {
-          "text": "I was skeptical but desperate. The IV drip genuinely turned my day around — went from unable to move to sightseeing by lunch. The nurse was friendly and professional.",
-          "author": "Tom K.",
-          "context": "Tourist, Old Town"
-        }
-      }
+      "title": "We Come to You, Anywhere in Prague",
+      "description": "We serve all of Prague, including <strong>Old Town, New Town, Vinohrady, Karlín, Smíchov, Holešovice, Žižkov, Dejvice, Letná</strong>, and any hotel or apartment in the city. Wherever you're staying, we'll come to you."
     },
     "faq": {
-      "title": "Hangover IV Drip — Frequently Asked Questions",
+      "title": "Rehydration IV Drip: Frequently Asked Questions",
       "subtitle": "Everything you need to know before booking.",
       "items": {
         "howFast": {
           "question": "How fast can a nurse arrive?",
-          "answer": "Typically <strong>within 1–3 hours</strong> of booking, depending on your location in Prague and current availability. Same-day bookings are available daily from 8 AM to 9 PM."
+          "answer": "Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book."
         },
         "cost": {
-          "question": "How much does a hangover IV drip cost in Prague?",
-          "answer": "Our recommended hangover drip (Nausea Relief) is <strong>2,850 CZK (≈€114)</strong>, all-inclusive. Alternatives: Electrolyte Reset at 2,950 CZK or Pure Hydrate at 2,450 CZK. Price includes nurse visit, all equipment, and medication."
+          "question": "How much does a rehydration IV drip cost in Prague?",
+          "answer": "Rehydration drips start from <strong>2,550 CZK</strong>, all-inclusive. Alternatives include Electrolyte Reset and Jet Lag Recovery, see the options above. The price includes the nurse visit, all equipment and the doctor's consultation."
         },
         "safe": {
-          "question": "Is it safe? Who administers it?",
-          "answer": "Absolutely. All IV drips are administered by <strong>registered, licensed nurses</strong> using sterile, single-use medical equipment. A prescribing doctor oversees all treatments. We screen every patient before starting."
+          "question": "Who administers it?",
+          "answer": "All IV drips are administered by <strong>registered nurses</strong> using sterile, single-use medical equipment, after a short health assessment. Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
         },
         "hotels": {
           "question": "Do you come to hotels and Airbnbs?",
-          "answer": "Yes — we come to <strong>any hotel, Airbnb, apartment, or private home</strong> in Prague. We regularly visit all major hotels in Prague 1, Vinohrady, Karlín, and beyond."
+          "answer": "Yes, we come to <strong>any hotel, Airbnb, apartment, or private home</strong> in Prague, including Prague 1, Vinohrady, Karlín, and beyond."
         },
         "whatsInside": {
-          "question": "What's in the hangover IV drip?",
-          "answer": "The Nausea Relief drip includes <strong>anti-nausea medication, saline hydration, and electrolyte balance</strong>. It targets the main hangover symptoms: dehydration, nausea, headache, and fatigue. All ingredients are medical-grade."
+          "question": "What's in the rehydration IV drip?",
+          "answer": "Saline or electrolyte <strong>fluids</strong>, with vitamins or minerals chosen by the doctor after a short health assessment. All ingredients are medical-grade."
         },
         "howLong": {
           "question": "How long does the IV drip take?",
-          "answer": "The infusion takes <strong>approximately 60 minutes</strong> including the health check and setup. Most clients feel significantly better before the drip even finishes."
+          "answer": "The infusion takes <strong>approximately 45–60 minutes</strong> including the health assessment and setup. Your nurse stays with you."
         },
         "prescription": {
           "question": "Do I need a prescription?",
-          "answer": "No — <strong>our prescribing doctor handles everything</strong>. The consultation and prescription are included in the price. You just book, and we take care of the rest."
+          "answer": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
         },
         "hours": {
           "question": "Can you come at night or on weekends?",
-          "answer": "We're available <strong>daily from 8 AM to 9 PM</strong>, including weekends and holidays. For urgent requests outside these hours, please call us directly and we'll do our best to accommodate."
+          "answer": "We visit <strong>daily 8:00–21:00</strong>, including weekends and holidays. NIUS is not an emergency service. In an emergency call 155/112."
         }
       }
     },
     "cta": {
-      "title": "Ready to Feel Better?",
-      "subtitle": "Book your hangover IV drip now — nurse at your door same day.",
+      "title": "Ready to Book Your Rehydration Drip?",
+      "subtitle": "Book your rehydration IV drip now. Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "WhatsApp Booking",
       "bookBtn": "Book Online",
       "emailBtn": "Email Us",
-      "reassurance": "Licensed nurses • All Prague districts • Daily 8 AM – 9 PM",
-      "hours": "Available every day 8:00–21:00 • For urgent cases outside hours, please call directly"
+      "reassurance": "Registered nurses • All Prague districts • Daily 8:00–21:00",
+      "hours": "Available every day 8:00–21:00 • NIUS is not an emergency service. In an emergency call 155/112."
     }
   },
   "onboarding": {
     "returningHint": {
-      "body": "Looks like you are already our client. Ordering is faster in your account — your details and history are already saved.",
+      "body": "Looks like you are already our client. Ordering is faster in your account, where your details and history are already saved.",
       "ctaLogin": "Sign in",
       "ctaCabinet": "Open my account"
     },
@@ -2005,9 +1848,9 @@
       "floorPlaceholder": "Floor",
       "intercomLabel": "Intercom / code",
       "intercomPlaceholder": "Intercom / code",
-      "addressNoResults": "Address not found — type it manually",
+      "addressNoResults": "Address not found. Type it manually",
       "addressSearching": "Searching addresses…",
-      "addressRequestFailed": "Address search is unavailable — type it manually",
+      "addressRequestFailed": "Address search is unavailable. Type it manually",
       "fromLabel": "Pickup address",
       "fromPlaceholder": "Where to pick up the patient",
       "toLabel": "Drop-off address",
@@ -2026,7 +1869,7 @@
         "evening": "Evening (17:00–21:00)",
         "custom": "Specific date and time"
       },
-      "asapHint": "We will call you within 60 min to confirm",
+      "asapHint": "We confirm the arrival time after you book",
       "orSpecific": "or choose a specific time",
       "today": "Today",
       "more": "More",
@@ -2054,13 +1897,13 @@
       }
     },
     "step5": {
-      "title": "What's bothering you?",
+      "title": "Anything we should know?",
       "subtitle": "Allergies, chronic conditions, current medications.",
-      "noteLabel": "Symptoms",
-      "notePlaceholder": "Describe what's bothering you: pain, fever, blood pressure, etc."
+      "noteLabel": "Health notes",
+      "notePlaceholder": "Allergies, chronic conditions, current medications, blood pressure, etc."
     },
     "final": {
-      "title": "Almost done!",
+      "title": "Almost done.",
       "subtitle": "We've received your request. Pick how you'd like to continue.",
       "loginBtn": "Sign in and track booking",
       "loginPopup": "Waiting for Google sign-in…",
@@ -2090,7 +1933,7 @@
       }
     },
     "thankyou": {
-      "title": "Thank you!",
+      "title": "Thank you.",
       "subtitle": "We'll call you back soon at the number you provided to confirm the details.",
       "closeBtn": "Close"
     },
@@ -2108,7 +1951,7 @@
     "cart": {
       "addServices": "Add services",
       "selected": "Your selection",
-      "empty": "Your cart is empty — add a service above",
+      "empty": "Your cart is empty. Add a service above",
       "added": "Added",
       "remove": "Remove",
       "quantity": "Service quantity",
@@ -2125,9 +1968,9 @@
       "title": "Recommended for you",
       "add": "Add",
       "added": "Added",
-      "ivfHint": "Often added with hangover drips",
-      "b12Hint": "Boost recovery — same visit",
-      "vitaminCHint": "Often added with hangover drips",
+      "ivfHint": "Injection visit at your location",
+      "b12Hint": "Quick vitamin shot during the same visit",
+      "vitaminCHint": "Vitamin C added to your visit",
       "ivHint": "Mobile IV treatment at your location",
       "escortHint": "Assisted medical transport in Prague"
     },
@@ -2136,7 +1979,7 @@
       "address": "Where should we come?",
       "timing": "When works for you?",
       "payment": "Payment",
-      "note": "What's bothering you?",
+      "note": "Anything we should know?",
       "route": "Route"
     },
     "edit": "Edit",
@@ -2166,12 +2009,11 @@
       "IV drips",
       "IVF support",
       "Post-surgery care",
-      "Hangover recovery"
+      "Rehydration after travel"
     ],
     "subheadline": "Registered nurses with hospital experience delivering IV therapy, IVF injection support, and post-surgery care to your hotel, Airbnb, or home anywhere in Prague.",
     "ctaPrimary": "Choose a service",
     "ctaSecondary": "Ask on WhatsApp",
-    "statsVisits": "visits",
     "statsInternational": "international",
     "statsSameDay": "Same-day",
     "statsSameDayLabel": "arrival"
@@ -2181,10 +2023,7 @@
     "sameDay": "Same-day arrival",
     "international": "EN, RU, CZ speaking",
     "formulas": "Medical-grade formulas",
-    "screening": "Medical review included"
-  },
-  "partners": {
-    "label": "Trusted partners & referred by"
+    "screening": "Doctor's consultation included"
   },
   "whoWeServe": {
     "eyebrow": "Who we serve",
@@ -2194,42 +2033,42 @@
     "cards": {
       "international": {
         "title": "International visitors",
-        "desc": "Medical tourists, business travellers, tourists in Prague's 5-star hotels. 70% of our clients are international.",
+        "desc": "Medical tourists, business travellers and tourists staying in Prague hotels and apartments.",
         "bullets": [
           "Hotel infusions",
           "Airbnb stays",
-          "Pre/post-flight recovery",
-          "Hangover & dehydration"
+          "Rehydration after travel",
+          "Hydration after a busy day"
         ]
       },
       "ivf": {
         "title": "IVF patients",
-        "desc": "Partnership with Unica Clinic and Formé. Evening injection visits so you can be at home, comfortable, supported.",
+        "desc": "Evening injection visits so you can be at home, comfortable, supported. We follow your clinic's written instructions.",
         "bullets": [
           "Evening IVF visits",
-          "Progesterone, Gonal-F, Menopur",
-          "Intralipid infusions",
+          "Medication prescribed by your clinic",
+          "Infusions prescribed by your clinic",
           "Nurse-led training sessions"
         ]
       },
       "hotel": {
-        "title": "Luxury hotel guests",
-        "desc": "Concierge-referred service for Four Seasons, Augustine.",
+        "title": "Hotel guests",
+        "desc": "We visit any hotel in Prague. Same-day booking, English-speaking nurse.",
         "bullets": [
-          "5-star partnerships",
-          "Concierge referrals",
+          "Any hotel in Prague",
+          "Discreet visits",
           "Same-day booking",
           "English-speaking nurse"
         ]
       },
       "postSurgery": {
         "title": "Post-surgery recovery",
-        "desc": "Plastic surgery, orthopaedic, cosmetic procedures in Prague — NIUS handles aftercare at your accommodation.",
+        "desc": "Plastic surgery, orthopaedic, cosmetic procedures in Prague. NIUS handles aftercare at your accommodation.",
         "bullets": [
           "Wound care",
           "Drain management",
           "Patient escorts",
-          "Post-op IV nutrition"
+          "Vitamin and hydration drips"
         ]
       }
     }
@@ -2241,12 +2080,12 @@
     "steps": [
       {
         "title": "Choose your service",
-        "desc": "Pick an outcome — Energy, Immunity, IVF, or post-surgery. 2 minutes online or WhatsApp.",
+        "desc": "Pick a service: IV drip, IVF injections, or post-surgery care. 2 minutes online or WhatsApp.",
         "time": "2 minutes"
       },
       {
-        "title": "Medical screening",
-        "desc": "Short medical history form. Our nurse reviews before arrival.",
+        "title": "Short health assessment",
+        "desc": "Short health form. Our nurse reviews it before arrival, and a doctor prescribes your infusion.",
         "time": "5 minutes"
       },
       {
@@ -2255,8 +2094,8 @@
         "time": "Same day"
       },
       {
-        "title": "Feel it working",
-        "desc": "45–75 min infusion. Most clients feel the effect during the session.",
+        "title": "Relax during your visit",
+        "desc": "45–75 min infusion. Your nurse stays with you the entire time.",
         "time": "45–75 min"
       }
     ]
@@ -2277,7 +2116,7 @@
         "origin": "Google Review · Local Guide"
       },
       {
-        "quote": "I had been sick and was feeling weak, so after consulting with their specialist, I ordered the Defense Shield for post-illness recovery. We arranged everything quickly, and the IV drip worked exactly as intended.",
+        "quote": "I had been sick and was feeling weak, so after consulting with their specialist, I ordered the Vitamin & Mineral Plus. We arranged everything quickly, and the visit went exactly as planned.",
         "name": "Jan Ječmínek",
         "origin": "Google Review"
       },
@@ -2301,13 +2140,13 @@
   "serviceArea": {
     "title": "Service area",
     "responseTitle": "Response time",
-    "responseDesc": "Usually 2–4 hours same-day across all Prague."
+    "responseDesc": "Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book."
   },
   "finalCta": {
     "eyebrow": "Ready when you are",
-    "titleBase": "Book tonight.",
-    "titleItalic": "Feel better by morning.",
-    "sub": "No clinic. No waiting room. Your nurse arrives the same day.",
+    "titleBase": "Book your visit.",
+    "titleItalic": "Same day.",
+    "sub": "No clinic. No waiting room. Your nurse comes to you, daily 8:00–21:00.",
     "ctaPrimary": "Choose a service",
     "ctaSecondary": "Ask on WhatsApp",
     "trustLine": "Available 7 days · Prague city centre & surroundings · English · Russian · Czech"
@@ -2316,7 +2155,7 @@
     "eyebrow": "Meet your team",
     "titleBase": "Registered nurses who",
     "titleAccent": "actually care.",
-    "description": "Every NIUS nurse holds a Czech medical license and has 5+ years of hospital experience. We work primarily with senior nurses from leading Prague hospitals — Motol, IKEM, Na Homolce, and others — who choose private practice for greater flexibility and patient connection.",
+    "description": "Every NIUS nurse holds a Czech medical license and has 5+ years of hospital experience. We work primarily with senior nurses from Prague hospitals who choose private practice for greater flexibility and patient connection.",
     "cta": "Read more about our team",
     "imageAlt": "NIUS nurse in professional scrubs"
   },
@@ -2325,11 +2164,11 @@
     "items": [
       {
         "q": "Do I need a prescription for IV therapy?",
-        "a": "No prescription is needed. Our nurse conducts a medical screening before every infusion to ensure safety."
+        "a": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
       },
       {
         "q": "How fast can a nurse arrive?",
-        "a": "Same-day booking available 7 days a week, 8:00–21:00. We confirm arrival time after your booking."
+        "a": "Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book."
       },
       {
         "q": "What qualifications do your nurses have?",
@@ -2337,7 +2176,7 @@
       },
       {
         "q": "Can I get an IV drip at my hotel?",
-        "a": "Yes. We visit all Prague hotels including 5-star properties. Many concierge teams refer us directly."
+        "a": "Yes. We visit hotels across Prague. Just give us the hotel name and room details when you book."
       },
       {
         "q": "How long does an infusion take?",
@@ -2345,7 +2184,7 @@
       },
       {
         "q": "Do you support IVF patients?",
-        "a": "Yes. We partner with Unica Clinic and Formé. Evening injection visits for progesterone, Gonal-F, Menopur, and intralipid infusions."
+        "a": "Yes. We administer medication prescribed by your clinic, following their written instructions. Evening injection visits are available."
       },
       {
         "q": "What payment methods do you accept?",
@@ -2374,63 +2213,39 @@
   "serviceCatalog": {
     "immunity_lite": {
       "title": "Immunity Lite",
-      "description": "Baseline immune boost. The starter protocol."
+      "description": "Vitamin C with fluids. A light starter drip."
     },
     "immunity_power": {
       "title": "Immunity Power",
-      "description": "High-dose Vitamin C — serious viral defence."
+      "description": "Vitamin C with fluids and supportive hydration."
     },
     "defense_shield": {
-      "title": "Defense Shield",
-      "description": "The ultimate flu & virus recovery formula."
+      "title": "Vitamin & Mineral Plus",
+      "description": "Vitamin C, trace elements and fluids."
     },
     "glow_post_flu": {
-      "title": "Glow & Post-Flu",
-      "description": "Skin, hair, and immune resilience."
+      "title": "Vitamin & Mineral Classic",
+      "description": "Vitamins, minerals and trace elements with fluids."
     },
     "ceo_recharge": {
       "title": "CEO Recharge",
-      "description": "Peak focus, mental clarity, full energy reset."
+      "description": "B-Complex vitamins, minerals and magnesium in fluids."
     },
     "metabolic_reset": {
       "title": "Metabolic Reset",
-      "description": "Energy metabolism support and burnout recovery."
+      "description": "B-vitamins and minerals with fluids."
     },
     "b_power_shot": {
       "title": "B-Power Shot",
-      "description": "Fast B12 top-up. Energy in 10 minutes."
+      "description": "Vitamin B12 injection. Short visit."
     },
     "pure_hydrate": {
       "title": "Pure Hydrate",
-      "description": "Rapid rehydration. Simple, fast, effective."
+      "description": "Saline fluids for simple rehydration."
     },
     "electrolyte_reset": {
       "title": "Electrolyte Reset",
-      "description": "Hydration plus muscle and sleep recovery."
-    },
-    "nausea_relief": {
-      "title": "Nausea Relief",
-      "description": "Support for nausea and vomiting."
-    },
-    "standard_iron": {
-      "title": "Standard Iron",
-      "description": "Gentle iron replenishment for energy and vitality."
-    },
-    "premium_iron": {
-      "title": "Premium Iron",
-      "description": "High-potency iron, single-dose for severe deficiency."
-    },
-    "nerve_regen": {
-      "title": "Nerve Regen",
-      "description": "Nerve recovery and back pain relief."
-    },
-    "backache_relief": {
-      "title": "Backache Relief",
-      "description": "Acute muscle and nerve pain — fast relief."
-    },
-    "allergy_stop": {
-      "title": "Allergy Stop",
-      "description": "Support during allergic reactions."
+      "description": "Hydration with electrolytes and magnesium."
     },
     "post_op_wound_dressing": {
       "title": "Post-Op Wound Dressing",
@@ -2446,47 +2261,52 @@
     },
     "jet_lag_recovery": {
       "title": "Jet Lag Recovery",
-      "description": "Rehydration and energy reset after long-haul flights."
+      "description": "Fluids, electrolytes and vitamins after a long flight."
     },
     "b12_energy_shot": {
       "title": "B12 Energy Shot",
-      "description": "Instant energy and focus boost. Our most popular booster."
+      "description": "Vitamin B12 injection. A popular add-on."
     },
     "b_vitamin_complex": {
       "title": "B-Vitamin Complex",
-      "description": "Full B-Vitamin Complex (B1, B6, B12). Nerve and fatigue support."
+      "description": "B-Vitamin Complex (B1, B6, B12) injection."
     },
     "vitamin_d_shot": {
       "title": "Vitamin D Shot",
-      "description": "High-dose Vitamin D3. Three-month top-up in one injection."
+      "description": "Vitamin D3 injection."
     },
     "vitamin_b1_thiamin": {
       "title": "Vitamin B1 (Thiamin)",
-      "description": "Neurological support and cleansing acceleration."
+      "description": "Vitamin B1 (thiamin) injection."
     },
     "glutathione_glow": {
       "title": "Glutathione Glow",
-      "description": "Antioxidant support and liver-support nutrients."
+      "description": "Glutathione add-on for your drip."
     },
     "magnesium_boost": {
       "title": "Magnesium Boost",
-      "description": "Muscle relaxation, migraine relief, better sleep."
+      "description": "Magnesium add-on for your drip."
     },
     "zinc_trace_minerals": {
       "title": "Zinc & Trace Minerals",
-      "description": "Zinc, Selenium & essential trace minerals — full immune support."
+      "description": "Zinc, selenium & essential trace minerals add-on."
     },
     "vitamin_c_upgrade": {
       "title": "Vitamin C Upgrade",
-      "description": "Extra Vitamin C dose mid-drip for stronger immune effect."
+      "description": "Extra vitamin C added to your drip."
     },
     "vitamin_b6_shot": {
       "title": "Vitamin B6 Shot",
-      "description": "PMS relief, pregnancy nausea, nerve and mood support."
+      "description": "Vitamin B6 injection."
     },
-    "anti_nausea_addon": {
-      "title": "Anti-Nausea Add-on",
-      "description": "Quick nausea control added to any infusion."
+    "ivf_hormone_injection_at_home_hotel": {
+      "title": "IVF Injection at Home / Hotel",
+      "description": "We administer the injection prescribed by your clinic, following their written instructions."
     }
+  },
+  "medicalNotice": {
+    "doctor": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.",
+    "emergency": "NIUS is not an emergency service. In urgent cases call 155 or 112.",
+    "provider": "Provider: Nius Services s.r.o., ID 21908494, Prague."
   }
 }

@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { BookingLink } from '@/components/BookingLink';
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -26,6 +27,7 @@ import {
 } from "lucide-react";
 import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 import { useState } from "react";
+import { GOOGLE_RATING } from "@/constants/reviews";
 
 const IVDripsPrague = () => {
   const { t } = useTranslation();
@@ -48,12 +50,24 @@ const IVDripsPrague = () => {
   };
 
 
-  const categoryKeys = ['immunity', 'energy', 'hydration', 'specialized'] as const;
+  const categoryKeys = ['immunity', 'energy', 'hydration'] as const;
   const categoryItemKeys: Record<string, string[]> = {
     immunity: ['immunityLite', 'immunityPower', 'defenseShield', 'glowPostFlu'],
     energy: ['ceoRecharge', 'metabolicReset', 'bPowerShot'],
-    hydration: ['pureHydrate', 'electrolyteReset', 'nauseaRelief'],
-    specialized: ['standardIron', 'premiumIron', 'nerveRegen', 'backacheRelief', 'allergyStop'],
+    hydration: ['pureHydrate', 'electrolyteReset'],
+  };
+
+  // Base prices (CZK) from the API service list — single source of truth for page and schema.
+  const apiPrices: Record<string, number> = {
+    immunityLite: 2900,
+    immunityPower: 3250,
+    glowPostFlu: 3750,
+    defenseShield: 4350,
+    ceoRecharge: 4550,
+    metabolicReset: 4050,
+    bPowerShot: 1650,
+    pureHydrate: 2550,
+    electrolyteReset: 3050,
   };
 
   const menu = categoryKeys.map(catKey => ({
@@ -61,11 +75,11 @@ const IVDripsPrague = () => {
     catKey,
     items: categoryItemKeys[catKey].map(itemKey => ({
       name: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.name`),
-      priceCZK: Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.price`)),
+      priceCZK: apiPrices[itemKey] ?? Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.price`)),
       durationMin: Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.duration`)),
       short: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.short`),
       includes: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.includes`, { returnObjects: true }) as string[],
-      popular: String(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.popular`)) === 'true',
+      popular: false, // ads-compliance: no unverifiable "most popular" claims
       bestFor: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.bestFor`, { defaultValue: '' }),
     })),
   }));
@@ -74,8 +88,8 @@ const IVDripsPrague = () => {
     ? menu
     : menu.filter(cat => cat.catKey === activeFilter);
 
-  const treatmentKeys = ['vitaminC', 'ceo', 'hydration', 'iron', 'defense', 'glow'] as const;
-  const treatmentIcons = { vitaminC: Shield, ceo: Zap, hydration: Droplets, iron: Heart, defense: Activity, glow: Sparkles };
+  const treatmentKeys = ['vitaminC', 'ceo', 'hydration', 'defense', 'glow'] as const;
+  const treatmentIcons = { vitaminC: Shield, ceo: Zap, hydration: Droplets, defense: Activity, glow: Sparkles };
 
   const treatments = treatmentKeys.map(key => ({
     icon: treatmentIcons[key],
@@ -91,7 +105,7 @@ const IVDripsPrague = () => {
   const benefitKeys = ['faster', 'comesToYou', 'safety', 'customized'] as const;
   const benefitIcons = { faster: Zap, comesToYou: MapPin, safety: Shield, customized: Heart };
 
-  const faqKeys = ['safe', 'duration', 'hotels', 'hangover', 'vitaminC', 'iron', 'cost', 'sameDay', 'districts', 'prescription'] as const;
+  const faqKeys = ['safe', 'duration', 'hotels', 'vitaminC', 'cost', 'sameDay', 'districts', 'prescription'] as const;
 
   const stepKeys = ['step1', 'step2', 'step3', 'step4', 'step5'] as const;
 
@@ -110,11 +124,10 @@ const IVDripsPrague = () => {
         "url": hreflangMap[currentLang] || hreflangMap.en,
         "image": "https://www.nius.cz/og-image.jpg",
         "telephone": phone,
-        "priceRange": "1550-6350 CZK",
+        "priceRange": "1650-4550 CZK",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Prague",
-          "addressRegion": "Prague",
+          "addressLocality": "Praha",
           "addressCountry": "CZ",
         },
         "areaServed": [
@@ -135,10 +148,10 @@ const IVDripsPrague = () => {
         "availableLanguage": ["en", "cs", "ru", "uk"],
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "4",
-          "bestRating": "5",
-          "worstRating": "4"
+          "ratingValue": GOOGLE_RATING.ratingValue,
+          "reviewCount": GOOGLE_RATING.reviewCount,
+          "bestRating": GOOGLE_RATING.bestRating,
+          "worstRating": GOOGLE_RATING.worstRating
         }
       },
       {
@@ -256,10 +269,10 @@ const IVDripsPrague = () => {
                       </a>
                     </Button>
                     <Button size="lg" variant="default" className="text-lg px-8 bg-teal-600 hover:bg-teal-700" asChild>
-                      <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <BookingLink className="flex items-center gap-2">
                         <Calendar className="w-5 h-5" />
                         {t('ivDripTherapy.hero.bookBtn')}
-                      </a>
+                      </BookingLink>
                     </Button>
                     <Button size="lg" variant="outline" className="text-lg px-8" asChild>
                       <a href="#menu">{t('ivDripTherapy.hero.menuBtn')}</a>
@@ -309,97 +322,6 @@ const IVDripsPrague = () => {
                       </Card>
                     );
                   })}
-                </div>
-              </div>
-            </section>
-
-            {/* Comparison Table */}
-            <section className="py-16 px-4">
-              <div className="container mx-auto max-w-6xl">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                    {t('ivDripTherapy.comparison.title')}
-                  </h2>
-                  <p className="text-lg text-muted-foreground">
-                    {t('ivDripTherapy.comparison.subtitle')}
-                  </p>
-                </div>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse">
-                    <thead>
-                    <tr className="border-b-2 border-primary">
-                      <th className="text-left p-4 font-semibold">{t('ivDripTherapy.comparison.feature')}</th>
-                      <th className="text-center p-4 font-semibold bg-primary/5">
-                        <div className="text-primary text-lg">{t('ivDripTherapy.comparison.nius')}</div>
-                      </th>
-                      <th className="text-center p-4 font-semibold">{t('ivDripTherapy.comparison.otherMobile')}</th>
-                      <th className="text-center p-4 font-semibold">{t('ivDripTherapy.comparison.hospitalClinic')}</th>
-                    </tr>
-                    </thead>
-                    <tbody className="divide-y">
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.mobile')}</td>
-                      <td className="text-center p-4 bg-primary/5"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4 text-muted-foreground">✗</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.availability')}</td>
-                      <td className="text-center p-4 bg-primary/5"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.limitedHours')}</td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.erOnly')}</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.nurses')}</td>
-                      <td className="text-center p-4 bg-primary/5"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.varies')}</td>
-                      <td className="text-center p-4"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.ivf')}</td>
-                      <td className="text-center p-4 bg-primary/5"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4 text-muted-foreground">✗</td>
-                      <td className="text-center p-4 text-muted-foreground">✗</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.postSurgery')}</td>
-                      <td className="text-center p-4 bg-primary/5"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4 text-muted-foreground">✗</td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.outpatientOnly')}</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.sameDay')}</td>
-                      <td className="text-center p-4 bg-primary/5"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.sometimes')}</td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.longWait')}</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.pricing')}</td>
-                      <td className="text-center p-4 bg-primary/5"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.variableFees')}</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.english')}</td>
-                      <td className="text-center p-4 bg-primary/5"><CheckCircle2 className="w-6 h-6 text-primary mx-auto" /></td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.varies')}</td>
-                      <td className="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.limited')}</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium">{t('ivDripTherapy.comparison.rows.sessionTime')}</td>
-                      <td className="text-center p-4 bg-primary/5">{t('ivDripTherapy.comparison.sessionNius')}</td>
-                      <td className="text-center p-4">{t('ivDripTherapy.comparison.sessionOther')}</td>
-                      <td className="text-center p-4">{t('ivDripTherapy.comparison.sessionHospital')}</td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <div className="text-center mt-8">
-                  <Button size="lg" asChild>
-                    <a href={whatsappLink}>{t('ivDripTherapy.comparison.bookNow')}</a>
-                  </Button>
                 </div>
               </div>
             </section>
@@ -797,10 +719,10 @@ const IVDripsPrague = () => {
                     </a>
                   </Button>
                   <Button size="lg" className="text-lg px-8 bg-teal-600 hover:bg-teal-700" asChild>
-                    <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <BookingLink className="flex items-center gap-2">
                       <Calendar className="w-5 h-5" />
                       {t('ivDripTherapy.cta.bookBtn')}
-                    </a>
+                    </BookingLink>
                   </Button>
                   <Button size="lg" variant="outline" className="text-lg px-8" asChild>
                     <a href="mailto:info@nius.cz">{t('ivDripTherapy.cta.emailBtn')}</a>

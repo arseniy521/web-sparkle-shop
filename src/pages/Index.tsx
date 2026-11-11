@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { NavBar } from "@/components/NavBar";
 import { HeroNew } from "@/components/HeroNew";
 import { TrustStrip } from "@/components/TrustStrip";
-import { Partners } from "@/components/Partners";
 import { MenuSection, BundlesSection, SubscriptionSection } from "@/components/MenuSection";
 import { MobileStickyBar } from "@/components/MobileStickyBar";
 import { WhoWeServe } from "@/components/WhoWeServe";
@@ -11,6 +10,7 @@ import { OurNurses } from "@/components/OurNurses";
 import { FooterNew } from "@/components/FooterNew";
 import { SEO } from "@/components/SEO";
 import { useTranslation } from "react-i18next";
+import { GOOGLE_RATING } from "@/constants/reviews";
 
 const TestimonialsNew = lazy(() => import("@/components/TestimonialsNew").then(m => ({ default: m.TestimonialsNew })));
 const ServiceArea = lazy(() => import("@/components/ServiceArea").then(m => ({ default: m.ServiceArea })));
@@ -32,11 +32,8 @@ const Index = () => {
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Prague City Center",
-      "addressLocality": t('schema.areaServed'),
-      "addressRegion": t('schema.areaServed'),
-      "addressCountry": "CZ",
-      "postalCode": "110 00"
+      "addressLocality": "Praha",
+      "addressCountry": "CZ"
     },
     "areaServed": [
       {
@@ -67,7 +64,7 @@ const Index = () => {
     },
     "telephone": "+420773629123",
     "email": "info@nius.cz",
-    "priceRange": "1650-6450 CZK",
+    "priceRange": "1650-4550 CZK",
     "currenciesAccepted": "CZK, EUR",
     "paymentAccepted": ["Cash", "Bank Transfer", "Card"],
     "openingHours": "Mo-Su 08:00-21:00",
@@ -79,10 +76,10 @@ const Index = () => {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "6",
-      "bestRating": "5",
-      "worstRating": "4"
+      "ratingValue": GOOGLE_RATING.ratingValue,
+      "reviewCount": GOOGLE_RATING.reviewCount,
+      "bestRating": GOOGLE_RATING.bestRating,
+      "worstRating": GOOGLE_RATING.worstRating
     },
     "availableLanguage": ["en", "cs", "ru", "uk"],
     "potentialAction": {
@@ -162,13 +159,12 @@ const Index = () => {
     "@type": "ItemList",
     "name": "IV Drip Services Prague",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "item": { "@type": "Service", "name": "Immunity Lite", "description": "Baseline immune boost IV drip", "offers": { "@type": "Offer", "price": "2900", "priceCurrency": "CZK" } } },
-      { "@type": "ListItem", "position": 2, "item": { "@type": "Service", "name": "Immunity Power", "description": "High-dose Vitamin C IV drip", "offers": { "@type": "Offer", "price": "3250", "priceCurrency": "CZK" } } },
-      { "@type": "ListItem", "position": 3, "item": { "@type": "Service", "name": "Defense Shield", "description": "Ultimate flu & virus recovery IV drip", "offers": { "@type": "Offer", "price": "4350", "priceCurrency": "CZK" } } },
-      { "@type": "ListItem", "position": 4, "item": { "@type": "Service", "name": "CEO Recharge", "description": "Peak focus and energy reset IV drip", "offers": { "@type": "Offer", "price": "4550", "priceCurrency": "CZK" } } },
-      { "@type": "ListItem", "position": 5, "item": { "@type": "Service", "name": "Pure Hydrate", "description": "Rapid rehydration IV drip", "offers": { "@type": "Offer", "price": "2450", "priceCurrency": "CZK" } } },
-      { "@type": "ListItem", "position": 6, "item": { "@type": "Service", "name": "Standard Iron", "description": "Iron infusion for energy and vitality", "offers": { "@type": "Offer", "price": "3450", "priceCurrency": "CZK" } } },
-      { "@type": "ListItem", "position": 7, "item": { "@type": "Service", "name": "Premium Iron", "description": "High-potency iron infusion", "offers": { "@type": "Offer", "price": "5650", "priceCurrency": "CZK" } } }
+      { "@type": "ListItem", "position": 1, "item": { "@type": "Service", "name": "Immunity Lite", "description": "Vitamins and fluids IV drip", "offers": { "@type": "Offer", "price": "2900", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "Service", "name": "Immunity Power", "description": "Vitamin C and fluids IV drip", "offers": { "@type": "Offer", "price": "3250", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "Service", "name": "Vitamin & Mineral Classic", "description": "Vitamins, minerals and fluids IV drip", "offers": { "@type": "Offer", "price": "3750", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "Service", "name": "Vitamin & Mineral Plus", "description": "Extended vitamin and mineral IV drip", "offers": { "@type": "Offer", "price": "4350", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "Service", "name": "CEO Recharge", "description": "Vitamins, minerals and fluids IV drip", "offers": { "@type": "Offer", "price": "4550", "priceCurrency": "CZK" } } },
+      { "@type": "ListItem", "position": 6, "item": { "@type": "Service", "name": "Pure Hydrate", "description": "Hydration IV drip", "offers": { "@type": "Offer", "price": "2550", "priceCurrency": "CZK" } } }
     ]
   };
 
@@ -218,7 +214,6 @@ const Index = () => {
       <main role="main" id="main-content">
         <HeroNew />
         <TrustStrip />
-        <Partners />
         <MenuSection />
         <WhoWeServe />
         <HowItWorks />

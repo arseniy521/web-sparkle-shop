@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BookingLink } from '@/components/BookingLink';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Phone, MapPin, Clock } from "lucide-react";
@@ -12,7 +13,7 @@ const SestrickaPrahaZizkov = () => {
   const { t } = useTranslation();
   
   const pageTitle = "Sestřička Praha Žižkov | Domácí Zdravotní Péče";
-  const pageDescription = "Profesionální sestřička na Žižkově v Praze 3. IV kapačky, injekce, péče o rány a domácí ošetřovatelská péče. Rychlá dostupnost pro Žižkov a okolí.";
+  const pageDescription = "Profesionální sestřička na Žižkově v Praze 3. IV kapačky, injekce, péče o rány a domácí ošetřovatelská péče. Návštěva ve stejný den, denně 8:00–21:00.";
   
   const neighborhoods = [
     "Žižkov",
@@ -38,7 +39,7 @@ const SestrickaPrahaZizkov = () => {
           "telephone": "+420773629123",
           "email": "info@nius.cz",
           "url": "https://www.nius.cz/sestricka-praha-zizkov/",
-          "priceRange": "1890-2680 CZK",
+          "priceRange": "1650-4550 CZK",
           "geo": {
             "@type": "GeoCoordinates",
             "latitude": "50.0837",
@@ -65,7 +66,7 @@ const SestrickaPrahaZizkov = () => {
                   "@type": "Service",
                   "name": "IV Kapačky Žižkov",
                   "description": "Profesionální IV kapačky na Žižkově",
-                  "price": "2380",
+                  "price": "1650",
                   "priceCurrency": "CZK"
                 }
               },
@@ -75,7 +76,7 @@ const SestrickaPrahaZizkov = () => {
                   "@type": "Service",
                   "name": "Injekce Žižkov",
                   "description": "Aplikace injekcí a léků na Žižkově",
-                  "price": "1890",
+                  "price": "1900",
                   "priceCurrency": "CZK"
                 }
               }
@@ -104,12 +105,12 @@ const SestrickaPrahaZizkov = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" className="w-full sm:w-auto group">
                     Rezervovat sestřičku
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
-                </a>
+                </BookingLink>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />
@@ -121,7 +122,7 @@ const SestrickaPrahaZizkov = () => {
               <div className="flex flex-wrap gap-6 justify-center pt-8 text-sm">
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-primary" />
-                  <span>Obvykle 1-2 hodiny na Žižkově</span>
+                  <span>Návštěva ve stejný den, denně 8:00–21:00</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-primary" />
@@ -145,7 +146,7 @@ const SestrickaPrahaZizkov = () => {
                     <MapPin className="h-8 w-8 text-primary mx-auto mb-3" />
                     <h3 className="font-semibold text-lg">{area}</h3>
                     <p className="text-sm text-muted-foreground mt-2">
-                      Rychlý příjezd 1-2 hodiny
+                      Čas příjezdu potvrdíme po objednání
                     </p>
                   </Card>
                 ))}
@@ -166,18 +167,18 @@ const SestrickaPrahaZizkov = () => {
                   <Card className="p-6 hover:shadow-card transition-all">
                     <h3 className="text-xl font-semibold mb-3">IV Kapačky na Žižkově</h3>
                     <p className="text-muted-foreground mb-4">
-                      Profesionální podání IV kapačky u vás doma. Vitamíny, hydratace, předepsané léky.
+                      Profesionální podání IV kapačky u vás doma. Vitamíny a hydratace; každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.
                     </p>
-                    <p className="text-sm font-semibold">Od 2 380 Kč</p>
+                    <p className="text-sm font-semibold">Od 1 650 Kč</p>
                   </Card>
                 </Link>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Injekce a aplikace léků</h3>
                   <p className="text-muted-foreground mb-4">
-                    Inzulín, antibiotika, vitaminová terapie. Přesné a bezpečné podání na Žižkově.
+                    Injekce předepsané lékařem nebo vaší klinikou, podle jejich písemných pokynů.
                   </p>
-                  <p className="text-sm font-semibold">Od 1 890 Kč</p>
+                  <p className="text-sm font-semibold">Od 1 900 Kč</p>
                 </Card>
 
                 <Card className="p-6">
@@ -185,13 +186,13 @@ const SestrickaPrahaZizkov = () => {
                   <p className="text-muted-foreground mb-4">
                     Pooperační péče, sterilní převazy, ošetření ran. Pravidelná kontrola hojení.
                   </p>
-                  <p className="text-sm font-semibold">Od 899 Kč</p>
+                  <p className="text-sm font-semibold">Od 1 890 Kč</p>
                 </Card>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Denní péče o seniory</h3>
                   <p className="text-muted-foreground mb-4">
-                    Hygienická asistence, podávání léků, měření tlaku pro starší obyvatele Žižkova.
+                    Hygienická asistence, pomoc s léky dle pokynů lékaře, měření tlaku pro starší obyvatele Žižkova.
                   </p>
                   <p className="text-sm font-semibold">Individuální ceny</p>
                 </Card>
@@ -212,9 +213,9 @@ const SestrickaPrahaZizkov = () => {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold">Rychlý příjezd</h3>
+                  <h3 className="font-semibold">Návštěva ve stejný den</h3>
                   <p className="text-sm text-muted-foreground">
-                    Na Žižkov obvykle dorazíme do 1-2 hodin
+                    Denně 8:00–21:00. Čas příjezdu potvrdíme po objednání.
                   </p>
                 </div>
                 <div className="space-y-3">
@@ -248,14 +249,14 @@ const SestrickaPrahaZizkov = () => {
                 Potřebujete sestřičku na Žižkově?
               </h2>
               <p className="text-lg text-muted-foreground">
-                Rezervujte si profesionální zdravotní péči ještě dnes. Rychlý příjezd, česky i anglicky.
+                Rezervujte si profesionální zdravotní péči ještě dnes. Návštěva ve stejný den, česky i anglicky.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" className="w-full sm:w-auto">
                     Rezervovat online
                   </Button>
-                </a>
+                </BookingLink>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />

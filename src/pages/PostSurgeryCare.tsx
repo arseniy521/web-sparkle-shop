@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { BookingLink } from '@/components/BookingLink';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Shield, Phone, Check, Heart, Star, Clock, Building2 } from "lucide-react";
+import { ArrowRight, Shield, Phone, Check, Heart, Star, Clock } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -11,7 +12,7 @@ import woundCareIcon from "@/assets/WoundDressingBandage.webp";
 import { useTranslation } from "react-i18next";
 
 const PostSurgeryCare = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const services = [
     t('postSurgeryCare.services.woundCare'),
     t('postSurgeryCare.services.drainManagement'),
@@ -23,8 +24,13 @@ const PostSurgeryCare = () => {
     t('postSurgeryCare.services.monitoring')
   ];
 
-  const pageTitle = "Post-Surgery Recovery Care Prague | Medical Tourism Nursing Support";
-  const pageDescription = "Professional post-operative nursing care for medical tourists in Prague. Wound care, hygiene assistance, hospital escort at your hotel. English-speaking nurses for plastic surgery, dental, orthopedic recovery.";
+  const seoCopy: Record<string, { title: string; description: string }> = {
+    en: { title: "Post-Surgery Nursing Care in Prague | NIUS", description: "Post-operative nursing care in Prague at your hotel or home: wound dressing, hygiene help and clinic escort by registered, English-speaking nurses." },
+    cs: { title: "Pooperační péče sestry v Praze | NIUS", description: "Pooperační ošetřovatelská péče v Praze v hotelu nebo doma: převazy ran, pomoc s hygienou a doprovod na kontroly. Registrované sestry, česky i anglicky." },
+    ru: { title: "Послеоперационный уход медсестры в Праге | NIUS", description: "Послеоперационный уход в Праге в отеле или дома: перевязки, помощь с гигиеной, сопровождение на приём. Дипломированные медсёстры, по-русски и по-английски." },
+    uk: { title: "Післяопераційний догляд медсестри в Празі | NIUS", description: "Післяопераційний догляд у Празі в готелі чи вдома: перев’язки, допомога з гігієною, супровід на візити. Медсестри говорять українською та англійською." },
+  };
+  const { title: pageTitle, description: pageDescription } = seoCopy[i18n.language] ?? seoCopy.en;
 
   const faqKeys = ['1', '2', '3', '4'] as const;
   const schema = [
@@ -42,7 +48,7 @@ const PostSurgeryCare = () => {
         "addressLocality": "Prague",
         "addressCountry": "CZ"
       },
-      "priceRange": "1900-28900 CZK",
+      "priceRange": "1650-4550 CZK",
       "availableLanguage": ["en", "cs", "ru", "uk"],
       "geo": {
         "@type": "GeoCoordinates",
@@ -57,8 +63,8 @@ const PostSurgeryCare = () => {
         },
         {
           "@type": "Service",
-          "name": "Hospital Escort Service",
-          "description": "Safe transportation and settlement assistance for medical tourists"
+          "name": "Medical Appointment Escort Service",
+          "description": "Accompanied transport and settling-in assistance for medical tourists"
         },
         {
           "@type": "Service",
@@ -111,12 +117,12 @@ const PostSurgeryCare = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                  <BookingLink>
                     <Button size="lg" className="w-full sm:w-auto group">
                       {t('postSurgeryCare.bookNow')}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
-                  </a>
+                  </BookingLink>
                   <a href="tel:+420773629123">
                     <Button size="lg" variant="outline" className="w-full sm:w-auto">
                       <Phone className="mr-2 h-5 w-5" />
@@ -204,12 +210,12 @@ const PostSurgeryCare = () => {
                     </li>
                     <li className="flex gap-2">
                       <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Safe settlement at hotel</span>
+                      <span className="text-sm">Settling in at your hotel</span>
                     </li>
                   </ul>
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                  <BookingLink>
                     <Button className="w-full">Book Escort</Button>
-                  </a>
+                  </BookingLink>
                 </Card>
 
                 <Card className="p-8 border-2 border-primary relative">
@@ -239,9 +245,9 @@ const PostSurgeryCare = () => {
                       <span className="text-sm">Medication assistance</span>
                     </li>
                   </ul>
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                  <BookingLink>
                     <Button className="w-full">Book Package</Button>
-                  </a>
+                  </BookingLink>
                 </Card>
 
                 <Card className="p-8">
@@ -272,9 +278,9 @@ const PostSurgeryCare = () => {
                       <span className="text-sm">Daily phone support</span>
                     </li>
                   </ul>
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                  <BookingLink>
                     <Button className="w-full">Book Package</Button>
-                  </a>
+                  </BookingLink>
                 </Card>
               </div>
 
@@ -368,32 +374,6 @@ const PostSurgeryCare = () => {
           </div>
         </section>
 
-        {/* Clinic Partnerships */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 text-center">
-              {t('postSurgeryCare.clinics.title')}
-            </h2>
-            <p className="text-lg text-muted-foreground mb-12 text-center">
-              {t('postSurgeryCare.clinics.subtitle')}
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-              {(t('postSurgeryCare.clinics.items', { returnObjects: true }) as { name: string; specialty: string }[]).map((clinic, index) => (
-                <Card key={index} className="p-4 flex items-center gap-3">
-                  <Building2 className="h-8 w-8 text-primary flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-secondary">{clinic.name}</p>
-                    <p className="text-sm text-muted-foreground">{clinic.specialty}</p>
-                  </div>
-                </Card>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground text-center mt-6">
-              {t('postSurgeryCare.clinics.note')}
-            </p>
-          </div>
-        </section>
-
         {/* Testimonials */}
         <section className="py-16">
           <div className="container mx-auto px-4">
@@ -462,12 +442,12 @@ const PostSurgeryCare = () => {
                 Book your post-operative care in advance for peace of mind. We're here to support your recovery.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" className="w-full sm:w-auto">
                     Book Recovery Care
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                </a>
+                </BookingLink>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />

@@ -19,7 +19,10 @@ export const OurNurses = () => {
             <img
               src="/photos/nurse-portrait.jpg"
               alt={t('ourNurses.imageAlt')}
+              width={1050}
+              height={1400}
               loading="lazy"
+              decoding="async"
               className="w-full rounded-lg object-cover"
               style={{
                 aspectRatio: '3/4',

@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 import { Visa, Mastercard, Applepay, Googlepay } from "react-pay-icons";
+import { MedicalNotice } from '@/components/MedicalNotice';
 
 export const FooterNew = () => {
   const { t } = useTranslation();
@@ -71,6 +72,8 @@ export const FooterNew = () => {
           <Applepay className="h-8 rounded" style={{ opacity: 0.9 }} />
           <Googlepay className="h-8 rounded" style={{ opacity: 0.9 }} />
         </div>
+
+        <MedicalNotice variant="footer" className="max-w-3xl mb-6" />
 
         {/* Bottom strip */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-2">

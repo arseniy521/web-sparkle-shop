@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { BookingLink } from '@/components/BookingLink';
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,8 +20,8 @@ const Blog = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SEO
-        title="Healthcare Blog | Nurse in Prague - Home Nursing Tips & Guides"
-        description="Expert insights on home healthcare, nursing services, IV therapy, wound care, elderly care, and medical services in Prague. Professional nursing advice and guides."
+        title="Nurse in Prague Blog | Home Nursing Guides"
+        description="Practical guides from registered nurses in Prague on home nursing, IV drips, wound care and elderly care, explained in plain, friendly language, with no jargon."
         ogImage="https://www.nius.cz/og-blog.jpg"
         noindex={currentLang === 'ru' || currentLang === 'uk'}
         hreflangLanguages={['cs', 'en']}
@@ -109,12 +110,12 @@ const Blog = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 Book a qualified nurse to visit your home in Prague. Same-day appointments available.
               </p>
-              <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+              <BookingLink>
                 <Button size="lg" className="group">
                   Book a Nurse Now
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
-              </a>
+              </BookingLink>
             </div>
           </div>
         </section>

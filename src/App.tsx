@@ -17,7 +17,7 @@ import SestrickaPraha1 from "./pages/SestrickaPraha1";
 import SestrickaPrahaZizkov from "./pages/SestrickaPrahaZizkov";
 import WomensDayGift from "./pages/WomensDayGift";
 import BirthdayGift from "./pages/BirthdayGift";
-import HangoverIVDripPrague from "./pages/HangoverIVDripPrague";
+import HydrationIVPrague from "./pages/HydrationIVPrague";
 import IVDripHotelPrague from "./pages/IVDripHotelPrague";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -94,13 +94,19 @@ const App = () => (
             <Route path="/en/birthday-gift-prague" element={<LanguageWrapper language="en"><BirthdayGift /></LanguageWrapper>} />
             <Route path="/ru/podatok-k-dnju-rozhdenija-praga" element={<LanguageWrapper language="ru"><BirthdayGift /></LanguageWrapper>} />
 
-            {/* Hangover IV Drip - Localized slugs */}
-            <Route path="/kapacka-na-kocovinu-praha" element={<LanguageWrapper language="cs"><HangoverIVDripPrague /></LanguageWrapper>} />
-            <Route path="/en/hangover-iv-drip-prague" element={<LanguageWrapper language="en"><HangoverIVDripPrague /></LanguageWrapper>} />
-            <Route path="/ru/kapelnica-ot-pokhmelya-praga" element={<LanguageWrapper language="ru"><HangoverIVDripPrague /></LanguageWrapper>} />
-            <Route path="/uk/krapelnytsia-vid-pokhmellia-praga" element={<LanguageWrapper language="uk"><HangoverIVDripPrague /></LanguageWrapper>} />
+            {/* Rehydration IV drip - Localized slugs */}
+            <Route path="/rehydratace-praha" element={<LanguageWrapper language="cs"><HydrationIVPrague /></LanguageWrapper>} />
+            <Route path="/en/rehydration-iv-drip-prague" element={<LanguageWrapper language="en"><HydrationIVPrague /></LanguageWrapper>} />
+            <Route path="/ru/regidratatsiya-kapelnitsa-praga" element={<LanguageWrapper language="ru"><HydrationIVPrague /></LanguageWrapper>} />
+            <Route path="/uk/rehidratatsiia-krapelnytsia-praga" element={<LanguageWrapper language="uk"><HydrationIVPrague /></LanguageWrapper>} />
 
             {/* Redirect invalid /cs/ and /cz/ prefixes to homepage (Czech is the default, no prefix) */}
+            {/* Legacy URLs of the replaced page -> rehydration pages */}
+            <Route path="/kapacka-na-kocovinu-praha" element={<Navigate to="/rehydratace-praha/" replace />} /> {/* ads-check:ignore legacy URL redirect */}
+            <Route path="/en/hangover-iv-drip-prague" element={<Navigate to="/en/rehydration-iv-drip-prague/" replace />} /> {/* ads-check:ignore legacy URL redirect */}
+            <Route path="/ru/kapelnica-ot-pokhmelya-praga" element={<Navigate to="/ru/regidratatsiya-kapelnitsa-praga/" replace />} /> {/* ads-check:ignore legacy URL redirect */}
+            <Route path="/uk/krapelnytsia-vid-pokhmellia-praga" element={<Navigate to="/uk/rehidratatsiia-krapelnytsia-praga/" replace />} /> {/* ads-check:ignore legacy URL redirect */}
+
             <Route path="/cs/*" element={<Navigate to="/" replace />} />
             <Route path="/cz/*" element={<Navigate to="/" replace />} />
 

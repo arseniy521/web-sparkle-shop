@@ -85,6 +85,9 @@ export const HeroNew = () => {
             <img
               src="/photos/hero-iv-bag.webp"
               alt="NIUS branded IV drip bag"
+              width={1086}
+              height={1448}
+              fetchPriority="high"
               className="rounded-lg object-cover"
               style={{
                 maxHeight: '600px',
@@ -97,16 +100,6 @@ export const HeroNew = () => {
 
         {/* Stats row */}
         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 mt-12 pt-8" style={{ borderTop: '0.5px solid var(--color-border)' }}>
-          <div className="text-center">
-            <span className="font-display font-bold text-xl" style={{ color: 'var(--color-ink)' }}>3 000+</span>
-            <span className="block text-xs font-body" style={{ color: 'var(--color-text-muted)' }}>{t('heroNew.statsVisits')}</span>
-          </div>
-          <div className="hidden sm:block w-px h-8" style={{ backgroundColor: 'var(--color-border)' }} />
-          <div className="text-center">
-            <span className="font-display font-bold text-xl" style={{ color: 'var(--color-ink)' }}>70%</span>
-            <span className="block text-xs font-body" style={{ color: 'var(--color-text-muted)' }}>{t('heroNew.statsInternational')}</span>
-          </div>
-          <div className="hidden sm:block w-px h-8" style={{ backgroundColor: 'var(--color-border)' }} />
           <div className="text-center">
             <span className="font-display font-bold text-xl" style={{ color: 'var(--color-ink)' }}>{t('heroNew.statsSameDay')}</span>
             <span className="block text-xs font-body" style={{ color: 'var(--color-text-muted)' }}>{t('heroNew.statsSameDayLabel')}</span>

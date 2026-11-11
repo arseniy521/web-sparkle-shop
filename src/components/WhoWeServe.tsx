@@ -70,7 +70,10 @@ export const WhoWeServe = () => {
                 <img
                   src={card.image}
                   alt={card.alt}
+                  width={800}
+                  height={600}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover rounded-t-lg"
                   style={{ filter: PHOTO_FILTER }}
                 />

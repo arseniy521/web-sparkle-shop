@@ -2,6 +2,13 @@ import { createElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useOnboardingCart } from '@/hooks/useOnboardingCart';
 
+const MENU_HEADINGS: Record<string, string> = {
+  cs: 'Menu IV kapaček: návštěva sestry po Praze',
+  en: 'IV Drip Menu: Prague Home Visits',
+  ru: 'Меню капельниц: визиты медсестры по Праге',
+  uk: 'Меню крапельниць: візити медсестри по Празі',
+};
+
 export const MenuSection = () => {
   const { i18n } = useTranslation();
   const { codes } = useOnboardingCart();
@@ -12,55 +19,35 @@ export const MenuSection = () => {
         {createElement('nius-menu', { section: 'menu', locale: i18n.language, 'cart-codes': JSON.stringify(codes) })}
       </div>
       <div className="sr-only" aria-hidden="true">
-        <h2>IV Drip Menu — Prague Home Delivery</h2>
-        <h3>Immunity & Recovery</h3>
+        <h2>{MENU_HEADINGS[i18n.language] ?? MENU_HEADINGS.en}</h2>
+        <h3>Vitamins &amp; Minerals</h3>
         <ul>
-          <li>Immunity Lite — Baseline immune boost. 2,900 CZK. 40–50 min IV infusion.</li>
-          <li>Immunity Power — High-dose Vitamin C, serious viral defence. 3,250 CZK. 45–55 min.</li>
-          <li>Defense Shield — Ultimate flu & virus recovery formula. 4,350 CZK. 50–60 min.</li>
-          <li>Radiance — Skin, hair, and vitality support. 3,750 CZK. 45–55 min.</li>
+          <li>Immunity Lite: Vitamins and fluids. From 2,900 CZK. 40–50 min IV infusion.</li>
+          <li>Immunity Power: Vitamin C and fluids. From 3,250 CZK. 45–55 min.</li>
+          <li>Vitamin &amp; Mineral Classic: Vitamins, minerals and fluids. From 3,750 CZK. 45–55 min.</li>
+          <li>Vitamin &amp; Mineral Plus: Extended vitamin and mineral blend with fluids. From 4,350 CZK. 50–60 min.</li>
         </ul>
-        <h3>Energy & Performance</h3>
+        <h3>Energy &amp; Performance</h3>
         <ul>
-          <li>CEO Recharge — Peak focus, mental clarity, full energy reset. 4,550 CZK. 65–75 min.</li>
-          <li>Metabolic Reset — Energy metabolism support and burnout recovery. 4,050 CZK. 55–65 min.</li>
-          <li>B-Power Shot — Fast B12 top-up, energy in 10 minutes. 1,650 CZK. 10–15 min.</li>
+          <li>CEO Recharge: Vitamins, minerals and fluids for busy days. From 4,550 CZK. 65–75 min.</li>
+          <li>Metabolic Reset: Vitamins and fluids. From 4,050 CZK. 55–65 min.</li>
+          <li>B-Power Shot: Vitamin B12 shot. From 1,650 CZK. 10–15 min.</li>
         </ul>
-        <h3>Hydration & Balance</h3>
+        <h3>Hydration &amp; Balance</h3>
         <ul>
-          <li>Pure Hydrate — Rapid rehydration. 2,550 CZK. 35–45 min.</li>
-          <li>Electrolyte Reset — Hydration plus muscle and sleep recovery. 3,050 CZK. 45–55 min.</li>
-          <li>Nausea Relief — Support for nausea and vomiting. 2,950 CZK. 20–30 min.</li>
-          <li>Jet Lag Recovery — Rehydration and energy reset after long-haul flights. 3,250 CZK. 45–55 min.</li>
-        </ul>
-        <h3>Specialised Care</h3>
-        <ul>
-          <li>Standard Iron — Gentle iron replenishment. 2,850 CZK. 45–55 min.</li>
-          <li>Premium Iron — High-potency single dose for severe deficiency. 6,450 CZK. 20–30 min.</li>
-          <li>Nerve Regen — Nerve recovery and back pain relief. 3,450 CZK. 45–55 min.</li>
-          <li>Backache Relief — Acute muscle and nerve pain. 3,350 CZK. 45–55 min.</li>
-          <li>Allergy Stop — Support during allergic reactions. 2,750 CZK. 25–35 min.</li>
+          <li>Pure Hydrate: Fluids and electrolytes. From 2,550 CZK. 35–45 min.</li>
+          <li>Electrolyte Reset: Fluids with electrolytes and magnesium. From 3,050 CZK. 45–55 min.</li>
+          <li>Jet Lag Recovery: Rehydration after travel. From 3,250 CZK. 45–55 min.</li>
         </ul>
         <h3>Nursing Care</h3>
         <ul>
-          <li>Post-Op Wound Dressing — Professional wound care after surgery. 1,890 CZK. 30–45 min.</li>
-          <li>Hygiene Assistance — Professional hygiene and comfort care. 1,690 CZK. 60 min.</li>
-          <li>Nurse Escort — Accompanied transport to medical appointments. 2,190 CZK. 2–4 hours.</li>
+          <li>Post-Op Wound Dressing: Wound dressing by a registered nurse. From 1,890 CZK. 30–45 min.</li>
+          <li>Hygiene Assistance: Hygiene and comfort care. From 1,690 CZK.</li>
+          <li>Nurse Escort: Accompanied transport to medical appointments. From 2,190 CZK.</li>
+          <li>IVF injection visit: We administer medication prescribed by your clinic, following their written instructions. From 1,900 CZK.</li>
         </ul>
-        <h3>Booster Shots (Add-ons)</h3>
-        <ul>
-          <li>B12 Energy Shot — 650 CZK</li>
-          <li>B-Vitamin Complex — 750 CZK</li>
-          <li>Vitamin D Shot — 850 CZK</li>
-          <li>Vitamin B1 (Thiamin) — 700 CZK</li>
-          <li>Glutathione Glow — 900 CZK</li>
-          <li>Magnesium Boost — 500 CZK</li>
-          <li>Zinc & Trace Minerals — 550 CZK</li>
-          <li>Vitamin C Upgrade — 650 CZK</li>
-          <li>Vitamin B6 Shot — 450 CZK</li>
-          <li>Anti-Nausea Add-on — 480 CZK</li>
-        </ul>
-        <p>All prices include a registered nurse visit to your Prague location. Same-day appointments available 8:00–21:00 daily.</p>
+        <p>Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.</p>
+        <p>Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book. NIUS is not an emergency service: call 155/112.</p>
       </div>
     </section>
   );

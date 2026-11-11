@@ -39,7 +39,6 @@ export const SEO = ({
   const location = useLocation();
   const currentLang = i18n.language;
   const ogLocale = languageMap[currentLang] || 'en_US';
-  const alternateLanguages = Object.keys(languageMap).filter(lang => lang !== currentLang);
   
   // Get base path without language prefix
   const basePath = getBasePath(location.pathname);
@@ -51,6 +50,7 @@ export const SEO = ({
   const baseUrl = 'https://www.nius.cz';
   const allLanguages = ['en', 'cs', 'ru', 'uk'];
   const activeLanguages = hreflangLanguages || allLanguages;
+  const alternateLanguages = activeLanguages.filter(lang => lang !== currentLang && languageMap[lang]);
   const alternateUrls: Record<string, string> = {};
   for (const lang of activeLanguages) {
     alternateUrls[lang] = ensureTrailingSlash(hreflangOverrides?.[lang] || `${baseUrl}${buildLanguageUrl(basePath, lang)}`);

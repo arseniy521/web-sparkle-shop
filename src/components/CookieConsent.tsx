@@ -1,9 +1,20 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { buildLanguageUrl } from "@/utils/languageUtils";
 import { enableAnalytics, disableAnalytics } from "@/lib/analytics";
 import { getConsent, setConsent } from "@/lib/consent";
 
+const COPY: Record<string, { text: string; policy: string; reject: string; accept: string; label: string }> = {
+  cs: { text: "Používáme cookies pro analytiku a měření reklamy (Google, Amplitude), abychom službu zlepšovali. Bez vašeho souhlasu je nenastavujeme.", policy: "Zásady ochrany osobních údajů", reject: "Odmítnout", accept: "Souhlasím", label: "Souhlas s cookies" },
+  en: { text: "We use cookies for analytics and ad measurement (Google, Amplitude) to improve our service. We set none of them without your consent.", policy: "Privacy Policy", reject: "Reject", accept: "Accept", label: "Cookie consent" },
+  ru: { text: "Мы используем cookies для аналитики и измерения рекламы (Google, Amplitude), чтобы улучшать сервис. Без вашего согласия мы их не устанавливаем.", policy: "Политика конфиденциальности", reject: "Отклонить", accept: "Принять", label: "Согласие на cookies" },
+  uk: { text: "Ми використовуємо cookies для аналітики та вимірювання реклами (Google, Amplitude), щоб покращувати сервіс. Без вашої згоди ми їх не встановлюємо.", policy: "Політика конфіденційності", reject: "Відхилити", accept: "Прийняти", label: "Згода на cookies" },
+};
+
 export const CookieConsent = () => {
+  const { i18n } = useTranslation();
+  const copy = COPY[i18n.language] ?? COPY.cs;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -40,15 +51,15 @@ export const CookieConsent = () => {
     <div
       className="fixed bottom-0 left-0 right-0 z-[60] px-4 pb-4 md:px-6 md:pb-6"
       role="dialog"
-      aria-label="Cookie consent"
+      aria-label={copy.label}
     >
       <div
         className="max-w-[600px] mx-auto rounded-lg p-4 md:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 shadow-lg"
         style={{ backgroundColor: 'white', border: '0.5px solid var(--color-border)' }}
       >
         <p className="text-xs font-body flex-1" style={{ color: 'var(--color-text-secondary)' }}>
-          We use cookies for analytics (Google Analytics) to improve our service.{" "}
-          <Link to="/privacy/" className="underline" style={{ color: 'var(--color-indigo)' }}>Privacy Policy</Link>
+          {copy.text}{" "}
+          <Link to={buildLanguageUrl("/privacy", i18n.language)} className="underline" style={{ color: 'var(--color-indigo)' }}>{copy.policy}</Link>
         </p>
         <div className="flex gap-2 flex-shrink-0">
           <button
@@ -56,14 +67,14 @@ export const CookieConsent = () => {
             className="px-3 py-1.5 rounded text-xs font-body font-medium transition-colors"
             style={{ color: 'var(--color-text-secondary)', border: '0.5px solid var(--color-border)' }}
           >
-            Reject
+            {copy.reject}
           </button>
           <button
             onClick={accept}
             className="px-3 py-1.5 rounded text-xs font-body font-medium text-white transition-colors"
             style={{ backgroundColor: 'var(--color-indigo)' }}
           >
-            Accept
+            {copy.accept}
           </button>
         </div>
       </div>

@@ -6,8 +6,8 @@ const PrivacyPolicy = () => {
   return (
     <>
       <SEO
-        title="Privacy Policy — NIUS"
-        description="Privacy policy for NIUS home nursing service in Prague. How we collect, use, and protect your personal data."
+        title="Privacy Policy | NIUS"
+        description="Privacy policy of NIUS, a home nursing and IV drip service in Prague: what personal data we collect, why we use it, and how we protect it."
         canonical="https://www.nius.cz/privacy/"
       />
       <NavBar />
@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
             Privacy Policy
           </h1>
           <div className="prose prose-sm font-body" style={{ color: 'var(--color-text-secondary)' }}>
-            <p className="text-sm mb-4"><strong>Last updated:</strong> 25 May 2026</p>
+            <p className="text-sm mb-4"><strong>Last updated:</strong> 9 November 2026</p>
             <p className="text-sm mb-4"><strong>Data Controller:</strong> Nius Services s.r.o., IČO: 21908494, Prague, Czech Republic</p>
             <p className="text-sm mb-4"><strong>Contact:</strong> info@nius.cz | +420 773 629 123</p>
 
@@ -27,8 +27,8 @@ const PrivacyPolicy = () => {
               <li>Name, phone number, email address (when you contact us via WhatsApp, phone, or email)</li>
               <li>Address or hotel location (for nurse visit delivery)</li>
               <li>Health information you share with us (symptoms, medical history relevant to treatment)</li>
-              <li>Payment information (processed securely via Stripe — we do not store card details)</li>
-              <li>Website usage data (pages visited, device type — via Google Analytics)</li>
+              <li>Payment information (processed securely via Stripe, we do not store card details)</li>
+              <li>Website usage data (pages visited, device type, via Google Analytics and Amplitude, only after you accept analytics cookies)</li>
             </ul>
 
             <h2 className="font-display font-bold text-xl mt-8 mb-4" style={{ color: 'var(--color-ink)' }}>2. Why we collect it (legal basis)</h2>
@@ -51,16 +51,20 @@ const PrivacyPolicy = () => {
             <h2 className="font-display font-bold text-xl mt-8 mb-4" style={{ color: 'var(--color-ink)' }}>4. Cookies and analytics</h2>
             <p className="text-sm mb-3">We use:</p>
             <ul className="text-sm mb-4 list-disc pl-5 space-y-1">
-              <li><strong>Google Analytics 4 (GA4):</strong> To understand how visitors use our website. This uses cookies to track page views and interactions. Data is anonymised and sent to Google servers.</li>
+              <li><strong>Google Analytics 4 (GA4):</strong> To understand how visitors use our website. This uses cookies to measure page views and interactions. Data is sent to Google servers. It is loaded only after you accept analytics cookies.</li>
+              <li><strong>Google Ads conversion measurement:</strong> If you accept, we tell Google Ads that an order or a contact was made after an ad click, so we can measure whether our advertising works. We do not send your name, phone number, address or health information. Personalised advertising and remarketing are switched off.</li>
+              <li><strong>Amplitude:</strong> Product analytics about how our website and ordering form are used (for example which button was clicked). It does not receive your name, phone number, address or any health information. It is loaded only after you accept analytics cookies.</li>
               <li><strong>Essential cookies:</strong> Language preference, session state. These are necessary for the site to function.</li>
             </ul>
-            <p className="text-sm mb-4">You can reject analytics cookies via the banner shown on your first visit. You can also disable cookies in your browser settings at any time.</p>
+            <p className="text-sm mb-4">Until you choose, no analytics or advertising cookies are set. You can reject them via the banner shown on your first visit; your choice is stored in the <code>nius_consent</code> cookie on nius.cz and app.nius.cz. To change your mind, delete that cookie in your browser settings and the banner will appear again.</p>
 
             <h2 className="font-display font-bold text-xl mt-8 mb-4" style={{ color: 'var(--color-ink)' }}>5. Who we share data with</h2>
             <ul className="text-sm mb-4 list-disc pl-5 space-y-1">
               <li><strong>Our nurses:</strong> Name, address, and relevant health information needed for your visit</li>
               <li><strong>Stripe:</strong> Payment processing (PCI-DSS compliant)</li>
-              <li><strong>Google:</strong> Anonymised analytics data</li>
+              <li><strong>Google (Analytics and Ads):</strong> Usage and conversion measurement data, only with your consent</li>
+              <li><strong>Amplitude:</strong> Product analytics data without personal contact or health details, only with your consent</li>
+              <li><strong>app.nius.cz:</strong> Our ordering application, operated by Nius Services s.r.o., where your order is created</li>
               <li><strong>Czech authorities:</strong> If required by law (healthcare reporting obligations)</li>
             </ul>
             <p className="text-sm mb-4">We never sell your personal data to third parties.</p>
@@ -69,7 +73,7 @@ const PrivacyPolicy = () => {
             <ul className="text-sm mb-4 list-disc pl-5 space-y-1">
               <li>Contact and booking data: 3 years after last service (or as required by Czech healthcare law)</li>
               <li>Health records: As required by Czech law (typically 5 years)</li>
-              <li>Analytics data: 14 months (Google Analytics default)</li>
+              <li>Analytics data: 14 months (Google Analytics default); Amplitude data is kept as long as needed for product analytics and can be deleted on request</li>
               <li>Payment records: 10 years (Czech accounting law)</li>
             </ul>
 

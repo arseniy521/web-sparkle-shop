@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { BookingLink } from '@/components/BookingLink';
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -32,7 +33,6 @@ import {
 } from "@/components/ui/accordion";
 
 import {
-  NIUS_BOOKING_URL,
   NIUS_PHONE_E164,
   NIUS_PHONE_WHATSAPP_DIGITS,
   NIUS_SITE_URL,
@@ -40,7 +40,6 @@ import {
 
 const phone = NIUS_PHONE_E164;
 const whatsappNumber = NIUS_PHONE_WHATSAPP_DIGITS;
-const bookingUrl = NIUS_BOOKING_URL;
 const siteUrl = NIUS_SITE_URL;
 const supportedLanguages = ["cs", "en", "ru", "uk"] as const;
 
@@ -60,7 +59,7 @@ function stripHtml(value: string): string {
   return value.replace(/<[^>]*>/g, "");
 }
 
-const HangoverIVDripPrague = () => {
+const HydrationIVPrague = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const currentLang = getLanguageFromPath(location.pathname);
@@ -69,12 +68,12 @@ const HangoverIVDripPrague = () => {
   const hreflangMap = Object.fromEntries(
     supportedLanguages.map((lang) => [
       lang,
-      `${siteUrl}${getLocalizedUrl("/hangover-iv-drip-prague", lang) ?? "/en/hangover-iv-drip-prague/"}`,
+      `${siteUrl}${getLocalizedUrl("/rehydration-iv-drip-prague", lang) ?? "/en/rehydration-iv-drip-prague/"}`,
     ]),
   ) as Record<string, string>;
 
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    t("hangoverIVDrip.whatsappMessage")
+    t("hydrationIV.whatsappMessage")
   )}`;
 
   const symptomKeys = ["dehydration", "nausea", "fatigue", "brainFog"] as const;
@@ -87,7 +86,6 @@ const HangoverIVDripPrague = () => {
 
   const alternativeKeys = ["pureHydrate", "electrolyteReset", "immunityLite"] as const;
   const stepKeys = ["step1", "step2", "step3", "step4"] as const;
-  const testimonialKeys = ["t1", "t2", "t3"] as const;
   const faqKeys = ["howFast", "cost", "safe", "hotels", "whatsInside", "howLong", "prescription", "hours"] as const;
   const trustBadges: Array<readonly [string, LucideIcon]> = [
     ["licensedNurses", Shield],
@@ -96,12 +94,12 @@ const HangoverIVDripPrague = () => {
     ["allDistricts", MapPin],
   ];
 
-  const featuredIncludes = asStringArray(t("hangoverIVDrip.featured.includes", { returnObjects: true }));
+  const featuredIncludes = asStringArray(t("hydrationIV.featured.includes", { returnObjects: true }));
   const faqItems = faqKeys.map((key) => ({
     key,
-    question: t(`hangoverIVDrip.faq.items.${key}.question`),
-    answer: t(`hangoverIVDrip.faq.items.${key}.answer`),
-    answerKey: `hangoverIVDrip.faq.items.${key}.answer`,
+    question: t(`hydrationIV.faq.items.${key}.question`),
+    answer: t(`hydrationIV.faq.items.${key}.answer`),
+    answerKey: `hydrationIV.faq.items.${key}.answer`,
   }));
 
   const schema = {
@@ -109,15 +107,15 @@ const HangoverIVDripPrague = () => {
     "@graph": [
       {
         "@type": "MedicalBusiness",
-        name: "NIUS - Hangover IV Drip Prague",
-        description: t("hangoverIVDrip.seo.description"),
+        name: "NIUS - Rehydration IV Drip Prague",
+        description: t("hydrationIV.seo.description"),
         url: hreflangMap[currentLang] || hreflangMap.en,
         image: "https://www.nius.cz/og-image.jpg",
         telephone: phone,
-        priceRange: "2450-2950 CZK",
+        priceRange: "1650-4550 CZK",
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Prague",
+          addressLocality: "Praha",
           addressCountry: "CZ",
         },
         areaServed: { "@type": "City", name: "Prague" },
@@ -141,9 +139,9 @@ const HangoverIVDripPrague = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title={t("hangoverIVDrip.seo.title")}
-        description={t("hangoverIVDrip.seo.description")}
-        keywords={t("hangoverIVDrip.seo.keywords")}
+        title={t("hydrationIV.seo.title")}
+        description={t("hydrationIV.seo.description")}
+        keywords={t("hydrationIV.seo.keywords")}
         ogImage="https://www.nius.cz/og-image.jpg"
         ogType="website"
         schema={schema}
@@ -155,9 +153,9 @@ const HangoverIVDripPrague = () => {
       <main className="flex-1">
         <Breadcrumbs
           items={[
-            { label: t("hangoverIVDrip.breadcrumbs.services"), href: "/#services" },
-            { label: t("hangoverIVDrip.breadcrumbs.ivDrips"), href: `${langPrefix}/iv-drips-prague/` },
-            { label: t("hangoverIVDrip.breadcrumbs.hangover") },
+            { label: t("hydrationIV.breadcrumbs.services"), href: "/#services" },
+            { label: t("hydrationIV.breadcrumbs.ivDrips"), href: `${langPrefix}/iv-drips-prague/` },
+            { label: t("hydrationIV.breadcrumbs.hydration") },
           ]}
         />
 
@@ -167,36 +165,36 @@ const HangoverIVDripPrague = () => {
               {trustBadges.map(([key, Icon]) => (
                 <div key={key} className="flex items-center gap-2">
                   <Icon className="w-5 h-5 text-primary" />
-                  <span className="font-medium">{t(`hangoverIVDrip.trustBadges.${key}`)}</span>
+                  <span className="font-medium">{t(`hydrationIV.trustBadges.${key}`)}</span>
                 </div>
               ))}
             </div>
 
             <div className="text-center space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                {t("hangoverIVDrip.hero.h1")}
+                {t("hydrationIV.hero.h1")}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                {t("hangoverIVDrip.hero.subtitle")}
+                {t("hydrationIV.hero.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <a href={`tel:${phone}`}>
                   <Button size="lg" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />
-                    {t("hangoverIVDrip.hero.callBtn", { phone })}
+                    {t("hydrationIV.hero.callBtn", { phone })}
                   </Button>
                 </a>
                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <MessageCircle className="mr-2 h-5 w-5" />
-                    {t("hangoverIVDrip.hero.whatsappBtn")}
+                    {t("hydrationIV.hero.whatsappBtn")}
                   </Button>
                 </a>
-                <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-                    {t("hangoverIVDrip.hero.bookBtn")}
+                    {t("hydrationIV.hero.bookBtn")}
                   </Button>
-                </a>
+                </BookingLink>
               </div>
             </div>
           </div>
@@ -205,8 +203,8 @@ const HangoverIVDripPrague = () => {
         <section className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hangoverIVDrip.symptoms.title")}</h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t("hangoverIVDrip.symptoms.subtitle")}</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hydrationIV.symptoms.title")}</h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t("hydrationIV.symptoms.subtitle")}</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {symptomKeys.map((key) => {
@@ -214,9 +212,9 @@ const HangoverIVDripPrague = () => {
                 return (
                   <Card key={key} className="p-6">
                     <Icon className="h-9 w-9 text-primary mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">{t(`hangoverIVDrip.symptoms.items.${key}.title`)}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{t(`hangoverIVDrip.symptoms.items.${key}.symptom`)}</p>
-                    <p className="text-sm leading-relaxed">{t(`hangoverIVDrip.symptoms.items.${key}.solution`)}</p>
+                    <h3 className="text-xl font-semibold mb-2">{t(`hydrationIV.symptoms.items.${key}.title`)}</h3>
+                    <p className="text-sm text-muted-foreground mb-4">{t(`hydrationIV.symptoms.items.${key}.symptom`)}</p>
+                    <p className="text-sm leading-relaxed">{t(`hydrationIV.symptoms.items.${key}.solution`)}</p>
                   </Card>
                 );
               })}
@@ -229,9 +227,9 @@ const HangoverIVDripPrague = () => {
             <Card className="p-6 md:p-10 border-primary/20">
               <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start">
                 <div>
-                  <p className="text-sm font-semibold text-primary mb-2">{t("hangoverIVDrip.featured.title")}</p>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hangoverIVDrip.featured.name")}</h2>
-                  <p className="text-muted-foreground text-lg mb-6">{t("hangoverIVDrip.featured.short")}</p>
+                  <p className="text-sm font-semibold text-primary mb-2">{t("hydrationIV.featured.title")}</p>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hydrationIV.featured.name")}</h2>
+                  <p className="text-muted-foreground text-lg mb-6">{t("hydrationIV.featured.short")}</p>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {featuredIncludes.map((item) => (
                       <div key={item} className="flex gap-2">
@@ -243,14 +241,14 @@ const HangoverIVDripPrague = () => {
                 </div>
                 <div className="md:text-right">
                   <div className="text-4xl font-bold text-primary">
-                    {t("hangoverIVDrip.featured.price")} {t("hangoverIVDrip.featured.currency")}
+                    {t("hydrationIV.featured.price")} {t("hydrationIV.featured.currency")}
                   </div>
-                  <div className="text-sm text-muted-foreground mt-1">{t("hangoverIVDrip.featured.duration")}</div>
-                  <div className="text-sm font-medium mt-4">{t("hangoverIVDrip.featured.priceNote")}</div>
-                  <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t("hangoverIVDrip.featured.bookMessage"))}`} target="_blank" rel="noopener noreferrer">
+                  <div className="text-sm text-muted-foreground mt-1">{t("hydrationIV.featured.duration")}</div>
+                  <div className="text-sm font-medium mt-4">{t("hydrationIV.featured.priceNote")}</div>
+                  <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t("hydrationIV.featured.bookMessage"))}`} target="_blank" rel="noopener noreferrer">
                     <Button className="mt-6 w-full md:w-auto">
                       <MessageCircle className="mr-2 h-5 w-5" />
-                      {t("hangoverIVDrip.featured.bookBtn")}
+                      {t("hydrationIV.featured.bookBtn")}
                     </Button>
                   </a>
                 </div>
@@ -262,20 +260,20 @@ const HangoverIVDripPrague = () => {
         <section className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hangoverIVDrip.alternatives.title")}</h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t("hangoverIVDrip.alternatives.subtitle")}</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hydrationIV.alternatives.title")}</h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t("hydrationIV.alternatives.subtitle")}</p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {alternativeKeys.map((key) => {
-                const includes = asStringArray(t(`hangoverIVDrip.alternatives.items.${key}.includes`, { returnObjects: true }));
+                const includes = asStringArray(t(`hydrationIV.alternatives.items.${key}.includes`, { returnObjects: true }));
                 return (
                   <Card key={key} className="p-6 flex flex-col">
-                    <div className="text-xs font-semibold text-primary mb-3">{t(`hangoverIVDrip.alternatives.items.${key}.tag`)}</div>
-                    <h3 className="text-2xl font-semibold mb-2">{t(`hangoverIVDrip.alternatives.items.${key}.name`)}</h3>
+                    <div className="text-xs font-semibold text-primary mb-3">{t(`hydrationIV.alternatives.items.${key}.tag`)}</div>
+                    <h3 className="text-2xl font-semibold mb-2">{t(`hydrationIV.alternatives.items.${key}.name`)}</h3>
                     <div className="text-3xl font-bold mb-2">
-                      {t(`hangoverIVDrip.alternatives.items.${key}.price`)} {t(`hangoverIVDrip.alternatives.items.${key}.currency`)}
+                      {t(`hydrationIV.alternatives.items.${key}.price`)} {t(`hydrationIV.alternatives.items.${key}.currency`)}
                     </div>
-                    <p className="text-sm text-muted-foreground mb-4">{t(`hangoverIVDrip.alternatives.items.${key}.short`)}</p>
+                    <p className="text-sm text-muted-foreground mb-4">{t(`hydrationIV.alternatives.items.${key}.short`)}</p>
                     <div className="space-y-2 mb-6 flex-1">
                       {includes.map((item) => (
                         <div key={item} className="flex gap-2 text-sm">
@@ -284,22 +282,22 @@ const HangoverIVDripPrague = () => {
                         </div>
                       ))}
                     </div>
-                    <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t(`hangoverIVDrip.alternatives.items.${key}.bookMessage`))}`} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" className="w-full">{t("hangoverIVDrip.alternatives.bookBtn")}</Button>
+                    <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t(`hydrationIV.alternatives.items.${key}.bookMessage`))}`} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="w-full">{t("hydrationIV.alternatives.bookBtn")}</Button>
                     </a>
                   </Card>
                 );
               })}
             </div>
-            <p className="text-sm text-muted-foreground text-center mt-6">{t("hangoverIVDrip.alternatives.compareNote")}</p>
+            <p className="text-sm text-muted-foreground text-center mt-6">{t("hydrationIV.alternatives.compareNote")}</p>
           </div>
         </section>
 
         <section className="py-16 md:py-20 px-4 bg-muted/30">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hangoverIVDrip.howItWorks.title")}</h2>
-              <p className="text-lg text-muted-foreground">{t("hangoverIVDrip.howItWorks.subtitle")}</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hydrationIV.howItWorks.title")}</h2>
+              <p className="text-lg text-muted-foreground">{t("hydrationIV.howItWorks.subtitle")}</p>
             </div>
             <div className="grid md:grid-cols-4 gap-6">
               {stepKeys.map((key, index) => (
@@ -307,8 +305,8 @@ const HangoverIVDripPrague = () => {
                   <div className="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold mb-4">
                     {index + 1}
                   </div>
-                  <h3 className="font-semibold mb-2">{t(`hangoverIVDrip.howItWorks.steps.${key}.title`)}</h3>
-                  <p className="text-sm text-muted-foreground">{t(`hangoverIVDrip.howItWorks.steps.${key}.description`)}</p>
+                  <h3 className="font-semibold mb-2">{t(`hydrationIV.howItWorks.steps.${key}.title`)}</h3>
+                  <p className="text-sm text-muted-foreground">{t(`hydrationIV.howItWorks.steps.${key}.description`)}</p>
                 </Card>
               ))}
             </div>
@@ -318,39 +316,19 @@ const HangoverIVDripPrague = () => {
         <section className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-5xl">
             <Card className="p-6 md:p-8 bg-primary/5 border-primary/20">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("hangoverIVDrip.whereWeCome.title")}</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("hydrationIV.whereWeCome.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                <Trans i18nKey="hangoverIVDrip.whereWeCome.description" components={{ strong: <strong /> }} />
+                <Trans i18nKey="hydrationIV.whereWeCome.description" components={{ strong: <strong /> }} />
               </p>
             </Card>
-          </div>
-        </section>
-
-        <section className="py-16 md:py-20 px-4 bg-muted/30">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{t("hangoverIVDrip.testimonials.title")}</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {testimonialKeys.map((key) => (
-                <Card key={key} className="p-6">
-                  <div className="flex gap-1 mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground italic mb-4">"{t(`hangoverIVDrip.testimonials.items.${key}.text`)}"</p>
-                  <p className="font-semibold">{t(`hangoverIVDrip.testimonials.items.${key}.author`)}</p>
-                  <p className="text-sm text-muted-foreground">{t(`hangoverIVDrip.testimonials.items.${key}.context`)}</p>
-                </Card>
-              ))}
-            </div>
           </div>
         </section>
 
         <section className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-3xl">
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hangoverIVDrip.faq.title")}</h2>
-              <p className="text-lg text-muted-foreground">{t("hangoverIVDrip.faq.subtitle")}</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hydrationIV.faq.title")}</h2>
+              <p className="text-lg text-muted-foreground">{t("hydrationIV.faq.subtitle")}</p>
             </div>
             <Accordion type="single" collapsible className="space-y-3">
               {faqItems.map((item) => (
@@ -377,28 +355,28 @@ const HangoverIVDripPrague = () => {
 
         <section className="py-16 md:py-20 px-4 bg-primary text-primary-foreground">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hangoverIVDrip.cta.title")}</h2>
-            <p className="text-lg opacity-90 mb-8">{t("hangoverIVDrip.cta.subtitle")}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("hydrationIV.cta.title")}</h2>
+            <p className="text-lg opacity-90 mb-8">{t("hydrationIV.cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={`tel:${phone}`}>
                 <Button size="lg" variant="secondary" className="w-full sm:w-auto">
                   <Phone className="mr-2 h-5 w-5" />
-                  {t("hangoverIVDrip.cta.callBtn", { phone })}
+                  {t("hydrationIV.cta.callBtn", { phone })}
                 </Button>
               </a>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  {t("hangoverIVDrip.cta.whatsappBtn")}
+                  {t("hydrationIV.cta.whatsappBtn")}
                 </Button>
               </a>
-              <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+              <BookingLink>
                 <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-                  {t("hangoverIVDrip.cta.bookBtn")}
+                  {t("hydrationIV.cta.bookBtn")}
                 </Button>
-              </a>
+              </BookingLink>
             </div>
-            <p className="text-sm opacity-80 mt-6">{t("hangoverIVDrip.cta.reassurance")}</p>
+            <p className="text-sm opacity-80 mt-6">{t("hydrationIV.cta.reassurance")}</p>
           </div>
         </section>
 
@@ -406,8 +384,8 @@ const HangoverIVDripPrague = () => {
         <div className="px-4 py-10">
           <div className="container mx-auto max-w-5xl">
             <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-3">{t("hangoverIVDrip.llmSummary.title")}</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed">{t("hangoverIVDrip.llmSummary.content")}</p>
+              <h2 className="text-xl font-semibold mb-3">{t("hydrationIV.llmSummary.title")}</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">{t("hydrationIV.llmSummary.content")}</p>
             </Card>
           </div>
         </div>
@@ -419,4 +397,4 @@ const HangoverIVDripPrague = () => {
   );
 };
 
-export default HangoverIVDripPrague;
+export default HydrationIVPrague;

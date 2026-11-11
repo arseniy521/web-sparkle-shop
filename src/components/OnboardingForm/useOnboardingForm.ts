@@ -12,7 +12,7 @@ import {
 import type { CartItem, CartService } from './cartCatalog';
 import { normalizeServiceCode } from './cartCatalog';
 import { loadDraft, saveDraftData } from './onboardingPersist';
-import { track, trackCtaClick, type ConversionSource } from '@/lib/analytics';
+import { track, trackCtaClick, trackLeadConversion, type ConversionSource } from '@/lib/analytics';
 
 export type OnboardingMode = 'standard' | 'escort';
 
@@ -434,6 +434,10 @@ export function useOnboardingForm(opts: {
         total_czk: cart.reduce((sum, item) => sum + item.priceCzk * item.quantity, 0),
         service_codes: cart.map((s) => s.code),
         source: analyticsSource,
+      });
+      trackLeadConversion({
+        value: cart.reduce((sum, item) => sum + item.priceCzk * item.quantity, 0),
+        serviceCodes: cart.map((s) => s.code),
       });
       return true;
     } catch (e) {

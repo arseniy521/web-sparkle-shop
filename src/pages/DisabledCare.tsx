@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BookingLink } from '@/components/BookingLink';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Calendar, Phone, Check, Heart, Star } from "lucide-react";
@@ -11,10 +12,15 @@ import hygieneIcon from "@/assets/HygieneAssistance.webp";
 import { useTranslation } from "react-i18next";
 
 const DisabledCare = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
-  const pageTitle = "Home Nursing Care Prague | Daily Support for Your Loved One";
-  const pageDescription = "Professional daily nursing care in Prague for elderly, disabled, and chronic patients. Give your loved one compassionate hygiene, medication, and mobility support by English-speaking nurses — at home.";
+  const seoCopy: Record<string, { title: string; description: string }> = {
+    en: { title: "Home Nursing Care Prague | Daily Support at Home", description: "Daily home nursing care in Prague for elderly and disabled patients: hygiene, mobility and medication support by registered, English-speaking nurses." },
+    cs: { title: "Domácí ošetřovatelská péče Praha | Denní podpora", description: "Denní domácí péče v Praze pro seniory a osoby se zdravotním postižením: hygiena, pohyb a podpora s léky. Registrované sestry, česky i anglicky." },
+    ru: { title: "Домашний уход в Праге | Ежедневная помощь", description: "Ежедневный домашний уход в Праге для пожилых и людей с инвалидностью: гигиена, передвижение, помощь с лекарствами. Медсёстры говорят по-русски." },
+    uk: { title: "Домашній догляд у Празі | Щоденна допомога", description: "Щоденний домашній догляд у Празі для літніх людей та людей з інвалідністю: гігієна, пересування, допомога з ліками. Медсестри говорять українською." },
+  };
+  const { title: pageTitle, description: pageDescription } = seoCopy[i18n.language] ?? seoCopy.en;
   
   const services = [
     t('disabledCare.services.hygiene'),
@@ -43,7 +49,7 @@ const DisabledCare = () => {
         "addressLocality": "Prague",
         "addressCountry": "CZ"
       },
-      "priceRange": "2190-118200 CZK",
+      "priceRange": "1650-4550 CZK",
       "availableLanguage": ["en", "cs", "ru", "uk"],
       "geo": {
         "@type": "GeoCoordinates",
@@ -59,12 +65,12 @@ const DisabledCare = () => {
         {
           "@type": "Service",
           "name": "Mobility Support",
-          "description": "Safe transfers and positioning assistance"
+          "description": "Transfers and positioning assistance"
         },
         {
           "@type": "Service",
           "name": "Medication Management",
-          "description": "Timely medication administration and monitoring"
+          "description": "Help with medication as prescribed by the patient's doctor"
         }
       ]
     },
@@ -112,12 +118,12 @@ const DisabledCare = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                  <BookingLink>
                     <Button size="lg" className="w-full sm:w-auto group">
                       {t('disabledCare.bookVisit')}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
-                  </a>
+                  </BookingLink>
                   <a href="tel:+420773629123">
                     <Button size="lg" variant="outline" className="w-full sm:w-auto">
                       <Phone className="mr-2 h-5 w-5" />

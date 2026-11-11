@@ -44,14 +44,64 @@ export const initAnalyticsIfConsented = () => {
   if (hasConsent()) init();
 };
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+    __niusGrantConsent?: () => void;
+    __niusLoadGtag?: () => void;
+  }
+}
+
+const GOOGLE_ADS_ID = (import.meta.env.VITE_GOOGLE_ADS_ID as string | undefined)?.trim();
+const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.VITE_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim();
+
+/** Consent Mode v2: grant Google tags after "Accept" and register the Ads account (if configured). */
+const grantGoogleConsent = () => {
+  if (typeof window === 'undefined') return;
+  window.__niusGrantConsent?.();
+  if (GOOGLE_ADS_ID && window.gtag) window.gtag('config', GOOGLE_ADS_ID);
+};
+
+/** Consent Mode v2: explicit denial after "Reject". */
+const denyGoogleConsent = () => {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  window.gtag('consent', 'update', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+  });
+};
+
+/**
+ * Sends a conversion-style event to Google tags. No-op without consent.
+ * Never pass PHI: only service codes, counts and values.
+ */
+export const trackGoogleEvent = (name: string, params?: Record<string, unknown>) => {
+  if (typeof window === 'undefined' || !window.gtag || !hasConsent()) return;
+  window.gtag('event', name, params);
+};
+
+/** Lead conversion: an onboarding order was created. */
+export const trackLeadConversion = (props?: { value?: number; serviceCodes?: string[] }) => {
+  const params = { currency: 'CZK', value: props?.value, service_codes: props?.serviceCodes?.join(',') };
+  trackGoogleEvent('generate_lead', params);
+  if (GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
+    trackGoogleEvent('conversion', { send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}`, ...params });
+  }
+};
+
 /** Cookie banner "Accept". */
 export const enableAnalytics = () => {
+  grantGoogleConsent();
   init();
   if (initialized) amplitude.setOptOut(false);
 };
 
 /** Cookie banner "Reject". */
 export const disableAnalytics = () => {
+  denyGoogleConsent();
   if (initialized) amplitude.setOptOut(true);
 };
 
@@ -119,4 +169,5 @@ export const trackCtaClick = (
 ) => {
   const pagePath = typeof window === 'undefined' ? undefined : window.location.pathname;
   track('cta_clicked', { page_path: pagePath, ...props, cta, source });
+  if (cta === 'phone' || cta === 'whatsapp') trackGoogleEvent('contact', { method: cta, source });
 };

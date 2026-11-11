@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
+import { BookingLink } from '@/components/BookingLink';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Clock, Shield, Phone, Check, Star, Heart, MessageCircle, CheckCircle2, Building2, Mail, Syringe } from "lucide-react";
+import { ArrowRight, Clock, Shield, Phone, Check, Star, Heart, MessageCircle, CheckCircle2, Mail, Syringe } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -15,6 +16,7 @@ import {
 } from "@/components/ui/accordion";
 import ivDripIcon from "@/assets/drp-2.webp";
 import { useTranslation } from "react-i18next";
+import { GOOGLE_RATING } from "@/constants/reviews";
 import { getLanguagePrefix, getLanguageFromPath } from "@/utils/languageUtils";
 
 const IVFSupport = () => {
@@ -46,14 +48,13 @@ const IVFSupport = () => {
   const faqItems = t('ivfSupport.faq.items', { returnObjects: true }) as { question: string; answer: string }[];
   const testimonialItems = t('ivfSupport.testimonials.items', { returnObjects: true }) as { text: string; author: string; context: string }[];
   const includedItems = t('ivfSupport.included.items', { returnObjects: true }) as string[];
-  const clinicItems = t('ivfSupport.clinics.items', { returnObjects: true }) as string[];
 
   // Why Matters keyed items
   const whyMattersKeys = ['timing', 'expertise', 'comfort', 'safety'] as const;
   const whyMattersIcons = { timing: Clock, expertise: Syringe, comfort: Heart, safety: Shield };
 
   // Service keys
-  const serviceKeys = ['medication', 'intralipid', 'wellness'] as const;
+  const serviceKeys = ['medication', 'wellness'] as const;
 
   // Experience steps
   const experienceSteps = ['step1', 'step2', 'step3', 'step4'] as const;
@@ -63,17 +64,17 @@ const IVFSupport = () => {
     {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
-      "name": "IVF Support Prague — Nurse in Prague",
+      "name": "IVF Support Prague | Nurse in Prague",
       "description": t('ivfSupport.seo.description'),
       "url": "https://www.nius.cz/ivf-support-prague/",
       "telephone": "+420773629123",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Prague",
+        "addressLocality": "Praha",
         "addressCountry": "CZ"
       },
       "areaServed": { "@type": "City", "name": "Prague" },
-      "priceRange": "1290-8450 CZK",
+      "priceRange": "1650-4550 CZK",
       "availableLanguage": ["en", "cs", "ru", "uk"],
       "geo": {
         "@type": "GeoCoordinates",
@@ -84,27 +85,22 @@ const IVFSupport = () => {
       "openingHours": "Mo-Su 08:00-21:00",
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "47",
-        "bestRating": "5"
+        "ratingValue": GOOGLE_RATING.ratingValue,
+        "reviewCount": GOOGLE_RATING.reviewCount,
+        "bestRating": GOOGLE_RATING.bestRating,
+        "worstRating": GOOGLE_RATING.worstRating
       },
       "availableService": [
         {
-          "@type": "MedicalProcedure",
+          "@type": "Service",
           "name": "IVF Injection Administration",
-          "description": "Professional fertility medication injection service including Gonal-F, Menopur, Cetrotide, trigger shots, and progesterone",
-          "serviceType": "Home Healthcare"
-        },
-        {
-          "@type": "MedicalProcedure",
-          "name": "Intralipid Infusion for NK Cell Treatment",
-          "description": "Intravenous Intralipid therapy to suppress elevated Natural Killer cells before embryo transfer",
+          "description": "We administer medication prescribed by your clinic, following their written instructions.",
           "serviceType": "Home Healthcare"
         },
         {
           "@type": "Service",
-          "name": "Fertility Wellness IV Drips",
-          "description": "Glutathione, NAD+, and Vitamin C IV drips to support IVF patients"
+          "name": "Vitamins and Hydration IV Drips",
+          "description": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
         }
       ]
     },
@@ -112,7 +108,7 @@ const IVFSupport = () => {
       "@context": "https://schema.org",
       "@type": "Service",
       "name": "IVF Support Prague",
-      "provider": { "@type": "MedicalBusiness", "name": "NIUS — Nurse in Prague" },
+      "provider": { "@type": "MedicalBusiness", "name": "NIUS (Nurse in Prague)" },
       "areaServed": { "@type": "City", "name": "Prague" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -120,20 +116,8 @@ const IVFSupport = () => {
         "itemListElement": [
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "IVF Injection Administration — Single Visit" },
-            "price": "1890",
-            "priceCurrency": "CZK"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "IVF Injection — Multi-Visit Package" },
-            "price": "1700",
-            "priceCurrency": "CZK"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Wellness IV Drip — Fertility Support" },
-            "price": "1290",
+            "itemOffered": { "@type": "Service", "name": "IVF Injection Administration, Single Visit" },
+            "price": "1900",
             "priceCurrency": "CZK"
           }
         ]
@@ -225,12 +209,12 @@ const IVFSupport = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                  <BookingLink>
                     <Button size="lg" className="w-full sm:w-auto group">
                       {t('ivfSupport.bookNow')}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
-                  </a>
+                  </BookingLink>
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                     <Button size="lg" variant="outline" className="w-full sm:w-auto border-teal-300 text-teal-700 hover:bg-teal-50">
                       <MessageCircle className="mr-2 h-5 w-5" />
@@ -307,20 +291,15 @@ const IVFSupport = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
               {t('ivfSupport.services.title')}
             </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {serviceKeys.map((key) => {
                 const benefits = t(`ivfSupport.services.${key}.benefits`, { returnObjects: true }) as string[];
-                const isHighlighted = key === 'intralipid';
+                const isHighlighted = false;
                 return (
                   <Card
                     key={key}
                     className={`p-6 flex flex-col transition-all duration-300 hover:shadow-lg ${isHighlighted ? 'border-teal-500 border-2 relative hover:shadow-teal-100' : 'border-teal-100 hover:border-teal-200 hover:shadow-teal-50'}`}
                   >
-                    {isHighlighted && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-4 py-1 rounded-full text-xs font-semibold">
-                        NK Cell Support
-                      </div>
-                    )}
                     <h3 className="text-xl font-bold text-secondary mb-1">
                       {t(`ivfSupport.services.${key}.name`)}
                     </h3>
@@ -356,20 +335,13 @@ const IVFSupport = () => {
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </Button>
                         </Link>
-                      ) : key === 'intralipid' ? (
-                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                          <Button className="w-full group">
-                            {t(`ivfSupport.services.${key}.cta`)}
-                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                          </Button>
-                        </a>
                       ) : (
-                        <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                        <BookingLink>
                           <Button className="w-full group">
                             {t(`ivfSupport.services.${key}.cta`)}
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </Button>
-                        </a>
+                        </BookingLink>
                       )}
                     </div>
                   </Card>
@@ -480,42 +452,6 @@ const IVFSupport = () => {
                   </a>
                 </div>
               </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* ========== SECTION 7: CLINIC PARTNERSHIPS ========== */}
-        <section className="py-16 md:py-20 bg-teal-50/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-gradient-to-br from-slate-50 to-teal-50/30 rounded-3xl p-8 md:p-12 border border-slate-200">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
-                    <Building2 className="h-6 w-6 text-teal-600" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-secondary">
-                    {t('ivfSupport.clinics.title')}
-                  </h2>
-                </div>
-                <p className="text-lg text-muted-foreground mb-8">
-                  {t('ivfSupport.clinics.description')}
-                </p>
-                <div className="grid sm:grid-cols-2 gap-3 mb-8">
-                  {clinicItems.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3">
-                      <CheckCircle2 className="h-5 w-5 text-teal-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-secondary text-sm font-medium">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="group">
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    {t('ivfSupport.clinics.cta')}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </a>
-              </div>
             </div>
           </div>
         </section>

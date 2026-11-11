@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { BookingLink } from '@/components/BookingLink';
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -6,7 +7,7 @@ import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedServices } from "@/components/RelatedServices";
 import { StickyBookNow } from "@/components/StickyBookNow";
-import { useTranslation } from "react-i18next";
+import { GOOGLE_RATING } from "@/constants/reviews";
 import { useLocation, Link } from "react-router-dom";
 import {
   CheckCircle2,
@@ -31,7 +32,6 @@ import {
 } from "@/components/ui/accordion";
 
 import {
-  NIUS_BOOKING_URL,
   NIUS_PHONE_E164,
   NIUS_PHONE_WHATSAPP_DIGITS,
   NIUS_SITE_URL,
@@ -39,92 +39,81 @@ import {
 
 const phone = NIUS_PHONE_E164;
 const whatsappNumber = NIUS_PHONE_WHATSAPP_DIGITS;
-const bookingUrl = NIUS_BOOKING_URL;
 const siteUrl = NIUS_SITE_URL;
 
 const whatsappMessage = "Hi, I'd like to book an IV drip at my hotel in Prague.";
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
 const trustBadges: Array<{ label: string; Icon: LucideIcon }> = [
-  { label: "Licensed Nurses", Icon: Shield },
-  { label: "4.9/5 Rating", Icon: Star },
-  { label: "All Prague Hotels", Icon: Hotel },
-  { label: "Same-Day Service", Icon: Clock },
+  { label: "Registered Nurses", Icon: Shield },
+  { label: `${GOOGLE_RATING.ratingValue}/${GOOGLE_RATING.bestRating} on Google`, Icon: Star },
+  { label: "Any Hotel in Prague", Icon: Hotel },
+  { label: "Same-Day Visits 8:00–21:00", Icon: Clock },
 ];
 
 const steps = [
   { title: "Book Online or Call", description: "WhatsApp, phone, or online form. Tell us your hotel and preferred time." },
-  { title: "Nurse Arrives at Hotel", description: "Licensed nurse comes to your room within ~60 minutes with all supplies." },
-  { title: "IV Session (30-60 min)", description: "Relax on your bed while the drip does its work. Completely painless." },
-  { title: "Feel Better Fast", description: "Most guests feel noticeably better before the session even ends." },
+  { title: "Nurse Visits Your Hotel", description: "Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book." },
+  { title: "IV Session (30-60 min)", description: "Relax in your room while the drip runs, with the nurse by your side." },
+  { title: "Wrap-Up", description: "The nurse removes the line and answers your questions. No clinic visit needed." },
 ];
 
 const drips = [
   {
     name: "Pure Hydrate",
-    price: "2,450 CZK",
-    tag: "Jet Lag & Dehydration",
-    description: "1L isotonic saline with electrolytes and B-vitamins. Perfect after a long flight.",
-    includes: ["1000 ml saline", "Electrolyte complex", "Vitamin B12", "B-complex"],
+    price: "from 2,550 CZK",
+    tag: "After Travel",
+    description: "Fluids and electrolytes for rehydration after a long flight or a busy day.",
+    includes: ["Saline fluids", "Electrolytes", "Vitamins"],
   },
   {
     name: "Immunity Power",
-    price: "3,750 CZK",
-    tag: "Travel Sickness",
-    description: "High-dose Vitamin C and zinc to fight off colds picked up on planes or in crowds.",
-    includes: ["High-dose Vitamin C", "Zinc", "Saline hydration", "B-vitamins", "Antioxidants"],
+    price: "from 3,250 CZK",
+    tag: "Vitamin C",
+    description: "Vitamin C and fluids, a classic choice for travellers.",
+    includes: ["Vitamin C", "Saline hydration", "B-vitamins"],
   },
   {
     name: "CEO Recharge",
-    price: "3,950 CZK",
-    tag: "Conference & Business Trips",
-    description: "Energy, focus, and recovery for executives with packed schedules.",
-    includes: ["NAD+ precursors", "Magnesium", "B-complex", "Amino acids", "Saline base"],
+    price: "from 4,550 CZK",
+    tag: "Business Trips",
+    description: "Vitamins, minerals and fluids for a packed conference or business-trip schedule.",
+    includes: ["Magnesium", "B-complex", "Saline base"],
   },
   {
-    name: "Nausea Relief",
-    price: "2,850 CZK",
-    tag: "Morning After",
-    description: "Anti-nausea medication with hydration. Feel human again in 30 minutes.",
-    includes: ["Anti-nausea medication", "1000 ml saline", "Electrolytes", "Vitamin B6"],
+    name: "Jet Lag Recovery",
+    price: "from 3,250 CZK",
+    tag: "Long-Haul Flights",
+    description: "Rehydration with vitamins and electrolytes after a long-haul flight.",
+    includes: ["Saline fluids", "Electrolytes", "B-vitamins"],
   },
-];
-
-const hotels = [
-  "Four Seasons",
-  "Mandarin Oriental",
-  "Hilton Prague",
-  "InterContinental",
-  "Alcron (Radisson)",
-  "Carlo IV",
-  "Augustine",
-  "Grand Mark",
-  "MOODs Boutique Hotel",
-  "Mosaic House",
 ];
 
 const faqItems = [
   {
     key: "anyHotel",
     question: "Do you come to any hotel in Prague?",
-    answer: "Yes. We serve all hotels, hostels, Airbnbs, and private apartments across Prague 1-10. Whether you're at a five-star on the Vltava or a boutique in Vinohrady, we'll be there.",
+    answer: "Yes. We visit any hotel, hostel, Airbnb or private apartment across Prague.",
   },
   {
     key: "howFast",
-    question: "How quickly can a nurse arrive?",
-    answer: "Typical arrival time is 45-60 minutes from booking. During peak hours or late evenings, it may take up to 90 minutes. We always confirm an ETA before dispatching.",
+    question: "When can a nurse visit?",
+    answer: "Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.",
   },
   {
     key: "reception",
     question: "What about hotel reception / security?",
-    answer: "Our nurses carry professional ID and medical equipment in discreet bags. Most Prague hotels are familiar with mobile medical services. If your hotel requires advance notice, we can call ahead on your behalf.",
+    answer: "Our nurses carry professional ID and equipment in discreet bags. If your hotel requires advance notice, we can call ahead on your behalf.",
   },
   {
     key: "prescription",
     question: "Do I need a prescription?",
-    answer: "No prescription is needed for vitamin and hydration drips. Our nurse performs a brief health check before the session. If you have specific medical conditions, let us know when booking so we can advise.",
+    answer: "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.",
   },
 ];
+
+const seoDescription =
+  "IV drip visits to your Prague hotel room: vitamins and hydration from 1,650 CZK, given by registered nurses. Same-day visits, daily 8:00–21:00.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -132,15 +121,14 @@ const schema = {
     {
       "@type": "MedicalBusiness",
       name: "NIUS - IV Drip Hotel Service Prague",
-      description:
-        "Professional IV drip service delivered directly to your Prague hotel room. Vitamin C, hydration, immunity & recovery drips from 1,550 CZK. Licensed nurses, same-day booking.",
+      description: seoDescription,
       url: `${siteUrl}/en/iv-drip-hotel-prague/`,
       image: "https://www.nius.cz/og-image.jpg",
       telephone: phone,
-      priceRange: "2450-3950 CZK",
+      priceRange: "1650-4550 CZK",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Prague",
+        addressLocality: "Praha",
         addressCountry: "CZ",
       },
       areaServed: { "@type": "City", name: "Prague" },
@@ -169,8 +157,8 @@ const IVDripHotelPrague = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="IV Drip at Your Hotel in Prague | Nurse to Your Room in 60 Min"
-        description="Professional IV drip service delivered directly to your Prague hotel room. Vitamin C, hydration, immunity & recovery drips from 1,550 CZK. Licensed nurses, same-day booking."
+        title="IV Drip at Your Hotel in Prague | NIUS"
+        description={seoDescription}
         keywords="iv drip hotel prague, iv therapy hotel prague, mobile iv drip prague hotel, nurse to hotel prague, vitamin drip hotel prague"
         ogImage="https://www.nius.cz/og-image.jpg"
         ogType="website"
@@ -205,7 +193,7 @@ const IVDripHotelPrague = () => {
                 IV Drip Delivered to Your Hotel Room in Prague
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                Licensed nurse at your door in ~60 minutes. No clinic visits needed.
+                Registered nurse at your hotel. Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <a href={`tel:${phone}`}>
@@ -220,11 +208,11 @@ const IVDripHotelPrague = () => {
                     WhatsApp Booking
                   </Button>
                 </a>
-                <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" variant="secondary" className="w-full sm:w-auto">
                     Book Online
                   </Button>
-                </a>
+                </BookingLink>
               </div>
             </div>
           </div>
@@ -235,7 +223,7 @@ const IVDripHotelPrague = () => {
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
-              <p className="text-lg text-muted-foreground">From booking to feeling better in 4 simple steps</p>
+              <p className="text-lg text-muted-foreground">From booking to wrap-up in 4 simple steps</p>
             </div>
             <div className="grid md:grid-cols-4 gap-6">
               {steps.map((step, index) => (
@@ -257,7 +245,7 @@ const IVDripHotelPrague = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Hotel IV Drips</h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Chosen by tourists and business travellers staying in Prague
+                Popular with tourists and business travellers staying in Prague
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -289,29 +277,21 @@ const IVDripHotelPrague = () => {
               <Link to={`${langPrefix}/iv-drips-prague/`} className="underline hover:text-primary">
                 View full IV drip menu
               </Link>{" "}
-              for all available treatments and prices.
+              with current prices.
             </p>
           </div>
         </section>
 
-        {/* Hotels We've Visited */}
+        {/* Any hotel */}
         <section className="py-16 md:py-20 px-4 bg-muted/30">
           <div className="container mx-auto max-w-5xl">
             <Card className="p-6 md:p-8 bg-primary/5 border-primary/20">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Hotels We've Visited</h2>
-              <p className="text-muted-foreground mb-6">
-                Our nurses regularly deliver IV drips to guests at these Prague hotels (and many more):
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Any Hotel in Prague</h2>
+              <p className="text-muted-foreground mb-4">
+                We visit guests at any hotel in Prague, as well as <strong>Airbnbs, hostels and private apartments</strong>. If you have an address, we'll come to you.
               </p>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                {hotels.map((hotel) => (
-                  <div key={hotel} className="flex gap-2 items-center">
-                    <MapPin className="h-4 w-4 text-primary shrink-0" />
-                    <span className="text-sm font-medium">{hotel}</span>
-                  </div>
-                ))}
-              </div>
               <p className="text-sm text-muted-foreground">
-                ...plus <strong>all Airbnbs and private apartments</strong> across Prague. If you have an address, we'll come to you.
+                Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.
               </p>
             </Card>
           </div>
@@ -322,7 +302,7 @@ const IVDripHotelPrague = () => {
           <div className="container mx-auto max-w-3xl">
             <div className="text-center mb-10">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className="text-lg text-muted-foreground">Everything you need to know about hotel IV drips in Prague</p>
+              <p className="text-lg text-muted-foreground">Answers about hotel IV drip visits in Prague</p>
             </div>
             <Accordion type="single" collapsible className="space-y-3">
               {faqItems.map((item) => (
@@ -343,10 +323,10 @@ const IVDripHotelPrague = () => {
         <section className="py-16 md:py-20 px-4 bg-primary text-primary-foreground">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Feel Better Without Leaving Your Hotel
+              Stay in Your Hotel Room. We Come to You.
             </h2>
             <p className="text-lg opacity-90 mb-8">
-              Book now and a licensed nurse will be at your door within the hour.
+              Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={`tel:${phone}`}>
@@ -361,14 +341,14 @@ const IVDripHotelPrague = () => {
                   WhatsApp Booking
                 </Button>
               </a>
-              <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+              <BookingLink>
                 <Button size="lg" variant="secondary" className="w-full sm:w-auto">
                   Book Online
                 </Button>
-              </a>
+              </BookingLink>
             </div>
             <p className="text-sm opacity-80 mt-6">
-              Licensed medical professionals. Discreet service. No clinic visits required.
+              Registered nurses. Discreet service. NIUS is not an emergency service: call 155/112.
             </p>
           </div>
         </section>
@@ -385,8 +365,8 @@ const IVDripHotelPrague = () => {
                 <Link to={`${langPrefix}/iv-drips-prague/`}>
                   <Button variant="outline" size="sm">All IV Drips in Prague</Button>
                 </Link>
-                <Link to={`${langPrefix}/hangover-iv-drip-prague/`}>
-                  <Button variant="outline" size="sm">Hangover IV Drip</Button>
+                <Link to={`${langPrefix}/rehydration-iv-drip-prague/`}>
+                  <Button variant="outline" size="sm">Rehydration IV Drip</Button>
                 </Link>
               </div>
             </Card>

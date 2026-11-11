@@ -16,7 +16,7 @@ export const RelatedServices = () => {
   const currentLang = getLanguageFromPath(location.pathname);
   const langPrefix = getLanguagePrefix(currentLang);
 
-  const hangoverHref = getLocalizedUrl('/hangover-iv-drip-prague', currentLang) || `${langPrefix}/hangover-iv-drip-prague/`;
+  const hydrationHref = getLocalizedUrl('/rehydration-iv-drip-prague', currentLang) || `${langPrefix}/rehydration-iv-drip-prague/`;
 
   const services: RelatedService[] = [
     {
@@ -30,9 +30,9 @@ export const RelatedServices = () => {
       href: `${langPrefix}/iv-drips-prague/`
     },
     {
-      titleKey: "specializedServices.hangover",
-      descKey: "specializedServices.hangoverDesc",
-      href: hangoverHref
+      titleKey: "specializedServices.hydration",
+      descKey: "specializedServices.hydrationDesc",
+      href: hydrationHref
     },
     {
       titleKey: "specializedServices.postSurgery",

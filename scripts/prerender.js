@@ -15,9 +15,10 @@ const routes = [
   "/en/blog",
   "/ru/blog",
   "/uk/blog",
-  "/iv-drips-prague",
+  "/iv-kapacky-praha",
   "/en/iv-drips-prague",
-  "/ru/iv-drips-prague",
+  "/en/iv-drip-hotel-prague",
+  "/ru/kapelnitsy-praga",
   "/uk/iv-drips-prague",
   "/ivf-support-prague",
   "/en/ivf-support-prague",
@@ -45,11 +46,17 @@ const routes = [
   "/en/birthday-gift-prague",
   "/ru/podatok-k-dnju-rozhdenija-praga",
 
-  // Hangover IV Drip - Localized slugs
-  "/kapacka-na-kocovinu-praha",
-  "/en/hangover-iv-drip-prague",
-  "/ru/kapelnica-ot-pokhmelya-praga",
-  "/uk/krapelnytsia-vid-pokhmellia-praga",
+  // Rehydration IV drip - Localized slugs
+  "/rehydratace-praha",
+  "/en/rehydration-iv-drip-prague",
+  "/ru/regidratatsiya-kapelnitsa-praga",
+  "/uk/rehidratatsiia-krapelnytsia-praga",
+
+  // Privacy
+  "/privacy",
+  "/en/privacy",
+  "/ru/privacy",
+  "/uk/privacy",
 
   // Old URL redirects are handled separately below (not pre-rendered)
   "/blog/iv-therapy-at-home-prague-guide",
@@ -205,14 +212,25 @@ async function prerender() {
   // These use <meta http-equiv="refresh"> so Google sees a proper redirect signal
   const baseUrl = 'https://www.nius.cz';
   const redirects = [
-    { from: '/iv-drip-therapy-prague', to: '/iv-drips-prague/' },
+    // IV drips: legacy slugs -> current canonical slugs (no chains)
+    { from: '/iv-drips-prague', to: '/iv-kapacky-praha/' },
+    { from: '/ru/iv-drips-prague', to: '/ru/kapelnitsy-praga/' },
+    { from: '/iv-drip-therapy-prague', to: '/iv-kapacky-praha/' },
     { from: '/en/iv-drip-therapy-prague', to: '/en/iv-drips-prague/' },
-    { from: '/ru/iv-drip-therapy-prague', to: '/ru/iv-drips-prague/' },
+    { from: '/ru/iv-drip-therapy-prague', to: '/ru/kapelnitsy-praga/' },
     { from: '/uk/iv-drip-therapy-prague', to: '/uk/iv-drips-prague/' },
     { from: '/ivf-injection-support-prague', to: '/ivf-support-prague/' },
     { from: '/en/ivf-injection-support-prague', to: '/en/ivf-support-prague/' },
     { from: '/ru/ivf-injection-support-prague', to: '/ru/ivf-support-prague/' },
     { from: '/uk/ivf-injection-support-prague', to: '/uk/ivf-support-prague/' },
+    // Hangover pages were replaced by the rehydration pages
+    { from: '/kapacka-na-kocovinu-praha', to: '/rehydratace-praha/' },
+    { from: '/en/hangover-iv-drip-prague', to: '/en/rehydration-iv-drip-prague/' },
+    { from: '/ru/kapelnica-ot-pokhmelya-praga', to: '/ru/regidratatsiya-kapelnitsa-praga/' },
+    { from: '/uk/krapelnytsia-vid-pokhmellia-praga', to: '/uk/rehidratatsiia-krapelnytsia-praga/' },
+    // Language-code prefixes that never existed as real sections
+    { from: '/cs', to: '/' },
+    { from: '/cz', to: '/' },
   ];
 
   for (const { from, to } of redirects) {

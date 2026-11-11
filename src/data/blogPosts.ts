@@ -15,134 +15,78 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: "1",
-    title: "Complete Guide to IV Therapy at Home in Prague: Benefits, Costs, and What to Expect",
+    title: "IV Drips at Home in Prague: What to Expect",
     slug: "iv-therapy-at-home-prague-guide",
-    excerpt: "Discover everything you need to know about professional IV infusion services at home in Prague. Learn about benefits, safety protocols, pricing, and how to book a qualified nurse.",
+    excerpt: "How a home IV drip visit in Prague works: who comes, how the doctor's indication is arranged, how long it takes and what to prepare before the visit.",
     author: "Medical Team",
     date: "2025-10-10",
     readTime: "8 min read",
     category: "IV Therapy",
     image: "/assets/drips_cl2.png",
-    keywords: ["IV therapy Prague", "home infusion Prague", "IV drip at home", "mobile IV therapy", "home healthcare Prague"],
+    keywords: ["IV drip Prague", "home IV drip", "mobile nurse Prague", "vitamins and hydration", "home nursing Prague"],
     content: `
-# Complete Guide to IV Therapy at Home in Prague
+# IV Drips at Home in Prague: What to Expect
 
-Intravenous (IV) therapy has become increasingly popular in Prague as a convenient way to receive medical treatments, hydration, and vitamin supplementation without leaving home. This comprehensive guide covers everything you need to know about professional IV therapy services at home in Prague.
+An IV drip at home means vitamins and fluids delivered by a registered nurse at your home, hotel or office, so you can relax on your own sofa instead of in a waiting room. This guide explains how a visit works, step by step.
 
-## What is Home IV Therapy?
+## What is a home IV drip?
 
-Home IV therapy involves a qualified, licensed nurse administering intravenous medications, fluids, or nutrients directly into your bloodstream at your residence. This service brings hospital-quality care to the comfort of your home, offering convenience without compromising safety or effectiveness.
+A home IV drip is an infusion of fluids, vitamins and minerals given through a small IV line by a registered nurse. The nurse brings all the equipment and sets everything up where you are.
 
-## Benefits of IV Therapy at Home
+## Why people choose it at home
 
-### Convenience and Comfort
-- No travel to medical facilities
-- Receive treatment in familiar surroundings
-- Flexible scheduling that fits your routine
-- Ideal for mobility-challenged patients
+- No travel and no waiting room
+- A familiar, comfortable place to sit or lie down
+- Flexible booking that fits around your day
+- Hotels, apartments and offices are all fine
+- Staff who speak Czech, English, Russian and Ukrainian
 
-### Professional Medical Care
-- Administered by licensed, experienced nurses
-- Proper sterile technique and safety protocols
-- Medical-grade equipment and supplies
-- Emergency preparedness and training
+## How a visit works
 
-### Time Efficiency
-- No waiting rooms or appointment delays
-- Same-day service available
-- Typical session duration: 30-60 minutes
-- Quick response time across Prague
+1. **Book online.** Choose a drip in the order form on www.nius.cz and tell us where you are.
+2. **Short health assessment.** Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.
+3. **Visit.** Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.
+4. **Infusion.** The nurse checks the basics, places the IV line and stays with you while the drip runs.
+5. **Wrap-up.** The nurse removes the line and answers your questions.
 
-## Types of IV Treatments Available
+## What to prepare
 
-### Medical IV Therapy
-- Antibiotic administration
-- Pain management medications
-- Anti-nausea treatments
-- Hydration therapy for illness recovery
+- A comfortable place to sit or lie down
+- Something to drink and a phone charger
+- Your questions for the nurse
 
-### Wellness IV Therapy
-- Vitamin and mineral infusions
-- Immune system support
-- Energy boost treatments
-- Hangover recovery (hydration therapy)
+## How long does it take?
 
-### Post-Surgery Care
-- Medication administration
-- Hydration support
-- Pain management
-- Wound care combination treatments
+Most infusions take about 40 to 60 minutes. The exact time depends on the drip you choose; it is shown next to each option in the order form.
 
-## Safety and Qualifications
+## What does it cost?
 
-All nurses providing IV therapy in Prague must:
-- Hold valid Czech Republic nursing licenses
-- Have specialized IV therapy training
-- Maintain current certifications
-- Follow strict hygiene and safety protocols
+Visits start from 1,650 CZK. See current prices in the order form. The nurse visit and the doctor consultation are included in the price.
 
-## Cost of Home IV Therapy in Prague
-
-Pricing varies based on:
-- Type of treatment
-- Medication costs
-- Time of service (regular hours vs. emergency)
-- Location within Prague
-
-Standard pricing typically ranges from 1,890 CZK to 2,680 CZK for the nursing service, with medication costs additional. Multi-visit packages offer 10% discount.
-
-## How to Book IV Therapy at Home
-
-1. **Contact a Licensed Provider**: Choose a reputable home nursing service
-2. **Medical Consultation**: Discuss your needs and prescription requirements
-3. **Schedule Appointment**: Select convenient date and time
-4. **Prepare Your Space**: Ensure clean, comfortable area for treatment
-5. **Receive Treatment**: Licensed nurse administers IV therapy
-
-## What to Expect During Your Session
-
-- Nurse arrives with all necessary equipment
-- Verification of patient identity and prescription
-- Vital signs assessment
-- Sterile IV insertion
-- Continuous monitoring during infusion
-- Post-treatment care instructions
-
-## Frequently Asked Questions
-
-**Is home IV therapy safe?**
-Yes, when administered by qualified nurses using proper protocols and sterile equipment.
+## Frequently asked questions
 
 **Do I need a prescription?**
-Most IV medications require a prescription from a licensed physician.
+Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.
 
 **How long does a session take?**
-Typically 30-60 minutes, depending on the type and volume of infusion.
+Typically 40 to 60 minutes, depending on the drip you choose.
 
-**Can I receive IV therapy for hangover recovery?**
-Yes, hydration therapy is commonly used for hangover relief.
+**Where do you come to?**
+Anywhere in Prague: your home, any hotel in Prague, or your office.
 
-## Why Choose Professional Home IV Services?
+**Is NIUS an emergency service?**
+No. NIUS is not an emergency service. In an emergency call 155 or 112.
 
-Professional home IV therapy combines medical expertise with convenience, making it an excellent choice for:
-- Busy professionals
-- Elderly patients
-- Post-surgical recovery
-- Chronic condition management
-- Wellness optimization
+## Ready to book?
 
-## Conclusion
-
-Home IV therapy in Prague offers a safe, convenient alternative to hospital or clinic visits. With qualified nurses, proper safety protocols, and flexible scheduling, you can receive high-quality medical care in the comfort of your home.
-
-Ready to experience the convenience of home IV therapy? Book your appointment today with Prague's trusted home nursing service.
+Open the order form on www.nius.cz or message us on WhatsApp at +420 773 629 123.
     `
   },
   {
     id: "2",
-    title: "Home Nursing Services in Prague: When to Call a Professional Nurse to Your Home",
+    title: "Home Nursing in Prague: When to Call a Nurse",
     slug: "when-to-call-home-nurse-prague",
-    excerpt: "Learn when it's appropriate to request professional home nursing services in Prague. From post-surgery care to chronic disease management, discover how home nurses can help.",
+    excerpt: "Learn when a home nurse can help in Prague: wound dressing, injections prescribed by your doctor, help for seniors and more, in four languages.",
     author: "Healthcare Specialists",
     date: "2025-10-08",
     readTime: "6 min read",
@@ -152,7 +96,7 @@ Ready to experience the convenience of home IV therapy? Book your appointment to
     content: `
 # Home Nursing Services in Prague: When to Call a Professional Nurse
 
-Understanding when to utilize home nursing services can significantly improve your healthcare experience and recovery outcomes. This guide helps you identify situations where professional home nursing care is beneficial.
+This guide helps you understand when a visit from a registered nurse at home can make life easier.
 
 ## What Are Home Nursing Services?
 
@@ -164,25 +108,19 @@ Home nursing services bring qualified medical professionals directly to your res
 After surgical procedures, home nursing can provide:
 - Wound dressing changes
 - Surgical drain management
-- Medication administration
-- Pain management monitoring
-- Complication detection
+- Medication administration as prescribed by your doctor
 
-### Chronic Disease Management
-For ongoing conditions like diabetes or hypertension:
-- Regular vital signs monitoring
-- Medication administration
-- Blood glucose monitoring
+### Ongoing Care Needs
+For people with ongoing care needs:
+- Regular vital signs checks
+- Medication administration as prescribed by your doctor
 - Patient education
-- Coordination with physicians
 
 ### Injection Services
 Home nurses can administer:
 - Intramuscular injections
 - Subcutaneous injections
-- Insulin administration training
-- Vaccination services
-- Hormone therapy injections
+- Injections prescribed by your doctor or clinic, given according to their written instructions
 
 ### Elderly Care
 Seniors benefit from home nursing for:
@@ -203,17 +141,14 @@ Children with medical needs receive:
 ## Benefits of Home Nursing Services
 
 ### Medical Advantages
-- Reduced infection risk (vs. healthcare facilities)
 - Personalized one-on-one care
 - Familiar environment reduces stress
-- Better medication compliance
-- Early complication detection
+- Support with following your doctor's medication schedule
 
 ### Practical Benefits
 - No transportation needed
 - Flexible scheduling
 - Family involvement in care
-- Cost-effective alternative to hospitalization
 - Continuity of care
 
 ### Emotional Well-being
@@ -225,7 +160,7 @@ Children with medical needs receive:
 
 ## When NOT to Use Home Nursing
 
-Home nursing is excellent for many situations, but emergency medical care requires immediate hospital attention:
+NIUS is not an emergency service. In an emergency call 155 or 112, for example in case of:
 - Severe chest pain
 - Difficulty breathing
 - Loss of consciousness
@@ -235,13 +170,11 @@ Home nursing is excellent for many situations, but emergency medical care requir
 
 ## Qualifications to Look For
 
-Ensure your home nurse has:
-- Valid Czech nursing license
-- Relevant specialized training
-- Liability insurance
-- Good communication skills
-- Professional references
-- Emergency response training
+Ask your home nurse about:
+- Registration as a nurse in the Czech Republic
+- Relevant experience
+- Clear communication in your language
+- References
 
 ## How to Prepare for a Home Nursing Visit
 
@@ -253,35 +186,29 @@ Ensure your home nurse has:
 
 ## Cost Considerations
 
-Home nursing services in Prague typically cost:
-- Basic nursing procedures: 1,890-1,970 CZK
-- Complex care: 2,190-2,680 CZK
-- Extended visits: Custom pricing
-- Travel fees may apply outside central Prague
-
-Many private insurance plans cover home nursing services - check your policy.
+Prices depend on the service and the length of the visit. See current prices in the order form on www.nius.cz. The nurse visit is included in the price.
 
 ## Finding Qualified Home Nurses in Prague
 
 Look for providers with:
-- Proper licensing and credentials
-- Positive patient reviews
-- Clear pricing structures
-- Emergency availability
+- Registered nurses
+- Real patient reviews
+- Clear pricing
+- Same-day visits with the arrival time confirmed after booking
 - Multiple language support (important in Prague)
 
 ## Conclusion
 
-Home nursing services offer a convenient, safe, and effective way to receive medical care in Prague. Whether recovering from surgery, managing chronic conditions, or needing regular medical procedures, professional home nurses provide high-quality care in the comfort of your home.
+Home nursing brings professional care to you in Prague. Whether you are recovering after surgery, need regular injections prescribed by your doctor, or want help for a family member, a registered nurse can visit you at home.
 
-Don't wait until you're in crisis - establish a relationship with a home nursing service now for peace of mind and immediate access when you need it.
+Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book. Book through the order form on www.nius.cz or on WhatsApp at +420 773 629 123.
     `
   },
   {
     id: "3",
-    title: "Wound Care at Home in Prague: Professional Dressing Changes Without Hospital Visits",
+    title: "Wound Dressing at Home in Prague: What to Expect",
     slug: "wound-care-dressing-changes-prague",
-    excerpt: "Expert wound care and dressing changes in the comfort of your Prague home. Learn about proper wound management, healing times, and when to seek professional help.",
+    excerpt: "How professional wound dressing at home works in Prague: what a nurse does during a visit, how to prepare, and when to contact your doctor or surgeon.",
     author: "Wound Care Specialists",
     date: "2025-10-05",
     readTime: "7 min read",
@@ -291,24 +218,21 @@ Don't wait until you're in crisis - establish a relationship with a home nursing
     content: `
 # Professional Wound Care at Home in Prague
 
-Proper wound care is essential for healing and preventing complications. Professional home wound care services in Prague offer expert treatment without the inconvenience of hospital visits.
+After surgery, dressing changes are often the part patients worry about. A registered nurse can do them at your home or hotel in Prague, following your surgeon's instructions.
 
 ## Why Professional Wound Care Matters
 
-### Prevents Complications
-- Reduces infection risk
-- Promotes faster healing
-- Identifies problems early
-- Ensures proper technique
-- Maintains sterile environment
+### What a nurse brings
+- Sterile technique and clean materials
+- Following your surgeon's or doctor's written instructions
+- A calm second pair of eyes on how the wound looks
+- Clear advice on when to contact your doctor
 
-### Types of Wounds Requiring Professional Care
-- Surgical incisions
-- Diabetic ulcers
-- Pressure sores
-- Burn injuries
-- Chronic wounds
-- Traumatic injuries
+### Typical situations
+- Dressing changes after surgery
+- Dressing changes after a hospital stay
+- Wounds that need regular dressing
+- Patients who find travel difficult
 
 ## Home Wound Care Services
 
@@ -316,21 +240,20 @@ Proper wound care is essential for healing and preventing complications. Profess
 - Wound assessment
 - Sterile dressing changes
 - Wound cleaning
-- Application of medications
+- Dressing as instructed by your doctor
 - Progress documentation
 - Patient/caregiver education
 
 ### Professional Techniques
-Certified nurses use:
-- Proper sterile technique
+Registered nurses use:
+- Sterile technique
 - Appropriate dressing materials
-- Evidence-based practices
-- Pain management strategies
-- Infection prevention protocols
+- Your doctor's instructions
+- Gentle handling
 
 ## Signs Your Wound Needs Professional Attention
 
-Contact a healthcare provider if you notice:
+Contact your doctor or surgeon if you notice:
 - Increasing redness or swelling
 - Pus or unusual discharge
 - Worsening pain
@@ -341,124 +264,60 @@ Contact a healthcare provider if you notice:
 
 ## Benefits of Home Wound Care
 
-### Medical Benefits
-- Reduced infection risk (compared to healthcare facilities)
+### Care benefits
 - One-on-one attention
-- Customized care plans
-- Regular monitoring
+- Regular visits on the schedule your doctor sets
 - Consistent caregiver
 
 ### Practical Advantages
 - No travel with painful wounds
 - Comfortable environment
 - Flexible scheduling
-- Cost-effective
 - Family involvement
 
 ## Wound Healing Timeline
 
-### Typical Healing Stages
-1. **Hemostasis** (Immediate): Blood clotting
-2. **Inflammation** (1-6 days): Cleaning and immune response
-3. **Proliferation** (4-24 days): New tissue formation
-4. **Maturation** (21 days - 2 years): Tissue strengthening
+### Healing takes time
+Every wound is different. Your surgeon or doctor will tell you what to expect and how often the dressing should be changed. The nurse follows those instructions.
 
-### Factors Affecting Healing
-- Age and overall health
-- Nutrition and hydration
-- Chronic conditions (diabetes, vascular disease)
-- Smoking and alcohol use
-- Medication compliance
-- Wound location and type
+## Between visits
 
-## Wound Care Best Practices
-
-### Patient Responsibilities
-- Keep wound clean and dry
-- Follow medication schedules
-- Maintain good nutrition
-- Avoid smoking
-- Report changes promptly
-- Follow activity restrictions
-
-### Nutrition for Healing
-Essential nutrients include:
-- Protein (meat, fish, eggs, legumes)
-- Vitamin C (citrus, berries, vegetables)
-- Vitamin A (carrots, sweet potatoes)
-- Zinc (nuts, seeds, whole grains)
-- Adequate hydration
+- Keep the dressing clean and dry
+- Follow your doctor's instructions
+- Report changes to your doctor promptly
+- Follow any activity restrictions you were given
 
 ## Cost of Home Wound Care in Prague
 
-Pricing factors:
-- Complexity of wound
-- Frequency of visits
-- Dressing materials needed
-- Additional treatments required
-
-Typical range: 899-1,299 CZK per visit
+Post-op wound dressing visits start from 1,890 CZK. See current prices in the order form on www.nius.cz.
 
 ## When to Schedule Home Wound Care
 
 Ideal situations:
-- Post-surgical discharge
-- Chronic wound management
+- After surgery or discharge from hospital
 - Mobility limitations
-- Compromised immune system
-- Multiple daily dressing changes
-- Complex wound care needs
+- Regular dressing changes
 
 ## Choosing a Wound Care Provider
 
 Look for:
-- Certified wound care training
-- Experience with your wound type
-- Positive patient outcomes
-- Clear communication
-- Proper documentation
-- Coordination with physicians
-
-## Advanced Wound Care Options
-
-Some home care providers offer:
-- Negative pressure wound therapy
-- Advanced dressing technologies
-- Bioengineered skin substitutes
-- Specialized compression therapy
-- Wound measurement and imaging
-
-## Preventing Wound Complications
-
-### Key Prevention Strategies
-- Proper hand hygiene
-- Sterile technique
-- Appropriate dressing selection
-- Regular assessment
-- Patient education
-- Early intervention
-
-## Living with a Wound
-
-### Daily Life Adjustments
-- Showering/bathing modifications
-- Clothing considerations
-- Activity adaptations
-- Sleep position changes
-- Work accommodations
+- Registered nurses
+- Experience with dressing changes
+- Clear communication in your language
+- Willingness to follow your doctor's instructions
 
 ## Conclusion
 
-Professional home wound care in Prague provides expert treatment while allowing you to recover in comfort. With qualified nurses, proper techniques, and consistent monitoring, your wound can heal optimally while you avoid the stress and inconvenience of repeated hospital visits.
+Home dressing visits let you recover in comfort while a registered nurse follows your doctor's instructions.
 
-Don't compromise your healing - schedule professional wound care services today.
+Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book. Book through the order form on www.nius.cz or on WhatsApp at +420 773 629 123. NIUS is not an emergency service; in an emergency call 155 or 112.
     `
   },
   {
     id: "4",
-    title: "Elderly Care at Home in Prague: Essential Nursing Services for Seniors",
+    title: "Elderly Care at Home in Prague: Nursing Services",
     slug: "elderly-care-nursing-services-prague",
-    excerpt: "Comprehensive guide to home nursing services for elderly patients in Prague. From medication management to mobility assistance, learn how professional care improves quality of life.",
+    excerpt: "Home nursing for seniors in Prague: hygiene help, medication support as prescribed by the doctor, mobility assistance and regular nurse visits.",
     author: "Geriatric Care Team",
     date: "2025-10-02",
     readTime: "9 min read",
@@ -468,7 +327,7 @@ Don't compromise your healing - schedule professional wound care services today.
     content: `
 # Essential Home Nursing Services for Elderly Care in Prague
 
-As we age, maintaining independence while receiving proper medical care becomes increasingly important. Home nursing services for seniors in Prague offer the perfect balance of professional healthcare and comfortable, familiar surroundings.
+As we age, maintaining independence while receiving proper medical care becomes increasingly important. Home nursing services for seniors in Prague combine professional care with comfortable, familiar surroundings.
 
 ## Why Home Nursing for Elderly Patients?
 
@@ -479,22 +338,17 @@ As we age, maintaining independence while receiving proper medical care becomes 
 - Reduce relocation stress
 - Promote dignity and autonomy
 
-### Health Benefits
+### Care Benefits
 - Personalized attention
-- Reduced hospital exposure
-- Better medication compliance
-- Early problem detection
-- Improved outcomes
+- Regular, familiar faces
+- Support following the doctor's medication plan
 
 ## Common Elderly Care Services
 
 ### Medical Care
-- Medication administration and management
-- Vital signs monitoring
-- Chronic disease management
-- Blood sugar monitoring
+- Help with medication as prescribed by the doctor
+- Vital signs checks
 - Blood pressure checks
-- Oxygen therapy support
 
 ### Personal Care
 - Hygiene assistance
@@ -504,13 +358,10 @@ As we age, maintaining independence while receiving proper medical care becomes 
 - Meal preparation support
 - Exercise guidance
 
-### Specialized Services
-- Dementia and Alzheimer's care
-- Post-stroke rehabilitation
-- Diabetes management
-- Wound care
-- Pain management
-- End-of-life care
+### Nursing Services
+- Wound dressing
+- Accompanied transport to medical appointments
+- Regular visit schedules
 
 ## Benefits of Professional Home Nursing
 
@@ -518,7 +369,6 @@ As we age, maintaining independence while receiving proper medical care becomes 
 - Familiar, comfortable environment
 - One-on-one attention
 - Flexible scheduling
-- Reduced infection risk
 - Maintained independence
 - Family nearby
 
@@ -530,29 +380,16 @@ As we age, maintaining independence while receiving proper medical care becomes 
 - Respite care options
 - Coordination with physicians
 
-## Common Health Concerns in Elderly
+## Everyday Needs
 
-### Chronic Conditions
-- Hypertension
-- Diabetes
-- Heart disease
-- Arthritis
-- COPD
-- Dementia
-
-### Mobility Issues
+### Mobility
 - Fall risk
-- Balance problems
-- Strength decline
-- Joint pain
-- Coordination difficulties
+- Balance and strength
 
-### Medication Management
-- Multiple prescriptions
+### Medication
+- Several prescriptions at once
 - Complex schedules
-- Side effect monitoring
-- Compliance support
-- Drug interaction prevention
+- Questions for the prescribing doctor
 
 ## Safety Considerations
 
@@ -563,12 +400,10 @@ As we age, maintaining independence while receiving proper medical care becomes 
 - Environmental modifications
 - Emergency response systems
 
-### Medication Safety
+### Medication
 - Proper storage
-- Dose accuracy
-- Timing compliance
-- Interaction monitoring
-- Regular reviews
+- Following the schedule set by the doctor
+- Questions go to the prescribing doctor
 
 ## Creating a Care Plan
 
@@ -585,36 +420,18 @@ As we age, maintaining independence while receiving proper medical care becomes 
 - Specific goals
 - Required services
 - Frequency of visits
-- Emergency protocols
 - Progress monitoring
 - Family involvement
 
 ## Cost of Elderly Home Nursing in Prague
 
-### Pricing Factors
-- Service frequency
-- Care complexity
-- Required qualifications
-- Time of service
-- Additional services
-
-### Typical Costs
-- Basic nursing visits: 1,890-1,970 CZK
-- Extended care sessions: 2,190-2,410 CZK
-- 24-hour care: Custom pricing
-- Package deals available
-
-### Insurance Coverage
-- Check private insurance benefits
-- Long-term care policies
-- Government assistance programs
-- Tax deductions available
+Prices depend on the service and visit length. See current prices in the order form on www.nius.cz.
 
 ## Choosing the Right Nurse
 
 ### Essential Qualifications
-- Valid nursing license
-- Geriatric care experience
+- Registered nurse
+- Experience with seniors
 - Patience and compassion
 - Good communication
 - Cultural sensitivity
@@ -622,7 +439,6 @@ As we age, maintaining independence while receiving proper medical care becomes 
 
 ### Important Questions
 - What is your experience with elderly care?
-- How do you handle emergencies?
 - Can you work with my parent's physician?
 - What are your availability and backup plans?
 - Do you provide regular progress reports?
@@ -656,17 +472,14 @@ As we age, maintaining independence while receiving proper medical care becomes 
 ## Quality of Life Improvements
 
 ### Physical Health
-- Better symptom management
-- Increased mobility
+- Support with mobility
 - Proper nutrition
 - Regular exercise
-- Pain control
 
 ### Mental Well-being
 - Social interaction
 - Mental stimulation
 - Emotional support
-- Depression prevention
 - Cognitive activities
 
 ### Social Connections
@@ -702,274 +515,71 @@ As we age, maintaining independence while receiving proper medical care becomes 
 ### Important Documents
 - Healthcare directives
 - Power of attorney
-- HIPAA authorizations
+- Health insurance details
 - Insurance information
 - Emergency contacts
 
 ## Conclusion
 
-Home nursing services enable elderly residents of Prague to age gracefully in their own homes while receiving professional medical care. With qualified nurses, comprehensive care plans, and family support, seniors can maintain independence, dignity, and quality of life.
+Home nursing helps older people in Prague stay in their own homes with regular support from registered nurses.
 
-Don't wait for a crisis - establish home nursing care early to ensure the best possible outcomes for your loved ones.
+Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book. Book through the order form on www.nius.cz or on WhatsApp at +420 773 629 123.
     `
   },
   {
     id: "5",
-    title: "Medical Injections at Home in Prague: Safe, Professional, and Convenient",
+    title: "Injections at Home in Prague: How It Works",
     slug: "medical-injections-home-service-prague",
-    excerpt: "Professional injection services at your Prague home. From vitamin B12 to hormone therapy, learn about safe home injection administration by qualified nurses.",
+    excerpt: "How home injection visits work in Prague: a registered nurse gives medication prescribed by your doctor or clinic, following their written instructions.",
     author: "Medical Administration Team",
     date: "2025-09-28",
     readTime: "5 min read",
     category: "Injection Services",
     image: "/assets/injection.png",
-    keywords: ["injection service Prague", "home injection Prague", "B12 shots Prague", "hormone therapy home", "medical injections"],
+    keywords: ["injections at home Prague", "home injection Prague", "nurse visit Prague", "IVF injections Prague", "home nursing Prague"],
     content: `
-# Medical Injections at Home in Prague: Professional and Convenient
+# Injections at Home in Prague: How It Works
 
-Medical injections don't require a trip to the clinic anymore. Professional home injection services in Prague bring qualified nurses to your door for safe, sterile medication administration.
+If your doctor or clinic has prescribed an injection, you do not have to travel for it. A registered nurse can come to your home or hotel in Prague and administer it.
 
-## Types of Home Injection Services
+## What we do
 
-### Therapeutic Injections
-- Antibiotic administration
-- Pain management medications
-- Anti-inflammatory drugs
-- Hormone therapy
-- Blood thinners
-- Immunosuppressants
+We administer medication prescribed by your clinic, following their written instructions. We do not choose or change the medication; that stays with your doctor.
 
-### Wellness Injections
-- Vitamin B12 shots
-- Vitamin D injections
-- Glutathione treatments
-- Amino acid therapy
-- Weight management injections
+## Why people choose home visits
 
-### Chronic Disease Management
-- Insulin administration
-- Diabetes medications
-- Autoimmune treatments
-- Fertility medications
-- Multiple sclerosis therapy
+- No travel and no waiting room
+- A comfortable, private setting
+- Flexible booking
+- Staff who speak Czech, English, Russian and Ukrainian
 
-## Benefits of Home Injection Services
+## How a visit works
 
-### Convenience
-- No travel required
-- Flexible scheduling
-- Same-day availability
-- Comfortable environment
-- Time-saving
+1. **Book.** Use the order form on www.nius.cz or message us on WhatsApp at +420 773 629 123.
+2. **Send the instructions.** Share the written instructions from your doctor or clinic, and keep your medication ready.
+3. **Visit.** Same-day visits, daily 8:00–21:00. We confirm the arrival time after you book.
+4. **Administration.** The nurse prepares everything, gives the injection and checks the site.
+5. **Aftercare.** The nurse tells you what to watch for and when to contact your doctor.
 
-### Medical Quality
-- Licensed nurses only
-- Sterile technique
-- Proper dosing
-- Safe disposal
-- Emergency preparedness
+## What to prepare
 
-### Privacy and Comfort
-- Discreet service
-- Reduced anxiety
-- Familiar surroundings
-- No waiting rooms
-- Personal attention
+- The medication as supplied by your pharmacy or clinic
+- The written instructions from your doctor or clinic
+- A clean, comfortable place to sit or lie down
 
-## Safety Protocols
+## What does it cost?
 
-### Before Injection
-- Patient identity verification
-- Medication verification
-- Allergy check
-- Site assessment
-- Vital signs monitoring
+An IVF injection visit starts from 1,900 CZK. See current prices in the order form on www.nius.cz.
 
-### During Administration
-- Sterile technique
-- Proper needle size
-- Correct injection site
-- Appropriate depth
-- Patient comfort
+## Good to know
 
-### After Injection
-- Site care instructions
-- Monitoring for reactions
-- Proper disposal
-- Documentation
-- Follow-up scheduling
+- We follow the written instructions you give us
+- Questions about the medication itself go to your prescribing doctor or clinic
+- NIUS is not an emergency service. In an emergency call 155 or 112
 
-## Common Injection Types
+## Book a visit
 
-### Intramuscular (IM)
-- Large muscle groups
-- Faster absorption
-- Higher volumes possible
-- Common sites: deltoid, gluteal, thigh
-
-### Subcutaneous (SubQ)
-- Under the skin
-- Steady absorption
-- Smaller volumes
-- Common sites: abdomen, thigh, arm
-
-### Intradermal
-- Within skin layers
-- Diagnostic testing
-- Allergy testing
-- Tuberculosis screening
-
-## What to Expect
-
-### Before Your Appointment
-1. Confirm prescription
-2. Verify medication availability
-3. Schedule convenient time
-4. Prepare injection site area
-5. Have insurance information ready
-
-### During the Visit
-- Nurse arrives with supplies
-- Verification process
-- Brief health assessment
-- Injection administration (typically 5-10 minutes)
-- Post-injection monitoring
-
-### After the Injection
-- Site care instructions
-- Activity recommendations
-- Side effect information
-- Follow-up scheduling
-- Emergency contact information
-
-## Managing Side Effects
-
-### Common Reactions
-- Mild pain or soreness
-- Minor swelling
-- Slight redness
-- Temporary warmth
-
-### When to Seek Help
-- Severe pain
-- Extensive swelling
-- Signs of infection
-- Allergic reaction
-- Unusual symptoms
-
-## Cost of Home Injection Services
-
-### Pricing Factors
-- Type of injection
-- Medication complexity
-- Time of service
-- Location in Prague
-- Frequency of visits
-
-### Typical Costs
-- Simple injections: 1,890 CZK
-- Complex medications: 2,190-2,380 CZK
-- Series packages: Discounted rates
-- Medication costs additional
-
-## Injection Site Care
-
-### Immediate Care
-- Light pressure if needed
-- No rubbing (most injections)
-- Clean, dry bandage if necessary
-- Normal activities usually okay
-
-### Ongoing Care
-- Keep site clean
-- Monitor for changes
-- Avoid excessive heat or pressure
-- Report unusual symptoms
-
-## Special Considerations
-
-### For Diabetic Patients
-- Insulin injection training
-- Site rotation education
-- Blood glucose monitoring
-- Supply management
-- Emergency protocols
-
-### For Hormone Therapy
-- Consistent timing
-- Proper storage
-- Side effect monitoring
-- Regular blood work coordination
-- Dosage adjustments
-
-### For Weight Management
-- Injection scheduling
-- Diet and exercise guidance
-- Progress monitoring
-- Side effect management
-- Goal setting
-
-## Choosing an Injection Service
-
-### Qualifications to Verify
-- Valid nursing license
-- Injection certification
-- Liability insurance
-- Emergency training
-- Good reviews
-
-### Questions to Ask
-- What is your experience?
-- How do you ensure sterility?
-- What emergency protocols exist?
-- Can you coordinate with my doctor?
-- What are your availability and rates?
-
-## Injection Training for Caregivers
-
-Some services offer training for:
-- Family members
-- Home caregivers
-- Patients (self-injection)
-
-### Training Includes
-- Proper technique
-- Safety protocols
-- Storage requirements
-- Emergency procedures
-- Sharps disposal
-
-## Legal and Medical Considerations
-
-### Prescription Requirements
-- Most injections require valid prescription
-- Prescription verification
-- Doctor coordination
-- Renewal tracking
-
-### Documentation
-- Injection records
-- Patient response
-- Side effects
-- Vital signs
-- Follow-up needs
-
-## Traveling with Injections
-
-### Tips for Patients
-- Proper medication storage
-- Travel documentation
-- Portable sharps container
-- Temperature control
-- Local emergency contacts
-
-## Conclusion
-
-Home injection services in Prague offer a safe, convenient alternative to clinic visits. With qualified nurses, proper safety protocols, and flexible scheduling, you can receive necessary medical injections in the comfort of your home.
-
-Whether you need regular therapeutic injections or occasional wellness treatments, professional home injection services provide quality medical care without the hassle.
-
-Book your home injection service today and experience the convenience of professional medical care at home.
+Open the order form on www.nius.cz or message us on WhatsApp at +420 773 629 123.
     `
   }
 ];

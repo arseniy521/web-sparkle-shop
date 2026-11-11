@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useTranslation } from "react-i18next";
+import { GOOGLE_RATING } from "@/constants/reviews";
 import { Link } from "react-router-dom";
 import {
   Sparkles,
@@ -40,10 +41,10 @@ const BirthdayGift = () => {
   const phone = "+420773629123";
   const whatsappLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
     currentLang === "ru"
-      ? "Здравствуйте! Хочу заказать подарочный сертификат на день рождения — Glow IV капельницу."
+      ? "Здравствуйте! Хочу заказать подарочный сертификат на день рождения, капельницу «Витамины и минералы Классик»."
       : currentLang === "cs"
-        ? "Dobrý den! Chci objednat dárkový voucher k narozeninám — Glow IV infuzi."
-        : "Hi! I'd like to order a birthday gift voucher — Glow IV Drip."
+        ? "Dobrý den! Chci objednat dárkový voucher k narozeninám, infuzi „Vitamíny a minerály Classic“."
+        : "Hi! I'd like to order a birthday gift voucher: Vitamin & Mineral Classic IV Drip."
   )}`;
 
   const hreflangMap: Record<string, string> = {
@@ -64,13 +65,13 @@ const BirthdayGift = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "Glow & Post-Flu IV Drip Birthday Gift Voucher — Prague",
+      name: "Vitamin & Mineral Classic IV Drip Birthday Gift Voucher, Prague",
       description: t("birthdayGift.seo.description"),
       image: "https://www.nius.cz/og-image.jpg",
-      brand: { "@type": "Brand", name: "NIUS — Nurse in Prague" },
+      brand: { "@type": "Brand", name: "NIUS (Nurse in Prague)" },
       offers: {
         "@type": "Offer",
-        price: "3650",
+        price: "3750",
         priceCurrency: "CZK",
         availability: "https://schema.org/InStock",
         validFrom: "2026-01-01",
@@ -79,9 +80,10 @@ const BirthdayGift = () => {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "4",
-        bestRating: "5",
+        ratingValue: GOOGLE_RATING.ratingValue,
+        reviewCount: GOOGLE_RATING.reviewCount,
+        bestRating: GOOGLE_RATING.bestRating,
+        worstRating: GOOGLE_RATING.worstRating,
       },
     },
     {
@@ -99,21 +101,22 @@ const BirthdayGift = () => {
     {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
-      name: "NIUS — Nurse in Prague",
+      name: "NIUS (Nurse in Prague)",
       telephone: phone,
       url: "https://www.nius.cz",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Prague",
+        addressLocality: "Praha",
         addressCountry: "CZ",
       },
       areaServed: { "@type": "City", name: "Prague" },
       openingHours: "Mo-Su 08:00-21:00",
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "4",
-        bestRating: "5",
+        ratingValue: GOOGLE_RATING.ratingValue,
+        reviewCount: GOOGLE_RATING.reviewCount,
+        bestRating: GOOGLE_RATING.bestRating,
+        worstRating: GOOGLE_RATING.worstRating,
       },
     },
   ];
@@ -402,7 +405,7 @@ const BirthdayGift = () => {
                       {t(`birthdayGift.testimonials.items.${key}.author`)}
                     </span>
                     <span className="text-muted-foreground ml-1">
-                      — {t(`birthdayGift.testimonials.items.${key}.location`)}
+                      {t(`birthdayGift.testimonials.items.${key}.location`)}
                     </span>
                   </div>
                 </Card>

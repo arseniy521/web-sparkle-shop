@@ -65,9 +65,9 @@ function cartControl(menu: HTMLElement) {
 describe('nius-menu custom element', () => {
   it.each([
     { locale: 'en', name: 'Immunity Lite', empty: 'Add to cart', decrease: 'Decrease quantity', increase: 'Increase quantity' },
-    { locale: 'cs', name: 'Imunita Lite', empty: 'Do košíku', decrease: 'Snížit množství', increase: 'Zvýšit množství' },
-    { locale: 'ru', name: 'Иммунитет Лайт', empty: 'В корзину', decrease: 'Уменьшить количество', increase: 'Увеличить количество' },
-    { locale: 'uk', name: 'Імунітет Лайт', empty: 'У кошик', decrease: 'Зменшити кількість', increase: 'Збільшити кількість' },
+    { locale: 'cs', name: 'Immunity Lite', empty: 'Do košíku', decrease: 'Snížit množství', increase: 'Zvýšit množství' },
+    { locale: 'ru', name: 'Immunity Lite', empty: 'В корзину', decrease: 'Уменьшить количество', increase: 'Увеличить количество' },
+    { locale: 'uk', name: 'Immunity Lite', empty: 'У кошик', decrease: 'Зменшити кількість', increase: 'Збільшити кількість' },
   ])('renders an accessible quantity stepper for $locale', ({
     locale,
     name,

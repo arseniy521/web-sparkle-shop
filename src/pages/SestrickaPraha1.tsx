@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { BookingLink } from '@/components/BookingLink';
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Phone, MapPin, Clock } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -11,8 +12,8 @@ import { Link } from "react-router-dom";
 const SestrickaPraha1 = () => {
   const { t } = useTranslation();
   
-  const pageTitle = "Sestřička Praha 1 | Domácí Péče Staré Město & Nové Město";
-  const pageDescription = "Profesionální sestřička v centru Prahy. IV kapačky, injekce a ošetřovatelská péče v Praze 1 - Staré Město, Nové Město, Malá Strana. Rychlý příjezd 1 hodina.";
+  const pageTitle = "Sestřička Praha 1 | Domácí péče v centru";
+  const pageDescription = "Sestřička v centru Prahy: IV kapačky, injekce a ošetřovatelská péče v Praze 1. Návštěva ve stejný den, denně 8:00–21:00.";
   
   const neighborhoods = [
     "Staré Město",
@@ -38,7 +39,7 @@ const SestrickaPraha1 = () => {
           "telephone": "+420773629123",
           "email": "info@nius.cz",
           "url": "https://www.nius.cz/sestricka-praha-1/",
-          "priceRange": "1890-2680 CZK",
+          "priceRange": "1650-4550 CZK",
           "geo": {
             "@type": "GeoCoordinates",
             "latitude": "50.0875",
@@ -65,7 +66,7 @@ const SestrickaPraha1 = () => {
                   "@type": "Service",
                   "name": "IV Kapačky Praha 1",
                   "description": "IV kapačky v hotelích a domech v centru Prahy",
-                  "price": "2380",
+                  "price": "1650",
                   "priceCurrency": "CZK"
                 }
               },
@@ -74,8 +75,8 @@ const SestrickaPraha1 = () => {
                 "itemOffered": {
                   "@type": "Service",
                   "name": "IVF Injekce pro turisty",
-                  "description": "Specializované IVF injekce v hotelích",
-                  "price": "1890",
+                  "description": "Podání léků předepsaných vaší klinikou v hotelu",
+                  "price": "1900",
                   "priceCurrency": "CZK"
                 }
               }
@@ -104,12 +105,12 @@ const SestrickaPraha1 = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" className="w-full sm:w-auto group">
                     Rezervovat sestřičku
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
-                </a>
+                </BookingLink>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />
@@ -121,7 +122,7 @@ const SestrickaPraha1 = () => {
               <div className="flex flex-wrap gap-6 justify-center pt-8 text-sm">
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-primary" />
-                  <span>Příjezd do 1 hodiny v centru</span>
+                  <span>Návštěva ve stejný den, denně 8:00–21:00</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-primary" />
@@ -145,7 +146,7 @@ const SestrickaPraha1 = () => {
                     <MapPin className="h-8 w-8 text-primary mx-auto mb-3" />
                     <h3 className="font-semibold text-lg">{area}</h3>
                     <p className="text-sm text-muted-foreground mt-2">
-                      Rychlý příjezd do 1 hodiny
+                      Čas příjezdu potvrdíme po objednání
                     </p>
                   </Card>
                 ))}
@@ -154,7 +155,7 @@ const SestrickaPraha1 = () => {
               <div className="mt-8 p-6 bg-muted/50 rounded-lg">
                 <h3 className="font-semibold mb-3 text-center">Obsluhujeme také hotely v centru Prahy:</h3>
                 <p className="text-sm text-muted-foreground text-center">
-                  Four Seasons, Mandarin Oriental, Hotel Paris, Intercontinental, Hilton Old Town, a všechny další hotely a Airbnb v Praze 1
+                  Přijedeme do kteréhokoli hotelu, apartmánu nebo Airbnb v Praze 1
                 </p>
               </div>
             </div>
@@ -173,18 +174,18 @@ const SestrickaPraha1 = () => {
                   <Card className="p-6 hover:shadow-card transition-all">
                     <h3 className="text-xl font-semibold mb-3">IV Kapačky Praha 1</h3>
                     <p className="text-muted-foreground mb-4">
-                      Rychlé podání IV kapačky v hotelu nebo apartmánu. Vitamíny, hydratace, hangover terapie.
+                      Podání IV kapačky v hotelu nebo apartmánu. Vitamíny a hydratace; každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.
                     </p>
-                    <p className="text-sm font-semibold">Od 2 380 Kč</p>
+                    <p className="text-sm font-semibold">Od 1 650 Kč</p>
                   </Card>
                 </Link>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">IVF Injekce pro zahraniční pacienty</h3>
                   <p className="text-muted-foreground mb-4">
-                    Specializujeme se na injekce pro IVF pacienty v pražských hotelech. Anglicky mluvící personál.
+                    Podáváme léky předepsané vaší klinikou podle jejích písemných pokynů, i v pražských hotelech. Anglicky mluvící personál.
                   </p>
-                  <p className="text-sm font-semibold">Od 1 890 Kč</p>
+                  <p className="text-sm font-semibold">Od 1 900 Kč</p>
                 </Card>
 
                 <Card className="p-6">
@@ -192,13 +193,13 @@ const SestrickaPraha1 = () => {
                   <p className="text-muted-foreground mb-4">
                     Péče o rány, převazy, odstraňování stehů po plastických operacích a zákrocích v Praze.
                   </p>
-                  <p className="text-sm font-semibold">Od 1899 Kč</p>
+                  <p className="text-sm font-semibold">Od 1 890 Kč</p>
                 </Card>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Injekce a aplikace léků</h3>
                   <p className="text-muted-foreground mb-4">
-                    Inzulín, antibiotika, antikoagulancia, vitaminová terapia. Bezpečné podání v hotelu.
+                    Aplikace injekcí předepsaných lékařem nebo vaší klinikou, podle jejich písemných pokynů, v hotelu nebo doma.
                   </p>
                   <p className="text-sm font-semibold">Od 2 190 Kč</p>
                 </Card>
@@ -219,9 +220,9 @@ const SestrickaPraha1 = () => {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold">Nejrychlejší příjezd</h3>
+                  <h3 className="font-semibold">Návštěva ve stejný den</h3>
                   <p className="text-sm text-muted-foreground">
-                    V centru Prahy obvykle do 1 hodiny
+                    Denně 8:00–21:00. Čas příjezdu potvrdíme po objednání.
                   </p>
                 </div>
                 <div className="space-y-3">
@@ -230,7 +231,7 @@ const SestrickaPraha1 = () => {
                   </div>
                   <h3 className="font-semibold">Hotely & Airbnb</h3>
                   <p className="text-sm text-muted-foreground">
-                    Specializujeme se na návštěvy hotelů v centru
+                    Přijedeme do jakéhokoli hotelu v centru
                   </p>
                 </div>
                 <div className="space-y-3">
@@ -239,7 +240,7 @@ const SestrickaPraha1 = () => {
                   </div>
                   <h3 className="font-semibold">Anglicky & česky</h3>
                   <p className="text-sm text-muted-foreground">
-                    Perfektní komunikace pro zahraniční pacienty
+                    Komunikace pro zahraniční pacienty
                   </p>
                 </div>
               </div>
@@ -255,14 +256,14 @@ const SestrickaPraha1 = () => {
                 Potřebujete sestřičku v centru Prahy?
               </h2>
               <p className="text-lg text-muted-foreground">
-                Rychlá, profesionální péče v hotelu nebo doma. Ideální pro turisty a expaty.
+                Profesionální péče v hotelu nebo doma. Ideální pro turisty a expaty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" className="w-full sm:w-auto">
                     Rezervovat online
                   </Button>
-                </a>
+                </BookingLink>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />

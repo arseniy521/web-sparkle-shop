@@ -4,7 +4,7 @@ const NIUS_I18N = {
     allCategories: 'All',
     servicesAndPricing: 'Services & pricing',
     menuTitle: 'Mobile IV therapy,<br><em>at your door.</em>',
-    menuDesc: 'Registered nurses delivering vitamin infusions and specialised care anywhere in Prague — same day after you book.',
+    menuDesc: 'Registered nurses delivering vitamin and hydration drips and nursing care anywhere in Prague, same-day visits.',
     nurseIncluded: 'nurse included',
     bookThisDrip: 'Book this drip →',
     addToCart: 'Add to cart',
@@ -19,50 +19,49 @@ const NIUS_I18N = {
     total: 'Total',
     cartHint: 'Adding to cart does not place an order',
     close: 'Close',
-    ctaInfo: 'Registered nurse · medical review included · all equipment',
+    ctaInfo: 'Registered nurse · doctor\'s indication after a short health assessment · all equipment',
     addBooster: 'Add a booster shot',
-    boosterFoot: 'Administered by your nurse during the same visit — no extra visit fee.',
+    boosterFoot: 'Administered by your nurse during the same visit, no extra visit fee.',
     whatsInside: "What's inside",
-    bestFor: 'Best for',
+    bestFor: 'Good for',
     viewDetails: 'Details',
     bundlesLabel: 'Bundles',
     bundlesTitle: 'Order more,<br><em>get more.</em>',
-    bundlesDesc: 'Pre-paid bundles for regular clients, IVF patients, and anyone planning multiple visits. Choose any drips from the menu.',
+    bundlesDesc: 'Pre-paid bundles for regular clients and anyone planning multiple visits. Choose any drips from the menu.',
     bundles: {
-      'bundle-5': { name: '5 + 1 Bundle', tagline: 'Order 5 drips · 1 is on us', cta: 'Get bundle →', perks: ['6 drips total at the price of 5', 'Choose any drips from the menu', 'Valid for 6 months from purchase', 'Transferable to family members', 'Same-day arrival, every visit'] },
-      'bundle-10': { name: '10 + 2 Bundle', tagline: 'Order 10 drips · get 2 on us', cta: 'Get bundle →', badge: 'Best value', perks: ['12 drips total at the price of 10', 'Choose any drips from the menu', 'Valid for 12 months from purchase', 'Transferable to family or guests', 'Priority booking · skip the queue', 'One free booster shot per visit'] },
-      'corporate': { name: 'Corporate / Group', tagline: 'For clinics, hotels & teams', cta: 'Get a quote →', customPrice: 'On request', perks: ['Hotel concierge programmes', 'Clinic partnership rates (IVF, post-op)', 'Team wellness days', 'Bachelor / hen party packages', 'Custom invoicing & reporting'] }
+      'bundle-5': { name: '5 + 1 Bundle', tagline: 'Order 5 drips · 1 is on us', cta: 'Get bundle →', perks: ['6 drips total at the price of 5', 'Choose any drips from the menu', 'Valid for 6 months from purchase', 'Transferable to family members', 'Same-day visits, daily 8:00–21:00'] },
+      'bundle-10': { name: '10 + 2 Bundle', tagline: 'Order 10 drips · get 2 on us', cta: 'Get bundle →', badge: 'Bundle price', perks: ['12 drips total at the price of 10', 'Choose any drips from the menu', 'Valid for 12 months from purchase', 'Transferable to family or guests', 'Book by form or WhatsApp', 'One free booster shot per visit'] },
+      'corporate': { name: 'Corporate / Group', tagline: 'For hotels, clinics & teams', cta: 'Get a quote →', customPrice: 'On request', perks: ['Programmes for hotels, clinics and teams: by request', 'Team wellness days', 'Custom invoicing & reporting'] }
     },
     subscription: {
       title: 'NIUS+ Membership',
-      pitch: 'Monthly drips. One flat fee. Always priority.',
-      desc: 'A subscription for clients who want to stay topped up year-round — fertility patients on long protocols, executives, expats.',
-      mostPopular: 'Most popular',
+      pitch: 'Monthly drips. One flat fee. Simple booking.',
+      desc: 'A subscription for clients who want regular visits all year, executives, expats, busy families.',
+      mostPopular: 'Popular',
       startCta: 'Start',
       perks: [
         { title: 'Drips at fixed monthly pricing', desc: 'Choose any drip from the menu, every month' },
         { title: '15% off any extra drips', desc: 'Need more this month? Members always pay less' },
-        { title: 'Priority same-day booking', desc: 'Members come first when calendar is full' },
+        { title: 'Same-day visits', desc: 'Daily 8:00–21:00. We confirm the arrival time after you book.' },
         { title: 'Cancel anytime', desc: 'No long-term commitment, no hidden fees' }
       ],
       plans: [
-        { name: 'Essential', per: 'CZK / month', desc: '<strong>2 drips per month</strong> — perfect for prevention and regular immune support.' },
-        { name: 'Premium', per: 'CZK / month', desc: '<strong>3 drips per month</strong> — best for IVF protocols, business travellers, executives.' }
+        { name: 'Essential', per: 'CZK / month', desc: '<strong>2 drips per month</strong>: for a regular vitamin and hydration routine.' },
+        { name: 'Premium', per: 'CZK / month', desc: '<strong>3 drips per month</strong>: for business travellers, executives and busy schedules.' }
       ]
     },
     categories: {
-      immunity: { label: 'Immunity & Recovery', desc: 'High-dose Vitamin C protocols for prevention, flu season and recovery.' },
-      energy: { label: 'Energy & Performance', desc: 'From the CEO Recharge flagship to express B-Vitamin boosters.' },
-      hydration: { label: 'Hydration & Balance', desc: 'Rapid rehydration, electrolyte recovery, and nausea relief.' },
-      special: { label: 'Specialised Care', desc: 'Iron infusions, nerve recovery, back pain, allergy support.' },
-      nursing: { label: 'Nursing Care', desc: 'Post-surgery wound care, hygiene assistance, and nurse escort services.' }
+      immunity: { label: 'Vitamin Drips', desc: 'Vitamin C, minerals and fluids: chosen with the doctor after a short health assessment.' },
+      energy: { label: 'B-Vitamins & Busy Days', desc: 'From the CEO Recharge flagship to a B12 injection.' },
+      hydration: { label: 'Hydration & Travel', desc: 'Fluids and electrolytes after a long flight or a busy day.' },
+      nursing: { label: 'Nursing Care', desc: 'Wound dressing after surgery, hygiene assistance and nurse escort.' }
     }
   },
   cs: {
     allCategories: 'Vše',
     servicesAndPricing: 'Služby a ceník',
     menuTitle: 'Mobilní IV terapie,<br><em>až k vám domů.</em>',
-    menuDesc: 'Registrované sestry poskytující vitamínové infuze a specializovanou péči kdekoli v Praze — v den objednání.',
+    menuDesc: 'Registrované sestry poskytující vitamínové a hydratační infuze a ošetřovatelskou péči kdekoli v Praze, návštěva ve stejný den.',
     nurseIncluded: 'sestra v ceně',
     bookThisDrip: 'Objednat →',
     addToCart: 'Přidat do košíku',
@@ -77,83 +76,69 @@ const NIUS_I18N = {
     total: 'Celkem',
     cartHint: 'Přidáním do košíku nevytváříte objednávku',
     close: 'Zavřít',
-    ctaInfo: 'Registrovaná sestra · lékařská kontrola · veškerý materiál',
+    ctaInfo: 'Registrovaná sestra · indikace lékaře po krátkém posouzení · veškerý materiál',
     addBooster: 'Přidat booster',
-    boosterFoot: 'Aplikuje vaše sestra během stejné návštěvy — bez příplatku.',
+    boosterFoot: 'Aplikuje vaše sestra během stejné návštěvy: bez příplatku.',
     whatsInside: 'Co obsahuje',
     bestFor: 'Vhodné pro',
     viewDetails: 'Detail',
     bundlesLabel: 'Balíčky',
     bundlesTitle: 'Objednejte více,<br><em>získejte více.</em>',
-    bundlesDesc: 'Předplacené balíčky pro pravidelné klienty, IVF pacientky a každého, kdo plánuje více návštěv.',
+    bundlesDesc: 'Předplacené balíčky pro pravidelné klienty a každého, kdo plánuje více návštěv.',
     bundles: {
-      'bundle-5': { name: '5 + 1 Balíček', tagline: 'Objednejte 5 infuzí · 1 je zdarma', cta: 'Získat balíček →', perks: ['6 infuzí celkem za cenu 5', 'Vyberte si jakékoli infuze z nabídky', 'Platnost 6 měsíců od zakoupení', 'Přenositelné na rodinné příslušníky', 'Příjezd v den objednání, pokaždé'] },
-      'bundle-10': { name: '10 + 2 Balíček', tagline: 'Objednejte 10 infuzí · 2 jsou zdarma', cta: 'Získat balíček →', badge: 'Nejvýhodnější', perks: ['12 infuzí celkem za cenu 10', 'Vyberte si jakékoli infuze z nabídky', 'Platnost 12 měsíců od zakoupení', 'Přenositelné na rodinu nebo hosty', 'Přednostní objednávání · bez čekání', 'Jeden booster shot zdarma při každé návštěvě'] },
-      'corporate': { name: 'Firemní / Skupinový', tagline: 'Pro kliniky, hotely a týmy', cta: 'Získat nabídku →', customPrice: 'Na vyžádání', perks: ['Hotelové concierge programy', 'Partnerské ceny pro kliniky (IVF, pooperační)', 'Firemní wellness dny', 'Rozlučkové balíčky', 'Fakturace a reporting na míru'] }
+      'bundle-5': { name: '5 + 1 Balíček', tagline: 'Objednejte 5 infuzí · 1 je zdarma', cta: 'Získat balíček →', perks: ['6 infuzí celkem za cenu 5', 'Vyberte si jakékoli infuze z nabídky', 'Platnost 6 měsíců od zakoupení', 'Přenositelné na rodinné příslušníky', 'Návštěva ve stejný den, denně 8:00–21:00'] },
+      'bundle-10': { name: '10 + 2 Balíček', tagline: 'Objednejte 10 infuzí · 2 jsou zdarma', cta: 'Získat balíček →', badge: 'Balíčková cena', perks: ['12 infuzí celkem za cenu 10', 'Vyberte si jakékoli infuze z nabídky', 'Platnost 12 měsíců od zakoupení', 'Přenositelné na rodinu nebo hosty', 'Objednání přes formulář nebo WhatsApp', 'Jeden booster shot zdarma při každé návštěvě'] },
+      'corporate': { name: 'Firemní / Skupinový', tagline: 'Pro hotely, kliniky a týmy', cta: 'Získat nabídku →', customPrice: 'Na vyžádání', perks: ['Programy pro hotely, kliniky a týmy: na vyžádání', 'Firemní wellness dny', 'Fakturace a reporting na míru'] }
     },
     subscription: {
       title: 'NIUS+ Členství',
-      pitch: 'Měsíční infuze. Jedna paušální cena. Vždy priorita.',
-      desc: 'Předplatné pro klienty, kteří chtějí být celoročně v kondici — IVF pacientky na dlouhých protokolech, manažeři, expati.',
-      mostPopular: 'Nejoblíbenější',
+      pitch: 'Měsíční infuze. Jedna paušální cena. Snadné objednání.',
+      desc: 'Předplatné pro klienty, kteří chtějí pravidelné návštěvy celý rok, manažeři, expati, vytížené rodiny.',
+      mostPopular: 'Oblíbené',
       startCta: 'Začít',
       perks: [
         { title: 'Infuze za fixní měsíční cenu', desc: 'Vyberte si jakoukoliv infuzi z nabídky, každý měsíc' },
         { title: '15% sleva na další infuze', desc: 'Potřebujete tento měsíc více? Členové platí vždy méně' },
-        { title: 'Přednostní objednávání v den objednání', desc: 'Členové mají přednost, když je kalendář plný' },
+        { title: 'Návštěva ve stejný den', desc: 'Denně 8:00–21:00. Čas příjezdu potvrdíme po objednání.' },
         { title: 'Zrušení kdykoliv', desc: 'Žádný dlouhodobý závazek, žádné skryté poplatky' }
       ],
       plans: [
-        { name: 'Essential', per: 'Kč / měsíc', desc: '<strong>2 infuze měsíčně</strong> — ideální pro prevenci a pravidelnou imunitní podporu.' },
-        { name: 'Premium', per: 'Kč / měsíc', desc: '<strong>3 infuze měsíčně</strong> — nejlepší pro IVF protokoly, business cestovatele, manažery.' }
+        { name: 'Essential', per: 'Kč / měsíc', desc: '<strong>2 infuze měsíčně</strong>: pro pravidelnou rutinu s vitamíny a hydratací.' },
+        { name: 'Premium', per: 'Kč / měsíc', desc: '<strong>3 infuze měsíčně</strong>: pro business cestovatele, manažery a vytížený kalendář.' }
       ]
     },
     categories: {
-      immunity: { label: 'Imunita a regenerace', desc: 'Vysokodávkový vitamín C pro prevenci, chřipkovou sezónu a regeneraci.' },
-      energy: { label: 'Energie a výkon', desc: 'Od vlajkového CEO Recharge po expresní B-vitamínové boostery.' },
-      hydration: { label: 'Hydratace a rovnováha', desc: 'Rychlá rehydratace, obnova elektrolytů a úleva od nevolnosti.' },
-      special: { label: 'Specializovaná péče', desc: 'Infuze železa, regenerace nervů, bolesti zad, podpora při alergii.' },
-      nursing: { label: 'Ošetřovatelská péče', desc: 'Pooperační péče o rány, hygienická asistence a doprovod sestry.' }
+      immunity: { label: 'Vitamínové infuze', desc: 'Vitamín C, minerály a tekutiny: vybrané s lékařem po krátkém zdravotním posouzení.' },
+      energy: { label: 'B-vitamíny a náročné dny', desc: 'Od vlajkového CEO Recharge po injekci B12.' },
+      hydration: { label: 'Hydratace a cestování', desc: 'Tekutiny a elektrolyty po dlouhém letu nebo náročném dni.' },
+      nursing: { label: 'Ošetřovatelská péče', desc: 'Převaz po operaci, hygienická asistence a doprovod sestry.' }
     },
     drips: {
-      'Immunity Lite': { name: 'Imunita Lite', tagline: 'Základní imunitní podpora. Startovací protokol.', bestfor: 'Příprava na cestu, prevence, mírná únava, první infuze.' },
-      'Immunity Power': { name: 'Imunita Power', tagline: 'Vysokodávkový vitamín C — silná obrana proti virům.', bestfor: 'Po nemoci, rizikové cestování, klienti s příznaky.' },
-      'Defense Shield': { name: 'Obranný štít', tagline: 'Ultimátní formule pro obnovu po chřipce a virech.', bestfor: 'Chřipka, virová rekonvalescence, longevity klienti, VIP hosté hotelů.' },
-      'Glow & Post-Flu': { name: 'Záře & Post-Flu', tagline: 'Pleť, vlasy a imunitní odolnost.', bestfor: 'Společenské akce, svatby, rekonvalescence, focení.' },
-      'CEO Recharge': { name: 'CEO Recharge', tagline: 'Maximální soustředění, mentální jasnost, reset energie.', bestfor: 'Manažeři, business cestování, hosté 5* hotelů, před důležitou akcí.' },
-      'Metabolic Reset': { name: 'Metabolický reset', tagline: 'Podpora energetického metabolismu a zotavení z vyhoření.', bestfor: 'Chronická únava, vyhoření, regenerace po dlouhém letu.' },
-      'B-Power Shot': { name: 'B-Power Shot', tagline: 'Rychlý B12 boost. Energie za 10 minut.', bestfor: 'Vegani, mozková mlha, rychlý ranní boost.' },
-      'Pure Hydrate': { name: 'Čistá hydratace', tagline: 'Rychlá rehydratace. Jednoduše, rychle, účinně.', bestfor: 'Kocovina, dehydratace, po letu, první návštěva.' },
-      'Electrolyte Reset': { name: 'Elektrolytový reset', tagline: 'Hydratace plus regenerace svalů a spánku.', bestfor: 'Křeče, migréna, nespavost, sportovní regenerace.' },
-      'Nausea Relief': { name: 'Úleva od nevolnosti', tagline: 'Rychlá úleva od nauzey a zvracení.', bestfor: 'Otrava jídlem, silná kocovina, těhotenská nevolnost.' },
-      'Standard Iron': { name: 'Železo Standard', tagline: 'Šetrné doplnění železa pro energii a vitalitu.', bestfor: 'Nedostatek železa, mírná anémie, IVF pacientky.' },
-      'Premium Iron': { name: 'Železo Premium', tagline: 'Vysocedávkové železo, jednorázová dávka pro těžký deficit.', bestfor: 'Těžký nedostatek železa, těhotenství, po operaci, IVF protokoly.' },
-      'Nerve Regen': { name: 'Regenerace nervů', tagline: 'Obnova nervů a úleva od bolesti zad.', bestfor: 'Bolesti zad, brnění, neuropatie, ponemocniční rekonvalescence.' },
-      'Backache Relief': { name: 'Úleva od bolesti zad', tagline: 'Akutní svalová a nervová bolest — rychlá úleva.', bestfor: 'Akutní bolest zad, svalový spasmus, napětí v krku, sportovní zranění.' },
-      'Allergy Stop': { name: 'Stop alergii', tagline: 'Rychlá úleva od alergických reakcí.', bestfor: 'Akutní alergie, senná rýma, potravinová reakce, sezónní rinitida.' },
-      'Post-Op Wound Dressing': { name: 'Pooperační převaz', tagline: 'Profesionální péče o rány a výměna obvazů po operaci.', bestfor: 'Plastická chirurgie, ortopedické rány, kosmetické zákroky, med. turisté.' },
-      'Hygiene Assistance': { name: 'Hygienická asistence', tagline: 'Hodinová profesionální hygiena a komfortní péče.', bestfor: 'Pooperační pacienti, senioři, klienti s omezenou hybností, hotelová rekonvalescence.' },
-      'Nurse Escort': { name: 'Doprovod sestry', tagline: 'Doprovod na lékařské vyšetření a zpět.', bestfor: 'Pooperační kontroly, med. turisté, pacienti vyžadující asistenci při přepravě.' },
-      'Jet Lag Recovery': { name: 'Jet Lag Recovery', tagline: 'Rehydratace a reset energie po dlouhém letu.', bestfor: 'Business cestující, po příletu, účastníci konferencí, hoteloví hosté.' }
+      'Immunity Lite': { name: 'Immunity Lite', tagline: 'Vitamín C a tekutiny. Jednoduchá první infuze.', bestfor: 'První infuze, příprava na cestu, pravidelná vitamínová rutina.' },
+      'Immunity Power': { name: 'Immunity Power', tagline: 'Vitamín C a tekutiny v delší infuzi.', bestfor: 'Pro ty, kdo chtějí plnější vitamín C návštěvu, cestování, rušná období.' },
+      'Vitamin & Mineral Plus': { name: 'Vitamíny a minerály Plus', tagline: 'Vitamín C, zinek, selen a stopové prvky s tekutinami.', bestfor: 'Kompletní vitamínová a minerální návštěva doma nebo v hotelu.' },
+      'Vitamin & Mineral Classic': { name: 'Vitamíny a minerály Classic', tagline: 'Vitamín C, zinek, selen a stopové prvky: klasická kombinace.', bestfor: 'Rušné týdny, před akcí nebo cestou, klidná hodina doma.' },
+      'CEO Recharge': { name: 'CEO Recharge', tagline: 'Hořčík, zinek, stopové prvky a B-vitamínový komplex s tekutinami.', bestfor: 'Manažeři, business cesty, hotelští hosté, vytížený program.' },
+      'Metabolic Reset': { name: 'Metabolic Reset', tagline: 'Zinek, stopové prvky a B-vitamínový komplex s tekutinami.', bestfor: 'Náročné týdny, dlouhé lety, pravidelná rutina s B-vitamíny.' },
+      'B-Power Shot': { name: 'B-Power Shot', tagline: 'Krátká návštěva s injekcí vitamínu B12.', bestfor: 'Vegani, krátká ranní návštěva, jednoduchý doplněk k rutině.' },
+      'Pure Hydrate': { name: 'Pure Hydrate', tagline: 'Fyziologický roztok pro podporu hydratace. Jednoduše a klidně.', bestfor: 'Rehydratace po cestě a náročných dnech, první návštěva.' },
+      'Electrolyte Reset': { name: 'Electrolyte Reset', tagline: 'Tekutiny s hořčíkem pro rovnováhu po sportu nebo cestě.', bestfor: 'Aktivní dny, sport, horké počasí, cestování.' },
+      'Jet Lag Recovery': { name: 'Jet Lag Recovery', tagline: 'Tekutiny, hořčík a B-vitamíny po dlouhém letu.', bestfor: 'Business cestující, po příletu, účastníci konferencí, hotelští hosté.' },
+      'Post-Op Wound Dressing': { name: 'Pooperační převaz', tagline: 'Profesionální péče o rány a výměna obvazů po operaci.', bestfor: 'Péče po plastické chirurgii, ortopedické rány, kosmetické zákroky, zdravotní turisté.' },
+      'Hygiene Assistance': { name: 'Hygienická asistence', tagline: 'Hodinová profesionální hygiena a komfortní péče.', bestfor: 'Pacienti po operaci, senioři, klienti s omezenou hybností, rekonvalescence v hotelu.' },
+      'Nurse Escort': { name: 'Doprovod sestry', tagline: 'Doprovod na lékařské vyšetření a zpět.', bestfor: 'Kontroly po operaci, zdravotní turisté, pacienti, kteří potřebují pomoc při přepravě.' }
     },
     ingredients: {
       'Saline hydration base': 'Fyziologický roztok',
       'Saline hydration solution': 'Fyziologický roztok',
-      'Vitamin C (medium dose)': 'Vitamín C (střední dávka)',
-      'Vitamin C (high dose)': 'Vitamín C (vysoká dávka)',
+      'Vitamin C': 'Vitamín C',
       'Zinc, Selenium & Trace Minerals': 'Zinek, selen a stopové prvky',
       'Magnesium, Zinc & Trace Minerals (IV)': 'Hořčík, zinek a stopové prvky (IV)',
       'Full B-Vitamin Complex (injection)': 'Kompletní B-vitamínový komplex (injekce)',
       'Zinc & Trace Minerals (IV)': 'Zinek a stopové prvky (IV)',
-      'High-dose Vitamin B12 (injection only)': 'Vysokodávkový vitamín B12 (pouze injekce)',
-      'High-dose Magnesium': 'Vysokodávkový hořčík',
-      'Anti-nausea support': 'Podpora proti nevolnosti',
-      'Iron (standard dose)': 'Železo (standardní dávka)',
-      'Iron (high-potency single dose)': 'Železo (vysocedávkové jednorázové)',
-      'Full B-Vitamin Complex (B1, B6, B12)': 'Kompletní B-komplex (B1, B6, B12)',
+      'Vitamin B12 (injection)': 'Vitamín B12 (injekce)',
       'Magnesium': 'Hořčík',
       'B-Vitamin Complex': 'B-vitamínový komplex',
-      'Anti-allergy & anti-inflammatory support': 'Protialergická a protizánětlivá podpora',
       'Wound assessment': 'Posouzení rány',
       'Sterile dressing change': 'Sterilní výměna obvazu',
       'Drain check if applicable': 'Kontrola drénu (pokud je)',
@@ -168,23 +153,22 @@ const NIUS_I18N = {
       'Post-appointment care notes': 'Záznamy po vyšetření'
     },
     shots: {
-      'B12 Energy Shot': 'B12 Energetický shot',
+      'B12 Shot': 'B12 shot',
       'B-Vitamin Complex': 'B-vitamínový komplex',
       'Vitamin D Shot': 'Vitamín D shot',
       'Vitamin B1 (Thiamin)': 'Vitamín B1 (Thiamin)',
-      'Glutathione Glow': 'Glutathion Záře',
-      'Magnesium Boost': 'Hořčíkový boost',
+      'Glutathione': 'Glutathion',
+      'Magnesium Shot': 'Hořčík shot',
       'Zinc & Trace Minerals': 'Zinek a stopové prvky',
       'Vitamin C Upgrade': 'Vitamín C upgrade',
-      'Vitamin B6 Shot': 'Vitamín B6 shot',
-      'Anti-Nausea Add-on': 'Doplněk proti nevolnosti'
+      'Vitamin B6 Shot': 'Vitamín B6 shot'
     }
   },
   ru: {
     allCategories: 'Все',
     servicesAndPricing: 'Услуги и цены',
     menuTitle: 'IV-терапия на дому,<br><em>у вашей двери.</em>',
-    menuDesc: 'Дипломированные медсёстры проводят витаминные инфузии и специализированный уход в любой точке Праги — в день заказа.',
+    menuDesc: 'Дипломированные медсёстры проводят витаминные и гидратационные капельницы и сестринский уход в любой точке Праги, визит в тот же день.',
     nurseIncluded: 'медсестра включена',
     bookThisDrip: 'Заказать →',
     addToCart: 'Добавить в корзину',
@@ -199,83 +183,69 @@ const NIUS_I18N = {
     total: 'Итого',
     cartHint: 'Добавление в корзину не оформляет заказ',
     close: 'Закрыть',
-    ctaInfo: 'Дипломированная медсестра · медицинский осмотр · всё оборудование',
+    ctaInfo: 'Дипломированная медсестра · назначение врача после короткой оценки состояния · всё оборудование',
     addBooster: 'Добавить бустер',
-    boosterFoot: 'Вводится медсестрой во время того же визита — без доплаты.',
+    boosterFoot: 'Вводится медсестрой во время того же визита, без доплаты.',
     whatsInside: 'Состав',
     bestFor: 'Подходит для',
     viewDetails: 'Подробнее',
     bundlesLabel: 'Пакеты',
     bundlesTitle: 'Закажите больше,<br><em>получите больше.</em>',
-    bundlesDesc: 'Предоплаченные пакеты для постоянных клиентов, пациенток ЭКО и тех, кто планирует несколько визитов.',
+    bundlesDesc: 'Предоплаченные пакеты для постоянных клиентов и тех, кто планирует несколько визитов.',
     bundles: {
-      'bundle-5': { name: '5 + 1 Пакет', tagline: 'Закажите 5 капельниц · 1 в подарок', cta: 'Получить пакет →', perks: ['6 капельниц по цене 5', 'Выбирайте любые капельницы из меню', 'Действителен 6 месяцев с момента покупки', 'Можно передать членам семьи', 'Приезд в день заказа, каждый визит'] },
-      'bundle-10': { name: '10 + 2 Пакет', tagline: 'Закажите 10 капельниц · 2 в подарок', cta: 'Получить пакет →', badge: 'Лучшая цена', perks: ['12 капельниц по цене 10', 'Выбирайте любые капельницы из меню', 'Действителен 12 месяцев с момента покупки', 'Можно передать семье или гостям', 'Приоритетная запись · без очереди', 'Один бустер-шот бесплатно при каждом визите'] },
-      'corporate': { name: 'Корпоративный / Групповой', tagline: 'Для клиник, отелей и команд', cta: 'Получить предложение →', customPrice: 'По запросу', perks: ['Программы для консьерж-служб отелей', 'Партнёрские цены для клиник (ЭКО, послеоперационный уход)', 'Корпоративные wellness-дни', 'Пакеты для мальчишников / девичников', 'Индивидуальная отчётность и выставление счетов'] }
+      'bundle-5': { name: '5 + 1 Пакет', tagline: 'Закажите 5 капельниц · 1 в подарок', cta: 'Получить пакет →', perks: ['6 капельниц по цене 5', 'Выбирайте любые капельницы из меню', 'Действителен 6 месяцев с момента покупки', 'Можно передать членам семьи', 'Визит в тот же день, ежедневно 8:00–21:00'] },
+      'bundle-10': { name: '10 + 2 Пакет', tagline: 'Закажите 10 капельниц · 2 в подарок', cta: 'Получить пакет →', badge: 'Цена пакета', perks: ['12 капельниц по цене 10', 'Выбирайте любые капельницы из меню', 'Действителен 12 месяцев с момента покупки', 'Можно передать семье или гостям', 'Запись через форму или WhatsApp', 'Один бустер-шот бесплатно при каждом визите'] },
+      'corporate': { name: 'Корпоративный / Групповой', tagline: 'Для отелей, клиник и команд', cta: 'Получить предложение →', customPrice: 'По запросу', perks: ['Программы для отелей, клиник и команд: по запросу', 'Корпоративные wellness-дни', 'Индивидуальная отчётность и выставление счетов'] }
     },
     subscription: {
       title: 'NIUS+ Членство',
-      pitch: 'Ежемесячные капельницы. Фиксированная цена. Всегда приоритет.',
-      desc: 'Подписка для клиентов, которые хотят быть в форме круглый год — пациентки ЭКО на длительных протоколах, руководители, экспаты.',
-      mostPopular: 'Самый популярный',
+      pitch: 'Ежемесячные капельницы. Фиксированная цена. Простая запись.',
+      desc: 'Подписка для клиентов, которым нужны регулярные визиты круглый год, руководители, экспаты, занятые семьи.',
+      mostPopular: 'Популярный',
       startCta: 'Начать',
       perks: [
         { title: 'Капельницы по фиксированной месячной цене', desc: 'Выбирайте любую капельницу из меню каждый месяц' },
         { title: '15% скидка на дополнительные капельницы', desc: 'Нужно больше в этом месяце? Участники всегда платят меньше' },
-        { title: 'Приоритетная запись в день обращения', desc: 'Участники обслуживаются первыми при полной записи' },
+        { title: 'Визит в тот же день', desc: 'Ежедневно 8:00–21:00. Время приезда подтверждаем после заказа.' },
         { title: 'Отмена в любое время', desc: 'Никаких долгосрочных обязательств и скрытых платежей' }
       ],
       plans: [
-        { name: 'Essential', per: 'Kč / месяц', desc: '<strong>2 капельницы в месяц</strong> — идеально для профилактики и регулярной иммунной поддержки.' },
-        { name: 'Premium', per: 'Kč / месяц', desc: '<strong>3 капельницы в месяц</strong> — лучший выбор для протоколов ЭКО, бизнес-путешественников, руководителей.' }
+        { name: 'Essential', per: 'Kč / месяц', desc: '<strong>2 капельницы в месяц</strong>: для регулярной рутины с витаминами и гидратацией.' },
+        { name: 'Premium', per: 'Kč / месяц', desc: '<strong>3 капельницы в месяц</strong>: для бизнес-путешественников, руководителей и плотного графика.' }
       ]
     },
     categories: {
-      immunity: { label: 'Иммунитет и восстановление', desc: 'Высокодозный витамин С для профилактики, сезона гриппа и восстановления.' },
-      energy: { label: 'Энергия и продуктивность', desc: 'От флагманского CEO Recharge до экспресс B-витаминных бустеров.' },
-      hydration: { label: 'Гидратация и баланс', desc: 'Быстрая регидратация, восстановление электролитов, помощь при тошноте.' },
-      special: { label: 'Специализированный уход', desc: 'Инфузии железа, восстановление нервов, боли в спине, аллергия.' },
-      nursing: { label: 'Сестринский уход', desc: 'Послеоперационный уход за ранами, гигиеническая помощь, сопровождение.' }
+      immunity: { label: 'Витаминные капельницы', desc: 'Витамин С, минералы и жидкость: подбирает врач после короткой оценки состояния.' },
+      energy: { label: 'B-витамины и насыщенные дни', desc: 'От флагманского CEO Recharge до инъекции B12.' },
+      hydration: { label: 'Гидратация и поездки', desc: 'Жидкость и электролиты после долгого перелёта или насыщенного дня.' },
+      nursing: { label: 'Сестринский уход', desc: 'Перевязка после операции, гигиеническая помощь и сопровождение медсестры.' }
     },
     drips: {
-      'Immunity Lite': { name: 'Иммунитет Лайт', tagline: 'Базовая иммунная поддержка. Стартовый протокол.', bestfor: 'Подготовка к поездке, профилактика, лёгкая усталость, первая капельница.' },
-      'Immunity Power': { name: 'Иммунитет Пауэр', tagline: 'Высокодозный витамин С — серьёзная защита от вирусов.', bestfor: 'После болезни, рискованные поездки, борьба с симптомами.' },
-      'Defense Shield': { name: 'Защитный щит', tagline: 'Максимальная формула восстановления после гриппа и вирусов.', bestfor: 'Грипп, вирусное восстановление, longevity-клиенты, VIP-гости отелей.' },
-      'Glow & Post-Flu': { name: 'Сияние & Пост-Грипп', tagline: 'Кожа, волосы и иммунная устойчивость.', bestfor: 'Мероприятия, свадьбы, восстановление после гриппа, фотосессии.' },
-      'CEO Recharge': { name: 'CEO Recharge', tagline: 'Пиковая концентрация, ясность ума, полный сброс энергии.', bestfor: 'Руководители, бизнес-поездки, гости 5* отелей, перед важным событием.' },
-      'Metabolic Reset': { name: 'Метаболический сброс', tagline: 'Поддержка энергетического метаболизма и восстановление после выгорания.', bestfor: 'Хроническая усталость, выгорание, восстановление после перелёта.' },
-      'B-Power Shot': { name: 'B-Power Shot', tagline: 'Быстрый B12. Энергия за 10 минут.', bestfor: 'Веганы, мозговой туман, быстрый утренний буст.' },
-      'Pure Hydrate': { name: 'Чистая гидратация', tagline: 'Быстрая регидратация. Просто, быстро, эффективно.', bestfor: 'Похмелье, обезвоживание, после перелёта, первый визит.' },
-      'Electrolyte Reset': { name: 'Электролитный сброс', tagline: 'Гидратация плюс восстановление мышц и сна.', bestfor: 'Судороги, мигрень, бессонница, спортивное восстановление.' },
-      'Nausea Relief': { name: 'Помощь при тошноте', tagline: 'Быстрое снятие тошноты и рвоты.', bestfor: 'Отравление, сильное похмелье, тошнота при беременности.' },
-      'Standard Iron': { name: 'Железо Стандарт', tagline: 'Мягкое восполнение железа для энергии и жизненных сил.', bestfor: 'Дефицит железа, лёгкая анемия, пациентки ЭКО.' },
-      'Premium Iron': { name: 'Железо Премиум', tagline: 'Высокодозное железо, однократная доза при тяжёлом дефиците.', bestfor: 'Тяжёлый дефицит железа, беременность, после операции, протоколы ЭКО.' },
-      'Nerve Regen': { name: 'Нейрорегенерация', tagline: 'Восстановление нервов и снятие боли в спине.', bestfor: 'Боли в спине, онемение, нейропатия, постбольничное восстановление.' },
-      'Backache Relief': { name: 'Снятие боли в спине', tagline: 'Острая мышечная и нервная боль — быстрое облегчение.', bestfor: 'Острая боль в спине, мышечный спазм, напряжение в шее, спортивная травма.' },
-      'Allergy Stop': { name: 'Стоп-Аллергия', tagline: 'Быстрое снятие аллергических реакций.', bestfor: 'Острая аллергия, сенная лихорадка, пищевая реакция, сезонный ринит.' },
-      'Post-Op Wound Dressing': { name: 'Послеоперационная перевязка', tagline: 'Профессиональный уход за ранами и смена повязок после операции.', bestfor: 'Пластическая хирургия, ортопедические раны, косметические процедуры, мед. туристы.' },
-      'Hygiene Assistance': { name: 'Гигиеническая помощь', tagline: 'Часовой профессиональный уход за гигиеной и комфортом.', bestfor: 'Послеоперационные пациенты, пожилые, клиенты с ограниченной подвижностью.' },
-      'Nurse Escort': { name: 'Сопровождение медсестры', tagline: 'Сопровождение на приём к врачу и обратно.', bestfor: 'Послеоперационные визиты, мед. туристы, пациенты, нуждающиеся в помощи при транспортировке.' },
-      'Jet Lag Recovery': { name: 'Джетлаг Recovery', tagline: 'Регидратация и сброс энергии после длительного перелёта.', bestfor: 'Бизнес-путешественники, после прилёта, участники конференций, гости отелей.' }
+      'Immunity Lite': { name: 'Immunity Lite', tagline: 'Витамин С и жидкость. Простая первая капельница.', bestfor: 'Первая капельница, подготовка к поездке, регулярная витаминная рутина.' },
+      'Immunity Power': { name: 'Immunity Power', tagline: 'Витамин С и жидкость в более длинной инфузии.', bestfor: 'Для тех, кто хочет более полный визит с витамином С, поездки, насыщенные периоды.' },
+      'Vitamin & Mineral Plus': { name: 'Витамины и минералы Плюс', tagline: 'Витамин С, цинк, селен и микроэлементы с жидкостью.', bestfor: 'Полный витаминно-минеральный визит дома или в отеле.' },
+      'Vitamin & Mineral Classic': { name: 'Витамины и минералы Классик', tagline: 'Витамин С, цинк, селен и микроэлементы: классическое сочетание.', bestfor: 'Насыщенные недели, перед мероприятием или поездкой, спокойный час дома.' },
+      'CEO Recharge': { name: 'CEO Recharge', tagline: 'Магний, цинк, микроэлементы и комплекс B-витаминов с жидкостью.', bestfor: 'Руководители, бизнес-поездки, гости отелей, плотный график.' },
+      'Metabolic Reset': { name: 'Metabolic Reset', tagline: 'Цинк, микроэлементы и комплекс B-витаминов с жидкостью.', bestfor: 'Напряжённые недели, дальние перелёты, регулярная рутина с B-витаминами.' },
+      'B-Power Shot': { name: 'B-Power Shot', tagline: 'Короткий визит с инъекцией витамина B12.', bestfor: 'Веганы, короткий утренний визит, простое дополнение к рутине.' },
+      'Pure Hydrate': { name: 'Pure Hydrate', tagline: 'Физиологический раствор для поддержки гидратации. Просто и спокойно.', bestfor: 'Регидратация после поездок и насыщенных дней, первый визит.' },
+      'Electrolyte Reset': { name: 'Electrolyte Reset', tagline: 'Жидкость с магнием для баланса после спорта или поездки.', bestfor: 'Активные дни, спорт, жаркая погода, путешествия.' },
+      'Jet Lag Recovery': { name: 'Jet Lag Recovery', tagline: 'Жидкость, магний и B-витамины после длительного перелёта.', bestfor: 'Бизнес-путешественники, после прилёта, участники конференций, гости отелей.' },
+      'Post-Op Wound Dressing': { name: 'Послеоперационная перевязка', tagline: 'Профессиональный уход за ранами и смена повязок после операции.', bestfor: 'Уход после пластической хирургии, ортопедические раны, косметические процедуры, мед. туристы.' },
+      'Hygiene Assistance': { name: 'Гигиеническая помощь', tagline: 'Часовой профессиональный уход за гигиеной и комфортом.', bestfor: 'Пациенты после операции, пожилые, клиенты с ограниченной подвижностью, восстановление в отеле.' },
+      'Nurse Escort': { name: 'Сопровождение медсестры', tagline: 'Сопровождение на приём к врачу и обратно.', bestfor: 'Визиты после операции, мед. туристы, пациенты, нуждающиеся в помощи при транспортировке.' }
     },
     ingredients: {
       'Saline hydration base': 'Физраствор (основа)',
       'Saline hydration solution': 'Физиологический раствор',
-      'Vitamin C (medium dose)': 'Витамин С (средняя доза)',
-      'Vitamin C (high dose)': 'Витамин С (высокая доза)',
+      'Vitamin C': 'Витамин С',
       'Zinc, Selenium & Trace Minerals': 'Цинк, селен и микроэлементы',
       'Magnesium, Zinc & Trace Minerals (IV)': 'Магний, цинк и микроэлементы (IV)',
       'Full B-Vitamin Complex (injection)': 'Полный B-витаминный комплекс (инъекция)',
       'Zinc & Trace Minerals (IV)': 'Цинк и микроэлементы (IV)',
-      'High-dose Vitamin B12 (injection only)': 'Высокодозный витамин B12 (только инъекция)',
-      'High-dose Magnesium': 'Высокодозный магний',
-      'Anti-nausea support': 'Противорвотная поддержка',
-      'Iron (standard dose)': 'Железо (стандартная доза)',
-      'Iron (high-potency single dose)': 'Железо (высокодозное однократное)',
-      'Full B-Vitamin Complex (B1, B6, B12)': 'Полный B-комплекс (B1, B6, B12)',
+      'Vitamin B12 (injection)': 'Витамин B12 (инъекция)',
       'Magnesium': 'Магний',
       'B-Vitamin Complex': 'B-витаминный комплекс',
-      'Anti-allergy & anti-inflammatory support': 'Противоаллергическая и противовоспалительная поддержка',
       'Wound assessment': 'Оценка раны',
       'Sterile dressing change': 'Стерильная смена повязки',
       'Drain check if applicable': 'Проверка дренажа (при наличии)',
@@ -290,23 +260,22 @@ const NIUS_I18N = {
       'Post-appointment care notes': 'Записи после приёма'
     },
     shots: {
-      'B12 Energy Shot': 'B12 Энерго-шот',
+      'B12 Shot': 'B12 шот',
       'B-Vitamin Complex': 'B-витаминный комплекс',
       'Vitamin D Shot': 'Витамин D шот',
       'Vitamin B1 (Thiamin)': 'Витамин B1 (Тиамин)',
-      'Glutathione Glow': 'Глутатион Сияние',
-      'Magnesium Boost': 'Магниевый буст',
+      'Glutathione': 'Глутатион',
+      'Magnesium Shot': 'Магний шот',
       'Zinc & Trace Minerals': 'Цинк и микроэлементы',
       'Vitamin C Upgrade': 'Витамин С апгрейд',
-      'Vitamin B6 Shot': 'Витамин B6 шот',
-      'Anti-Nausea Add-on': 'Дополнение от тошноты'
+      'Vitamin B6 Shot': 'Витамин B6 шот'
     }
   },
   uk: {
     allCategories: 'Усі',
     servicesAndPricing: 'Послуги та ціни',
     menuTitle: 'IV-терапія вдома,<br><em>біля ваших дверей.</em>',
-    menuDesc: 'Дипломовані медсестри проводять вітамінні інфузії та спеціалізований догляд у будь-якій точці Праги — у день замовлення.',
+    menuDesc: 'Дипломовані медсестри проводять вітамінні та гідратаційні крапельниці й сестринський догляд у будь-якій точці Праги, візит у той самий день.',
     nurseIncluded: 'медсестра включена',
     bookThisDrip: 'Замовити →',
     addToCart: 'Додати в кошик',
@@ -321,83 +290,69 @@ const NIUS_I18N = {
     total: 'Разом',
     cartHint: 'Додавання до кошика не оформлює замовлення',
     close: 'Закрити',
-    ctaInfo: 'Дипломована медсестра · медичний огляд · все обладнання',
+    ctaInfo: 'Дипломована медсестра · призначення лікаря після короткої оцінки стану · все обладнання',
     addBooster: 'Додати бустер',
-    boosterFoot: 'Вводиться медсестрою під час того ж візиту — без доплати.',
+    boosterFoot: 'Вводиться медсестрою під час того ж візиту: без доплати.',
     whatsInside: 'Що містить',
     bestFor: 'Підходить для',
     viewDetails: 'Детальніше',
     bundlesLabel: 'Пакети',
     bundlesTitle: 'Замовте більше,<br><em>отримайте більше.</em>',
-    bundlesDesc: 'Передплачені пакети для постійних клієнтів, пацієнток ЕКЗ та тих, хто планує кілька візитів.',
+    bundlesDesc: 'Передплачені пакети для постійних клієнтів та тих, хто планує кілька візитів.',
     bundles: {
-      'bundle-5': { name: '5 + 1 Пакет', tagline: 'Замовте 5 крапельниць · 1 у подарунок', cta: 'Отримати пакет →', perks: ['6 крапельниць за ціною 5', 'Обирайте будь-які крапельниці з меню', 'Дійсний 6 місяців з моменту придбання', 'Можна передати членам родини', 'Приїзд у день замовлення, щоразу'] },
-      'bundle-10': { name: '10 + 2 Пакет', tagline: 'Замовте 10 крапельниць · 2 у подарунок', cta: 'Отримати пакет →', badge: 'Найкраща ціна', perks: ['12 крапельниць за ціною 10', 'Обирайте будь-які крапельниці з меню', 'Дійсний 12 місяців з моменту придбання', 'Можна передати родині або гостям', 'Пріоритетний запис · без черги', 'Один бустер-шот безкоштовно при кожному візиті'] },
-      'corporate': { name: 'Корпоративний / Груповий', tagline: 'Для клінік, готелів та команд', cta: 'Отримати пропозицію →', customPrice: 'За запитом', perks: ['Програми для консьєрж-служб готелів', 'Партнерські ціни для клінік (ЕКЗ, післяопераційний догляд)', 'Корпоративні wellness-дні', 'Пакети для парубочих / дівочих вечорів', 'Індивідуальна звітність та виставлення рахунків'] }
+      'bundle-5': { name: '5 + 1 Пакет', tagline: 'Замовте 5 крапельниць · 1 у подарунок', cta: 'Отримати пакет →', perks: ['6 крапельниць за ціною 5', 'Обирайте будь-які крапельниці з меню', 'Дійсний 6 місяців з моменту придбання', 'Можна передати членам родини', 'Візит у той самий день, щодня 8:00–21:00'] },
+      'bundle-10': { name: '10 + 2 Пакет', tagline: 'Замовте 10 крапельниць · 2 у подарунок', cta: 'Отримати пакет →', badge: 'Ціна пакета', perks: ['12 крапельниць за ціною 10', 'Обирайте будь-які крапельниці з меню', 'Дійсний 12 місяців з моменту придбання', 'Можна передати родині або гостям', 'Запис через форму або WhatsApp', 'Один бустер-шот безкоштовно при кожному візиті'] },
+      'corporate': { name: 'Корпоративний / Груповий', tagline: 'Для готелів, клінік та команд', cta: 'Отримати пропозицію →', customPrice: 'За запитом', perks: ['Програми для готелів, клінік та команд: за запитом', 'Корпоративні wellness-дні', 'Індивідуальна звітність та виставлення рахунків'] }
     },
     subscription: {
       title: 'NIUS+ Членство',
-      pitch: 'Щомісячні крапельниці. Фіксована ціна. Завжди пріоритет.',
-      desc: 'Підписка для клієнтів, які хочуть бути у формі цілий рік — пацієнтки ЕКЗ на тривалих протоколах, керівники, експати.',
-      mostPopular: 'Найпопулярніший',
+      pitch: 'Щомісячні крапельниці. Фіксована ціна. Простий запис.',
+      desc: 'Підписка для клієнтів, яким потрібні регулярні візити цілий рік, керівники, експати, зайняті родини.',
+      mostPopular: 'Популярний',
       startCta: 'Почати',
       perks: [
         { title: 'Крапельниці за фіксованою місячною ціною', desc: 'Обирайте будь-яку крапельницю з меню щомісяця' },
         { title: '15% знижка на додаткові крапельниці', desc: 'Потрібно більше цього місяця? Учасники завжди платять менше' },
-        { title: 'Пріоритетний запис у день звернення', desc: 'Учасники обслуговуються першими при повному записі' },
+        { title: 'Візит у той самий день', desc: 'Щодня 8:00–21:00. Час приїзду підтверджуємо після замовлення.' },
         { title: 'Скасування будь-коли', desc: 'Жодних довгострокових зобов\'язань та прихованих платежів' }
       ],
       plans: [
-        { name: 'Essential', per: 'Kč / місяць', desc: '<strong>2 крапельниці на місяць</strong> — ідеально для профілактики та регулярної імунної підтримки.' },
-        { name: 'Premium', per: 'Kč / місяць', desc: '<strong>3 крапельниці на місяць</strong> — найкращий вибір для протоколів ЕКЗ, бізнес-мандрівників, керівників.' }
+        { name: 'Essential', per: 'Kč / місяць', desc: '<strong>2 крапельниці на місяць</strong>: для регулярної рутини з вітамінами та гідратацією.' },
+        { name: 'Premium', per: 'Kč / місяць', desc: '<strong>3 крапельниці на місяць</strong>: для бізнес-мандрівників, керівників та щільного графіка.' }
       ]
     },
     categories: {
-      immunity: { label: 'Імунітет та відновлення', desc: 'Високодозний вітамін С для профілактики, сезону грипу та відновлення.' },
-      energy: { label: 'Енергія та продуктивність', desc: 'Від флагманського CEO Recharge до експрес B-вітамінних бустерів.' },
-      hydration: { label: 'Гідратація та баланс', desc: 'Швидка регідратація, відновлення електролітів, допомога при нудоті.' },
-      special: { label: 'Спеціалізований догляд', desc: 'Інфузії заліза, відновлення нервів, біль у спині, алергія.' },
-      nursing: { label: 'Сестринський догляд', desc: 'Післяопераційний догляд за ранами, гігієнічна допомога, супровід.' }
+      immunity: { label: 'Вітамінні крапельниці', desc: 'Вітамін С, мінерали та рідина: добирає лікар після короткої оцінки стану.' },
+      energy: { label: 'B-вітаміни та насичені дні', desc: 'Від флагманського CEO Recharge до ін\'єкції B12.' },
+      hydration: { label: 'Гідратація та подорожі', desc: 'Рідина та електроліти після довгого перельоту або насиченого дня.' },
+      nursing: { label: 'Сестринський догляд', desc: 'Перев\'язка після операції, гігієнічна допомога та супровід медсестри.' }
     },
     drips: {
-      'Immunity Lite': { name: 'Імунітет Лайт', tagline: 'Базова імунна підтримка. Стартовий протокол.', bestfor: 'Підготовка до подорожі, профілактика, легка втома, перша крапельниця.' },
-      'Immunity Power': { name: 'Імунітет Пауер', tagline: 'Високодозний вітамін С — серйозний захист від вірусів.', bestfor: 'Після хвороби, ризиковані поїздки, боротьба з симптомами.' },
-      'Defense Shield': { name: 'Захисний щит', tagline: 'Максимальна формула відновлення після грипу та вірусів.', bestfor: 'Грип, вірусне відновлення, longevity-клієнти, VIP-гості готелів.' },
-      'Glow & Post-Flu': { name: 'Сяйво & Пост-Грип', tagline: 'Шкіра, волосся та імунна стійкість.', bestfor: 'Заходи, весілля, відновлення після грипу, фотосесії.' },
-      'CEO Recharge': { name: 'CEO Recharge', tagline: 'Пікова концентрація, ясність розуму, повне перезавантаження.', bestfor: 'Керівники, бізнес-поїздки, гості 5* готелів, перед важливою подією.' },
-      'Metabolic Reset': { name: 'Метаболічне перезавантаження', tagline: 'Підтримка енергетичного метаболізму та відновлення після вигорання.', bestfor: 'Хронічна втома, вигорання, відновлення після перельоту.' },
-      'B-Power Shot': { name: 'B-Power Shot', tagline: 'Швидкий B12. Енергія за 10 хвилин.', bestfor: 'Вегани, мозковий туман, швидкий ранковий буст.' },
-      'Pure Hydrate': { name: 'Чиста гідратація', tagline: 'Швидка регідратація. Просто, швидко, ефективно.', bestfor: 'Похмілля, зневоднення, після перельоту, перший візит.' },
-      'Electrolyte Reset': { name: 'Електролітне перезавантаження', tagline: 'Гідратація плюс відновлення м\'язів та сну.', bestfor: 'Судоми, мігрень, безсоння, спортивне відновлення.' },
-      'Nausea Relief': { name: 'Допомога при нудоті', tagline: 'Швидке зняття нудоти та блювання.', bestfor: 'Отруєння, сильне похмілля, нудота при вагітності.' },
-      'Standard Iron': { name: 'Залізо Стандарт', tagline: 'М\'яке поповнення заліза для енергії та життєвих сил.', bestfor: 'Дефіцит заліза, легка анемія, пацієнтки ЕКЗ.' },
-      'Premium Iron': { name: 'Залізо Преміум', tagline: 'Високодозне залізо, одноразова доза при тяжкому дефіциті.', bestfor: 'Тяжкий дефіцит заліза, вагітність, після операції, протоколи ЕКЗ.' },
-      'Nerve Regen': { name: 'Нейрорегенерація', tagline: 'Відновлення нервів та зняття болю в спині.', bestfor: 'Біль у спині, оніміння, нейропатія, постлікарняне відновлення.' },
-      'Backache Relief': { name: 'Зняття болю в спині', tagline: 'Гострий м\'язовий та нервовий біль — швидке полегшення.', bestfor: 'Гострий біль у спині, м\'язовий спазм, напруга в шиї, спортивна травма.' },
-      'Allergy Stop': { name: 'Стоп-Алергія', tagline: 'Швидке зняття алергічних реакцій.', bestfor: 'Гостра алергія, сінна лихоманка, харчова реакція, сезонний риніт.' },
-      'Post-Op Wound Dressing': { name: 'Післяопераційна перев\'язка', tagline: 'Професійний догляд за ранами та зміна пов\'язок після операції.', bestfor: 'Пластична хірургія, ортопедичні рани, косметичні процедури, мед. туристи.' },
-      'Hygiene Assistance': { name: 'Гігієнічна допомога', tagline: 'Годинний професійний догляд за гігієною та комфортом.', bestfor: 'Післяопераційні пацієнти, літні люди, клієнти з обмеженою рухливістю.' },
-      'Nurse Escort': { name: 'Супровід медсестри', tagline: 'Супровід на прийом до лікаря та назад.', bestfor: 'Післяопераційні візити, мед. туристи, пацієнти, що потребують допомоги при транспортуванні.' },
-      'Jet Lag Recovery': { name: 'Джетлаг Recovery', tagline: 'Регідратація та перезавантаження енергії після тривалого перельоту.', bestfor: 'Бізнес-мандрівники, після прильоту, учасники конференцій, гості готелів.' }
+      'Immunity Lite': { name: 'Immunity Lite', tagline: 'Вітамін С та рідина. Проста перша крапельниця.', bestfor: 'Перша крапельниця, підготовка до подорожі, регулярна вітамінна рутина.' },
+      'Immunity Power': { name: 'Immunity Power', tagline: 'Вітамін С та рідина в довшій інфузії.', bestfor: 'Для тих, хто хоче повніший візит із вітаміном С, подорожі, насичені періоди.' },
+      'Vitamin & Mineral Plus': { name: 'Вітаміни та мінерали Плюс', tagline: 'Вітамін С, цинк, селен та мікроелементи з рідиною.', bestfor: 'Повний вітамінно-мінеральний візит удома або в готелі.' },
+      'Vitamin & Mineral Classic': { name: 'Вітаміни та мінерали Класік', tagline: 'Вітамін С, цинк, селен та мікроелементи: класичне поєднання.', bestfor: 'Насичені тижні, перед заходом або поїздкою, спокійна година вдома.' },
+      'CEO Recharge': { name: 'CEO Recharge', tagline: 'Магній, цинк, мікроелементи та комплекс B-вітамінів з рідиною.', bestfor: 'Керівники, бізнес-поїздки, гості готелів, щільний графік.' },
+      'Metabolic Reset': { name: 'Metabolic Reset', tagline: 'Цинк, мікроелементи та комплекс B-вітамінів з рідиною.', bestfor: 'Напружені тижні, далекі переліти, регулярна рутина з B-вітамінами.' },
+      'B-Power Shot': { name: 'B-Power Shot', tagline: 'Короткий візит з ін\'єкцією вітаміну B12.', bestfor: 'Вегани, короткий ранковий візит, просте доповнення до рутини.' },
+      'Pure Hydrate': { name: 'Pure Hydrate', tagline: 'Фізіологічний розчин для підтримки гідратації. Просто і спокійно.', bestfor: 'Регідратація після подорожей і насичених днів, перший візит.' },
+      'Electrolyte Reset': { name: 'Electrolyte Reset', tagline: 'Рідина з магнієм для балансу після спорту чи поїздки.', bestfor: 'Активні дні, спорт, спекотна погода, подорожі.' },
+      'Jet Lag Recovery': { name: 'Jet Lag Recovery', tagline: 'Рідина, магній та B-вітаміни після тривалого перельоту.', bestfor: 'Бізнес-мандрівники, після прильоту, учасники конференцій, гості готелів.' },
+      'Post-Op Wound Dressing': { name: 'Післяопераційна перев\'язка', tagline: 'Професійний догляд за ранами та зміна пов\'язок після операції.', bestfor: 'Догляд після пластичної хірургії, ортопедичні рани, косметичні процедури, мед. туристи.' },
+      'Hygiene Assistance': { name: 'Гігієнічна допомога', tagline: 'Годинний професійний догляд за гігієною та комфортом.', bestfor: 'Пацієнти після операції, літні люди, клієнти з обмеженою рухливістю, відновлення в готелі.' },
+      'Nurse Escort': { name: 'Супровід медсестри', tagline: 'Супровід на прийом до лікаря та назад.', bestfor: 'Візити після операції, мед. туристи, пацієнти, що потребують допомоги при транспортуванні.' }
     },
     ingredients: {
       'Saline hydration base': 'Фізрозчин (основа)',
       'Saline hydration solution': 'Фізіологічний розчин',
-      'Vitamin C (medium dose)': 'Вітамін С (середня доза)',
-      'Vitamin C (high dose)': 'Вітамін С (висока доза)',
+      'Vitamin C': 'Вітамін С',
       'Zinc, Selenium & Trace Minerals': 'Цинк, селен та мікроелементи',
       'Magnesium, Zinc & Trace Minerals (IV)': 'Магній, цинк та мікроелементи (IV)',
       'Full B-Vitamin Complex (injection)': 'Повний B-вітамінний комплекс (ін\'єкція)',
       'Zinc & Trace Minerals (IV)': 'Цинк та мікроелементи (IV)',
-      'High-dose Vitamin B12 (injection only)': 'Високодозний вітамін B12 (тільки ін\'єкція)',
-      'High-dose Magnesium': 'Високодозний магній',
-      'Anti-nausea support': 'Протинудотна підтримка',
-      'Iron (standard dose)': 'Залізо (стандартна доза)',
-      'Iron (high-potency single dose)': 'Залізо (високодозне одноразове)',
-      'Full B-Vitamin Complex (B1, B6, B12)': 'Повний B-комплекс (B1, B6, B12)',
+      'Vitamin B12 (injection)': 'Вітамін B12 (ін\'єкція)',
       'Magnesium': 'Магній',
       'B-Vitamin Complex': 'B-вітамінний комплекс',
-      'Anti-allergy & anti-inflammatory support': 'Протиалергічна та протизапальна підтримка',
       'Wound assessment': 'Оцінка рани',
       'Sterile dressing change': 'Стерильна зміна пов\'язки',
       'Drain check if applicable': 'Перевірка дренажу (за наявності)',
@@ -412,218 +367,155 @@ const NIUS_I18N = {
       'Post-appointment care notes': 'Записи після прийому'
     },
     shots: {
-      'B12 Energy Shot': 'B12 Енерго-шот',
+      'B12 Shot': 'B12 шот',
       'B-Vitamin Complex': 'B-вітамінний комплекс',
       'Vitamin D Shot': 'Вітамін D шот',
       'Vitamin B1 (Thiamin)': 'Вітамін B1 (Тіамін)',
-      'Glutathione Glow': 'Глутатіон Сяйво',
-      'Magnesium Boost': 'Магнієвий буст',
+      'Glutathione': 'Глутатіон',
+      'Magnesium Shot': 'Магній шот',
       'Zinc & Trace Minerals': 'Цинк та мікроелементи',
       'Vitamin C Upgrade': 'Вітамін С апгрейд',
-      'Vitamin B6 Shot': 'Вітамін B6 шот',
-      'Anti-Nausea Add-on': 'Додаток від нудоти'
+      'Vitamin B6 Shot': 'Вітамін B6 шот'
     }
   }
 };
 
 const NIUS_CATEGORIES = {
   immunity: {
-    label: 'Immunity & Recovery',
+    label: 'Vitamin Drips',
     icon: 'ti-shield',
-    desc: 'High-dose Vitamin C protocols for prevention, flu season and recovery.',
+    desc: 'Vitamin C, minerals and fluids: chosen with the doctor after a short health assessment.',
     drips: [
       {
         name: 'Immunity Lite',
         code: 'immunity_lite',
-        tagline: 'Baseline immune boost. The starter protocol.',
+        tagline: 'Vitamin C and fluids. A simple first drip.',
         price: 2900,
         duration: '40–50 min',
         admin: 'IV',
         hero: false,
-        ingredients: ['Saline hydration base', 'Vitamin C (medium dose)'],
-        bestfor: 'Travel prep, prevention, mild fatigue, first-time IV clients.'
+        ingredients: ['Saline hydration base', 'Vitamin C'],
+        bestfor: 'Your first drip, travel preparation, a regular vitamin routine.'
       },
       {
         name: 'Immunity Power',
         code: 'immunity_power',
-        tagline: 'High-dose Vitamin C — serious viral defence.',
+        tagline: 'Vitamin C and fluids in a longer infusion.',
         price: 3250,
         duration: '45–55 min',
         admin: 'IV',
         hero: false,
-        ingredients: ['Saline hydration base', 'Vitamin C (high dose)'],
-        bestfor: 'Post-illness, high-risk travel, clients fighting symptoms.'
+        ingredients: ['Saline hydration base', 'Vitamin C'],
+        bestfor: 'Clients who want a fuller vitamin C visit, travel, busy seasons.'
       },
       {
-        name: 'Defense Shield',
+        name: 'Vitamin & Mineral Plus',
         code: 'defense_shield',
-        tagline: 'The ultimate flu & virus recovery formula.',
+        tagline: 'Vitamin C, zinc, selenium and trace minerals with fluids.',
         price: 4350,
         duration: '50–60 min',
         admin: 'IV',
         hero: true,
-        ingredients: ['Saline hydration base', 'Vitamin C (high dose)', 'Zinc, Selenium & Trace Minerals'],
-        bestfor: 'Flu, virus recovery, longevity clients, premium hotel guests.'
+        ingredients: ['Saline hydration base', 'Vitamin C', 'Zinc, Selenium & Trace Minerals'],
+        bestfor: 'A complete vitamin and mineral visit at home or at your hotel.'
       },
       {
-        name: 'Glow & Post-Flu',
+        name: 'Vitamin & Mineral Classic',
         code: 'glow_post_flu',
-        tagline: 'Skin, hair, and immune resilience.',
+        tagline: 'Vitamin C, zinc, selenium and trace minerals, the classic combination.',
         price: 3750,
         duration: '45–55 min',
         admin: 'IV',
         hero: false,
-        ingredients: ['Saline hydration base', 'Vitamin C (medium dose)', 'Zinc, Selenium & Trace Minerals'],
-        bestfor: 'Beauty events, weddings, post-flu recovery, photo shoots.'
+        ingredients: ['Saline hydration base', 'Vitamin C', 'Zinc, Selenium & Trace Minerals'],
+        bestfor: 'Busy weeks, before events or trips, a calm hour at home.'
       }
     ]
   },
   energy: {
-    label: 'Energy & Performance',
+    label: 'B-Vitamins & Busy Days',
     icon: 'ti-bolt',
-    desc: 'From the CEO Recharge flagship to express B-Vitamin boosters.',
+    desc: 'From the CEO Recharge flagship to a B12 injection.',
     drips: [
       {
         name: 'CEO Recharge',
         code: 'ceo_recharge',
-        tagline: 'Peak focus, mental clarity, full energy reset.',
+        tagline: 'Magnesium, zinc, trace minerals and a B-vitamin complex with fluids.',
         price: 4550,
         duration: '65–75 min',
         admin: 'IV + IM',
         hero: true,
         ingredients: ['Saline hydration base', 'Magnesium, Zinc & Trace Minerals (IV)', 'Full B-Vitamin Complex (injection)'],
-        bestfor: 'Executives, business travel, 5-star hotel guests, pre-event peak.'
+        bestfor: 'Executives, business travel, hotel guests, busy schedules.'
       },
       {
         name: 'Metabolic Reset',
         code: 'metabolic_reset',
-        tagline: 'Energy metabolism support and burnout recovery.',
+        tagline: 'Zinc, trace minerals and a B-vitamin complex with fluids.',
         price: 4050,
         duration: '55–65 min',
         admin: 'IV + IM',
         hero: false,
         ingredients: ['Saline hydration base', 'Zinc & Trace Minerals (IV)', 'Full B-Vitamin Complex (injection)'],
-        bestfor: 'Chronic fatigue, burnout, long-haul recovery.'
+        bestfor: 'Demanding weeks, long-haul travel, a regular B-vitamin routine.'
       },
       {
         name: 'B-Power Shot',
         code: 'b_power_shot',
-        tagline: 'Fast B12 top-up. Energy in 10 minutes.',
+        tagline: 'A short visit with a vitamin B12 injection.',
         price: 1650,
         duration: '10–15 min',
         admin: 'IM',
         hero: false,
-        ingredients: ['High-dose Vitamin B12 (injection only)'],
-        bestfor: 'Vegans, brain fog, quick express morning boost.'
+        ingredients: ['Vitamin B12 (injection)'],
+        bestfor: 'Vegans, a quick morning visit, a simple add-on to your routine.'
       }
     ]
   },
   hydration: {
-    label: 'Hydration & Balance',
+    label: 'Hydration & Travel',
     icon: 'ti-droplet',
-    desc: 'Rapid rehydration, electrolyte recovery, and nausea relief.',
+    desc: 'Fluids and electrolytes after a long flight or a busy day.',
     drips: [
       {
         name: 'Pure Hydrate',
         code: 'pure_hydrate',
-        tagline: 'Rapid rehydration. Simple, fast, effective.',
+        tagline: 'Saline fluids to support hydration. Simple and calm.',
         price: 2550,
         duration: '35–45 min',
         admin: 'IV',
         hero: false,
         ingredients: ['Saline hydration solution'],
-        bestfor: 'Hangover recovery, dehydration, post-flight, first visit.'
+        bestfor: 'Rehydration after travel and busy days, your first visit.'
       },
       {
         name: 'Electrolyte Reset',
         code: 'electrolyte_reset',
-        tagline: 'Hydration plus muscle and sleep recovery.',
+        tagline: 'Fluids with magnesium for balance after sport or travel.',
         price: 3050,
         duration: '45–55 min',
         admin: 'IV',
         hero: false,
-        ingredients: ['Saline hydration base', 'High-dose Magnesium'],
-        bestfor: 'Muscle cramps, migraine, insomnia, sport recovery.'
+        ingredients: ['Saline hydration base', 'Magnesium'],
+        bestfor: 'Active days, sport, hot weather, travel.'
       },
       {
-        name: 'Nausea Relief',
-        code: 'nausea_relief',
-        tagline: 'Support for nausea and vomiting.',
-        price: 2950,
-        duration: '20–30 min',
-        admin: 'IV',
-        hero: false,
-        ingredients: ['Saline hydration base', 'Anti-nausea support'],
-        bestfor: 'Food poisoning, severe hangover, pregnancy nausea.'
-      }
-    ]
-  },
-  special: {
-    label: 'Specialised Care',
-    icon: 'ti-heartbeat',
-    desc: 'Iron infusions, nerve recovery, back pain, allergy support.',
-    drips: [
-      {
-        name: 'Standard Iron',
-        code: 'standard_iron',
-        tagline: 'Gentle iron replenishment for energy and vitality.',
-        price: 2850,
+        name: 'Jet Lag Recovery',
+        code: 'jet_lag_recovery',
+        tagline: 'Fluids, magnesium and B-vitamins after a long flight.',
+        price: 3250,
         duration: '45–55 min',
         admin: 'IV',
-        hero: false,
-        ingredients: ['Saline hydration base', 'Iron (standard dose)'],
-        bestfor: 'Iron deficiency, mild-to-moderate anaemia, IVF patients.'
-      },
-      {
-        name: 'Premium Iron',
-        code: 'premium_iron',
-        tagline: 'High-potency iron, single-dose for severe deficiency.',
-        price: 6450,
-        duration: '20–30 min',
-        admin: 'IV',
-        hero: false,
-        ingredients: ['Saline hydration base', 'Iron (high-potency single dose)'],
-        bestfor: 'Severe iron deficiency, pregnancy, post-surgery, IVF protocols.'
-      },
-      {
-        name: 'Nerve Regen',
-        code: 'nerve_regen',
-        tagline: 'Nerve recovery and back pain relief.',
-        price: 3450,
-        duration: '45–55 min',
-        admin: 'IV + IM',
-        hero: false,
-        ingredients: ['Saline hydration base', 'Full B-Vitamin Complex (B1, B6, B12)'],
-        bestfor: 'Back pain, numbness, neuropathy, post-illness recovery.'
-      },
-      {
-        name: 'Backache Relief',
-        code: 'backache_relief',
-        tagline: 'Acute muscle and nerve pain — fast relief.',
-        price: 3350,
-        duration: '45–55 min',
-        admin: 'IV + IM',
         hero: false,
         ingredients: ['Saline hydration base', 'Magnesium', 'B-Vitamin Complex'],
-        bestfor: 'Acute back pain, muscle spasm, neck tension, sports injury.'
-      },
-      {
-        name: 'Allergy Stop',
-        code: 'allergy_stop',
-        tagline: 'Support during allergic reactions.',
-        price: 2750,
-        duration: '25–35 min',
-        admin: 'IV',
-        hero: false,
-        ingredients: ['Saline hydration base', 'Anti-allergy & anti-inflammatory support'],
-        bestfor: 'Acute allergy, hay fever, food reaction, seasonal rhinitis.'
+        bestfor: 'Business travellers, long-haul arrivals, conference attendees, hotel guests.'
       }
     ]
   },
   nursing: {
     label: 'Nursing Care',
     icon: 'ti-stethoscope',
-    desc: 'Post-surgery wound care, hygiene assistance, and nurse escort services.',
+    desc: 'Wound dressing after surgery, hygiene assistance and nurse escort.',
     drips: [
       {
         name: 'Post-Op Wound Dressing',
@@ -645,52 +537,39 @@ const NIUS_CATEGORIES = {
         admin: 'Visit',
         hero: false,
         ingredients: ['Personal hygiene support', 'Bed-bound patient care', 'Comfort positioning', 'Skin integrity check'],
-        bestfor: 'Post-surgery patients, elderly care, mobility-limited clients, hotel recovery stays.'
+        bestfor: 'Post-surgery patients, elderly care, mobility-limited clients, recovery stays at your hotel.'
       },
       {
         name: 'Nurse Escort',
         code: 'nurse_escort',
         tagline: 'Accompanied transport to and from medical appointments.',
         price: 2190,
-        duration: '2–4 hours',
+        duration: '2 h+',
         admin: 'Escort',
         hero: false,
         ingredients: ['Pre-appointment preparation', 'Accompanied transport', 'Medical translation if needed', 'Post-appointment care notes'],
         bestfor: 'Post-surgery clinic visits, medical tourists, patients needing transport assistance.'
-      },
-      {
-        name: 'Jet Lag Recovery',
-        code: 'jet_lag_recovery',
-        tagline: 'Rehydration and energy reset after long-haul flights.',
-        price: 3250,
-        duration: '45–55 min',
-        admin: 'IV',
-        hero: false,
-        ingredients: ['Saline hydration base', 'Magnesium', 'B-Vitamin Complex'],
-        bestfor: 'Business travellers, long-haul arrivals, conference attendees, hotel guests.'
       }
     ]
   }
 };
 
 const NIUS_SHOTS = [
-  { id:'b12', code:'b12_energy_shot', name:'B12 Energy Shot', desc:'Instant energy and focus boost. Our most popular booster.', price:650, tag:'Top seller' },
-  { id:'bcomplex', code:'b_vitamin_complex', name:'B-Vitamin Complex', desc:'Full B-Vitamin Complex (B1, B6, B12). Nerve and fatigue support.', price:750, tag:'Nerves / fatigue' },
-  { id:'vitd', code:'vitamin_d_shot', name:'Vitamin D Shot', desc:'High-dose Vitamin D3. Three-month top-up in one injection.', price:850, tag:'Immunity / bones' },
-  { id:'thiamin', code:'vitamin_b1_thiamin', name:'Vitamin B1 (Thiamin)', desc:'Neurological and metabolic balance support.', price:700, tag:'Nerve support' },
-  { id:'glutathione', code:'glutathione_glow', name:'Glutathione Glow', desc:'Antioxidant support and liver-support nutrients.', price:900, tag:'Antioxidant' },
-  { id:'magnesium', code:'magnesium_boost', name:'Magnesium Boost', desc:'Muscle relaxation, migraine relief, better sleep.', price:500, tag:'Muscles / sleep' },
-  { id:'zinc', code:'zinc_trace_minerals', name:'Zinc & Trace Minerals', desc:'Zinc, Selenium & essential trace minerals — full immune support.', price:550, tag:'Immunity' },
-  { id:'vitc', code:'vitamin_c_upgrade', name:'Vitamin C Upgrade', desc:'Extra Vitamin C dose mid-drip for stronger immune effect.', price:650, tag:'Immunity' },
-  { id:'pyridoxin', code:'vitamin_b6_shot', name:'Vitamin B6 Shot', desc:'PMS relief, pregnancy nausea, nerve and mood support.', price:450, tag:'Nerve / PMS' },
-  { id:'antiemetic', code:'anti_nausea_addon', name:'Anti-Nausea Add-on', desc:'Quick nausea control added to any infusion.', price:480, tag:'Nausea' }
+  { id:'b12', code:'b12_energy_shot', name:'B12 Shot', desc:'A vitamin B12 injection added to your visit.', price:650, tag:'B-vitamin' },
+  { id:'bcomplex', code:'b_vitamin_complex', name:'B-Vitamin Complex', desc:'B-vitamin complex (B1, B6, B12) added to your visit.', price:750, tag:'B-vitamins' },
+  { id:'vitd', code:'vitamin_d_shot', name:'Vitamin D Shot', desc:'A vitamin D3 injection added to your visit.', price:850, tag:'Vitamin D' },
+  { id:'thiamin', code:'vitamin_b1_thiamin', name:'Vitamin B1 (Thiamin)', desc:'A vitamin B1 injection added to your visit.', price:700, tag:'B-vitamin' },
+  { id:'glutathione', code:'glutathione_glow', name:'Glutathione', desc:'Glutathione added to your visit.', price:900, tag:'Glutathione' },
+  { id:'magnesium', code:'magnesium_boost', name:'Magnesium Shot', desc:'Magnesium added to your visit.', price:500, tag:'Mineral' },
+  { id:'zinc', code:'zinc_trace_minerals', name:'Zinc & Trace Minerals', desc:'Zinc, selenium and trace minerals added to your drip.', price:550, tag:'Minerals' },
+  { id:'vitc', code:'vitamin_c_upgrade', name:'Vitamin C Upgrade', desc:'Extra vitamin C added to your drip.', price:650, tag:'Vitamin C' },
+  { id:'pyridoxin', code:'vitamin_b6_shot', name:'Vitamin B6 Shot', desc:'A vitamin B6 injection added to your visit.', price:450, tag:'B-vitamin' }
 ];
 
 const NIUS_UPSELLS_BY_CAT = {
   immunity: ['vitd','b12','glutathione','zinc','vitc','bcomplex'],
   energy: ['b12','bcomplex','vitd','glutathione','magnesium','thiamin'],
-  hydration: ['b12','magnesium','antiemetic','glutathione','pyridoxin'],
-  special: ['b12','bcomplex','vitd','thiamin','glutathione','pyridoxin'],
+  hydration: ['b12','magnesium','glutathione','pyridoxin'],
   nursing: ['b12','vitd','bcomplex','magnesium']
 };
 
@@ -706,7 +585,7 @@ const NIUS_PACKAGES = [
       'Choose any drips from the menu',
       'Valid for 6 months from purchase',
       'Transferable to family members',
-      'Same 60-min arrival, every visit'
+      'Same-day visits, daily 8:00–21:00'
     ]
   },
   {
@@ -715,28 +594,26 @@ const NIUS_PACKAGES = [
     tagline: 'Order 10 drips · get 2 on us',
     cta: 'Get bundle →',
     featured: true,
-    badge: 'Best value',
+    badge: 'Bundle price',
     perks: [
       '12 drips total at the price of 10',
       'Choose any drips from the menu',
       'Valid for 12 months from purchase',
       'Transferable to family or guests',
-      'Priority booking · skip the queue',
+      'Book by form or WhatsApp',
       'One free booster shot per visit'
     ]
   },
   {
     id: 'corporate',
     name: 'Corporate / Group',
-    tagline: 'For clinics, hotels & teams',
+    tagline: 'For hotels, clinics & teams',
     cta: 'Get a quote →',
     featured: false,
     customPrice: 'On request',
     perks: [
-      'Hotel concierge programmes',
-      'Clinic partnership rates (IVF, post-op)',
+      'Programmes for hotels, clinics and teams: by request',
       'Team wellness days',
-      'Bachelor / hen party packages',
       'Custom invoicing & reporting'
     ]
   }
@@ -744,12 +621,12 @@ const NIUS_PACKAGES = [
 
 const NIUS_SUBSCRIPTION = {
   title: 'NIUS+ Membership',
-  pitch: 'Monthly drips. One flat fee. Always priority.',
-  desc: 'A subscription for clients who want to stay topped up year-round — fertility patients on long protocols, executives, expats.',
+  pitch: 'Monthly drips. One flat fee. Simple booking.',
+  desc: 'A subscription for clients who want regular visits all year, executives, expats, busy families.',
   perks: [
     { title: 'Drips at fixed monthly pricing', desc: 'Choose any drip from the menu, every month' },
     { title: '15% off any extra drips', desc: 'Need more this month? Members always pay less' },
-    { title: 'Priority same-day booking', desc: 'Members come first when calendar is full' },
+    { title: 'Same-day visits', desc: 'Daily 8:00–21:00. We confirm the arrival time after you book.' },
     { title: 'Cancel anytime', desc: 'No long-term commitment, no hidden fees' }
   ],
   plans: [
@@ -757,14 +634,14 @@ const NIUS_SUBSCRIPTION = {
       name: 'Essential',
       price: 6200,
       per: 'CZK / month',
-      desc: '<strong>2 drips per month</strong> — perfect for prevention and regular immune support.',
+      desc: '<strong>2 drips per month</strong>: for a regular vitamin and hydration routine.',
       popular: false
     },
     {
       name: 'Premium',
       price: 8900,
       per: 'CZK / month',
-      desc: '<strong>3 drips per month</strong> — best for IVF protocols, business travellers, executives.',
+      desc: '<strong>3 drips per month</strong>: for business travellers, executives and busy schedules.',
       popular: true
     }
   ]
@@ -1343,9 +1220,9 @@ class NiusMenu extends HTMLElement {
 
     const tabs = `
       <div class="cat-tabs">
-        <button class="cat-tab active" data-filter="all"><i class="ti ti-list"></i>${t.allCategories}</button>
+        <button class="cat-tab active" data-filter="all">${t.allCategories}</button>
         ${catEntries.map(([catId, cat]) => `
-          <button class="cat-tab" data-filter="${catId}"><i class="ti ${cat.icon}"></i>${(t.categories[catId] || {}).label || cat.label}</button>
+          <button class="cat-tab" data-filter="${catId}">${(t.categories[catId] || {}).label || cat.label}</button>
         `).join('')}
       </div>
     `;
@@ -1355,7 +1232,7 @@ class NiusMenu extends HTMLElement {
       const drips = cat.drips.map((d, i) => this.renderDripCard(d, catId, i)).join('');
       return `
         <div class="cat-block" data-cat="${catId}">
-          <div class="cat-label"><i class="ti ${cat.icon}"></i>${catT.label || cat.label}</div>
+          <div class="cat-label">${catT.label || cat.label}</div>
           <div class="cat-desc">${catT.desc || cat.desc}</div>
           <div class="drip-list">${drips}</div>
         </div>
