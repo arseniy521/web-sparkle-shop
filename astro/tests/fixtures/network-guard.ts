@@ -1,7 +1,7 @@
 import { test as base, expect, type Page } from '@playwright/test';
-import { E2E_ORIGIN, E2E_ORIGIN_IP } from './servers.ts';
+import { E2E_ORIGIN, E2E_ORIGIN_IP, MERGED_ORIGIN } from './servers.ts';
 
-const LOCAL_HOSTS = new Set([new URL(E2E_ORIGIN).host, new URL(E2E_ORIGIN_IP).host]);
+const LOCAL_HOSTS = new Set([E2E_ORIGIN, E2E_ORIGIN_IP, MERGED_ORIGIN].map((origin) => new URL(origin).host));
 
 // Every e2e test runs behind this guard: a request to any host other than the local server
 // that no page route of a fixture or test answered is aborted and fails the test. Page routes
@@ -29,12 +29,13 @@ export { expect };
 
 /**
  * Serves the local build under another origin inside this page, e.g. https://www.nius.cz, where
- * cookies go to `.nius.cz`. Nothing leaves the machine: the page route answers from the e2e server.
+ * cookies go to `.nius.cz`. Nothing leaves the machine: the page route answers from the local
+ * server, the e2e one unless another is given.
  */
-export async function serveSiteAt(page: Page, origin: string): Promise<void> {
+export async function serveSiteAt(page: Page, origin: string, server = E2E_ORIGIN): Promise<void> {
   await page.route(`${origin}/**`, async (route) => {
     const url = new URL(route.request().url());
-    const response = await route.fetch({ url: `${E2E_ORIGIN}${url.pathname}${url.search}` });
+    const response = await route.fetch({ url: `${server}${url.pathname}${url.search}` });
     await route.fulfill({ response });
   });
 }
