@@ -54,6 +54,11 @@ export default [
     languageOptions: { globals: { process: 'readonly', console: 'readonly' } },
   },
   {
+    files: ['**/*.cjs'],
+    languageOptions: { globals: { require: 'readonly', module: 'writable' } },
+    rules: { '@typescript-eslint/no-require-imports': 'off' },
+  },
+  {
     files: ['preview/functions/**/*.js'],
     languageOptions: { globals: { Response: 'readonly', HTMLRewriter: 'readonly' } },
   },

@@ -7,3 +7,4 @@ public/
 .preview/
 release-dist/
 test-results/
+.lighthouseci/
