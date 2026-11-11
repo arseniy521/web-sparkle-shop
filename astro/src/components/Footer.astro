@@ -1,0 +1,96 @@
+---
+import PayApplepay from '@/components/icons/PayApplepay.astro';
+import PayGooglepay from '@/components/icons/PayGooglepay.astro';
+import PayMastercard from '@/components/icons/PayMastercard.astro';
+import PayVisa from '@/components/icons/PayVisa.astro';
+import { createT } from '@/i18n/t.ts';
+import { pageUrl } from '@/routes/urls.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+
+interface Props {
+  route: PageRoute | null;
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = createT(lang);
+---
+
+<footer style="background-color: var(--color-indigo);" class="py-16 pb-24 relative overflow-hidden">
+  <img
+    src="/brand/logo-mark-light.svg"
+    alt=""
+    aria-hidden="true"
+    class="absolute bottom-[-40px] right-[-20px] w-[280px] h-[280px] pointer-events-none select-none"
+    style="opacity: 0.04;"
+  />
+  <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative">
+    <div class="grid md:grid-cols-3 gap-10 mb-12">
+      <!-- Brand -->
+      <div>
+        <img src="/brand/logo-wordmark-light.svg" alt="NIUS" class="h-12 mb-4" loading="lazy" />
+        <p class="text-xs font-body leading-relaxed" style="color: rgba(255,255,255,0.5);">
+          {t('footerNew.tagline')}
+        </p>
+        <a
+          href="https://wa.me/420773629123"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics-source="footer"
+          class="inline-flex items-center mt-4 px-4 py-2 rounded text-xs font-body font-medium"
+          style="background-color: rgba(255,255,255,0.1); color: white; border: 0.5px solid rgba(255,255,255,0.12);"
+        >
+          {t('footerNew.whatsapp')}
+        </a>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="text-xs font-body font-medium tracking-[0.12em] uppercase text-white mb-4">
+          {t('footerNew.services')}
+        </h4>
+        <ul class="space-y-2">
+          <li><a href={pageUrl('iv-drips', lang)} class="text-xs font-body" style="color: rgba(255,255,255,0.5);">{t('footerNew.ivDrips')}</a></li>
+          <li><a href={pageUrl('ivf-support', lang)} class="text-xs font-body" style="color: rgba(255,255,255,0.5);">{t('footerNew.ivfSupport')}</a></li>
+          <li><a href={pageUrl('post-surgery', lang)} class="text-xs font-body" style="color: rgba(255,255,255,0.5);">{t('specializedServices.postSurgery')}</a></li>
+          <li><a href={pageUrl('disabled-care', lang)} class="text-xs font-body" style="color: rgba(255,255,255,0.5);">{t('specializedServices.disabled')}</a></li>
+          <li><a href={pageUrl('blog', lang)} class="text-xs font-body" style="color: rgba(255,255,255,0.5);">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-xs font-body font-medium tracking-[0.12em] uppercase text-white mb-4">
+          {t('footerNew.company')}
+        </h4>
+        <ul class="space-y-2">
+          <li><a href="mailto:info@nius.cz" class="text-xs font-body" style="color: rgba(255,255,255,0.5);">info@nius.cz</a></li>
+          <li><a href="tel:+420773629123" data-analytics-source="footer" class="text-xs font-body" style="color: rgba(255,255,255,0.5);">+420 773 629 123</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Payment badges -->
+    <div class="flex items-center justify-center gap-3 pt-8 mb-6" style="border-top: 0.5px solid rgba(255,255,255,0.12);">
+      <PayVisa />
+      <PayMastercard />
+      <PayApplepay />
+      <PayGooglepay />
+    </div>
+
+    <!-- Bottom strip -->
+    <div class="flex flex-col md:flex-row justify-between items-center gap-2">
+      <span class="text-[11px] font-body" style="color: rgba(255,255,255,0.4);">
+        {t('footerNew.copyright')}
+      </span>
+      <div class="flex items-center gap-3">
+        <a href={pageUrl('privacy', lang)} class="text-[11px] font-body" style="color: rgba(255,255,255,0.4);">
+          Privacy Policy
+        </a>
+        <span class="text-[11px] font-body" style="color: rgba(255,255,255,0.4);">
+          IČO: 21908494 · info@nius.cz
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
