@@ -224,4 +224,16 @@ describe('comparePage', () => {
     expect(comparePage(old, neu)).toEqual({ missing: [], added: [] });
     expect(rules(comparePage(neu, old).missing)).toContain('canonical');
   });
+
+  it('reports a site link whose hash changed, query changed, or redirect source with a hash', () => {
+    const hash = comparePage(page({ body: '<a href="/#testimonials">Recenze</a>' }), page({ body: '<a href="/#services">Recenze</a>' }));
+    expect(rules(hash.missing)).toEqual(['link-missing']);
+    const query = comparePage(page({ body: '<a href="/order/?service=iv">Objednat</a>' }), page({ body: '<a href="/order/?service=hangover">Objednat</a>' }));
+    expect(rules(query.missing)).toEqual(['link-missing']);
+    const moved = comparePage(page({ body: '<a href="/iv-drips-prague/#faq">x</a>' }), page({ body: '<a href="/iv-kapacky-praha/#faq">x</a>' }));
+    expect(moved).toEqual({ missing: [], added: [] });
+    const lost = comparePage(page({ body: '<a href="/iv-drips-prague/#faq">x</a>' }), page({ body: '<a href="/iv-kapacky-praha/">x</a>' }));
+    expect(rules(lost.missing)).toEqual(['link-missing']);
+  });
+
 });

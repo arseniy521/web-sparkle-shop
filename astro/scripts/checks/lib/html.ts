@@ -42,9 +42,7 @@ function metaContents($: CheerioAPI, selector: string): string[] {
 
 const SITE_HOSTS = [new URL(SITE_ORIGIN).hostname, new URL(SITE_ORIGIN).hostname.replace(/^www./, '')];
 
-// The decoded path of a link or image address that points to the site itself, else null.
-// Query and hash are dropped; relative addresses resolve against the page path.
-export function sitePathOf(href: string, pagePath: string): string | null {
+function siteUrlOf(href: string, pagePath: string): URL | null {
   const value = href.trim();
   if (value === '' || value.startsWith('#') || value.startsWith('?')) return null;
   let url: URL;
@@ -54,11 +52,28 @@ export function sitePathOf(href: string, pagePath: string): string | null {
     return null;
   }
   if (!['http:', 'https:'].includes(url.protocol) || !SITE_HOSTS.includes(url.hostname)) return null;
+  return url;
+}
+
+const decodePath = (pathname: string) => {
   try {
-    return decodeURIComponent(url.pathname);
+    return decodeURIComponent(pathname);
   } catch {
-    return url.pathname;
+    return pathname;
   }
+};
+
+// The decoded path of a link or image address that points to the site itself, else null.
+// Query and hash are dropped; relative addresses resolve against the page path.
+export function sitePathOf(href: string, pagePath: string): string | null {
+  const url = siteUrlOf(href, pagePath);
+  return url === null ? null : decodePath(url.pathname);
+}
+
+// The query string and hash of a site link, verbatim; empty for other addresses.
+export function siteSuffixOf(href: string, pagePath: string): string {
+  const url = siteUrlOf(href, pagePath);
+  return url === null ? '' : url.search + url.hash;
 }
 
 const INLINE = new Set([

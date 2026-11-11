@@ -4,7 +4,7 @@ import { isDeepStrictEqual } from 'node:util';
 import { blogImageReplacements, finalPath, hotelTextReplacements, sameAsset } from '../../checks/approved-differences.ts';
 import { NOT_FOUND_PATH } from '../../src/routes/manifest.ts';
 import { SITE_ORIGIN, absoluteUrl, allPageEntries, canonicalPath, hreflangFor } from '../../src/routes/urls.ts';
-import { extractFacts, listPages, sitePathOf } from './lib/html.ts';
+import { extractFacts, listPages, sitePathOf, siteSuffixOf } from './lib/html.ts';
 import type { PageFacts } from './lib/html.ts';
 import { record } from './registry.ts';
 import type { Finding } from './seo-rules.ts';
@@ -151,14 +151,16 @@ export function comparePage(oldFacts: PageFacts, newFacts: PageFacts): { missing
   };
 
   // Approved differences 4 and 8: a site link to a redirect source counts as its target.
+  // The query and hash are part of the target and are kept verbatim.
   const linkTarget = (href: string, from: PageFacts) => {
     const sitePath = sitePathOf(href, from.path);
-    return sitePath === null ? href : finalPath(sitePath);
+    return sitePath === null ? href : finalPath(sitePath) + siteSuffixOf(href, from.path);
   };
   const describeLink = (l: Link, from: PageFacts) => {
     const sitePath = sitePathOf(l.href, from.path);
     const target = linkTarget(l.href, from);
-    const shown = sitePath === null ? l.href : sitePath === target ? sitePath : `${sitePath} (now ${target})`;
+    const suffix = sitePath === null ? '' : siteSuffixOf(l.href, from.path);
+    const shown = sitePath === null ? l.href : `${sitePath}${suffix}` === target ? target : `${sitePath}${suffix} (now ${target})`;
     return `${shown} "${l.text}"`;
   };
   matchAll(
