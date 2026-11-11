@@ -159,8 +159,10 @@ describe('analytics', () => {
     expect(amplitude.track).not.toHaveBeenCalled();
   });
 
-  it('survives a blocked SDK', async () => {
+  it('survives a blocked SDK without retrying', async () => {
+    const attempts = vi.fn();
     vi.doMock('@amplitude/analytics-browser', () => {
+      attempts();
       throw new Error('blocked');
     });
     const { enableAnalytics, track, flushAnalytics } = await load();
@@ -168,7 +170,25 @@ describe('analytics', () => {
     track('x');
     await expect(flushAnalytics()).resolves.toBeUndefined();
     track('y');
+    enableAnalytics();
+    await flushPromises();
+    expect(attempts).toHaveBeenCalledOnce();
+    expect(amplitude.init).not.toHaveBeenCalled();
     expect(amplitude.track).not.toHaveBeenCalled();
+  });
+
+  it('ends opted out when Accept is followed by Reject while the SDK loads', async () => {
+    const release = holdSdk();
+    const { enableAnalytics, disableAnalytics, track } = await load();
+    enableAnalytics();
+    track('queued');
+    disableAnalytics();
+    release();
+    await flushPromises();
+    expect(amplitude.setOptOut.mock.calls.at(-1)).toEqual([true]);
+    expect(amplitude.setOptOut.mock.invocationCallOrder[0]).toBeLessThan(
+      amplitude.track.mock.invocationCallOrder[0] ?? Infinity,
+    );
   });
 
   it('cta_clicked carries page_path without query and hash', async () => {
