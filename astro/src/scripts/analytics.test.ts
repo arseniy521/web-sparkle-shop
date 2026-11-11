@@ -294,14 +294,27 @@ describe('analytics', () => {
       }
     });
 
-    it('resolves when the upload fails or the SDK throws', async () => {
+    // Fake timers: the 300 ms limit must not be what ends the wait, so it is checked before the timer fires.
+    it.each([
+      ['the upload is rejected', () => ({ promise: Promise.reject(new Error('blocked')) })],
+      [
+        'the SDK throws',
+        () => {
+          throw new Error('broken');
+        },
+      ],
+    ])('resolves at once when %s', async (_name, flush) => {
       const { flushAnalyticsWithin } = await ready();
-      amplitude.flush.mockImplementationOnce(() => ({ promise: Promise.reject(new Error('blocked')) }));
-      await expect(flushAnalyticsWithin(300)).resolves.toBeUndefined();
-      amplitude.flush.mockImplementationOnce(() => {
-        throw new Error('broken');
-      });
-      await expect(flushAnalyticsWithin(300)).resolves.toBeUndefined();
+      vi.useFakeTimers();
+      try {
+        amplitude.flush.mockImplementationOnce(flush);
+        let resolved = false;
+        void flushAnalyticsWithin(300).then(() => (resolved = true));
+        await vi.advanceTimersByTimeAsync(0);
+        expect(resolved).toBe(true);
+      } finally {
+        vi.useRealTimers();
+      }
     });
   });
 
