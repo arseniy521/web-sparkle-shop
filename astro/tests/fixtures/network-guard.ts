@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test';
+import { test as base, expect, type Page } from '@playwright/test';
 
 const LOCAL_HOSTS = new Set(['localhost:8090', '127.0.0.1:8090']);
 
@@ -25,3 +25,15 @@ export const test = base.extend<{ networkGuard: void }>({
 });
 
 export { expect };
+
+/**
+ * Serves the local build under another origin inside this page, e.g. https://www.nius.cz, where
+ * cookies go to `.nius.cz`. Nothing leaves the machine: the page route answers from port 8090.
+ */
+export async function serveSiteAt(page: Page, origin: string): Promise<void> {
+  await page.route(`${origin}/**`, async (route) => {
+    const url = new URL(route.request().url());
+    const response = await route.fetch({ url: `http://localhost:8090${url.pathname}${url.search}` });
+    await route.fulfill({ response });
+  });
+}
