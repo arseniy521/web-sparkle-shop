@@ -173,6 +173,10 @@
   button:not(:disabled) {
     cursor: pointer;
   }
+
+  input, select, optgroup, textarea {
+    background-color: revert;
+  }
 }
 
 @media (max-width: 880px) {
