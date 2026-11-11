@@ -589,6 +589,16 @@ describe('sitemap', () => {
     });
   }
 
+  it('sitemap-duplicate-url: an address listed twice', () => {
+    const dir = sitemap((t) => {
+      const hotel = t.match(block('https://www.nius.cz/en/iv-drip-hotel-prague/'))![0];
+      return t.replace('</urlset>', `${hotel}</urlset>`);
+    });
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual(['sitemap-duplicate-url']);
+    expect(findings).toEqual([expect.objectContaining({ path: '/en/iv-drip-hotel-prague/', detail: expect.stringContaining('2 times') })]);
+  });
+
   it('sitemap-alternates: x-default of the blog points to /en/blog/', () => {
     const dir = sitemap((t) =>
       t.replace(block('https://www.nius.cz/blog/'), (m) =>

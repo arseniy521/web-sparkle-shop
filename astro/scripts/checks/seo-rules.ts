@@ -376,14 +376,20 @@ function checkSitemap(ctx: Ctx): void {
   if (!fs.existsSync(file)) return;
   const $ = load(fs.readFileSync(file, 'utf8'), { xml: true });
   const actual = new Map<string, Array<{ hreflang: string; href: string }>>();
+  const times = new Map<string, number>();
   $('url').each((_, url) => {
     const alternates = $(url)
       .children()
       .toArray()
       .filter((child) => (child as { name?: string }).name === 'xhtml:link')
       .map((child) => ({ hreflang: $(child).attr('hreflang') ?? '', href: $(child).attr('href') ?? '' }));
-    actual.set($(url).children('loc').text().trim(), alternates);
+    const loc = $(url).children('loc').text().trim();
+    actual.set(loc, alternates);
+    times.set(loc, (times.get(loc) ?? 0) + 1);
   });
+  for (const [loc, count] of times) {
+    if (count > 1) ctx.add('sitemap-duplicate-url', sitePath(loc) ?? loc, `sitemap.xml lists the address ${count} times`);
+  }
 
   const expected = sitemapEntries();
   const expectedLocs = new Set(expected.map((e) => e.loc));
