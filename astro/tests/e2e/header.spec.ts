@@ -63,6 +63,22 @@ test('Account link for an anonymous visitor', async ({ page, context }) => {
     .toContainEqual(expect.objectContaining({ cta: 'account', source: 'header', authenticated: false }));
 });
 
+test('Account link before the scripts run', async ({ page }) => {
+  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: E2E_ORIGIN }]);
+  await installApiStub(page);
+  // Only the static HTML: no script file arrives, so nothing learns the sign-in status.
+  await page.route('**/_astro/*.js', (route) => route.abort('timedout'));
+  await page.goto(PILOT);
+
+  // As in the old prerendered page: the sign-in link, returning to the address without the slash.
+  const login = `https://app.nius.cz/login?returnTo=${encodeURIComponent(`${PRODUCTION}${PILOT.slice(0, -1)}`)}`;
+  await expect(page.locator('[data-account-link]')).toHaveCount(2);
+  for (const link of await page.locator('[data-account-link]').all()) {
+    await expect(link).toHaveAttribute('href', login);
+    await expect(link).not.toHaveAttribute('aria-disabled');
+  }
+});
+
 test('Return address from another origin', async ({ page }) => {
   await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: E2E_ORIGIN }]);
   await installApiStub(page);

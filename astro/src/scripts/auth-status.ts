@@ -70,3 +70,15 @@ export function accountHref(
   if (!RETURN_ORIGINS.has(loc.origin)) return login;
   return `${login}?returnTo=${encodeURIComponent(`${loc.origin}${loc.pathname}${loc.search}${loc.hash}`)}`;
 }
+
+/**
+ * The account link of the static HTML: the anonymous sign-in link, as the old prerendered pages have
+ * it. Their return address is the production address the old prerender rendered, which has no
+ * trailing slash (except the home page "/"). A page outside the manifest gets no return address.
+ */
+export function staticAccountHref(pagePath: string | null): string {
+  const login = `${APP_URL}/login`;
+  if (pagePath === null) return login;
+  const path = pagePath === '/' ? pagePath : pagePath.replace(/\/$/, '');
+  return `${login}?returnTo=${encodeURIComponent(`https://www.nius.cz${path}`)}`;
+}

@@ -179,3 +179,24 @@ describe('accountHref', () => {
     expect(accountHref('loading', loc('https://www.nius.cz', '/'))).toBeNull();
   });
 });
+
+describe('staticAccountHref', () => {
+  const login = (returnTo: string) => `https://app.nius.cz/login?returnTo=${encodeURIComponent(returnTo)}`;
+
+  it('returns to the production address of the page without the trailing slash, as the old prerender', async () => {
+    const { staticAccountHref } = await load();
+    expect(staticAccountHref('/sestricka-praha-1/')).toBe(login('https://www.nius.cz/sestricka-praha-1'));
+    expect(staticAccountHref('/en/')).toBe(login('https://www.nius.cz/en'));
+    expect(staticAccountHref('/ru/blog/')).toBe(login('https://www.nius.cz/ru/blog'));
+  });
+
+  it('keeps the slash of the home page', async () => {
+    const { staticAccountHref } = await load();
+    expect(staticAccountHref('/')).toBe(login('https://www.nius.cz/'));
+  });
+
+  it('has no return address on a page outside the manifest', async () => {
+    const { staticAccountHref } = await load();
+    expect(staticAccountHref(null)).toBe('https://app.nius.cz/login');
+  });
+});

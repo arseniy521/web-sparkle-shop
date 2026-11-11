@@ -2,19 +2,20 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('@/scripts/analytics', () => ({ track: vi.fn(), trackCtaClick: vi.fn() }));
 
-const LOADING = 'opacity-60 cursor-wait';
+// The static HTML: the sign-in link with the return address of the page.
+const STATIC = 'https://app.nius.cz/login?returnTo=https%3A%2F%2Fwww.nius.cz%2Fsestricka-praha-1';
 
 const HEADER = `
   <header>
     <a data-lang-switch="header" data-lang="cs" href="/">CZ</a>
     <a data-lang-switch="header" data-lang="en" href="/en/">EN</a>
-    <a aria-disabled="true" data-account-link="header" class="x ${LOADING}"></a>
+    <a href="${STATIC}" data-account-link="header" class="x"></a>
     <button data-open-cart="header"><span data-cart-count hidden></span></button>
     <button data-open-cart="mobile_header"><span data-cart-count hidden></span></button>
     <div data-mobile-menu>
       <a data-lang-switch="mobile_menu" data-lang="ru" href="/ru/">RU</a>
       <button data-open-cart="mobile_menu"><span data-cart-count hidden></span></button>
-      <a aria-disabled="true" data-account-link="mobile_menu" class="y ${LOADING}"></a>
+      <a href="${STATIC}" data-account-link="mobile_menu" class="y"></a>
     </div>
   </header>`;
 
@@ -83,28 +84,26 @@ describe('header cart', () => {
 });
 
 describe('header account link', () => {
-  it('stays as rendered while the status is loading and ignores clicks', async () => {
+  it('keeps the static sign-in link while the status is loading and tracks a click as anonymous', async () => {
     const { analytics, initHeaderState } = await setup();
     initHeaderState();
-    const link = document.querySelector<HTMLElement>('[data-account-link="header"]')!;
-    expect(link.getAttribute('aria-disabled')).toBe('true');
-    expect(link.hasAttribute('href')).toBe(false);
+    for (const link of document.querySelectorAll<HTMLElement>('[data-account-link]')) {
+      expect(link.getAttribute('href')).toBe(STATIC);
+    }
     click('[data-account-link="header"]');
-    expect(analytics.trackCtaClick).not.toHaveBeenCalled();
+    expect(analytics.trackCtaClick).toHaveBeenCalledWith('account', 'header', { authenticated: false });
   });
 
-  it('enables the account link once the status is known and tracks the click', async () => {
+  it('sets the return address of the current page for an anonymous visitor and tracks the click', async () => {
     const { analytics, authStatus, initHeaderState } = await setup();
     answerAuth(401);
     initHeaderState();
     await authStatus.ensure();
 
-    const link = document.querySelector<HTMLElement>('[data-account-link="header"]')!;
-    expect(link.hasAttribute('aria-disabled')).toBe(false);
-    expect(link.getAttribute('href')).toMatch(/^https:\/\/app\.nius\.cz\/login/);
-    expect(link.classList.contains('opacity-60')).toBe(false);
-    expect(link.classList.contains('cursor-wait')).toBe(false);
-    expect(link.classList.contains('transition-colors')).toBe(true);
+    // jsdom runs on localhost, which gets no return address.
+    for (const link of document.querySelectorAll<HTMLElement>('[data-account-link]')) {
+      expect(link.getAttribute('href')).toBe('https://app.nius.cz/login');
+    }
 
     click('[data-account-link="header"]');
     expect(analytics.trackCtaClick).toHaveBeenCalledWith('account', 'header', { authenticated: false });
