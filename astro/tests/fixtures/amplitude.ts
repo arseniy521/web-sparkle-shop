@@ -71,6 +71,15 @@ export function visitorDataIn(payloads: string[]): string[] {
   // The phone may appear formatted or URL-encoded: allow separators between its digits.
   const phone = new RegExp(VISITOR.phoneDigits.split('').join('(?:[\\s./()-]|%20|\\+)?'));
   // 'Testovac' also matches the address in JSON-escaped or URL-encoded form.
-  const needles = ['Testovac', VISITOR.intercom, VISITOR.note, VISITOR.name, encodeURIComponent(VISITOR.name), ...VISITOR.tokens];
+  // The name also in form encoding ('+' for spaces), as URLSearchParams writes the GA hits.
+  const needles = [
+    'Testovac',
+    VISITOR.intercom,
+    VISITOR.note,
+    VISITOR.name,
+    encodeURIComponent(VISITOR.name),
+    VISITOR.name.replace(/ /g, '+'),
+    ...VISITOR.tokens,
+  ];
   return [...(phone.test(text) ? ['phone'] : []), ...needles.filter((needle) => text.includes(needle))];
 }

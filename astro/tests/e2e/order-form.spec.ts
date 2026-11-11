@@ -154,7 +154,9 @@ test('Visitor with an active order', async ({ page }) => {
   );
   await expect(page.locator('#onboarding-address')).toHaveCount(0);
   await expect(dialog(page).getByRole('button', { name: cs.onboarding.finish })).toHaveCount(0);
-  await expect.poll(() => events(amplitude, 'active_order_gate_shown')).toHaveLength(1);
+  await expect
+    .poll(() => events(amplitude, 'active_order_gate_shown'))
+    .toEqual([expect.objectContaining({ language: 'cs' })]);
 });
 
 test('Order creation failed', async ({ page }) => {

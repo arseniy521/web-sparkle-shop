@@ -70,6 +70,8 @@ test('Return address from another origin', async ({ page }) => {
   await installApiStub(page);
   await page.goto(PILOT);
 
+  // The header and the mobile menu each have one.
+  await expect(page.locator('[data-account-link]')).toHaveCount(2);
   for (const link of await page.locator('[data-account-link]').all()) {
     await expect(link).not.toHaveAttribute('aria-disabled');
     await expect(link).toHaveAttribute('href', 'https://app.nius.cz/login');

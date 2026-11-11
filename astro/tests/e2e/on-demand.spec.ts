@@ -9,9 +9,9 @@ const PILOT = '/sestricka-praha-1/';
 const FORM_CODE = /\/_astro\/(mount|client|GoogleLoginAction|cs|en|ru|uk)\.[\w-]+\.js$/;
 
 function scriptRequests(page: Page) {
-  const urls: Array<{ url: string; at: number; done?: number }> = [];
+  const urls: Array<{ url: string; done?: number }> = [];
   page.on('request', (request) => {
-    if (request.resourceType() === 'script') urls.push({ url: request.url(), at: Date.now() });
+    if (request.resourceType() === 'script') urls.push({ url: request.url() });
   });
   page.on('requestfinished', (request) => {
     const entry = urls.find((u) => u.url === request.url() && u.done === undefined);

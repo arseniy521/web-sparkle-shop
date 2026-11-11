@@ -54,10 +54,11 @@ test('Metrics of a page view', async ({ page, context }) => {
   await page.waitForLoadState('networkidle');
   await page.close({ runBeforeUnload: true });
 
-  // What the closed tab sent, or left for the next page of the site to send.
+  // What the closed tab sent, or left for the next page of the site to send. The next page is
+  // another path, so a metric with the pilot's path can only come from the closed tab.
   const next = await context.newPage();
   const second = await withConsent(next);
-  await next.goto(`${PILOT}?utm_source=x#top`);
+  await next.goto('/no-such-page/?utm_source=x#top');
 
   const vitals = () =>
     [...first.amplitude.events(), ...second.amplitude.events()]
@@ -74,6 +75,23 @@ test('Visit to a missing page', async ({ page }) => {
   expect(response?.status()).toBe(404);
   await expect.poll(() => events(amplitude, 'page_not_found')).toEqual([{ language: 'en', page_path: '/old-page/' }].map((p) => expect.objectContaining(p)));
   expect(events(amplitude, 'page_not_found')[0]).not.toHaveProperty('referrer_path');
+
+  // The same missing page reached through a link on the pilot page.
+  await page.goto(PILOT);
+  await page.evaluate(() => {
+    const link = document.createElement('a');
+    link.href = '/old-page/?utm_source=x';
+    link.textContent = 'e2e old link';
+    document.body.prepend(link);
+  });
+  await page.getByRole('link', { name: 'e2e old link' }).click();
+  await expect(page).toHaveURL('/old-page/?utm_source=x');
+  await expect
+    .poll(() => events(amplitude, 'page_not_found'))
+    .toEqual([
+      expect.objectContaining({ language: 'en', page_path: '/old-page/' }),
+      expect.objectContaining({ language: 'en', page_path: '/old-page/', referrer_path: PILOT }),
+    ]);
 });
 
 test('Analytics blocked by the browser', async ({ page }) => {
