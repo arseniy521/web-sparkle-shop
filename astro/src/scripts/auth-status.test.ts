@@ -78,6 +78,21 @@ describe('authStatus', () => {
     expect(authStatus.get()).toBe('authenticated');
   });
 
+  it('set() wins over a pending request and notifies once', async () => {
+    let answer!: (response: Response) => void;
+    fetchMock.mockImplementation(() => new Promise<Response>((resolve) => (answer = resolve)));
+    const { authStatus } = await load();
+    const pending = authStatus.ensure();
+    const listener = vi.fn();
+    authStatus.subscribe(listener);
+    authStatus.set('authenticated');
+    expect(authStatus.get()).toBe('authenticated');
+    answer(new Response(null, { status: 401 }));
+    await pending;
+    expect(authStatus.get()).toBe('authenticated');
+    expect(listener).toHaveBeenCalledTimes(1);
+  });
+
   it('stops notifying after unsubscribe', async () => {
     const { authStatus } = await load();
     const listener = vi.fn();

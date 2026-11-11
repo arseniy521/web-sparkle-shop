@@ -47,6 +47,12 @@ export const authStatus = {
   refresh(): Promise<AuthStatus> {
     return request();
   },
+
+  set(status: Exclude<AuthStatus, 'loading'>): void {
+    current = status;
+    inflight = null;
+    for (const listener of listeners) listener();
+  },
 };
 
 export function accountHref(

@@ -73,7 +73,7 @@ const GoogleLoginButton = ({
       if (activeRef.current) onStateChange('linking');
       try {
         const user = await googleAuth(code, orderId, orderAccessToken);
-        void authStatus.refresh();
+        authStatus.set('authenticated');
         setAnalyticsOptOut(user.role === 'SUPERADMIN');
         if (user.role !== 'SUPERADMIN') {
           track('login_completed', { linked_order: user.linked });
@@ -96,7 +96,7 @@ const GoogleLoginButton = ({
         // a fresh check proved that no previous session existed.
         try {
           const user = await getPublicMe();
-          void authStatus.refresh();
+          authStatus.set('authenticated');
           setAnalyticsOptOut(user.role === 'SUPERADMIN');
           if (user.role !== 'SUPERADMIN') {
             track('login_completed', { linked_order: false, recovered: true });

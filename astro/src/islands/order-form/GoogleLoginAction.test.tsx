@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { OnboardingApiError } from './api/onboarding';
 import { setAnalyticsOptOut, track } from '@/scripts/analytics';
+import { authStatus } from '@/scripts/auth-status';
 import GoogleLoginAction, { type LoginFlowState } from './GoogleLoginAction';
 
 interface CapturedLoginOptions {
@@ -74,6 +75,7 @@ vi.mock('./api/onboarding', async () => {
 
 const failureSpy = vi.fn();
 const authenticatedSpy = vi.fn();
+const statusOnAuthenticated: string[] = [];
 
 function Harness({ allowAmbiguousRecovery = true } = {}) {
   const [state, setState] = useState<LoginFlowState>('idle');
@@ -86,7 +88,10 @@ function Harness({ allowAmbiguousRecovery = true } = {}) {
         disabled={false}
         allowAmbiguousRecovery={allowAmbiguousRecovery}
         onStateChange={setState}
-        onAuthenticated={authenticatedSpy}
+        onAuthenticated={(user) => {
+          statusOnAuthenticated.push(authStatus.get());
+          authenticatedSpy(user);
+        }}
         onFailure={(reason) => {
           failureSpy(reason);
           setState('error');
@@ -106,6 +111,7 @@ afterEach(() => {
   apiMocks.getPublicMe.mockReset();
   failureSpy.mockReset();
   authenticatedSpy.mockReset();
+  statusOnAuthenticated.length = 0;
   vi.mocked(setAnalyticsOptOut).mockReset();
   vi.mocked(track).mockReset();
 });
@@ -209,6 +215,7 @@ describe('GoogleLoginAction', () => {
 
     expect(apiMocks.getPublicMe).toHaveBeenCalledTimes(1);
     expect(authenticatedSpy).toHaveBeenCalledWith(sessionUser);
+    expect(statusOnAuthenticated).toEqual(['authenticated']);
     expect(oauthState.replaceWithIntakeForm).toHaveBeenCalledTimes(1);
   });
 
@@ -271,6 +278,7 @@ describe('GoogleLoginAction', () => {
       await oauthState.options?.onSuccess({ code: 'admin-code' });
     });
     expect(setAnalyticsOptOut).toHaveBeenCalledWith(true);
+    expect(statusOnAuthenticated).toEqual(['authenticated']);
     expect(track).not.toHaveBeenCalled();
     expect(oauthState.replaceWithIntakeForm).not.toHaveBeenCalled();
 
