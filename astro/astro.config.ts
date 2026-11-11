@@ -6,10 +6,17 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 // @vitejs/plugin-react is a dependency of @astrojs/react only, so it is resolved from there.
-const fromAstroReact = createRequire(createRequire(import.meta.url).resolve('@astrojs/react'));
-const { default: viteReact } = await import(
-  /* @vite-ignore */ pathToFileURL(fromAstroReact.resolve('@vitejs/plugin-react')).href
-);
+// Only `astro dev` needs it: a failure here must not break other commands.
+let preambleCode: string | undefined;
+try {
+  const fromAstroReact = createRequire(createRequire(import.meta.url).resolve('@astrojs/react'));
+  const { default: viteReact } = await import(
+    /* @vite-ignore */ pathToFileURL(fromAstroReact.resolve('@vitejs/plugin-react')).href
+  );
+  preambleCode = viteReact.preambleCode;
+} catch {
+  preambleCode = undefined;
+}
 
 // @astrojs/react injects the Fast Refresh preamble only on pages with a client:* island;
 // the order form is mounted from a plain script, so in dev every page needs it.
@@ -18,7 +25,13 @@ const reactRefreshPreamble: AstroIntegration = {
   hooks: {
     'astro:config:setup': ({ command, injectScript }) => {
       if (command !== 'dev') return;
-      injectScript('page', viteReact.preambleCode.replace('__BASE__', '/'));
+      if (typeof preambleCode !== 'string') {
+        console.warn(
+          '[react-refresh-preamble] @vitejs/plugin-react preamble not found: the order form will not open under astro dev.',
+        );
+        return;
+      }
+      injectScript('page', preambleCode.replace('__BASE__', '/'));
     },
   },
 };
