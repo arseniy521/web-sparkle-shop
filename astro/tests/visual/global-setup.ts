@@ -1,5 +1,6 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
+import { NEW_PORT, OLD_PORT } from '../fixtures/servers.ts';
 import { startStaticServer } from '../fixtures/static-server.ts';
 import { writeReport } from './compare.ts';
 
@@ -18,8 +19,8 @@ export default async function globalSetup() {
     env: { ...process.env, VITE_API_URL: '/api' },
   });
   const servers = await Promise.all([
-    startStaticServer({ dir: OLD_DIST, port: 8081, spaFallback: true }),
-    startStaticServer({ dir: TEST_DIST, port: 8080, notFoundFile: '404.html' }),
+    startStaticServer({ dir: OLD_DIST, port: OLD_PORT, spaFallback: true }),
+    startStaticServer({ dir: TEST_DIST, port: NEW_PORT, notFoundFile: '404.html' }),
   ]);
   return async () => {
     await Promise.all(servers.map((s) => s.close()));

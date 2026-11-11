@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { E2E_ORIGIN } from './tests/fixtures/servers.ts';
 
 // Global setup is not per project, so each project's setup runs only when the command line
 // selects that project (or selects none). The visual project needs the reference build
@@ -14,9 +15,10 @@ function selectedProjects(): string[] {
 const selected = selectedProjects();
 const runs = (project: string) => selected.length === 0 || selected.includes(project);
 
-// visual: the old site from the reference build (.baseline/dist, npm run baseline) on 8081,
-// the new site from a separate test build (.checks/dist-test) on 8080; see tests/visual/global-setup.ts.
-// e2e: the new site from its own test build (.checks/dist-e2e) on 8090; see tests/e2e/global-setup.ts.
+// visual: the old site from the reference build (.baseline/dist, npm run baseline) on OLD_PORT,
+// the new site from a separate test build (.checks/dist-test) on NEW_PORT; see tests/visual/global-setup.ts.
+// e2e: the new site from its own test build (.checks/dist-e2e) on E2E_PORT; see tests/e2e/global-setup.ts.
+// The ports are shifted by NIUS_PORT_OFFSET, see tests/fixtures/servers.ts.
 export default defineConfig({
   testMatch: '**/*.spec.ts',
   // The visual specs write .checks/registry.json; one worker keeps its read-modify-write safe.
@@ -33,7 +35,7 @@ export default defineConfig({
       testDir: 'tests/e2e',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: 'http://localhost:8090',
+        baseURL: E2E_ORIGIN,
         // No host but the local server resolves, so nothing leaves the machine even where request
         // routing does not reach: requests sent while a page unloads (sendBeacon, keepalive fetch),
         // preconnects. Page routes still answer stubbed hosts; the network guard reports the rest.

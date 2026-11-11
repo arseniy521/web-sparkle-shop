@@ -3,6 +3,7 @@ import cs from '../../../src/i18n/locales/cs.json' with { type: 'json' };
 import stubData from '../../preview/stub-data.json' with { type: 'json' };
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
+import { E2E_ORIGIN } from '../fixtures/servers.ts';
 
 const PILOT = '/sestricka-praha-1/';
 // Loaded only for the form: its entry chunk, React DOM (client.*), the Google sign-in chunk and its texts.
@@ -21,7 +22,7 @@ function scriptRequests(page: Page) {
 }
 
 test('Visitor who only reads', async ({ page }) => {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: E2E_ORIGIN }]);
   await installApiStub(page);
   const scripts = scriptRequests(page);
   await page.goto(PILOT);
@@ -38,7 +39,7 @@ test('Visitor who only reads', async ({ page }) => {
 });
 
 test('Returning to a page with a cart', async ({ page }) => {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: E2E_ORIGIN }]);
   await installApiStub(page);
   await page.addInitScript((code) => {
     sessionStorage.setItem('nius_onboarding_draft_v2', JSON.stringify({ codes: [code], data: {}, savedAt: Date.now() }));

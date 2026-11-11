@@ -3,6 +3,7 @@ import { captureAmplitude, type AmplitudeCapture } from '../fixtures/amplitude.t
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa } from '../fixtures/google.ts';
 import { expect, serveSiteAt, test } from '../fixtures/network-guard.ts';
+import { E2E_ORIGIN } from '../fixtures/servers.ts';
 
 const PILOT = '/sestricka-praha-1/';
 const PRODUCTION = 'https://www.nius.cz';
@@ -21,7 +22,7 @@ test.describe('on a phone', () => {
   test.use({ viewport, userAgent, deviceScaleFactor, isMobile, hasTouch });
 
   test('Mobile menu on a slow connection', async ({ page }) => {
-    await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: 'http://localhost:8090' }]);
+    await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: E2E_ORIGIN }]);
     await installApiStub(page);
     // Only the HTML (with its inline scripts) and the styles arrive; no script file does.
     const aborted: string[] = [];
@@ -66,7 +67,7 @@ test('Account link for an anonymous visitor', async ({ page, context }) => {
 });
 
 test('Return address from another origin', async ({ page }) => {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: E2E_ORIGIN }]);
   await installApiStub(page);
   await page.goto(PILOT);
 
@@ -79,7 +80,7 @@ test('Return address from another origin', async ({ page }) => {
 });
 
 test('Language switch', async ({ page }) => {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'accepted', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'accepted', url: E2E_ORIGIN }]);
   const amplitude = await captureAmplitude(page);
   await captureGa(page);
   await installApiStub(page);

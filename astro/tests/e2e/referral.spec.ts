@@ -4,6 +4,7 @@ import stubData from '../../preview/stub-data.json' with { type: 'json' };
 import { VISITOR } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
+import { E2E_ORIGIN } from '../fixtures/servers.ts';
 
 const PILOT = '/sestricka-praha-1/';
 // The spec's example: the visitor arrives with ?ref=k7m2qx (lower case) and the site keeps the code
@@ -13,7 +14,7 @@ const THIRTY_DAYS = 2_592_000;
 
 // The partner code is kept whatever the analytics choice: the visitor rejected analytics.
 async function prepare(page: Page) {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: E2E_ORIGIN }]);
   await installApiStub(page);
 }
 

@@ -6,12 +6,13 @@ import cs from '../../../src/i18n/locales/cs.json' with { type: 'json' };
 import stubData from '../../preview/stub-data.json' with { type: 'json' };
 import { record as recordCheck } from '../../scripts/checks/registry.ts';
 import { installApiStub } from '../fixtures/api-stub';
+import { NEW_ORIGIN, OLD_ORIGIN } from '../fixtures/servers.ts';
 import { MAX_RATIO, comparePngs, settle } from './compare.ts';
 
 const OUT = fileURLToPath(new URL('../../.checks/visual/form/', import.meta.url));
 const SITES = {
-  old: { url: 'http://localhost:8081/sestricka-praha-1/', origin: 'http://localhost:8081' },
-  new: { url: 'http://localhost:8080/sestricka-praha-1/', origin: 'http://localhost:8080' },
+  old: { url: `${OLD_ORIGIN}/sestricka-praha-1/`, origin: OLD_ORIGIN },
+  new: { url: `${NEW_ORIGIN}/sestricka-praha-1/`, origin: NEW_ORIGIN },
 } as const;
 type Site = keyof typeof SITES;
 const VIEWPORTS = [

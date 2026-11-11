@@ -1,10 +1,10 @@
 import { execSync } from 'node:child_process';
+import { E2E_PORT } from '../fixtures/servers.ts';
 import { startStaticServer } from '../fixtures/static-server.ts';
 
 // Apart from dist/ and from the visual build: this build calls the stubbed relative API and
 // carries fake keys that switch on the Amplitude and Google sign-in code paths.
 export const E2E_DIST = '.checks/dist-e2e';
-export const E2E_PORT = 8090;
 
 export default async function globalSetup() {
   execSync(`node scripts/sync-public.mjs && npx astro build --outDir ${E2E_DIST}`, {

@@ -5,12 +5,13 @@ import { captureAmplitude, visitorDataIn, VISITOR, type AmplitudeCapture } from 
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa, stubGoogleIdentity, type GaCapture } from '../fixtures/google.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
+import { E2E_ORIGIN } from '../fixtures/servers.ts';
 
 const PILOT = '/sestricka-praha-1/';
 
 // Every scenario here runs for a visitor who has accepted analytics.
 async function withConsent(page: Page): Promise<{ amplitude: AmplitudeCapture; ga: GaCapture }> {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'accepted', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'accepted', url: E2E_ORIGIN }]);
   const amplitude = await captureAmplitude(page);
   const ga = await captureGa(page);
   await installApiStub(page);
@@ -124,7 +125,7 @@ test('Visit to a missing page', async ({ page }) => {
 });
 
 test('Analytics blocked by the browser', async ({ page }) => {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'accepted', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'accepted', url: E2E_ORIGIN }]);
   const blocked: string[] = [];
   await page.route(/^https:\/\/([^/]+\.)?(amplitude\.com|googletagmanager\.com|google-analytics\.com)\//, (route) => {
     blocked.push(route.request().url());

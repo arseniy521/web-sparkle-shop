@@ -3,6 +3,7 @@ import { captureAmplitude } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa } from '../fixtures/google.ts';
 import { expect, serveSiteAt, test } from '../fixtures/network-guard.ts';
+import { E2E_ORIGIN, E2E_ORIGIN_IP } from '../fixtures/servers.ts';
 
 const PILOT = '/sestricka-praha-1/';
 const PRODUCTION = 'https://www.nius.cz';
@@ -40,7 +41,7 @@ test('First visit', async ({ page }) => {
     for (const url of new Set([...scripts, ...preloads])) {
       // Only the site's own code is read back (page.request bypasses the network guard); any
       // third-party script before consent is itself the failure and is never fetched.
-      if (new URL(url).host !== 'localhost:8090') {
+      if (new URL(url).host !== new URL(E2E_ORIGIN).host) {
         thirdPartyScripts.add(url);
         continue;
       }
@@ -182,11 +183,11 @@ test('Consent stored by the old site', async ({ page, context }) => {
 test('Preview address', async ({ page, context }) => {
   await installApiStub(page);
   const requests = recordRequests(page);
-  await page.goto(`http://127.0.0.1:8090${PILOT}`);
+  await page.goto(`${E2E_ORIGIN_IP}${PILOT}`);
   await banner(page).locator('[data-consent="reject"]').click();
   await expect(banner(page)).toBeHidden();
 
-  await page.goto(`http://127.0.0.1:8090${PILOT}?page=2`);
+  await page.goto(`${E2E_ORIGIN_IP}${PILOT}?page=2`);
   await page.waitForLoadState('networkidle');
 
   await expect(banner(page)).toBeHidden();

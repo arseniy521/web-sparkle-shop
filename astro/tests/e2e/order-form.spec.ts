@@ -5,6 +5,7 @@ import { captureAmplitude, visitorDataIn, VISITOR, type AmplitudeCapture } from 
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa, stubGoogleIdentity, type GaCapture } from '../fixtures/google.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
+import { E2E_ORIGIN } from '../fixtures/servers.ts';
 
 const PILOT = '/sestricka-praha-1/';
 const DRAFT_KEY = 'nius_onboarding_draft_v2';
@@ -18,7 +19,7 @@ interface Opened {
 
 // Consent is given so that every scenario also checks what reaches analytics.
 async function openPilot(page: Page, codes: string[] = [LITE.code]): Promise<Opened> {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'accepted', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'accepted', url: E2E_ORIGIN }]);
   const amplitude = await captureAmplitude(page);
   const ga = await captureGa(page);
   await installApiStub(page);

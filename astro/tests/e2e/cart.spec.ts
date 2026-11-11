@@ -4,6 +4,7 @@ import stubData from '../../preview/stub-data.json' with { type: 'json' };
 import { VISITOR } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
+import { E2E_ORIGIN } from '../fixtures/servers.ts';
 
 const PILOT = '/sestricka-praha-1/';
 const DRAFT_KEY = 'nius_onboarding_draft_v2';
@@ -32,7 +33,7 @@ const EMPTY_DATA = {
 };
 
 async function prepare(page: Page) {
-  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: 'http://localhost:8090' }]);
+  await page.context().addCookies([{ name: 'nius_consent', value: 'rejected', url: E2E_ORIGIN }]);
   await installApiStub(page);
 }
 

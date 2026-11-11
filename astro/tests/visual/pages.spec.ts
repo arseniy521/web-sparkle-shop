@@ -7,10 +7,11 @@ import { record } from '../../scripts/checks/registry.ts';
 import { NOT_FOUND_PATH } from '../../src/routes/manifest.ts';
 import { allPageEntries } from '../../src/routes/urls.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
+import { NEW_ORIGIN, OLD_ORIGIN } from '../fixtures/servers.ts';
 import { MAX_RATIO, comparePngs, settle, type PixelResult } from './compare.ts';
 import { TEST_DIST, VISUAL_DIR } from './global-setup.ts';
 
-const SITES = { old: 'http://localhost:8081', new: 'http://localhost:8080' } as const;
+const SITES = { old: OLD_ORIGIN, new: NEW_ORIGIN } as const;
 type Site = keyof typeof SITES;
 const VIEWPORTS = {
   phone: { width: 390, height: 844 },
