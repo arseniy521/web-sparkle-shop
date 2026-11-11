@@ -43,6 +43,8 @@ interface Ctx {
   add: (rule: string, path: string, detail: string) => void;
 }
 
+const APP_ORIGIN = 'https://app.nius.cz';
+
 const pageFile = (distDir: string, pagePath: string) =>
   path.join(distDir, pagePath === NOT_FOUND_PATH ? '404.html' : `${pagePath}index.html`);
 
@@ -345,13 +347,35 @@ function checkSitemap(ctx: Ctx): void {
   }
 }
 
+// Only the preview build may differ from production: API stub, X-Robots-Tag and a closed robots.txt.
+function checkPreviewArtifacts(ctx: Ctx): void {
+  const { distDir } = ctx;
+  const robots = path.join(distDir, 'robots.txt');
+  if (fs.existsSync(robots) && /^\s*disallow:\s*\/\s*$/im.test(fs.readFileSync(robots, 'utf8'))) {
+    ctx.add('preview-artifact', '/robots.txt', 'robots.txt disallows the whole site');
+  }
+  if (fs.existsSync(path.join(distDir, 'functions'))) {
+    ctx.add('preview-artifact', '/functions/', 'the build contains server functions');
+  }
+  const headers = path.join(distDir, '_headers');
+  if (fs.existsSync(headers) && /x-robots-tag/i.test(fs.readFileSync(headers, 'utf8'))) {
+    ctx.add('preview-artifact', '/_headers', '_headers sets X-Robots-Tag');
+  }
+  const scripts = path.join(distDir, '_astro');
+  const files = fs.existsSync(scripts) ? fs.readdirSync(scripts).filter((f) => f.endsWith('.js')) : [];
+  const apiBase = `${APP_ORIGIN}/api`;
+  if (!files.some((f) => fs.readFileSync(path.join(scripts, f), 'utf8').includes(apiBase))) {
+    ctx.add('preview-artifact', '/_astro/', `no script contains the API address ${apiBase}`);
+  }
+}
+
 export function checkDist(input: {
   distDir: string;
   scope?: ReadonlySet<string>;
   knownDefects?: readonly KnownDefect[];
   production?: boolean;
 }): Finding[] {
-  const { distDir, scope, knownDefects = [] } = input;
+  const { distDir, scope, knownDefects = [], production = false } = input;
   const findings: Finding[] = [];
   const built = new Set(listPages(distDir));
   const pages = new Map<string, PageInfo>();
@@ -381,6 +405,7 @@ export function checkDist(input: {
   checkRedirects(ctx);
   checkSitemap(ctx);
   checkRobotsAndRequiredFiles(ctx);
+  if (production) checkPreviewArtifacts(ctx);
 
   // Redirects and the 404 page are always in scope.
   const inScope = (p: string) =>
