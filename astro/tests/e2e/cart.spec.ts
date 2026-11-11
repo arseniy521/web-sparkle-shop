@@ -60,8 +60,21 @@ async function expectFormWith(page: Page, titles: string[]) {
 
 test('Navigating with a filled cart', async ({ page }) => {
   await prepare(page);
-  await seed(page, 'session', DRAFT_KEY, oldSiteDraft([LITE.code, HYDRATE.code], Date.now()));
   await page.goto(PILOT);
+  await expect(counter(page)).toBeHidden();
+
+  // Two services added the way the catalogue (public/js/nius-menu.js, quick add) adds them.
+  await page.evaluate((codes) => {
+    for (const code of codes) {
+      window.dispatchEvent(
+        new CustomEvent('nius:add-to-cart', {
+          detail: { code, source: 'service_catalog', boosterCodes: [] },
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+  }, [LITE.code, HYDRATE.code]);
   await expect(counter(page)).toHaveText('2');
 
   // A later page in the same tab gets the cart from the session.
