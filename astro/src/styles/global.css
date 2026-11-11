@@ -187,6 +187,10 @@
   input, select, optgroup, textarea {
     background-color: revert;
   }
+
+  [data-sonner-toast] {
+    border-width: 0 !important;
+  }
 }
 
 @media (max-width: 880px) {
