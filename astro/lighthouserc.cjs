@@ -8,7 +8,7 @@ module.exports = {
       chromePath: chromium.executablePath(),
       numberOfRuns: 3,
       // Control set: one page of each migrated template.
-      url: ['/sestricka-praha-1/'],
+      url: ['/sestricka-praha-1/', '/sestricka-praha-vinohrady/', '/sestricka-praha-zizkov/', '/privacy/'],
     },
     assert: {
       assertions: {
