@@ -24,6 +24,8 @@ function unloadsPage(event: MouseEvent, anchor: HTMLAnchorElement): boolean {
   if (event.defaultPrevented || event.button !== 0) return false;
   if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
   if ((anchor.target && anchor.target.toLowerCase() !== '_self') || anchor.hasAttribute('download')) return false;
+  // location.assign ignores the link's referrer protection, so such a link must navigate natively.
+  if (anchor.relList.contains('noreferrer') || anchor.hasAttribute('referrerpolicy')) return false;
   let url: URL;
   try {
     url = new URL(anchor.href);

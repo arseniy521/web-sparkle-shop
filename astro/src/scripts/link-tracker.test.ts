@@ -132,6 +132,8 @@ describe('link tracker', () => {
       ['a fragment of this page', tracked('', '#menu')],
       ['a fragment of this page by path', tracked('', '/page/#menu')],
       ['an empty fragment', tracked('', '#')],
+      ['rel="noopener noreferrer"', tracked('rel="noopener noreferrer"')],
+      ['a referrerpolicy attribute', tracked('referrerpolicy="no-referrer"')],
     ])('for %s', async (_name, html) => {
       expect(clickWith(html)).toBe(true);
       expect(analytics.trackCtaClick).toHaveBeenCalled();
