@@ -205,8 +205,11 @@ function checkHreflang(ctx: Ctx, { entry, facts }: PageInfo): void {
   }
 }
 
-function checkSocial(ctx: Ctx, { entry, facts }: PageInfo): void {
+const OG_LOCALES: Record<string, string> = { cs: 'cs_CZ', en: 'en_US', ru: 'ru_RU', uk: 'uk_UA' };
+
+function checkSocial(ctx: Ctx, { entry, facts, html }: PageInfo): void {
   const p = entry.path;
+  const mismatch = (detail: string) => ctx.add('og-mismatch', p, detail);
   const first = (key: string) => facts.og[key]?.[0];
   const expectEqual = (key: string, actual: string | undefined, expected: string | undefined) => {
     if (expected === undefined) return; // the single-* rule already reports the page
@@ -219,7 +222,34 @@ function checkSocial(ctx: Ctx, { entry, facts }: PageInfo): void {
     first('og:description'),
     nonEmpty(facts.descriptions) ? facts.descriptions[0] : undefined,
   );
-  if (!first('og:locale')) ctx.add('og-mismatch', p, 'og:locale is missing');
+  if (first('og:locale') !== OG_LOCALES[entry.lang]) {
+    mismatch(`og:locale is ${first('og:locale') ?? 'missing'}, expected ${OG_LOCALES[entry.lang]}`);
+  }
+  const otherLocales = Object.entries(OG_LOCALES)
+    .filter(([lang]) => lang !== entry.lang)
+    .map(([, locale]) => locale)
+    .sort();
+  const alternates = [...(facts.og['og:locale:alternate'] ?? [])].sort();
+  if (alternates.join() !== otherLocales.join()) {
+    mismatch(`og:locale:alternate is [${alternates.join(', ')}], expected [${otherLocales.join(', ')}]`);
+  }
+  if (!first('og:type')?.trim()) mismatch('og:type is missing or empty');
+  if (first('og:site_name') !== 'Nurse in Prague') {
+    mismatch(`og:site_name is ${first('og:site_name') ?? 'missing'}, expected Nurse in Prague`);
+  }
+  if (first('og:image:width') !== '1200') mismatch(`og:image:width is ${first('og:image:width') ?? 'missing'}, expected 1200`);
+  if (first('og:image:height') !== '630') mismatch(`og:image:height is ${first('og:image:height') ?? 'missing'}, expected 630`);
+
+  const $ = load(html);
+  const twitter = (name: string) => $(`meta[name="${name}"]`).first().attr('content');
+  expectEqual('twitter:card', twitter('twitter:card'), 'summary_large_image');
+  expectEqual('twitter:title', twitter('twitter:title'), nonEmpty(facts.titles) ? facts.titles[0] : undefined);
+  expectEqual(
+    'twitter:description',
+    twitter('twitter:description'),
+    nonEmpty(facts.descriptions) ? facts.descriptions[0] : undefined,
+  );
+  expectEqual('twitter:image', twitter('twitter:image'), first('og:image'));
 
   const image = first('og:image');
   if (!image || !/^https?:\/\//.test(image)) {

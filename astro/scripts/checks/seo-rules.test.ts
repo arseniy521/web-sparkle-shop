@@ -336,6 +336,18 @@ describe('head of a page', () => {
     ['no og:locale', drop(/<meta property="og:locale" content="[^"]*">/)],
     ['og:image is not absolute', (t) => t.replace('content="https://www.nius.cz/og-image.jpg"', 'content="/og-image.jpg"')],
     ['og:image file is missing', (t) => t.replace('og-image.jpg', 'missing.jpg')],
+    ['og:locale is not the page locale', (t) => t.replace('property="og:locale" content="en_US"', 'property="og:locale" content="cs_CZ"')],
+    ['og:locale:alternate misses a locale', drop(/<meta property="og:locale:alternate" content="cs_CZ">/)],
+    ['og:locale:alternate repeats the page locale', (t) => t.replace('content="cs_CZ"', 'content="en_US"')],
+    ['no og:type', drop(/<meta property="og:type"[^>]*>/)],
+    ['an empty og:type', (t) => t.replace('property="og:type" content="website"', 'property="og:type" content=""')],
+    ['og:site_name differs', (t) => t.replace('content="Nurse in Prague"', 'content="Other"')],
+    ['og:image:width is not 1200', (t) => t.replace('property="og:image:width" content="1200"', 'property="og:image:width" content="1000"')],
+    ['og:image:height is not 630', drop(/<meta property="og:image:height"[^>]*>/)],
+    ['twitter:card is not summary_large_image', (t) => t.replace('content="summary_large_image"', 'content="summary"')],
+    ['twitter:title differs from title', (t) => t.replace(/(name="twitter:title" content=")[^"]*/, '$1Other')],
+    ['twitter:description differs from description', (t) => t.replace(/(name="twitter:description" content=")[^"]*/, '$1Other')],
+    ['twitter:image differs from og:image', (t) => t.replace(/(name="twitter:image" content=")[^"]*/, '$1https://www.nius.cz/other.jpg')],
   ];
   for (const [name, change] of ogCases) {
     it(`og-mismatch: ${name}`, () => {
