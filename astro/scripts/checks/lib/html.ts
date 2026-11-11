@@ -20,8 +20,11 @@ export interface PageFacts {
   metaRefresh: string | null;
   h1: string[];
   headings: Array<{ level: number; text: string }>;
-  textBlocks: string[]; // normalized text nodes, hidden ones included; script/style excluded
+  // Normalized text of each run between boundaries of non-inline elements, in document order;
+  // hidden text included; script, style, template, noscript and nius-menu excluded.
+  textBlocks: string[];
   internalLinks: string[]; // site-relative hrefs without query and hash
+  links: Array<{ href: string; text: string }>; // every a[href] of the body; text falls back to aria-label
   images: Array<{ src: string; alt: string | null }>;
   jsonLd: unknown[];
   jsonLdErrors: string[];
@@ -58,6 +61,11 @@ export function sitePathOf(href: string, pagePath: string): string | null {
   }
 }
 
+const INLINE = new Set([
+  'a', 'span', 'strong', 'b', 'em', 'i', 'u', 's', 'small',
+  'sub', 'sup', 'mark', 'abbr', 'code', 'time', 'wbr',
+]);
+
 export function extractFacts(html: string, pagePath: string): PageFacts {
   const $ = load(html);
 
@@ -79,18 +87,32 @@ export function extractFacts(html: string, pagePath: string): PageFacts {
 
   const textBlocks: string[] = [];
   const $text = load(html);
-  $text('script, style, nius-menu').remove();
-  // Depth-first, so the blocks keep document order and can be joined into the page text.
+  $text('script, style, template, noscript, nius-menu').remove();
+  let run = '';
+  const cut = () => {
+    const text = normalizeText(run);
+    if (text) textBlocks.push(text);
+    run = '';
+  };
   const walk = (nodes: ReturnType<typeof $text>) =>
     nodes.contents().each((_, node) => {
       if (node.type === 'text') {
-        const text = normalizeText((node as unknown as { data: string }).data);
-        if (text) textBlocks.push(text);
+        run += (node as unknown as { data: string }).data;
       } else if (node.type === 'tag') {
-        walk($text(node));
+        const name = (node as unknown as { name: string }).name;
+        if (name === 'br') {
+          run += ' ';
+        } else if (INLINE.has(name)) {
+          walk($text(node));
+        } else {
+          cut();
+          walk($text(node));
+          cut();
+        }
       }
     });
   walk($text('body'));
+  cut();
 
   return {
     path: pagePath,
@@ -127,6 +149,12 @@ export function extractFacts(html: string, pagePath: string): PageFacts {
       .map((_, el) => sitePathOf($(el).attr('href') as string, pagePath))
       .get()
       .filter((href): href is string => href !== null),
+    links: $('body a[href]')
+      .map((_, el) => ({
+        href: $(el).attr('href') as string,
+        text: normalizeText($(el).text()) || ($(el).attr('aria-label') ?? ''),
+      }))
+      .get(),
     images: $('img')
       .map((_, el) => ({ src: $(el).attr('src') ?? '', alt: $(el).attr('alt') ?? null }))
       .get(),

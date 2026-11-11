@@ -93,11 +93,34 @@ describe('extractFacts', () => {
   });
 
   it('keeps text placed directly in the body', () => {
-    expect(facts('<body>Direct <b>bold</b></body>').textBlocks.sort()).toEqual(['Direct', 'bold']);
+    expect(facts('<body>Direct <b>bold</b></body>').textBlocks).toEqual(['Direct bold']);
   });
 
-  it('keeps text blocks in document order', () => {
-    expect(facts('<body><p><b>A</b> B <i>C</i></p>D</body>').textBlocks).toEqual(['A', 'B', 'C', 'D']);
+  it('joins inline elements into one run and cuts runs at other elements, in document order', () => {
+    expect(facts('<body><p><b>A</b> B <i>C</i></p>D<div>E<p>F</p>G</div></body>').textBlocks).toEqual([
+      'A B C',
+      'D',
+      'E',
+      'F',
+      'G',
+    ]);
+    expect(facts('<body><p><span>2800</span>Kč</p><p>Volejte<br>24 hodin</p></body>').textBlocks).toEqual([
+      '2800Kč',
+      'Volejte 24 hodin',
+    ]);
+    expect(facts('<body><p>A</p><template><p>T</p></template><noscript>N</noscript></body>').textBlocks).toEqual(['A']);
+  });
+
+  it('collects every body link with its text or aria-label', () => {
+    const f = facts(
+      '<head><link rel="canonical" href="/x/"></head><body><a href="/blog/"> Blog  </a>' +
+        '<a href="tel:+420773629123" aria-label="Call"><svg></svg></a><a href="https://wa.me/1">WhatsApp</a></body>',
+    );
+    expect(f.links).toEqual([
+      { href: '/blog/', text: 'Blog' },
+      { href: 'tel:+420773629123', text: 'Call' },
+      { href: 'https://wa.me/1', text: 'WhatsApp' },
+    ]);
   });
 
   it('reduces internal links to the path without query and hash', () => {

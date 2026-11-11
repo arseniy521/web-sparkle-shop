@@ -3,12 +3,13 @@ import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { blogImageReplacements, finalPath, hotelTextReplacements, sameAsset } from '../../checks/approved-differences.ts';
 import { SITE_ORIGIN, absoluteUrl, allPageEntries, canonicalPath, hreflangFor } from '../../src/routes/urls.ts';
-import { extractFacts, listPages } from './lib/html.ts';
+import { extractFacts, listPages, sitePathOf } from './lib/html.ts';
 import type { PageFacts } from './lib/html.ts';
 import { record } from './registry.ts';
 import type { Finding } from './seo-rules.ts';
 
 type Image = PageFacts['images'][number];
+type Link = PageFacts['links'][number];
 
 const quote = (values: readonly string[]) => values.map((v) => `"${v}"`).join(', ') || 'none';
 
@@ -88,41 +89,94 @@ export function comparePage(oldFacts: PageFacts, newFacts: PageFacts): { missing
     else from = at + 1;
   }
 
-  const oldText = oldFacts.textBlocks.join(' ');
-  const newText = newFacts.textBlocks.join(' ');
-  for (const block of new Set(oldFacts.textBlocks)) {
-    if (newText.includes(block)) continue;
-    // Approved difference 12.
-    const replacement = hotelTextReplacements.find((r) => r.path === p && r.old === block);
-    if (replacement && newText.includes(replacement.new)) continue;
-    miss('text-missing', block);
-  }
-  for (const block of new Set(newFacts.textBlocks)) {
-    if (!oldText.includes(block)) add('text-added', block);
-  }
-
-  const oldLinks = new Set(oldFacts.internalLinks);
-  const newLinks = new Set(newFacts.internalLinks);
-  const finalOldLinks = new Set([...oldLinks].map(finalPath));
-  for (const link of oldLinks) {
-    if (!newLinks.has(finalPath(link))) {
-      miss('link-missing', finalPath(link) === link ? link : `${link} (now ${finalPath(link)})`);
+  // The old runs must be a subsequence of the new runs: exact, in order, repeats counted.
+  // The longest common subsequence decides which runs are in order, so one moved block
+  // does not push every later run out of order.
+  // Approved difference 12.
+  const oldRuns = oldFacts.textBlocks.map((run) => hotelTextReplacements.find((r) => r.path === p && r.old === run)?.new ?? run);
+  const newRuns = newFacts.textBlocks;
+  const lcs = Array.from({ length: oldRuns.length + 1 }, () => new Array<number>(newRuns.length + 1).fill(0));
+  for (let i = oldRuns.length - 1; i >= 0; i--) {
+    for (let j = newRuns.length - 1; j >= 0; j--) {
+      lcs[i][j] = oldRuns[i] === newRuns[j] ? lcs[i + 1][j + 1] + 1 : Math.max(lcs[i + 1][j], lcs[i][j + 1]);
     }
   }
-  for (const link of newLinks) if (!finalOldLinks.has(link)) add('link-added', link);
+  const inOrder = new Set<number>();
+  const used = new Set<number>();
+  for (let i = 0, j = 0; i < oldRuns.length && j < newRuns.length; ) {
+    if (oldRuns[i] === newRuns[j]) {
+      inOrder.add(i);
+      used.add(j);
+      i++;
+      j++;
+    } else if (lcs[i + 1][j] >= lcs[i][j + 1]) {
+      i++;
+    } else {
+      j++;
+    }
+  }
+  oldFacts.textBlocks.forEach((run, i) => {
+    if (inOrder.has(i)) return;
+    const elsewhere = newRuns.findIndex((n, j) => !used.has(j) && n === oldRuns[i]);
+    if (elsewhere === -1) {
+      miss('text-missing', run);
+    } else {
+      used.add(elsewhere);
+      miss('text-order', run);
+    }
+  });
+  newRuns.forEach((run, j) => {
+    if (!used.has(j)) add('text-added', run);
+  });
+
+  // Links and images are multisets: each old item must occur in the new page as many times.
+  const matchAll = <T>(
+    olds: readonly T[],
+    news: readonly T[],
+    same: (o: T, n: T) => boolean,
+    onMissing: (o: T) => void,
+    onAdded: (n: T) => void,
+  ) => {
+    const taken = new Set<number>();
+    for (const o of olds) {
+      const at = news.findIndex((n, i) => !taken.has(i) && same(o, n));
+      if (at === -1) onMissing(o);
+      else taken.add(at);
+    }
+    news.forEach((n, i) => {
+      if (!taken.has(i)) onAdded(n);
+    });
+  };
+
+  // Approved differences 4 and 8: a site link to a redirect source counts as its target.
+  const linkTarget = (href: string, from: PageFacts) => {
+    const sitePath = sitePathOf(href, from.path);
+    return sitePath === null ? href : finalPath(sitePath);
+  };
+  const describeLink = (l: Link, from: PageFacts) => {
+    const sitePath = sitePathOf(l.href, from.path);
+    const target = linkTarget(l.href, from);
+    const shown = sitePath === null ? l.href : sitePath === target ? sitePath : `${sitePath} (now ${target})`;
+    return `${shown} "${l.text}"`;
+  };
+  matchAll(
+    oldFacts.links,
+    newFacts.links,
+    (o, n) => o.text === n.text && linkTarget(o.href, oldFacts) === linkTarget(n.href, newFacts),
+    (o) => miss('link-missing', describeLink(o, oldFacts)),
+    (n) => add('link-added', describeLink(n, newFacts)),
+  );
 
   const describe = (img: Image) => `${img.src} alt=${img.alt === null ? 'none' : `"${img.alt}"`}`;
-  const sameImage = (o: Image, n: Image) => o.alt === n.alt && sameAsset(o.src, n.src);
   // Approved difference 13.
   const replacements = blogImageReplacements.filter((r) => r.path === p);
-  for (const img of oldFacts.images) {
-    const expected = replacements.find((r) => isDeepStrictEqual(r.old, img))?.new ?? img;
-    if (!newFacts.images.some((n) => sameImage(expected, n))) miss('image-missing', describe(img));
-  }
-  for (const img of newFacts.images) {
-    const expected = [...oldFacts.images, ...replacements.map((r) => r.new)];
-    if (!expected.some((o) => sameImage(o, img))) add('image-added', describe(img));
-  }
+  matchAll(
+    oldFacts.images.map((img) => ({ img, expected: replacements.find((r) => isDeepStrictEqual(r.old, img))?.new ?? img })),
+    newFacts.images.map((img) => ({ img, expected: img })),
+    (o, n) => o.expected.alt === n.img.alt && sameAsset(o.expected.src, n.img.src),
+    (o) => miss('image-missing', describe(o.img)),
+    (n) => add('image-added', describe(n.img)),
+  );
 
   const oldJsonLd = oldFacts.jsonLd.map(mapSiteUrls);
   for (const value of oldJsonLd) {

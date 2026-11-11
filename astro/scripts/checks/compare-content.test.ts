@@ -54,6 +54,39 @@ describe('comparePage', () => {
     expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'text-missing', detail: 'Kapačka od 2380 Kč' }));
   });
 
+  it('does not find a removed run inside a longer one: Prague 1 next to Prague 10', () => {
+    const r = comparePage(page({ body: '<ul><li>Prague 1</li><li>Prague 10</li></ul>' }), page({ body: '<ul><li>Prague 10</li></ul>' }));
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'text-missing', detail: 'Prague 1' }));
+  });
+
+  it('reports a price that grew a digit', () => {
+    const r = comparePage(page({ body: '<div><span>2800 Kč</span></div>' }), page({ body: '<div><span>12800 Kč</span></div>' }));
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'text-missing', detail: '2800 Kč' }));
+  });
+
+  it('counts repeated runs: one of five identical runs removed', () => {
+    const card = '<p>Rychlý příjezd</p>';
+    const r = comparePage(page({ body: card.repeat(5) }), page({ body: card.repeat(4) }));
+    expect(r.missing).toEqual([expect.objectContaining({ rule: 'text-missing', detail: 'Rychlý příjezd' })]);
+  });
+
+  it('reports prices swapped between cards as out of order', () => {
+    const cards = (a: string, b: string) => `<div><h3>A</h3><p>${a}</p></div><div><h3>B</h3><p>${b}</p></div>`;
+    const r = comparePage(page({ body: cards('1990 Kč', '2380 Kč') }), page({ body: cards('2380 Kč', '1990 Kč') }));
+    expect(rules(r.missing)).toContain('text-order');
+  });
+
+  it('reports only a moved block as out of order, not every run after it', () => {
+    const r = comparePage(page({ body: '<p>Banner</p><p>A</p><p>B</p>' }), page({ body: '<p>A</p><p>B</p><p>Banner</p>' }));
+    expect(r.missing).toEqual([expect.objectContaining({ rule: 'text-order', detail: 'Banner' })]);
+    expect(r.added).toEqual([]);
+  });
+
+  it('does not join a phrase across a block boundary', () => {
+    const r = comparePage(page({ body: '<p>Volejte 24 hodin</p>' }), page({ body: '<p>Volejte</p><p>24 hodin denně</p>' }));
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'text-missing', detail: 'Volejte 24 hodin' }));
+  });
+
   it('reports a changed title, description and keywords', () => {
     const old = page({ title: 'Old', head: '<meta name="keywords" content="a, b">' });
     const r = comparePage(old, page({ title: 'New', head: '<meta name="keywords" content="a">' }));
@@ -74,8 +107,30 @@ describe('comparePage', () => {
 
   it('reports a missing internal link and lists an added one', () => {
     const r = comparePage(page({ body: '<a href="/blog/">x</a>' }), page({ body: '<a href="/privacy/">x</a>' }));
-    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'link-missing', detail: '/blog/' }));
-    expect(r.added).toContainEqual(expect.objectContaining({ rule: 'link-added', detail: '/privacy/' }));
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'link-missing', detail: '/blog/ "x"' }));
+    expect(r.added).toContainEqual(expect.objectContaining({ rule: 'link-added', detail: '/privacy/ "x"' }));
+  });
+
+  it('reports a card link retargeted to a page the header also links to', () => {
+    const nav = '<nav><a href="/blog/">Blog</a><a href="/iv-kapacky-praha/">Kapačky</a></nav>';
+    const r = comparePage(
+      page({ body: nav + '<a href="/iv-kapacky-praha/">Více</a>' }),
+      page({ body: nav + '<a href="/blog/">Více</a>' }),
+    );
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'link-missing', detail: '/iv-kapacky-praha/ "Více"' }));
+  });
+
+  it('reports a changed digit in a tel: link and a changed link text', () => {
+    const old = page({ body: '<a href="tel:+420773629123">Zavolat</a><a href="/blog/">Blog</a>' });
+    const r = comparePage(old, page({ body: '<a href="tel:+420773629124">Zavolat</a><a href="/blog/">Články</a>' }));
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'link-missing', detail: 'tel:+420773629123 "Zavolat"' }));
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'link-missing', detail: '/blog/ "Blog"' }));
+  });
+
+  it('reports one of two identical images removed', () => {
+    const img = '<img src="/brand/a.svg" alt="NIUS">';
+    const r = comparePage(page({ body: img + img }), page({ body: img }));
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'image-missing', detail: '/brand/a.svg alt="NIUS"' }));
   });
 
   it('accepts approved differences 4 and 8: a link to /iv-drips-prague/ becomes /iv-kapacky-praha/', () => {
@@ -85,7 +140,7 @@ describe('comparePage', () => {
 
   it('does not accept a link to a page other than the redirect target', () => {
     const r = comparePage(page({ body: '<a href="/iv-drips-prague/">x</a>' }), page({ body: '<a href="/en/iv-drips-prague/">x</a>' }));
-    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'link-missing', detail: '/iv-drips-prague/ (now /iv-kapacky-praha/)' }));
+    expect(r.missing).toContainEqual(expect.objectContaining({ rule: 'link-missing', detail: '/iv-drips-prague/ (now /iv-kapacky-praha/) "x"' }));
   });
 
   it('reports a missing or changed image', () => {
