@@ -314,6 +314,21 @@ describe('head of a page', () => {
     expectOnly(dir, 'unexpected-noindex', '/en/iv-drip-hotel-prague/');
   });
 
+  it('missing-noindex: a page that must be closed is open', () => {
+    const dir = build((d) => edit(d, 'ru/blog/index.html', (t) => t.replace('noindex, follow', 'index, follow')));
+    expectOnly(dir, 'missing-noindex', '/ru/blog/');
+  });
+  it('missing-noindex: a page that must be closed says noindex without follow', () => {
+    const dir = build((d) => edit(d, 'uk/blog/index.html', (t) => t.replace('noindex, follow', 'noindex')));
+    expectOnly(dir, 'missing-noindex', '/uk/blog/');
+  });
+  it('robots-value: an indexable page with nofollow', () => {
+    const dir = build((d) =>
+      edit(d, 'en/iv-drip-hotel-prague/index.html', (t) => t.replace('index, follow', 'index, nofollow')),
+    );
+    expectOnly(dir, 'robots-value', '/en/iv-drip-hotel-prague/');
+  });
+
   const ogCases: Array<[string, (t: string) => string]> = [
     ['og:url differs from canonical', (t) => t.replace(`property="og:url" content="${url}"`, 'property="og:url" content="https://www.nius.cz/en/"')],
     ['og:title differs from title', (t) => t.replace(/(property="og:title" content=")[^"]*/, '$1Other')],

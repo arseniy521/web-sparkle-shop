@@ -159,8 +159,17 @@ function checkHead(ctx: Ctx, { entry, facts }: PageInfo): void {
 
   if (facts.lang !== lang) ctx.add('html-lang', p, `lang is ${facts.lang ?? 'missing'}, expected ${lang}`);
 
-  if (hasNoindex(facts) && isIndexable(route, lang)) {
-    ctx.add('unexpected-noindex', p, `noindex on a page that must be indexed: ${facts.robots.join('; ')}`);
+  if (facts.robots.length === 1) {
+    const robots = facts.robots[0].toLowerCase().replace(/\s+/g, ' ').trim();
+    if (!isIndexable(route, lang)) {
+      if (robots !== 'noindex, follow') {
+        ctx.add('missing-noindex', p, `robots is "${facts.robots[0]}", expected "noindex, follow"`);
+      }
+    } else if (robots.includes('noindex')) {
+      ctx.add('unexpected-noindex', p, `noindex on a page that must be indexed: ${facts.robots[0]}`);
+    } else if (robots !== 'index, follow') {
+      ctx.add('robots-value', p, `robots is "${facts.robots[0]}", expected "index, follow"`);
+    }
   }
 
   const expectedCanonical = absoluteUrl(canonicalPath(route, lang));
