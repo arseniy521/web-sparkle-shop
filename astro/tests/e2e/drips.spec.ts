@@ -43,6 +43,25 @@ test('Drip filter', async ({ page }) => {
   await expect(dripCards(page).filter({ visible: true })).toHaveCount(DRIP_COUNT);
 });
 
+test('Floating WhatsApp button follows the scroll', async ({ page }) => {
+  await open(page);
+  const button = page.locator('[data-floating-whatsapp]');
+
+  // Playwright counts a transparent element as visible, so the visitor's view is the opacity
+  // (the button fades in and out) and the clicks passing through it.
+  await expect(button).toHaveCSS('opacity', '0');
+  await expect(button).toHaveCSS('pointer-events', 'none');
+  // Shown once the visitor has scrolled down ...
+  await page.mouse.wheel(0, 1500);
+  await expect(button).toHaveCSS('opacity', '1');
+  await expect(button).toHaveCSS('pointer-events', 'auto');
+  await expect(button).toBeInViewport();
+  // ... and hidden again back at the top.
+  await page.mouse.wheel(0, -5000);
+  await expect(button).toHaveCSS('opacity', '0');
+  await expect(button).toHaveCSS('pointer-events', 'none');
+});
+
 test.describe('without JavaScript', () => {
   test.use({ javaScriptEnabled: false });
 
