@@ -137,6 +137,15 @@ describe('redirects and the 404 page', () => {
   });
 });
 
+describe('404 page content', () => {
+  it('notfound-content: no link to the home page', () => {
+    const dir = build((d) => edit(d, '404.html', (t) => t.replace('<a href="/">Home</a>', 'Home')));
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual(['notfound-content']);
+    expect(findings[0].path).toBe('/404.html');
+  });
+});
+
 describe('robots.txt and required files', () => {
   it('robots-txt: no Sitemap line', () => {
     const dir = build((d) => edit(d, 'robots.txt', (t) => t.replace(/Sitemap:.*\n/, '')));
