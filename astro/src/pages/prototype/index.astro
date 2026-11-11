@@ -15,7 +15,12 @@ import '../../styles/global.css';
       const root = document.getElementById('order-form-root')!;
       let mounted: Promise<void> | undefined;
       document.getElementById('open')!.addEventListener('click', async () => {
-        mounted ??= import('@/islands/order-form/mount').then((m) => m.mountOrderForm(root, 'cs'));
+        mounted ??= import('@/islands/order-form/mount')
+          .then((m) => m.mountOrderForm(root, 'cs'))
+          .catch((error: unknown) => {
+            mounted = undefined;
+            throw error;
+          });
         await mounted;
         const { onboardingCart } = await import('@/islands/order-form/hooks/useOnboardingCart');
         onboardingCart.openForm('header');
