@@ -66,6 +66,15 @@ jobs:
         working-directory: .
         run: node scripts/check-release-env.mjs
 
+      # The root configs would also pick up astro/, so the old site's own files are named.
+      - name: Lint the old site
+        working-directory: .
+        run: npx eslint src scripts public *.js *.ts
+
+      - name: Unit tests of the old site
+        working-directory: .
+        run: npx vitest run --dir src
+
       - name: Build the old site
         run: npm run baseline
 
