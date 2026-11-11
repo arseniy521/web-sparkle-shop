@@ -5,7 +5,6 @@ import {
   useGoogleOAuth,
 } from '@react-oauth/google';
 import { Loader2, LogIn } from 'lucide-react';
-import { useQueryClient } from '@tanstack/react-query';
 import { useTranslation } from './i18n';
 import { Button } from './ui/button';
 import {
@@ -14,7 +13,7 @@ import {
   OnboardingApiError,
   type AuthenticatedUser,
 } from './api/onboarding';
-import { AUTH_STATUS_QUERY_KEY } from './hooks/useAuthStatus';
+import { authStatus } from '@/scripts/auth-status';
 import { setAnalyticsOptOut, track } from '@/scripts/analytics';
 import { replaceWithIntakeForm } from './authNavigation';
 
@@ -54,7 +53,6 @@ const GoogleLoginButton = ({
   onFailure,
 }: GoogleLoginActionProps) => {
   const { t } = useTranslation();
-  const queryClient = useQueryClient();
   const { scriptLoadedSuccessfully } = useGoogleOAuth();
   const [clientReady, setClientReady] = useState(false);
   const activeRef = useRef(true);
@@ -75,7 +73,7 @@ const GoogleLoginButton = ({
       if (activeRef.current) onStateChange('linking');
       try {
         const user = await googleAuth(code, orderId, orderAccessToken);
-        queryClient.setQueryData(AUTH_STATUS_QUERY_KEY, 'authenticated');
+        void authStatus.refresh();
         setAnalyticsOptOut(user.role === 'SUPERADMIN');
         if (user.role !== 'SUPERADMIN') {
           track('login_completed', { linked_order: user.linked });
@@ -98,7 +96,7 @@ const GoogleLoginButton = ({
         // a fresh check proved that no previous session existed.
         try {
           const user = await getPublicMe();
-          queryClient.setQueryData(AUTH_STATUS_QUERY_KEY, 'authenticated');
+          void authStatus.refresh();
           setAnalyticsOptOut(user.role === 'SUPERADMIN');
           if (user.role !== 'SUPERADMIN') {
             track('login_completed', { linked_order: false, recovered: true });

@@ -1,34 +1,31 @@
-import { useQuery } from '@tanstack/react-query';
-import { API_BASE } from '@/scripts/env';
-
-export type AuthStatus = 'loading' | 'authenticated' | 'anonymous' | 'error';
-type ResolvedAuthStatus = Exclude<AuthStatus, 'loading'>;
-
-
-export const AUTH_STATUS_QUERY_KEY = ['auth-status'] as const;
-
-export async function fetchAuthStatus(): Promise<Exclude<ResolvedAuthStatus, 'error'>> {
-  const response = await fetch(`${API_BASE}/auth/me/public`, {
-    credentials: 'include',
-  });
-  if (response.ok) return 'authenticated';
-  if (response.status === 401 || response.status === 403) return 'anonymous';
-  throw new Error(`auth_status_${response.status}`);
-}
+import { useEffect, useState, useSyncExternalStore } from 'react';
+import { authStatus, type AuthStatus } from '@/scripts/auth-status';
 
 export function useAuthStatus(enabled = true, fresh = false): AuthStatus {
-  const query = useQuery({
-    queryKey: AUTH_STATUS_QUERY_KEY,
-    queryFn: fetchAuthStatus,
-    enabled,
-    staleTime: fresh ? 0 : 30_000,
-    refetchOnMount: fresh ? 'always' : true,
-    retry: false,
-  });
+  const status = useSyncExternalStore(authStatus.subscribe, authStatus.get, authStatus.get);
+  const [wasEnabled, setWasEnabled] = useState(enabled);
+  const [refreshed, setRefreshed] = useState(false);
+  if (enabled !== wasEnabled) {
+    setWasEnabled(enabled);
+    setRefreshed(false);
+  }
+
+  useEffect(() => {
+    if (!enabled) return;
+    if (!fresh) {
+      void authStatus.ensure();
+      return;
+    }
+    let active = true;
+    void authStatus.refresh().then(() => {
+      if (active) setRefreshed(true);
+    });
+    return () => {
+      active = false;
+    };
+  }, [enabled, fresh]);
 
   if (!enabled) return 'anonymous';
-  if (fresh && query.isFetching) return 'loading';
-  if (query.isPending) return 'loading';
-  if (query.isError) return 'error';
-  return query.data;
+  if (fresh && !refreshed) return 'loading';
+  return status;
 }
