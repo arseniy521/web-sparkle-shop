@@ -1,0 +1,57 @@
+---
+import { ArrowRight } from '@lucide/astro';
+import Card from '@/components/ui/Card.astro';
+import { createT } from '@/i18n/t.ts';
+import { pageUrl } from '@/routes/urls.ts';
+import type { Lang } from '@/routes/types.ts';
+
+interface Props {
+  lang: Lang;
+  currentId: string;
+}
+
+const { lang, currentId } = Astro.props;
+const t = createT(lang);
+
+const services = [
+  { titleKey: 'specializedServices.ivf', descKey: 'services.injection.description', href: pageUrl('ivf-support', lang) },
+  { titleKey: 'specializedServices.ivDrip', descKey: 'services.ivInfusion.description', href: pageUrl('iv-drips', lang) },
+  { titleKey: 'specializedServices.hangover', descKey: 'specializedServices.hangoverDesc', href: pageUrl('hangover-drip', lang) },
+  { titleKey: 'specializedServices.postSurgery', descKey: 'services.woundCare.description', href: pageUrl('post-surgery', lang) },
+  { titleKey: 'specializedServices.disabled', descKey: 'services.hygiene.description', href: pageUrl('disabled-care', lang) },
+];
+
+// Ported as the old component behaves: it meant to drop the current page, but every href ends
+// with "/", so the last segment is "" and every service is filtered out. The block renders its
+// heading over an empty grid on every page; the owner decides later whether to change that.
+const currentPath = pageUrl(currentId, lang);
+const filteredServices = services.filter((service) => !currentPath.includes(service.href.split('/').pop() || ''));
+---
+
+<section class="py-20 bg-muted/30">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-secondary mb-8 text-center">
+        {t('nav.services')} - {lang === 'cs' ? 'Související služby' : lang === 'ru' ? 'Связанные услуги' : lang === 'uk' ? 'Пов\'язані послуги' : 'Related Services'}
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {filteredServices.slice(0, 3).map((service) => (
+          <a href={service.href}>
+            <Card class="p-6 hover:shadow-card transition-all hover:-translate-y-1 h-full group">
+              <h3 class="text-xl font-semibold text-secondary mb-3 group-hover:text-primary transition-colors">
+                {t(service.titleKey)}
+              </h3>
+              <p class="text-muted-foreground text-sm mb-4 line-clamp-2">
+                {t(service.descKey)}
+              </p>
+              <div class="flex items-center text-primary text-sm font-medium">
+                {lang === 'cs' ? 'Zjistit více' : lang === 'ru' ? 'Узнать больше' : lang === 'uk' ? 'Дізнатися більше' : 'Learn more'}
+                <ArrowRight class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Card>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
