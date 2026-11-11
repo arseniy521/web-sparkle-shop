@@ -92,6 +92,16 @@ describe('initFormBridge', () => {
     expect(load).toHaveBeenCalledTimes(2);
   });
 
+  it('starts once when initialised twice', async () => {
+    initFormBridge({ load, idle });
+    initFormBridge({ load, idle });
+    cart.openForm('header');
+    resolveLoad();
+    await flushPromises();
+    expect(load).toHaveBeenCalledTimes(1);
+    expect(mount).toHaveBeenCalledTimes(1);
+  });
+
   it('loads in idle time when the cart is not empty', () => {
     cart.setCodes(['immunity_lite']);
     initFormBridge({ load, idle: (cb) => cb() });

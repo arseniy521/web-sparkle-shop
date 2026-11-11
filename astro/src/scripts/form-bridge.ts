@@ -13,13 +13,16 @@ function whenIdle(cb: () => void): void {
   else setTimeout(cb, 1500);
 }
 
+let started = false;
+
 export function initFormBridge({
   load = loadForm,
   idle = whenIdle,
 }: { load?: () => Promise<FormModule>; idle?: (cb: () => void) => void } = {}): void {
   const root = document.getElementById('order-form-root');
   const fallback = document.getElementById('order-form-fallback');
-  if (!root) return;
+  if (!root || started) return;
+  started = true;
 
   let loading: Promise<FormModule> | null = null;
   let mounting: Promise<void> | null = null;
