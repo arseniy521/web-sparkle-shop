@@ -1,6 +1,7 @@
 import type { Page, Route } from '@playwright/test';
 import type { AuthUser, OnboardingOrder } from '../../src/islands/order-form/api/onboarding';
 import type { PublicServiceDto } from '../../src/islands/order-form/api/services';
+import { handleStubRequest } from '../../preview/stub.js';
 import stubData from '../../preview/stub-data.json' with { type: 'json' };
 
 export interface StubData {
@@ -24,15 +25,8 @@ function respond(route: Route, data: StubData) {
     'access-control-allow-headers': 'Content-Type, X-Requested-With, x-onboarding-token',
   };
   const path = new URL(request.url()).pathname.replace(/^.*?\/api(?=\/)/, '');
-  const call = `${request.method()} ${path}`;
   if (request.method() === 'OPTIONS') return route.fulfill({ status: 204, headers });
-  if (call === 'GET /services') return route.fulfill({ headers, json: data.services });
-  if (call === 'GET /auth/me/public' || call === 'GET /customers/summary') {
-    return route.fulfill({ status: 401, headers, json: { message: 'Unauthorized' } });
-  }
-  if (call === 'POST /onboarding/order') return route.fulfill({ status: 201, headers, json: data.order });
-  if (/^POST \/onboarding\/order\/[^/]+\/contact-me$/.test(call)) return route.fulfill({ status: 204, headers });
-  if (call === 'POST /auth/google') return route.fulfill({ headers, json: data.authUser });
-  if (call === 'POST /auth/link-order') return route.fulfill({ headers, json: { linked: true } });
-  return route.fallback();
+  const { status, body } = handleStubRequest(request.method(), path, data);
+  if (status === 404) return route.fallback();
+  return route.fulfill({ status, headers, ...(body === undefined ? {} : { json: body }) });
 }
