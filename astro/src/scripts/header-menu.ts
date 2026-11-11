@@ -47,7 +47,7 @@ export function initHeaderMenu(doc: Document = document): void {
       setDropdown(root, Boolean(panel?.hidden));
       return;
     }
-    if (!target.closest('[data-dropdown]')) closeDropdowns();
+    if (!target.closest('[data-dropdown]') || target.closest('[data-dropdown-panel] a')) closeDropdowns();
 
     const toggle = target.closest('[data-menu-toggle]');
     if (toggle) {

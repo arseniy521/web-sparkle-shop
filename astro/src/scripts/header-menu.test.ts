@@ -4,7 +4,7 @@ import { initHeaderMenu } from './header-menu';
 const dropdown = (id: string) => `
   <div data-dropdown>
     <button type="button" id="trigger-${id}" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false" data-state="closed"></button>
-    <div id="panel-${id}" data-dropdown-panel role="menu" hidden><a href="/x/" role="menuitem">x</a></div>
+    <div id="panel-${id}" data-dropdown-panel role="menu" hidden><a id="item-${id}" href="/x/" role="menuitem">x</a></div>
   </div>`;
 
 const html = (id: string) => document.getElementById(id) as HTMLElement;
@@ -80,5 +80,16 @@ describe('header menu', () => {
     html('link').click();
     expect(html('menu').hidden).toBe(true);
     expect(toggle.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  it('closes a dropdown after one of its links is clicked', () => {
+    const trigger = html('trigger-a');
+    trigger.click();
+    const item = html('item-a');
+    item.addEventListener('click', (e) => e.preventDefault());
+    item.click();
+    expect(html('panel-a').hidden).toBe(true);
+    expect(trigger.dataset.state).toBe('closed');
+    expect(trigger.getAttribute('aria-expanded')).toBe('false');
   });
 });
