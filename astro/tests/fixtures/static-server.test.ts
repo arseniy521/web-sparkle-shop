@@ -46,7 +46,8 @@ describe('startStaticServer', () => {
   it('answers unknown paths with 404 and the not-found file otherwise', async () => {
     const server = await startStaticServer({ dir, port: 18_083, notFoundFile: '404.html' });
     try {
-      expect(await get(server, '/missing/')).toMatchObject({ status: 404, body: 'not found' });    } finally {
+      expect(await get(server, '/missing/')).toMatchObject({ status: 404, body: 'not found' });
+    } finally {
       await server.close();
     }
   });
