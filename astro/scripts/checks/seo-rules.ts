@@ -10,6 +10,7 @@ import {
   hreflangFor,
   isIndexable,
   redirectTarget,
+  sitemapEntries,
 } from '../../src/routes/urls.ts';
 import { extractFacts, listPages, normalizeText } from './lib/html.ts';
 import type { PageFacts } from './lib/html.ts';
@@ -36,6 +37,7 @@ interface Ctx {
   distDir: string;
   built: ReadonlySet<string>;
   pages: ReadonlyMap<string, PageInfo>;
+  scope: ReadonlySet<string> | undefined;
   pagePaths: ReadonlySet<string>;
   redirectSources: ReadonlySet<string>;
   add: (rule: string, path: string, detail: string) => void;
@@ -175,9 +177,7 @@ function checkHreflang(ctx: Ctx, { entry, facts }: PageInfo): void {
   const { route, lang, path: p } = entry;
   const expected = hreflangFor(route, lang);
   if (pairKey(facts.hreflang).join('\n') !== pairKey(expected).join('\n')) {
-    const list = (pairs: Array<{ hreflang: string; href: string }>) =>
-      pairs.map((x) => `${x.hreflang}=${x.href}`).join(', ') || 'none';
-    ctx.add('hreflang-set', p, `hreflang is [${list(facts.hreflang)}], expected [${list(expected)}]`);
+    ctx.add('hreflang-set', p, `hreflang is [${listPairs(facts.hreflang)}], expected [${listPairs(expected)}]`);
   }
 
   const own = pairKey(facts.hreflang).join('\n');
@@ -284,6 +284,67 @@ function checkStructuredData(ctx: Ctx, { entry, facts, html }: PageInfo): void {
   });
 }
 
+function checkLinksAndImages(ctx: Ctx, { entry, facts }: PageInfo): void {
+  const p = entry.path;
+  for (const link of new Set(facts.internalLinks)) {
+    if (ctx.redirectSources.has(link)) {
+      ctx.add('link-to-redirect', p, `link to the redirect ${link}`);
+      continue;
+    }
+    // A manifest page whose template is not ported yet is tolerated only under a scope.
+    const exists = link.endsWith('/') ? ctx.built.has(link) : fileExists(ctx, link);
+    const comingLater = ctx.scope !== undefined && ctx.pagePaths.has(link);
+    if (!exists && !comingLater) ctx.add('link-broken', p, `link to ${link}, which is not in the build`);
+  }
+
+  for (const image of facts.images) {
+    if (image.alt === null) ctx.add('image-no-alt', p, `image ${image.src} has no alt attribute`);
+    const urlPath = image.src.startsWith('/') ? image.src : sitePath(image.src);
+    if (urlPath?.startsWith('/') && !urlPath.startsWith('//') && !fileExists(ctx, urlPath)) {
+      ctx.add('image-missing', p, `image file ${image.src} is not in the build`);
+    }
+  }
+}
+
+const listPairs = (pairs: Array<{ hreflang: string; href: string }>) =>
+  pairs.map((x) => `${x.hreflang}=${x.href}`).join(', ') || 'none';
+
+function checkSitemap(ctx: Ctx): void {
+  const file = path.join(ctx.distDir, 'sitemap.xml');
+  if (!fs.existsSync(file)) return;
+  const $ = load(fs.readFileSync(file, 'utf8'), { xml: true });
+  const actual = new Map<string, Array<{ hreflang: string; href: string }>>();
+  $('url').each((_, url) => {
+    const alternates = $(url)
+      .children()
+      .toArray()
+      .filter((child) => (child as { name?: string }).name === 'xhtml:link')
+      .map((child) => ({ hreflang: $(child).attr('hreflang') ?? '', href: $(child).attr('href') ?? '' }));
+    actual.set($(url).children('loc').text().trim(), alternates);
+  });
+
+  const expected = sitemapEntries();
+  const expectedLocs = new Set(expected.map((e) => e.loc));
+  for (const e of expected) {
+    const found = actual.get(e.loc);
+    const entryPath = sitePath(e.loc) ?? e.loc;
+    if (!found) {
+      ctx.add('sitemap-missing-page', entryPath, 'indexable page is absent from sitemap.xml');
+    } else if (pairKey(found).join('\n') !== pairKey(e.alternates).join('\n')) {
+      ctx.add(
+        'sitemap-alternates',
+        entryPath,
+        `alternates are [${listPairs(found)}], expected [${listPairs(e.alternates)}]`,
+      );
+    }
+  }
+  for (const loc of actual.keys()) {
+    if (!expectedLocs.has(loc)) {
+      ctx.add('sitemap-extra-url', sitePath(loc) ?? loc, 'sitemap.xml lists an address that must not be there');
+    }
+  }
+}
+
 export function checkDist(input: {
   distDir: string;
   scope?: ReadonlySet<string>;
@@ -303,6 +364,7 @@ export function checkDist(input: {
     distDir,
     built,
     pages,
+    scope,
     pagePaths: new Set(allPageEntries().map((e) => e.path)),
     redirectSources: new Set(redirects.map((r) => r.from)),
     add: (rule, pagePath, detail) => findings.push({ rule, path: pagePath, detail }),
@@ -314,8 +376,10 @@ export function checkDist(input: {
     checkHreflang(ctx, info);
     checkSocial(ctx, info);
     checkStructuredData(ctx, info);
+    checkLinksAndImages(ctx, info);
   }
   checkRedirects(ctx);
+  checkSitemap(ctx);
   checkRobotsAndRequiredFiles(ctx);
 
   // Redirects and the 404 page are always in scope.

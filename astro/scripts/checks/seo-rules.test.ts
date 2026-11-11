@@ -424,6 +424,122 @@ describe('FAQ markup', () => {
   });
 });
 
+describe('links and images', () => {
+  const page = 'en/birthday-gift-prague/index.html';
+  const withBody = (body: string, mutate?: (dir: string) => void) =>
+    build((d) => {
+      mutate?.(d);
+      edit(d, page, (t) => t.replace('</body>', `${body}</body>`));
+    });
+  const link = (href: string) => `<a href="${href}">x</a>`;
+  const expectOnly = (dir: string, rule: string, detail: string) => {
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual([rule]);
+    expect(findings).toContainEqual(
+      expect.objectContaining({ path: '/en/birthday-gift-prague/', detail: expect.stringContaining(detail) }),
+    );
+  };
+
+  it('link-to-redirect: a link to a redirect source', () => {
+    expectOnly(withBody(link('/iv-drips-prague/')), 'link-to-redirect', '/iv-drips-prague/');
+  });
+  it('link-to-redirect: query and hash do not hide the redirect', () => {
+    expectOnly(withBody(link('/iv-drips-prague/?a=1#x')), 'link-to-redirect', '/iv-drips-prague/');
+  });
+  it('link-to-redirect: a scope does not excuse a redirect', () => {
+    const dir = withBody(link('/iv-drips-prague/'));
+    const findings = checkDist({ distDir: dir, scope: new Set(listPages(dir)) });
+    expect(rulesOf(findings)).toEqual(['link-to-redirect']);
+  });
+
+  it('link-broken: a link to an address that does not exist', () => {
+    expectOnly(withBody(link('/nowhere/')), 'link-broken', '/nowhere/');
+  });
+  it('link-broken: a link to a missing file', () => {
+    expectOnly(withBody(link('/brand/missing.svg')), 'link-broken', '/brand/missing.svg');
+  });
+  it('link-broken: a page address without the trailing slash', () => {
+    expectOnly(withBody(link('/blog')), 'link-broken', '/blog');
+  });
+  it('link-broken: a manifest page that is not built, unless a scope is given', () => {
+    const dir = withBody(link('/sestricka-praha-vinohrady/'), (d) => remove(d, 'sestricka-praha-vinohrady'));
+    expect(rulesOf(checkDist({ distDir: dir }))).toEqual(['link-broken', 'manifest-page-missing']);
+    expect(checkDist({ distDir: dir, scope: new Set(listPages(dir)) })).toEqual([]);
+  });
+  it('ignores hash-only, external, tel, mailto links and links to built pages and files', () => {
+    const body = ['#top', 'https://example.com/x', 'tel:+420123456789', 'mailto:a@b.cz', '/blog/', '/brand/logo.svg', '/sitemap.xml', '/en/blog/?a=1#x']
+      .map(link)
+      .join('');
+    expect(checkDist({ distDir: withBody(body) })).toEqual([]);
+  });
+
+  it('image-no-alt: an image without alt', () => {
+    expectOnly(withBody('<img src="/og-image.jpg">'), 'image-no-alt', '/og-image.jpg');
+  });
+  it('image-no-alt: an empty alt is allowed', () => {
+    expect(checkDist({ distDir: withBody('<img src="/og-image.jpg" alt="">') })).toEqual([]);
+  });
+  it('image-missing: a file that is not in the build', () => {
+    expectOnly(withBody('<img src="/photos/missing.jpg" alt="x">'), 'image-missing', '/photos/missing.jpg');
+  });
+  it('image-missing: an absolute site address of a missing file', () => {
+    expectOnly(
+      withBody('<img src="https://www.nius.cz/photos/missing.jpg" alt="x">'),
+      'image-missing',
+      'photos/missing.jpg',
+    );
+  });
+  it('image-missing: external and inline images are not checked', () => {
+    const body = '<img src="https://cdn.example.com/a.jpg" alt="x"><img src="data:image/gif;base64,AAAA" alt="x">';
+    expect(checkDist({ distDir: withBody(body) })).toEqual([]);
+  });
+});
+
+describe('sitemap', () => {
+  const block = (loc: string) => new RegExp(`<url><loc>${loc}</loc>.*?</url>\\n?`, 's');
+  const sitemap = (change: (text: string) => string) => build((d) => edit(d, 'sitemap.xml', change));
+  const addUrl = (loc: string) => (t: string) => t.replace('</urlset>', `<url><loc>${loc}</loc></url>\n</urlset>`);
+
+  it('sitemap-missing-page: an indexable page is absent', () => {
+    const dir = sitemap((t) => t.replace(block('https://www.nius.cz/en/iv-drip-hotel-prague/'), ''));
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual(['sitemap-missing-page']);
+    expect(findings).toContainEqual(expect.objectContaining({ path: '/en/iv-drip-hotel-prague/' }));
+  });
+
+  const extras: Array<[string, string, string]> = [
+    ['a page with the privacy prefix', 'https://www.nius.cz/ru/privacy/', '/ru/privacy/'],
+    ['a noindex page', 'https://www.nius.cz/ru/blog/', '/ru/blog/'],
+    ['a redirect', 'https://www.nius.cz/iv-drips-prague/', '/iv-drips-prague/'],
+    ['an address that does not exist', 'https://www.nius.cz/nowhere/', '/nowhere/'],
+  ];
+  for (const [name, loc, pagePath] of extras) {
+    it(`sitemap-extra-url: ${name}`, () => {
+      const findings = checkDist({ distDir: sitemap(addUrl(loc)) });
+      expect(rulesOf(findings)).toEqual(['sitemap-extra-url']);
+      expect(findings).toContainEqual(expect.objectContaining({ path: pagePath }));
+    });
+  }
+
+  it('sitemap-alternates: x-default of the blog points to /en/blog/', () => {
+    const dir = sitemap((t) =>
+      t.replace(block('https://www.nius.cz/blog/'), (m) =>
+        m.replace('hreflang="x-default" href="https://www.nius.cz/blog/"', 'hreflang="x-default" href="https://www.nius.cz/en/blog/"'),
+      ),
+    );
+    const findings = checkDist({ distDir: dir });
+    expect(rulesOf(findings)).toEqual(['sitemap-alternates']);
+    expect(findings[0].path).toBe('/blog/');
+    expect(findings[0].detail).toContain('x-default=https://www.nius.cz/blog/');
+  });
+  it('sitemap-alternates: an alternate is missing', () => {
+    const dir = sitemap((t) =>
+      t.replace(block('https://www.nius.cz/blog/'), (m) => m.replace(/<xhtml:link[^>]*hreflang="en"[^>]*\/>/, '')),
+    );
+    expect(rulesOf(checkDist({ distDir: dir }))).toEqual(['sitemap-alternates']);
+  });
+});
+
 describe('known defects', () => {
   const known = [
     { rule: 'page-not-in-manifest', path: '/old-page/', note: 'old page' },
