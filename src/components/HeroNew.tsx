@@ -1,26 +1,12 @@
-import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { trackCtaClick } from "@/lib/analytics";
+import { GOOGLE_RATING } from "@/constants/reviews";
 
 export const HeroNew = () => {
   const { t } = useTranslation();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const services = useMemo(() => t('heroNew.services', { returnObjects: true }) as string[], [t]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % services.length);
-        setIsAnimating(false);
-      }, 300);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [services.length]);
 
   return (
-    <section id="home" className="relative py-16 md:py-24 lg:py-32 overflow-hidden" style={{ background: 'var(--color-bg)' }}>
+    <section id="home" className="relative py-10 md:py-24 lg:py-32 overflow-hidden" style={{ background: 'var(--color-bg)' }}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-[60%_40%] gap-12 items-center">
           {/* Left column */}
@@ -37,16 +23,6 @@ export const HeroNew = () => {
             <h1 className="font-display font-bold leading-[1.05]" style={{ fontSize: 'clamp(40px, 5vw, 72px)', color: 'var(--color-indigo)' }}>
               {t('heroNew.headline')}
             </h1>
-
-            {/* Rotating services */}
-            <div className="h-8 overflow-hidden">
-              <span
-                className={`block text-lg font-body font-medium transition-all duration-300 ${isAnimating ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`}
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                {services[currentIndex]}
-              </span>
-            </div>
 
             {/* Sub-headline */}
             <p className="font-body text-base md:text-lg max-w-[480px]" style={{ color: 'var(--color-text-secondary)' }}>
@@ -98,13 +74,14 @@ export const HeroNew = () => {
           </div>
         </div>
 
-        {/* Stats row */}
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 mt-12 pt-8" style={{ borderTop: '0.5px solid var(--color-border)' }}>
-          <div className="text-center">
-            <span className="font-display font-bold text-xl" style={{ color: 'var(--color-ink)' }}>{t('heroNew.statsSameDay')}</span>
-            <span className="block text-xs font-body" style={{ color: 'var(--color-text-muted)' }}>{t('heroNew.statsSameDayLabel')}</span>
-          </div>
-        </div>
+        {/* Trust row */}
+        <ul
+          className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8 md:mt-12 pt-6 text-sm font-body font-medium"
+          style={{ borderTop: '0.5px solid var(--color-border)', color: 'var(--color-text-secondary)' }}
+        >
+          <li>{t('heroNew.trustReviews').replace('{{rating}}', GOOGLE_RATING.ratingValue).replace('{{count}}', GOOGLE_RATING.reviewCount)}</li>
+          <li>{t('heroNew.trustHours')}</li>
+        </ul>
       </div>
 
     </section>

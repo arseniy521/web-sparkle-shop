@@ -179,7 +179,7 @@ const WomensDayGift = () => {
 
       <main className="flex-1" role="main">
         {/* ========== SECTION 1: HERO + COUNTDOWN ========== */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-b from-rose-50 via-purple-50/30 to-background overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-bone overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               {/* Trust badges */}
@@ -187,18 +187,18 @@ const WomensDayGift = () => {
                 {(["nurses", "rating", "available", "districts"] as const).map((badge) => (
                   <span
                     key={badge}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-rose-200 rounded-full text-xs font-medium text-rose-700"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-indigo/20 rounded-full text-xs font-medium text-indigo"
                   >
-                    {badge === "rating" && <Star className="h-3 w-3 fill-rose-500 text-rose-500" />}
-                    {badge === "nurses" && <Shield className="h-3 w-3 text-rose-500" />}
-                    {badge === "available" && <Clock className="h-3 w-3 text-rose-500" />}
-                    {badge === "districts" && <MapPin className="h-3 w-3 text-rose-500" />}
+                    {badge === "rating" && <Star className="h-3 w-3 fill-indigo text-indigo" />}
+                    {badge === "nurses" && <Shield className="h-3 w-3 text-indigo" />}
+                    {badge === "available" && <Clock className="h-3 w-3 text-indigo" />}
+                    {badge === "districts" && <MapPin className="h-3 w-3 text-indigo" />}
                     {t(`womensDayGift.hero.trustBadges.${badge}`)}
                   </span>
                 ))}
               </div>
 
-              <span className="inline-block px-4 py-1.5 mb-6 bg-rose-100 text-rose-700 rounded-full text-sm font-semibold">
+              <span className="inline-block px-4 py-1.5 mb-6 bg-bone text-indigo rounded-full text-sm font-semibold">
                 {t("womensDayGift.hero.badge")}
               </span>
 
@@ -206,7 +206,7 @@ const WomensDayGift = () => {
                 {t("womensDayGift.hero.title")}
               </h1>
 
-              <p className="text-xl md:text-2xl text-rose-700/80 font-medium mb-4">
+              <p className="text-xl md:text-2xl text-indigo font-medium mb-4">
                 {t("womensDayGift.hero.subtitle")}
               </p>
 
@@ -217,12 +217,12 @@ const WomensDayGift = () => {
               {/* Countdown Timer */}
               <div className="mb-10">
                 {isPastDate ? (
-                  <p className="text-lg font-medium text-rose-600">
+                  <p className="text-lg font-medium text-indigo">
                     {t("womensDayGift.countdown.expired")}
                   </p>
                 ) : (
                   <div>
-                    <p className="text-sm font-semibold text-rose-600 uppercase tracking-wider mb-3">
+                    <p className="text-sm font-semibold text-indigo uppercase tracking-wider mb-3">
                       {t("womensDayGift.countdown.title")}
                     </p>
                     <div className="flex justify-center gap-3 md:gap-4">
@@ -233,8 +233,8 @@ const WomensDayGift = () => {
                         { value: timeLeft.seconds, label: t("womensDayGift.countdown.seconds") },
                       ]).map((item, i) => (
                         <div key={i} className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 bg-white border-2 border-rose-200 rounded-2xl flex items-center justify-center shadow-sm">
-                            <span className="text-2xl md:text-3xl font-bold text-rose-700">
+                          <div className="w-16 h-16 md:w-20 md:h-20 bg-white border-2 border-indigo/20 rounded-xl flex items-center justify-center shadow-sm">
+                            <span className="text-2xl md:text-3xl font-bold text-indigo">
                               {String(item.value).padStart(2, "0")}
                             </span>
                           </div>
@@ -249,13 +249,13 @@ const WomensDayGift = () => {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="w-full sm:w-auto text-base px-8 py-6 bg-rose-600 hover:bg-rose-700">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 py-6 bg-indigo hover:bg-indigo-deep">
                     <Gift className="mr-2 h-5 w-5" />
                     {t("womensDayGift.hero.cta")}
                   </Button>
                 </a>
                 <a href="#included">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-rose-300 text-rose-700 hover:bg-rose-50">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-indigo/20 text-indigo hover:bg-bone">
                     <ChevronDown className="mr-2 h-5 w-5" />
                     {t("womensDayGift.hero.ctaSecondary")}
                   </Button>
@@ -282,10 +282,10 @@ const WomensDayGift = () => {
                 return (
                   <Card
                     key={key}
-                    className="p-6 border-rose-100 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-50 transition-all duration-300"
+                    className="p-6 border-indigo/20 hover:border-indigo/20 hover:shadow-lg hover:shadow-indigo/10 transition-all duration-300"
                   >
-                    <div className="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-rose-600" />
+                    <div className="w-12 h-12 bg-bone rounded-xl flex items-center justify-center mb-4">
+                      <Icon className="h-6 w-6 text-indigo" />
                     </div>
                     <h3 className="text-lg font-semibold text-secondary mb-2">
                       {t(`womensDayGift.benefits.items.${key}.title`)}
@@ -301,7 +301,7 @@ const WomensDayGift = () => {
         </section>
 
         {/* ========== SECTION 3: WHAT'S INCLUDED ========== */}
-        <section id="included" className="py-16 md:py-20 bg-rose-50/50 scroll-mt-20">
+        <section id="included" className="py-16 md:py-20 bg-bone scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -316,16 +316,16 @@ const WomensDayGift = () => {
                 {includedItems.map((item, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-4 bg-white rounded-xl border border-rose-100"
+                    className="flex items-start gap-3 p-4 bg-white rounded-xl border border-indigo/20"
                   >
-                    <CheckCircle2 className="h-5 w-5 text-rose-500 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-indigo mt-0.5 flex-shrink-0" />
                     <span className="text-secondary font-medium">{item}</span>
                   </div>
                 ))}
               </div>
               <div className="text-center">
                 <Link to={`${langPrefix}/iv-drips-prague/`}>
-                  <Button variant="link" className="text-rose-600 hover:text-rose-700">
+                  <Button variant="link" className="text-indigo hover:text-indigo">
                     {t("womensDayGift.included.learnMore")}
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
@@ -349,9 +349,9 @@ const WomensDayGift = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {experienceSteps.map((step, i) => (
-                  <div key={step} className="relative flex gap-4 p-6 bg-gradient-to-br from-white to-rose-50/50 rounded-2xl border border-rose-100">
-                    <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg font-bold text-rose-600">{i + 1}</span>
+                  <div key={step} className="relative flex gap-4 p-6 bg-bone rounded-xl border border-indigo/20">
+                    <div className="w-10 h-10 bg-bone rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg font-bold text-indigo">{i + 1}</span>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-secondary mb-1">
@@ -369,7 +369,7 @@ const WomensDayGift = () => {
         </section>
 
         {/* ========== SECTION 5: VOUCHER DETAILS ========== */}
-        <section className="py-16 md:py-20 bg-purple-50/30">
+        <section className="py-16 md:py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
@@ -379,9 +379,9 @@ const WomensDayGift = () => {
                 {(["validity", "redeemable", "transferable", "personalized", "instant"] as const).map((key) => (
                   <div
                     key={key}
-                    className="flex items-center gap-2 px-4 py-3 bg-white rounded-xl border border-purple-100 shadow-sm"
+                    className="flex items-center gap-2 px-4 py-3 bg-white rounded-xl border border-indigo/20 shadow-sm"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-purple-500 flex-shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 text-indigo flex-shrink-0" />
                     <span className="text-sm font-medium text-secondary">
                       {t(`womensDayGift.voucher.${key}`)}
                     </span>
@@ -396,7 +396,7 @@ const WomensDayGift = () => {
         <section id="pricing" className="py-16 md:py-20 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto">
-              <Card className="p-8 md:p-12 border-2 border-rose-200 bg-gradient-to-br from-white to-rose-50/30 text-center">
+              <Card className="p-8 md:p-12 border-2 border-indigo/20 bg-bone text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-2">
                   {t("womensDayGift.pricing.title")}
                 </h2>
@@ -405,10 +405,10 @@ const WomensDayGift = () => {
                 </p>
 
                 <div className="mb-2">
-                  <span className="text-5xl md:text-6xl font-bold text-rose-600">
+                  <span className="text-5xl md:text-6xl font-bold text-indigo">
                     {t("womensDayGift.pricing.price")}
                   </span>
-                  <span className="text-2xl font-medium text-rose-600 ml-2">
+                  <span className="text-2xl font-medium text-indigo ml-2">
                     {t("womensDayGift.pricing.currency")}
                   </span>
                 </div>
@@ -427,7 +427,7 @@ const WomensDayGift = () => {
                     </Button>
                   </a>
                   <a href={`tel:${phone}`}>
-                    <Button size="lg" variant="outline" className="w-full text-base py-6 border-rose-300 text-rose-700 hover:bg-rose-50">
+                    <Button size="lg" variant="outline" className="w-full text-base py-6 border-indigo/20 text-indigo hover:bg-bone">
                       <Phone className="mr-2 h-5 w-5" />
                       {t("womensDayGift.pricing.ctaCall")}
                     </Button>
@@ -446,10 +446,10 @@ const WomensDayGift = () => {
             </h2>
             <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
               {testimonialKeys.map((key) => (
-                <Card key={key} className="p-6 border-rose-100">
+                <Card key={key} className="p-6 border-indigo/20">
                   <div className="flex gap-1 mb-4">
                     {[1, 2, 3, 4, 5].map((s) => (
-                      <Star key={s} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                      <Star key={s} className="h-4 w-4 fill-indigo text-indigo" />
                     ))}
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4 italic">
@@ -483,8 +483,8 @@ const WomensDayGift = () => {
             <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
               {orderSteps.map((step, i) => (
                 <div key={step} className="text-center">
-                  <div className="w-14 h-14 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl font-bold text-rose-600">{i + 1}</span>
+                  <div className="w-14 h-14 bg-bone rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl font-bold text-indigo">{i + 1}</span>
                   </div>
                   <h3 className="text-lg font-semibold text-secondary mb-2">
                     {t(`womensDayGift.howToOrder.steps.${step}.title`)}
@@ -499,7 +499,7 @@ const WomensDayGift = () => {
         </section>
 
         {/* ========== SECTION 9: FAQ ========== */}
-        <section className="py-16 md:py-20 bg-rose-50/50">
+        <section className="py-16 md:py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center mb-12">
@@ -510,7 +510,7 @@ const WomensDayGift = () => {
                   <AccordionItem
                     key={i}
                     value={`faq-${i}`}
-                    className="bg-white border border-rose-100 rounded-xl px-6 data-[state=open]:border-rose-200"
+                    className="bg-white border border-indigo/20 rounded-xl px-6 data-[state=open]:border-indigo/20"
                   >
                     <AccordionTrigger className="text-left font-semibold text-secondary hover:no-underline py-5">
                       {item.question}
@@ -526,7 +526,7 @@ const WomensDayGift = () => {
         </section>
 
         {/* ========== SECTION 10: FINAL CTA ========== */}
-        <section className="py-16 md:py-20 bg-gradient-to-b from-rose-100/50 to-purple-100/30">
+        <section className="py-16 md:py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
@@ -543,13 +543,13 @@ const WomensDayGift = () => {
                   </Button>
                 </a>
                 <a href={`tel:${phone}`}>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-rose-300 text-rose-700 hover:bg-rose-50">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-indigo/20 text-indigo hover:bg-bone">
                     <Phone className="mr-2 h-5 w-5" />
                     {phone}
                   </Button>
                 </a>
                 <a href="mailto:info@nius.cz">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-rose-300 text-rose-700 hover:bg-rose-50">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-indigo/20 text-indigo hover:bg-bone">
                     <Mail className="mr-2 h-5 w-5" />
                     {t("womensDayGift.finalCta.email")}
                   </Button>

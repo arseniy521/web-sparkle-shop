@@ -25,7 +25,7 @@ const NotFound = () => {
     <Helmet>
       <meta name="robots" content="noindex, nofollow" />
     </Helmet>
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary/5 to-background">
+    <div className="flex min-h-screen items-center justify-center bg-bone">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center space-y-8">
           <div className="space-y-4">

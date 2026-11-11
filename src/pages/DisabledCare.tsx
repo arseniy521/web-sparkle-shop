@@ -103,7 +103,7 @@ const DisabledCare = () => {
       ]} />
       <main className="flex-1" role="main">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <section className="py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -150,8 +150,7 @@ const DisabledCare = () => {
               </div>
 
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
-                <div className="relative rounded-3xl overflow-hidden shadow-card bg-white p-8">
+                <div className="relative rounded-xl overflow-hidden shadow-card bg-white p-8">
                   <img
                     src={hygieneIcon}
                     alt="Disabled care and hygiene assistance nurse in Prague"
@@ -313,7 +312,7 @@ const DisabledCare = () => {
         {/* CTA */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl p-12">
+            <div className="max-w-3xl mx-auto text-center bg-bone rounded-xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
                 {t('disabledCare.cta.title')}
               </h2>

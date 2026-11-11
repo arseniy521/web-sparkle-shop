@@ -2005,18 +2005,11 @@
   "heroNew": {
     "headline": "Registrovaná sestra u vašich dveří ještě dnes.",
     "eyebrow": "K dispozici nyní v Praze",
-    "services": [
-      "IV kapačky",
-      "IVF podpora",
-      "Pooperační péče",
-      "Rehydratace po cestě"
-    ],
     "subheadline": "Registrované sestry s nemocniční praxí přijedou s IV kapačkami, podporou IVF a pooperační péčí k vám do hotelu, bytu Airbnb nebo domů kdekoli v Praze.",
     "ctaPrimary": "Vybrat službu",
     "ctaSecondary": "Napsat na WhatsApp",
-    "statsInternational": "mezinárodní klienti",
-    "statsSameDay": "Stejný den",
-    "statsSameDayLabel": "příjezd"
+    "trustReviews": "{{rating}}★ z {{count}} recenzí na Google",
+    "trustHours": "Denně 8:00–21:00"
   },
   "trustStrip": {
     "nurses": "Pouze registrované sestry",

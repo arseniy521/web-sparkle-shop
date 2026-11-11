@@ -49,29 +49,27 @@ export const CookieConsent = () => {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[60] px-4 pb-4 md:px-6 md:pb-6"
+      className="fixed bottom-0 left-0 right-0 z-[60]"
       role="dialog"
       aria-label={copy.label}
+      style={{ backgroundColor: 'white', borderTop: '0.5px solid var(--color-border)', boxShadow: '0 -2px 12px rgba(0,0,0,0.06)', paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
-      <div
-        className="max-w-[600px] mx-auto rounded-lg p-4 md:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 shadow-lg"
-        style={{ backgroundColor: 'white', border: '0.5px solid var(--color-border)' }}
-      >
-        <p className="text-xs font-body flex-1" style={{ color: 'var(--color-text-secondary)' }}>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-12 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+        <p className="text-[11px] leading-snug md:text-xs font-body flex-1" style={{ color: 'var(--color-text-secondary)' }}>
           {copy.text}{" "}
           <Link to={buildLanguageUrl("/privacy", i18n.language)} className="underline" style={{ color: 'var(--color-indigo)' }}>{copy.policy}</Link>
         </p>
         <div className="flex gap-2 flex-shrink-0">
           <button
             onClick={reject}
-            className="px-3 py-1.5 rounded text-xs font-body font-medium transition-colors"
+            className="flex-1 sm:flex-none px-4 py-2 rounded text-xs font-body font-medium transition-colors"
             style={{ color: 'var(--color-text-secondary)', border: '0.5px solid var(--color-border)' }}
           >
             {copy.reject}
           </button>
           <button
             onClick={accept}
-            className="px-3 py-1.5 rounded text-xs font-body font-medium text-white transition-colors"
+            className="flex-1 sm:flex-none px-4 py-2 rounded text-xs font-body font-medium text-white transition-colors"
             style={{ backgroundColor: 'var(--color-indigo)' }}
           >
             {copy.accept}

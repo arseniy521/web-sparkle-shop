@@ -91,7 +91,7 @@ const SestrickaPrahaVinohrady = () => {
       ]} />
       <main className="flex-1" role="main">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <section className="py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -242,7 +242,7 @@ const SestrickaPrahaVinohrady = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <section className="py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary">

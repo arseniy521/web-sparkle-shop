@@ -132,7 +132,7 @@ const BlogPost = () => {
               </div>
 
               {/* Featured Image */}
-              <div className="aspect-video bg-muted rounded-2xl overflow-hidden mb-12">
+              <div className="aspect-video bg-muted rounded-xl overflow-hidden mb-12">
                 <img
                   src={post.image}
                   alt={post.title}

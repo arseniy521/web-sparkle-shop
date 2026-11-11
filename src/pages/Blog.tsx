@@ -30,7 +30,7 @@ const Blog = () => {
       <Breadcrumbs items={[{ label: "Blog" }]} />
       <main className="flex-1" role="main">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <section className="py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center animate-fade-in">
               <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-4">

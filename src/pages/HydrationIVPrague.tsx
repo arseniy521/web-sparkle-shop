@@ -159,7 +159,7 @@ const HydrationIVPrague = () => {
           ]}
         />
 
-        <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
+        <section className="py-16 md:py-20 px-4 bg-bone">
           <div className="container mx-auto max-w-6xl">
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 text-sm">
               {trustBadges.map(([key, Icon]) => (

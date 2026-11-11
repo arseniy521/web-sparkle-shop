@@ -206,7 +206,7 @@ const IVDripsPrague = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
+            <section className="py-16 md:py-20 px-4 bg-bone">
               <div className="container mx-auto max-w-6xl">
                 <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 text-sm">
                   <div className="flex items-center gap-2">
@@ -268,7 +268,7 @@ const IVDripsPrague = () => {
                         {t('ivDripTherapy.hero.whatsappBtn')}
                       </a>
                     </Button>
-                    <Button size="lg" variant="default" className="text-lg px-8 bg-teal-600 hover:bg-teal-700" asChild>
+                    <Button size="lg" variant="default" className="text-lg px-8 bg-indigo hover:bg-indigo-deep" asChild>
                       <BookingLink className="flex items-center gap-2">
                         <Calendar className="w-5 h-5" />
                         {t('ivDripTherapy.hero.bookBtn')}
@@ -582,9 +582,9 @@ const IVDripsPrague = () => {
                   </Card>
                 </div>
 
-                <Card className="p-6 mt-8 bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
+                <Card className="p-6 mt-8 bg-bone border-indigo/20">
                   <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <Shield className="w-6 h-6 text-amber-600" />
+                    <Shield className="w-6 h-6 text-indigo" />
                     {t('ivDripTherapy.preparation.contraindications.title')}
                   </h3>
                   <p className="text-muted-foreground mb-3">
@@ -593,7 +593,7 @@ const IVDripsPrague = () => {
                   <ul className="space-y-2 text-muted-foreground mb-4">
                     {contraindicationItems.map((item, idx) => (
                       <li key={idx} className="flex gap-2">
-                        <span className="text-amber-600">•</span>
+                        <span className="text-indigo">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -693,7 +693,7 @@ const IVDripsPrague = () => {
             <RelatedServices />
 
             {/* CTA */}
-            <section className="py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
+            <section className="py-20 px-4 bg-bone">
               <div className="container mx-auto max-w-4xl text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
                   {t('ivDripTherapy.cta.title')}
@@ -718,7 +718,7 @@ const IVDripsPrague = () => {
                       {t('ivDripTherapy.cta.whatsappBtn')}
                     </a>
                   </Button>
-                  <Button size="lg" className="text-lg px-8 bg-teal-600 hover:bg-teal-700" asChild>
+                  <Button size="lg" className="text-lg px-8 bg-indigo hover:bg-indigo-deep" asChild>
                     <BookingLink className="flex items-center gap-2">
                       <Calendar className="w-5 h-5" />
                       {t('ivDripTherapy.cta.bookBtn')}
