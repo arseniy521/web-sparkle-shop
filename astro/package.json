@@ -24,6 +24,7 @@
     "check:visual": "playwright test --project=visual",
     "checks:report": "node scripts/checks/registry.ts",
     "check:e2e": "playwright test --project=e2e",
+    "check:merged": "playwright test --project=merged",
     "check:lhci": "node scripts/checks/lighthouse-check.ts",
     "checks": "npm run lint && npm run typecheck && npm test && npm run i18n:check && npm run build && npm run check:seo -- --scope built && npm run check:e2e && npm run check:lhci"
   },
