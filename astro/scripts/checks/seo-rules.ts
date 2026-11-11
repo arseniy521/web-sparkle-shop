@@ -53,12 +53,30 @@ const readPage = (distDir: string, pagePath: string) =>
 
 const hasNoindex = (facts: PageFacts) => facts.robots.some((r) => r.toLowerCase().includes('noindex'));
 
+// Any *.html other than a directory index or the root 404.html.
+function strayHtmlFiles(distDir: string): string[] {
+  const stray: string[] = [];
+  const walk = (dir: string, urlPath: string) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) walk(path.join(dir, entry.name), `${urlPath}${entry.name}/`);
+      else if (entry.name.endsWith('.html') && entry.name !== 'index.html' && `${urlPath}${entry.name}` !== NOT_FOUND_PATH) {
+        stray.push(`${urlPath}${entry.name}`);
+      }
+    }
+  };
+  walk(distDir, '/');
+  return stray;
+}
+
 function checkManifestPages(ctx: Ctx, scope: ReadonlySet<string> | undefined): void {
   for (const built of ctx.built) {
     if (built === NOT_FOUND_PATH) continue;
     if (!ctx.pagePaths.has(built) && !ctx.redirectSources.has(built)) {
       ctx.add('page-not-in-manifest', built, 'HTML page without a manifest entry');
     }
+  }
+  for (const stray of strayHtmlFiles(ctx.distDir)) {
+    ctx.add('page-not-in-manifest', stray, 'HTML file that is not an index.html of a manifest page');
   }
   for (const pagePath of ctx.pagePaths) {
     if (!ctx.built.has(pagePath) && (!scope || scope.has(pagePath))) {

@@ -56,6 +56,18 @@ describe('manifest rules', () => {
     expect(findings).toContainEqual(expect.objectContaining({ path: '/extra/' }));
   });
 
+  for (const stray of ['foo.html', 'en/other.html']) {
+    it(`page-not-in-manifest: a stray HTML file ${stray}`, () => {
+      const dir = build((d) => {
+        fs.mkdirSync(path.dirname(path.join(d, stray)), { recursive: true });
+        fs.writeFileSync(path.join(d, stray), '<html></html>');
+      });
+      const findings = checkDist({ distDir: dir });
+      expect(rulesOf(findings)).toEqual(['page-not-in-manifest']);
+      expect(findings).toContainEqual(expect.objectContaining({ path: `/${stray}` }));
+    });
+  }
+
   it('manifest-page-missing: a manifest page with no HTML', () => {
     const dir = build((d) => remove(d, 'en/privacy'));
     const findings = checkDist({ distDir: dir });
