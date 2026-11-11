@@ -209,4 +209,22 @@ describe('analytics', () => {
     disableAnalytics();
     expect(amplitude.setOptOut).toHaveBeenLastCalledWith(true);
   });
+
+  it('opts back in only with stored consent', async () => {
+    const { enableAnalytics, setAnalyticsOptOut } = await load();
+    setConsent('accepted');
+    enableAnalytics();
+    await flushPromises();
+    amplitude.setOptOut.mockClear();
+
+    setAnalyticsOptOut(false);
+    expect(amplitude.setOptOut).toHaveBeenCalledWith(false);
+
+    amplitude.setOptOut.mockClear();
+    setConsent('rejected');
+    setAnalyticsOptOut(false);
+    expect(amplitude.setOptOut).not.toHaveBeenCalled();
+    setAnalyticsOptOut(true);
+    expect(amplitude.setOptOut).toHaveBeenCalledWith(true);
+  });
 });

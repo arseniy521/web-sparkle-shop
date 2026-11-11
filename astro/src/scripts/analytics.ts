@@ -104,6 +104,7 @@ export const flushAnalytics = async (): Promise<void> => {
 };
 
 export const setAnalyticsOptOut = (optOut: boolean): void => {
+  if (!optOut && getConsent() !== 'accepted') return;
   applyOptOut(optOut);
 };
 
