@@ -4,8 +4,8 @@ import stubData from '../../preview/stub-data.json' with { type: 'json' };
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
 import { E2E_ORIGIN } from '../fixtures/servers.ts';
+import { PILOT } from '../fixtures/pilot.ts';
 
-const PILOT = '/sestricka-praha-1/';
 // Loaded only for the form: its entry chunk, React DOM (client.*), the Google sign-in chunk and its texts.
 const FORM_CODE = /\/_astro\/(mount|client|GoogleLoginAction|cs|en|ru|uk)\.[\w-]+\.js$/;
 

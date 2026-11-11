@@ -5,8 +5,8 @@ import { VISITOR } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { expect, test } from '../fixtures/network-guard.ts';
 import { E2E_ORIGIN } from '../fixtures/servers.ts';
+import { PILOT } from '../fixtures/pilot.ts';
 
-const PILOT = '/sestricka-praha-1/';
 // The spec's example: the visitor arrives with ?ref=k7m2qx (lower case) and the site keeps the code
 // in the format ^[A-HJKMNP-Z2-9]{6}$, upper case.
 const CODE = 'K7M2QX';

@@ -1,8 +1,9 @@
 import type { FullConfig, Reporter, Suite, TestCase } from '@playwright/test/reporter';
+import { PILOT } from '../fixtures/pilot.ts';
 import { record } from '../../scripts/checks/registry.ts';
 
 // The pages the e2e scenarios run on; each later page task adds its page here.
-const PAGES = ['/sestricka-praha-1/'];
+const PAGES = [PILOT];
 
 // Options of `playwright test` that take a separate value, so that value is not a file filter.
 const VALUE_OPTIONS = new Set([

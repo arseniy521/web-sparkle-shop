@@ -7,6 +7,7 @@ import { record } from '../../scripts/checks/registry.ts';
 import { NOT_FOUND_PATH } from '../../src/routes/manifest.ts';
 import { allPageEntries } from '../../src/routes/urls.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
+import { PILOT } from '../fixtures/pilot.ts';
 import { NEW_ORIGIN, OLD_ORIGIN } from '../fixtures/servers.ts';
 import { MAX_RATIO, comparePngs, settle, type PixelResult } from './compare.ts';
 import { TEST_DIST, VISUAL_DIR } from './global-setup.ts';
@@ -18,7 +19,6 @@ const VIEWPORTS = {
   desktop: { width: 1440, height: 900 },
 } as const;
 type ViewportId = keyof typeof VIEWPORTS;
-const SLICE = '/sestricka-praha-1/';
 
 interface Accepted {
   path: string;
@@ -144,10 +144,10 @@ const STATES: Array<{ state: string; viewports: ViewportId[]; consent: boolean; 
 
 for (const { state, viewports, consent, prepare } of STATES) {
   for (const viewport of viewports) {
-    test(`${SLICE} ${state} ${viewport}`, async ({ browser }) => {
+    test(`${PILOT} ${state} ${viewport}`, async ({ browser }) => {
       test.setTimeout(120_000);
-      const [o, n] = await shoot(browser, { old: SLICE, new: SLICE }, viewport, { consent, fullPage: false, prepare });
-      expectResult(compare(`${SLICE} ${state}`, viewport, o, n));
+      const [o, n] = await shoot(browser, { old: PILOT, new: PILOT }, viewport, { consent, fullPage: false, prepare });
+      expectResult(compare(`${PILOT} ${state}`, viewport, o, n));
     });
   }
 }

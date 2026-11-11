@@ -4,8 +4,8 @@ import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa } from '../fixtures/google.ts';
 import { expect, serveSiteAt, test } from '../fixtures/network-guard.ts';
 import { E2E_ORIGIN } from '../fixtures/servers.ts';
+import { PILOT } from '../fixtures/pilot.ts';
 
-const PILOT = '/sestricka-praha-1/';
 const PRODUCTION = 'https://www.nius.cz';
 
 const events = (amplitude: AmplitudeCapture, type: string) =>
