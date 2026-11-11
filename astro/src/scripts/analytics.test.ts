@@ -22,6 +22,18 @@ const clearConsent = () => {
   localStorage.clear();
 };
 
+const holdSdk = () => {
+  let release!: () => void;
+  const gate = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  vi.doMock('@amplitude/analytics-browser', async () => {
+    await gate;
+    return amplitude;
+  });
+  return release;
+};
+
 const load = () => import('./analytics');
 
 describe('analytics', () => {
@@ -117,12 +129,26 @@ describe('analytics', () => {
     expect(amplitude.track.mock.calls.map((call) => call[0])).toEqual(['first', 'second']);
   });
 
-  it('keeps at most 50 queued actions while the SDK loads', async () => {
+  it('keeps at most 50 events while the SDK loads', async () => {
     const { enableAnalytics, track } = await load();
     enableAnalytics();
-    for (let i = 0; i < 60; i += 1) track(`e${i}`);
+    for (let i = 0; i < 60; i += 1) track('e' + i);
     await flushPromises();
-    expect(amplitude.setOptOut.mock.calls.length + amplitude.track.mock.calls.length).toBe(50);
+    expect(amplitude.track).toHaveBeenCalledTimes(50);
+  });
+
+  it('applies an opt-out before queued events even when the queue is full', async () => {
+    const release = holdSdk();
+    const { enableAnalytics, disableAnalytics, track } = await load();
+    enableAnalytics();
+    for (let i = 0; i < 50; i += 1) track('e' + i);
+    disableAnalytics();
+    release();
+    await flushPromises();
+    expect(amplitude.setOptOut).toHaveBeenCalledWith(true);
+    expect(amplitude.setOptOut.mock.invocationCallOrder[0]).toBeLessThan(
+      amplitude.track.mock.invocationCallOrder[0],
+    );
   });
 
   it('drops events tracked before consent', async () => {

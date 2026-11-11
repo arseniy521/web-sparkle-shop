@@ -24,10 +24,16 @@ let state: 'idle' | 'loading' | 'ready' | 'failed' = 'idle';
 let sdk: Sdk | undefined;
 let loading: Promise<void> | undefined;
 let queue: Array<(loaded: Sdk) => void> = [];
+let pendingOptOut: boolean | undefined;
 
 const run = (action: (loaded: Sdk) => void) => {
   if (state === 'ready' && sdk) action(sdk);
   else if (state === 'loading' && queue.length < MAX_QUEUE) queue.push(action);
+};
+
+const applyOptOut = (optOut: boolean) => {
+  if (state === 'ready' && sdk) sdk.setOptOut(optOut);
+  else if (state === 'loading') pendingOptOut = optOut;
 };
 
 const init = () => {
@@ -50,6 +56,7 @@ const init = () => {
       });
       sdk = loaded;
       state = 'ready';
+      if (pendingOptOut !== undefined) loaded.setOptOut(pendingOptOut);
       const pending = queue;
       queue = [];
       pending.forEach((action) => action(loaded));
@@ -68,12 +75,12 @@ export const initAnalyticsIfConsented = (): void => {
 /** Cookie banner "Accept". */
 export const enableAnalytics = (): void => {
   init();
-  run((loaded) => loaded.setOptOut(false));
+  applyOptOut(false);
 };
 
 /** Cookie banner "Reject". */
 export const disableAnalytics = (): void => {
-  run((loaded) => loaded.setOptOut(true));
+  applyOptOut(true);
 };
 
 export const track = (event: string, props?: Record<string, unknown>): void => {
@@ -97,7 +104,7 @@ export const flushAnalytics = async (): Promise<void> => {
 };
 
 export const setAnalyticsOptOut = (optOut: boolean): void => {
-  run((loaded) => loaded.setOptOut(optOut));
+  applyOptOut(optOut);
 };
 
 export const cleanPath = (url?: string): string =>
