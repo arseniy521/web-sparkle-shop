@@ -244,5 +244,9 @@ test('Completed order', async ({ page }) => {
   // Analytics defaults: no SDK autocapture beyond page views and sessions, nothing of the visitor.
   const sdkEvents = opened.amplitude.events().map((event) => event.event_type).filter((type) => type.startsWith('[Amplitude]'));
   expect([...new Set(sdkEvents)]).toEqual(['[Amplitude] Page Viewed']);
+  // Every event of the site itself carries the page language (the SDK's own events do not).
+  const siteEvents = opened.amplitude.events().filter((e) => !/^(\[Amplitude\]|\$identify$|session_)/.test(e.event_type));
+  expect(siteEvents.length).toBeGreaterThan(3);
+  expect(siteEvents.filter((e) => e.event_properties.language !== 'cs').map((e) => e.event_type)).toEqual([]);
   expect(visitorDataIn(payloads(opened))).toEqual([]);
 });
