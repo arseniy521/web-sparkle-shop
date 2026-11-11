@@ -52,6 +52,8 @@ const init = () => {
           fileDownloads: false,
         },
         trackingOptions: { ipAddress: false },
+        // LogLevel.None: a blocker that stops Amplitude's requests must not fill the console with errors.
+        logLevel: 0,
         cookieOptions: sharedCookieDomain() ? { domain: '.nius.cz' } : undefined,
       });
       sdk = loaded;
