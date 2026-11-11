@@ -16,6 +16,7 @@ concurrency:
 
 permissions:
   contents: write
+  pages: write
 
 jobs:
   rollback:
@@ -50,6 +51,7 @@ jobs:
           git checkout "refs/tags/$TAG" -- .
 
       - name: Commit and push
+        id: commit
         env:
           TAG: ${{ inputs.tag }}
         run: |
@@ -62,3 +64,53 @@ jobs:
           fi
           git commit -q -m "rollback: $TAG"
           git push origin HEAD:gh-pages
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      # GitHub documents that pushes made with GITHUB_TOKEN do not trigger a Pages build, so a
+      # build is requested when none of this commit has started.
+      - name: Wait for GitHub Pages to deploy the commit
+        id: pages
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(git rev-parse HEAD)
+          requested=false
+          for attempt in $(seq 60); do
+            latest=$(gh api "repos/$GITHUB_REPOSITORY/pages/builds/latest" --jq '"\(.status) \(.commit) \(.error.message // "")"' || true)
+            read -r status commit message <<< "$latest"
+            if [ "$commit" = "$sha" ] && [ "$status" = "built" ]; then
+              echo "GitHub Pages built $sha."
+              exit 0
+            fi
+            if [ "$commit" = "$sha" ] && [ "$status" = "errored" ]; then
+              echo "::error::GitHub Pages failed to build $sha: ${message:-no message}. gh-pages already points to it, but the site still serves the previous build. Check Settings > Pages and the 'pages build and deployment' run, then re-run this job."
+              exit 1
+            fi
+            if [ "$commit" != "$sha" ] && [ "$requested" = false ] && [ "$attempt" -ge 4 ]; then
+              echo "No GitHub Pages build of $sha has started; requesting one."
+              gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" > /dev/null || echo "::warning::The request for a GitHub Pages build failed."
+              requested=true
+            fi
+            sleep 10
+          done
+          echo "::error::GitHub Pages has not built $sha within 10 minutes (last seen: ${latest:-no answer}). gh-pages already points to it, but the site may still serve the previous build. Check Settings > Pages (source: gh-pages, root) and the 'pages build and deployment' run in Actions."
+          exit 1
+
+      - name: Write the summary
+        if: always()
+        env:
+          TAG: ${{ inputs.tag }}
+          PUSHED: ${{ steps.commit.outputs.pushed }}
+          COMMITTED: ${{ steps.commit.outcome }}
+          DEPLOYED: ${{ steps.pages.outcome }}
+        run: |
+          if [ "$PUSHED" = "true" ] && [ "$DEPLOYED" = "success" ]; then
+            echo "Rolled back to $TAG; GitHub Pages deployed it." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$PUSHED" = "true" ]; then
+            echo "gh-pages now holds the tree of $TAG, but GitHub Pages did not confirm deploying it (see the error above)." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$COMMITTED" = "success" ]; then
+            echo "gh-pages already equals $TAG; nothing was rolled back." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Nothing was rolled back; gh-pages is unchanged." >> "$GITHUB_STEP_SUMMARY"
+          fi
