@@ -4,8 +4,8 @@
  * Profile: https://g.page/r/Cb4BmqPTZRSSEBE/review
  */
 export const GOOGLE_RATING = {
-  ratingValue: '4.9',
-  reviewCount: '6',
+  ratingValue: '5.0',
+  reviewCount: '19',
   bestRating: '5',
   worstRating: '1',
   url: 'https://g.page/r/Cb4BmqPTZRSSEBE/review',

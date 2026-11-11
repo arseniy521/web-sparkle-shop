@@ -32,7 +32,9 @@ const Index = () => {
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Praha",
+      "streetAddress": "Na Zámecké 1518/9",
+      "addressLocality": "Praha 4",
+      "postalCode": "140 00",
       "addressCountry": "CZ"
     },
     "areaServed": [
@@ -181,7 +183,9 @@ const Index = () => {
       "founders": [{ "@type": "Person", "name": "Nigina Jebrak" }],
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Prague",
+        "streetAddress": "Rybná 716/24",
+        "addressLocality": "Praha 1",
+        "postalCode": "110 00",
         "addressCountry": "CZ"
       },
       "contactPoint": {

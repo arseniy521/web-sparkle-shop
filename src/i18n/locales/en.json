@@ -353,7 +353,7 @@
       "available": "Daily 8 AM – 9 PM",
       "nurses": "Registered Nurses",
       "patients": "English-Speaking Nurses",
-      "rating": "4.9★ Google Rating"
+      "rating": "5.0★ Google Rating"
     },
     "whyMatters": {
       "title": "Why Nursing Support Helps During IVF in Prague",
@@ -807,7 +807,7 @@
       "ctaSecondary": "See What's Included",
       "trustBadges": {
         "nurses": "Licensed Nurses",
-        "rating": "4.9★ Google Rating",
+        "rating": "5.0★ Google Rating",
         "available": "7 Days a Week",
         "districts": "All Prague Districts"
       }
@@ -1004,7 +1004,7 @@
       "ctaSecondary": "See What's Included",
       "trustBadges": {
         "nurses": "Licensed Nurses",
-        "rating": "4.9★ Google Rating",
+        "rating": "5.0★ Google Rating",
         "available": "7 Days a Week",
         "districts": "All Prague Districts"
       }
@@ -1194,7 +1194,7 @@
     "whatsappMessage": "Hi, I'd like to book an IV drip in Prague.",
     "trustBadges": {
       "licensedNurses": "Licensed Nurses",
-      "rating": "4.9/5 Rating",
+      "rating": "5.0/5 Rating",
       "available": "Daily 8 AM – 9 PM",
       "allDistricts": "All Prague Districts"
     },
@@ -1203,7 +1203,7 @@
       "subtitle": "Mobile IV Therapy Delivered to Your Hotel, Home, or Airbnb",
       "paragraph": "Professional <strong>IV drips in Prague</strong> administered by registered nurses at your location. We serve <strong>Prague 1, Prague 2, Vinohrady, Old Town, New Town</strong>, and all surrounding districts. Choose from vitamin, mineral and hydration <strong>IV drips in Prague</strong> with same-day visits. Perfect for medical tourists, expats, and travelers seeking",
       "postSurgeryLink": "post-surgery recovery care in Prague",
-      "socialProof": "Rated <strong>4.9★</strong> on Google",
+      "socialProof": "Rated <strong>5.0★</strong> on Google",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "Book on WhatsApp",
       "bookBtn": "Book Online",
@@ -1233,7 +1233,7 @@
           "description": "Any hotel in Prague, Airbnbs, private homes, offices. Serving <strong>all Prague districts</strong> within 20km of city center."
         },
         "rating": {
-          "title": "4.9★ Patient Rating",
+          "title": "5.0★ Patient Rating",
           "description": "Rated by real patients for professionalism, punctuality, and care quality. Check our <strong>verified reviews on Google</strong>."
         },
         "english": {
@@ -1591,7 +1591,7 @@
     "cta": {
       "title": "Ready to Book Your IV Drip in Prague?",
       "subtitle": "Same-day mobile IV therapy at your hotel, home, or Airbnb",
-      "description": "Serving Prague 1, Vinohrady, Old Town, and all Prague districts • Registered nurses • 4.9★ rating",
+      "description": "Serving Prague 1, Vinohrady, Old Town, and all Prague districts • Registered nurses • 5.0★ rating",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "WhatsApp Booking",
       "bookBtn": "Book Online",
@@ -1628,7 +1628,7 @@
     },
     "trustBadges": {
       "licensedNurses": "Licensed Nurses",
-      "rating": "4.9/5 Rating",
+      "rating": "5.0/5 Rating",
       "available": "Daily 8 AM – 9 PM",
       "allDistricts": "All Prague Districts"
     },
@@ -2307,6 +2307,6 @@
   "medicalNotice": {
     "doctor": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.",
     "emergency": "NIUS is not an emergency service. In urgent cases call 155 or 112.",
-    "provider": "Provider: Nius Services s.r.o., ID 21908494, Prague."
+    "provider": "Provider: Nius Services s.r.o., ID 21908494, registered office: Rybná 716/24, 110 00 Prague 1, premises: Na Zámecké 1518/9, 140 00 Prague 4. Healthcare services authorisation: Prague City Hall, decision of 1 October 2025, ref. MHMP 1000311/2025, case S-MHMP 908522/2025."
   }
 }

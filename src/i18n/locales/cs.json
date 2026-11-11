@@ -353,7 +353,7 @@
       "available": "Denně 8:00–21:00",
       "nurses": "Licencované sestry",
       "patients": "Anglicky, česky, rusky, ukrajinsky",
-      "rating": "4.9★ Hodnocení Google"
+      "rating": "5.0★ Hodnocení Google"
     },
     "whyMatters": {
       "title": "Proč se hodí podpora IVF injekcí u vás",
@@ -807,7 +807,7 @@
       "ctaSecondary": "Co je zahrnuto",
       "trustBadges": {
         "nurses": "Registrované sestry",
-        "rating": "4.9★ Google hodnocení",
+        "rating": "5.0★ Google hodnocení",
         "available": "7 dní v týdnu",
         "districts": "Celá Praha"
       }
@@ -1004,7 +1004,7 @@
       "ctaSecondary": "Co je zahrnuto",
       "trustBadges": {
         "nurses": "Licencované sestry",
-        "rating": "4.9★ hodnocení na Google",
+        "rating": "5.0★ hodnocení na Google",
         "available": "7 dní v týdnu",
         "districts": "Všechny pražské obvody"
       }
@@ -1194,7 +1194,7 @@
     "whatsappMessage": "Dobrý den, chtěl/a bych objednat IV kapačku v Praze.",
     "trustBadges": {
       "licensedNurses": "Licencované sestry",
-      "rating": "Hodnocení 4.9/5",
+      "rating": "Hodnocení 5.0/5",
       "available": "Denně 8:00–21:00",
       "allDistricts": "Všechny pražské obvody"
     },
@@ -1203,7 +1203,7 @@
       "subtitle": "Mobilní IV terapie s dojezdem do hotelu, domů nebo Airbnb",
       "paragraph": "Profesionální <strong>IV kapačky v Praze</strong> podávané registrovanými sestrami na vámi zvoleném místě. Obsluhujeme <strong>Prahu 1, Prahu 2, Vinohrady, Staré Město, Nové Město</strong> a všechny okolní obvody. Vyberte si z hydratačních a vitamínových <strong>IV kapaček v Praze</strong> s návštěvou ve stejný den. Ideální pro zdravotní turisty, expaty a cestovatele hledající",
       "postSurgeryLink": "pooperační regenerační péči v Praze",
-      "socialProof": "Hodnocení <strong>4.9★</strong> na Google",
+      "socialProof": "Hodnocení <strong>5.0★</strong> na Google",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervovat přes WhatsApp",
       "bookBtn": "Rezervovat online",
@@ -1233,7 +1233,7 @@
           "description": "Hotely, Airbnb, soukromé byty, kanceláře. Obsluhujeme <strong>všechny pražské obvody</strong> do 20 km od centra."
         },
         "rating": {
-          "title": "Hodnocení pacientů 4.9★",
+          "title": "Hodnocení pacientů 5.0★",
           "description": "Hodnocení od skutečných pacientů za profesionalitu, dochvilnost a kvalitu péče. Podívejte se na naše <strong>ověřené recenze na Google</strong>."
         },
         "english": {
@@ -1591,7 +1591,7 @@
     "cta": {
       "title": "Chcete si objednat IV kapačku v Praze?",
       "subtitle": "Mobilní IV kapačky ve stejný den, denně 8–21, ve vašem hotelu, doma nebo Airbnb",
-      "description": "Obsluhujeme Prahu 1, Vinohrady, Staré Město a všechny pražské obvody • Registrované sestry • Hodnocení 4.9★",
+      "description": "Obsluhujeme Prahu 1, Vinohrady, Staré Město a všechny pražské obvody • Registrované sestry • Hodnocení 5.0★",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervace přes WhatsApp",
       "bookBtn": "Rezervovat online",
@@ -1628,7 +1628,7 @@
     },
     "trustBadges": {
       "licensedNurses": "Registrované sestry",
-      "rating": "Hodnocení 4.9/5",
+      "rating": "Hodnocení 5.0/5",
       "available": "Denně 8:00 – 21:00",
       "allDistricts": "Celá Praha"
     },
@@ -2307,6 +2307,6 @@
   "medicalNotice": {
     "doctor": "Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.",
     "emergency": "NIUS není pohotovostní služba. V akutních případech volejte 155 nebo 112.",
-    "provider": "Poskytovatel: Nius Services s.r.o., IČO 21908494, Praha."
+    "provider": "Poskytovatel: Nius Services s.r.o., IČO 21908494, sídlo: Rybná 716/24, 110 00 Praha 1, provozovna: Na Zámecké 1518/9, 140 00 Praha 4. Oprávnění k poskytování zdravotních služeb: Magistrát hl. m. Prahy, rozhodnutí ze dne 1. 10. 2025, č. j. MHMP 1000311/2025, sp. zn. S-MHMP 908522/2025."
   }
 }
