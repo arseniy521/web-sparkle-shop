@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { captureReferral, getReferralCode, resetReferralForTests } from './referral';
 
 const clearCookie = (name: string) => {
@@ -10,6 +10,10 @@ describe('referral', () => {
     resetReferralForTests();
     clearCookie('nius_ref');
     clearCookie('nius_consent');
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('captures, normalizes and stores a valid code', () => {
@@ -62,5 +66,29 @@ describe('referral', () => {
     document.cookie = 'nius_consent=rejected; path=/';
     captureReferral('?ref=K7M2QX');
     expect(document.cookie).toContain('nius_ref=K7M2QX');
+  });
+
+  it('ignores an invalid ref and keeps the previous cookie', () => {
+    captureReferral('?ref=ABCDEF');
+    captureReferral('?ref=<script>');
+    expect(getReferralCode()).toBe('ABCDEF');
+  });
+
+  it('does not throw when cookies are unavailable', () => {
+    vi.spyOn(document, 'cookie', 'set').mockImplementation(() => {
+      throw new Error('blocked');
+    });
+    expect(() => captureReferral('?ref=ABCDEF')).not.toThrow();
+  });
+
+  it('writes no domain attribute on a preview address', () => {
+    const written: string[] = [];
+    vi.spyOn(document, 'cookie', 'set').mockImplementation((value: string) => {
+      written.push(value);
+    });
+    captureReferral('?ref=ABCDEF');
+    expect(written).toHaveLength(1);
+    expect(written[0]).toContain('nius_ref=ABCDEF');
+    expect(written[0]).not.toContain('domain=');
   });
 });

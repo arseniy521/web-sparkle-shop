@@ -5,6 +5,8 @@
  * (owner decision). Must never throw: it runs before render and during prerender.
  */
 
+import { cookieAttributes } from './cookie-domain';
+
 const REFERRAL_COOKIE = 'nius_ref';
 const MAX_AGE_SECONDS = 2_592_000;
 
@@ -31,10 +33,8 @@ const readCookie = (): string | undefined => {
 
 const writeCookie = (code: string): void => {
   try {
-    const domain = import.meta.env.PROD ? '; domain=.nius.cz' : '';
-    const secure = import.meta.env.PROD ? '; Secure' : '';
     document.cookie =
-      `${REFERRAL_COOKIE}=${code}; max-age=${MAX_AGE_SECONDS}; path=/${domain}; SameSite=Lax${secure}`;
+      `${REFERRAL_COOKIE}=${code}; max-age=${MAX_AGE_SECONDS}; path=/; SameSite=Lax${cookieAttributes()}`;
   } catch {
     // ignore — cookies may be unavailable
   }
