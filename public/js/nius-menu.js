@@ -60,8 +60,8 @@ const NIUS_I18N = {
   cs: {
     allCategories: 'Vše',
     servicesAndPricing: 'Služby a ceník',
-    menuTitle: 'Mobilní IV terapie,<br><em>až k vám domů.</em>',
-    menuDesc: 'Registrované sestry poskytující vitamínové a hydratační infuze a ošetřovatelskou péči kdekoli v Praze, návštěva ve stejný den.',
+    menuTitle: 'Kapačky přímo<br><em>u vás doma.</em>',
+    menuDesc: 'Vitamínové a hydratační infuze i ošetřovatelská péče kdekoli v Praze. Sestra přijede ve stejný den.',
     nurseIncluded: 'sestra v ceně',
     bookThisDrip: 'Objednat →',
     addToCart: 'Přidat do košíku',
@@ -83,17 +83,17 @@ const NIUS_I18N = {
     bestFor: 'Vhodné pro',
     viewDetails: 'Detail',
     bundlesLabel: 'Balíčky',
-    bundlesTitle: 'Objednejte více,<br><em>získejte více.</em>',
+    bundlesTitle: 'Víc návštěv,<br><em>nižší cena.</em>',
     bundlesDesc: 'Předplacené balíčky pro pravidelné klienty a každého, kdo plánuje více návštěv.',
     bundles: {
-      'bundle-5': { name: '5 + 1 Balíček', tagline: 'Objednejte 5 infuzí · 1 je zdarma', cta: 'Získat balíček →', perks: ['6 infuzí celkem za cenu 5', 'Vyberte si jakékoli infuze z nabídky', 'Platnost 6 měsíců od zakoupení', 'Přenositelné na rodinné příslušníky', 'Návštěva ve stejný den, denně 8:00–21:00'] },
-      'bundle-10': { name: '10 + 2 Balíček', tagline: 'Objednejte 10 infuzí · 2 jsou zdarma', cta: 'Získat balíček →', badge: 'Balíčková cena', perks: ['12 infuzí celkem za cenu 10', 'Vyberte si jakékoli infuze z nabídky', 'Platnost 12 měsíců od zakoupení', 'Přenositelné na rodinu nebo hosty', 'Objednání přes formulář nebo WhatsApp', 'Jeden booster shot zdarma při každé návštěvě'] },
-      'corporate': { name: 'Firemní / Skupinový', tagline: 'Pro hotely, kliniky a týmy', cta: 'Získat nabídku →', customPrice: 'Na vyžádání', perks: ['Programy pro hotely, kliniky a týmy: na vyžádání', 'Firemní wellness dny', 'Fakturace a reporting na míru'] }
+      'bundle-5': { name: 'Balíček 5 + 1', tagline: 'Objednejte 5 infuzí · 1 je zdarma', cta: 'Koupit balíček →', perks: ['6 infuzí celkem za cenu 5', 'Vyberte si jakékoli infuze z nabídky', 'Platnost 6 měsíců od zakoupení', 'Přenositelné na rodinné příslušníky', 'Návštěva ve stejný den, denně 8:00–21:00'] },
+      'bundle-10': { name: 'Balíček 10 + 2', tagline: 'Objednejte 10 infuzí · 2 jsou zdarma', cta: 'Koupit balíček →', badge: 'Výhodná cena', perks: ['12 infuzí celkem za cenu 10', 'Vyberte si jakékoli infuze z nabídky', 'Platnost 12 měsíců od zakoupení', 'Přenositelné na rodinu nebo hosty', 'Objednání přes formulář nebo WhatsApp', 'Jeden booster shot zdarma při každé návštěvě'] },
+      'corporate': { name: 'Pro firmy a skupiny', tagline: 'Pro hotely, kliniky a týmy', cta: 'Získat nabídku →', customPrice: 'Na vyžádání', perks: ['Programy pro hotely, kliniky a týmy: na vyžádání', 'Dny péče pro týmy', 'Fakturace a reporting na míru'] }
     },
     subscription: {
-      title: 'NIUS+ Členství',
-      pitch: 'Měsíční infuze. Jedna paušální cena. Snadné objednání.',
-      desc: 'Předplatné pro klienty, kteří chtějí pravidelné návštěvy celý rok, manažeři, expati, vytížené rodiny.',
+      title: 'Předplatné NIUS+',
+      pitch: 'Pravidelné infuze za pevnou měsíční cenu. Snadno se objednávají.',
+      desc: 'Předplatné pro ty, kdo chtějí návštěvy pravidelně celý rok: manažery, cizince, vytížené rodiny.',
       mostPopular: 'Oblíbené',
       startCta: 'Začít',
       perks: [
@@ -103,7 +103,7 @@ const NIUS_I18N = {
         { title: 'Zrušení kdykoliv', desc: 'Žádný dlouhodobý závazek, žádné skryté poplatky' }
       ],
       plans: [
-        { name: 'Essential', per: 'Kč / měsíc', desc: '<strong>2 infuze měsíčně</strong>: pro pravidelnou rutinu s vitamíny a hydratací.' },
+        { name: 'Essential', per: 'Kč / měsíc', desc: '<strong>2 infuze měsíčně</strong>: pro pravidelné infuze s vitamíny a hydratací.' },
         { name: 'Premium', per: 'Kč / měsíc', desc: '<strong>3 infuze měsíčně</strong>: pro business cestovatele, manažery a vytížený kalendář.' }
       ]
     },
@@ -167,8 +167,8 @@ const NIUS_I18N = {
   ru: {
     allCategories: 'Все',
     servicesAndPricing: 'Услуги и цены',
-    menuTitle: 'IV-терапия на дому,<br><em>у вашей двери.</em>',
-    menuDesc: 'Дипломированные медсёстры проводят витаминные и гидратационные капельницы и сестринский уход в любой точке Праги, визит в тот же день.',
+    menuTitle: 'Капельницы дома,<br><em>без поездок в клинику.</em>',
+    menuDesc: 'Капельницы с витаминами и жидкостью и сестринский уход: медсестра приедет в любую точку Праги в тот же день.',
     nurseIncluded: 'медсестра включена',
     bookThisDrip: 'Заказать →',
     addToCart: 'Добавить в корзину',
@@ -190,27 +190,27 @@ const NIUS_I18N = {
     bestFor: 'Подходит для',
     viewDetails: 'Подробнее',
     bundlesLabel: 'Пакеты',
-    bundlesTitle: 'Закажите больше,<br><em>получите больше.</em>',
+    bundlesTitle: 'Чем больше визитов,<br><em>тем выгоднее.</em>',
     bundlesDesc: 'Предоплаченные пакеты для постоянных клиентов и тех, кто планирует несколько визитов.',
     bundles: {
-      'bundle-5': { name: '5 + 1 Пакет', tagline: 'Закажите 5 капельниц · 1 в подарок', cta: 'Получить пакет →', perks: ['6 капельниц по цене 5', 'Выбирайте любые капельницы из меню', 'Действителен 6 месяцев с момента покупки', 'Можно передать членам семьи', 'Визит в тот же день, ежедневно 8:00–21:00'] },
-      'bundle-10': { name: '10 + 2 Пакет', tagline: 'Закажите 10 капельниц · 2 в подарок', cta: 'Получить пакет →', badge: 'Цена пакета', perks: ['12 капельниц по цене 10', 'Выбирайте любые капельницы из меню', 'Действителен 12 месяцев с момента покупки', 'Можно передать семье или гостям', 'Запись через форму или WhatsApp', 'Один бустер-шот бесплатно при каждом визите'] },
-      'corporate': { name: 'Корпоративный / Групповой', tagline: 'Для отелей, клиник и команд', cta: 'Получить предложение →', customPrice: 'По запросу', perks: ['Программы для отелей, клиник и команд: по запросу', 'Корпоративные wellness-дни', 'Индивидуальная отчётность и выставление счетов'] }
+      'bundle-5': { name: 'Пакет 5 + 1', tagline: 'Закажите 5 капельниц · 1 в подарок', cta: 'Купить пакет →', perks: ['6 капельниц по цене 5', 'Выбирайте любые капельницы из меню', 'Действителен 6 месяцев с момента покупки', 'Можно передать членам семьи', 'Визит в тот же день, ежедневно 8:00–21:00'] },
+      'bundle-10': { name: 'Пакет 10 + 2', tagline: 'Закажите 10 капельниц · 2 в подарок', cta: 'Купить пакет →', badge: 'Выгодная цена', perks: ['12 капельниц по цене 10', 'Выбирайте любые капельницы из меню', 'Действителен 12 месяцев с момента покупки', 'Можно передать семье или гостям', 'Запись через форму или WhatsApp', 'Один бустер-шот бесплатно при каждом визите'] },
+      'corporate': { name: 'Для компаний и групп', tagline: 'Для отелей, клиник и команд', cta: 'Получить предложение →', customPrice: 'По запросу', perks: ['Программы для отелей, клиник и команд: по запросу', 'Дни заботы о команде', 'Счёт на компанию и отчёт по запросу'] }
     },
     subscription: {
-      title: 'NIUS+ Членство',
-      pitch: 'Ежемесячные капельницы. Фиксированная цена. Простая запись.',
-      desc: 'Подписка для клиентов, которым нужны регулярные визиты круглый год, руководители, экспаты, занятые семьи.',
+      title: 'Подписка NIUS+',
+      pitch: 'Капельницы каждый месяц по одной цене. Записаться просто.',
+      desc: 'Для тех, кто ставит капельницы регулярно: руководителей, экспатов, занятых семей.',
       mostPopular: 'Популярный',
       startCta: 'Начать',
       perks: [
         { title: 'Капельницы по фиксированной месячной цене', desc: 'Выбирайте любую капельницу из меню каждый месяц' },
-        { title: '15% скидка на дополнительные капельницы', desc: 'Нужно больше в этом месяце? Участники всегда платят меньше' },
+        { title: 'Скидка 15% на дополнительные капельницы', desc: 'Нужно больше в этом месяце? Для участников дешевле' },
         { title: 'Визит в тот же день', desc: 'Ежедневно 8:00–21:00. Время приезда подтверждаем после заказа.' },
-        { title: 'Отмена в любое время', desc: 'Никаких долгосрочных обязательств и скрытых платежей' }
+        { title: 'Отмена в любое время', desc: 'Без обязательств и скрытых платежей' }
       ],
       plans: [
-        { name: 'Essential', per: 'Kč / месяц', desc: '<strong>2 капельницы в месяц</strong>: для регулярной рутины с витаминами и гидратацией.' },
+        { name: 'Essential', per: 'Kč / месяц', desc: '<strong>2 капельницы в месяц</strong>: для регулярных капельниц с витаминами и гидратацией.' },
         { name: 'Premium', per: 'Kč / месяц', desc: '<strong>3 капельницы в месяц</strong>: для бизнес-путешественников, руководителей и плотного графика.' }
       ]
     },
@@ -231,9 +231,9 @@ const NIUS_I18N = {
       'Pure Hydrate': { name: 'Pure Hydrate', tagline: 'Физиологический раствор для поддержки гидратации. Просто и спокойно.', bestfor: 'Регидратация после поездок и насыщенных дней, первый визит.' },
       'Electrolyte Reset': { name: 'Electrolyte Reset', tagline: 'Жидкость с магнием для баланса после спорта или поездки.', bestfor: 'Активные дни, спорт, жаркая погода, путешествия.' },
       'Jet Lag Recovery': { name: 'Jet Lag Recovery', tagline: 'Жидкость, магний и B-витамины после длительного перелёта.', bestfor: 'Бизнес-путешественники, после прилёта, участники конференций, гости отелей.' },
-      'Post-Op Wound Dressing': { name: 'Послеоперационная перевязка', tagline: 'Профессиональный уход за ранами и смена повязок после операции.', bestfor: 'Уход после пластической хирургии, ортопедические раны, косметические процедуры, мед. туристы.' },
+      'Post-Op Wound Dressing': { name: 'Послеоперационная перевязка', tagline: 'Профессиональный уход за ранами и смена повязок после операции.', bestfor: 'Уход после пластических, ортопедических и косметических вмешательств, для медицинских туристов.' },
       'Hygiene Assistance': { name: 'Гигиеническая помощь', tagline: 'Часовой профессиональный уход за гигиеной и комфортом.', bestfor: 'Пациенты после операции, пожилые, клиенты с ограниченной подвижностью, восстановление в отеле.' },
-      'Nurse Escort': { name: 'Сопровождение медсестры', tagline: 'Сопровождение на приём к врачу и обратно.', bestfor: 'Визиты после операции, мед. туристы, пациенты, нуждающиеся в помощи при транспортировке.' }
+      'Nurse Escort': { name: 'Сопровождение медсестры', tagline: 'Сопровождение на приём к врачу и обратно.', bestfor: 'Визиты после операции, медицинские туристы, те, кому трудно добираться самому.' }
     },
     ingredients: {
       'Saline hydration base': 'Физраствор (основа)',
@@ -274,8 +274,8 @@ const NIUS_I18N = {
   uk: {
     allCategories: 'Усі',
     servicesAndPricing: 'Послуги та ціни',
-    menuTitle: 'IV-терапія вдома,<br><em>біля ваших дверей.</em>',
-    menuDesc: 'Дипломовані медсестри проводять вітамінні та гідратаційні крапельниці й сестринський догляд у будь-якій точці Праги, візит у той самий день.',
+    menuTitle: 'Крапельниці вдома,<br><em>без поїздок до клініки.</em>',
+    menuDesc: 'Вітамінні крапельниці та догляд медсестри: приїдемо в будь-яку точку Праги того ж дня.',
     nurseIncluded: 'медсестра включена',
     bookThisDrip: 'Замовити →',
     addToCart: 'Додати в кошик',
@@ -291,33 +291,33 @@ const NIUS_I18N = {
     cartHint: 'Додавання до кошика не оформлює замовлення',
     close: 'Закрити',
     ctaInfo: 'Дипломована медсестра · призначення лікаря після короткої оцінки стану · все обладнання',
-    addBooster: 'Додати бустер',
+    addBooster: 'Додати до візиту',
     boosterFoot: 'Вводиться медсестрою під час того ж візиту: без доплати.',
     whatsInside: 'Що містить',
     bestFor: 'Підходить для',
     viewDetails: 'Детальніше',
     bundlesLabel: 'Пакети',
-    bundlesTitle: 'Замовте більше,<br><em>отримайте більше.</em>',
+    bundlesTitle: 'Більше візитів,<br><em>вигідніша ціна.</em>',
     bundlesDesc: 'Передплачені пакети для постійних клієнтів та тих, хто планує кілька візитів.',
     bundles: {
-      'bundle-5': { name: '5 + 1 Пакет', tagline: 'Замовте 5 крапельниць · 1 у подарунок', cta: 'Отримати пакет →', perks: ['6 крапельниць за ціною 5', 'Обирайте будь-які крапельниці з меню', 'Дійсний 6 місяців з моменту придбання', 'Можна передати членам родини', 'Візит у той самий день, щодня 8:00–21:00'] },
-      'bundle-10': { name: '10 + 2 Пакет', tagline: 'Замовте 10 крапельниць · 2 у подарунок', cta: 'Отримати пакет →', badge: 'Ціна пакета', perks: ['12 крапельниць за ціною 10', 'Обирайте будь-які крапельниці з меню', 'Дійсний 12 місяців з моменту придбання', 'Можна передати родині або гостям', 'Запис через форму або WhatsApp', 'Один бустер-шот безкоштовно при кожному візиті'] },
-      'corporate': { name: 'Корпоративний / Груповий', tagline: 'Для готелів, клінік та команд', cta: 'Отримати пропозицію →', customPrice: 'За запитом', perks: ['Програми для готелів, клінік та команд: за запитом', 'Корпоративні wellness-дні', 'Індивідуальна звітність та виставлення рахунків'] }
+      'bundle-5': { name: 'Пакет 5 + 1', tagline: 'Замовте 5 крапельниць · 1 у подарунок', cta: 'Придбати пакет →', perks: ['6 крапельниць за ціною 5', 'Обирайте будь-які крапельниці з меню', 'Дійсний 6 місяців з моменту придбання', 'Можна передати членам родини', 'Візит у той самий день, щодня 8:00–21:00'] },
+      'bundle-10': { name: 'Пакет 10 + 2', tagline: 'Замовте 10 крапельниць · 2 у подарунок', cta: 'Придбати пакет →', badge: 'Вигідна ціна', perks: ['12 крапельниць за ціною 10', 'Обирайте будь-які крапельниці з меню', 'Дійсний 12 місяців з моменту придбання', 'Можна передати родині або гостям', 'Запис через форму або WhatsApp', 'Одна ін\'єкція вітаміну безкоштовно при кожному візиті'] },
+      'corporate': { name: 'Для компаній і груп', tagline: 'Для готелів, клінік та команд', cta: 'Отримати пропозицію →', customPrice: 'За запитом', perks: ['Програми для готелів, клінік та команд: за запитом', 'Дні турботи про команду', 'Рахунок на компанію та звіт за запитом'] }
     },
     subscription: {
-      title: 'NIUS+ Членство',
-      pitch: 'Щомісячні крапельниці. Фіксована ціна. Простий запис.',
-      desc: 'Підписка для клієнтів, яким потрібні регулярні візити цілий рік, керівники, експати, зайняті родини.',
+      title: 'Підписка NIUS+',
+      pitch: 'Крапельниці щомісяця за фіксованою ціною. Запис без клопоту.',
+      desc: 'Для тих, кому потрібні регулярні візити протягом року: керівників, експатів, зайнятих родин.',
       mostPopular: 'Популярний',
       startCta: 'Почати',
       perks: [
         { title: 'Крапельниці за фіксованою місячною ціною', desc: 'Обирайте будь-яку крапельницю з меню щомісяця' },
-        { title: '15% знижка на додаткові крапельниці', desc: 'Потрібно більше цього місяця? Учасники завжди платять менше' },
+        { title: 'Знижка 15% на додаткові крапельниці', desc: 'Потрібно більше цього місяця? Для учасників підписки ціна нижча' },
         { title: 'Візит у той самий день', desc: 'Щодня 8:00–21:00. Час приїзду підтверджуємо після замовлення.' },
         { title: 'Скасування будь-коли', desc: 'Жодних довгострокових зобов\'язань та прихованих платежів' }
       ],
       plans: [
-        { name: 'Essential', per: 'Kč / місяць', desc: '<strong>2 крапельниці на місяць</strong>: для регулярної рутини з вітамінами та гідратацією.' },
+        { name: 'Essential', per: 'Kč / місяць', desc: '<strong>2 крапельниці на місяць</strong>: для регулярних крапельниць з вітамінами та гідратацією.' },
         { name: 'Premium', per: 'Kč / місяць', desc: '<strong>3 крапельниці на місяць</strong>: для бізнес-мандрівників, керівників та щільного графіка.' }
       ]
     },
@@ -338,9 +338,9 @@ const NIUS_I18N = {
       'Pure Hydrate': { name: 'Pure Hydrate', tagline: 'Фізіологічний розчин для підтримки гідратації. Просто і спокійно.', bestfor: 'Регідратація після подорожей і насичених днів, перший візит.' },
       'Electrolyte Reset': { name: 'Electrolyte Reset', tagline: 'Рідина з магнієм для балансу після спорту чи поїздки.', bestfor: 'Активні дні, спорт, спекотна погода, подорожі.' },
       'Jet Lag Recovery': { name: 'Jet Lag Recovery', tagline: 'Рідина, магній та B-вітаміни після тривалого перельоту.', bestfor: 'Бізнес-мандрівники, після прильоту, учасники конференцій, гості готелів.' },
-      'Post-Op Wound Dressing': { name: 'Післяопераційна перев\'язка', tagline: 'Професійний догляд за ранами та зміна пов\'язок після операції.', bestfor: 'Догляд після пластичної хірургії, ортопедичні рани, косметичні процедури, мед. туристи.' },
+      'Post-Op Wound Dressing': { name: 'Післяопераційна перев\'язка', tagline: 'Професійний догляд за ранами та зміна пов\'язок після операції.', bestfor: 'Догляд після пластичних, ортопедичних та косметичних втручань, для медичних туристів.' },
       'Hygiene Assistance': { name: 'Гігієнічна допомога', tagline: 'Годинний професійний догляд за гігієною та комфортом.', bestfor: 'Пацієнти після операції, літні люди, клієнти з обмеженою рухливістю, відновлення в готелі.' },
-      'Nurse Escort': { name: 'Супровід медсестри', tagline: 'Супровід на прийом до лікаря та назад.', bestfor: 'Візити після операції, мед. туристи, пацієнти, що потребують допомоги при транспортуванні.' }
+      'Nurse Escort': { name: 'Супровід медсестри', tagline: 'Супровід на прийом до лікаря та назад.', bestfor: 'Візити після операції, медичні туристи, ті, кому важко дістатися самостійно.' }
     },
     ingredients: {
       'Saline hydration base': 'Фізрозчин (основа)',
@@ -367,15 +367,15 @@ const NIUS_I18N = {
       'Post-appointment care notes': 'Записи після прийому'
     },
     shots: {
-      'B12 Shot': 'B12 шот',
+      'B12 Shot': 'Ін\'єкція B12',
       'B-Vitamin Complex': 'B-вітамінний комплекс',
-      'Vitamin D Shot': 'Вітамін D шот',
+      'Vitamin D Shot': 'Ін\'єкція вітаміну D',
       'Vitamin B1 (Thiamin)': 'Вітамін B1 (Тіамін)',
       'Glutathione': 'Глутатіон',
-      'Magnesium Shot': 'Магній шот',
+      'Magnesium Shot': 'Ін\'єкція магнію',
       'Zinc & Trace Minerals': 'Цинк та мікроелементи',
-      'Vitamin C Upgrade': 'Вітамін С апгрейд',
-      'Vitamin B6 Shot': 'Вітамін B6 шот'
+      'Vitamin C Upgrade': 'Додатковий вітамін C',
+      'Vitamin B6 Shot': 'Ін\'єкція вітаміну B6'
     }
   }
 };
@@ -985,7 +985,7 @@ class NiusMenu extends HTMLElement {
         .upsell-box[open] .upsell-head { margin-bottom: 10px; }
         .upsell-chips { display: flex; flex-wrap: wrap; gap: 6px; }
         .upsell-chip {
-          font-size: 12px; padding: 7px 11px; border-radius: 6px;
+          font-size: 12px; padding: 7px 14px; border-radius: 999px;
           background: var(--white); border: 0.5px solid rgba(42,44,46,0.08);
           color: var(--ink); cursor: pointer;
           transition: border-color 0.15s, box-shadow 0.15s;
@@ -1018,7 +1018,7 @@ class NiusMenu extends HTMLElement {
 
         .drip-cta-info { font-size: 11px; color: var(--ink3); }
         .btn-cart {
-          padding: 12px 16px; min-height: 48px; border-radius: 6px;
+          padding: 12px 18px; min-height: 48px; border-radius: 999px;
           font-family: var(--sans); font-size: 13px; font-weight: 500; line-height: 1.4;
           cursor: pointer; background: var(--gold); color: var(--white); border: 1px solid transparent;
           text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s;
@@ -1085,7 +1085,7 @@ class NiusMenu extends HTMLElement {
         .pkg-card.featured .pkg-perks li::before { color: var(--white); }
         .pkg-cta {
           background: var(--gold); color: var(--white);
-          padding: 13px 22px; border-radius: 4px; border: none; cursor: pointer;
+          padding: 13px 22px; border-radius: 999px; border: none; cursor: pointer;
           font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
           text-align: center; text-decoration: none;
           transition: background 0.2s; display: block;
@@ -1189,7 +1189,7 @@ class NiusMenu extends HTMLElement {
         .sub-plan-desc strong { color: var(--white); font-weight: 500; }
         .sub-plan-cta {
           background: #fcddc0; color: #153f4d;
-          padding: 11px 18px; border-radius: 4px; border: none; cursor: pointer;
+          padding: 11px 18px; border-radius: 999px; border: none; cursor: pointer;
           font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
           text-decoration: none; text-align: center; display: block;
           transition: background 0.2s;
@@ -1203,7 +1203,7 @@ class NiusMenu extends HTMLElement {
           .drip-list { grid-template-columns: 1fr; gap: 8px; }
           .cat-tabs {
             flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
-            position: sticky; top: 64px; z-index: 5;
+            position: sticky; top: 76px; z-index: 5;
             margin: 0 -24px 16px; padding: 10px 24px; background: var(--fog);
           }
           .cat-tabs::-webkit-scrollbar { display: none; }

@@ -6,7 +6,7 @@ const MENU_HEADINGS: Record<string, string> = {
   cs: 'Menu IV kapaček: návštěva sestry po Praze',
   en: 'IV Drip Menu: Prague Home Visits',
   ru: 'Меню капельниц: визиты медсестры по Праге',
-  uk: 'Меню крапельниць: візити медсестри по Празі',
+  uk: 'Меню крапельниць: візити медсестри у Празі',
 };
 
 export const MenuSection = () => {

@@ -875,7 +875,7 @@
         },
         "step2": {
           "title": "Rezervuje si termín",
-          "description": "Vybere si preferovaný datum, čas a místo kdekoliv v Praze."
+          "description": "Vybere si preferované datum, čas a místo kdekoliv v Praze."
         },
         "step3": {
           "title": "Přijede sestra",
@@ -955,7 +955,7 @@
         },
         "q2": {
           "question": "Jak funguje dárkový voucher?",
-          "answer": "Po objednávce vám zašleme digitální dárkový voucher s unikátním kódem. Předáte ho obdarované. Ona nás kontaktuje a rezervuje si preferovaný datum, čas a místo v Praze."
+          "answer": "Po objednávce vám zašleme digitální dárkový voucher s unikátním kódem. Předáte ho obdarované. Ona nás kontaktuje a rezervuje si preferované datum, čas a místo v Praze."
         },
         "q3": {
           "question": "Mohu rezervovat přímo na 8. března?",
@@ -963,7 +963,7 @@
         },
         "q4": {
           "question": "Kdo infuzi podává?",
-          "answer": "Všechny procedury provádějí registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každým sezením provádíme krátké zdravotní posouzení. Jde o wellness návštěva po posouzení sestrou a na základě rozhodnutí lékaře."
+          "answer": "Všechny procedury provádějí registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každým sezením provádíme krátké zdravotní posouzení. Jde o wellness návštěvu po posouzení sestrou a na základě rozhodnutí lékaře."
         },
         "q5": {
           "question": "Co když nikdy neměla IV infuzi?",
@@ -1163,7 +1163,7 @@
         },
         "q4": {
           "question": "Kdo kapačku podává?",
-          "answer": "Všechny procedury provádějí registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každou procedurou provádíme krátké zdravotní posouzení. Jde o wellness návštěva po posouzení sestrou a na základě rozhodnutí lékaře."
+          "answer": "Všechny procedury provádějí registrované sestry za použití sterilního jednorázového zdravotnického materiálu. Před každou procedurou provádíme krátké zdravotní posouzení. Jde o wellness návštěvu po posouzení sestrou a na základě rozhodnutí lékaře."
         },
         "q5": {
           "question": "Co když nikdy neměla IV kapačku?",
@@ -2004,12 +2004,23 @@
     "catalogRetry": "Zkusit znovu"
   },
   "heroNew": {
-    "headline": "Registrovaná sestra u vašich dveří ještě dnes.",
-    "eyebrow": "K dispozici nyní v Praze",
-    "subheadline": "Registrované sestry s nemocniční praxí přijedou s IV kapačkami, podporou IVF a pooperační péčí k vám do hotelu, bytu Airbnb nebo domů kdekoli v Praze.",
+    "headline": "Zdravotní sestra u vás ještě dnes.",
+    "eyebrow": "Praha · denně 8:00–21:00",
+    "subheadline": "Sestra s nemocniční praxí přijede domů, do hotelu nebo Airbnb kdekoli v Praze: kapačky, injekce IVF, péče po operaci.",
     "ctaPrimary": "Vybrat službu",
     "ctaSecondary": "Napsat na WhatsApp",
-    "trustHours": "Denně 8:00–21:00"
+    "statsVisits": "návštěv",
+    "statsGoogle": "na Google",
+    "statsHours": "denně",
+    "statsSameDay": "Stejný den",
+    "statsSameDayLabel": "návštěva",
+    "headlineAccent": "ještě dnes.",
+    "captions": {
+      "hotel": "V hotelu",
+      "home": "Doma",
+      "visit": "Sestra přijede k vám",
+      "bring": "Vše přivezeme s sebou"
+    }
   },
   "trustStrip": {
     "nurses": "Pouze registrované sestry",
@@ -2041,7 +2052,7 @@
           "Večerní IVF návštěvy",
           "Léky předepsané vaší klinikou",
           "Podle písemných pokynů kliniky",
-          "Zaučení sestrou"
+          "Sestra vás zaučí aplikovat injekce"
         ]
       },
       "hotel": {
@@ -2069,7 +2080,7 @@
   "howItWorks": {
     "eyebrow": "Jednoduchý proces",
     "titleBase": "Čtyři kroky,",
-    "titleItalic": "hotovo.",
+    "titleItalic": "a je to.",
     "steps": [
       {
         "title": "Vyberte službu",
@@ -2136,7 +2147,7 @@
     "responseDesc": "Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání."
   },
   "finalCta": {
-    "eyebrow": "Připraveni, kdy potřebujete",
+    "eyebrow": "Domluvte si návštěvu",
     "titleBase": "Objednejte dnes.",
     "titleItalic": "Přijedeme k vám.",
     "sub": "Žádná klinika. Žádná čekárna. Návštěva ve stejný den, denně 8:00–21:00. Čas příjezdu potvrdíme po objednání.",

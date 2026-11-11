@@ -2004,12 +2004,23 @@
     "catalogRetry": "Try again"
   },
   "heroNew": {
-    "headline": "Registered nurse at your door, same day.",
+    "headline": "A nurse at your door, same day.",
     "eyebrow": "Available now in Prague",
     "subheadline": "Registered nurses with hospital experience delivering IV therapy, IVF injection support, and post-surgery care to your hotel, Airbnb, or home anywhere in Prague.",
     "ctaPrimary": "Choose a service",
     "ctaSecondary": "Ask on WhatsApp",
-    "trustHours": "Daily 8:00–21:00"
+    "statsVisits": "visits",
+    "statsGoogle": "on Google",
+    "statsHours": "daily",
+    "statsSameDay": "Same-day",
+    "statsSameDayLabel": "arrival",
+    "headlineAccent": "same day.",
+    "captions": {
+      "hotel": "In your hotel",
+      "home": "At home",
+      "visit": "The nurse comes to you",
+      "bring": "We bring everything"
+    }
   },
   "trustStrip": {
     "nurses": "Registered nurses only",
