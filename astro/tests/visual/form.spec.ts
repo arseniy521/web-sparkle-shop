@@ -311,7 +311,12 @@ async function close(pages: Pages | undefined) {
 
 // The registry row order-form: a viewport passes only when all its tests ran and passed.
 const STATUS_DIR = join(OUT, 'status');
-const TESTS_PER_VIEWPORT = STATES.length * 3 + 3;
+// Filled while the tests are declared: every test of a viewport is declared through viewportTest.
+const testsPerViewport = new Map<string, number>();
+function viewportTest(vp: string, title: string, body: (fixtures: { browser: Browser }) => Promise<void>) {
+  testsPerViewport.set(vp, (testsPerViewport.get(vp) ?? 0) + 1);
+  test(title, body);
+}
 const checkOf = (vp: string) => (vp === '390x844' ? 'visual-phone' : 'visual-desktop');
 
 test.beforeAll(() => {
@@ -331,7 +336,7 @@ test.afterEach(({}, testInfo) => {
   writeFileSync(join(dir, `${testInfo.titlePath.join(' ').replace(/[^\w-]+/g, '_')}.txt`), passed ? 'passed' : 'failed');
   const statuses = readdirSync(dir).map((file) => readFileSync(join(dir, file), 'utf8'));
   const failed = statuses.filter((status) => status !== 'passed').length;
-  const missing = TESTS_PER_VIEWPORT - statuses.length;
+  const missing = (testsPerViewport.get(vp) ?? 0) - statuses.length;
   if (failed === 0 && missing === 0) recordCheck(checkOf(vp), 'order-form', 'pass');
   else recordCheck(checkOf(vp), 'order-form', 'fail', `${failed} failed, ${missing} not completed`);
 });
@@ -352,7 +357,7 @@ for (const viewport of VIEWPORTS) {
 
       test.afterAll(async () => close(pages));
 
-      test('text', async () => {
+      viewportTest(vp, 'text', async () => {
         const [o, n] = await Promise.all([
           pages.old.locator('[role="dialog"]:visible').innerText(),
           pages.new.locator('[role="dialog"]:visible').innerText(),
@@ -362,7 +367,7 @@ for (const viewport of VIEWPORTS) {
         expect(diffs).toEqual([]);
       });
 
-      test('styles', async () => {
+      viewportTest(vp, 'styles', async () => {
         const [o, n] = await Promise.all([
           readStyles(pages.old.locator('[role="dialog"]:visible'), STYLE_PROPS),
           readStyles(pages.new.locator('[role="dialog"]:visible'), STYLE_PROPS),
@@ -372,7 +377,7 @@ for (const viewport of VIEWPORTS) {
         expect(diffs).toEqual([]);
       });
 
-      test('pixels', async () => {
+      viewportTest(vp, 'pixels', async () => {
         const [o, n] = await Promise.all([
           pages.old.locator('[role="dialog"]:visible').screenshot({ animations: 'disabled' }),
           pages.new.locator('[role="dialog"]:visible').screenshot({ animations: 'disabled' }),
@@ -388,7 +393,7 @@ for (const viewport of VIEWPORTS) {
     let pages: Pages | undefined;
     test.afterEach(async () => close(pages));
 
-    test('a failed order shows an error toast and keeps the data', async ({ browser }) => {
+    viewportTest(vp, 'a failed order shows an error toast and keeps the data', async ({ browser }) => {
       test.setTimeout(120_000);
       pages = await open(browser, viewport);
       for (const page of Object.values(pages)) {
@@ -426,7 +431,7 @@ for (const viewport of VIEWPORTS) {
       expect(diffs).toEqual([]);
     });
 
-    test('a successful order shows the final screen', async ({ browser }) => {
+    viewportTest(vp, 'a successful order shows the final screen', async ({ browser }) => {
       test.setTimeout(120_000);
       pages = await open(browser, viewport);
       await reach(pages, 'final');
@@ -435,7 +440,7 @@ for (const viewport of VIEWPORTS) {
       }
     });
 
-    test('a keyboard-focused button has the same focus ring', async ({ browser }) => {
+    viewportTest(vp, 'a keyboard-focused button has the same focus ring', async ({ browser }) => {
       test.setTimeout(120_000);
       pages = await open(browser, viewport);
       await reach(pages, 'address');
