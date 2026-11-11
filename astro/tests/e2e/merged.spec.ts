@@ -8,6 +8,7 @@ import { captureGa } from '../fixtures/google.ts';
 import { expect, serveSiteAt, test } from '../fixtures/network-guard.ts';
 import { MERGED_ORIGIN } from '../fixtures/servers.ts';
 import { PILOT } from '../fixtures/pilot.ts';
+import wave1 from '../../checks/wave1-paths.json' with { type: 'json' };
 import { OLD_DIST } from './merged-global-setup.ts';
 
 // The merged release (old site + the nine wave-1 pages of the new one) under its real address,
@@ -55,6 +56,7 @@ const oldCartButton = (page: Page) => page.locator(`header[role="banner"] button
 const newBanner = (page: Page) => page.locator('[data-cookie-banner]');
 const newCounter = (page: Page) => page.locator('[data-open-cart="header"] [data-cart-count]');
 const orderForm = (page: Page) => page.getByRole('dialog', { name: cs.onboarding.dialogTitle });
+// The new header's cart button: the new site's markup has it, the old app's never does.
 const isNewPage = (page: Page) => page.locator('[data-open-cart="header"]');
 
 async function rejectedBefore(page: Page) {
@@ -168,39 +170,60 @@ for (const choice of ['Accept', 'Reject'] as const) {
   });
 }
 
-test('Header navigation between a new page and an old page', async ({ page }, testInfo) => {
-  await rejectedBefore(page);
-  await openMergedSite(page);
-  await page.goto(NEW_PAGE);
+// A mark in the window: it survives the old app's own route changes and is gone after a page load.
+const markDocument = (page: Page) => page.evaluate(() => ((window as unknown as Record<string, unknown>).samePage = true));
+const sameDocument = (page: Page) => page.evaluate(() => (window as unknown as Record<string, unknown>).samePage === true);
 
-  // The new header's logo leads to the old home page.
-  const authStatus = page.waitForRequest((request) => request.url().startsWith('https://app.nius.cz/api/'));
-  await page.locator('header a[href="/"]').filter({ visible: true }).first().click();
-  await authStatus;
-  await expect(page).toHaveURL(OLD_HOME);
-  await expect(isNewPage(page)).toHaveCount(0);
-  await expect(oldCartButton(page)).toBeVisible();
+test(
+  'Seam: an old page opens a wave-1 address in the old app, a full load shows the new page',
+  {
+    annotation: {
+      type: 'known seam',
+      description:
+        'A visitor who follows a link on an old page to one of the nine wave-1 addresses sees the old version of that page until a reload or a direct visit; open owner question, questions.md item 53.',
+    },
+  },
+  async ({ page }) => {
+    await rejectedBefore(page);
+    await openMergedSite(page);
 
-  // And back: the browser's back button returns to the new page.
-  await page.goBack();
-  await expect(page).toHaveURL(NEW_PAGE);
-  await expect(isNewPage(page)).toHaveCount(1);
+    // From a new page, a link to an old page is a full load and shows the old page.
+    await page.goto(NEW_PAGE);
+    await expect(isNewPage(page)).toHaveCount(1);
+    await markDocument(page);
+    const authStatus = page.waitForRequest((request) => request.url().startsWith('https://app.nius.cz/api/'));
+    await page.locator('header a[href="/"]').filter({ visible: true }).first().click();
+    await authStatus;
+    await expect(page).toHaveURL(OLD_HOME);
+    expect(await sameDocument(page)).toBe(false);
+    await expect(isNewPage(page)).toHaveCount(0);
+    await expect(oldCartButton(page)).toBeVisible();
+    // And back: the browser's back button returns to the new page.
+    await page.goBack();
+    await expect(page).toHaveURL(NEW_PAGE);
+    await expect(isNewPage(page)).toHaveCount(1);
 
-  // The old header links to no wave-1 address; its footer links to /privacy/. The old app routes
-  // that click itself, so the visitor gets the right address with the old app's version of the
-  // page (design.md, risk of the pilot wave); a reload gets the new one.
-  await gotoOld(page, OLD_HOME);
-  await page.locator('footer a[href="/privacy/"]').click();
-  await expect(page).toHaveURL(`${SITE}/privacy/`);
-  await expect(page.locator('h1')).toHaveText('Privacy Policy');
-  testInfo.annotations.push({
-    type: 'old footer link to /privacy/',
-    description: (await isNewPage(page).count()) === 1 ? 'new page' : "old app's version",
-  });
-  await page.reload();
-  await expect(isNewPage(page)).toHaveCount(1);
-  await expect(page.locator('h1')).toHaveText('Privacy Policy');
-});
+    // From an old page, a link to a wave-1 address stays in the old app (no page load) and shows
+    // the old app's version of that page; a reload then shows the new one.
+    await gotoOld(page, OLD_HOME);
+    await markDocument(page);
+    await page.locator('footer a[href="/privacy/"]').click();
+    await expect(page).toHaveURL(`${SITE}/privacy/`);
+    await expect(page.locator('h1')).toHaveText('Privacy Policy');
+    expect(await sameDocument(page)).toBe(true);
+    await expect(isNewPage(page)).toHaveCount(0);
+    await expect(oldCartButton(page)).toBeVisible();
+    await page.reload();
+    await expect(isNewPage(page)).toHaveCount(1);
+    await expect(page.locator('h1')).toHaveText('Privacy Policy');
+
+    // A full load of any wave-1 address serves the new page.
+    for (const address of wave1) {
+      await page.goto(`${SITE}${address}`);
+      await expect(isNewPage(page), address).toHaveCount(1);
+    }
+  },
+);
 
 test('An unknown address answers with the old 404 page', async ({ page }) => {
   await openMergedSite(page);
