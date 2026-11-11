@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 type AuthModule = typeof import('./auth-status');
 
@@ -91,6 +91,47 @@ describe('authStatus', () => {
     await pending;
     expect(authStatus.get()).toBe('authenticated');
     expect(listener).toHaveBeenCalledTimes(1);
+  });
+
+  describe('staleness', () => {
+    beforeEach(() => {
+      vi.useFakeTimers({ toFake: ['Date'] });
+    });
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('does not ask again within 30 s and asks again after', async () => {
+      const { authStatus } = await load();
+      await authStatus.ensure();
+      vi.setSystemTime(Date.now() + 30_000);
+      await authStatus.ensure();
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      vi.setSystemTime(Date.now() + 1);
+      await authStatus.ensure();
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    });
+
+    it('asks again at once after an error', async () => {
+      fetchMock.mockResolvedValueOnce(new Response(null, { status: 500 }));
+      const { authStatus } = await load();
+      expect(await authStatus.ensure()).toBe('error');
+      expect(await authStatus.ensure()).toBe('authenticated');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    });
+
+    it('keeps the previous status while a stale status is asked again', async () => {
+      const { authStatus } = await load();
+      await authStatus.ensure();
+      let answer!: (response: Response) => void;
+      fetchMock.mockImplementation(() => new Promise<Response>((resolve) => (answer = resolve)));
+      vi.setSystemTime(Date.now() + 30_001);
+      const pending = authStatus.ensure();
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+      expect(authStatus.get()).toBe('authenticated');
+      answer(new Response(null, { status: 401 }));
+      expect(await pending).toBe('anonymous');
+    });
   });
 
   it('stops notifying after unsubscribe', async () => {

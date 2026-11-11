@@ -3,9 +3,11 @@ import { API_BASE, APP_URL } from '@/scripts/env';
 export type AuthStatus = 'loading' | 'authenticated' | 'anonymous' | 'error';
 
 const RETURN_ORIGINS = new Set(['https://www.nius.cz', 'https://nius.cz']);
+const STALE_AFTER_MS = 30_000;
 
 let current: AuthStatus = 'loading';
 let inflight: Promise<AuthStatus> | null = null;
+let settledAt = 0;
 const listeners = new Set<() => void>();
 
 async function fetchStatus(): Promise<AuthStatus> {
@@ -23,6 +25,7 @@ function request(): Promise<AuthStatus> {
   const pending: Promise<AuthStatus> = fetchStatus().then((next) => {
     if (inflight !== pending) return inflight ?? current;
     current = next;
+    settledAt = Date.now();
     inflight = null;
     for (const listener of listeners) listener();
     return next;
@@ -40,8 +43,9 @@ export const authStatus = {
   },
 
   ensure(): Promise<AuthStatus> {
-    if (current !== 'loading') return Promise.resolve(current);
-    return inflight ?? request();
+    if (inflight) return inflight;
+    const stale = current === 'loading' || current === 'error' || Date.now() - settledAt > STALE_AFTER_MS;
+    return stale ? request() : Promise.resolve(current);
   },
 
   refresh(): Promise<AuthStatus> {
@@ -50,6 +54,7 @@ export const authStatus = {
 
   set(status: Exclude<AuthStatus, 'loading'>): void {
     current = status;
+    settledAt = Date.now();
     inflight = null;
     for (const listener of listeners) listener();
   },
