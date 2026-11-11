@@ -38,12 +38,12 @@ test('Navigation between pages', async ({ page }) => {
   await page.goto(PILOT);
   await expect.poll(() => events(amplitude, '[Amplitude] Page Viewed')).toHaveLength(1);
 
-  // The only other page of the slice reachable by a link: the blog, still served by the 404 page.
-  await page.locator('footer a[href="/blog/"]').click();
-  await expect(page).toHaveURL('/blog/');
+  // The footer link "Služby" leads from the pilot page to the IV drips page, both built.
+  await page.locator('footer a[href="/iv-kapacky-praha/"]').click();
+  await expect(page).toHaveURL('/iv-kapacky-praha/');
   await page.waitForTimeout(2500);
 
-  expect(events(amplitude, '[Amplitude] Page Viewed').map((p) => p['[Amplitude] Page Path'])).toEqual([PILOT, '/blog/']);
+  expect(events(amplitude, '[Amplitude] Page Viewed').map((p) => p['[Amplitude] Page Path'])).toEqual([PILOT, '/iv-kapacky-praha/']);
 });
 
 // Known gap: metrics reported while the tab closes or navigates away are lost before the SDK
