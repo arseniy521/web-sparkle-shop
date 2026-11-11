@@ -1,7 +1,7 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { mergeDist } from '../../scripts/release/merge-dist.ts';
+import { mergeDist, referenceOnlyAddresses } from '../../scripts/release/merge-dist.ts';
 import wave1 from '../../checks/wave1-paths.json' with { type: 'json' };
 import { MERGED_PORT } from '../fixtures/servers.ts';
 import { startStaticServer } from '../fixtures/static-server.ts';
@@ -28,7 +28,13 @@ export default async function globalSetup() {
   // What finalize-dist adds to dist/ after a release build.
   fs.writeFileSync(path.join(NEW_DIST, 'CNAME'), 'www.nius.cz\n');
   fs.writeFileSync(path.join(NEW_DIST, '.nojekyll'), '');
-  mergeDist({ oldDist: OLD_DIST, newDist: NEW_DIST, paths: wave1, outDir: MERGED_DIST });
+  mergeDist({
+    oldDist: OLD_DIST,
+    newDist: NEW_DIST,
+    paths: wave1,
+    outDir: MERGED_DIST,
+    skipOld: referenceOnlyAddresses(OLD_DIST),
+  });
 
   // GitHub Pages has no fallback to index.html: an address without a file gets 404.html with
   // status 404, which is why the old SPA's unrendered routes answer 404 in production today.

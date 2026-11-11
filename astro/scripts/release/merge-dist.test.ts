@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { mergeDist } from './merge-dist.ts';
+import { mergeDist, referenceOnlyAddresses } from './merge-dist.ts';
 
 const write = (dir: string, file: string, content: string) => {
   const target = path.join(dir, file);
@@ -74,6 +74,30 @@ describe('mergeDist', () => {
     const refs = [...NEW_PAGE.matchAll(/(?:src|href)="(\/[^"]+)"/g)].map((m) => m[1]);
     expect(refs).toHaveLength(3);
     for (const ref of refs) expect(exists(outDir, ref), ref).toBe(true);
+  });
+
+  it('leaves out the old addresses it is told to skip', () => {
+    write(oldDist, 'en/iv-drip-hotel-prague/index.html', '<h1>rendered only for comparison</h1>');
+    mergeDist({ oldDist, newDist, paths, outDir, skipOld: ['/en/iv-drip-hotel-prague/'] });
+    expect(exists(outDir, 'en/iv-drip-hotel-prague')).toBe(false);
+    expect(read(outDir, 'index.html')).toBe('<h1>old home</h1>');
+  });
+
+  it('takes a skipped old address that is also listed from the new build', () => {
+    mergeDist({ oldDist, newDist, paths, outDir, skipOld: ['/ru/privacy/'] });
+    expect(read(outDir, 'ru/privacy/index.html')).toBe('<h1>new privacy</h1>');
+  });
+
+  it('reads the addresses to skip from baseline.json next to a reference folder', () => {
+    const reference = path.join(root, '.baseline', 'dist');
+    fs.mkdirSync(reference, { recursive: true });
+    expect(() => referenceOnlyAddresses(reference)).toThrow('baseline.json');
+    write(root, '.baseline/baseline.json', '{"extraRoutes": "not a list"}');
+    expect(() => referenceOnlyAddresses(reference)).toThrow('baseline.json');
+    write(root, '.baseline/baseline.json', '{"extraRoutes": ["/privacy/", "/en/iv-drip-hotel-prague/"]}');
+    expect(referenceOnlyAddresses(reference)).toEqual(['/privacy/', '/en/iv-drip-hotel-prague/']);
+    // Any other old folder is a plain build of the old site: nothing to skip.
+    expect(referenceOnlyAddresses(oldDist)).toEqual([]);
   });
 
   it('refuses an address that the new build does not have', () => {

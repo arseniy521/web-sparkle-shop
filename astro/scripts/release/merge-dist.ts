@@ -32,7 +32,34 @@ const madeByNewBuild = (file: string) =>
   file.endsWith('/index.html') ||
   ['404.html', 'CNAME', '.nojekyll'].includes(file);
 
-export function mergeDist(input: { oldDist: string; newDist: string; paths: string[]; outDir: string }): void {
+// The reference copy of the old site (.baseline/dist, from npm run baseline) is its build plus
+// pages rendered only for comparison, which production does not have (baseline.json extraRoutes).
+// Rule: an old folder whose parent is named .baseline is such a reference, and the addresses to
+// skip are read from baseline.json next to it; without a readable list the merge is refused.
+export function referenceOnlyAddresses(oldDist: string): string[] {
+  const parent = path.dirname(path.resolve(oldDist));
+  if (path.basename(parent) !== '.baseline') return [];
+  const file = path.join(parent, 'baseline.json');
+  let extraRoutes: unknown;
+  try {
+    extraRoutes = (JSON.parse(fs.readFileSync(file, 'utf8')) as { extraRoutes?: unknown }).extraRoutes;
+  } catch (error) {
+    throw new Error(`${file} cannot be read, so the pages of the reference are unknown: ${(error as Error).message}`);
+  }
+  if (!Array.isArray(extraRoutes) || !extraRoutes.every((a) => typeof a === 'string')) {
+    throw new Error(`${file} has no list of addresses in extraRoutes`);
+  }
+  return extraRoutes;
+}
+
+export function mergeDist(input: {
+  oldDist: string;
+  newDist: string;
+  paths: string[];
+  outDir: string;
+  // Old addresses not to publish: the reference copy of the old site has pages production lacks.
+  skipOld?: string[];
+}): void {
   const oldDist = path.resolve(input.oldDist);
   const newDist = path.resolve(input.newDist);
   const outDir = path.resolve(input.outDir);
@@ -42,6 +69,10 @@ export function mergeDist(input: { oldDist: string; newDist: string; paths: stri
     if (isWithin(outDir, source) || isWithin(source, outDir)) {
       throw new Error(`The output folder ${outDir} overlaps the input ${source}`);
     }
+  }
+  const skipOld = input.skipOld ?? [];
+  for (const address of skipOld) {
+    if (!SITE_PATH.test(address) || address === '/') throw new Error(`Address ${address} to skip is not a page folder like /a/b/`);
   }
   for (const address of input.paths) {
     if (!SITE_PATH.test(address)) throw new Error(`Address ${address} is not a site path like /a/b/`);
@@ -68,7 +99,8 @@ export function mergeDist(input: { oldDist: string; newDist: string; paths: stri
   // 404.html is not compared: wave 1 keeps the old one, the new one differs by design.
 
   fs.rmSync(outDir, { recursive: true, force: true });
-  fs.cpSync(oldDist, outDir, { recursive: true });
+  const skipped = skipOld.map((address) => path.join(oldDist, address));
+  fs.cpSync(oldDist, outDir, { recursive: true, filter: (source) => !skipped.includes(path.join(source, path.sep)) });
   for (const address of input.paths) {
     const target = path.join(outDir, address, 'index.html');
     fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -100,7 +132,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     process.exit(2);
   }
   try {
-    mergeDist({ oldDist: options.old, newDist: options.new, paths, outDir: options.out });
+    mergeDist({ oldDist: options.old, newDist: options.new, paths, outDir: options.out, skipOld: referenceOnlyAddresses(options.old) });
   } catch (error) {
     console.error(`merge-dist: ${(error as Error).message}`);
     process.exit(1);
