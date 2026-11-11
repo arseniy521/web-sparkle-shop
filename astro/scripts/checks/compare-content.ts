@@ -6,7 +6,7 @@ import { NOT_FOUND_PATH } from '../../src/routes/manifest.ts';
 import { SITE_ORIGIN, absoluteUrl, allPageEntries, canonicalPath, hreflangFor } from '../../src/routes/urls.ts';
 import { extractFacts, listPages, sitePathOf, siteSuffixOf } from './lib/html.ts';
 import type { PageFacts } from './lib/html.ts';
-import { record } from './registry.ts';
+import { clear, record } from './registry.ts';
 import type { Finding } from './seo-rules.ts';
 
 // The new site renders its closed header menus into the static HTML; the old site creates them only
@@ -227,6 +227,8 @@ function main() {
   }
 
   if (paths.length === 0) usageError('no page to compare');
+  // A complete run replaces the whole column; a run with --only overwrites its own row.
+  if (options.only === undefined) clear('content');
 
   let failed = false;
   for (const p of paths) {

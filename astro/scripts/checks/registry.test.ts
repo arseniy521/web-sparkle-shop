@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { record, renderReport } from './registry.ts';
+import { clear, record, renderReport } from './registry.ts';
 
 let dir: string;
 
@@ -39,6 +39,37 @@ describe('record', () => {
     record('seo', '/a/', 'fail', 'old');
     record('seo', '/a/', 'pass');
     expect(readRegistry().pages['/a/'].seo).toEqual({ status: 'pass' });
+  });
+});
+
+describe('clear', () => {
+  it('removes the column of one check from every row and keeps the other checks', () => {
+    record('seo', '/a/', 'pass');
+    record('content', '/a/', 'fail', 'text-missing');
+    record('content', '/b/', 'pass');
+    clear('content');
+    expect(readRegistry().pages).toEqual({ '/a/': { seo: { status: 'pass' } } });
+  });
+
+  it('clears several columns at once', () => {
+    record('visual-phone', '/a/', 'pass');
+    record('visual-desktop', '/a/', 'fail', 'x');
+    record('seo', '/a/', 'pass');
+    clear('visual-phone', 'visual-desktop');
+    expect(readRegistry().pages).toEqual({ '/a/': { seo: { status: 'pass' } } });
+  });
+
+  it('leaves no stale result once a full run has written its own', () => {
+    record('content', '/a/', 'pass');
+    record('content', '/gone/', 'pass');
+    clear('content');
+    record('content', '/a/', 'fail', 'text-missing');
+    expect(readRegistry().pages).toEqual({ '/a/': { content: { status: 'fail', detail: 'text-missing' } } });
+  });
+
+  it('does nothing when there is no registry yet', () => {
+    clear('seo');
+    expect(fs.existsSync(path.join(dir, 'registry.json'))).toBe(false);
   });
 });
 

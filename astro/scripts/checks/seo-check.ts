@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import { NOT_FOUND_PATH, redirects } from '../../src/routes/manifest.ts';
 import { allPageEntries } from '../../src/routes/urls.ts';
 import { listPages } from './lib/html.ts';
-import { record } from './registry.ts';
+import { clear, record } from './registry.ts';
 import { checkDist } from './seo-rules.ts';
 import type { KnownDefect } from './seo-rules.ts';
 
@@ -75,6 +75,8 @@ for (const f of findings) console.log(`${f.rule} ${f.path} ${f.detail}${f.known 
 const failing = findings.filter((f) => !f.known);
 
 const recorded = new Set([...built, ...findings.map((f) => f.path).filter((p) => knownPaths.has(p))]);
+// Every run is complete: it records every built page, so no seo result of an earlier run stays.
+clear('seo');
 for (const p of recorded) {
   const rulesOf = (list: typeof findings) => [...new Set(list.filter((f) => f.path === p).map((f) => f.rule))];
   const failed = rulesOf(failing);

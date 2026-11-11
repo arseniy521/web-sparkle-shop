@@ -27,13 +27,31 @@ function readRegistry(): Registry {
   return JSON.parse(fs.readFileSync(file, 'utf8')) as Registry;
 }
 
+function writeRegistry(registry: Registry): void {
+  registry.generatedAt = new Date().toISOString();
+  fs.mkdirSync(path.dirname(registryFile()), { recursive: true });
+  fs.writeFileSync(registryFile(), `${JSON.stringify(registry, null, 2)}\n`);
+}
+
 export function record(check: CheckId, pagePath: string, status: Status, detail?: string): void {
   const registry = readRegistry();
   const page = (registry.pages[pagePath] ??= {});
   page[check] = detail === undefined ? { status } : { status, detail };
-  registry.generatedAt = new Date().toISOString();
-  fs.mkdirSync(path.dirname(registryFile()), { recursive: true });
-  fs.writeFileSync(registryFile(), `${JSON.stringify(registry, null, 2)}\n`);
+  writeRegistry(registry);
+}
+
+/**
+ * Removes the results of the given checks from every row (a row left empty goes too). A complete
+ * run of a check calls it before it records, so no row keeps a result of an earlier run.
+ */
+export function clear(...checks: CheckId[]): void {
+  if (!fs.existsSync(registryFile())) return;
+  const registry = readRegistry();
+  for (const [pagePath, page] of Object.entries(registry.pages)) {
+    for (const check of checks) delete page[check];
+    if (Object.keys(page).length === 0) delete registry.pages[pagePath];
+  }
+  writeRegistry(registry);
 }
 
 export function renderReport(): string {

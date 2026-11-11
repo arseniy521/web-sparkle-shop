@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import { spawnSync } from 'node:child_process';
-import { record } from './registry.ts';
+import { clear, record } from './registry.ts';
 import type { Status } from './registry.ts';
 
 export interface AssertionResult {
@@ -44,6 +44,8 @@ if (import.meta.main) {
 
   const file = '.lighthouseci/assertion-results.json';
   const results: AssertionResult[] = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : [];
+  // A page that left the control set must not keep its earlier result.
+  clear('lighthouse');
   for (const [page, { status: result, detail }] of Object.entries(mapResults(pages, results, exitCode))) {
     record('lighthouse', page, result, detail);
   }
