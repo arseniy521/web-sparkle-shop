@@ -1,13 +1,14 @@
 name: Check the Astro site
 
-# The new site builds from the old site's texts and public files, so their changes run the checks too.
+# The new site builds from the old site's texts, blog data and public files, and checks translation keys
+# with the old site's script, so their changes run the checks too.
 on:
   push:
     branches: [main, astro, 'astro/**']
-    paths: ['astro/**', 'src/i18n/locales/**', 'public/**', '.github/workflows/astro-checks.yml']
+    paths: ['astro/**', 'src/i18n/locales/**', 'src/data/blogPosts.ts', 'public/**', 'scripts/check-i18n-keys.mjs', '.github/workflows/astro-checks.yml']
   pull_request:
     branches: [astro, main]
-    paths: ['astro/**', 'src/i18n/locales/**', 'public/**', '.github/workflows/astro-checks.yml']
+    paths: ['astro/**', 'src/i18n/locales/**', 'src/data/blogPosts.ts', 'public/**', 'scripts/check-i18n-keys.mjs', '.github/workflows/astro-checks.yml']
   # The publish workflow runs these checks before it builds the release.
   workflow_call:
     secrets:
