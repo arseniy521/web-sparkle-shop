@@ -139,6 +139,26 @@ describe('mergeDist', () => {
     expect(() => mergeDist({ oldDist, newDist, paths, outDir })).not.toThrow();
   });
 
+  it('leaves an existing output folder as it was when it refuses a merge', () => {
+    write(outDir, 'stale.txt', 'from an earlier merge');
+    const refusals: [string, () => void][] = [
+      ['.nojekyll', () => fs.rmSync(path.join(newDist, '.nojekyll'))],
+      [
+        '_astro',
+        () => {
+          write(newDist, '.nojekyll', '');
+          fs.rmSync(path.join(newDist, '_astro'), { recursive: true });
+        },
+      ],
+    ];
+    for (const [missing, remove] of refusals) {
+      remove();
+      expect(() => mergeDist({ oldDist, newDist, paths, outDir }), missing).toThrow(missing);
+      expect(fs.readdirSync(outDir), missing).toEqual(['stale.txt']);
+      expect(read(outDir, 'stale.txt')).toBe('from an earlier merge');
+    }
+  });
+
   it('refuses an output folder that is an input, lies inside one or contains one', () => {
     for (const bad of [oldDist, newDist, path.join(oldDist, 'out'), path.join(newDist, 'nested', 'out'), root]) {
       expect(() => mergeDist({ oldDist, newDist, paths, outDir: bad }), bad).toThrow(/output folder/);

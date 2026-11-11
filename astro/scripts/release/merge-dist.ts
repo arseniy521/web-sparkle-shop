@@ -80,6 +80,10 @@ export function mergeDist(input: {
       throw new Error(`Address ${address} is missing in the new build ${newDist}`);
     }
   }
+  // Everything is checked before outDir is touched: a refused merge leaves it as it was.
+  for (const made of ['_astro', '.nojekyll']) {
+    if (!fs.existsSync(path.join(newDist, made))) throw new Error(`The new build ${newDist} has no ${made}`);
+  }
   if (fs.existsSync(path.join(oldDist, '_astro'))) {
     throw new Error(`The old build ${oldDist} contains _astro/, the folder of the new build`);
   }
