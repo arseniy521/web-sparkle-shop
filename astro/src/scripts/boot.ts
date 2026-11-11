@@ -1,5 +1,6 @@
 import { initAnalyticsIfConsented } from '@/scripts/analytics';
 import { initCookieBanner } from '@/scripts/cookie-banner';
+import { initDripFilter } from '@/scripts/drip-filter';
 import { getConsent } from '@/scripts/consent';
 import { installGlobalErrorHandlers } from '@/scripts/client-error';
 import { loadGa } from '@/scripts/ga';
@@ -24,3 +25,4 @@ installCartBridge();
 initHeaderState();
 void authStatus.ensure();
 initFormBridge();
+initDripFilter();
