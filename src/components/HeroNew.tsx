@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { trackCtaClick } from "@/lib/analytics";
-import { GOOGLE_RATING } from "@/constants/reviews";
 
 export const HeroNew = () => {
   const { t } = useTranslation();
@@ -78,7 +77,6 @@ export const HeroNew = () => {
           className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8 md:mt-12 pt-6 text-sm font-body font-medium"
           style={{ borderTop: '0.5px solid var(--color-border)', color: 'var(--color-text-secondary)' }}
         >
-          <li>{t('heroNew.trustReviews').replace('{{rating}}', GOOGLE_RATING.ratingValue).replace('{{count}}', GOOGLE_RATING.reviewCount)}</li>
           <li>{t('heroNew.trustHours')}</li>
         </ul>
       </div>

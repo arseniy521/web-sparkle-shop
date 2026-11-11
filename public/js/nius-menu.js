@@ -863,7 +863,8 @@ class NiusMenu extends HTMLElement {
         .drip-heading { display: flex; align-items: flex-start; gap: 8px; }
         .drip-left { min-width: 0; }
         .drip-heading .drip-left { flex: 1; }
-        .drip-name-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+        .drip-name-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: nowrap; margin-bottom: 4px; }
+        .drip-name { min-width: 0; }
         .drip-name { font-family: var(--serif); font-size: 17px; font-weight: 600; line-height: 1.2; }
         .hero-badge {
           font-size: 8px; font-weight: 500; padding: 2px 7px; border-radius: 10px;
@@ -909,7 +910,7 @@ class NiusMenu extends HTMLElement {
         .drip-price small { font-size: 10px; color: var(--ink3); font-family: var(--sans); margin-left: 2px; }
         .drip-price-label { display: none; }
         .drip-info {
-          flex: 0 0 44px; width: 44px; height: 44px; margin: -8px -8px 0 0;
+          flex: 0 0 44px; width: 44px; height: 44px; margin: -13px 0 -13px -10px; align-self: flex-start;
           display: flex; align-items: center; justify-content: center;
           color: var(--gold); background: transparent; border: none; border-radius: 50%; cursor: pointer;
         }
@@ -1217,9 +1218,14 @@ class NiusMenu extends HTMLElement {
           }
           .admin-pill { margin-top: 6px; }
           .drip-meta {
-            flex-direction: column; align-items: flex-end; justify-content: center;
-            gap: 8px; margin-top: 0; padding-top: 0; border-top: none; flex: 0 0 auto;
+            flex-direction: column; align-items: stretch; justify-content: center;
+            gap: 8px; margin-top: 0; padding-top: 0; border-top: none; flex: 0 0 112px; width: 112px;
           }
+          .drip-price { text-align: right; }
+          .quick-cart, .btn-cart { width: 100%; }
+          .cart-stepper { width: 100%; justify-content: space-between; }
+          .cart-stepper button { width: 36px; }
+          .drip-name { font-size: 16px; }
           .modal-content { width: calc(100% - 16px); height: calc(100vh - 16px); height: calc(100dvh - 16px); max-height: none; }
           .modal-header { padding: max(16px, env(safe-area-inset-top, 0px)) 16px 12px; }
           .modal-scroll { flex: 1; padding: 0 16px 20px; }
@@ -1285,11 +1291,11 @@ class NiusMenu extends HTMLElement {
           <div class="drip-heading"><div class="drip-left">
             <div class="drip-name-row">
               <span class="drip-name">${name}</span>
+              <button type="button" class="drip-info" aria-label="${this.t.viewDetails}: ${nameAttribute}" aria-haspopup="dialog"><span aria-hidden="true">i</span></button>
             </div>
             <div class="drip-tagline">${tagline}</div>
             <span class="admin-pill">${d.admin} · ${d.duration}</span>
           </div>
-          <button type="button" class="drip-info" aria-label="${this.t.viewDetails}: ${nameAttribute}" aria-haspopup="dialog"><span aria-hidden="true">i</span></button>
           </div>
           <div class="drip-meta">
             <div class="drip-price">${d.price.toLocaleString('cs-CZ')}<small>CZK</small></div>
