@@ -17,6 +17,7 @@
     "i18n:check": "npm --prefix .. run i18n:check",
     "check:env": "node scripts/check-env.mjs",
     "preview:assemble": "node scripts/preview/assemble.mjs",
+    "release:merge": "node scripts/release/merge-dist.ts",
     "baseline": "node scripts/baseline/build.mjs",
     "check:seo": "node scripts/checks/seo-check.ts",
     "check:content": "node scripts/checks/compare-content.ts --old .baseline/dist --new dist",
