@@ -16,6 +16,7 @@
     "test": "vitest run",
     "i18n:check": "npm --prefix .. run i18n:check",
     "check:env": "node scripts/check-env.mjs",
+    "preview:assemble": "node scripts/preview/assemble.mjs",
     "baseline": "node scripts/baseline/build.mjs",
     "check:seo": "node scripts/checks/seo-check.ts",
     "check:content": "node scripts/checks/compare-content.ts --old .baseline/dist --new dist",
@@ -65,6 +66,7 @@
     "pixelmatch": "^8.0.0",
     "pngjs": "^7.0.0",
     "typescript-eslint": "^8.72.2",
-    "vitest": "^5.1.0"
+    "vitest": "^5.1.0",
+    "wrangler": "^4.160.0"
   }
 }

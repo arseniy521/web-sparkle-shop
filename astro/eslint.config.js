@@ -54,6 +54,10 @@ export default [
     languageOptions: { globals: { process: 'readonly', console: 'readonly' } },
   },
   {
+    files: ['preview/functions/**/*.js'],
+    languageOptions: { globals: { Response: 'readonly', HTMLRewriter: 'readonly' } },
+  },
+  {
     files: ['src/islands/**'],
     ...reactHooks.configs.flat.recommended,
   },
