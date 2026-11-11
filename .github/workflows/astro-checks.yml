@@ -3,11 +3,20 @@ name: Check the Astro site
 # The new site builds from the old site's texts and public files, so their changes run the checks too.
 on:
   push:
-    branches: [astro, 'astro/**']
+    branches: [main, astro, 'astro/**']
     paths: ['astro/**', 'src/i18n/locales/**', 'public/**', '.github/workflows/astro-checks.yml']
   pull_request:
     branches: [astro, main]
     paths: ['astro/**', 'src/i18n/locales/**', 'public/**', '.github/workflows/astro-checks.yml']
+  # The publish workflow runs these checks before it builds the release.
+  workflow_call:
+    secrets:
+      VITE_AMPLITUDE_API_KEY:
+        required: true
+      VITE_MAPY_API_KEY:
+        required: true
+      VITE_GOOGLE_CLIENT_ID:
+        required: true
 
 permissions:
   contents: read
