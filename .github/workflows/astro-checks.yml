@@ -1,12 +1,13 @@
 name: Check the Astro site
 
+# The new site builds from the old site's texts and public files, so their changes run the checks too.
 on:
   push:
     branches: [astro, 'astro/**']
-    paths: ['astro/**', '.github/workflows/astro-checks.yml']
+    paths: ['astro/**', 'src/i18n/locales/**', 'public/**', '.github/workflows/astro-checks.yml']
   pull_request:
     branches: [astro, main]
-    paths: ['astro/**', '.github/workflows/astro-checks.yml']
+    paths: ['astro/**', 'src/i18n/locales/**', 'public/**', '.github/workflows/astro-checks.yml']
 
 permissions:
   contents: read
