@@ -108,6 +108,9 @@ function checkRedirects(ctx: Ctx): void {
   if (ctx.built.has(NOT_FOUND_PATH)) {
     const facts = extractFacts(readPage(ctx.distDir, NOT_FOUND_PATH), NOT_FOUND_PATH);
     if (!hasNoindex(facts)) ctx.add('missing-noindex', NOT_FOUND_PATH, '404 page has no noindex');
+    if (!facts.internalLinks.includes('/')) {
+      ctx.add('notfound-content', NOT_FOUND_PATH, '404 page has no link to /');
+    }
   }
 }
 
