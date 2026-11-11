@@ -14,13 +14,15 @@ interface Page {
   canonical?: string;
   hreflang?: string;
   path?: string;
+  exclude?: string;
 }
 
-function page({ head = '', body = '', title = 'T', canonical = `<link rel="canonical" href="${URL}">`, hreflang = HREFLANG, path = PATH }: Page) {
+function page({ head = '', body = '', title = 'T', canonical = `<link rel="canonical" href="${URL}">`, hreflang = HREFLANG, path = PATH, exclude }: Page) {
   return extractFacts(
     `<html lang="cs"><head><title>${title}</title><meta name="description" content="D">
      <meta name="robots" content="index, follow">${canonical}${hreflang}${head}</head><body>${body}</body></html>`,
     path,
+    exclude,
   );
 }
 
@@ -236,4 +238,14 @@ describe('comparePage', () => {
     expect(rules(lost.missing)).toEqual(['link-missing']);
   });
 
+
+  it('does not let an identical item of an excluded container stand in for a removed one', () => {
+    const old = page({ body: '<nav><a href="/#services">Služby</a></nav><main><p>Text</p></main>' });
+    const neu = page({
+      body: '<nav></nav><div data-mobile-menu><a href="/#services">Služby</a></div><main><p>Text</p></main>',
+      exclude: '[data-mobile-menu]',
+    });
+    expect(rules(comparePage(old, neu).missing)).toEqual(expect.arrayContaining(['text-missing', 'link-missing']));
+    expect(comparePage(old, neu).added).toEqual([]);
+  });
 });

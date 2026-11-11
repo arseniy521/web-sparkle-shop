@@ -9,6 +9,12 @@ import type { PageFacts } from './lib/html.ts';
 import { record } from './registry.ts';
 import type { Finding } from './seo-rules.ts';
 
+// The new site renders its closed header menus into the static HTML; the old site creates them only
+// when opened, so they are absent from the old HTML. Their text and links are left out of the new
+// page's facts so that they cannot stand in for an item removed from the page. The open menus are
+// compared by the visual check.
+const NEW_ONLY_MARKUP = '[data-dropdown-panel], [data-mobile-menu]';
+
 type Image = PageFacts['images'][number];
 type Link = PageFacts['links'][number];
 
@@ -226,7 +232,7 @@ function main() {
     const read = (dir: string) => fs.readFileSync(file(dir), 'utf8');
     const oldFile = file(options.old);
     const { missing, added } = fs.existsSync(oldFile)
-      ? comparePage(extractFacts(read(options.old), p), extractFacts(read(options.new), p))
+      ? comparePage(extractFacts(read(options.old), p), extractFacts(read(options.new), p, NEW_ONLY_MARKUP))
       : { missing: [{ rule: 'reference-missing', path: p, detail: oldFile }], added: [] };
     for (const f of missing) console.log(`missing ${f.rule} ${f.path} ${f.detail}`);
     for (const f of added) console.log(`added ${f.rule} ${f.path} ${f.detail}`);

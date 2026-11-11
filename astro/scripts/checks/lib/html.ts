@@ -81,8 +81,10 @@ const INLINE = new Set([
   'sub', 'sup', 'mark', 'abbr', 'code', 'time', 'wbr',
 ]);
 
-export function extractFacts(html: string, pagePath: string): PageFacts {
+// `exclude` is a selector of elements removed before anything is collected.
+export function extractFacts(html: string, pagePath: string, exclude?: string): PageFacts {
   const $ = load(html);
+  if (exclude) $(exclude).remove();
 
   const og: Record<string, string[]> = {};
   $('meta[property^="og:"]').each((_, el) => {
@@ -102,6 +104,7 @@ export function extractFacts(html: string, pagePath: string): PageFacts {
 
   const textBlocks: string[] = [];
   const $text = load(html);
+  if (exclude) $text(exclude).remove();
   $text('script, style, template, noscript, nius-menu').remove();
   let run = '';
   const cut = () => {

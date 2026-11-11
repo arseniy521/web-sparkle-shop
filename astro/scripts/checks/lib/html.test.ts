@@ -8,6 +8,15 @@ import { extractFacts, listPages } from './html.ts';
 const facts = (html: string, p = '/x/') => extractFacts(html, p);
 
 describe('extractFacts', () => {
+  it('drops the elements of the exclude selector before text, links and images are collected', () => {
+    const html = '<body><p>A</p><div data-x><p>B</p><a href="/b/">B</a><img src="/b.png" alt="b"></div><a href="/a/">A</a></body>';
+    const f = extractFacts(html, '/x/', '[data-x]');
+    expect(f.textBlocks).toEqual(['A', 'A']);
+    expect(f.links).toEqual([{ href: '/a/', text: 'A' }]);
+    expect(f.images).toEqual([]);
+    expect(extractFacts(html, '/x/').links).toHaveLength(2);
+  });
+
   it('reads the language and the path', () => {
     const f = facts('<html lang="ru"><head></head><body></body></html>', '/ru/');
     expect(f.lang).toBe('ru');
