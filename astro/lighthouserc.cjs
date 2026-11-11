@@ -15,8 +15,8 @@ module.exports = {
         'categories:seo': ['error', { minScore: 1, aggregationMethod: 'median' }],
         // The old site's median for the control set; a lower score is a regression.
         'categories:accessibility': ['error', { minScore: 0.95, aggregationMethod: 'median' }],
-        // The controller fixes this threshold after measuring on an idle machine.
-        'categories:performance': ['warn', { minScore: 0.9, aggregationMethod: 'median' }],
+        // The control set measures 0.99 (the old site 0.64); below 0.9 is a regression.
+        'categories:performance': ['error', { minScore: 0.9, aggregationMethod: 'median' }],
       },
     },
     upload: { target: 'filesystem', outputDir: '.checks/lighthouse' },
