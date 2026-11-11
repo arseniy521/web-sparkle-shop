@@ -3,8 +3,7 @@ import { UserRound } from 'lucide-react';
 import { Button } from './ui/button';
 import { useAuthStatus } from './hooks/useAuthStatus';
 import { track } from '@/scripts/analytics';
-
-const appUrl = (import.meta.env.VITE_APP_URL as string | undefined)?.trim() || 'https://app.nius.cz';
+import { APP_URL } from '@/scripts/env';
 
 const hasReturningCookie = (): boolean =>
   document.cookie.split('; ').some((row) => row.startsWith('nius_returning='));
@@ -17,7 +16,7 @@ export const ReturningCustomerHint = () => {
   if (!returning) return null;
 
   const authenticated = authStatus === 'authenticated';
-  const href = authenticated ? `${appUrl.replace(/\/$/, '')}/cabinet` : `${appUrl.replace(/\/$/, '')}/login`;
+  const href = authenticated ? `${APP_URL}/cabinet` : `${APP_URL}/login`;
 
   const handleClick = () => {
     track('returning_cabinet_hint_clicked', { authenticated });

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { getReferralCode } from '@/scripts/referral';
+import { API_BASE } from '@/scripts/env';
 
 const MAX_ERROR_MESSAGE_LEN = 200;
 
@@ -114,8 +115,6 @@ export class OnboardingApiError extends Error {
   }
 }
 
-const envUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
-const BASE_URL = envUrl || (import.meta.env.DEV ? '/api' : 'https://app.nius.cz/api');
 
 function clampErrorMessage(raw: string): string {
   const t = raw.trim();
@@ -156,7 +155,7 @@ async function request<T>(
   };
 
   try {
-    response = await fetch(`${BASE_URL}${path}`, {
+    response = await fetch(`${API_BASE}${path}`, {
       ...init,
       credentials: init?.credentials ?? 'include',
       headers,
@@ -217,7 +216,7 @@ export async function contactMe(id: string, orderAccessToken: string): Promise<{
 
   let response: Response;
   try {
-    response = await fetch(`${BASE_URL}${path}`, {
+    response = await fetch(`${API_BASE}${path}`, {
       method: 'POST',
       credentials: 'include',
       headers,
@@ -268,7 +267,7 @@ async function requestOrder(path: string, init?: RequestInit): Promise<Onboardin
   };
 
   try {
-    response = await fetch(`${BASE_URL}${path}`, {
+    response = await fetch(`${API_BASE}${path}`, {
       ...init,
       credentials: init?.credentials ?? 'include',
       headers,

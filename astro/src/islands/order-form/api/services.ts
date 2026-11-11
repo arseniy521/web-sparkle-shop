@@ -1,8 +1,7 @@
 import { z } from 'zod';
 import { mapDtoToCartService, type CartService } from '@/scripts/cart-catalog';
+import { API_BASE } from '@/scripts/env';
 
-const envUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
-const BASE_URL = envUrl || (import.meta.env.DEV ? '/api' : 'https://app.nius.cz/api');
 
 /** Public catalog of active services (backend: isActive + isPublic only). */
 export const publicServiceSchema = z.object({
@@ -30,7 +29,7 @@ function parseWithSchema<T>(schema: z.ZodType<T>, data: unknown, status: number)
 export async function fetchServices(): Promise<PublicServiceDto[]> {
   let response: Response;
   try {
-    response = await fetch(`${BASE_URL}/services`);
+    response = await fetch(`${API_BASE}/services`);
   } catch {
     throw new Error('network_services');
   }

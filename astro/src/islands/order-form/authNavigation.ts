@@ -1,10 +1,7 @@
-import { APP_NIUS_URL } from '@old/constants/siteContacts';
-
-const appUrl =
-  (import.meta.env.VITE_APP_URL as string | undefined)?.trim() || APP_NIUS_URL;
+import { APP_URL } from '@/scripts/env';
 
 function appOrigin(): string {
-  return appUrl.replace(/\/$/, '');
+  return APP_URL;
 }
 
 export function cabinetHref(): string {

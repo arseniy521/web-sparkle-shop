@@ -1,15 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
+import { API_BASE } from '@/scripts/env';
 
 export type AuthStatus = 'loading' | 'authenticated' | 'anonymous' | 'error';
 type ResolvedAuthStatus = Exclude<AuthStatus, 'loading'>;
 
-const rawEnvUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
-const BASE_URL = (rawEnvUrl || (import.meta.env.DEV ? '/api' : 'https://app.nius.cz/api')).replace(/\/+$/, '');
 
 export const AUTH_STATUS_QUERY_KEY = ['auth-status'] as const;
 
 export async function fetchAuthStatus(): Promise<Exclude<ResolvedAuthStatus, 'error'>> {
-  const response = await fetch(`${BASE_URL}/auth/me/public`, {
+  const response = await fetch(`${API_BASE}/auth/me/public`, {
     credentials: 'include',
   });
   if (response.ok) return 'authenticated';
