@@ -30,10 +30,13 @@ export function initHeaderMenu(doc: Document = document): void {
     });
   };
 
-  win.addEventListener('scroll', () => {
+  const syncScrolled = () => {
     const header = doc.querySelector<HTMLElement>('header[role="banner"]');
     if (header) header.dataset.scrolled = String(win.scrollY > SCROLL_THRESHOLD);
-  });
+  };
+
+  syncScrolled();
+  win.addEventListener('scroll', syncScrolled);
 
   doc.addEventListener('click', (event) => {
     const target = event.target;

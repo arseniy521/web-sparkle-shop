@@ -109,4 +109,11 @@ describe('header menu', () => {
     expect(html('menu').hidden).toBe(true);
     expect(toggle.getAttribute('aria-expanded')).toBe('false');
   });
+
+  // Keep last: a second init adds a second set of document listeners.
+  it('applies the scrolled state on init', () => {
+    Object.defineProperty(window, 'scrollY', { value: 61, configurable: true });
+    initHeaderMenu(document);
+    expect((document.querySelector('header') as HTMLElement).dataset.scrolled).toBe('true');
+  });
 });
