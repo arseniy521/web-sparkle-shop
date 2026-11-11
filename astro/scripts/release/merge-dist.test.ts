@@ -76,6 +76,12 @@ describe('mergeDist', () => {
     for (const ref of refs) expect(exists(outDir, ref), ref).toBe(true);
   });
 
+  it('creates a listed page that only the new build has', () => {
+    fs.rmSync(path.join(oldDist, 'ru'), { recursive: true });
+    mergeDist({ oldDist, newDist, paths, outDir });
+    expect(read(outDir, 'ru/privacy/index.html')).toBe('<h1>new privacy</h1>');
+  });
+
   it('leaves out the old addresses it is told to skip', () => {
     write(oldDist, 'en/iv-drip-hotel-prague/index.html', '<h1>rendered only for comparison</h1>');
     mergeDist({ oldDist, newDist, paths, outDir, skipOld: ['/en/iv-drip-hotel-prague/'] });
