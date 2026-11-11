@@ -1,24 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// The old site is served from the reference build (.baseline/dist, npm run baseline) on 8081,
+// the new site from a separate test build (.checks/dist-test) on 8080; see tests/visual/global-setup.ts.
 export default defineConfig({
-  testDir: 'tests',
   testMatch: '**/*.spec.ts',
-  use: { baseURL: 'http://localhost:8080' },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
-  webServer: [
-    {
-      command: 'npm --prefix .. ci && npm --prefix .. run dev -- --port 8081',
-      env: { PUPPETEER_SKIP_DOWNLOAD: 'true' },
-      url: 'http://localhost:8081/',
-      reuseExistingServer: true,
-      timeout: 600_000,
-    },
-    {
-      command: 'npm run build && npm run preview -- --port 8080',
-      env: { VITE_API_URL: '/api' },
-      url: 'http://localhost:8080/prototype/',
-      reuseExistingServer: true,
-      timeout: 600_000,
-    },
-  ],
+  globalSetup: './tests/visual/global-setup.ts',
+  projects: [{ name: 'visual', testDir: 'tests/visual', use: { ...devices['Desktop Chrome'] } }],
 });
