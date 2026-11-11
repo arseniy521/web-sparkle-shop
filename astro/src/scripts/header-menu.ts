@@ -55,7 +55,7 @@ export function initHeaderMenu(doc: Document = document): void {
       setMenu(Boolean(menu?.hidden));
       return;
     }
-    if (target.closest('[data-mobile-menu] a[href]')) setMenu(false);
+    if (target.closest('[data-mobile-menu] a, [data-mobile-menu] [data-open-cart], [data-mobile-menu] [data-account-link]')) setMenu(false);
   });
 
   doc.addEventListener('keydown', (event) => {

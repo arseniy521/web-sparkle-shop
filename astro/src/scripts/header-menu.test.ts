@@ -21,7 +21,7 @@ describe('header menu', () => {
         </button>
         ${dropdown('a')}
         ${dropdown('b')}
-        <div id="menu" data-mobile-menu hidden><a id="link" href="/#menu">Menu</a></div>
+        <div id="menu" data-mobile-menu hidden><a id="link" href="/#menu">Menu</a><button type="button" id="cart" data-open-cart="mobile_menu"></button><a id="account" data-account-link="mobile_menu" aria-disabled="true"></a></div>
       </header>`;
   });
 
@@ -100,5 +100,13 @@ describe('header menu', () => {
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
     expect(html('panel-a').hidden).toBe(true);
     expect(document.activeElement).toBe(trigger);
+  });
+
+  it.each(['cart', 'account'])('closes the mobile menu after the %s control is clicked', (id) => {
+    const toggle = html('toggle');
+    toggle.click();
+    html(id).click();
+    expect(html('menu').hidden).toBe(true);
+    expect(toggle.getAttribute('aria-expanded')).toBe('false');
   });
 });
