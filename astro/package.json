@@ -19,6 +19,7 @@
     "baseline": "node scripts/baseline/build.mjs",
     "check:seo": "node scripts/checks/seo-check.ts",
     "check:content": "node scripts/checks/compare-content.ts --old .baseline/dist --new dist",
+    "check:visual": "playwright test --project=visual",
     "checks:report": "node scripts/checks/registry.ts"
   },
   "dependencies": {
