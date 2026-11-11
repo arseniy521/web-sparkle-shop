@@ -15,7 +15,9 @@
     "typecheck": "astro check",
     "test": "vitest run",
     "i18n:check": "npm --prefix .. run i18n:check",
-    "check:env": "node scripts/check-env.mjs"
+    "check:env": "node scripts/check-env.mjs",
+    "check:seo": "node scripts/checks/seo-check.ts",
+    "checks:report": "node scripts/checks/registry.ts"
   },
   "dependencies": {
     "@amplitude/analytics-browser": "^2.49.2",
