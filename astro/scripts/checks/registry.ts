@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { NOT_FOUND_PATH, redirects } from '../../src/routes/manifest.ts';
+import { allPageEntries } from '../../src/routes/urls.ts';
 
 export type CheckId = 'content' | 'visual-phone' | 'visual-desktop' | 'seo' | 'e2e' | 'lighthouse';
 export type Status = 'pass' | 'fail' | 'accepted' | 'skipped';
@@ -54,16 +56,50 @@ export function clear(...checks: CheckId[]): void {
   writeRegistry(registry);
 }
 
+// The row tests/visual/form.spec.ts writes.
+const ORDER_FORM_ROW = 'order-form';
+
+export interface RowGroups {
+  pages: string[];
+  redirects: string[];
+  notFound: string[];
+  orderForm: string[];
+  other: string[];
+}
+
+/** Sorts registry rows by what they are: manifest pages, redirect sources, the 404 page, the order form. */
+export function groupRows(paths: readonly string[]): RowGroups {
+  const pagePaths = new Set(allPageEntries().map((e) => e.path));
+  const redirectSources = new Set(redirects.map((r) => r.from));
+  const groups: RowGroups = { pages: [], redirects: [], notFound: [], orderForm: [], other: [] };
+  for (const p of [...paths].sort()) {
+    if (pagePaths.has(p)) groups.pages.push(p);
+    else if (redirectSources.has(p)) groups.redirects.push(p);
+    else if (p === NOT_FOUND_PATH) groups.notFound.push(p);
+    else if (p === ORDER_FORM_ROW) groups.orderForm.push(p);
+    else groups.other.push(p);
+  }
+  return groups;
+}
+
 export function renderReport(): string {
   const { pages } = readRegistry();
-  const rows = Object.keys(pages)
-    .sort()
-    .map((p) => `| ${p} | ${CHECK_IDS.map((c) => pages[p][c]?.status ?? '-').join(' | ')} |`);
-  return [
-    `| page | ${CHECK_IDS.join(' | ')} |`,
-    `| --- | ${CHECK_IDS.map(() => '---').join(' | ')} |`,
-    ...rows,
-  ].join('\n');
+  const table = (first: string, checks: readonly CheckId[], rows: string[]) => [
+    `| ${first} | ${checks.join(' | ')} |`,
+    `| ${[first, ...checks].map(() => '---').join(' | ')} |`,
+    ...rows.map((p) => `| ${p} | ${checks.map((c) => pages[p][c]?.status ?? '-').join(' | ')} |`),
+  ];
+  const groups = groupRows(Object.keys(pages));
+  // Only the seo check looks at a redirect source.
+  const sections: Array<[string, string[]]> = [
+    ['Pages', table('page', CHECK_IDS, groups.pages)],
+    ['Redirects', table('redirect', ['seo'], groups.redirects)],
+    ['404 page', table('page', CHECK_IDS, groups.notFound)],
+    ['Order form', table('page', CHECK_IDS, groups.orderForm)],
+  ];
+  // Nothing is hidden: a row of no group is printed too.
+  if (groups.other.length > 0) sections.push(['Other', table('page', CHECK_IDS, groups.other)]);
+  return sections.map(([heading, lines]) => [`## ${heading}`, '', ...lines].join('\n')).join('\n\n');
 }
 
 if (import.meta.main) console.log(renderReport());

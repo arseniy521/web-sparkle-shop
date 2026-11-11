@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { clear, record, renderReport } from './registry.ts';
+import { clear, groupRows, record, renderReport } from './registry.ts';
 
 let dir: string;
 
@@ -73,21 +73,75 @@ describe('clear', () => {
   });
 });
 
+describe('groupRows', () => {
+  it('sorts the rows into pages, redirects, the 404 page, the order form and other', () => {
+    const groups = groupRows([
+      'order-form',
+      '/sestricka-praha-1/',
+      '/iv-drips-prague/',
+      '/404.html',
+      '/en/',
+      '/nowhere/',
+      '/en/ivf-injection-support-prague/',
+    ]);
+    expect(groups).toEqual({
+      pages: ['/en/', '/sestricka-praha-1/'],
+      redirects: ['/en/ivf-injection-support-prague/', '/iv-drips-prague/'],
+      notFound: ['/404.html'],
+      orderForm: ['order-form'],
+      other: ['/nowhere/'],
+    });
+  });
+});
+
 describe('renderReport', () => {
-  it('is a Markdown table with a row per page and a column per check', () => {
-    record('seo', '/b/', 'fail', 'x');
-    record('seo', '/a/', 'pass');
-    record('content', '/a/', 'accepted');
-    const lines = renderReport().trim().split('\n');
-    expect(lines).toEqual([
-      '| page | content | visual-phone | visual-desktop | seo | e2e | lighthouse |',
-      '| --- | --- | --- | --- | --- | --- | --- |',
-      '| /a/ | accepted | - | - | pass | - | - |',
-      '| /b/ | - | - | - | fail | - | - |',
+  const header = '| page | content | visual-phone | visual-desktop | seo | e2e | lighthouse |';
+  const rule = '| --- | --- | --- | --- | --- | --- | --- |';
+
+  it('prints a table per group under its heading; redirects show only seo', () => {
+    record('seo', '/sestricka-praha-1/', 'fail', 'x');
+    record('seo', '/', 'pass');
+    record('content', '/', 'accepted');
+    record('seo', '/iv-drips-prague/', 'pass');
+    record('seo', '/404.html', 'pass');
+    record('visual-phone', 'order-form', 'fail', 'x');
+    expect(renderReport().trim().split('\n')).toEqual([
+      '## Pages',
+      '',
+      header,
+      rule,
+      '| / | accepted | - | - | pass | - | - |',
+      '| /sestricka-praha-1/ | - | - | - | fail | - | - |',
+      '',
+      '## Redirects',
+      '',
+      '| redirect | seo |',
+      '| --- | --- |',
+      '| /iv-drips-prague/ | pass |',
+      '',
+      '## 404 page',
+      '',
+      header,
+      rule,
+      '| /404.html | - | - | - | pass | - | - |',
+      '',
+      '## Order form',
+      '',
+      header,
+      rule,
+      '| order-form | - | fail | - | - | - | - |',
     ]);
   });
 
-  it('has only the header when nothing was recorded', () => {
-    expect(renderReport().trim().split('\n')).toHaveLength(2);
+  it('prints a row that belongs to no group under Other', () => {
+    record('content', '/nowhere/', 'pass');
+    const lines = renderReport().trim().split('\n');
+    expect(lines.slice(-5)).toEqual(['## Other', '', header, rule, '| /nowhere/ | pass | - | - | - | - | - |']);
+  });
+
+  it('prints the four headings with empty tables when nothing was recorded', () => {
+    const lines = renderReport().trim().split('\n');
+    expect(lines.filter((l) => l.startsWith('## '))).toEqual(['## Pages', '## Redirects', '## 404 page', '## Order form']);
+    expect(lines.filter((l) => l.startsWith('| /') || l.startsWith('| order-form'))).toEqual([]);
   });
 });
