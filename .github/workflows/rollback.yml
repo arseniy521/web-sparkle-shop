@@ -24,6 +24,13 @@ jobs:
     environment: production
 
     steps:
+      - name: Refuse unless started from main
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "::error::Roll back is started from $GITHUB_REF; start it from main."
+            exit 1
+          fi
+
       - name: Check out gh-pages with its history
         uses: actions/checkout@v6
         with:

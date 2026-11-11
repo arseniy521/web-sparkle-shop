@@ -124,7 +124,8 @@ jobs:
   publish:
     needs: build
     # A string comparison of the event payload: anything but an explicit false skips publishing.
-    if: ${{ github.event.inputs.dry_run == 'false' }}
+    # Only main publishes: another branch would run its own, possibly altered, copy of this file.
+    if: ${{ github.event.inputs.dry_run == 'false' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     environment: production
     permissions:
