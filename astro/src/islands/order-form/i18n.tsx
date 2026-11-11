@@ -12,7 +12,7 @@ const strings = {
 
 /** Starts fetching the texts of the page language; loadFormI18n then reuses the loaded modules. */
 export function prefetchFormStrings(lang: string): void {
-  if (!(lang in strings)) return;
+  if (!Object.hasOwn(strings, lang)) return;
   Promise.all([strings[lang as Lang](), strings.en()]).catch(() => undefined);
 }
 

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { loadFormI18n } from './i18n';
+import { loadFormI18n, prefetchFormStrings } from './i18n';
 import * as cs from './strings/cs';
 import * as en from './strings/en';
 
@@ -36,5 +36,11 @@ describe('prefetchFormStrings', () => {
     expect(attempts).toBe(2);
     expect(i18n.t('onboarding.errors.network')).toBe(cs.onboarding.errors.network);
     vi.doUnmock('./strings/cs');
+  });
+});
+
+describe('prefetchFormStrings with a language that is not a form language', () => {
+  it.each(['__proto__', 'constructor', 'toString'])('ignores the prototype key %s', (key) => {
+    expect(() => prefetchFormStrings(key)).not.toThrow();
   });
 });
