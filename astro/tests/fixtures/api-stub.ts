@@ -26,7 +26,7 @@ function respond(route: Route, data: StubData) {
   };
   const path = new URL(request.url()).pathname.replace(/^.*?\/api(?=\/)/, '');
   if (request.method() === 'OPTIONS') return route.fulfill({ status: 204, headers });
+  // A call the stub does not know is answered here too (404), never passed to the network.
   const { status, body } = handleStubRequest(request.method(), path, data);
-  if (status === 404) return route.fallback();
   return route.fulfill({ status, headers, ...(body === undefined ? {} : { json: body }) });
 }
