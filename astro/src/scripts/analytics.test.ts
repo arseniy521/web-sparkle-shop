@@ -1,21 +1,186 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { setConsent } from '@/scripts/consent';
 
-const init = vi.fn();
+const amplitude = vi.hoisted(() => ({
+  init: vi.fn(),
+  track: vi.fn(),
+  setOptOut: vi.fn(),
+  flush: vi.fn(() => ({ promise: Promise.resolve() })),
+}));
+const cookieScope = vi.hoisted(() => ({ domain: undefined as string | undefined }));
 
-vi.mock('@amplitude/analytics-browser', () => ({ init, setOptOut: vi.fn() }));
-vi.mock('@/scripts/consent', () => ({ getConsent: () => 'accepted' }));
+vi.mock('@amplitude/analytics-browser', () => amplitude);
+vi.mock('@/scripts/cookie-domain', () => ({ sharedCookieDomain: () => cookieScope.domain }));
+
+const flushPromises = async () => {
+  await vi.dynamicImportSettled();
+  await new Promise((resolve) => setTimeout(resolve, 0));
+};
+
+const clearConsent = () => {
+  document.cookie = 'nius_consent=; max-age=0; path=/';
+  localStorage.clear();
+};
+
+const load = () => import('./analytics');
 
 describe('analytics', () => {
   beforeEach(() => {
     vi.resetModules();
-    vi.stubEnv('VITE_AMPLITUDE_API_KEY', 'synthetic-key');
+    vi.doMock('@amplitude/analytics-browser', () => amplitude);
+    vi.stubEnv('VITE_AMPLITUDE_API_KEY', 'test-key');
+    clearConsent();
+    cookieScope.domain = undefined;
+    document.documentElement.lang = 'en';
+    history.pushState({}, '', '/');
   });
 
-  it('sends events to the US server zone of the Amplitude project', async () => {
-    const { initAnalyticsIfConsented } = await import('./analytics');
-
+  it('does not import Amplitude before consent', async () => {
+    const { initAnalyticsIfConsented, track } = await load();
     initAnalyticsIfConsented();
+    track('x');
+    await flushPromises();
+    expect(amplitude.init).not.toHaveBeenCalled();
+    expect(amplitude.track).not.toHaveBeenCalled();
+  });
 
-    expect(init).toHaveBeenCalledWith('synthetic-key', expect.objectContaining({ serverZone: 'US' }));
+  it('initializes with the old options after consent', async () => {
+    const { enableAnalytics } = await load();
+    setConsent('accepted');
+    enableAnalytics();
+    await flushPromises();
+    expect(amplitude.init).toHaveBeenCalledWith(
+      'test-key',
+      expect.objectContaining({
+        serverZone: 'US',
+        autocapture: {
+          pageViews: true,
+          sessions: true,
+          attribution: true,
+          elementInteractions: false,
+          formInteractions: false,
+          fileDownloads: false,
+        },
+        trackingOptions: { ipAddress: false },
+      }),
+    );
+  });
+
+  it('initializes on load when consent is already stored', async () => {
+    const { initAnalyticsIfConsented } = await load();
+    setConsent('accepted');
+    initAnalyticsIfConsented();
+    await flushPromises();
+    expect(amplitude.init).toHaveBeenCalledOnce();
+  });
+
+  it('scopes the Amplitude cookie to .nius.cz only on www.nius.cz', async () => {
+    cookieScope.domain = '.nius.cz';
+    const first = await load();
+    first.enableAnalytics();
+    await flushPromises();
+    expect(amplitude.init).toHaveBeenLastCalledWith(
+      'test-key',
+      expect.objectContaining({ cookieOptions: { domain: '.nius.cz' } }),
+    );
+
+    vi.resetModules();
+    cookieScope.domain = undefined;
+    const second = await load();
+    second.enableAnalytics();
+    await flushPromises();
+    expect(amplitude.init).toHaveBeenLastCalledWith(
+      'test-key',
+      expect.objectContaining({ cookieOptions: undefined }),
+    );
+  });
+
+  it('adds the page language from <html lang>', async () => {
+    const { enableAnalytics, track } = await load();
+    document.documentElement.lang = 'ru';
+    enableAnalytics();
+    track('order_form_opened', { source: 'header' });
+    await flushPromises();
+    expect(amplitude.track).toHaveBeenCalledWith('order_form_opened', {
+      language: 'ru',
+      source: 'header',
+    });
+  });
+
+  it('delivers events tracked between consent and SDK load, in order', async () => {
+    const { enableAnalytics, track } = await load();
+    enableAnalytics();
+    track('first');
+    track('second');
+    expect(amplitude.track).not.toHaveBeenCalled();
+    await flushPromises();
+    expect(amplitude.track.mock.calls.map((call) => call[0])).toEqual(['first', 'second']);
+  });
+
+  it('keeps at most 50 queued actions while the SDK loads', async () => {
+    const { enableAnalytics, track } = await load();
+    enableAnalytics();
+    for (let i = 0; i < 60; i += 1) track(`e${i}`);
+    await flushPromises();
+    expect(amplitude.setOptOut.mock.calls.length + amplitude.track.mock.calls.length).toBe(50);
+  });
+
+  it('drops events tracked before consent', async () => {
+    const { enableAnalytics, track } = await load();
+    track('too_early');
+    enableAnalytics();
+    await flushPromises();
+    expect(amplitude.track).not.toHaveBeenCalled();
+  });
+
+  it('survives a blocked SDK', async () => {
+    vi.doMock('@amplitude/analytics-browser', () => {
+      throw new Error('blocked');
+    });
+    const { enableAnalytics, track, flushAnalytics } = await load();
+    enableAnalytics();
+    track('x');
+    await expect(flushAnalytics()).resolves.toBeUndefined();
+    track('y');
+    expect(amplitude.track).not.toHaveBeenCalled();
+  });
+
+  it('cta_clicked carries page_path without query and hash', async () => {
+    const { enableAnalytics, trackCtaClick } = await load();
+    history.pushState({}, '', '/en/?ref=A#x');
+    enableAnalytics();
+    trackCtaClick('phone', 'footer');
+    await flushPromises();
+    expect(amplitude.track).toHaveBeenCalledWith('cta_clicked', {
+      language: 'en',
+      page_path: '/en/',
+      cta: 'phone',
+      source: 'footer',
+    });
+  });
+
+  it('cleanPath returns the pathname only', async () => {
+    const { cleanPath } = await load();
+    history.pushState({}, '', '/ru/page/?a=1#b');
+    expect(cleanPath()).toBe('/ru/page/');
+    expect(cleanPath('https://www.nius.cz/en/?a=1#b')).toBe('/en/');
+  });
+
+  it('is a no-op without VITE_AMPLITUDE_API_KEY', async () => {
+    vi.stubEnv('VITE_AMPLITUDE_API_KEY', '  ');
+    const { enableAnalytics, track, flushAnalytics } = await load();
+    enableAnalytics();
+    track('x');
+    await flushAnalytics();
+    expect(amplitude.init).not.toHaveBeenCalled();
+    expect(amplitude.track).not.toHaveBeenCalled();
+  });
+
+  it('opts out after reject once the SDK is loaded', async () => {
+    const { enableAnalytics, disableAnalytics } = await load();
+    enableAnalytics();
+    await flushPromises();
+    disableAnalytics();
+    expect(amplitude.setOptOut).toHaveBeenLastCalledWith(true);
   });
 });

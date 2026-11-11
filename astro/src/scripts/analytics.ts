@@ -1,11 +1,12 @@
-import * as amplitude from '@amplitude/analytics-browser';
 import { getConsent } from '@/scripts/consent';
+import { sharedCookieDomain } from '@/scripts/cookie-domain';
 
 /**
  * Amplitude wrapper for the landing (www.nius.cz).
  *
  * Privacy rules (see nius/docs/analytics.md — PHI policy):
- * - initialized only after cookie-banner consent (nius-cookie-consent);
+ * - the SDK is imported and initialized only after cookie-banner consent;
+ *   events tracked before that are dropped, never queued;
  * - US server zone (the project and its API key live in the US region), no IP capture,
  *   no form/element autocapture;
  * - never pass phone/address/name/note or onboarding access tokens as props.
@@ -14,68 +15,93 @@ import { getConsent } from '@/scripts/consent';
  * seamlessly on app.nius.cz (same Amplitude project).
  */
 
+type Sdk = typeof import('@amplitude/analytics-browser');
+
 const API_KEY = (import.meta.env.VITE_AMPLITUDE_API_KEY as string | undefined)?.trim();
+const MAX_QUEUE = 50;
 
-let initialized = false;
+let state: 'idle' | 'loading' | 'ready' | 'failed' = 'idle';
+let sdk: Sdk | undefined;
+let loading: Promise<void> | undefined;
+let queue: Array<(loaded: Sdk) => void> = [];
 
-const hasConsent = (): boolean => getConsent() === 'accepted';
-
-const init = () => {
-  if (!API_KEY || initialized) return;
-  amplitude.init(API_KEY, {
-    serverZone: 'US',
-    autocapture: {
-      pageViews: true,
-      sessions: true,
-      attribution: true,
-      elementInteractions: false,
-      formInteractions: false,
-      fileDownloads: false,
-    },
-    trackingOptions: { ipAddress: false },
-    cookieOptions: import.meta.env.PROD ? { domain: '.nius.cz' } : undefined,
-  });
-  initialized = true;
+const run = (action: (loaded: Sdk) => void) => {
+  if (state === 'ready' && sdk) action(sdk);
+  else if (state === 'loading' && queue.length < MAX_QUEUE) queue.push(action);
 };
 
-/** Call once on app start: initializes only if consent was already given. */
-export const initAnalyticsIfConsented = () => {
-  if (hasConsent()) init();
+const init = () => {
+  if (!API_KEY || state !== 'idle') return;
+  state = 'loading';
+  loading = import('@amplitude/analytics-browser')
+    .then((loaded) => {
+      loaded.init(API_KEY, {
+        serverZone: 'US',
+        autocapture: {
+          pageViews: true,
+          sessions: true,
+          attribution: true,
+          elementInteractions: false,
+          formInteractions: false,
+          fileDownloads: false,
+        },
+        trackingOptions: { ipAddress: false },
+        cookieOptions: sharedCookieDomain() ? { domain: '.nius.cz' } : undefined,
+      });
+      sdk = loaded;
+      state = 'ready';
+      const pending = queue;
+      queue = [];
+      pending.forEach((action) => action(loaded));
+    })
+    .catch(() => {
+      state = 'failed';
+      queue = [];
+    });
+};
+
+/** Call once on page start: loads Amplitude only if consent was already given. */
+export const initAnalyticsIfConsented = (): void => {
+  if (getConsent() === 'accepted') init();
 };
 
 /** Cookie banner "Accept". */
-export const enableAnalytics = () => {
+export const enableAnalytics = (): void => {
   init();
-  if (initialized) amplitude.setOptOut(false);
+  run((loaded) => loaded.setOptOut(false));
 };
 
 /** Cookie banner "Reject". */
-export const disableAnalytics = () => {
-  if (initialized) amplitude.setOptOut(true);
+export const disableAnalytics = (): void => {
+  run((loaded) => loaded.setOptOut(true));
 };
 
-export const track = (event: string, props?: Record<string, unknown>) => {
-  if (!initialized) return;
-  amplitude.track(event, { language: document.documentElement.lang, ...props });
+export const track = (event: string, props?: Record<string, unknown>): void => {
+  const language = document.documentElement.lang;
+  run((loaded) => loaded.track(event, { language, ...props }));
 };
 
-export const identifyUser = (userId: string) => {
-  if (!initialized) return;
-  amplitude.setUserId(userId);
-  const identify = new amplitude.Identify();
-  identify.set('language', document.documentElement.lang);
-  amplitude.identify(identify);
+export const identifyUser = (userId: string): void => {
+  const language = document.documentElement.lang;
+  run((loaded) => {
+    loaded.setUserId(userId);
+    const identify = new loaded.Identify();
+    identify.set('language', language);
+    loaded.identify(identify);
+  });
 };
 
-export const flushAnalytics = async () => {
-  if (!initialized) return;
-  await amplitude.flush().promise;
+export const flushAnalytics = async (): Promise<void> => {
+  await loading;
+  if (state === 'ready' && sdk) await sdk.flush().promise;
 };
 
-export const setAnalyticsOptOut = (optOut: boolean) => {
-  if (!initialized) return;
-  amplitude.setOptOut(optOut);
+export const setAnalyticsOptOut = (optOut: boolean): void => {
+  run((loaded) => loaded.setOptOut(optOut));
 };
+
+export const cleanPath = (url?: string): string =>
+  url === undefined ? window.location.pathname : new URL(url, window.location.origin).pathname;
 
 export type ConversionCta =
   | 'choose_service'
@@ -115,7 +141,6 @@ export const trackCtaClick = (
   cta: ConversionCta,
   source: ConversionSource,
   props?: Record<string, unknown>,
-) => {
-  const pagePath = typeof window === 'undefined' ? undefined : window.location.pathname;
-  track('cta_clicked', { page_path: pagePath, ...props, cta, source });
+): void => {
+  track('cta_clicked', { page_path: cleanPath(), ...props, cta, source });
 };
