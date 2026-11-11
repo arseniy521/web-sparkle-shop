@@ -4,6 +4,7 @@ import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from '@playwright/test';
+import { load } from 'cheerio';
 import { installApiStub } from '../../tests/fixtures/api-stub.ts';
 import { startStaticServer } from '../../tests/fixtures/static-server.ts';
 
@@ -47,9 +48,16 @@ try {
     await page.goto(`${server.url}${route}`, { waitUntil: 'networkidle' });
     await page.locator('link[rel="canonical"][data-rh]').waitFor({ state: 'attached' });
     await page.waitForLoadState('networkidle');
+    const html = await page.content();
+    // The old prerender removes duplicate head tags; these routes are saved as rendered, so check.
+    const $ = load(html);
+    const [titles, descriptions] = [$('head title').length, $('head meta[name="description"]').length];
+    if (titles !== 1 || descriptions !== 1) {
+      throw new Error(`${route}: expected one title and one meta description, found ${titles} and ${descriptions}`);
+    }
     const file = path.join(DIST, route, 'index.html');
     fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.writeFileSync(file, await page.content());
+    fs.writeFileSync(file, html);
     console.log(`Rendered ${route}`);
     await page.close();
   }
