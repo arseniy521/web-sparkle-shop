@@ -7,4 +7,8 @@ describe('createT', () => {
     expect(createT('cs')('nav.cart')).toBe(cs.nav.cart);
     expect(createT('uk')('__missing__', { defaultValue: 'x' })).toBe('x');
   });
+  it('reuses one instance per language', () => {
+    expect(createT('cs')).toBe(createT('cs'));
+    expect(createT('cs')).not.toBe(createT('en'));
+  });
 });

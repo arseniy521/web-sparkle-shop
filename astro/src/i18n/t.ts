@@ -13,7 +13,9 @@ const resources = {
   uk: { translation: uk },
 };
 
-export function createT(lang: Lang): TFunction {
+const cache = new Map<Lang, TFunction>();
+
+function buildT(lang: Lang): TFunction {
   const instance = createInstance();
   void instance.init({
     resources,
@@ -23,4 +25,13 @@ export function createT(lang: Lang): TFunction {
     initAsync: false,
   });
   return instance.t;
+}
+
+export function createT(lang: Lang): TFunction {
+  let t = cache.get(lang);
+  if (!t) {
+    t = buildT(lang);
+    cache.set(lang, t);
+  }
+  return t;
 }
