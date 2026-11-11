@@ -1,5 +1,6 @@
 ---
 import '../../styles/global.css';
+import OrderFormRoot from '@/components/OrderFormRoot.astro';
 ---
 
 <html lang="cs">
@@ -12,22 +13,10 @@ import '../../styles/global.css';
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   </head>
   <body>
-    <button id="open" type="button">Open the order form</button>
-    <div id="order-form-root"></div>
+    <button id="open" type="button" data-open-cart="header">Open the order form</button>
+    <OrderFormRoot lang="cs" />
     <script>
-      const root = document.getElementById('order-form-root')!;
-      let mounted: Promise<void> | undefined;
-      document.getElementById('open')!.addEventListener('click', async () => {
-        mounted ??= import('@/islands/order-form/mount')
-          .then((m) => m.mountOrderForm(root, 'cs'))
-          .catch((error: unknown) => {
-            mounted = undefined;
-            throw error;
-          });
-        await mounted;
-        const { onboardingCart } = await import('@/islands/order-form/hooks/useOnboardingCart');
-        onboardingCart.openForm('header');
-      });
+      import '@/scripts/boot';
     </script>
   </body>
 </html>
