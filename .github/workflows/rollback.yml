@@ -43,12 +43,19 @@ jobs:
         env:
           TAG: ${{ inputs.tag }}
         run: |
-          if ! printf '%s' "$TAG" | grep -Eq '^published-[0-9]{8}-[0-9]{4}$'; then
+          # The whole value must match: a line-based check would accept a multi-line value.
+          if ! [[ "$TAG" =~ ^published-[0-9]{8}-[0-9]{4}$ ]]; then
             echo "::error::The tag must look like published-YYYYMMDD-HHMM."
             exit 1
           fi
           if ! git rev-parse --verify --quiet "refs/tags/$TAG^{commit}" > /dev/null; then
             echo "::error::The tag $TAG does not exist."
+            exit 1
+          fi
+          # Publishing tags the head of gh-pages and commits on top of it, so every tag it made is
+          # an ancestor of the head. A tag pushed by hand onto any other commit is refused.
+          if ! git merge-base --is-ancestor "refs/tags/$TAG^{commit}" HEAD; then
+            echo "::error::The tag $TAG is not a past state of gh-pages."
             exit 1
           fi
 
