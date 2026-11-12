@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { getLanguagePrefix, getLanguageFromPath, getLocalizedUrl } from "@/utils/languageUtils";
+import { getIvDripsUrl, getLanguagePrefix, getLanguageFromPath, getLocalizedUrl } from "@/utils/languageUtils";
 
 interface RelatedService {
   titleKey: string;
@@ -16,7 +16,7 @@ export const RelatedServices = () => {
   const currentLang = getLanguageFromPath(location.pathname);
   const langPrefix = getLanguagePrefix(currentLang);
 
-  const hangoverHref = getLocalizedUrl('/hangover-iv-drip-prague', currentLang) || `${langPrefix}/hangover-iv-drip-prague/`;
+  const hydrationHref = getLocalizedUrl('/rehydration-iv-drip-prague', currentLang) || `${langPrefix}/rehydration-iv-drip-prague/`;
 
   const services: RelatedService[] = [
     {
@@ -27,12 +27,12 @@ export const RelatedServices = () => {
     {
       titleKey: "specializedServices.ivDrip",
       descKey: "services.ivInfusion.description",
-      href: `${langPrefix}/iv-drips-prague/`
+      href: getIvDripsUrl(currentLang)
     },
     {
-      titleKey: "specializedServices.hangover",
-      descKey: "specializedServices.hangoverDesc",
-      href: hangoverHref
+      titleKey: "specializedServices.hydration",
+      descKey: "specializedServices.hydrationDesc",
+      href: hydrationHref
     },
     {
       titleKey: "specializedServices.postSurgery",
@@ -46,8 +46,10 @@ export const RelatedServices = () => {
     }
   ];
 
-  // Filter out current page
-  const filteredServices = services.filter(service => !location.pathname.includes(service.href.split('/').pop() || ''));
+  // Filter out current page (addresses are compared without the trailing slash)
+  const withoutTrailingSlash = (path: string) => path.replace(/\/+$/, '');
+  const currentPath = withoutTrailingSlash(location.pathname);
+  const filteredServices = services.filter(service => withoutTrailingSlash(service.href) !== currentPath);
 
   return (
     <section className="py-20 bg-muted/30">

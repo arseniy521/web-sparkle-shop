@@ -14,6 +14,30 @@ const googleClientId = (
   process.env.VITE_GOOGLE_CLIENT_ID || env.VITE_GOOGLE_CLIENT_ID || ''
 ).trim();
 
+const googleAdsId = (
+  process.env.VITE_GOOGLE_ADS_ID || env.VITE_GOOGLE_ADS_ID || ''
+).trim();
+const googleAdsLeadLabel = (
+  process.env.VITE_GOOGLE_ADS_LEAD_LABEL || env.VITE_GOOGLE_ADS_LEAD_LABEL || ''
+).trim();
+
+// Google Ads is optional: the site must build without it, but a release that silently
+// measures no conversions should be visible.
+const emptyAdsVariables = [
+  ...(googleAdsId ? [] : ['VITE_GOOGLE_ADS_ID']),
+  ...(googleAdsLeadLabel ? [] : ['VITE_GOOGLE_ADS_LEAD_LABEL']),
+];
+
+if (emptyAdsVariables.length > 0) {
+  const message =
+    `${emptyAdsVariables.join(' and ')} ${emptyAdsVariables.length > 1 ? 'are' : 'is'} empty. ` +
+    'The site will be built without the Google Ads conversion: both values are needed to measure orders from ads.';
+  console.warn(`Release warning: ${message}`);
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    console.log(`::warning title=Google Ads conversion is off::${message}`);
+  }
+}
+
 const missing = [];
 
 if (!amplitudeApiKey) {

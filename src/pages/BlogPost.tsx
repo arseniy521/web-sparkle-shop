@@ -1,4 +1,5 @@
 import { useParams, Link, useLocation } from "react-router-dom";
+import { BookingLink } from '@/components/BookingLink';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -43,11 +44,14 @@ const BlogPost = () => {
     );
   }
 
+  const fullTitle = post ? `${post.title} | Nurse in Prague Blog` : "";
+  const seoTitle = post ? (fullTitle.length <= 60 ? fullTitle : post.title.slice(0, 60)) : "";
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       {post && (
         <SEO
-          title={`${post.title} | Nurse in Prague Blog`}
+          title={seoTitle}
           description={post.excerpt}
           ogImage="https://www.nius.cz/og-blog.jpg"
           ogType="article"
@@ -128,7 +132,7 @@ const BlogPost = () => {
               </div>
 
               {/* Featured Image */}
-              <div className="aspect-video bg-muted rounded-2xl overflow-hidden mb-12">
+              <div className="aspect-video bg-muted rounded-xl overflow-hidden mb-12">
                 <img
                   src={post.image}
                   alt={post.title}
@@ -170,12 +174,12 @@ const BlogPost = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 Professional nursing care in the comfort of your Prague home. Available 7 days a week.
               </p>
-              <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+              <BookingLink>
                 <Button size="lg" className="group">
                   Book Your Appointment
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
-              </a>
+              </BookingLink>
             </div>
           </div>
         </section>

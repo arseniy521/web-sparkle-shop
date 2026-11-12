@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BookingLink } from '@/components/BookingLink';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Phone, MapPin, Clock } from "lucide-react";
@@ -12,7 +13,7 @@ const SestrickaPrahaVinohrady = () => {
   const { t } = useTranslation();
   
   const pageTitle = "Sestřička Praha Vinohrady | Domácí Zdravotní Péče";
-  const pageDescription = "Profesionální sestřička na Vinohradech v Praze. IV kapačky, injekce, péče o rány a domácí ošetřovatelská péče na Vinohradech. Rychlá dostupnost denně 8–21.";
+  const pageDescription = "Sestřička na Vinohradech: IV kapačky, injekce, péče o rány a domácí ošetřovatelská péče. Návštěva ve stejný den, denně 8:00–21:00.";
   
   const neighborhoods = [
     "Vinohrady",
@@ -38,7 +39,7 @@ const SestrickaPrahaVinohrady = () => {
           "telephone": "+420773629123",
           "email": "info@nius.cz",
           "url": "https://www.nius.cz/sestricka-praha-vinohrady/",
-          "priceRange": "1890-2680 CZK",
+          "priceRange": "1650-4550 CZK",
           "geo": {
             "@type": "GeoCoordinates",
             "latitude": "50.0773",
@@ -65,7 +66,7 @@ const SestrickaPrahaVinohrady = () => {
                   "@type": "Service",
                   "name": "IV Kapačky Vinohrady",
                   "description": "Profesionální IV kapačky a vitamínové infuze na Vinohradech",
-                  "price": "2380",
+                  "price": "1650",
                   "priceCurrency": "CZK"
                 }
               },
@@ -74,8 +75,8 @@ const SestrickaPrahaVinohrady = () => {
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Injekce Vinohrady",
-                  "description": "IVF injekce, antibiotika, vitamíny",
-                  "price": "1890",
+                  "description": "Injekce předepsané lékařem nebo vaší klinikou",
+                  "price": "1900",
                   "priceCurrency": "CZK"
                 }
               }
@@ -90,7 +91,7 @@ const SestrickaPrahaVinohrady = () => {
       ]} />
       <main className="flex-1" role="main">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <section className="py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -104,12 +105,12 @@ const SestrickaPrahaVinohrady = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" className="w-full sm:w-auto group">
                     Rezervovat sestřičku
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
-                </a>
+                </BookingLink>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />
@@ -121,7 +122,7 @@ const SestrickaPrahaVinohrady = () => {
               <div className="flex flex-wrap gap-6 justify-center pt-8 text-sm">
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-primary" />
-                  <span>Obvykle 1-2 hodiny na Vinohradech</span>
+                  <span>Návštěva ve stejný den, denně 8:00–21:00</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-primary" />
@@ -145,7 +146,7 @@ const SestrickaPrahaVinohrady = () => {
                     <MapPin className="h-8 w-8 text-primary mx-auto mb-3" />
                     <h3 className="font-semibold text-lg">{area}</h3>
                     <p className="text-sm text-muted-foreground mt-2">
-                      Rychlý příjezd 1-2 hodiny
+                      Čas příjezdu potvrdíme po objednání
                     </p>
                   </Card>
                 ))}
@@ -166,18 +167,18 @@ const SestrickaPrahaVinohrady = () => {
                   <Card className="p-6 hover:shadow-card transition-all">
                     <h3 className="text-xl font-semibold mb-3">IV Kapačky na Vinohradech</h3>
                     <p className="text-muted-foreground mb-4">
-                      Profesionální podání IV kapačky přímo u vás doma na Vinohradech. Vitamíny, hydratace, předepsané léky.
+                      Profesionální podání IV kapačky přímo u vás doma na Vinohradech. Vitamíny a hydratace; každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.
                     </p>
-                    <p className="text-sm font-semibold">Od 2 380 Kč</p>
+                    <p className="text-sm font-semibold">Od 1 650 Kč</p>
                   </Card>
                 </Link>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Injekce a aplikace léků</h3>
                   <p className="text-muted-foreground mb-4">
-                    IVF injekce, inzulín, antibiotika, vitaminová terapie. Přesné a bezpečné podání.
+                    Injekce předepsané lékařem nebo vaší klinikou, včetně IVF, podle jejich písemných pokynů.
                   </p>
-                  <p className="text-sm font-semibold">Od 1 890 Kč</p>
+                  <p className="text-sm font-semibold">Od 1 900 Kč</p>
                 </Card>
 
                 <Card className="p-6">
@@ -185,13 +186,13 @@ const SestrickaPrahaVinohrady = () => {
                   <p className="text-muted-foreground mb-4">
                     Pooperační péče, sterilní převazy, ošetření ran. Pravidelná kontrola hojení.
                   </p>
-                  <p className="text-sm font-semibold">Od 899 Kč</p>
+                  <p className="text-sm font-semibold">Od 1 890 Kč</p>
                 </Card>
 
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Denní péče o seniory</h3>
                   <p className="text-muted-foreground mb-4">
-                    Hygienická asistence, podávání léků, měření tlaku, kompletní péče pro starší pacienty.
+                    Hygienická asistence, pomoc s léky dle pokynů lékaře, měření tlaku, kompletní péče pro starší pacienty.
                   </p>
                   <p className="text-sm font-semibold">Individuální ceny</p>
                 </Card>
@@ -212,9 +213,9 @@ const SestrickaPrahaVinohrady = () => {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold">Rychlý příjezd</h3>
+                  <h3 className="font-semibold">Návštěva ve stejný den</h3>
                   <p className="text-sm text-muted-foreground">
-                    Na Vinohrady obvykle dorazíme do 1-2 hodin od objednání
+                    Denně 8:00–21:00. Čas příjezdu potvrdíme po objednání.
                   </p>
                 </div>
                 <div className="space-y-3">
@@ -223,7 +224,7 @@ const SestrickaPrahaVinohrady = () => {
                   </div>
                   <h3 className="font-semibold">Místní znalost</h3>
                   <p className="text-sm text-muted-foreground">
-                    Perfektně známe Vinohrady a okolní čtvrti, včetně parkování
+                    Dobře známe Vinohrady a okolní čtvrti, včetně parkování
                   </p>
                 </div>
                 <div className="space-y-3">
@@ -241,21 +242,21 @@ const SestrickaPrahaVinohrady = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <section className="py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary">
                 Potřebujete sestřičku na Vinohradech?
               </h2>
               <p className="text-lg text-muted-foreground">
-                Rezervujte si profesionální zdravotní péči ještě dnes. Rychlý příjezd, anglicky i česky.
+                Rezervujte si profesionální zdravotní péči ještě dnes. Návštěva ve stejný den, anglicky i česky.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <BookingLink>
                   <Button size="lg" className="w-full sm:w-auto">
                     Rezervovat online
                   </Button>
-                </a>
+                </BookingLink>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Phone className="mr-2 h-5 w-5" />

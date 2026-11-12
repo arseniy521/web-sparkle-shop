@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { mapDtoToCartService, type CartService } from '@/components/OnboardingForm/cartCatalog';
+import { isOfferedOnWebsite, mapDtoToCartService, type CartService } from '@/components/OnboardingForm/cartCatalog';
 
 const envUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
 const BASE_URL = envUrl || (import.meta.env.DEV ? '/api' : 'https://app.nius.cz/api');
@@ -43,5 +43,5 @@ export async function fetchServices(): Promise<PublicServiceDto[]> {
 
 export async function fetchServicesCatalog(): Promise<CartService[]> {
   const rows = await fetchServices();
-  return rows.map((row) => mapDtoToCartService(row));
+  return rows.filter((row) => isOfferedOnWebsite(row.code)).map((row) => mapDtoToCartService(row));
 }

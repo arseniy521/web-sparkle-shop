@@ -7,6 +7,7 @@ export interface UseServicesResult {
   loading: boolean;
   catalogReady: boolean;
   errorKey: string | null;
+  retry: () => void;
 }
 
 export const SERVICES_CATALOG_QUERY_KEY = ['services-catalog'] as const;
@@ -29,5 +30,6 @@ export function useServices(open: boolean): UseServicesResult {
       (query.isPending || query.isFetching || query.fetchStatus === 'paused'),
     catalogReady: open && query.isSuccess && query.fetchStatus === 'idle',
     errorKey: query.isError ? 'onboarding.catalogLoadFailed' : null,
+    retry: () => { void query.refetch(); },
   };
 }

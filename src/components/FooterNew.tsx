@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
-import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
+import { getIvDripsUrl, getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 import { Visa, Mastercard, Applepay, Googlepay } from "react-pay-icons";
+import { MedicalNotice } from '@/components/MedicalNotice';
+import { openCookieSettings } from '@/lib/cookieSettings';
 
 export const FooterNew = () => {
   const { t } = useTranslation();
@@ -31,7 +33,7 @@ export const FooterNew = () => {
               target="_blank"
               rel="noopener noreferrer"
               data-analytics-source="footer"
-              className="inline-flex items-center mt-4 px-4 py-2 rounded text-xs font-body font-medium"
+              className="inline-flex items-center mt-4 px-4 py-2 rounded-full text-xs font-body font-medium"
               style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', border: '0.5px solid rgba(255,255,255,0.12)' }}
             >
               {t('footerNew.whatsapp')}
@@ -44,7 +46,7 @@ export const FooterNew = () => {
               {t('footerNew.services')}
             </h4>
             <ul className="space-y-2">
-              <li><Link to={`${langPrefix}/iv-drips-prague/`} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>{t('footerNew.ivDrips')}</Link></li>
+              <li><Link to={getIvDripsUrl(currentLang)} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>{t('footerNew.ivDrips')}</Link></li>
               <li><Link to={`${langPrefix}/ivf-support-prague/`} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>{t('footerNew.ivfSupport')}</Link></li>
               <li><Link to={`${langPrefix}/post-surgery-recovery-care-prague/`} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>{t('specializedServices.postSurgery')}</Link></li>
               <li><Link to={`${langPrefix}/disabled-daily-care-prague/`} className="text-xs font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>{t('specializedServices.disabled')}</Link></li>
@@ -72,6 +74,8 @@ export const FooterNew = () => {
           <Googlepay className="h-8 rounded" style={{ opacity: 0.9 }} />
         </div>
 
+        <MedicalNotice variant="footer" className="max-w-3xl mb-6" />
+
         {/* Bottom strip */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-2">
           <span className="text-[11px] font-body" style={{ color: 'rgba(255,255,255,0.4)' }}>
@@ -81,6 +85,14 @@ export const FooterNew = () => {
             <Link to={`${langPrefix}/privacy/`} className="text-[11px] font-body" style={{ color: 'rgba(255,255,255,0.4)' }}>
               Privacy Policy
             </Link>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="text-[11px] font-body"
+              style={{ color: 'rgba(255,255,255,0.4)' }}
+            >
+              {t('footerNew.cookieSettings')}
+            </button>
             <span className="text-[11px] font-body" style={{ color: 'rgba(255,255,255,0.4)' }}>
               IČO: 21908494 · info@nius.cz
             </span>

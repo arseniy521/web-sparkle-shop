@@ -24,7 +24,7 @@ import {
   Cake,
   Building2,
 } from "lucide-react";
-import { getLanguagePrefix } from "@/utils/languageUtils";
+import { getIvDripsUrl } from "@/utils/languageUtils";
 import {
   Accordion,
   AccordionContent,
@@ -35,15 +35,14 @@ import {
 const BirthdayGift = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
-  const langPrefix = getLanguagePrefix(currentLang);
 
   const phone = "+420773629123";
   const whatsappLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
     currentLang === "ru"
-      ? "Здравствуйте! Хочу заказать подарочный сертификат на день рождения — Glow IV капельницу."
+      ? "Здравствуйте! Хочу заказать подарочный сертификат на день рождения, капельницу «Витамины и минералы Классик»."
       : currentLang === "cs"
-        ? "Dobrý den! Chci objednat dárkový voucher k narozeninám — Glow IV infuzi."
-        : "Hi! I'd like to order a birthday gift voucher — Glow IV Drip."
+        ? "Dobrý den! Chci objednat dárkový voucher k narozeninám, infuzi „Vitamíny a minerály Classic“."
+        : "Hi! I'd like to order a birthday gift voucher: Vitamin & Mineral Classic IV Drip."
   )}`;
 
   const hreflangMap: Record<string, string> = {
@@ -64,24 +63,18 @@ const BirthdayGift = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "Glow & Post-Flu IV Drip Birthday Gift Voucher — Prague",
+      name: "Vitamin & Mineral Classic IV Drip Birthday Gift Voucher, Prague",
       description: t("birthdayGift.seo.description"),
       image: "https://www.nius.cz/og-image.jpg",
-      brand: { "@type": "Brand", name: "NIUS — Nurse in Prague" },
+      brand: { "@type": "Brand", name: "NIUS (Nurse in Prague)" },
       offers: {
         "@type": "Offer",
-        price: "3650",
+        price: "3750",
         priceCurrency: "CZK",
         availability: "https://schema.org/InStock",
         validFrom: "2026-01-01",
         priceValidUntil: "2026-12-31",
         url: hreflangMap[currentLang] || hreflangMap.en,
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "4",
-        bestRating: "5",
       },
     },
     {
@@ -99,22 +92,16 @@ const BirthdayGift = () => {
     {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
-      name: "NIUS — Nurse in Prague",
+      name: "NIUS (Nurse in Prague)",
       telephone: phone,
       url: "https://www.nius.cz",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Prague",
+        addressLocality: "Praha",
         addressCountry: "CZ",
       },
       areaServed: { "@type": "City", name: "Prague" },
       openingHours: "Mo-Su 08:00-21:00",
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "4",
-        bestRating: "5",
-      },
     },
   ];
 
@@ -152,7 +139,7 @@ const BirthdayGift = () => {
 
       <main className="flex-1" role="main">
         {/* ========== SECTION 1: HERO ========== */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-b from-amber-50 via-purple-50/30 to-background overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-bone overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               {/* Trust badges */}
@@ -160,18 +147,18 @@ const BirthdayGift = () => {
                 {(["nurses", "rating", "available", "districts"] as const).map((badge) => (
                   <span
                     key={badge}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-amber-200 rounded-full text-xs font-medium text-amber-700"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-indigo/20 rounded-full text-xs font-medium text-indigo"
                   >
-                    {badge === "rating" && <Star className="h-3 w-3 fill-amber-500 text-amber-500" />}
-                    {badge === "nurses" && <Shield className="h-3 w-3 text-amber-500" />}
-                    {badge === "available" && <Clock className="h-3 w-3 text-amber-500" />}
-                    {badge === "districts" && <MapPin className="h-3 w-3 text-amber-500" />}
+                    {badge === "rating" && <Star className="h-3 w-3 fill-indigo text-indigo" />}
+                    {badge === "nurses" && <Shield className="h-3 w-3 text-indigo" />}
+                    {badge === "available" && <Clock className="h-3 w-3 text-indigo" />}
+                    {badge === "districts" && <MapPin className="h-3 w-3 text-indigo" />}
                     {t(`birthdayGift.hero.trustBadges.${badge}`)}
                   </span>
                 ))}
               </div>
 
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 bg-bone text-indigo rounded-full text-sm font-semibold">
                 <Cake className="h-4 w-4" />
                 {t("birthdayGift.hero.badge")}
               </span>
@@ -180,7 +167,7 @@ const BirthdayGift = () => {
                 {t("birthdayGift.hero.title")}
               </h1>
 
-              <p className="text-xl md:text-2xl text-amber-700/80 font-medium mb-4">
+              <p className="text-xl md:text-2xl text-indigo font-medium mb-4">
                 {t("birthdayGift.hero.subtitle")}
               </p>
 
@@ -191,13 +178,13 @@ const BirthdayGift = () => {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="w-full sm:w-auto text-base px-8 py-6 bg-amber-600 hover:bg-amber-700">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 py-6 bg-indigo hover:bg-indigo-deep">
                     <Gift className="mr-2 h-5 w-5" />
                     {t("birthdayGift.hero.cta")}
                   </Button>
                 </a>
                 <a href="#included">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-amber-300 text-amber-700 hover:bg-amber-50">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-indigo/20 text-indigo hover:bg-bone">
                     <ChevronDown className="mr-2 h-5 w-5" />
                     {t("birthdayGift.hero.ctaSecondary")}
                   </Button>
@@ -224,10 +211,10 @@ const BirthdayGift = () => {
                 return (
                   <Card
                     key={key}
-                    className="p-6 border-amber-100 hover:border-amber-200 hover:shadow-lg hover:shadow-amber-50 transition-all duration-300"
+                    className="p-6 border-indigo/20 hover:border-indigo/20 hover:shadow-lg hover:shadow-indigo/10 transition-all duration-300"
                   >
-                    <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-amber-600" />
+                    <div className="w-12 h-12 bg-bone rounded-xl flex items-center justify-center mb-4">
+                      <Icon className="h-6 w-6 text-indigo" />
                     </div>
                     <h3 className="text-lg font-semibold text-secondary mb-2">
                       {t(`birthdayGift.benefits.items.${key}.title`)}
@@ -243,7 +230,7 @@ const BirthdayGift = () => {
         </section>
 
         {/* ========== SECTION 3: WHAT'S INCLUDED ========== */}
-        <section id="included" className="py-16 md:py-20 bg-amber-50/50 scroll-mt-20">
+        <section id="included" className="py-16 md:py-20 bg-bone scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -258,16 +245,16 @@ const BirthdayGift = () => {
                 {includedItems.map((item, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-4 bg-white rounded-xl border border-amber-100"
+                    className="flex items-start gap-3 p-4 bg-white rounded-xl border border-indigo/20"
                   >
-                    <CheckCircle2 className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-indigo mt-0.5 flex-shrink-0" />
                     <span className="text-secondary font-medium">{item}</span>
                   </div>
                 ))}
               </div>
               <div className="text-center">
-                <Link to={`${langPrefix}/iv-drips-prague/`}>
-                  <Button variant="link" className="text-amber-600 hover:text-amber-700">
+                <Link to={getIvDripsUrl(currentLang)}>
+                  <Button variant="link" className="text-indigo hover:text-indigo">
                     {t("birthdayGift.included.learnMore")}
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
@@ -291,9 +278,9 @@ const BirthdayGift = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {experienceSteps.map((step, i) => (
-                  <div key={step} className="relative flex gap-4 p-6 bg-gradient-to-br from-white to-amber-50/50 rounded-2xl border border-amber-100">
-                    <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg font-bold text-amber-600">{i + 1}</span>
+                  <div key={step} className="relative flex gap-4 p-6 bg-bone rounded-xl border border-indigo/20">
+                    <div className="w-10 h-10 bg-bone rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg font-bold text-indigo">{i + 1}</span>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-secondary mb-1">
@@ -311,7 +298,7 @@ const BirthdayGift = () => {
         </section>
 
         {/* ========== SECTION 5: VOUCHER DETAILS ========== */}
-        <section className="py-16 md:py-20 bg-purple-50/30">
+        <section className="py-16 md:py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
@@ -321,9 +308,9 @@ const BirthdayGift = () => {
                 {(["validity", "redeemable", "transferable", "personalized", "instant"] as const).map((key) => (
                   <div
                     key={key}
-                    className="flex items-center gap-2 px-4 py-3 bg-white rounded-xl border border-purple-100 shadow-sm"
+                    className="flex items-center gap-2 px-4 py-3 bg-white rounded-xl border border-indigo/20 shadow-sm"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-purple-500 flex-shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 text-indigo flex-shrink-0" />
                     <span className="text-sm font-medium text-secondary">
                       {t(`birthdayGift.voucher.${key}`)}
                     </span>
@@ -338,7 +325,7 @@ const BirthdayGift = () => {
         <section id="pricing" className="py-16 md:py-20 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto">
-              <Card className="p-8 md:p-12 border-2 border-amber-200 bg-gradient-to-br from-white to-amber-50/30 text-center">
+              <Card className="p-8 md:p-12 border-2 border-indigo/20 bg-bone text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-2">
                   {t("birthdayGift.pricing.title")}
                 </h2>
@@ -347,10 +334,10 @@ const BirthdayGift = () => {
                 </p>
 
                 <div className="mb-2">
-                  <span className="text-5xl md:text-6xl font-bold text-amber-600">
+                  <span className="text-5xl md:text-6xl font-bold text-indigo">
                     {t("birthdayGift.pricing.price")}
                   </span>
-                  <span className="text-2xl font-medium text-amber-600 ml-2">
+                  <span className="text-2xl font-medium text-indigo ml-2">
                     {t("birthdayGift.pricing.currency")}
                   </span>
                 </div>
@@ -369,7 +356,7 @@ const BirthdayGift = () => {
                     </Button>
                   </a>
                   <a href={`tel:${phone}`}>
-                    <Button size="lg" variant="outline" className="w-full text-base py-6 border-amber-300 text-amber-700 hover:bg-amber-50">
+                    <Button size="lg" variant="outline" className="w-full text-base py-6 border-indigo/20 text-indigo hover:bg-bone">
                       <Phone className="mr-2 h-5 w-5" />
                       {t("birthdayGift.pricing.ctaCall")}
                     </Button>
@@ -388,10 +375,10 @@ const BirthdayGift = () => {
             </h2>
             <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
               {testimonialKeys.map((key) => (
-                <Card key={key} className="p-6 border-amber-100">
+                <Card key={key} className="p-6 border-indigo/20">
                   <div className="flex gap-1 mb-4">
                     {[1, 2, 3, 4, 5].map((s) => (
-                      <Star key={s} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                      <Star key={s} className="h-4 w-4 fill-indigo text-indigo" />
                     ))}
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4 italic">
@@ -402,7 +389,7 @@ const BirthdayGift = () => {
                       {t(`birthdayGift.testimonials.items.${key}.author`)}
                     </span>
                     <span className="text-muted-foreground ml-1">
-                      — {t(`birthdayGift.testimonials.items.${key}.location`)}
+                      {t(`birthdayGift.testimonials.items.${key}.location`)}
                     </span>
                   </div>
                 </Card>
@@ -415,7 +402,7 @@ const BirthdayGift = () => {
         <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-gradient-to-br from-slate-50 to-amber-50/30 rounded-3xl p-8 md:p-12 border border-slate-200">
+              <div className="bg-bone rounded-xl p-8 md:p-12 border border-slate-200">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center">
                     <Building2 className="h-6 w-6 text-slate-600" />
@@ -432,7 +419,7 @@ const BirthdayGift = () => {
                 <div className="grid sm:grid-cols-2 gap-3 mb-8">
                   {corporateBenefits.map((benefit, i) => (
                     <div key={i} className="flex items-start gap-3 p-3">
-                      <CheckCircle2 className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-indigo mt-0.5 flex-shrink-0" />
                       <span className="text-secondary text-sm font-medium">{benefit}</span>
                     </div>
                   ))}
@@ -449,7 +436,7 @@ const BirthdayGift = () => {
         </section>
 
         {/* ========== SECTION 9: HOW TO ORDER ========== */}
-        <section className="py-16 md:py-20 bg-amber-50/30">
+        <section className="py-16 md:py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
@@ -462,8 +449,8 @@ const BirthdayGift = () => {
             <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
               {orderSteps.map((step, i) => (
                 <div key={step} className="text-center">
-                  <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl font-bold text-amber-600">{i + 1}</span>
+                  <div className="w-14 h-14 bg-bone rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl font-bold text-indigo">{i + 1}</span>
                   </div>
                   <h3 className="text-lg font-semibold text-secondary mb-2">
                     {t(`birthdayGift.howToOrder.steps.${step}.title`)}
@@ -489,7 +476,7 @@ const BirthdayGift = () => {
                   <AccordionItem
                     key={i}
                     value={`faq-${i}`}
-                    className="bg-white border border-amber-100 rounded-xl px-6 data-[state=open]:border-amber-200"
+                    className="bg-white border border-indigo/20 rounded-xl px-6 data-[state=open]:border-indigo/20"
                   >
                     <AccordionTrigger className="text-left font-semibold text-secondary hover:no-underline py-5">
                       {item.question}
@@ -505,7 +492,7 @@ const BirthdayGift = () => {
         </section>
 
         {/* ========== SECTION 11: FINAL CTA ========== */}
-        <section className="py-16 md:py-20 bg-gradient-to-b from-amber-100/50 to-purple-100/30">
+        <section className="py-16 md:py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
@@ -522,13 +509,13 @@ const BirthdayGift = () => {
                   </Button>
                 </a>
                 <a href={`tel:${phone}`}>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-amber-300 text-amber-700 hover:bg-amber-50">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-indigo/20 text-indigo hover:bg-bone">
                     <Phone className="mr-2 h-5 w-5" />
                     {phone}
                   </Button>
                 </a>
                 <a href="mailto:info@nius.cz">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-amber-300 text-amber-700 hover:bg-amber-50">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 py-6 border-indigo/20 text-indigo hover:bg-bone">
                     <Mail className="mr-2 h-5 w-5" />
                     {t("birthdayGift.finalCta.email")}
                   </Button>

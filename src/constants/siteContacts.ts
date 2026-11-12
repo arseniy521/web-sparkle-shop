@@ -5,7 +5,6 @@ export const NIUS_PHONE_E164 = '+420773629123';
 
 export const NIUS_PHONE_WHATSAPP_DIGITS = '420773629123';
 
-export const NIUS_BOOKING_URL = 'https://nurseinprague.setmore.com/book';
 
 export const APP_NIUS_URL = 'https://app.nius.cz';
 
