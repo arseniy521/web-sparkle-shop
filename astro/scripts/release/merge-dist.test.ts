@@ -55,8 +55,15 @@ describe('mergeDist', () => {
 
   afterEach(() => fs.rmSync(root, { recursive: true, force: true }));
 
+  // What an earlier merge leaves in the output folder; a merge empties nothing else.
+  const earlierMerge = (dir: string) => {
+    write(dir, 'CNAME', 'www.nius.cz\n');
+    write(dir, '_astro/earlier.js', 'earlier code');
+    write(dir, 'stale.txt', 'from an earlier merge');
+  };
+
   it('keeps the old site and takes the listed pages, _astro/ and .nojekyll from the new build', () => {
-    write(outDir, 'stale.txt', 'from an earlier merge');
+    earlierMerge(outDir);
     mergeDist({ oldDist, newDist, paths, outDir });
 
     expect(read(outDir, 'index.html')).toBe('<h1>old home</h1>');
@@ -69,6 +76,7 @@ describe('mergeDist', () => {
     expect(read(outDir, '404.html')).toBe('<h1>old 404</h1>');
     expect(read(outDir, 'CNAME')).toBe('www.nius.cz \r\n');
     expect(exists(outDir, 'stale.txt')).toBe(false);
+    expect(exists(outDir, '_astro/earlier.js')).toBe(false);
 
     // Every local file the new page refers to is in the merged site.
     const refs = [...NEW_PAGE.matchAll(/(?:src|href)="(\/[^"]+)"/g)].map((m) => m[1]);
@@ -146,7 +154,7 @@ describe('mergeDist', () => {
   });
 
   it('leaves an existing output folder as it was when it refuses a merge', () => {
-    write(outDir, 'stale.txt', 'from an earlier merge');
+    earlierMerge(outDir);
     const refusals: [string, () => void][] = [
       ['.nojekyll', () => fs.rmSync(path.join(newDist, '.nojekyll'))],
       [
@@ -160,8 +168,9 @@ describe('mergeDist', () => {
     for (const [missing, remove] of refusals) {
       remove();
       expect(() => mergeDist({ oldDist, newDist, paths, outDir }), missing).toThrow(missing);
-      expect(fs.readdirSync(outDir), missing).toEqual(['stale.txt']);
+      expect(fs.readdirSync(outDir).sort(), missing).toEqual(['CNAME', '_astro', 'stale.txt']);
       expect(read(outDir, 'stale.txt')).toBe('from an earlier merge');
+      expect(read(outDir, '_astro/earlier.js')).toBe('earlier code');
     }
   });
 
@@ -171,5 +180,50 @@ describe('mergeDist', () => {
     }
     expect(read(oldDist, 'index.html')).toBe('<h1>old home</h1>');
     expect(read(newDist, '_astro/page.js')).toBe('new code');
+  });
+
+  // The output folder is emptied: `--out src` must not delete the sources.
+  it('refuses a non-empty output folder that is not an earlier merge and leaves it intact', () => {
+    const foreign: [string, (dir: string) => void][] = [
+      ['a source folder', (dir) => write(dir, 'pages/index.astro', 'source')],
+      ['CNAME without _astro', (dir) => write(dir, 'CNAME', 'www.nius.cz\n')],
+      ['_astro without CNAME', (dir) => write(dir, '_astro/page.js', 'code')],
+      ['a file named _astro', (dir) => { write(dir, 'CNAME', 'www.nius.cz\n'); write(dir, '_astro', 'not a folder'); }],
+      ['a folder named CNAME', (dir) => { write(dir, 'CNAME/keep.txt', 'x'); write(dir, '_astro/page.js', 'code'); }],
+    ];
+    for (const [name, fill] of foreign) {
+      const dir = path.join(root, 'foreign', name);
+      fill(dir);
+      const kept = Object.fromEntries(fs.readdirSync(dir, { recursive: true, withFileTypes: true })
+        .filter((entry) => entry.isFile())
+        .map((entry) => [path.join(entry.parentPath, entry.name), fs.readFileSync(path.join(entry.parentPath, entry.name), 'utf8')]));
+      expect(Object.keys(kept).length, name).toBeGreaterThan(0);
+      expect(() => mergeDist({ oldDist, newDist, paths, outDir: dir }), name).toThrow(
+        `The output folder ${dir} exists and is not a previous release merge`,
+      );
+      for (const [file, content] of Object.entries(kept)) expect(fs.readFileSync(file, 'utf8'), name).toBe(content);
+      expect(exists(dir, 'index.html'), name).toBe(false);
+    }
+  });
+
+  it('refuses an output path that is a file and leaves it intact', () => {
+    write(root, 'out', 'a file');
+    expect(() => mergeDist({ oldDist, newDist, paths, outDir })).toThrow('is not a previous release merge');
+    expect(read(root, 'out')).toBe('a file');
+  });
+
+  it('accepts an output folder that is missing, empty or an earlier merge', () => {
+    const empty = path.join(root, 'empty');
+    fs.mkdirSync(empty);
+    const earlier = path.join(root, 'earlier');
+    earlierMerge(earlier);
+    for (const dir of [outDir, empty, earlier]) {
+      mergeDist({ oldDist, newDist, paths, outDir: dir });
+      expect(read(dir, 'sestricka-praha-1/index.html'), dir).toBe(NEW_PAGE);
+      expect(fs.readdirSync(path.join(dir, '_astro')).sort(), dir).toEqual(['page.css', 'page.js']);
+      expect(exists(dir, 'stale.txt'), dir).toBe(false);
+    }
+    // A merge output is itself an earlier merge: the command can be repeated.
+    expect(() => mergeDist({ oldDist, newDist, paths, outDir })).not.toThrow();
   });
 });

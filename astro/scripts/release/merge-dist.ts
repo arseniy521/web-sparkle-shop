@@ -70,6 +70,16 @@ export function mergeDist(input: {
       throw new Error(`The output folder ${outDir} overlaps the input ${source}`);
     }
   }
+  // Only a missing or empty folder, or what an earlier merge left (it has CNAME and _astro/),
+  // may be emptied: `--out src` must not delete the sources.
+  const existing = fs.statSync(outDir, { throwIfNoEntry: false });
+  if (existing) {
+    const inside = (name: string) => fs.statSync(path.join(outDir, name), { throwIfNoEntry: false });
+    const earlierMerge = () => inside('CNAME')?.isFile() === true && inside('_astro')?.isDirectory() === true;
+    if (!existing.isDirectory() || (fs.readdirSync(outDir).length > 0 && !earlierMerge())) {
+      throw new Error(`The output folder ${outDir} exists and is not a previous release merge`);
+    }
+  }
   const skipOld = input.skipOld ?? [];
   for (const address of skipOld) {
     if (!SITE_PATH.test(address) || address === '/') throw new Error(`Address ${address} to skip is not a page folder like /a/b/`);
