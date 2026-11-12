@@ -8,3 +8,4 @@ public/
 release-dist/
 test-results/
 .lighthouseci/
+.wrangler/
