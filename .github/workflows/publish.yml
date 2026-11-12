@@ -192,6 +192,7 @@ jobs:
           if [ -z "$(ls -A _astro 2>/dev/null)" ]; then echo "::error::release-dist has no _astro/."; status=1; fi
           if [ -f CNAME ] && [ "$(cat CNAME)" != "www.nius.cz" ]; then echo "::error::CNAME is not www.nius.cz."; status=1; fi
           if [ -e .git ]; then echo "::error::release-dist contains .git."; status=1; fi
+          if [ -e .github ]; then echo "::error::release-dist contains .github."; status=1; fi
           # A truncated artifact must not replace a fuller site.
           new_pages=$(find . -type f -name index.html | wc -l)
           old_pages=$(git -C "$GITHUB_WORKSPACE/gh-pages" ls-tree -r --name-only HEAD | grep -cE '(^|/)index\.html$' || true)
