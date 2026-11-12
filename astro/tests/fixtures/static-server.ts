@@ -71,7 +71,8 @@ export async function startStaticServer(options: {
 
   await new Promise<void>((resolve, reject) => {
     server.once('error', reject);
-    server.listen(options.port, () => resolve());
+    // Loopback only: a test server must not be reachable from the network.
+    server.listen(options.port, '127.0.0.1', () => resolve());
   });
 
   return {
