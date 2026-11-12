@@ -1,34 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="cs">
   <head>
-    <!-- Google tag (gtag.js) — only loads if user has not rejected cookies -->
+    <!-- Google tag with Consent Mode v2: everything denied by default; gtag.js is loaded
+         only after the visitor accepts cookies (cookie `nius_consent` on .nius.cz). -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      if (localStorage.getItem('nius-cookie-consent') !== 'rejected') {
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+      window.__niusLoadGtag = function () {
+        if (window.__niusGtagLoaded) return;
+        window.__niusGtagLoaded = true;
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-VNMLWF0XZG';
         document.head.appendChild(s);
         gtag('js', new Date());
         gtag('config', 'G-VNMLWF0XZG');
-      }
+      };
+      window.__niusGrantConsent = function () {
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'denied',
+          analytics_storage: 'granted'
+        });
+        window.__niusLoadGtag();
+      };
+      (function () {
+        // Same rule as getConsent() in src/lib/consent.ts: the cookie wins, the legacy
+        // localStorage record counts only when there is no valid cookie.
+        var match = document.cookie.match(/(?:^|;\s*)nius_consent=([^;]*)/);
+        var choice = match ? match[1] : null;
+        if (choice !== 'accepted' && choice !== 'rejected') {
+          try { choice = localStorage.getItem('nius-cookie-consent'); } catch (e) { choice = null; }
+        }
+        if (choice === 'accepted') window.__niusGrantConsent();
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Nurse Prague | IV Drips & Nursing Care at Your Door — NIUS</title>
-    <meta name="description" content="Licensed home nurse in Prague. IV drip therapy, injections, post-surgery care, IVF support. Same-day visits 8:00–21:00. Book via WhatsApp." />
-    <link rel="canonical" href="https://www.nius.cz/" />
-    <meta name="robots" content="index, follow" />
+    <title>Zdravotní sestra Praha | IV kapačky a domácí péče | NIUS</title>
+    <meta name="description" content="Registrované zdravotní sestry v Praze: návštěva doma, v hotelu nebo v kanceláři. Návštěva ve stejný den, denně 8:00–21:00. Objednávka online." />
     <meta name="theme-color" content="#153f4d" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-
-    <!-- Tabler Icons for menu component -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />

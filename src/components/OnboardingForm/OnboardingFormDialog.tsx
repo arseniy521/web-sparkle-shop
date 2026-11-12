@@ -66,6 +66,7 @@ export const OnboardingFormDialog = ({
     loading: catalogLoading,
     catalogReady: catalogCurrent,
     errorKey: catalogErrorKey,
+    retry: retryCatalog,
   } = useServices(open);
 
   const form = useOnboardingForm({
@@ -380,7 +381,17 @@ export const OnboardingFormDialog = ({
                 )}
 
                 {catalogErrorKey && (
-                  <p className="text-sm text-destructive">{t(catalogErrorKey)}</p>
+                  <div className="flex flex-col items-start gap-2">
+                    <p className="text-sm text-destructive">{t(catalogErrorKey)}</p>
+                    <button
+                      type="button"
+                      onClick={retryCatalog}
+                      className="px-4 py-2 rounded text-sm font-medium text-white"
+                      style={{ backgroundColor: 'var(--color-indigo)' }}
+                    >
+                      {t('onboarding.catalogRetry')}
+                    </button>
+                  </div>
                 )}
 
                 {cartEmpty && (

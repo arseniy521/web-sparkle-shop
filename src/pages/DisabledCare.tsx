@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BookingLink } from '@/components/BookingLink';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Calendar, Phone, Check, Heart, Star } from "lucide-react";
@@ -9,12 +10,18 @@ import { SEO } from "@/components/SEO";
 import { RelatedServices } from "@/components/RelatedServices";
 import hygieneIcon from "@/assets/HygieneAssistance.webp";
 import { useTranslation } from "react-i18next";
+import { getIvDripsUrl } from "@/utils/languageUtils";
 
 const DisabledCare = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
-  const pageTitle = "Home Nursing Care Prague | Daily Support for Your Loved One";
-  const pageDescription = "Professional daily nursing care in Prague for elderly, disabled, and chronic patients. Give your loved one compassionate hygiene, medication, and mobility support by English-speaking nurses — at home.";
+  const seoCopy: Record<string, { title: string; description: string }> = {
+    en: { title: "Home Nursing Care Prague | Daily Support at Home", description: "Daily home nursing care in Prague for elderly and disabled patients: hygiene, mobility and medication support by registered, English-speaking nurses." },
+    cs: { title: "Domácí ošetřovatelská péče Praha | Denní podpora", description: "Denní domácí péče v Praze pro seniory a osoby se zdravotním postižením: hygiena, pohyb a podpora s léky. Registrované sestry, česky i anglicky." },
+    ru: { title: "Домашний уход в Праге | Ежедневная помощь", description: "Ежедневный домашний уход в Праге для пожилых и людей с инвалидностью: гигиена, передвижение, помощь с лекарствами. Медсёстры говорят по-русски." },
+    uk: { title: "Домашній догляд у Празі | Щоденна допомога", description: "Щоденний домашній догляд у Празі для літніх людей та людей з інвалідністю: гігієна, пересування, допомога з ліками. Медсестри говорять українською." },
+  };
+  const { title: pageTitle, description: pageDescription } = seoCopy[i18n.language] ?? seoCopy.en;
   
   const services = [
     t('disabledCare.services.hygiene'),
@@ -43,7 +50,7 @@ const DisabledCare = () => {
         "addressLocality": "Prague",
         "addressCountry": "CZ"
       },
-      "priceRange": "2190-118200 CZK",
+      "priceRange": "1650-4550 CZK",
       "availableLanguage": ["en", "cs", "ru", "uk"],
       "geo": {
         "@type": "GeoCoordinates",
@@ -59,12 +66,12 @@ const DisabledCare = () => {
         {
           "@type": "Service",
           "name": "Mobility Support",
-          "description": "Safe transfers and positioning assistance"
+          "description": "Transfers and positioning assistance"
         },
         {
           "@type": "Service",
           "name": "Medication Management",
-          "description": "Timely medication administration and monitoring"
+          "description": "Help with medication as prescribed by the patient's doctor"
         }
       ]
     },
@@ -97,7 +104,7 @@ const DisabledCare = () => {
       ]} />
       <main className="flex-1" role="main">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <section className="py-20 bg-bone">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -108,16 +115,16 @@ const DisabledCare = () => {
                   {t('disabledCare.title')}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  {t('disabledCare.description')} We also offer specialized services including <Link to="/post-surgery-recovery-care-prague/" className="text-primary hover:underline font-medium">post-surgery care Prague</Link> and <Link to="/iv-drips-prague/" className="text-primary hover:underline font-medium">IV vitamin therapy</Link>.
+                  {t('disabledCare.description')} We also offer specialized services including <Link to="/post-surgery-recovery-care-prague/" className="text-primary hover:underline font-medium">post-surgery care Prague</Link> and <Link to={getIvDripsUrl(i18n.language)} className="text-primary hover:underline font-medium">IV vitamin therapy</Link>.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                  <BookingLink>
                     <Button size="lg" className="w-full sm:w-auto group">
                       {t('disabledCare.bookVisit')}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
-                  </a>
+                  </BookingLink>
                   <a href="tel:+420773629123">
                     <Button size="lg" variant="outline" className="w-full sm:w-auto">
                       <Phone className="mr-2 h-5 w-5" />
@@ -144,8 +151,7 @@ const DisabledCare = () => {
               </div>
 
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
-                <div className="relative rounded-3xl overflow-hidden shadow-card bg-white p-8">
+                <div className="relative rounded-xl overflow-hidden shadow-card bg-white p-8">
                   <img
                     src={hygieneIcon}
                     alt="Disabled care and hygiene assistance nurse in Prague"
@@ -307,7 +313,7 @@ const DisabledCare = () => {
         {/* CTA */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl p-12">
+            <div className="max-w-3xl mx-auto text-center bg-bone rounded-xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
                 {t('disabledCare.cta.title')}
               </h2>

@@ -49,7 +49,7 @@ React Router v6 with language-prefix pattern:
 
 ### Styling
 - Tailwind with custom tokens: indigo (#153f4d), bone (#f5f4ee), ink (#2a2c2e)
-- Fonts: Onest (display), Montserrat (body)
+- Fonts: Plus Jakarta Sans (display), Montserrat (body), self-hosted via @fontsource (imports in src/main.tsx)
 - 52 shadcn/ui components in `src/components/ui/`
 
 ## Key Directories

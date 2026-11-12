@@ -5,14 +5,18 @@ export const FinalCTA = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--color-indigo) 0%, var(--color-indigo-deep) 100%)' }}>
-      {/* Watermark */}
-      <div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-        style={{ fontSize: '320px', color: 'rgba(255,255,255,0.04)', fontFamily: 'var(--font-display)', fontWeight: 800, lineHeight: 1 }}
-      >
-        NIUS
-      </div>
+    <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: 'var(--color-indigo)' }}>
+      {/* Brand mark watermark */}
+      <img
+        src="/brand/logo-mark-light.svg"
+        alt=""
+        aria-hidden="true"
+        width={420}
+        height={420}
+        loading="lazy"
+        className="absolute -right-16 -bottom-20 w-[280px] md:w-[420px] pointer-events-none select-none"
+        style={{ opacity: 0.06 }}
+      />
 
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 text-center">
         {/* Eyebrow */}
@@ -34,7 +38,7 @@ export const FinalCTA = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
           <a
             href="#menu"
-            className="inline-flex items-center px-6 py-3.5 rounded font-body font-medium text-sm transition-colors"
+            className="inline-flex items-center px-6 py-3.5 rounded-full font-body font-medium text-sm transition-colors"
             style={{ backgroundColor: 'var(--color-bone)', color: 'var(--color-indigo)' }}
             onClick={(e) => {
               e.preventDefault();
@@ -49,7 +53,7 @@ export const FinalCTA = () => {
             target="_blank"
             rel="noopener noreferrer"
             data-analytics-source="final_cta"
-            className="inline-flex items-center px-6 py-3.5 rounded font-body font-medium text-sm text-white transition-colors"
+            className="inline-flex items-center px-6 py-3.5 rounded-full font-body font-medium text-sm text-white transition-colors"
             style={{ border: '0.5px solid rgba(255,255,255,0.3)' }}
           >
             {t('finalCta.ctaSecondary')}

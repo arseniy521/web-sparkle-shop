@@ -1,22 +1,16 @@
+// Writes dist/sitemap.xml with every <lastmod> set to the build date.
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const src = path.join(__dirname, '..', 'public', 'sitemap.xml');
+const dest = path.join(__dirname, '..', 'dist', 'sitemap.xml');
 
-const sitemapPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
-
-// Read the sitemap file
-let sitemap = fs.readFileSync(sitemapPath, 'utf8');
-
-// Get today's date in YYYY-MM-DD format
 const today = new Date().toISOString().split('T')[0];
+const sitemap = fs
+  .readFileSync(src, 'utf8')
+  .replace(/<lastmod>[^<]*<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
 
-// Replace all old dates with today's date
-sitemap = sitemap.replace(/2025-10-29/g, today);
-
-// Write back to file
-fs.writeFileSync(sitemapPath, sitemap, 'utf8');
-
-console.log(`✓ Updated all dates in sitemap.xml to ${today}`);
+fs.writeFileSync(dest, sitemap, 'utf8');
+console.log(`✓ dist/sitemap.xml lastmod set to ${today}`);

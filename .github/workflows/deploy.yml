@@ -17,6 +17,9 @@ jobs:
       VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
       VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
       VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
+      # Optional: without both values the site is published without the Google Ads conversion.
+      VITE_GOOGLE_ADS_ID: ${{ secrets.VITE_GOOGLE_ADS_ID }}
+      VITE_GOOGLE_ADS_LEAD_LABEL: ${{ secrets.VITE_GOOGLE_ADS_LEAD_LABEL }}
 
     steps:
       - name: Check out repository

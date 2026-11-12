@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { SITE_URL, redirects, buildRedirectStub } from './redirects.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,9 +16,10 @@ const routes = [
   "/en/blog",
   "/ru/blog",
   "/uk/blog",
-  "/iv-drips-prague",
+  "/iv-kapacky-praha",
   "/en/iv-drips-prague",
-  "/ru/iv-drips-prague",
+  "/en/iv-drip-hotel-prague",
+  "/ru/kapelnitsy-praga",
   "/uk/iv-drips-prague",
   "/ivf-support-prague",
   "/en/ivf-support-prague",
@@ -45,11 +47,17 @@ const routes = [
   "/en/birthday-gift-prague",
   "/ru/podatok-k-dnju-rozhdenija-praga",
 
-  // Hangover IV Drip - Localized slugs
-  "/kapacka-na-kocovinu-praha",
-  "/en/hangover-iv-drip-prague",
-  "/ru/kapelnica-ot-pokhmelya-praga",
-  "/uk/krapelnytsia-vid-pokhmellia-praga",
+  // Rehydration IV drip - Localized slugs
+  "/rehydratace-praha",
+  "/en/rehydration-iv-drip-prague",
+  "/ru/regidratatsiya-kapelnitsa-praga",
+  "/uk/rehidratatsiia-krapelnytsia-praga",
+
+  // Privacy
+  "/privacy",
+  "/en/privacy",
+  "/ru/privacy",
+  "/uk/privacy",
 
   // Old URL redirects are handled separately below (not pre-rendered)
   "/blog/iv-therapy-at-home-prague-guide",
@@ -201,36 +209,10 @@ async function prerender() {
     await browser.close();
   }
 
-  // Generate static redirect HTML files for old URLs
+  // Generate static redirect HTML files for old URLs (list and template: scripts/redirects.mjs).
   // These use <meta http-equiv="refresh"> so Google sees a proper redirect signal
-  const baseUrl = 'https://www.nius.cz';
-  const redirects = [
-    { from: '/iv-drip-therapy-prague', to: '/iv-drips-prague/' },
-    { from: '/en/iv-drip-therapy-prague', to: '/en/iv-drips-prague/' },
-    { from: '/ru/iv-drip-therapy-prague', to: '/ru/iv-drips-prague/' },
-    { from: '/uk/iv-drip-therapy-prague', to: '/uk/iv-drips-prague/' },
-    { from: '/ivf-injection-support-prague', to: '/ivf-support-prague/' },
-    { from: '/en/ivf-injection-support-prague', to: '/en/ivf-support-prague/' },
-    { from: '/ru/ivf-injection-support-prague', to: '/ru/ivf-support-prague/' },
-    { from: '/uk/ivf-injection-support-prague', to: '/uk/ivf-support-prague/' },
-  ];
-
   for (const { from, to } of redirects) {
-    const targetUrl = `${baseUrl}${to}`;
-    const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0;url=${targetUrl}">
-  <link rel="canonical" href="${targetUrl}">
-  <meta name="robots" content="noindex">
-  <title>Redirecting...</title>
-  <script>window.location.replace("${targetUrl}");</script>
-</head>
-<body>
-  <p>This page has moved. <a href="${targetUrl}">Click here</a> if you are not redirected.</p>
-</body>
-</html>`;
+    const html = buildRedirectStub(`${SITE_URL}${to}`);
 
     const routePath = from.startsWith('/') ? from.slice(1) : from;
     const outputPath = path.join(distDir, routePath, 'index.html');

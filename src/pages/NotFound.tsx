@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft } from "lucide-react";
-import { getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
+import { getIvDripsUrl, getLanguageFromPath, getLanguagePrefix } from "@/utils/languageUtils";
 
 const NotFound = () => {
   const location = useLocation();
@@ -25,7 +25,7 @@ const NotFound = () => {
     <Helmet>
       <meta name="robots" content="noindex, nofollow" />
     </Helmet>
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary/5 to-background">
+    <div className="flex min-h-screen items-center justify-center bg-bone">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center space-y-8">
           <div className="space-y-4">
@@ -64,7 +64,7 @@ const NotFound = () => {
               <Link to={`${langPrefix}/ivf-support-prague/`} className="text-primary hover:underline">
                 {t('specializedServices.ivf')}
               </Link>
-              <Link to={`${langPrefix}/iv-drips-prague/`} className="text-primary hover:underline">
+              <Link to={getIvDripsUrl(currentLang)} className="text-primary hover:underline">
                 {t('specializedServices.ivDrip')}
               </Link>
               <Link to={`${langPrefix}/post-surgery-recovery-care-prague/`} className="text-primary hover:underline">

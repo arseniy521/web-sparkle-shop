@@ -51,10 +51,10 @@ const localizedSlugMap: Record<string, Record<string, string>> = {
   '/birthday-gift-prague': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
   '/narozeninovy-darek-praha': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
   '/podatok-k-dnju-rozhdenija-praga': { cs: '/narozeninovy-darek-praha/', en: '/en/birthday-gift-prague/', ru: '/ru/podatok-k-dnju-rozhdenija-praga/' },
-  '/hangover-iv-drip-prague': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
-  '/kapacka-na-kocovinu-praha': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
-  '/kapelnica-ot-pokhmelya-praga': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
-  '/krapelnytsia-vid-pokhmellia-praga': { cs: '/kapacka-na-kocovinu-praha/', en: '/en/hangover-iv-drip-prague/', ru: '/ru/kapelnica-ot-pokhmelya-praga/', uk: '/uk/krapelnytsia-vid-pokhmellia-praga/' },
+  '/rehydration-iv-drip-prague': { cs: '/rehydratace-praha/', en: '/en/rehydration-iv-drip-prague/', ru: '/ru/regidratatsiya-kapelnitsa-praga/', uk: '/uk/rehidratatsiia-krapelnytsia-praga/' },
+  '/rehydratace-praha': { cs: '/rehydratace-praha/', en: '/en/rehydration-iv-drip-prague/', ru: '/ru/regidratatsiya-kapelnitsa-praga/', uk: '/uk/rehidratatsiia-krapelnytsia-praga/' },
+  '/regidratatsiya-kapelnitsa-praga': { cs: '/rehydratace-praha/', en: '/en/rehydration-iv-drip-prague/', ru: '/ru/regidratatsiya-kapelnitsa-praga/', uk: '/uk/rehidratatsiia-krapelnytsia-praga/' },
+  '/rehidratatsiia-krapelnytsia-praga': { cs: '/rehydratace-praha/', en: '/en/rehydration-iv-drip-prague/', ru: '/ru/regidratatsiya-kapelnitsa-praga/', uk: '/uk/rehidratatsiia-krapelnytsia-praga/' },
   '/iv-drips-prague': { cs: '/iv-kapacky-praha/', en: '/en/iv-drips-prague/', ru: '/ru/kapelnitsy-praga/', uk: '/uk/iv-drips-prague/' },
   '/iv-kapacky-praha': { cs: '/iv-kapacky-praha/', en: '/en/iv-drips-prague/', ru: '/ru/kapelnitsy-praga/', uk: '/uk/iv-drips-prague/' },
   '/kapelnitsy-praga': { cs: '/iv-kapacky-praha/', en: '/en/iv-drips-prague/', ru: '/ru/kapelnitsy-praga/', uk: '/uk/iv-drips-prague/' },
@@ -62,8 +62,16 @@ const localizedSlugMap: Record<string, Record<string, string>> = {
 
 // Get localized URL for pages with different slugs per language
 export const getLocalizedUrl = (currentPath: string, targetLang: string): string | null => {
-  const basePath = getBasePath(currentPath);
+  // Real addresses end with "/" (GitHub Pages), the map keys do not.
+  const basePath = getBasePath(currentPath).replace(/\/+$/, '');
   return localizedSlugMap[basePath]?.[targetLang] ?? null;
+};
+
+// Final address of the IV drips page in a language. "/iv-drips-prague/" is a redirect stub in
+// cs and ru, so a link must never be built as `${langPrefix}/iv-drips-prague/`.
+export const getIvDripsUrl = (lang: string): string => {
+  const urls = localizedSlugMap['/iv-drips-prague'];
+  return urls[lang] ?? urls.cs;
 };
 
 // Ensure a path ends with a trailing slash (required for GitHub Pages)
