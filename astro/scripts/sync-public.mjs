@@ -11,5 +11,7 @@ export function syncPublic(srcDir, destDir) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  syncPublic('../public', './public');
+  // Resolved from this file, not from the current directory: the destination is emptied first.
+  const here = import.meta.dirname;
+  syncPublic(path.join(here, '../../public'), path.join(here, '../public'));
 }
