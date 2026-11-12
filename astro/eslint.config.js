@@ -5,7 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
   {
-    ignores: ['dist', 'public', '.baseline', '.checks', '.preview', 'release-dist', '.astro'],
+    ignores: ['dist', 'public', '.baseline', '.checks', '.preview', '.wrangler', 'release-dist', '.astro'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
