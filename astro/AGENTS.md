@@ -31,7 +31,7 @@
 | `npm run check:lhci` | check 4: Lighthouse, median of 3, control set of `lighthouserc.cjs`; SEO = 1, accessibility >= 0.95, performance >= 0.9 | `build` |
 | `npm run checks:report` | prints the page registry `.checks/registry.json` | any check |
 | `npm run checks` | lint, typecheck, unit tests, i18n, build, `check:seo -- --scope built`, `check:e2e`, `check:lhci` — the `astro-checks` workflow without `check:env` | — |
-| `npm run release:merge` | `release-dist/` = old build without the 7 reference-only pages + wave-1 pages, `_astro/`, `.nojekyll` of `dist/` | `baseline`, `build` |
+| `npm run release:merge` | `release-dist/` = old build without the 7 reference-only pages + wave-1 pages, `_astro/`, `.nojekyll` of `dist/`. Empties only a missing, empty or earlier-merge output folder (`CNAME` and `_astro/` inside); delete a half-written one by hand | `baseline`, `build` |
 | `npm run preview:assemble` | preview build in `.preview/` (API stub, `noindex`, closed `robots.txt`) | — |
 
 Minimum before a change is reported as done:
@@ -173,7 +173,7 @@ These files change only with the owner's explicit consent. A red check is never 
 
 - Publication goes only through "Publish NIUS" (`.github/workflows/publish.yml`), started by hand from `main`, input `dry_run` (default `true`). Jobs: `checks` (calls `astro-checks.yml`) → `build` (env check, old site lint and tests, `baseline`, `build`, `release:merge`, SEO, content, Lighthouse, `check:merged`, artifact `release-dist`) → `publish`.
 - `publish` runs only with `dry_run` unticked and on `main`, and waits for the owner's approval of the `production` environment. It refuses when `gh-pages` moved since the build or when the artifact has fewer pages than `gh-pages`, tags the previous head `published-YYYYMMDD-HHMM` (UTC), pushes an ordinary commit and waits up to 10 minutes for GitHub Pages to build it.
-- Rollback: "Roll back NIUS to a published build" (`rollback.yml`), from `main`, input `tag` in the same format, same approval. It restores the tag's tree as an ordinary commit; no build, no checks. If a publication is waiting for approval, reject it first.
+- Rollback: "Roll back NIUS to a published build" (`rollback.yml`), from `main`, input `tag` in the same format, same approval. It restores the tag's tree as an ordinary commit; no build, no checks. The tag must be a past state of `gh-pages` (an ancestor of its head): a tag pushed onto any other commit is refused, and a forced push to `gh-pages` makes every earlier tag unusable. If a publication is waiting for approval, reject it first.
 
 First run:
 
