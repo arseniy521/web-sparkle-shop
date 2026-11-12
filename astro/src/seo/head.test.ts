@@ -35,4 +35,12 @@ describe('serializeJsonLd', () => {
     expect(serializeJsonLd(v)).not.toContain('<'));
   it('round-trips through JSON.parse', () =>
     expect(JSON.parse(serializeJsonLd(v))).toEqual(v));
+  // RedirectPage.astro puts a serialized address into an inline script.
+  it('turns a string into a JavaScript string literal with the same value', () => {
+    const address = 'https://www.nius.cz/a/?q="1"</script><script>alert(1)</script>';
+    const literal = serializeJsonLd(address);
+    expect(literal).not.toContain('<');
+    expect(new Function(`return ${literal};`)()).toBe(address);
+    expect(serializeJsonLd('https://www.nius.cz/iv-kapacky-praha/')).toBe('"https://www.nius.cz/iv-kapacky-praha/"');
+  });
 });

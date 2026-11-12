@@ -1,9 +1,14 @@
 ---
+import { serializeJsonLd } from '@/seo/head.ts';
+
 interface Props {
   target: string;
 }
 
 const { target } = Astro.props;
+// A JSON string is a JavaScript string literal; serializeJsonLd also escapes "<", so that no
+// target can close the script element.
+const redirectScriptTarget = serializeJsonLd(target);
 ---
 
 <!DOCTYPE html>
@@ -14,7 +19,7 @@ const { target } = Astro.props;
   <link rel="canonical" href={target}>
   <meta name="robots" content="noindex">
   <title>Redirecting...</title>
-  <script is:inline set:html={`window.location.replace(${JSON.stringify(target)});`}></script>
+  <script is:inline set:html={`window.location.replace(${redirectScriptTarget});`}></script>
 </head>
 <body>
   <p>This page has moved. <a href={target}>Click here</a> if you are not redirected.</p>
