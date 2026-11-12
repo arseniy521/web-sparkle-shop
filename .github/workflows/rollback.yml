@@ -1,0 +1,132 @@
+name: Roll back NIUS to a published build
+
+# Restores the tree of a tag published-YYYYMMDD-HHMM onto gh-pages as an ordinary commit.
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag of the build to restore, e.g. published-20260101-1200'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 15
+    # Shared with the publish job so that two writers never push to gh-pages at once; queue: max
+    # keeps a waiting rollback from being cancelled by a later run.
+    concurrency:
+      group: publish-gh-pages
+      cancel-in-progress: false
+      queue: max
+
+    steps:
+      - name: Refuse unless started from main
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "::error::Roll back is started from $GITHUB_REF; start it from main."
+            exit 1
+          fi
+
+      - name: Check out gh-pages with its history
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Check the tag
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          # The whole value must match: a line-based check would accept a multi-line value.
+          if ! [[ "$TAG" =~ ^published-[0-9]{8}-[0-9]{4}$ ]]; then
+            echo "::error::The tag must look like published-YYYYMMDD-HHMM."
+            exit 1
+          fi
+          if ! git rev-parse --verify --quiet "refs/tags/$TAG^{commit}" > /dev/null; then
+            echo "::error::The tag $TAG does not exist."
+            exit 1
+          fi
+          # Publishing tags the head of gh-pages and commits on top of it, so every tag it made is
+          # an ancestor of the head. A tag pushed by hand onto any other commit is refused.
+          if ! git merge-base --is-ancestor "refs/tags/$TAG^{commit}" HEAD; then
+            echo "::error::The tag $TAG is not a past state of gh-pages."
+            exit 1
+          fi
+
+      - name: Replace the working tree with the tree of the tag
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          git rm -rq .
+          git checkout "refs/tags/$TAG" -- .
+
+      - name: Commit and push
+        id: commit
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "gh-pages already equals $TAG, nothing to roll back."
+            exit 0
+          fi
+          git commit -q -m "rollback: $TAG"
+          git push origin HEAD:gh-pages
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      # GitHub documents that pushes made with GITHUB_TOKEN do not trigger a Pages build, so a
+      # build is requested when none of this commit has started.
+      - name: Wait for GitHub Pages to deploy the commit
+        id: pages
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(git rev-parse HEAD)
+          requested=false
+          for attempt in $(seq 60); do
+            latest=$(gh api "repos/$GITHUB_REPOSITORY/pages/builds/latest" --jq '"\(.status) \(.commit) \(.error.message // "")"' || true)
+            read -r status commit message <<< "$latest"
+            if [ "$commit" = "$sha" ] && [ "$status" = "built" ]; then
+              echo "GitHub Pages built $sha."
+              exit 0
+            fi
+            if [ "$commit" = "$sha" ] && [ "$status" = "errored" ]; then
+              echo "::error::GitHub Pages failed to build $sha: ${message:-no message}. gh-pages already points to it, but the site still serves the previous build. Check Settings > Pages and the 'pages build and deployment' run, then re-run this job."
+              exit 1
+            fi
+            if [ "$commit" != "$sha" ] && [ "$requested" = false ] && [ "$attempt" -ge 4 ]; then
+              echo "No GitHub Pages build of $sha has started; requesting one."
+              gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" > /dev/null || echo "::warning::The request for a GitHub Pages build failed."
+              requested=true
+            fi
+            sleep 10
+          done
+          echo "::error::GitHub Pages has not built $sha within 10 minutes (last seen: ${latest:-no answer}). gh-pages already points to it, but the site may still serve the previous build. Check Settings > Pages (source: gh-pages, root) and the 'pages build and deployment' run in Actions."
+          exit 1
+
+      - name: Write the summary
+        if: always()
+        env:
+          TAG: ${{ inputs.tag }}
+          PUSHED: ${{ steps.commit.outputs.pushed }}
+          COMMITTED: ${{ steps.commit.outcome }}
+          DEPLOYED: ${{ steps.pages.outcome }}
+        run: |
+          if [ "$PUSHED" = "true" ] && [ "$DEPLOYED" = "success" ]; then
+            echo "Rolled back to $TAG; GitHub Pages deployed it." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$PUSHED" = "true" ]; then
+            echo "gh-pages now holds the tree of $TAG, but GitHub Pages did not confirm deploying it (see the error above)." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$COMMITTED" = "success" ]; then
+            echo "gh-pages already equals $TAG; nothing was rolled back." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Nothing was rolled back; gh-pages is unchanged." >> "$GITHUB_STEP_SUMMARY"
+          fi

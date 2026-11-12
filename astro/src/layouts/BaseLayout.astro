@@ -1,0 +1,62 @@
+---
+import '@/styles/global.css';
+import CookieBanner from '@/components/CookieBanner.astro';
+import OrderFormRoot from '@/components/OrderFormRoot.astro';
+import { buildHead, serializeJsonLd } from '@/seo/head.ts';
+import type { PageMeta } from '@/seo/head.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+  meta: PageMeta;
+}
+
+const { route, lang, meta } = Astro.props;
+const head = buildHead(route, lang, meta);
+const schemas = meta.schema === undefined ? [] : Array.isArray(meta.schema) ? meta.schema : [meta.schema];
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{head.title}</title>
+    <meta name="description" content={head.description} />
+    {head.keywords && <meta name="keywords" content={head.keywords} />}
+    <meta name="robots" content={head.robots} />
+    <link rel="canonical" href={head.canonical} />
+    {head.alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+    <meta property="og:title" content={head.title} />
+    <meta property="og:description" content={head.description} />
+    <meta property="og:type" content={head.ogType} />
+    <meta property="og:url" content={head.canonical} />
+    <meta property="og:image" content={head.ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Nurse in Prague" />
+    <meta property="og:locale" content={head.ogLocale} />
+    {head.ogLocaleAlternates.map((l) => <meta property="og:locale:alternate" content={l} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={head.title} />
+    <meta name="twitter:description" content={head.description} />
+    <meta name="twitter:image" content={head.ogImage} />
+    <meta name="theme-color" content="#153f4d" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    {schemas.map((schema) => <script type="application/ld+json" set:html={serializeJsonLd(schema)} />)}
+    <slot name="head" />
+  </head>
+  <body>
+    <CookieBanner />
+    <slot />
+    <OrderFormRoot lang={lang} />
+    <script>
+      import '@/scripts/boot';
+    </script>
+  </body>
+</html>

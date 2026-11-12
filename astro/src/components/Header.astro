@@ -1,0 +1,275 @@
+---
+import { Check, ChevronDown, Menu, Phone, ShoppingBag, UserCircle, X } from '@lucide/astro';
+import WhatsAppIcon from '@/components/icons/WhatsApp.astro';
+import { createT } from '@/i18n/t.ts';
+import { pageUrl, switcherTargets } from '@/routes/urls.ts';
+import { staticAccountHref } from '@/scripts/auth-status.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+
+interface Props {
+  route: PageRoute | null;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const t = createT(lang);
+const home = pageUrl('home', lang);
+const targets = switcherTargets(route);
+// The anonymous sign-in link; the header script replaces it once the sign-in status is known.
+const accountHref = staticAccountHref(route?.paths[lang] ?? null);
+
+const navLinks = [
+  { href: `${home}#menu`, label: t('nav.servicesPricing'), cta: true },
+  { href: `${home}#how-it-works`, label: t('nav.workflow'), cta: false },
+  { href: `${home}#our-nurses`, label: t('nav.ourNurses'), cta: false },
+  { href: `${home}#testimonials`, label: t('nav.testimonials'), cta: false },
+];
+
+const langs = ['cs', 'en', 'ru', 'uk'] as const;
+const langLabels: Record<Lang, string> = { cs: 'CZ', en: 'EN', ru: 'RU', uk: 'УКР' };
+const langNames: Record<Lang, string> = {
+  cs: 'Čeština',
+  en: 'English',
+  ru: 'Русский',
+  uk: 'Українська',
+};
+
+const badgeClass =
+  'absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 flex items-center justify-center rounded-full bg-[var(--color-indigo)] text-white text-[10px] font-semibold leading-none';
+const panelClass =
+  'absolute right-0 top-full mt-1 z-50 overflow-hidden rounded-md border border-[var(--color-line)] bg-[var(--color-bg)] p-1 text-popover-foreground shadow-md';
+const itemClass =
+  'relative flex select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors cursor-pointer font-body hover:bg-[rgba(21,63,77,0.06)] hover:text-[var(--color-indigo)] focus:bg-[rgba(21,63,77,0.06)] focus:text-[var(--color-indigo)]';
+---
+
+<header
+  role="banner"
+  class="sticky top-0 z-50 w-full px-4 sm:px-6 xl:px-10 transition-all duration-300 border-b"
+  style="background: rgba(245,244,238,0.92); backdrop-filter: blur(12px); border-bottom-color: var(--color-line); border-bottom-width: 0.5px;"
+>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-indigo focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Skip to content
+  </a>
+  <nav role="navigation" aria-label="Main navigation" class="flex items-center justify-between max-w-[1400px] mx-auto">
+    <a href={home} class="flex items-center gap-2 group">
+      <img src="/brand/logo-wordmark-dark.svg" alt="NIUS" height="56" class="h-12 xl:h-14" />
+    </a>
+
+    <ul class="hidden xl:flex items-center gap-7 2xl:gap-8">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            data-cta={link.cta ? 'choose_service' : undefined}
+            data-analytics-source={link.cta ? 'header_navigation' : undefined}
+            class="text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <div class="hidden xl:flex items-center gap-3">
+        <div data-dropdown class="relative flex">
+          <button
+            type="button"
+            data-dropdown-trigger
+            aria-expanded="false"
+            data-state="closed"
+            aria-label={t('nav.language')}
+            class="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-line)] px-3 py-2 text-xs font-medium font-body text-[var(--color-text-secondary)] outline-hidden transition-colors hover:border-[var(--color-indigo)] hover:text-[var(--color-indigo)] data-[state=open]:border-[var(--color-indigo)]"
+          >
+            {langLabels[lang]}
+            <ChevronDown class="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
+          <div data-dropdown-panel hidden class={`${panelClass} min-w-[168px]`}>
+            {langs.map((code) => (
+              <a
+                href={targets[code]}
+                data-lang-switch="header"
+                data-lang={code}
+                class={`${itemClass} gap-2 text-[var(--color-text-secondary)]`}
+              >
+                <span class="w-5 text-xs font-semibold">{langLabels[code]}</span>
+                <span class="flex-1">{langNames[code]}</span>
+                {lang === code && <Check class="h-4 w-4" aria-hidden="true" />}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="h-6 w-px bg-[var(--color-line)]" aria-hidden="true"></div>
+      </div>
+
+      <div data-dropdown class="relative hidden xl:flex">
+        <button
+          type="button"
+          data-dropdown-trigger
+          aria-expanded="false"
+          data-state="closed"
+          class="hidden xl:inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium font-body text-[var(--color-text-secondary)] outline-hidden transition-colors hover:bg-[rgba(21,63,77,0.06)] hover:text-[var(--color-indigo)] data-[state=open]:bg-[rgba(21,63,77,0.06)] data-[state=open]:text-[var(--color-indigo)]"
+        >
+          <Phone class="h-4 w-4" aria-hidden="true" />
+          <span>{t('nav.contacts')}</span>
+          <ChevronDown class="h-3.5 w-3.5" aria-hidden="true" />
+        </button>
+        <div data-dropdown-panel hidden class={`${panelClass} min-w-[230px]`}>
+          <a
+            href="tel:+420773629123"
+            data-analytics-source="header_contact_menu"
+            class={`${itemClass} gap-3`}
+          >
+            <Phone class="h-4 w-4" aria-hidden="true" />
+            <span>+420 773 629 123</span>
+          </a>
+          <a
+            href="https://wa.me/420773629123"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-source="header_contact_menu"
+            class={`${itemClass} gap-3`}
+          >
+            <WhatsAppIcon class="h-4 w-4" />
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <a
+        href={accountHref}
+        data-account-link="header"
+        aria-label={t('nav.account')}
+        class="hidden xl:inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-text-secondary)] hover:bg-[rgba(21,63,77,0.06)] hover:text-[var(--color-indigo)] transition-colors"
+      >
+        <UserCircle class="h-5 w-5" />
+      </a>
+
+      <button
+        type="button"
+        data-open-cart="header"
+        aria-label={t('nav.cart')}
+        class="relative hidden xl:inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(21,63,77,0.06)] text-[var(--color-indigo)] transition-colors hover:bg-[rgba(21,63,77,0.12)]"
+      >
+        <ShoppingBag class="h-5 w-5" />
+        <span data-cart-count hidden class={badgeClass}></span>
+      </button>
+
+      <button
+        type="button"
+        data-open-cart="mobile_header"
+        aria-label={t('nav.cart')}
+        class="relative inline-flex xl:hidden h-10 w-10 items-center justify-center rounded-full bg-[rgba(21,63,77,0.06)] text-[var(--color-indigo)]"
+      >
+        <ShoppingBag class="h-5 w-5" />
+        <span data-cart-count hidden class={badgeClass}></span>
+      </button>
+
+      <button
+        data-menu-toggle
+        class="xl:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-text-secondary)] hover:bg-[rgba(21,63,77,0.06)]"
+        aria-label={t('nav.menu')}
+        aria-expanded="false"
+      >
+        <Menu class="h-5 w-5" data-menu-icon="menu" />
+        <X class="h-5 w-5 hidden" data-menu-icon="close" />
+      </button>
+    </div>
+  </nav>
+
+  <div data-mobile-menu hidden class="xl:hidden pt-4 pb-4 animate-fade-in">
+    <ul class="flex flex-col gap-3">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            data-cta={link.cta ? 'choose_service' : undefined}
+            data-analytics-source={link.cta ? 'mobile_menu' : undefined}
+            class="block py-2 text-sm font-medium font-body text-[var(--color-text-secondary)]"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-3 border-t border-[var(--color-line)]">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          {langs.map((code) => (
+            <a
+              href={targets[code]}
+              data-lang-switch="mobile_menu"
+              data-lang={code}
+              class={`px-3 py-1.5 text-xs font-medium rounded-full border transition-colors ${
+                lang === code
+                  ? 'border-[var(--color-indigo)] text-[var(--color-indigo)]'
+                  : 'border-[var(--color-line)] text-[var(--color-text-muted)] hover:border-[var(--color-indigo)] hover:text-[var(--color-indigo)]'
+              }`}
+            >
+              {langLabels[code]}
+            </a>
+          ))}
+        </div>
+        <button
+          type="button"
+          data-open-cart="mobile_menu"
+          class="flex w-full items-center justify-center gap-2 px-4 py-2.5 mb-3 rounded text-sm font-medium font-body text-white transition-colors hover:opacity-90"
+          style="background-color: var(--color-indigo);"
+        >
+          <ShoppingBag class="h-4 w-4" />
+          {t('nav.cart')}
+          <span
+            data-cart-count
+            hidden
+            class="min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-white text-[var(--color-indigo)] text-[10px] font-semibold leading-none"
+          ></span>
+        </button>
+
+        <a
+          href={accountHref}
+          data-account-link="mobile_menu"
+          class="flex items-center gap-2 py-2 mb-3 text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
+        >
+          <UserCircle class="h-4 w-4" />
+          {t('nav.account')}
+        </a>
+        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-[var(--color-line)]">
+          <a
+            href="tel:+420773629123"
+            data-analytics-source="mobile_menu"
+            class="inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded text-sm font-medium font-body text-[var(--color-indigo)] border border-[var(--color-line)]"
+          >
+            <Phone class="h-4 w-4" aria-hidden="true" />
+            {t('contacts.phone')}
+          </a>
+          <a
+            href="https://wa.me/420773629123"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-source="mobile_menu"
+            class="inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded text-sm font-medium font-body text-[var(--color-indigo)] border border-[var(--color-line)]"
+          >
+            <WhatsAppIcon class="h-4 w-4" />
+            WhatsApp
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  header {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  header[data-scrolled='true'] {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+</style>
+
+<script>
+  import { initHeaderMenu } from '../scripts/header-menu';
+
+  initHeaderMenu();
+</script>

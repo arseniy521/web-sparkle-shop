@@ -1,0 +1,767 @@
+---
+import {
+  Activity,
+  Award,
+  Calendar,
+  CircleCheck,
+  Clock,
+  Droplets,
+  Heart,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Shield,
+  Sparkles,
+  Star,
+  Zap,
+} from '@lucide/astro';
+import { twMerge } from 'tailwind-merge';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Card from '@/components/ui/Card.astro';
+import RelatedServices from '@/components/RelatedServices.astro';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp.astro';
+import { createT } from '@/i18n/t.ts';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import { serializeJsonLd } from '@/seo/head.ts';
+import { faqPageSchema } from '@/seo/schema.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+import type { PageMeta } from '@/seo/head.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const t = createT(lang);
+
+// The source renders links as <Button asChild>: the link gets the merged button classes, and the
+// link's own class is appended after them unmerged (Radix Slot). Button.astro renders only <button>.
+const BUTTON_BASE =
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0';
+const BUTTON_VARIANTS = {
+  default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+  outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+};
+const BUTTON_SIZES = { default: 'h-10 px-4 py-2', sm: 'h-9 rounded-md px-3', lg: 'h-11 rounded-md px-8' };
+const buttonLink = (
+  variant: keyof typeof BUTTON_VARIANTS,
+  size: keyof typeof BUTTON_SIZES,
+  className = '',
+  linkClass = '',
+) => [twMerge(BUTTON_BASE, BUTTON_VARIANTS[variant], BUTTON_SIZES[size], className), linkClass].filter(Boolean).join(' ');
+
+const phone = "+420773629123";
+const whatsappMessage = t('ivDripTherapy.whatsappMessage');
+const whatsappLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const pageTitle = t('ivDripTherapy.seo.title');
+const pageDescription = t('ivDripTherapy.seo.description');
+const pageAddress = absoluteUrl(pageUrl('iv-drips', lang));
+
+const categoryKeys = ['immunity', 'energy', 'hydration', 'specialized'] as const;
+const categoryItemKeys: Record<string, string[]> = {
+  immunity: ['immunityLite', 'immunityPower', 'defenseShield', 'glowPostFlu'],
+  energy: ['ceoRecharge', 'metabolicReset', 'bPowerShot'],
+  hydration: ['pureHydrate', 'electrolyteReset', 'nauseaRelief'],
+  specialized: ['standardIron', 'premiumIron', 'nerveRegen', 'backacheRelief', 'allergyStop'],
+};
+
+const menu = categoryKeys.map(catKey => ({
+  category: t(`ivDripTherapy.menu.categories.${catKey}.name`),
+  catKey,
+  items: (categoryItemKeys[catKey] ?? []).map(itemKey => ({
+    name: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.name`),
+    priceCZK: Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.price`)),
+    durationMin: Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.duration`)),
+    short: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.short`),
+    includes: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.includes`, { returnObjects: true }) as unknown as string[],
+    popular: String(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.popular`)) === 'true',
+    bestFor: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.bestFor`, { defaultValue: '' }),
+  })),
+}));
+
+const filters = [
+  { key: 'all', label: t('ivDripTherapy.menu.filterAll') },
+  ...categoryKeys.map(k => ({ key: k, label: t(`ivDripTherapy.menu.categories.${k}.name`) })),
+];
+
+const treatmentKeys = ['vitaminC', 'ceo', 'hydration', 'iron', 'defense', 'glow'] as const;
+const treatmentIcons = { vitaminC: Shield, ceo: Zap, hydration: Droplets, iron: Heart, defense: Activity, glow: Sparkles };
+
+const treatments = treatmentKeys.map(key => ({
+  icon: treatmentIcons[key],
+  title: t(`ivDripTherapy.treatments.items.${key}.title`),
+  description: t(`ivDripTherapy.treatments.items.${key}.description`),
+  benefits: t(`ivDripTherapy.treatments.items.${key}.benefits`, { returnObjects: true }) as unknown as string[],
+  link: "#menu",
+}));
+
+const whyChooseKeys = ['fullService', 'availability', 'nurses', 'location', 'rating', 'english'] as const;
+const whyChooseIcons = { fullService: Award, availability: Clock, nurses: Shield, location: MapPin, rating: Star, english: Heart };
+
+const benefitKeys = ['faster', 'comesToYou', 'safety', 'customized'] as const;
+const benefitIcons = { faster: Zap, comesToYou: MapPin, safety: Shield, customized: Heart };
+
+const faqKeys = ['safe', 'duration', 'hotels', 'hangover', 'vitaminC', 'iron', 'cost', 'sameDay', 'districts', 'prescription'] as const;
+// The FAQ cards below write out the Card markup: Card.astro passes no data-faq-* attributes.
+const faqItems = faqKeys.map(key => ({
+  question: t(`ivDripTherapy.faq.items.${key}.question`),
+  answerHtml: t(`ivDripTherapy.faq.items.${key}.answer`),
+}));
+
+const stepKeys = ['step1', 'step2', 'step3', 'step4', 'step5'] as const;
+
+const districts = t('ivDripTherapy.districts.list', { returnObjects: true }) as unknown as string[];
+const beforeItems = t('ivDripTherapy.preparation.before.items', { returnObjects: true }) as unknown as string[];
+const afterItems = t('ivDripTherapy.preparation.after.items', { returnObjects: true }) as unknown as string[];
+const contraindicationItems = t('ivDripTherapy.preparation.contraindications.items', { returnObjects: true }) as unknown as string[];
+
+const meta: PageMeta = {
+  title: pageTitle,
+  description: pageDescription,
+  ogImage: "https://www.nius.cz/og-image.jpg",
+  ogType: "website",
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalBusiness",
+        "name": "NIUS – IV Drips Prague",
+        "description": pageDescription,
+        "url": pageAddress,
+        "image": "https://www.nius.cz/og-image.jpg",
+        "telephone": phone,
+        "priceRange": "1550-6350 CZK",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Prague",
+          "addressRegion": "Prague",
+          "addressCountry": "CZ",
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Prague" },
+          { "@type": "Place", "name": "Prague 1" },
+          { "@type": "Place", "name": "Prague 2" },
+          { "@type": "Place", "name": "Vinohrady" },
+          { "@type": "Place", "name": "Old Town Prague" },
+          { "@type": "Place", "name": "New Town Prague" },
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "50.0755",
+          "longitude": "14.4378",
+        },
+        "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 08:00-21:00",
+        "medicalSpecialty": ["IV Therapy", "Vitamin Infusion", "Mobile Nursing", "IV Drip Therapy"],
+        "availableLanguage": ["en", "cs", "ru", "uk"],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "4",
+          "bestRating": "5",
+          "worstRating": "4"
+        }
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "IV Drips Prague Menu",
+        "itemListElement": menu.flatMap((cat) =>
+          cat.items
+            .filter((i) => i.priceCZK && i.priceCZK > 0)
+            .map((i) => ({
+              "@type": "Offer",
+              "name": i.name,
+              "price": i.priceCZK,
+              "priceCurrency": "CZK",
+              "description": i.short,
+              "url": `${pageAddress}#menu`,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": i.name,
+                "provider": {
+                  "@type": "MedicalBusiness",
+                  "name": "NIUS Prague"
+                }
+              }
+            }))
+        ),
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout route={route} lang={lang} meta={meta}>
+  <div class="min-h-screen flex flex-col">
+    <Header route={route} lang={lang} />
+
+    <main class="flex-1">
+      <Breadcrumbs lang={lang} items={[
+        { label: t('ivDripTherapy.breadcrumbs.services'), href: pageUrl('home', lang) + '#services' },
+        { label: t('ivDripTherapy.breadcrumbs.ivDripsPrague'), href: pageUrl('iv-drips', lang) },
+      ]} />
+
+      {/* Hero Section */}
+      <section class="py-16 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
+        <div class="container mx-auto max-w-6xl">
+          <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 text-sm">
+            <div class="flex items-center gap-2">
+              <Award class="w-5 h-5 text-primary" />
+              <span class="font-medium">{t('ivDripTherapy.trustBadges.licensedNurses')}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Star class="w-5 h-5 text-yellow-500 fill-yellow-500" />
+              <span class="font-medium">{t('ivDripTherapy.trustBadges.rating')}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Clock class="w-5 h-5 text-primary" />
+              <span class="font-medium">{t('ivDripTherapy.trustBadges.available')}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <MapPin class="w-5 h-5 text-primary" />
+              <span class="font-medium">{t('ivDripTherapy.trustBadges.allDistricts')}</span>
+            </div>
+          </div>
+
+          <div class="text-center space-y-6">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight md:leading-none lg:leading-none">
+              {t('ivDripTherapy.hero.h1')}
+            </h1>
+
+            <p class="text-xl md:text-2xl font-semibold text-primary">
+              {t('ivDripTherapy.hero.subtitle')}
+            </p>
+
+            <p class="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed md:leading-7">
+              <span set:html={t('ivDripTherapy.hero.paragraph')} /> <a href={pageUrl('post-surgery', lang)} class="text-primary hover:underline font-medium">{t('ivDripTherapy.hero.postSurgeryLink')}</a>.
+            </p>
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium">
+              <div class="flex -space-x-2">
+                <div class="w-8 h-8 rounded-full bg-primary/20 border-2 border-background" />
+                <div class="w-8 h-8 rounded-full bg-primary/30 border-2 border-background" />
+                <div class="w-8 h-8 rounded-full bg-primary/40 border-2 border-background" />
+              </div>
+              <span class="text-muted-foreground" set:html={t('ivDripTherapy.hero.socialProof')} />
+            </div>
+
+            <div class="flex flex-wrap gap-4 justify-center pt-4">
+              <a href={`tel:${phone}`} class={buttonLink('default', 'lg', 'text-lg px-8', 'flex items-center gap-2')}>
+                <Phone class="w-5 h-5" />
+                {t('ivDripTherapy.hero.callBtn', { phone })}
+              </a>
+              <a href={whatsappLink} class={buttonLink('default', 'lg', 'text-lg px-8', 'flex items-center gap-2')}>
+                <MessageCircle class="w-5 h-5" />
+                {t('ivDripTherapy.hero.whatsappBtn')}
+              </a>
+              <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer" class={buttonLink('default', 'lg', 'text-lg px-8 bg-teal-600 hover:bg-teal-700', 'flex items-center gap-2')}>
+                <Calendar class="w-5 h-5" />
+                {t('ivDripTherapy.hero.bookBtn')}
+              </a>
+              <a href="#menu" class={buttonLink('outline', 'lg', 'text-lg px-8')}>{t('ivDripTherapy.hero.menuBtn')}</a>
+            </div>
+
+            <div class="flex flex-wrap gap-6 justify-center text-sm text-muted-foreground pt-2">
+              <span class="flex items-center gap-2">
+                <CircleCheck class="w-4 h-4 text-primary" />
+                {t('ivDripTherapy.hero.sessions')}
+              </span>
+              <span class="flex items-center gap-2">
+                <CircleCheck class="w-4 h-4 text-primary" />
+                {t('ivDripTherapy.hero.sameDay')}
+              </span>
+              <span class="flex items-center gap-2">
+                <CircleCheck class="w-4 h-4 text-primary" />
+                {t('ivDripTherapy.hero.equipment')}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose NIUS */}
+      <section class="py-16 px-4 bg-muted/30">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              {t('ivDripTherapy.whyChoose.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+              {t('ivDripTherapy.whyChoose.subtitle')}
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChooseKeys.map(key => {
+              const Icon = whyChooseIcons[key];
+              return (
+                <Card class="p-6 hover:shadow-lg transition-shadow">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <Icon class="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">{t(`ivDripTherapy.whyChoose.cards.${key}.title`)}</h3>
+                  <p class="text-muted-foreground" set:html={t(`ivDripTherapy.whyChoose.cards.${key}.description`)} />
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              {t('ivDripTherapy.comparison.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground">
+              {t('ivDripTherapy.comparison.subtitle')}
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse">
+              <thead>
+              <tr class="border-b-2 border-primary">
+                <th class="text-left p-4 font-semibold">{t('ivDripTherapy.comparison.feature')}</th>
+                <th class="text-center p-4 font-semibold bg-primary/5">
+                  <div class="text-primary text-lg">{t('ivDripTherapy.comparison.nius')}</div>
+                </th>
+                <th class="text-center p-4 font-semibold">{t('ivDripTherapy.comparison.otherMobile')}</th>
+                <th class="text-center p-4 font-semibold">{t('ivDripTherapy.comparison.hospitalClinic')}</th>
+              </tr>
+              </thead>
+              <tbody class="divide-y">
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.mobile')}</td>
+                <td class="text-center p-4 bg-primary/5"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4 text-muted-foreground">✗</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.availability')}</td>
+                <td class="text-center p-4 bg-primary/5"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.limitedHours')}</td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.erOnly')}</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.nurses')}</td>
+                <td class="text-center p-4 bg-primary/5"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.varies')}</td>
+                <td class="text-center p-4"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.ivf')}</td>
+                <td class="text-center p-4 bg-primary/5"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4 text-muted-foreground">✗</td>
+                <td class="text-center p-4 text-muted-foreground">✗</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.postSurgery')}</td>
+                <td class="text-center p-4 bg-primary/5"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4 text-muted-foreground">✗</td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.outpatientOnly')}</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.sameDay')}</td>
+                <td class="text-center p-4 bg-primary/5"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.sometimes')}</td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.longWait')}</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.pricing')}</td>
+                <td class="text-center p-4 bg-primary/5"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.variableFees')}</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.english')}</td>
+                <td class="text-center p-4 bg-primary/5"><CircleCheck class="w-6 h-6 text-primary mx-auto" /></td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.varies')}</td>
+                <td class="text-center p-4 text-muted-foreground">{t('ivDripTherapy.comparison.limited')}</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">{t('ivDripTherapy.comparison.rows.sessionTime')}</td>
+                <td class="text-center p-4 bg-primary/5">{t('ivDripTherapy.comparison.sessionNius')}</td>
+                <td class="text-center p-4">{t('ivDripTherapy.comparison.sessionOther')}</td>
+                <td class="text-center p-4">{t('ivDripTherapy.comparison.sessionHospital')}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="text-center mt-8">
+            <a href={whatsappLink} class={buttonLink('default', 'lg')}>{t('ivDripTherapy.comparison.bookNow')}</a>
+          </div>
+        </div>
+      </section>
+
+      {/* Menu & Prices */}
+      <section id="menu" class="py-20 px-4 bg-muted/50">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              {t('ivDripTherapy.menu.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto" set:html={t('ivDripTherapy.menu.subtitle')} />
+
+            {/* Filter Buttons: src/scripts/drip-filter.ts */}
+            <div class="flex flex-wrap gap-3 justify-center mt-8">
+              {filters.map(f => (
+                <button
+                  data-filter={f.key}
+                  aria-pressed={f.key === 'all' ? 'true' : 'false'}
+                  class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    f.key === 'all'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted hover:bg-muted/80 text-muted-foreground'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div class="space-y-12">
+            {menu.map((cat) => (
+              <div class="space-y-6" data-category={cat.catKey}>
+                <h3 class="text-2xl md:text-3xl font-semibold text-center">{cat.category}</h3>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cat.items.map((item) => (
+                    <Card class={`p-6 relative hover:shadow-xl transition-all ${item.popular ? 'border-2 border-primary' : ''}`}>
+                      {item.popular && (
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
+                          {t('ivDripTherapy.menu.mostPopular')}
+                        </div>
+                      )}
+
+                      <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                          <h4 class="text-xl font-semibold">{item.name}</h4>
+                          <p class="text-sm text-muted-foreground mt-1">
+                            {item.durationMin < 45 ? `~${item.durationMin}` : item.durationMin === 60 ? '~60' : '45–60'} {t('ivDripTherapy.menu.minutes')}
+                          </p>
+                        </div>
+
+                        <div class="text-right">
+                          <div class="text-2xl font-bold text-primary">
+                            {item.priceCZK && item.priceCZK > 0 ? `${item.priceCZK} Kč` : t('ivDripTherapy.menu.onRequest')}
+                          </div>
+                          <div class="text-xs text-muted-foreground mt-1">
+                            ≈ €{Math.round(item.priceCZK / 25)}
+                          </div>
+                        </div>
+                      </div>
+
+                      <p class="text-muted-foreground mb-3 leading-relaxed">{item.short}</p>
+
+                      {item.bestFor && (
+                        <div class="mb-4">
+                          <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                            {t('ivDripTherapy.menu.bestForLabel')}: {item.bestFor}
+                          </span>
+                        </div>
+                      )}
+
+                      {item.includes?.length ? (
+                        <ul class="space-y-2 mb-6">
+                          {item.includes.map((x) => (
+                            <li class="flex items-start gap-2 text-sm">
+                              <CircleCheck class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span>{x}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+
+                      <a href={`https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(t('ivDripTherapy.menu.bookMessage', { drip: item.name }))}`} class={buttonLink('default', 'lg', 'w-full')}>
+                        {t('ivDripTherapy.menu.book')} {item.name}
+                      </a>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="text-center mt-12 space-y-4">
+            <p class="text-sm text-muted-foreground max-w-2xl mx-auto" set:html={t('ivDripTherapy.menu.medicalScreening')} />
+            <p class="text-sm text-muted-foreground" set:html={t('ivDripTherapy.menu.pricingNote')} />
+          </div>
+        </div>
+      </section>
+
+      {/* Key Nutrients & Treatments */}
+      <section class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              {t('ivDripTherapy.treatments.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto" set:html={t('ivDripTherapy.treatments.subtitle')} />
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {treatments.map((treatment) => {
+              const Icon = treatment.icon;
+              return (
+                <Card class="p-6 hover:shadow-lg transition-shadow h-full flex flex-col">
+                  <Icon class="w-12 h-12 text-primary mb-4" />
+                  <h3 class="text-xl font-semibold mb-3">{treatment.title}</h3>
+                  <p class="text-muted-foreground mb-4 flex-grow">{treatment.description}</p>
+                  <ul class="space-y-2 mb-4">
+                    {treatment.benefits.map((benefit) => (
+                      <li class="flex items-start gap-2 text-sm">
+                        <CircleCheck class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href={treatment.link} class={buttonLink('outline', 'default', 'w-full mt-auto')}>{t('ivDripTherapy.treatments.viewPricing')}</a>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section class="py-20 px-4 bg-muted/50">
+        <div class="container mx-auto max-w-6xl">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+            {t('ivDripTherapy.benefits.title')}
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            {benefitKeys.map(key => {
+              const Icon = benefitIcons[key];
+              return (
+                <Card class="p-8 hover:shadow-lg transition-shadow">
+                  <Icon class="w-10 h-10 text-primary mb-4" />
+                  <h3 class="text-2xl font-semibold mb-4">{t(`ivDripTherapy.benefits.${key}.title`)}</h3>
+                  {key === 'safety' ? (
+                    <p class="text-muted-foreground leading-relaxed">
+                      <span set:html={t('ivDripTherapy.benefits.safety.description')} /> <a href={pageUrl('ivf-support', lang)} class="text-primary hover:underline font-medium">{t('ivDripTherapy.benefits.safety.ivfLink')}</a> and <a href={pageUrl('disabled-care', lang)} class="text-primary hover:underline font-medium">{t('ivDripTherapy.benefits.safety.nursingLink')}</a>.
+                    </p>
+                  ) : (
+                    <p class="text-muted-foreground leading-relaxed" set:html={t(`ivDripTherapy.benefits.${key}.description`)} />
+                  )}
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section class="py-20 px-4">
+        <div class="container mx-auto max-w-5xl">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+            {t('ivDripTherapy.howItWorks.title')}
+          </h2>
+          <p class="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+            {t('ivDripTherapy.howItWorks.subtitle')}
+          </p>
+
+          <div class="space-y-8">
+            {stepKeys.map((stepKey, index) => (
+              <div class="flex gap-6 items-start">
+                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-2xl shadow-lg">
+                  {index + 1}
+                </div>
+                <div class="flex-1 pt-2">
+                  <h3 class="text-2xl font-semibold mb-3">{t(`ivDripTherapy.howItWorks.${stepKey}.title`)}</h3>
+                  <p class="text-muted-foreground leading-relaxed mb-3" set:html={t(`ivDripTherapy.howItWorks.${stepKey}.description`, { phone })} />
+                  {stepKey === 'step1' && (
+                    <div class="flex gap-3">
+                      <a href={`tel:${phone}`} class={buttonLink('default', 'sm')}>{t('ivDripTherapy.howItWorks.step1.callNow')}</a>
+                      <a href={whatsappLink} class={buttonLink('outline', 'sm')}>{t('ivDripTherapy.howItWorks.step1.whatsapp')}</a>
+                    </div>
+                  )}
+                  {stepKey === 'step5' && (
+                    <p class="text-sm text-muted-foreground" set:html={t('ivDripTherapy.howItWorks.step5.tip')} />
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Preparation */}
+      <section class="py-16 px-4 bg-muted/50">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+            {t('ivDripTherapy.preparation.title')}
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <Card class="p-6">
+              <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                <CircleCheck class="w-6 h-6 text-primary" />
+                {t('ivDripTherapy.preparation.before.title')}
+              </h3>
+              <ul class="space-y-3 text-muted-foreground">
+                {beforeItems.map((item) => (
+                  <li class="flex gap-2">
+                    <span class="text-primary">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card class="p-6">
+              <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                <CircleCheck class="w-6 h-6 text-primary" />
+                {t('ivDripTherapy.preparation.after.title')}
+              </h3>
+              <ul class="space-y-3 text-muted-foreground">
+                {afterItems.map((item) => (
+                  <li class="flex gap-2">
+                    <span class="text-primary">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+
+          <Card class="p-6 mt-8 bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
+            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+              <Shield class="w-6 h-6 text-amber-600" />
+              {t('ivDripTherapy.preparation.contraindications.title')}
+            </h3>
+            <p class="text-muted-foreground mb-3">
+              {t('ivDripTherapy.preparation.contraindications.description')}
+            </p>
+            <ul class="space-y-2 text-muted-foreground mb-4">
+              {contraindicationItems.map((item) => (
+                <li class="flex gap-2">
+                  <span class="text-amber-600">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="text-sm text-muted-foreground" set:html={t('ivDripTherapy.preparation.contraindications.note')} />
+          </Card>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+            {t('ivDripTherapy.faq.title')}
+          </h2>
+          <p class="text-center text-lg text-muted-foreground mb-12">
+            {t('ivDripTherapy.faq.subtitle')}
+          </p>
+
+          <div class="space-y-6" data-faq>
+            {faqItems.map(item => (
+              <div class="rounded-lg border bg-card text-card-foreground shadow-xs p-6 hover:shadow-lg transition-shadow" data-faq-item>
+                <h3 class="text-xl font-semibold mb-3" data-faq-question>{item.question}</h3>
+                <p class="text-muted-foreground leading-relaxed" data-faq-answer set:html={item.answerHtml} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <script type="application/ld+json" set:html={serializeJsonLd(faqPageSchema(faqItems))} />
+      </section>
+
+      {/* Districts */}
+      <section class="py-16 px-4 bg-muted/50">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              {t('ivDripTherapy.districts.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground">
+              {t('ivDripTherapy.districts.subtitle')}
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {districts.map((district) => (
+              <Card class="p-4 hover:shadow-lg transition-shadow">
+                <div class="flex items-center gap-2">
+                  <MapPin class="w-5 h-5 text-primary flex-shrink-0" />
+                  <span class="font-medium">{district}</span>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-3 mt-8">
+            <a href={pageUrl('district-praha-1', 'cs')} class="text-sm text-primary hover:underline font-medium">Sestřička Praha 1</a>
+            <a href={pageUrl('district-vinohrady', 'cs')} class="text-sm text-primary hover:underline font-medium">Sestřička Vinohrady</a>
+            <a href={pageUrl('district-zizkov', 'cs')} class="text-sm text-primary hover:underline font-medium">Sestřička Žižkov</a>
+          </div>
+
+          <div class="text-center mt-10">
+            <p class="text-muted-foreground mb-4" set:html={t('ivDripTherapy.districts.serviceArea')} />
+            <a href={whatsappLink} class={buttonLink('default', 'lg')}>{t('ivDripTherapy.districts.bookBtn')}</a>
+          </div>
+        </div>
+      </section>
+
+      {/* LLM Summary — visible factual summary for AI discoverability */}
+      <article class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="text-2xl font-bold mb-4">{t('ivDripTherapy.llmSummary.title')}</h2>
+          <div class="text-muted-foreground leading-relaxed whitespace-pre-line">{t('ivDripTherapy.llmSummary.content')}</div>
+        </div>
+      </article>
+
+      <RelatedServices lang={lang} currentId={route.id} />
+
+      {/* CTA */}
+      <section class="py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
+        <div class="container mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            {t('ivDripTherapy.cta.title')}
+          </h2>
+          <p class="text-xl text-muted-foreground mb-4">
+            {t('ivDripTherapy.cta.subtitle')}
+          </p>
+          <p class="text-lg text-muted-foreground mb-8">
+            {t('ivDripTherapy.cta.description')}
+          </p>
+
+          <div class="flex flex-wrap gap-4 justify-center mb-8">
+            <a href={`tel:${phone}`} class={buttonLink('default', 'lg', 'text-lg px-8', 'flex items-center gap-2')}>
+              <Phone class="w-5 h-5" />
+              {t('ivDripTherapy.cta.callBtn', { phone })}
+            </a>
+            <a href={whatsappLink} class={buttonLink('default', 'lg', 'text-lg px-8', 'flex items-center gap-2')}>
+              <MessageCircle class="w-5 h-5" />
+              {t('ivDripTherapy.cta.whatsappBtn')}
+            </a>
+            <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer" class={buttonLink('default', 'lg', 'text-lg px-8 bg-teal-600 hover:bg-teal-700', 'flex items-center gap-2')}>
+              <Calendar class="w-5 h-5" />
+              {t('ivDripTherapy.cta.bookBtn')}
+            </a>
+            <a href="mailto:info@nius.cz" class={buttonLink('outline', 'lg', 'text-lg px-8')}>{t('ivDripTherapy.cta.emailBtn')}</a>
+          </div>
+
+          <p class="text-sm text-muted-foreground">
+            {t('ivDripTherapy.cta.hours')}
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <Footer route={route} lang={lang} />
+    <FloatingWhatsApp />
+  </div>
+</BaseLayout>

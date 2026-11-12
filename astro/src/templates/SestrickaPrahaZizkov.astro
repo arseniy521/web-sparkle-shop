@@ -1,0 +1,279 @@
+---
+import { ArrowRight, Clock, MapPin, Phone } from '@lucide/astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+import type { PageMeta } from '@/seo/head.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+
+const pageTitle = "Sestřička Praha Žižkov | Domácí Zdravotní Péče";
+const pageDescription = "Profesionální sestřička na Žižkově v Praze 3. IV kapačky, injekce, péče o rány a domácí ošetřovatelská péče. Rychlá dostupnost pro Žižkov a okolí.";
+
+const neighborhoods = [
+  "Žižkov",
+  "Flora",
+  "Olšanské náměstí",
+  "Parukářka",
+  "Nákladové nádraží Žižkov"
+];
+
+const meta: PageMeta = {
+  title: pageTitle,
+  description: pageDescription,
+  keywords: "sestřička žižkov, sestra praha 3, iv kapačky žižkov, domácí péče žižkov, zdravotní péče praha 3",
+  ogImage: "https://www.nius.cz/og-image.jpg",
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Sestřička Praha - Žižkov",
+    "description": pageDescription,
+    "telephone": "+420773629123",
+    "email": "info@nius.cz",
+    "url": absoluteUrl(pageUrl('district-zizkov', 'cs')),
+    "priceRange": "1890-2680 CZK",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "50.0837",
+      "longitude": "14.4508"
+    },
+    "openingHours": "Mo-Su 08:00-21:00",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Žižkov, Prague 3"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Žižkov",
+      "addressRegion": "Prague 3",
+      "addressCountry": "CZ"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Služby na Žižkově",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "IV Kapačky Žižkov",
+            "description": "Profesionální IV kapačky na Žižkově",
+            "price": "2380",
+            "priceCurrency": "CZK"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Injekce Žižkov",
+            "description": "Aplikace injekcí a léků na Žižkově",
+            "price": "1890",
+            "priceCurrency": "CZK"
+          }
+        }
+      ]
+    }
+  },
+};
+---
+
+<BaseLayout route={route} lang={lang} meta={meta}>
+  <div class="flex min-h-screen flex-col bg-background">
+    <Header route={route} lang={lang} />
+    <Breadcrumbs lang={lang} items={[
+      { label: "Služby", href: pageUrl('home', 'cs') + '#services' },
+      { label: "Sestřička Praha Žižkov" }
+    ]} />
+    <main class="flex-1" role="main">
+      {/* Hero Section */}
+      <section class="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center space-y-6">
+            <div class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              Žižkov, Praha 3
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-secondary leading-tight md:leading-none">
+              Sestřička Praha Žižkov
+            </h1>
+            <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Profesionální domácí zdravotní péče na Žižkově. IV kapačky, injekce, péče o rány a komplexní ošetřovatelské služby přímo u vás doma.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+              <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" class="w-full sm:w-auto group">
+                  Rezervovat sestřičku
+                  <ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </a>
+              <a href="tel:+420773629123">
+                <Button size="lg" variant="outline" class="w-full sm:w-auto">
+                  <Phone class="mr-2 h-5 w-5" />
+                  +420 773 629 123
+                </Button>
+              </a>
+            </div>
+
+            <div class="flex flex-wrap gap-6 justify-center pt-8 text-sm">
+              <div class="flex items-center gap-2">
+                <Clock class="h-5 w-5 text-primary" />
+                <span>Obvykle 1-2 hodiny na Žižkově</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <MapPin class="h-5 w-5 text-primary" />
+                <span>Celý Žižkov, Praha 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section class="py-20">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-secondary mb-8 text-center">
+              Oblasti, které obsluhujeme na Žižkově
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+              {neighborhoods.map((area) => (
+                <Card class="p-6 text-center hover:shadow-card transition-all">
+                  <MapPin class="h-8 w-8 text-primary mx-auto mb-3" />
+                  <h3 class="font-semibold text-lg">{area}</h3>
+                  <p class="text-sm text-muted-foreground mt-2">
+                    Rychlý příjezd 1-2 hodiny
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section class="py-20 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-secondary mb-12 text-center">
+              Naše služby na Žižkově
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <a href={pageUrl('iv-drips', 'cs')}>
+                <Card class="p-6 hover:shadow-card transition-all">
+                  <h3 class="text-xl font-semibold mb-3">IV Kapačky na Žižkově</h3>
+                  <p class="text-muted-foreground mb-4">
+                    Profesionální podání IV kapačky u vás doma. Vitamíny, hydratace, předepsané léky.
+                  </p>
+                  <p class="text-sm font-semibold">Od 2 380 Kč</p>
+                </Card>
+              </a>
+
+              <Card class="p-6">
+                <h3 class="text-xl font-semibold mb-3">Injekce a aplikace léků</h3>
+                <p class="text-muted-foreground mb-4">
+                  Inzulín, antibiotika, vitaminová terapie. Přesné a bezpečné podání na Žižkově.
+                </p>
+                <p class="text-sm font-semibold">Od 1 890 Kč</p>
+              </Card>
+
+              <Card class="p-6">
+                <h3 class="text-xl font-semibold mb-3">Péče o rány a převazy</h3>
+                <p class="text-muted-foreground mb-4">
+                  Pooperační péče, sterilní převazy, ošetření ran. Pravidelná kontrola hojení.
+                </p>
+                <p class="text-sm font-semibold">Od 899 Kč</p>
+              </Card>
+
+              <Card class="p-6">
+                <h3 class="text-xl font-semibold mb-3">Denní péče o seniory</h3>
+                <p class="text-muted-foreground mb-4">
+                  Hygienická asistence, podávání léků, měření tlaku pro starší obyvatele Žižkova.
+                </p>
+                <p class="text-sm font-semibold">Individuální ceny</p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section class="py-20">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="text-3xl font-bold text-secondary">
+              Proč si vybrat naši sestřičku na Žižkově?
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+              <div class="space-y-3">
+                <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                  <Clock class="h-6 w-6 text-primary" />
+                </div>
+                <h3 class="font-semibold">Rychlý příjezd</h3>
+                <p class="text-sm text-muted-foreground">
+                  Na Žižkov obvykle dorazíme do 1-2 hodin
+                </p>
+              </div>
+              <div class="space-y-3">
+                <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                  <MapPin class="h-6 w-6 text-primary" />
+                </div>
+                <h3 class="font-semibold">Místní znalost</h3>
+                <p class="text-sm text-muted-foreground">
+                  Výborně známe Žižkov a jeho okolí
+                </p>
+              </div>
+              <div class="space-y-3">
+                <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                  <Phone class="h-6 w-6 text-primary" />
+                </div>
+                <h3 class="font-semibold">Denní dostupnost 8–21</h3>
+                <p class="text-sm text-muted-foreground">
+                  Naléhavá péče i večerní návštěvy
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section class="py-20 bg-gradient-to-b from-primary/5 to-transparent">
+        <div class="container mx-auto px-4">
+          <div class="max-w-2xl mx-auto text-center space-y-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary">
+              Potřebujete sestřičku na Žižkově?
+            </h2>
+            <p class="text-lg text-muted-foreground">
+              Rezervujte si profesionální zdravotní péči ještě dnes. Rychlý příjezd, česky i anglicky.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <a href="https://nurseinprague.setmore.com/book" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" class="w-full sm:w-auto">
+                  Rezervovat online
+                </Button>
+              </a>
+              <a href="tel:+420773629123">
+                <Button size="lg" variant="outline" class="w-full sm:w-auto">
+                  <Phone class="mr-2 h-5 w-5" />
+                  Zavolat: +420 773 629 123
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer route={route} lang={lang} />
+  </div>
+</BaseLayout>

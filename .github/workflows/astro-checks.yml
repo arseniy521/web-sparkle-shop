@@ -1,0 +1,95 @@
+name: Check the Astro site
+
+# The new site builds from the old site's texts, blog data and public files, and checks translation keys
+# with the old site's script, so their changes run the checks too.
+on:
+  push:
+    branches: [main, astro, 'astro/**']
+    paths: ['astro/**', 'src/i18n/locales/**', 'src/data/blogPosts.ts', 'public/**', 'scripts/check-i18n-keys.mjs', '.github/workflows/astro-checks.yml']
+  pull_request:
+    branches: [astro, main]
+    paths: ['astro/**', 'src/i18n/locales/**', 'src/data/blogPosts.ts', 'public/**', 'scripts/check-i18n-keys.mjs', '.github/workflows/astro-checks.yml']
+  # The publish workflow runs these checks before it builds the release.
+  workflow_call:
+    secrets:
+      VITE_AMPLITUDE_API_KEY:
+        required: true
+      VITE_MAPY_API_KEY:
+        required: true
+      VITE_GOOGLE_CLIENT_ID:
+        required: true
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: astro
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    env:
+      VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
+      VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
+      VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: astro/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Check the build environment
+        run: npm run check:env
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Check translation keys
+        run: npm run i18n:check
+
+      - name: Build
+        run: npm run build
+
+      - name: Check SEO of the built pages
+        run: npm run check:seo -- --scope built
+
+      - name: Browser scenarios
+        run: npm run check:e2e
+
+      - name: Lighthouse
+        run: npm run check:lhci
+
+      - name: Upload the traces of failed browser scenarios
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-results
+          path: astro/test-results
+          if-no-files-found: ignore
+
+      - name: Upload the check results
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: checks
+          path: astro/.checks
+          if-no-files-found: ignore

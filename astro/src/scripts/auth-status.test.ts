@@ -1,0 +1,202 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+type AuthModule = typeof import('./auth-status');
+
+const fetchMock = vi.fn();
+
+async function load(): Promise<AuthModule> {
+  vi.resetModules();
+  return import('./auth-status');
+}
+
+function loc(origin: string, pathname: string, search = '', hash = '') {
+  return { origin, pathname, search, hash };
+}
+
+beforeEach(() => {
+  fetchMock.mockReset();
+  fetchMock.mockResolvedValue(new Response(null, { status: 200 }));
+  vi.stubGlobal('fetch', fetchMock);
+});
+
+describe('authStatus', () => {
+  it('asks /auth/me/public once for concurrent callers', async () => {
+    const { authStatus } = await load();
+    await Promise.all([authStatus.ensure(), authStatus.ensure()]);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledWith('/api/auth/me/public', { credentials: 'include' });
+  });
+
+  it('does not ask again once the status is known', async () => {
+    const { authStatus } = await load();
+    await authStatus.ensure();
+    await authStatus.ensure();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    [200, 'authenticated'],
+    [401, 'anonymous'],
+    [403, 'anonymous'],
+    [500, 'error'],
+  ])('maps HTTP %i to %s', async (status, expected) => {
+    fetchMock.mockResolvedValue(new Response(null, { status }));
+    const { authStatus } = await load();
+    expect(authStatus.get()).toBe('loading');
+    expect(await authStatus.ensure()).toBe(expected);
+    expect(authStatus.get()).toBe(expected);
+  });
+
+  it('maps a network failure to error', async () => {
+    fetchMock.mockRejectedValue(new TypeError('offline'));
+    const { authStatus } = await load();
+    expect(await authStatus.ensure()).toBe('error');
+  });
+
+  it('refresh() asks again and notifies subscribers', async () => {
+    const { authStatus } = await load();
+    await authStatus.ensure();
+    const listener = vi.fn();
+    authStatus.subscribe(listener);
+    fetchMock.mockResolvedValue(new Response(null, { status: 401 }));
+    expect(await authStatus.refresh()).toBe('anonymous');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(listener).toHaveBeenCalled();
+    expect(authStatus.get()).toBe('anonymous');
+  });
+
+  it('keeps the latest refresh when an earlier request resolves after it', async () => {
+    const responses: Array<(response: Response) => void> = [];
+    fetchMock.mockImplementation(() => new Promise<Response>((resolve) => responses.push(resolve)));
+    const { authStatus } = await load();
+    const first = authStatus.refresh();
+    const second = authStatus.refresh();
+    responses[1](new Response(null, { status: 200 }));
+    await second;
+    responses[0](new Response(null, { status: 401 }));
+    await first;
+    expect(authStatus.get()).toBe('authenticated');
+  });
+
+  it('set() wins over a pending request and notifies once', async () => {
+    let answer!: (response: Response) => void;
+    fetchMock.mockImplementation(() => new Promise<Response>((resolve) => (answer = resolve)));
+    const { authStatus } = await load();
+    const pending = authStatus.ensure();
+    const listener = vi.fn();
+    authStatus.subscribe(listener);
+    authStatus.set('authenticated');
+    expect(authStatus.get()).toBe('authenticated');
+    answer(new Response(null, { status: 401 }));
+    await pending;
+    expect(authStatus.get()).toBe('authenticated');
+    expect(listener).toHaveBeenCalledTimes(1);
+  });
+
+  describe('staleness', () => {
+    beforeEach(() => {
+      vi.useFakeTimers({ toFake: ['Date'] });
+    });
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('does not ask again within 30 s and asks again after', async () => {
+      const { authStatus } = await load();
+      await authStatus.ensure();
+      vi.setSystemTime(Date.now() + 30_000);
+      await authStatus.ensure();
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      vi.setSystemTime(Date.now() + 1);
+      await authStatus.ensure();
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    });
+
+    it('asks again at once after an error', async () => {
+      fetchMock.mockResolvedValueOnce(new Response(null, { status: 500 }));
+      const { authStatus } = await load();
+      expect(await authStatus.ensure()).toBe('error');
+      expect(await authStatus.ensure()).toBe('authenticated');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    });
+
+    it('keeps the previous status while a stale status is asked again', async () => {
+      const { authStatus } = await load();
+      await authStatus.ensure();
+      let answer!: (response: Response) => void;
+      fetchMock.mockImplementation(() => new Promise<Response>((resolve) => (answer = resolve)));
+      vi.setSystemTime(Date.now() + 30_001);
+      const pending = authStatus.ensure();
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+      expect(authStatus.get()).toBe('authenticated');
+      answer(new Response(null, { status: 401 }));
+      expect(await pending).toBe('anonymous');
+    });
+  });
+
+  it('stops notifying after unsubscribe', async () => {
+    const { authStatus } = await load();
+    const listener = vi.fn();
+    authStatus.subscribe(listener)();
+    await authStatus.ensure();
+    expect(listener).not.toHaveBeenCalled();
+  });
+});
+
+describe('accountHref', () => {
+  it('account link: cabinet for a signed-in visitor', async () => {
+    const { accountHref } = await load();
+    expect(accountHref('authenticated', loc('https://www.nius.cz', '/en/blog/'))).toBe(
+      'https://app.nius.cz/cabinet',
+    );
+  });
+
+  it('account link: login with returnTo for anonymous and error', async () => {
+    const { accountHref } = await load();
+    const expected =
+      'https://app.nius.cz/login?returnTo=' +
+      encodeURIComponent('https://www.nius.cz/en/blog/?a=1#x');
+    expect(accountHref('anonymous', loc('https://www.nius.cz', '/en/blog/', '?a=1', '#x'))).toBe(expected);
+    expect(accountHref('error', loc('https://www.nius.cz', '/en/blog/', '?a=1', '#x'))).toBe(expected);
+  });
+
+  it('account link: returnTo from the bare domain', async () => {
+    const { accountHref } = await load();
+    expect(accountHref('anonymous', loc('https://nius.cz', '/'))).toBe(
+      'https://app.nius.cz/login?returnTo=' + encodeURIComponent('https://nius.cz/'),
+    );
+  });
+
+  it('account link: no returnTo from another origin', async () => {
+    const { accountHref } = await load();
+    expect(accountHref('error', loc('https://nius-site-preview.pages.dev', '/en/blog/'))).toBe(
+      'https://app.nius.cz/login',
+    );
+  });
+
+  it('account link is null while loading', async () => {
+    const { accountHref } = await load();
+    expect(accountHref('loading', loc('https://www.nius.cz', '/'))).toBeNull();
+  });
+});
+
+describe('staticAccountHref', () => {
+  const login = (returnTo: string) => `https://app.nius.cz/login?returnTo=${encodeURIComponent(returnTo)}`;
+
+  it('returns to the production address of the page without the trailing slash, as the old prerender', async () => {
+    const { staticAccountHref } = await load();
+    expect(staticAccountHref('/sestricka-praha-1/')).toBe(login('https://www.nius.cz/sestricka-praha-1'));
+    expect(staticAccountHref('/en/')).toBe(login('https://www.nius.cz/en'));
+    expect(staticAccountHref('/ru/blog/')).toBe(login('https://www.nius.cz/ru/blog'));
+  });
+
+  it('keeps the slash of the home page', async () => {
+    const { staticAccountHref } = await load();
+    expect(staticAccountHref('/')).toBe(login('https://www.nius.cz/'));
+  });
+
+  it('has no return address on a page outside the manifest', async () => {
+    const { staticAccountHref } = await load();
+    expect(staticAccountHref(null)).toBe('https://app.nius.cz/login');
+  });
+});

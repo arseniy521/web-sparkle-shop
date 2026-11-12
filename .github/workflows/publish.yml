@@ -1,0 +1,304 @@
+name: Publish NIUS
+
+# Checks, builds and merges the site, then publishes exactly that build to gh-pages after the
+# owner approves the production environment. The previous gh-pages state is tagged first.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: check and build only, publish nothing'
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/astro-checks.yml
+    secrets:
+      VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
+      VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
+      VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
+
+  build:
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
+      VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
+      VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
+    defaults:
+      run:
+        working-directory: astro
+    outputs:
+      pages-head: ${{ steps.pages.outputs.head }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: astro/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Check the new site's build environment
+        run: npm run check:env
+
+      # check:env above reads the same variables and root .env files as the old site's own check.
+      # The old site's lint and tests need its dependencies; baseline reinstalls them later.
+      - name: Install the old site's dependencies
+        working-directory: .
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+        run: npm ci
+
+      # The root configs would also pick up astro/, so the old site's own files are named.
+      - name: Lint the old site
+        working-directory: .
+        run: npx eslint src scripts public *.js *.ts
+
+      - name: Unit tests of the old site
+        working-directory: .
+        run: npx vitest run --dir src
+
+      - name: Build the old site
+        run: npm run baseline
+
+      - name: Build the new site
+        run: npm run build
+
+      - name: Merge the two builds into release-dist
+        run: npm run release:merge
+
+      - name: Check SEO of the merged build
+        run: npm run check:seo -- --production --dist release-dist --scope checks/wave1-paths.json --known checks/known-defects-old.json
+
+      - name: Compare the content with the old site
+        run: npm run check:content
+
+      - name: Lighthouse
+        run: npm run check:lhci
+
+      # Builds its own merge with test keys in .checks/, so dist/ and release-dist stay as built.
+      - name: Browser scenarios across old and new pages
+        run: npm run check:merged
+
+      - name: Upload the traces of failed browser scenarios
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-results-merged
+          path: astro/test-results
+          if-no-files-found: ignore
+          overwrite: true
+
+      - name: Check the required files of release-dist
+        working-directory: astro/release-dist
+        run: |
+          status=0
+          for file in CNAME .nojekyll sitemap.xml robots.txt 404.html index.html; do
+            if [ ! -f "$file" ]; then echo "::error::release-dist has no $file."; status=1; fi
+          done
+          if [ -z "$(ls -A _astro 2>/dev/null)" ]; then echo "::error::release-dist has no _astro/."; status=1; fi
+          if [ -f CNAME ] && [ "$(cat CNAME)" != "www.nius.cz" ]; then echo "::error::CNAME is not www.nius.cz."; status=1; fi
+          exit $status
+
+      # The publish job refuses when gh-pages has moved since this point: a later publication
+      # or rollback must not be overwritten by this build (e.g. by re-running publish alone).
+      - name: Record the current head of gh-pages
+        id: pages
+        run: |
+          head=$(git ls-remote origin refs/heads/gh-pages | cut -f1)
+          if [ -z "$head" ]; then
+            echo "::error::Cannot read the head of gh-pages."
+            exit 1
+          fi
+          echo "head=$head" >> "$GITHUB_OUTPUT"
+
+      - name: Upload release-dist
+        uses: actions/upload-artifact@v6
+        with:
+          name: release-dist
+          path: astro/release-dist
+          # .nojekyll is a hidden file; upload-artifact skips hidden files by default.
+          include-hidden-files: true
+          if-no-files-found: error
+          # A re-run of build replaces the artifact of its earlier attempt.
+          overwrite: true
+
+  publish:
+    needs: build
+    # A string comparison of the event payload: anything but an explicit false skips publishing.
+    # Only main publishes: another branch would run its own, possibly altered, copy of this file.
+    if: ${{ github.event.inputs.dry_run == 'false' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    environment: production
+    # 15 minutes for the job itself plus up to 10 minutes of waiting for GitHub Pages.
+    timeout-minutes: 25
+    # Shared with the rollback job so that two writers never push to gh-pages at once; queue: max
+    # keeps a waiting rollback from being cancelled by a later run.
+    concurrency:
+      group: publish-gh-pages
+      cancel-in-progress: false
+      queue: max
+    permissions:
+      contents: write
+      pages: write
+
+    steps:
+      - name: Check out gh-pages with its history
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          path: gh-pages
+          fetch-depth: 0
+
+      - name: Refuse if gh-pages changed since the build
+        working-directory: gh-pages
+        env:
+          EXPECTED_HEAD: ${{ needs.build.outputs.pages-head }}
+        run: |
+          head=$(git rev-parse HEAD)
+          if [ -z "$EXPECTED_HEAD" ] || [ "$head" != "$EXPECTED_HEAD" ]; then
+            echo "::error::gh-pages is at $head, the build was made when it was at ${EXPECTED_HEAD:-unknown}. Start a new run."
+            exit 1
+          fi
+
+      - name: Download release-dist
+        uses: actions/download-artifact@v7
+        with:
+          name: release-dist
+          path: release-dist
+
+      - name: Check the required files of release-dist
+        working-directory: release-dist
+        run: |
+          status=0
+          for file in CNAME .nojekyll sitemap.xml robots.txt 404.html index.html; do
+            if [ ! -f "$file" ]; then echo "::error::release-dist has no $file."; status=1; fi
+          done
+          if [ -z "$(ls -A _astro 2>/dev/null)" ]; then echo "::error::release-dist has no _astro/."; status=1; fi
+          if [ -f CNAME ] && [ "$(cat CNAME)" != "www.nius.cz" ]; then echo "::error::CNAME is not www.nius.cz."; status=1; fi
+          if [ -e .git ]; then echo "::error::release-dist contains .git."; status=1; fi
+          if [ -e .github ]; then echo "::error::release-dist contains .github."; status=1; fi
+          # A truncated artifact must not replace a fuller site.
+          new_pages=$(find . -type f -name index.html | wc -l)
+          old_pages=$(git -C "$GITHUB_WORKSPACE/gh-pages" ls-tree -r --name-only HEAD | grep -cE '(^|/)index\.html$' || true)
+          if [ "$new_pages" -lt "$old_pages" ]; then
+            echo "::error::release-dist has $new_pages index.html files, gh-pages has $old_pages."
+            status=1
+          fi
+          exit $status
+
+      - name: Replace the tree of gh-pages with release-dist
+        id: tree
+        working-directory: gh-pages
+        run: |
+          git rm -rq .
+          cp -a "$GITHUB_WORKSPACE/release-dist/." .
+          git add -A
+          ignored=$(git ls-files --others --ignored --exclude-standard)
+          if [ -n "$ignored" ]; then
+            echo "::error::These files of release-dist would not be committed:"
+            echo "$ignored"
+            exit 1
+          fi
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Tag the current state of gh-pages
+        id: tag
+        if: steps.tree.outputs.changed == 'true'
+        working-directory: gh-pages
+        run: |
+          head=$(git rev-parse HEAD)
+          tag="published-$(date -u +%Y%m%d-%H%M)"
+          existing=$(git rev-parse -q --verify "refs/tags/$tag^{commit}" || true)
+          if [ -z "$existing" ]; then
+            git tag "$tag" "$head"
+            git push origin "refs/tags/$tag"
+          elif [ "$existing" = "$head" ]; then
+            echo "$tag already points to $head."
+          else
+            echo "::error::$tag already exists and points to $existing, not $head. Start a new run in a minute."
+            exit 1
+          fi
+          echo "name=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        id: commit
+        if: steps.tree.outputs.changed == 'true'
+        working-directory: gh-pages
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "publish: $SOURCE_SHA"
+          git push origin HEAD:gh-pages
+
+      # GitHub documents that pushes made with GITHUB_TOKEN do not trigger a Pages build, so a
+      # build is requested when none of this commit has started.
+      - name: Wait for GitHub Pages to deploy the commit
+        id: pages
+        if: steps.commit.outcome == 'success'
+        working-directory: gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(git rev-parse HEAD)
+          requested=false
+          for attempt in $(seq 60); do
+            latest=$(gh api "repos/$GITHUB_REPOSITORY/pages/builds/latest" --jq '"\(.status) \(.commit) \(.error.message // "")"' || true)
+            read -r status commit message <<< "$latest"
+            if [ "$commit" = "$sha" ] && [ "$status" = "built" ]; then
+              echo "GitHub Pages built $sha."
+              exit 0
+            fi
+            if [ "$commit" = "$sha" ] && [ "$status" = "errored" ]; then
+              echo "::error::GitHub Pages failed to build $sha: ${message:-no message}. gh-pages already points to it, but the site still serves the previous build. Check Settings > Pages and the 'pages build and deployment' run, then re-run this job or roll back."
+              exit 1
+            fi
+            if [ "$commit" != "$sha" ] && [ "$requested" = false ] && [ "$attempt" -ge 4 ]; then
+              echo "No GitHub Pages build of $sha has started; requesting one."
+              gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" > /dev/null || echo "::warning::The request for a GitHub Pages build failed."
+              requested=true
+            fi
+            sleep 10
+          done
+          echo "::error::GitHub Pages has not built $sha within 10 minutes (last seen: ${latest:-no answer}). gh-pages already points to it, but the site may still serve the previous build. Check Settings > Pages (source: gh-pages, root) and the 'pages build and deployment' run in Actions."
+          exit 1
+
+      - name: Write the summary
+        if: always()
+        env:
+          CHANGED: ${{ steps.tree.outputs.changed }}
+          PUSHED: ${{ steps.commit.outcome }}
+          DEPLOYED: ${{ steps.pages.outcome }}
+          TAG: ${{ steps.tag.outputs.name }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          if [ "$PUSHED" = "success" ] && [ "$DEPLOYED" = "success" ]; then
+            echo "Published $SOURCE_SHA; GitHub Pages deployed it. The previous state of gh-pages is tagged $TAG." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$PUSHED" = "success" ]; then
+            echo "gh-pages now holds the build of $SOURCE_SHA, but GitHub Pages did not confirm deploying it (see the error above). The previous state of gh-pages is tagged $TAG." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$CHANGED" = "false" ]; then
+            echo "gh-pages already equals the build of $SOURCE_SHA; nothing was tagged or published." | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Nothing was published; gh-pages is unchanged.${TAG:+ The tag $TAG was pushed and points to the unchanged gh-pages.}" >> "$GITHUB_STEP_SUMMARY"
+          fi
