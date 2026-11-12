@@ -91,6 +91,19 @@ jobs:
       - name: Lighthouse
         run: npm run check:lhci
 
+      # Builds its own merge with test keys in .checks/, so dist/ and release-dist stay as built.
+      - name: Browser scenarios across old and new pages
+        run: npm run check:merged
+
+      - name: Upload the traces of failed browser scenarios
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-results-merged
+          path: astro/test-results
+          if-no-files-found: ignore
+          overwrite: true
+
       - name: Check the required files of release-dist
         working-directory: astro/release-dist
         run: |
