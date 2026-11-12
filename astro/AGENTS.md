@@ -145,7 +145,7 @@ These files change only with the owner's explicit consent. A red check is never 
 - A randomly red test hides other failures: make it deterministic and annotate the gap it no longer covers (see `web_vital`).
 - Do not stabilise a screenshot with a tool that changes rendering unless the same test proves it neutral on the new site; two such attempts were rejected.
 - Screenshots do not show DOM order: the cookie banner was last in the markup and looked the same. Reading and Tab order need their own assertion.
-- A complete run of a check clears its registry column; a narrowed run (`--only`, `--grep`, a file filter) rewrites only its own rows, and a narrowed `check:e2e` records nothing. When the table looks stale, delete `.checks/registry.json` and rerun.
+- A complete run of a check clears its registry column; a narrowed run (`--only`, `--grep`, a file filter) rewrites only its own rows, and a narrowed `check:e2e` records nothing. When the table looks stale, delete `.checks/registry.json` and rerun. `check:seo` on `release-dist` writes the same `seo` column (old pages get `fail`): run `check:seo -- --scope built` after it before reading the table.
 - Parallel page work: one worktree per task, and the edits of `src/templates/registry.ts` and `lighthouserc.cjs` in separate last commits, so that integration does not conflict.
 
 ## Known issues
