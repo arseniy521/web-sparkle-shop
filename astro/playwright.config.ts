@@ -32,7 +32,17 @@ export default defineConfig({
   ],
   reporter: [[process.env.CI ? 'dot' : 'list'], ['./tests/e2e/registry-reporter.ts']],
   projects: [
-    { name: 'visual', testDir: 'tests/visual', use: { ...devices['Desktop Chrome'] } },
+    {
+      name: 'visual',
+      testDir: 'tests/visual',
+      use: {
+        ...devices['Desktop Chrome'],
+        // The reference build calls the production API (https://app.nius.cz/api) and the form spec
+        // submits an order on it: that host never resolves here, so only the page route of the API
+        // stub can answer. Other hosts stay open: both sites must load Google Fonts as in production.
+        launchOptions: { args: ['--host-resolver-rules=MAP app.nius.cz ~NOTFOUND'] },
+      },
+    },
     {
       name: 'e2e',
       testDir: 'tests/e2e',
