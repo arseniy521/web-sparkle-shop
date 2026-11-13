@@ -2216,6 +2216,14 @@
     "cookieSettings": "Cookie settings"
   },
   "serviceCatalog": {
+    "standard_iron": {
+      "title": "Standard Iron",
+      "description": "Iron infusion after a short health assessment."
+    },
+    "premium_iron": {
+      "title": "Premium Iron",
+      "description": "Single-dose iron infusion, a shorter visit."
+    },
     "immunity_lite": {
       "title": "Immunity Lite",
       "description": "Vitamin C with fluids. A light starter drip."

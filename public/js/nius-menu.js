@@ -54,6 +54,7 @@ const NIUS_I18N = {
       immunity: { label: 'Vitamin Drips', desc: 'Vitamin C, minerals and fluids: chosen with the doctor after a short health assessment.' },
       energy: { label: 'B-Vitamins & Busy Days', desc: 'From the CEO Recharge flagship to a B12 injection.' },
       hydration: { label: 'Hydration & Travel', desc: 'Fluids and electrolytes after a long flight or a busy day.' },
+      iron: { label: 'Iron', desc: 'Iron infusions: chosen with the doctor after a short health assessment.' },
       nursing: { label: 'Nursing Care', desc: 'Wound dressing after surgery, hygiene assistance and nurse escort.' }
     }
   },
@@ -111,6 +112,7 @@ const NIUS_I18N = {
       immunity: { label: 'Vitamínové infuze', desc: 'Vitamín C, minerály a tekutiny: vybrané s lékařem po krátkém zdravotním posouzení.' },
       energy: { label: 'B-vitamíny a náročné dny', desc: 'Od vlajkového CEO Recharge po injekci B12.' },
       hydration: { label: 'Hydratace a cestování', desc: 'Tekutiny a elektrolyty po dlouhém letu nebo náročném dni.' },
+      iron: { label: 'Železo', desc: 'Infuze železa: vybrané s lékařem po krátkém zdravotním posouzení.' },
       nursing: { label: 'Ošetřovatelská péče', desc: 'Převaz po operaci, hygienická asistence a doprovod sestry.' }
     },
     drips: {
@@ -127,9 +129,14 @@ const NIUS_I18N = {
       'Post-Op Wound Dressing': { name: 'Pooperační převaz', tagline: 'Profesionální péče o rány a výměna obvazů po operaci.', bestfor: 'Péče po plastické chirurgii, ortopedické rány, kosmetické zákroky, zdravotní turisté.' },
       'Hygiene Assistance': { name: 'Hygienická asistence', tagline: 'Hodinová profesionální hygiena a komfortní péče.', bestfor: 'Pacienti po operaci, senioři, klienti s omezenou hybností, rekonvalescence v hotelu.' },
       'Nurse Escort': { name: 'Doprovod sestry', tagline: 'Doprovod na lékařské vyšetření a zpět.', bestfor: 'Kontroly po operaci, zdravotní turisté, pacienti, kteří potřebují pomoc při přepravě.' }
+,
+      'Standard Iron': { name: 'Standard Iron', tagline: 'Infuze železa po krátkém zdravotním posouzení.', bestfor: 'Když vám lékař doporučí železo.' },
+      'Premium Iron': { name: 'Premium Iron', tagline: 'Jednorázová infuze železa, kratší návštěva.', bestfor: 'Když vám lékař doporučí železo a chcete kratší návštěvu.' }
     },
     ingredients: {
       'Saline hydration base': 'Fyziologický roztok',
+      'Iron': 'Železo',
+      'Iron (single dose)': 'Železo (jednorázová dávka)',
       'Saline hydration solution': 'Fyziologický roztok',
       'Vitamin C': 'Vitamín C',
       'Zinc, Selenium & Trace Minerals': 'Zinek, selen a stopové prvky',
@@ -218,6 +225,7 @@ const NIUS_I18N = {
       immunity: { label: 'Витаминные капельницы', desc: 'Витамин С, минералы и жидкость: подбирает врач после короткой оценки состояния.' },
       energy: { label: 'B-витамины и насыщенные дни', desc: 'От флагманского CEO Recharge до инъекции B12.' },
       hydration: { label: 'Гидратация и поездки', desc: 'Жидкость и электролиты после долгого перелёта или насыщенного дня.' },
+      iron: { label: 'Железо', desc: 'Капельницы с железом: подбираются с врачом после короткого опроса о здоровье.' },
       nursing: { label: 'Сестринский уход', desc: 'Перевязка после операции, гигиеническая помощь и сопровождение медсестры.' }
     },
     drips: {
@@ -234,9 +242,14 @@ const NIUS_I18N = {
       'Post-Op Wound Dressing': { name: 'Послеоперационная перевязка', tagline: 'Профессиональный уход за ранами и смена повязок после операции.', bestfor: 'Уход после пластических, ортопедических и косметических вмешательств, для медицинских туристов.' },
       'Hygiene Assistance': { name: 'Гигиеническая помощь', tagline: 'Часовой профессиональный уход за гигиеной и комфортом.', bestfor: 'Пациенты после операции, пожилые, клиенты с ограниченной подвижностью, восстановление в отеле.' },
       'Nurse Escort': { name: 'Сопровождение медсестры', tagline: 'Сопровождение на приём к врачу и обратно.', bestfor: 'Визиты после операции, медицинские туристы, те, кому трудно добираться самому.' }
+,
+      'Standard Iron': { name: 'Standard Iron', tagline: 'Капельница с железом после короткого опроса о здоровье.', bestfor: 'Если врач рекомендовал железо.' },
+      'Premium Iron': { name: 'Premium Iron', tagline: 'Железо одной дозой, визит короче.', bestfor: 'Если врач рекомендовал железо и нужен короткий визит.' }
     },
     ingredients: {
       'Saline hydration base': 'Физраствор (основа)',
+      'Iron': 'Железо',
+      'Iron (single dose)': 'Железо (однократная доза)',
       'Saline hydration solution': 'Физиологический раствор',
       'Vitamin C': 'Витамин С',
       'Zinc, Selenium & Trace Minerals': 'Цинк, селен и микроэлементы',
@@ -325,6 +338,7 @@ const NIUS_I18N = {
       immunity: { label: 'Вітамінні крапельниці', desc: 'Вітамін С, мінерали та рідина: добирає лікар після короткої оцінки стану.' },
       energy: { label: 'B-вітаміни та насичені дні', desc: 'Від флагманського CEO Recharge до ін\'єкції B12.' },
       hydration: { label: 'Гідратація та подорожі', desc: 'Рідина та електроліти після довгого перельоту або насиченого дня.' },
+      iron: { label: 'Залізо', desc: 'Крапельниці із залізом: підбираються з лікарем після короткого опитування про здоров\'я.' },
       nursing: { label: 'Сестринський догляд', desc: 'Перев\'язка після операції, гігієнічна допомога та супровід медсестри.' }
     },
     drips: {
@@ -341,9 +355,14 @@ const NIUS_I18N = {
       'Post-Op Wound Dressing': { name: 'Післяопераційна перев\'язка', tagline: 'Професійний догляд за ранами та зміна пов\'язок після операції.', bestfor: 'Догляд після пластичних, ортопедичних та косметичних втручань, для медичних туристів.' },
       'Hygiene Assistance': { name: 'Гігієнічна допомога', tagline: 'Годинний професійний догляд за гігієною та комфортом.', bestfor: 'Пацієнти після операції, літні люди, клієнти з обмеженою рухливістю, відновлення в готелі.' },
       'Nurse Escort': { name: 'Супровід медсестри', tagline: 'Супровід на прийом до лікаря та назад.', bestfor: 'Візити після операції, медичні туристи, ті, кому важко дістатися самостійно.' }
+,
+      'Standard Iron': { name: 'Standard Iron', tagline: 'Крапельниця із залізом після короткого опитування про здоров\'я.', bestfor: 'Якщо лікар рекомендував залізо.' },
+      'Premium Iron': { name: 'Premium Iron', tagline: 'Залізо однією дозою, візит коротший.', bestfor: 'Якщо лікар рекомендував залізо й потрібен короткий візит.' }
     },
     ingredients: {
       'Saline hydration base': 'Фізрозчин (основа)',
+      'Iron': 'Залізо',
+      'Iron (single dose)': 'Залізо (одноразова доза)',
       'Saline hydration solution': 'Фізіологічний розчин',
       'Vitamin C': 'Вітамін С',
       'Zinc, Selenium & Trace Minerals': 'Цинк, селен та мікроелементи',
@@ -509,6 +528,35 @@ const NIUS_CATEGORIES = {
         hero: false,
         ingredients: ['Saline hydration base', 'Magnesium', 'B-Vitamin Complex'],
         bestfor: 'Business travellers, long-haul arrivals, conference attendees, hotel guests.'
+      }
+    ]
+  },
+  iron: {
+    label: 'Iron',
+    icon: 'ti-droplet',
+    desc: 'Iron infusions: chosen with the doctor after a short health assessment.',
+    drips: [
+      {
+        name: 'Standard Iron',
+        code: 'standard_iron',
+        tagline: 'Iron infusion after a short health assessment.',
+        price: 2850,
+        duration: '45–55 min',
+        admin: 'IV',
+        hero: false,
+        ingredients: ['Saline hydration base', 'Iron'],
+        bestfor: 'When your doctor has recommended iron.'
+      },
+      {
+        name: 'Premium Iron',
+        code: 'premium_iron',
+        tagline: 'Single-dose iron infusion, a shorter visit.',
+        price: 6450,
+        duration: '20–30 min',
+        admin: 'IV',
+        hero: false,
+        ingredients: ['Saline hydration base', 'Iron (single dose)'],
+        bestfor: 'When your doctor has recommended iron and you want a shorter visit.'
       }
     ]
   },

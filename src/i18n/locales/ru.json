@@ -2216,6 +2216,14 @@
     "cookieSettings": "Настройки cookie"
   },
   "serviceCatalog": {
+    "standard_iron": {
+      "title": "Standard Iron",
+      "description": "Капельница с железом после короткого опроса о здоровье."
+    },
+    "premium_iron": {
+      "title": "Premium Iron",
+      "description": "Железо одной дозой, визит короче."
+    },
     "immunity_lite": {
       "title": "Immunity Lite",
       "description": "Базовая капельница с витамином C и жидкостью."

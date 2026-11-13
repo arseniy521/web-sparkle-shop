@@ -2243,6 +2243,14 @@
     "cookieSettings": "Налаштування cookie"
   },
   "serviceCatalog": {
+    "standard_iron": {
+      "title": "Standard Iron",
+      "description": "Крапельниця із залізом після короткого опитування про здоров'я."
+    },
+    "premium_iron": {
+      "title": "Premium Iron",
+      "description": "Залізо однією дозою, візит коротший."
+    },
     "immunity_lite": {
       "title": "Immunity Lite",
       "description": "Вітамін C та гідратація. Базовий варіант."

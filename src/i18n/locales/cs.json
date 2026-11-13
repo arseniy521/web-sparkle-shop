@@ -2216,6 +2216,14 @@
     "cookieSettings": "Nastavení cookies"
   },
   "serviceCatalog": {
+    "standard_iron": {
+      "title": "Standard Iron",
+      "description": "Infuze železa po krátkém zdravotním posouzení."
+    },
+    "premium_iron": {
+      "title": "Premium Iron",
+      "description": "Jednorázová infuze železa, kratší návštěva."
+    },
     "immunity_lite": {
       "title": "Immunity Lite",
       "description": "Vitamin C a hydratace. Jednoduchý začátek."
