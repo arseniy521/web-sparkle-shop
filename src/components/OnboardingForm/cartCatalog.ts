@@ -26,7 +26,7 @@ function catalogKeys(code: string) {
 const SERVICE_CODES = [
   'immunity_lite', 'immunity_power', 'defense_shield', 'glow_post_flu',
   'ceo_recharge', 'metabolic_reset', 'b_power_shot',
-  'pure_hydrate', 'electrolyte_reset',
+  'pure_hydrate', 'electrolyte_reset', 'standard_iron', 'premium_iron',
   'post_op_wound_dressing', 'hygiene_assistance', 'nurse_escort', 'jet_lag_recovery',
   'b12_energy_shot', 'b_vitamin_complex', 'vitamin_d_shot', 'vitamin_b1_thiamin',
   'glutathione_glow', 'magnesium_boost', 'zinc_trace_minerals', 'vitamin_c_upgrade',
@@ -40,8 +40,7 @@ const SERVICE_CODES = [
  * conflicts with Czech ad law and Google Ads healthcare policy.
  */
 export const WEBSITE_HIDDEN_SERVICE_CODES: ReadonlySet<string> = new Set([
-  'standard_iron', 'premium_iron', 'nausea_relief', 'backache_relief',
-  'allergy_stop', 'nerve_regen', 'anti_nausea_addon',
+  'nausea_relief', 'backache_relief', 'allergy_stop', 'nerve_regen', 'anti_nausea_addon',
 ]);
 
 /** Public website offers only known catalog codes that are not hidden. */
