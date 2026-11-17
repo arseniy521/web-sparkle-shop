@@ -1,0 +1,472 @@
+---
+// Port of old:src/pages/PostSurgeryCare.tsx.
+import { ArrowRight, Check, Clock, Heart, Phone, Shield, Star } from '@lucide/astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import BookingLink from '@/components/BookingLink.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import RelatedServices from '@/components/RelatedServices.astro';
+import woundCareIcon from '@old/assets/WoundDressingBandage.webp';
+import { createT } from '@/i18n/t.ts';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+import type { PageMeta } from '@/seo/head.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const t = createT(lang);
+
+const services = [
+  t('postSurgeryCare.services.woundCare'),
+  t('postSurgeryCare.services.drainManagement'),
+  t('postSurgeryCare.services.hygiene'),
+  t('postSurgeryCare.services.painMeds'),
+  t('postSurgeryCare.services.escort'),
+  t('postSurgeryCare.services.ivManagement'),
+  t('postSurgeryCare.services.compression'),
+  t('postSurgeryCare.services.monitoring')
+];
+
+const seoCopy: Record<string, { title: string; description: string }> = {
+  en: { title: "Post-Surgery Nursing Care in Prague | NIUS", description: "Post-operative nursing care in Prague at your hotel or home: wound dressing, hygiene help and clinic escort by registered, English-speaking nurses." },
+  cs: { title: "Pooperační péče sestry v Praze | NIUS", description: "Pooperační ošetřovatelská péče v Praze v hotelu nebo doma: převazy ran, pomoc s hygienou a doprovod na kontroly. Registrované sestry, česky i anglicky." },
+  ru: { title: "Послеоперационный уход медсестры в Праге | NIUS", description: "Послеоперационный уход в Праге в отеле или дома: перевязки, помощь с гигиеной, сопровождение на приём. Дипломированные медсёстры, по-русски и по-английски." },
+  uk: { title: "Післяопераційний догляд медсестри в Празі | NIUS", description: "Післяопераційний догляд у Празі в готелі чи вдома: перев’язки, допомога з гігієною, супровід на візити. Медсестри говорять українською та англійською." },
+};
+const { title: pageTitle, description: pageDescription } = seoCopy[lang] ?? seoCopy.en;
+
+const faqKeys = ['1', '2', '3', '4'] as const;
+const faqItems = faqKeys.map((key) => ({
+  question: t(`postSurgeryCare.faq.q${key}`),
+  answer: t(`postSurgeryCare.faq.a${key}`),
+}));
+
+// The old page emits this array as one JSON-LD block: it is passed as one schema value.
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Post-Surgery Recovery Care Prague - Medical Tourism Support",
+    "description": pageDescription,
+    "url": absoluteUrl(pageUrl('post-surgery', 'cs')),
+    "telephone": "+420773629123",
+    "email": "info@nius.cz",
+    "image": absoluteUrl('/og-postsurgery.jpg'),
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Prague",
+      "addressCountry": "CZ"
+    },
+    "priceRange": "1650-4550 CZK",
+    "availableLanguage": ["en", "cs", "ru", "uk"],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "50.0755",
+      "longitude": "14.4378"
+    },
+    "availableService": [
+      {
+        "@type": "MedicalProcedure",
+        "name": "Post-Operative Wound Care",
+        "description": "Professional wound dressing and monitoring for surgical recovery"
+      },
+      {
+        "@type": "Service",
+        "name": "Medical Appointment Escort Service",
+        "description": "Accompanied transport and settling-in assistance for medical tourists"
+      },
+      {
+        "@type": "Service",
+        "name": "Recovery Care Packages",
+        "description": "Comprehensive post-surgery care from 2 days to 2 weeks"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
+const meta: PageMeta = {
+  title: pageTitle,
+  description: pageDescription,
+  ogImage: absoluteUrl('/og-postsurgery.jpg'),
+  schema: [schema],
+};
+
+const testimonials = t('postSurgeryCare.testimonials.items', { returnObjects: true }) as unknown as { text: string; author: string; context: string }[];
+const singleVisit = t('postSurgeryCare.pricing.singleVisit').split(':');
+---
+
+<BaseLayout route={route} lang={lang} meta={meta}>
+  <div class="flex min-h-screen flex-col bg-background">
+    <Header route={route} lang={lang} />
+    <Breadcrumbs lang={lang} items={[
+      { label: "Services", href: pageUrl('home', lang) + '#services' },
+      { label: "Post-Surgery Care" }
+    ]} />
+    <main class="flex-1" role="main">
+      {/* Hero Section */}
+      <section class="py-20 bg-bone">
+        <div class="container mx-auto px-4">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <div class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                {t('postSurgeryCare.badge')}
+              </div>
+              <h1 class="text-4xl md:text-5xl font-bold text-secondary leading-tight md:leading-none" itemprop="headline">
+                {t('postSurgeryCare.title')}
+              </h1>
+              <p class="text-lg text-muted-foreground">
+                {t('postSurgeryCare.description')} Our comprehensive care includes <a href={pageUrl('iv-drips', lang)} class="text-primary hover:underline font-medium">IV drip therapy for faster recovery</a> and specialized wound management to ensure optimal healing.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <BookingLink>
+                  <Button size="lg" class="w-full sm:w-auto group">
+                    {t('postSurgeryCare.bookNow')}
+                    <ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </BookingLink>
+                <a href="tel:+420773629123">
+                  <Button size="lg" variant="outline" class="w-full sm:w-auto">
+                    <Phone class="mr-2 h-5 w-5" />
+                    {t('postSurgeryCare.call')}
+                  </Button>
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <div class="flex flex-wrap gap-6 pt-6 border-t border-border">
+                <div class="flex items-center gap-2">
+                  <Heart class="h-5 w-5 text-primary" />
+                  <span class="text-sm font-medium">{t('postSurgeryCare.plasticSurgery')}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Shield class="h-5 w-5 text-primary" />
+                  <span class="text-sm font-medium">{t('postSurgeryCare.licensedNurses')}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Check class="h-5 w-5 text-primary" />
+                  <span class="text-sm font-medium">{t('postSurgeryCare.touristsServed')}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="relative rounded-xl overflow-hidden shadow-card bg-white p-8">
+                <img
+                  src={woundCareIcon.src}
+                  alt="Post-surgery wound care nurse in Prague"
+                  class="w-full h-auto object-contain"
+                  loading="eager"
+                  fetchpriority="high"
+                  width="500"
+                  height="500"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Included */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+            {t('postSurgeryCare.servicesTitle')}
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {services.map((service) => (
+              <div class="flex gap-3">
+                <Check class="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                <p class="text-lg text-muted-foreground">{service}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section class="py-16 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
+              {t('postSurgeryCare.pricing.title')}
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+              <Card class="p-8">
+                <h3 class="text-2xl font-bold text-secondary mb-2">{t('postSurgeryCare.pricing.escort')}</h3>
+                <div class="text-4xl font-bold text-primary mb-4">{t('postSurgeryCare.pricing.escortPrice')}</div>
+                <p class="text-muted-foreground mb-6">
+                  {t('postSurgeryCare.pricing.escortDesc')}
+                </p>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Nurse escort service</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Vital signs monitoring</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Settling in at your hotel</span>
+                  </li>
+                </ul>
+                <BookingLink>
+                  <Button class="w-full">Book Escort</Button>
+                </BookingLink>
+              </Card>
+
+              <Card class="p-8 border-2 border-primary relative">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                  {t('postSurgeryCare.pricing.popular')}
+                </div>
+                <h3 class="text-2xl font-bold text-secondary mb-2">{t('postSurgeryCare.pricing.first48')}</h3>
+                <div class="text-4xl font-bold text-primary mb-4">{t('postSurgeryCare.pricing.first48Price')}</div>
+                <p class="text-muted-foreground mb-6">
+                  {t('postSurgeryCare.pricing.first48Desc')}
+                </p>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Hospital escort included</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">2 hours post-op care</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Wound care & hygiene</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Medication assistance</span>
+                  </li>
+                </ul>
+                <BookingLink>
+                  <Button class="w-full">Book Package</Button>
+                </BookingLink>
+              </Card>
+
+              <Card class="p-8">
+                <h3 class="text-2xl font-bold text-secondary mb-2">{t('postSurgeryCare.pricing.fiveDay')}</h3>
+                <div class="text-4xl font-bold text-primary mb-4">{t('postSurgeryCare.pricing.fiveDayPrice')}</div>
+                <p class="text-muted-foreground mb-6">
+                  {t('postSurgeryCare.pricing.fiveDayDesc')}
+                </p>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Hospital escort included</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Daily 2-hour visits (5 days)</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">All wound care & dressings</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Hygiene assistance</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                    <span class="text-sm">Daily phone support</span>
+                  </li>
+                </ul>
+                <BookingLink>
+                  <Button class="w-full">Book Package</Button>
+                </BookingLink>
+              </Card>
+            </div>
+
+            <div class="text-center mt-8">
+              <p class="text-muted-foreground">
+                <strong>{singleVisit[0]}:</strong> {singleVisit[1]}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recovery Timeline */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4 text-center">
+              {t('postSurgeryCare.timeline.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground mb-12 text-center">
+              {t('postSurgeryCare.timeline.subtitle')}
+            </p>
+            <div class="space-y-0">
+              {(['day0', 'day1', 'day3', 'day7'] as const).map((dayKey, index) => (
+                <div class="flex gap-6 relative">
+                  {index < 3 && (
+                    <div class="absolute left-[19px] top-12 w-0.5 h-full bg-primary/20" />
+                  )}
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center z-10">
+                    <Clock class="h-5 w-5" />
+                  </div>
+                  <div class="flex-1 pb-10">
+                    <span class="text-xs font-semibold text-primary uppercase tracking-wider">
+                      {t(`postSurgeryCare.timeline.${dayKey}.label`)}
+                    </span>
+                    <h3 class="text-xl font-semibold text-secondary mt-1 mb-2">
+                      {t(`postSurgeryCare.timeline.${dayKey}.title`)}
+                    </h3>
+                    <p class="text-muted-foreground">
+                      {t(`postSurgeryCare.timeline.${dayKey}.description`)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ideal For */}
+      <section class="py-16 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+            {t('postSurgeryCare.idealFor.title')}
+          </h2>
+          <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <Card class="p-6">
+              <h3 class="text-xl font-semibold text-secondary mb-3">{t('postSurgeryCare.idealFor.plastic')}</h3>
+              <ul class="space-y-2 text-muted-foreground">
+                <li>• Breast augmentation/lift</li>
+                <li>• Liposuction</li>
+                <li>• Tummy tuck</li>
+                <li>• Facelift</li>
+                <li>• Rhinoplasty</li>
+              </ul>
+            </Card>
+
+            <Card class="p-6">
+              <h3 class="text-xl font-semibold text-secondary mb-3">{t('postSurgeryCare.idealFor.dental')}</h3>
+              <ul class="space-y-2 text-muted-foreground">
+                <li>• Dental implants</li>
+                <li>• Full mouth reconstruction</li>
+                <li>• Bone grafts</li>
+                <li>• Sinus lifts</li>
+              </ul>
+            </Card>
+
+            <Card class="p-6">
+              <h3 class="text-xl font-semibold text-secondary mb-3">{t('postSurgeryCare.idealFor.other')}</h3>
+              <ul class="space-y-2 text-muted-foreground">
+                <li>• Orthopedic surgery</li>
+                <li>• Eye surgery</li>
+                <li>• Bariatric surgery</li>
+                <li>• Any procedure requiring aftercare</li>
+              </ul>
+              <p class="text-sm text-muted-foreground mt-4">
+                Need specialized support? We also offer <a href={pageUrl('disabled-care', 'cs')} class="text-primary hover:underline">daily care for disabled patients</a> and <a href={pageUrl('ivf-support', 'cs')} class="text-primary hover:underline">IVF support Prague</a>.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+            {t('postSurgeryCare.testimonials.title')}
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {testimonials.map((item) => (
+              <Card class="p-6">
+                <div class="flex gap-1 mb-4">
+                  {[0, 1, 2, 3, 4].map(() => (
+                    <Star class="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p class="text-muted-foreground mb-4 italic">"{item.text}"</p>
+                <div>
+                  <p class="font-semibold text-secondary">{item.author}</p>
+                  <p class="text-sm text-muted-foreground">{item.context}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ: the Card markup is written out, Card.astro passes no data-faq-* attributes. */}
+      <section class="py-16 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+              {t('postSurgeryCare.faq.title')}
+            </h2>
+            <div class="space-y-6" data-faq>
+              {faqItems.map((item) => (
+                <div class="rounded-lg border bg-card text-card-foreground shadow-xs p-6" data-faq-item>
+                  <h3 class="text-lg font-semibold text-secondary mb-2" data-faq-question>{item.question}</h3>
+                  <p class="text-muted-foreground" data-faq-answer>{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center bg-bone rounded-xl p-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              Planning Surgery in Prague?
+            </h2>
+            <p class="text-lg text-muted-foreground mb-8">
+              Book your post-operative care in advance for peace of mind. We're here to support your recovery.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookingLink>
+                <Button size="lg" class="w-full sm:w-auto">
+                  Book Recovery Care
+                  <ArrowRight class="ml-2 h-5 w-5" />
+                </Button>
+              </BookingLink>
+              <a href="tel:+420773629123">
+                <Button size="lg" variant="outline" class="w-full sm:w-auto">
+                  <Phone class="mr-2 h-5 w-5" />
+                  {t('postSurgeryCare.call')}
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <RelatedServices lang={lang} currentId={route.id} />
+    <Footer route={route} lang={lang} />
+  </div>
+</BaseLayout>

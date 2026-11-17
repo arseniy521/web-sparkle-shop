@@ -1,0 +1,36 @@
+---
+/**
+ * FAQ of the rehydration and hotel drip pages on <details>/<summary>: every answer is in the HTML
+ * and opens without JavaScript (approved difference 1). The look is the old shadcn accordion
+ * (old:src/components/ui/accordion.tsx) with the item classes of old:src/pages/HydrationIVPrague.tsx:
+ * the closed item shows only the question, as the old collapsed answer was empty and hidden.
+ * Carries the data-faq-* attributes that check 3 compares with the FAQPage JSON-LD.
+ */
+import { ChevronDown } from '@lucide/astro';
+
+interface Props {
+  items: Array<{ question: string; answerHtml: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<div class="space-y-3" data-faq>
+  {items.map((item) => (
+    <details class="group border rounded-lg px-5" data-faq-item>
+      <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        <h3 class="flex">
+          <span class="flex flex-1 items-center justify-between py-4 transition-all text-left font-semibold">
+            <span data-faq-question>{item.question}</span>
+            <ChevronDown class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+          </span>
+        </h3>
+      </summary>
+      <div class="overflow-hidden text-sm">
+        <div class="pb-4 pt-0">
+          <div class="text-muted-foreground leading-relaxed" data-faq-answer set:html={item.answerHtml} />
+        </div>
+      </div>
+    </details>
+  ))}
+</div>

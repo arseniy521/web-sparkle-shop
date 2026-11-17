@@ -1,0 +1,55 @@
+---
+// Port of old:src/components/HowItWorks.tsx.
+import { createT } from '@/i18n/t.ts';
+import type { Lang } from '@/routes/types.ts';
+
+interface Props {
+  lang: Lang;
+}
+
+const t = createT(Astro.props.lang);
+
+const steps = [0, 1, 2, 3].map((i) => ({
+  num: `0${i + 1}/04`,
+  title: t(`howItWorks.steps.${i}.title`),
+  desc: t(`howItWorks.steps.${i}.desc`),
+  time: t(`howItWorks.steps.${i}.time`),
+}));
+---
+
+<section id="how-it-works" class="py-16 md:py-24" style="background-color: var(--color-indigo);">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+    <div class="mb-12">
+      <span class="text-xs font-body font-medium tracking-[0.16em] uppercase" style="color: var(--color-blue);">
+        {t('howItWorks.eyebrow')}
+      </span>
+      <h2 class="font-display font-bold text-3xl md:text-4xl mt-3 text-white">
+        {t('howItWorks.titleBase')} <span style="color: var(--color-peach); font-weight: 700;">{t('howItWorks.titleItalic')}</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-0">
+      {steps.map((step, i) => (
+        <div
+          class="py-6 md:px-6 first:pl-0 last:pr-0"
+          style={`border-right: ${i < 3 ? '0.5px solid rgba(255,255,255,0.08)' : 'none'};`}
+        >
+          <div>
+            <span class="text-xs font-body font-medium tracking-[0.1em]" style="color: var(--color-blue);">
+              {step.num}
+            </span>
+            <h3 class="font-display font-bold text-lg text-white mt-3 mb-2">
+              {step.title}
+            </h3>
+          </div>
+          <p class="text-[13px] font-body leading-relaxed mt-2" style="color: var(--color-text-on-dark-muted);">
+            {step.desc}
+          </p>
+          <span class="inline-block mt-3 text-xs font-body font-medium" style="color: var(--color-blue);">
+            {step.time}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

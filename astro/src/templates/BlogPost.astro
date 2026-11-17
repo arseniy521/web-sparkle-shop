@@ -1,0 +1,195 @@
+---
+import { ArrowLeft, ArrowRight, Calendar, Clock } from '@lucide/astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import BookingLink from '@/components/BookingLink.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import { blogImageUrl, formatPostDate, getPost, recentPosts } from '@/components/blog/posts.ts';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+import type { PageMeta } from '@/seo/head.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const post = getPost(route.slug);
+const related = recentPosts(3)
+  .filter((p) => p.id !== post.id)
+  .slice(0, 3);
+
+const fullTitle = `${post.title} | Nurse in Prague Blog`;
+const seoTitle = fullTitle.length <= 60 ? fullTitle : post.title.slice(0, 60);
+
+const meta: PageMeta = {
+  title: seoTitle,
+  description: post.excerpt,
+  ogImage: "https://www.nius.cz/og-blog.jpg",
+  ogType: "article",
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": absoluteUrl(blogImageUrl(post)),
+    "author": {
+      "@type": "Organization",
+      "name": post.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nurse in Prague",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.nius.cz/og-image.jpg"
+      }
+    },
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "keywords": post.keywords.join(", "),
+    "articleSection": post.category,
+    "wordCount": post.content.split(/\s+/).length
+  },
+};
+---
+
+<BaseLayout route={route} lang={lang} meta={meta}>
+  <div class="flex min-h-screen flex-col bg-background">
+    <Header route={route} lang={lang} />
+    <Breadcrumbs lang={lang} items={[
+      { label: "Blog", href: pageUrl('blog', lang) },
+      { label: post.title }
+    ]} />
+    <main class="flex-1" role="main">
+      {/* Back Button */}
+      <div class="py-8 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <a href={pageUrl('blog', lang)}>
+            <Button variant="ghost" class="group">
+              <ArrowLeft class="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              Back to Blog
+            </Button>
+          </a>
+        </div>
+      </div>
+
+      {/* Article Header */}
+      <article class="py-12">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <div class="mb-8">
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                {post.category}
+              </span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold text-secondary mb-6">
+              {post.title}
+            </h1>
+
+            <div class="flex flex-wrap items-center gap-6 text-muted-foreground mb-8">
+              <div class="flex items-center gap-2">
+                <Calendar class="h-5 w-5" />
+                {formatPostDate(post.date, 'long')}
+              </div>
+              <div class="flex items-center gap-2">
+                <Clock class="h-5 w-5" />
+                {post.readTime}
+              </div>
+              <div>By {post.author}</div>
+            </div>
+
+            {/* Featured Image */}
+            <div class="aspect-video bg-muted rounded-xl overflow-hidden mb-12">
+              <img
+                src={blogImageUrl(post)}
+                alt={post.title}
+                class="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
+
+            {/* Article Content: the old page shows the source text with line breaks only. */}
+            <div class="prose prose-lg max-w-none prose-headings:text-secondary prose-h1:text-4xl prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-p:text-muted-foreground prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-secondary prose-ul:text-muted-foreground prose-ol:text-muted-foreground">
+              <div set:html={post.content.replace(/\n/g, '<br />')} />
+            </div>
+
+            {/* Keywords */}
+            <div class="mt-12 pt-8 border-t border-border">
+              <h3 class="text-sm font-semibold text-secondary mb-4">KEYWORDS</h3>
+              <div class="flex flex-wrap gap-2">
+                {post.keywords.map((keyword) => (
+                  <span class="px-3 py-1 bg-muted text-sm text-muted-foreground rounded-full">
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      {/* CTA Section */}
+      <section class="py-16 bg-primary/5">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              Ready to Book a Home Nurse?
+            </h2>
+            <p class="text-lg text-muted-foreground mb-8">
+              Professional nursing care in the comfort of your Prague home. Available 7 days a week.
+            </p>
+            <BookingLink>
+              <Button size="lg" class="group">
+                Book Your Appointment
+                <ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </BookingLink>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Posts */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-secondary mb-8">Related Articles</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+              {related.map((relatedPost) => (
+                <Card class="overflow-hidden hover:shadow-card transition-all duration-300">
+                  <a href={pageUrl(`blog:${relatedPost.slug}`, lang)}>
+                    <div class="aspect-video bg-muted overflow-hidden">
+                      <img
+                        src={blogImageUrl(relatedPost)}
+                        alt={relatedPost.title}
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="p-6">
+                      <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                        {relatedPost.category}
+                      </span>
+                      <h3 class="text-lg font-semibold text-secondary mt-3 mb-2 line-clamp-2">
+                        {relatedPost.title}
+                      </h3>
+                      <p class="text-sm text-muted-foreground line-clamp-2">
+                        {relatedPost.excerpt}
+                      </p>
+                    </div>
+                  </a>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer route={route} lang={lang} />
+  </div>
+</BaseLayout>

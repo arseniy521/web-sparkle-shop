@@ -1,0 +1,14 @@
+---
+/** Port of old:src/pages/WomensDayGift.tsx; the markup is shared with the other gift page in GiftPage.astro. */
+import GiftPage from '@/components/gift/GiftPage.astro';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+---
+
+<GiftPage route={route} lang={lang} kind="womensDay" />

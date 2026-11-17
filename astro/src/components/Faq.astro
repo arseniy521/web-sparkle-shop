@@ -1,0 +1,36 @@
+---
+/**
+ * FAQ list on <details>/<summary>: every answer is in the HTML and opens without JavaScript
+ * (approved difference 1). The look is the old home page accordion (old:src/components/FAQNew.tsx):
+ * the closed item shows only the question, as the old collapsed answer had no height.
+ * Carries the data-faq-* attributes that check 3 compares with the FAQPage JSON-LD.
+ */
+import { ChevronDown } from '@lucide/astro';
+
+interface Props {
+  items: Array<{ question: string; answerHtml: string }>;
+  class?: string;
+}
+
+const { items, class: className = 'space-y-0' } = Astro.props;
+---
+
+<div class={className} data-faq>
+  {items.map((item) => (
+    <details class="group" style="border-bottom: 0.5px solid var(--color-line);" data-faq-item>
+      <summary class="w-full flex items-center justify-between py-5 text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        <span class="font-display font-semibold text-sm pr-4" style="color: var(--color-ink);" data-faq-question>
+          {item.question}
+        </span>
+        <ChevronDown
+          class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
+          style="color: var(--color-text-muted);"
+          aria-hidden="true"
+        />
+      </summary>
+      <div data-faq-answer>
+        <p class="pb-5 text-sm font-body leading-relaxed" style="color: var(--color-text-secondary);" set:html={item.answerHtml} />
+      </div>
+    </details>
+  ))}
+</div>

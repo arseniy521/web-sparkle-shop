@@ -1,0 +1,34 @@
+---
+/**
+ * The gift pages' FAQ on <details>/<summary>: every answer is in the HTML and opens without
+ * JavaScript (approved difference 1). The look is the old Radix accordion of the gift pages
+ * (old:src/components/ui/accordion.tsx with the classes of old:src/pages/BirthdayGift.tsx):
+ * a closed item shows only the question. Carries the data-faq-* attributes that check 3 compares
+ * with the FAQPage JSON-LD.
+ */
+import { ChevronDown } from '@lucide/astro';
+
+interface Props {
+  items: Array<{ question: string; answer: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<div class="space-y-3" data-faq>
+  {items.map((item) => (
+    <details class="group bg-white border border-indigo/20 rounded-xl px-6" data-faq-item>
+      <summary class="list-none [&::-webkit-details-marker]:hidden">
+        <h3 class="flex">
+          <span class="flex flex-1 items-center justify-between transition-all text-left font-semibold text-secondary py-5 cursor-pointer">
+            <span data-faq-question>{item.question}</span>
+            <ChevronDown class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+          </span>
+        </h3>
+      </summary>
+      <div class="overflow-hidden text-sm" data-faq-answer>
+        <div class="pt-0 text-muted-foreground leading-relaxed pb-5">{item.answer}</div>
+      </div>
+    </details>
+  ))}
+</div>

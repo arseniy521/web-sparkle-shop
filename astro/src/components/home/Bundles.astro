@@ -1,0 +1,14 @@
+---
+// Port of the BundlesSection of old:src/components/MenuSection.tsx.
+import type { Lang } from '@/routes/types.ts';
+
+interface Props {
+  lang: Lang;
+}
+---
+
+<section id="bundles" class="py-8 md:py-16" style="background: var(--color-bg);">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+    <nius-menu section="packages" locale={Astro.props.lang}></nius-menu>
+  </div>
+</section>

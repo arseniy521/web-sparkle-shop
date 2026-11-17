@@ -1,0 +1,247 @@
+---
+import { Check, Menu, Phone, ShoppingBag, UserCircle, X } from '@lucide/astro';
+import LanguageFlag from '@/components/LanguageFlag.astro';
+import WhatsAppIcon from '@/components/icons/WhatsApp.astro';
+import { createT } from '@/i18n/t.ts';
+import { pageUrl, switcherTargets } from '@/routes/urls.ts';
+import { staticAccountHref } from '@/scripts/auth-status.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+
+interface Props {
+  route: PageRoute | null;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const t = createT(lang);
+const home = pageUrl('home', lang);
+const targets = switcherTargets(route);
+// The anonymous sign-in link; the header script replaces it once the sign-in status is known.
+const accountHref = staticAccountHref(route?.paths[lang] ?? null);
+
+// On the home page the old header links to its own sections by fragment only (NavBar.tsx, isHomePage).
+const sections = route?.id === 'home' ? '' : home;
+const navLinks = [
+  { href: `${sections}#menu`, label: t('nav.servicesPricing'), cta: true },
+  { href: `${sections}#how-it-works`, label: t('nav.workflow'), cta: false },
+  { href: `${sections}#our-nurses`, label: t('nav.ourNurses'), cta: false },
+  { href: `${sections}#testimonials`, label: t('nav.testimonials'), cta: false },
+];
+
+const langs = ['cs', 'en', 'ru', 'uk'] as const;
+const langLabels: Record<Lang, string> = { cs: 'CZ', en: 'EN', ru: 'RU', uk: 'УКР' };
+const langNames: Record<Lang, string> = {
+  cs: 'Čeština',
+  en: 'English',
+  ru: 'Русский',
+  uk: 'Українська',
+};
+
+const badgeClass =
+  'absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 flex items-center justify-center rounded-full bg-white text-[var(--color-indigo)] ring-2 ring-[var(--color-indigo)] text-[10px] font-semibold leading-none';
+const panelClass =
+  'absolute right-0 top-full mt-1 z-50 overflow-hidden rounded-md border border-[var(--color-line)] bg-[var(--color-bg)] p-1 text-popover-foreground shadow-md';
+const itemClass =
+  'relative flex select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors cursor-pointer font-body hover:bg-[rgba(21,63,77,0.06)] hover:text-[var(--color-indigo)] focus:bg-[rgba(21,63,77,0.06)] focus:text-[var(--color-indigo)]';
+---
+
+<header
+  role="banner"
+  class="sticky top-0 z-50 w-full px-3 sm:px-4 xl:px-8 pt-3 pointer-events-none"
+>
+  <div class="pointer-events-auto max-w-[1400px] mx-auto rounded-[28px] bg-white px-4 sm:px-6 xl:px-8 transition-all duration-300">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-indigo focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Skip to content
+  </a>
+  <nav role="navigation" aria-label="Main navigation" class="flex items-center justify-between">
+    <a href={home} data-logo-link class="flex items-center gap-2 group">
+      <img src="/brand/logo-wordmark-dark.svg" alt="NIUS" height="56" class="h-10 xl:h-12" />
+    </a>
+
+    <ul class="hidden xl:flex items-center gap-7 2xl:gap-8">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            data-cta={link.cta ? 'choose_service' : undefined}
+            data-analytics-source={link.cta ? 'header_navigation' : undefined}
+            class="text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3">
+        <div data-dropdown class="relative flex">
+          <button
+            type="button"
+            data-dropdown-trigger
+            aria-expanded="false"
+            data-state="closed"
+            aria-label={`${t('nav.language')}: ${langNames[lang]}`}
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full outline-hidden transition-shadow hover:shadow-[0_0_0_2px_var(--color-indigo)] focus-visible:shadow-[0_0_0_2px_var(--color-indigo)] data-[state=open]:shadow-[0_0_0_2px_var(--color-indigo)]"
+          >
+            <LanguageFlag lang={lang} round />
+          </button>
+          <div data-dropdown-panel hidden class={`${panelClass} min-w-[168px]`}>
+            {langs.map((code) => (
+              <a
+                href={targets[code]}
+                data-lang-switch="header"
+                data-lang={code}
+                class={`${itemClass} gap-2 text-[var(--color-text-secondary)]`}
+              >
+                <LanguageFlag lang={code} round class="h-6 w-6" />
+                <span class="flex-1">{langNames[code]}</span>
+                {lang === code && <Check class="h-4 w-4" aria-hidden="true" />}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="hidden xl:block h-6 w-px bg-[var(--color-line)]" aria-hidden="true"></div>
+      </div>
+
+      <a
+        href={accountHref}
+        data-account-link="header"
+        aria-label={t('nav.account')}
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(21,63,77,0.08)] text-[var(--color-indigo)] hover:bg-[rgba(21,63,77,0.16)] transition-colors"
+      >
+        <UserCircle class="h-5 w-5" />
+      </a>
+
+      <button
+        type="button"
+        data-open-cart="header"
+        aria-label={t('nav.cart')}
+        class="relative hidden xl:inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-indigo)] text-white transition-opacity hover:opacity-90"
+      >
+        <ShoppingBag class="h-5 w-5" />
+        <span data-cart-count hidden class={badgeClass}></span>
+      </button>
+
+      <button
+        type="button"
+        data-open-cart="mobile_header"
+        aria-label={t('nav.cart')}
+        class="relative inline-flex xl:hidden h-10 w-10 items-center justify-center rounded-full bg-[var(--color-indigo)] text-white hover:opacity-90"
+      >
+        <ShoppingBag class="h-5 w-5" />
+        <span data-cart-count hidden class={badgeClass}></span>
+      </button>
+
+      <button
+        data-menu-toggle
+        class="xl:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-text-secondary)] hover:bg-[rgba(21,63,77,0.06)]"
+        aria-label={t('nav.menu')}
+        aria-expanded="false"
+      >
+        <Menu class="h-5 w-5" data-menu-icon="menu" />
+        <X class="h-5 w-5 hidden" data-menu-icon="close" />
+      </button>
+    </div>
+  </nav>
+
+  <div data-mobile-menu hidden class="xl:hidden pt-4 pb-4 animate-fade-in">
+    <ul class="flex flex-col gap-3">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            data-cta={link.cta ? 'choose_service' : undefined}
+            data-analytics-source={link.cta ? 'mobile_menu' : undefined}
+            class="block py-2 text-sm font-medium font-body text-[var(--color-text-secondary)]"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-3 border-t border-[var(--color-line)]">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          {langs.map((code) => (
+            <a
+              href={targets[code]}
+              data-lang-switch="mobile_menu"
+              data-lang={code}
+              class={`px-3 py-1.5 text-xs font-medium rounded-full border transition-colors ${
+                lang === code
+                  ? 'border-[var(--color-indigo)] text-[var(--color-indigo)]'
+                  : 'border-[var(--color-line)] text-[var(--color-text-muted)] hover:border-[var(--color-indigo)] hover:text-[var(--color-indigo)]'
+              }`}
+            >
+              <span class="inline-flex items-center gap-1.5"><LanguageFlag lang={code} />{langLabels[code]}</span>
+            </a>
+          ))}
+        </div>
+        <button
+          type="button"
+          data-open-cart="mobile_menu"
+          class="flex w-full items-center justify-center gap-2 px-4 py-2.5 mb-3 rounded text-sm font-medium font-body text-white transition-colors hover:opacity-90"
+          style="background-color: var(--color-indigo);"
+        >
+          <ShoppingBag class="h-4 w-4" />
+          {t('nav.cart')}
+          <span
+            data-cart-count
+            hidden
+            class="min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-white text-[var(--color-indigo)] text-[10px] font-semibold leading-none"
+          ></span>
+        </button>
+
+        <a
+          href={accountHref}
+          data-account-link="mobile_menu"
+          class="flex items-center gap-2 py-2 mb-3 text-sm font-medium font-body text-[var(--color-text-secondary)] hover:text-[var(--color-indigo)] transition-colors"
+        >
+          <UserCircle class="h-4 w-4" />
+          {t('nav.account')}
+        </a>
+        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-[var(--color-line)]">
+          <a
+            href="tel:+420773629123"
+            data-analytics-source="mobile_menu"
+            class="inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded text-sm font-medium font-body text-[var(--color-indigo)] border border-[var(--color-line)]"
+          >
+            <Phone class="h-4 w-4" aria-hidden="true" />
+            {t('contacts.phone')}
+          </a>
+          <a
+            href="https://wa.me/420773629123"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-source="mobile_menu"
+            class="inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded text-sm font-medium font-body text-[var(--color-indigo)] border border-[var(--color-line)]"
+          >
+            <WhatsAppIcon class="h-4 w-4" />
+            WhatsApp
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
+</header>
+
+<style>
+  /* The old header sets these inline from its scroll state; here header-menu.ts sets data-scrolled. */
+  header > div {
+    box-shadow: 0 4px 20px rgba(21,63,77,0.08);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  header[data-scrolled='true'] > div {
+    box-shadow: 0 10px 32px rgba(21,63,77,0.14);
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+</style>
+
+<script>
+  import { initHeaderMenu } from '../scripts/header-menu';
+
+  initHeaderMenu();
+</script>

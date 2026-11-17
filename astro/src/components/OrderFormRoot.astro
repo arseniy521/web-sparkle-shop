@@ -1,0 +1,30 @@
+---
+import { createT } from '@/i18n/t.ts';
+import type { Lang } from '@/routes/types.ts';
+
+interface Props {
+  lang: Lang;
+}
+
+const t = createT(Astro.props.lang);
+---
+
+<div id="order-form-root"></div>
+<div
+  id="order-form-fallback"
+  role="alert"
+  hidden
+  class="fixed bottom-4 left-4 right-4 z-[70] mx-auto max-w-[600px] rounded-lg border border-border bg-background p-4 text-sm font-body text-foreground shadow-lg"
+>
+  <p>{t('onboarding.errors.network')}</p>
+  <p class="mt-2 flex gap-4 font-medium text-primary">
+    <a href="tel:+420773629123" data-analytics-source="order_form" class="underline">+420 773 629 123</a>
+    <a
+      href="https://wa.me/420773629123"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-analytics-source="order_form"
+      class="underline">WhatsApp</a
+    >
+  </p>
+</div>

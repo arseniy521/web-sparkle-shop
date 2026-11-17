@@ -1,0 +1,323 @@
+---
+// Port of old:src/pages/HydrationIVPrague.tsx (route id `rehydration-drip`).
+import { Activity, CircleCheck, Clock, Droplets, MapPin, MessageCircle, Phone, Shield, Sparkles, Star, Zap } from '@lucide/astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import BookingLink from '@/components/BookingLink.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import RelatedServices from '@/components/RelatedServices.astro';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp.astro';
+import FaqAccordion from '@/components/drip-landing/FaqAccordion.astro';
+import { createT } from '@/i18n/t.ts';
+import { safeRichHtml } from '@/i18n/rich.ts';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+import type { PageMeta } from '@/seo/head.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const t = createT(lang);
+
+const phone = '+420773629123';
+const whatsappNumber = '420773629123';
+
+const asStringArray = (value: unknown): string[] =>
+  Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
+const stripHtml = (value: string) => value.replace(/<[^>]*>/g, '');
+
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t('hydrationIV.whatsappMessage'))}`;
+
+const symptomKeys = ['dehydration', 'nausea', 'fatigue', 'brainFog'] as const;
+const symptomIcons = { dehydration: Droplets, nausea: Activity, fatigue: Zap, brainFog: Sparkles };
+
+const alternativeKeys = ['pureHydrate', 'electrolyteReset', 'immunityLite'] as const;
+const stepKeys = ['step1', 'step2', 'step3', 'step4'] as const;
+const faqKeys = ['howFast', 'cost', 'safe', 'hotels', 'whatsInside', 'howLong', 'prescription', 'hours'] as const;
+const trustBadges = [
+  ['licensedNurses', Shield],
+  ['rating', Star],
+  ['available', Clock],
+  ['allDistricts', MapPin],
+] as const;
+
+const featuredIncludes = asStringArray(t('hydrationIV.featured.includes', { returnObjects: true }));
+const faqItems = faqKeys.map((key) => {
+  const answer = t(`hydrationIV.faq.items.${key}.answer`);
+  return { question: t(`hydrationIV.faq.items.${key}.question`), answer, answerHtml: safeRichHtml(answer) };
+});
+
+const meta: PageMeta = {
+  title: t('hydrationIV.seo.title'),
+  description: t('hydrationIV.seo.description'),
+  keywords: t('hydrationIV.seo.keywords'),
+  ogImage: 'https://www.nius.cz/og-image.jpg',
+  ogType: 'website',
+  schema: {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'MedicalBusiness',
+        name: 'NIUS - Rehydration IV Drip Prague',
+        description: t('hydrationIV.seo.description'),
+        url: absoluteUrl(pageUrl('rehydration-drip', lang)),
+        image: 'https://www.nius.cz/og-image.jpg',
+        telephone: phone,
+        priceRange: '1650-4550 CZK',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Praha',
+          addressCountry: 'CZ',
+        },
+        areaServed: { '@type': 'City', name: 'Prague' },
+        openingHours: 'Mo-Su 08:00-21:00',
+        medicalSpecialty: ['IV Therapy', 'Mobile Nursing'],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: stripHtml(item.answer),
+          },
+        })),
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout route={route} lang={lang} meta={meta}>
+  <div class="min-h-screen flex flex-col">
+    <Header route={route} lang={lang} />
+
+    <main class="flex-1">
+      <Breadcrumbs lang={lang} items={[
+        { label: t('hydrationIV.breadcrumbs.services'), href: pageUrl('home', lang) + '#services' },
+        { label: t('hydrationIV.breadcrumbs.ivDrips'), href: pageUrl('iv-drips', lang) },
+        { label: t('hydrationIV.breadcrumbs.hydration') },
+      ]} />
+
+      <section class="py-16 md:py-20 px-4 bg-bone">
+        <div class="container mx-auto max-w-6xl">
+          <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 text-sm">
+            {trustBadges.map(([key, Icon]) => (
+              <div class="flex items-center gap-2">
+                <Icon class="w-5 h-5 text-primary" />
+                <span class="font-medium">{t(`hydrationIV.trustBadges.${key}`)}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="text-center space-y-6">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight md:leading-none lg:leading-none">
+              {t('hydrationIV.hero.h1')}
+            </h1>
+            <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              {t('hydrationIV.hero.subtitle')}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <a href={`tel:${phone}`}>
+                <Button size="lg" class="w-full sm:w-auto">
+                  <Phone class="mr-2 h-5 w-5" />
+                  {t('hydrationIV.hero.callBtn', { phone })}
+                </Button>
+              </a>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" class="w-full sm:w-auto">
+                  <MessageCircle class="mr-2 h-5 w-5" />
+                  {t('hydrationIV.hero.whatsappBtn')}
+                </Button>
+              </a>
+              <BookingLink>
+                <Button size="lg" variant="secondary" class="w-full sm:w-auto">
+                  {t('hydrationIV.hero.bookBtn')}
+                </Button>
+              </BookingLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">{t('hydrationIV.symptoms.title')}</h2>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">{t('hydrationIV.symptoms.subtitle')}</p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {symptomKeys.map((key) => {
+              const Icon = symptomIcons[key];
+              return (
+                <Card class="p-6">
+                  <Icon class="h-9 w-9 text-primary mb-4" />
+                  <h3 class="text-xl font-semibold mb-2">{t(`hydrationIV.symptoms.items.${key}.title`)}</h3>
+                  <p class="text-sm text-muted-foreground mb-4">{t(`hydrationIV.symptoms.items.${key}.symptom`)}</p>
+                  <p class="text-sm leading-relaxed">{t(`hydrationIV.symptoms.items.${key}.solution`)}</p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20 px-4 bg-muted/30">
+        <div class="container mx-auto max-w-5xl">
+          <Card class="p-6 md:p-10 border-primary/20">
+            <div class="grid md:grid-cols-[1fr_auto] gap-8 items-start">
+              <div>
+                <p class="text-sm font-semibold text-primary mb-2">{t('hydrationIV.featured.title')}</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">{t('hydrationIV.featured.name')}</h2>
+                <p class="text-muted-foreground text-lg mb-6">{t('hydrationIV.featured.short')}</p>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  {featuredIncludes.map((item) => (
+                    <div class="flex gap-2">
+                      <CircleCheck class="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span class="text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div class="md:text-right">
+                <div class="text-4xl font-bold text-primary">
+                  {t('hydrationIV.featured.price')} {t('hydrationIV.featured.currency')}
+                </div>
+                <div class="text-sm text-muted-foreground mt-1">{t('hydrationIV.featured.duration')}</div>
+                <div class="text-sm font-medium mt-4">{t('hydrationIV.featured.priceNote')}</div>
+                <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t('hydrationIV.featured.bookMessage'))}`} target="_blank" rel="noopener noreferrer">
+                  <Button class="mt-6 w-full md:w-auto">
+                    <MessageCircle class="mr-2 h-5 w-5" />
+                    {t('hydrationIV.featured.bookBtn')}
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">{t('hydrationIV.alternatives.title')}</h2>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">{t('hydrationIV.alternatives.subtitle')}</p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            {alternativeKeys.map((key) => {
+              const includes = asStringArray(t(`hydrationIV.alternatives.items.${key}.includes`, { returnObjects: true }));
+              return (
+                <Card class="p-6 flex flex-col">
+                  <div class="text-xs font-semibold text-primary mb-3">{t(`hydrationIV.alternatives.items.${key}.tag`)}</div>
+                  <h3 class="text-2xl font-semibold mb-2">{t(`hydrationIV.alternatives.items.${key}.name`)}</h3>
+                  <div class="text-3xl font-bold mb-2">
+                    {t(`hydrationIV.alternatives.items.${key}.price`)} {t(`hydrationIV.alternatives.items.${key}.currency`)}
+                  </div>
+                  <p class="text-sm text-muted-foreground mb-4">{t(`hydrationIV.alternatives.items.${key}.short`)}</p>
+                  <div class="space-y-2 mb-6 flex-1">
+                    {includes.map((item) => (
+                      <div class="flex gap-2 text-sm">
+                        <CircleCheck class="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t(`hydrationIV.alternatives.items.${key}.bookMessage`))}`} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" class="w-full">{t('hydrationIV.alternatives.bookBtn')}</Button>
+                  </a>
+                </Card>
+              );
+            })}
+          </div>
+          <p class="text-sm text-muted-foreground text-center mt-6">{t('hydrationIV.alternatives.compareNote')}</p>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20 px-4 bg-muted/30">
+        <div class="container mx-auto max-w-5xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">{t('hydrationIV.howItWorks.title')}</h2>
+            <p class="text-lg text-muted-foreground">{t('hydrationIV.howItWorks.subtitle')}</p>
+          </div>
+          <div class="grid md:grid-cols-4 gap-6">
+            {stepKeys.map((key, index) => (
+              <Card class="p-6">
+                <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold mb-4">
+                  {index + 1}
+                </div>
+                <h3 class="font-semibold mb-2">{t(`hydrationIV.howItWorks.steps.${key}.title`)}</h3>
+                <p class="text-sm text-muted-foreground">{t(`hydrationIV.howItWorks.steps.${key}.description`)}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20 px-4">
+        <div class="container mx-auto max-w-5xl">
+          <Card class="p-6 md:p-8 bg-primary/5 border-primary/20">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">{t('hydrationIV.whereWeCome.title')}</h2>
+            <p class="text-muted-foreground leading-relaxed" set:html={safeRichHtml(t('hydrationIV.whereWeCome.description'))} />
+          </Card>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20 px-4">
+        <div class="container mx-auto max-w-3xl">
+          <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">{t('hydrationIV.faq.title')}</h2>
+            <p class="text-lg text-muted-foreground">{t('hydrationIV.faq.subtitle')}</p>
+          </div>
+          <FaqAccordion items={faqItems} />
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20 px-4 bg-primary text-primary-foreground">
+        <div class="container mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">{t('hydrationIV.cta.title')}</h2>
+          <p class="text-lg opacity-90 mb-8">{t('hydrationIV.cta.subtitle')}</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={`tel:${phone}`}>
+              <Button size="lg" variant="secondary" class="w-full sm:w-auto">
+                <Phone class="mr-2 h-5 w-5" />
+                {t('hydrationIV.cta.callBtn', { phone })}
+              </Button>
+            </a>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" class="w-full sm:w-auto bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                <MessageCircle class="mr-2 h-5 w-5" />
+                {t('hydrationIV.cta.whatsappBtn')}
+              </Button>
+            </a>
+            <BookingLink>
+              <Button size="lg" variant="secondary" class="w-full sm:w-auto">
+                {t('hydrationIV.cta.bookBtn')}
+              </Button>
+            </BookingLink>
+          </div>
+          <p class="text-sm opacity-80 mt-6">{t('hydrationIV.cta.reassurance')}</p>
+        </div>
+      </section>
+
+      <RelatedServices lang={lang} currentId={route.id} />
+      <div class="px-4 py-10">
+        <div class="container mx-auto max-w-5xl">
+          <Card class="p-6">
+            <h2 class="text-xl font-semibold mb-3">{t('hydrationIV.llmSummary.title')}</h2>
+            <p class="text-sm text-muted-foreground leading-relaxed">{t('hydrationIV.llmSummary.content')}</p>
+          </Card>
+        </div>
+      </div>
+    </main>
+
+    <Footer route={route} lang={lang} />
+    <FloatingWhatsApp />
+  </div>
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+/**
+ * Port of the old site's `CookieConsent.tsx` (main f0d216d): the texts are the component's own
+ * copy, not locale keys. Behaviour: `src/scripts/cookie-banner.ts`.
+ */
+import { pageUrl } from '@/routes/urls.ts';
+import type { Lang } from '@/routes/types.ts';
+
+interface Props {
+  lang: Lang;
+}
+
+const COPY: Record<Lang, { text: string; policy: string; reject: string; accept: string; label: string }> = {
+  cs: { text: 'Používáme cookies pro analytiku a měření reklamy (Google, Amplitude), abychom službu zlepšovali. Bez vašeho souhlasu je nenastavujeme.', policy: 'Zásady ochrany osobních údajů', reject: 'Odmítnout', accept: 'Souhlasím', label: 'Souhlas s cookies' },
+  en: { text: 'We use cookies for analytics and ad measurement (Google, Amplitude) to improve our service. We set none of them without your consent.', policy: 'Privacy Policy', reject: 'Reject', accept: 'Accept', label: 'Cookie consent' },
+  ru: { text: 'Мы используем cookies для аналитики и измерения рекламы (Google, Amplitude), чтобы улучшать сервис. Без вашего согласия мы их не устанавливаем.', policy: 'Политика конфиденциальности', reject: 'Отклонить', accept: 'Принять', label: 'Согласие на cookies' },
+  uk: { text: 'Ми використовуємо cookies для аналітики та вимірювання реклами (Google, Amplitude), щоб покращувати сервіс. Без вашої згоди ми їх не встановлюємо.', policy: 'Політика конфіденційності', reject: 'Відхилити', accept: 'Прийняти', label: 'Згода на cookies' },
+};
+
+const { lang } = Astro.props;
+const copy = COPY[lang] ?? COPY.cs;
+const privacyUrl = pageUrl('privacy', lang);
+---
+
+<div
+  data-cookie-banner
+  hidden
+  class="fixed bottom-0 left-0 right-0 z-[60]"
+  role="dialog"
+  aria-label={copy.label}
+  style="background-color: white; border-top: 0.5px solid var(--color-line); box-shadow: 0 -2px 12px rgba(0,0,0,0.06); padding-bottom: env(safe-area-inset-bottom, 0px);"
+>
+  <div class="max-w-[1400px] mx-auto px-4 md:px-12 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+    <p class="text-[11px] leading-snug md:text-xs md:leading-4 font-body flex-1" style="color: var(--color-text-secondary);">
+      {copy.text}{' '}
+      <a href={privacyUrl} class="underline" style="color: var(--color-indigo);">{copy.policy}</a>
+    </p>
+    <div class="flex gap-2 flex-shrink-0">
+      <button
+        type="button"
+        data-consent="reject"
+        class="flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-body font-medium transition-colors"
+        style="color: var(--color-text-secondary); border: 0.5px solid var(--color-line);"
+      >
+        {copy.reject}
+      </button>
+      <button
+        type="button"
+        data-consent="accept"
+        class="flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-body font-medium text-white transition-colors"
+        style="background-color: var(--color-indigo);"
+      >
+        {copy.accept}
+      </button>
+    </div>
+  </div>
+</div>

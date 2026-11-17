@@ -1,0 +1,23 @@
+---
+// Legally relevant notice for healthcare services: who provides them, that a doctor decides on
+// every medical procedure, and that NIUS is not an emergency service (old MedicalNotice).
+import { createT } from '@/i18n/t.ts';
+import type { Lang } from '@/routes/types.ts';
+
+interface Props {
+  lang: Lang;
+  /** "footer" = light text on the dark footer; "page" = muted block at the end of a service page. */
+  variant?: 'footer' | 'page';
+  class?: string;
+}
+
+const { lang, variant = 'page', class: className = '' } = Astro.props;
+const t = createT(lang);
+const color = variant === 'footer' ? 'rgba(255,255,255,0.5)' : 'var(--color-text-muted)';
+---
+
+<div class={`text-[11px] leading-relaxed font-body space-y-1 ${className}`} style={`color: ${color};`} role="note">
+  <p>{t('medicalNotice.doctor')}</p>
+  <p>{t('medicalNotice.emergency')}</p>
+  <p>{t('medicalNotice.provider')}</p>
+</div>
