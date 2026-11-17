@@ -1,27 +1,79 @@
-import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import astro from 'eslint-plugin-astro';
+import reactHooks from 'eslint-plugin-react-hooks';
 
-export default tseslint.config(
-  // astro/ is a separate project with its own linter.
-  { ignores: ["dist", "astro"] },
+export default [
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-    },
+    ignores: ['dist', 'public', '.checks', '.preview', '.wrangler', '.astro'],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...astro.configs['flat/recommended'],
+  {
+    files: ['src/**/*.{ts,astro}'],
+    ignores: ['src/islands/**'],
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-      "@typescript-eslint/no-unused-vars": "off",
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            'react',
+            'react-dom',
+            '@tanstack/react-query',
+            'lucide-react',
+            'sonner',
+            '@react-oauth/google',
+          ],
+          patterns: [
+            'react/*',
+            'react-dom/*',
+            '@radix-ui/*',
+            'react-phone-number-input*',
+            '**/islands/**',
+          ],
+        },
+      ],
     },
   },
-);
+  {
+    files: ['**/*.tsx'],
+    ignores: ['src/islands/**'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'Program',
+          message: '.tsx files are allowed only in src/islands',
+        },
+      ],
+    },
+  },
+  {
+    files: ['scripts/**/*.mjs'],
+    languageOptions: { globals: { process: 'readonly', console: 'readonly' } },
+  },
+  {
+    files: ['**/*.cjs'],
+    languageOptions: { globals: { require: 'readonly', module: 'writable' } },
+    rules: { '@typescript-eslint/no-require-imports': 'off' },
+  },
+  {
+    files: ['preview/functions/**/*.js'],
+    languageOptions: { globals: { Response: 'readonly', HTMLRewriter: 'readonly' } },
+  },
+  {
+    files: ['src/islands/**'],
+    ...reactHooks.configs.flat.recommended,
+  },
+  {
+    files: ['src/islands/order-form/**'],
+    rules: {
+      ...Object.fromEntries(
+        Object.keys(reactHooks.configs.flat.recommended.rules).map((rule) => [rule, 'off']),
+      ),
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  },
+];

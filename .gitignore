@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+# Astro, checks and preview outputs
+.astro/
+.checks/
+.preview/
+test-results/
+.lighthouseci/
+.wrangler/
+
 # Environment files — never commit secrets
 .env
 .env.*
