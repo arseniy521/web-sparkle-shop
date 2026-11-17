@@ -81,7 +81,7 @@ When behaviour changes, check the events it sends and the data that arrives: eve
 | `src/seo/`, `src/i18n/` | `buildHead`, `serializeJsonLd`, `faqPageSchema`; `createT(lang)`, `safeRichHtml`, `locales/` | — |
 | `src/data/`, `src/assets/` | blog posts; images imported by templates (published under `_astro/`) | — |
 | `src/styles/global.css` | theme tokens, Tailwind 3 compatibility rules | — |
-| `public/` | files published as they are: `robots.txt`, `sitemap.xml`, `brand/`, `photos/`, `js/nius-menu.js` (the service catalog web component), OG images | the 404 page is `src/pages/404.astro`, never a `public/404.html` |
+| `public/` | files published as they are: `robots.txt`, `sitemap.xml`, `brand/`, `photos/`, `js/nius-menu.js` (the service catalog web component), OG images, `assets/` (three images of the old site kept at their old addresses for image search, question 108) | the 404 page is `src/pages/404.astro`, never a `public/404.html` |
 | `scripts/`, `tests/`, `preview/` | build helpers and checks; `e2e/`, `fixtures/`; preview functions and the API stub | — |
 
 ESLint enforces the React rule (`eslint.config.js`, proved by `tests/lint-boundary.test.ts`): no React import and no `.tsx` outside `src/islands/`, no static import of an island from a script.
