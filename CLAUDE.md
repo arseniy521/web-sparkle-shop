@@ -1,85 +1,16 @@
-# CLAUDE.md
+@AGENTS.md
 
-## Project Overview
+## Content rules
 
-Marketing website for **NIUS** (www.nius.cz) — a home nursing and IV drip service in Prague. Built with Vite + React 18 + TypeScript + Tailwind CSS + shadcn/ui. Deployed to GitHub Pages.
+- Never promise "60-minute arrival": use "same-day" instead.
+- Operating hours: 8:00–21:00 daily (no 24/7).
+- Avoid Google Ads banned terms: "cure", "detox", "rapid relief", "100% bioavailability", "rejuvenation", "skin brightening". Use safe alternatives.
+- A new page gets a localized slug per language in `src/routes/manifest.ts`, with hreflang for every language it is published in and its entries in `public/sitemap.xml` (check 3 compares the sitemap with the manifest).
 
-## Commands
+## Architecture in short
 
-- `npm run dev` — dev server on port 8080
-- `npm run build` — typecheck + production build + prerender (TypeScript + Vite + Puppeteer)
-- `npm run typecheck` — check app and Node TypeScript projects; strictNullChecks enabled
-- `npm run lint` — ESLint
-- `npm run i18n:check` — validate i18n key consistency across locales
-- Publication to GitHub Pages goes through the "Publish NIUS" workflow (`.github/workflows/publish.yml`), started by hand and approved by the owner
-
-## Architecture
-
-### Routing
-React Router v6 with language-prefix pattern:
-- Czech: no prefix (default) — `/`, `/iv-kapacky-praha/`
-- English: `/en/`, `/en/iv-drips-prague/`
-- Russian: `/ru/`, `/ru/kapelnitsy-praga/`
-- Ukrainian: `/uk/`, `/uk/iv-drips-prague/`
-
-`LanguageWrapper` component syncs URL prefix to i18next state.
-
-### i18n
-- i18next + react-i18next
-- Locale files: `src/i18n/locales/{cs,en,ru,uk}.json`
-- Czech is the default/fallback language
-
-### SEO
-- `SEO.tsx` — react-helmet-async for meta, canonical, OG tags
-- `HreflangTags.tsx` — cross-language link tags
-- `scripts/prerender.js` — Puppeteer-based SSG for 81 routes
-- Structured data: schema.org MedicalBusiness, BreadcrumbList
-
-### API
-- Backend at `https://app.nius.cz` (proxied via Vite in dev)
-- Onboarding form: `src/api/onboarding.ts`
-- Services: `src/api/services.ts`
-
-### Analytics
-- Amplitude via `src/lib/analytics.ts` (`VITE_AMPLITUDE_API_KEY`, empty = no-op)
-- Initialized only after cookie-banner consent; US zone (must match the project region of the API key), no IP, no form autocapture
-- Consent lives in the `nius_consent` cookie on `.nius.cz` (`src/lib/consent.ts`, twin helper in nius/frontend) — shared with app.nius.cz, legacy localStorage value migrates automatically
-- Same Amplitude project as app.nius.cz — device_id cookie on `.nius.cz` stitches cross-domain funnels
-- Never send PHI (phone/address/note) in event props. Tracking plan: `nius/docs/analytics.md`
-
-### Styling
-- Tailwind with custom tokens: indigo (#153f4d), bone (#f5f4ee), ink (#2a2c2e)
-- Fonts: Plus Jakarta Sans (display), Montserrat (body), self-hosted via @fontsource (imports in src/main.tsx)
-- 52 shadcn/ui components in `src/components/ui/`
-
-## Key Directories
-
-```
-src/pages/          — 16 page components
-src/components/     — shared UI + section components
-src/i18n/locales/   — translation JSON files
-src/data/           — blog posts (static JSON)
-src/constants/      — phone, booking URL, site URL
-scripts/            — prerender.js, check-i18n-keys.mjs
-public/brand/       — SVG logos (mark, wordmark, favicon)
-```
-
-## Content Rules
-
-- Never promise "60-minute arrival" — use "same-day" instead
-- Operating hours: 8:00–21:00 daily (no 24/7)
-- Avoid Google Ads banned terms: "cure", "detox", "rapid relief", "100% bioavailability", "rejuvenation", "skin brightening". Use safe alternatives (see memory for full list).
-- When adding new pages, follow localized slug pattern with proper hreflang in both component and sitemap.
-
-## Domain
-
-- Production: www.nius.cz (GitHub Pages + CNAME)
-- Google Business: g.page/r/Cb4BmqPTZRSSEBE/review
-
-## Shared OpenSpec
-
-For feature planning, requirement changes, or continuing an existing change, read
-[the shared NIUS OpenSpec workflow](../nius-specs/README.md).
-`openspec/config.yaml` points to store `nius`; specs and changes live in
-`../nius-specs/openspec/`. Read the change before editing implementation.
-Commit, push, publish, deploy, spec sync and archive require the owner's explicit request.
+- Astro, static output: one manifest (`src/routes/manifest.ts`) lists every page and redirect; `src/pages/[...path].astro` picks the template of `src/templates/` for each.
+- Language prefixes: Czech has none (`/`, `/iv-kapacky-praha/`), the others `/en/`, `/ru/`, `/uk/` with their own slugs (`/en/iv-drips-prague/`, `/ru/kapelnitsy-praga/`).
+- Texts: `createT(lang)` over `src/i18n/locales/*.json`, Czech as the fallback.
+- SEO: `BaseLayout.astro` and `src/seo/` build head, canonical, hreflang, Open Graph and JSON-LD (MedicalBusiness, BreadcrumbList, FAQPage); redirects are static stubs.
+- Behaviour: plain scripts in `src/scripts/` (`boot.ts`); the order form is the only React island (`src/islands/order-form/`), loaded on demand.

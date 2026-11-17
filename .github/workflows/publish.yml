@@ -1,7 +1,7 @@
 name: Publish NIUS
 
-# Checks, builds and merges the site, then publishes exactly that build to gh-pages after the
-# owner approves the production environment. The previous gh-pages state is tagged first.
+# Checks and builds the site, then publishes exactly that build to gh-pages after the owner
+# approves the production environment. The previous gh-pages state is tagged first.
 on:
   workflow_dispatch:
     inputs:
@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   checks:
-    uses: ./.github/workflows/astro-checks.yml
+    uses: ./.github/workflows/checks.yml
     secrets:
       VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
       VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
@@ -32,13 +32,10 @@ jobs:
       VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
       VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
       VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
-      # Optional: without both values both sites are built without the Google Ads conversion and
-      # check:env warns. The old site's baseline build and the new build read them from here.
+      # Optional: without both values the site is built without the Google Ads conversion and
+      # check:env warns.
       VITE_GOOGLE_ADS_ID: ${{ secrets.VITE_GOOGLE_ADS_ID }}
       VITE_GOOGLE_ADS_LEAD_LABEL: ${{ secrets.VITE_GOOGLE_ADS_LEAD_LABEL }}
-    defaults:
-      run:
-        working-directory: astro
     outputs:
       pages-head: ${{ steps.pages.outputs.head }}
 
@@ -51,7 +48,6 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: astro/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -59,45 +55,15 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Check the new site's build environment
+      - name: Check the build environment
         run: npm run check:env
 
-      # check:env above reads the same variables and root .env files as the old site's own check.
-      # The old site's lint and tests need its dependencies; baseline reinstalls them later.
-      - name: Install the old site's dependencies
-        working-directory: .
-        env:
-          PUPPETEER_SKIP_DOWNLOAD: 'true'
-        run: npm ci
-
-      - name: Lint the old site
-        working-directory: .
-        run: npm run lint
-
-      - name: Unit tests of the old site
-        working-directory: .
-        run: npm test
-
-      - name: Build the old site
-        run: npm run baseline
-
-      - name: Build the new site
+      - name: Build the site
         run: npm run build
 
-      - name: Merge the two builds into release-dist
-        run: npm run release:merge
-
-      # The old pages are already live: they must be published as built, byte for byte.
-      - name: Check that the old part of the release equals the old build
-        run: npm run release:verify
-
-      # The rules gate every page of checks/wave1-paths.json (all 78 addresses since question 107)
-      # and the site-wide files; --old-pages only lists findings of pages outside it, and there are none.
-      - name: Check SEO of the merged build
-        run: npm run check:seo -- --production --dist release-dist --scope checks/wave1-paths.json --old-pages
-
-      - name: Compare the content with the old site
-        run: npm run check:content
+      # Every manifest page must be built; --production also refuses preview artifacts.
+      - name: Check SEO of the build
+        run: npm run check:seo -- --production --dist dist
 
       # Ubuntu 24.04 blocks unprivileged user namespaces through AppArmor, so the Chrome that
       # Lighthouse starts cannot create its sandbox and aborts ("No usable sandbox"). Playwright
@@ -109,27 +75,27 @@ jobs:
       - name: Lighthouse
         run: npm run check:lhci
 
-      # Builds its own merge with test keys in .checks/, so dist/ and release-dist stay as built.
-      - name: Browser scenarios across old and new pages
-        run: npm run check:merged
+      # Builds its own copy with test keys in .checks/, so dist/ stays as built.
+      - name: Browser scenarios
+        run: npm run check:e2e
 
       - name: Upload the traces of failed browser scenarios
         if: failure()
         uses: actions/upload-artifact@v6
         with:
-          name: playwright-results-merged
-          path: astro/test-results
+          name: playwright-results-publish
+          path: test-results
           if-no-files-found: ignore
           overwrite: true
 
-      - name: Check the required files of release-dist
-        working-directory: astro/release-dist
+      - name: Check the required files of dist
+        working-directory: dist
         run: |
           status=0
           for file in CNAME .nojekyll sitemap.xml robots.txt 404.html index.html; do
-            if [ ! -f "$file" ]; then echo "::error::release-dist has no $file."; status=1; fi
+            if [ ! -f "$file" ]; then echo "::error::dist has no $file."; status=1; fi
           done
-          if [ -z "$(ls -A _astro 2>/dev/null)" ]; then echo "::error::release-dist has no _astro/."; status=1; fi
+          if [ -z "$(ls -A _astro 2>/dev/null)" ]; then echo "::error::dist has no _astro/."; status=1; fi
           if [ -f CNAME ] && [ "$(cat CNAME)" != "www.nius.cz" ]; then echo "::error::CNAME is not www.nius.cz."; status=1; fi
           exit $status
 
@@ -145,11 +111,11 @@ jobs:
           fi
           echo "head=$head" >> "$GITHUB_OUTPUT"
 
-      - name: Upload release-dist
+      - name: Upload dist
         uses: actions/upload-artifact@v6
         with:
-          name: release-dist
-          path: astro/release-dist
+          name: dist
+          path: dist
           # .nojekyll is a hidden file; upload-artifact skips hidden files by default.
           include-hidden-files: true
           if-no-files-found: error
@@ -194,42 +160,42 @@ jobs:
             exit 1
           fi
 
-      - name: Download release-dist
+      - name: Download dist
         uses: actions/download-artifact@v7
         with:
-          name: release-dist
-          path: release-dist
+          name: dist
+          path: dist
 
-      - name: Check the required files of release-dist
-        working-directory: release-dist
+      - name: Check the required files of dist
+        working-directory: dist
         run: |
           status=0
           for file in CNAME .nojekyll sitemap.xml robots.txt 404.html index.html; do
-            if [ ! -f "$file" ]; then echo "::error::release-dist has no $file."; status=1; fi
+            if [ ! -f "$file" ]; then echo "::error::dist has no $file."; status=1; fi
           done
-          if [ -z "$(ls -A _astro 2>/dev/null)" ]; then echo "::error::release-dist has no _astro/."; status=1; fi
+          if [ -z "$(ls -A _astro 2>/dev/null)" ]; then echo "::error::dist has no _astro/."; status=1; fi
           if [ -f CNAME ] && [ "$(cat CNAME)" != "www.nius.cz" ]; then echo "::error::CNAME is not www.nius.cz."; status=1; fi
-          if [ -e .git ]; then echo "::error::release-dist contains .git."; status=1; fi
-          if [ -e .github ]; then echo "::error::release-dist contains .github."; status=1; fi
+          if [ -e .git ]; then echo "::error::dist contains .git."; status=1; fi
+          if [ -e .github ]; then echo "::error::dist contains .github."; status=1; fi
           # A truncated artifact must not replace a fuller site.
           new_pages=$(find . -type f -name index.html | wc -l)
           old_pages=$(git -C "$GITHUB_WORKSPACE/gh-pages" ls-tree -r --name-only HEAD | grep -cE '(^|/)index\.html$' || true)
           if [ "$new_pages" -lt "$old_pages" ]; then
-            echo "::error::release-dist has $new_pages index.html files, gh-pages has $old_pages."
+            echo "::error::dist has $new_pages index.html files, gh-pages has $old_pages."
             status=1
           fi
           exit $status
 
-      - name: Replace the tree of gh-pages with release-dist
+      - name: Replace the tree of gh-pages with dist
         id: tree
         working-directory: gh-pages
         run: |
           git rm -rq .
-          cp -a "$GITHUB_WORKSPACE/release-dist/." .
+          cp -a "$GITHUB_WORKSPACE/dist/." .
           git add -A
           ignored=$(git ls-files --others --ignored --exclude-standard)
           if [ -n "$ignored" ]; then
-            echo "::error::These files of release-dist would not be committed:"
+            echo "::error::These files of dist would not be committed:"
             echo "$ignored"
             exit 1
           fi
