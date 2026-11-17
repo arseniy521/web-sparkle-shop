@@ -1,0 +1,106 @@
+---
+// Port of old:src/components/WhoWeServe.tsx.
+import { createT } from '@/i18n/t.ts';
+import type { Lang } from '@/routes/types.ts';
+import { PHOTO_FILTER } from './constants.ts';
+
+interface Props {
+  lang: Lang;
+}
+
+const t = createT(Astro.props.lang);
+const bullets = (key: string) => t(`whoWeServe.cards.${key}.bullets`, { returnObjects: true }) as unknown as string[];
+
+const cards = [
+  {
+    title: t('whoWeServe.cards.international.title'),
+    description: t('whoWeServe.cards.international.desc'),
+    bullets: bullets('international'),
+    image: '/photos/nurse-home-visit2.jpg',
+    alt: 'Nurse visiting international client at home in Prague',
+  },
+  {
+    title: t('whoWeServe.cards.ivf.title'),
+    description: t('whoWeServe.cards.ivf.desc'),
+    bullets: bullets('ivf'),
+    image: '/photos/hotel-client.jpg',
+    alt: 'Nurse preparing IV line for IVF patient',
+  },
+  {
+    title: t('whoWeServe.cards.hotel.title'),
+    description: t('whoWeServe.cards.hotel.desc'),
+    bullets: bullets('hotel'),
+    image: '/photos/nurse-close-up.jpg',
+    alt: 'Nurse providing IV therapy in luxury hotel setting',
+  },
+  {
+    title: t('whoWeServe.cards.postSurgery.title'),
+    description: t('whoWeServe.cards.postSurgery.desc'),
+    bullets: bullets('postSurgery'),
+    image: '/photos/nurse-home-visit.jpg',
+    alt: 'Nurse providing post-surgery care at home',
+  },
+];
+---
+
+<section class="py-16 md:py-24" style="background-color: var(--color-bg);">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+    <div class="mb-12">
+      <span class="text-xs font-body font-medium tracking-[0.16em] uppercase" style="color: var(--color-indigo);">
+        {t('whoWeServe.eyebrow')}
+      </span>
+      <h2 class="font-display font-bold text-3xl md:text-4xl mt-3" style="color: var(--color-ink);">
+        {t('whoWeServe.titleBase')} <span style="color: var(--color-indigo); font-weight: 700;">{t('whoWeServe.titleAccent')}</span>
+      </h2>
+    </div>
+
+    <div class="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 pb-2 md:pb-0 scrollbar-hide">
+      {cards.map((card) => (
+        <article
+          class="group bg-white rounded-lg relative overflow-hidden transition-all duration-200 hover:shadow-card-hover shrink-0 w-[82%] sm:w-[60%] md:w-auto snap-start"
+          style="border: none;"
+        >
+          <div class="relative w-full overflow-hidden" style="aspect-ratio: 4/3;">
+            <img
+              src={card.image}
+              alt={card.alt}
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover rounded-t-lg"
+              style={`filter: ${PHOTO_FILTER};`}
+            />
+            <div
+              class="absolute inset-0 rounded-t-lg"
+              style="background: linear-gradient(to bottom, transparent 70%, white 100%);"
+            ></div>
+          </div>
+
+          <div class="p-7 pt-2 relative">
+            <div
+              class="absolute left-0 top-0 w-[3px] h-0 group-hover:h-full transition-all duration-300"
+              style="background-color: var(--color-indigo);"
+            ></div>
+            <h3 class="font-display font-bold text-lg mb-2" style="color: var(--color-ink);">
+              {card.title}
+            </h3>
+            <p class="text-sm font-body mb-4" style="color: var(--color-text-secondary);">
+              {card.description}
+            </p>
+            <ul class="flex flex-wrap gap-2">
+              {Array.isArray(card.bullets) && card.bullets.map((bullet) => (
+                <li
+                  class="text-xs font-body px-2.5 py-1 rounded"
+                  style="background-color: var(--color-bone); color: var(--color-text-secondary);"
+                >
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

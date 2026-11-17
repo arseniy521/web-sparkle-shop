@@ -1,0 +1,64 @@
+---
+// Port of old:src/components/FinalCTA.tsx (lazy on the old page, plain HTML here).
+import { createT } from '@/i18n/t.ts';
+import type { Lang } from '@/routes/types.ts';
+
+interface Props {
+  lang: Lang;
+}
+
+const t = createT(Astro.props.lang);
+---
+
+<section class="relative py-16 md:py-24 overflow-hidden" style="background: var(--color-indigo);">
+  <img
+    src="/brand/logo-mark-light.svg"
+    alt=""
+    aria-hidden="true"
+    width="420"
+    height="420"
+    loading="lazy"
+    class="absolute -right-16 -bottom-20 w-[280px] md:w-[420px] pointer-events-none select-none"
+    style="opacity: 0.06;"
+  />
+
+  <div class="relative max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+    <span class="text-xs font-body font-medium tracking-[0.16em] uppercase" style="color: var(--color-peach);">
+      {t('finalCta.eyebrow')}
+    </span>
+
+    <h2 class="font-display font-bold text-3xl md:text-[52px] text-white mt-4 mb-4 leading-tight">
+      {t('finalCta.titleBase')} <span style="color: var(--color-peach); font-weight: 700;">{t('finalCta.titleItalic')}</span>
+    </h2>
+
+    <p class="font-body text-base md:text-lg max-w-xl mx-auto mb-8" style="color: var(--color-text-on-dark-muted);">
+      {t('finalCta.sub')}
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+      <a
+        href="#menu"
+        data-cta="choose_service"
+        data-analytics-source="final_cta"
+        class="inline-flex items-center px-6 py-3.5 rounded-full font-body font-medium text-sm transition-colors"
+        style="background-color: var(--color-bone); color: var(--color-indigo);"
+      >
+        {t('finalCta.ctaPrimary')} ↓
+      </a>
+      <a
+        href="https://wa.me/420773629123"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-analytics-source="final_cta"
+        class="inline-flex items-center px-6 py-3.5 rounded-full font-body font-medium text-sm text-white transition-colors"
+        style="border: 0.5px solid rgba(255,255,255,0.3);"
+      >
+        {t('finalCta.ctaSecondary')}
+      </a>
+    </div>
+
+    <p class="text-xs font-body" style="color: var(--color-text-on-dark-muted);">
+      {t('finalCta.trustLine')}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,362 @@
+---
+import { ArrowRight, Calendar, Check, Heart, Phone, Star } from '@lucide/astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import BookingLink from '@/components/BookingLink.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import RelatedServices from '@/components/RelatedServices.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import hygieneIcon from '@old/assets/HygieneAssistance.webp?url';
+import { createT } from '@/i18n/t.ts';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+import type { PageMeta } from '@/seo/head.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const t = createT(lang);
+
+const seoCopy: Record<Lang, { title: string; description: string }> = {
+  en: { title: "Home Nursing Care Prague | Daily Support at Home", description: "Daily home nursing care in Prague for elderly and disabled patients: hygiene, mobility and medication support by registered, English-speaking nurses." },
+  cs: { title: "Domácí ošetřovatelská péče Praha | Denní podpora", description: "Denní domácí péče v Praze pro seniory a osoby se zdravotním postižením: hygiena, pohyb a podpora s léky. Registrované sestry, česky i anglicky." },
+  ru: { title: "Домашний уход в Праге | Ежедневная помощь", description: "Ежедневный домашний уход в Праге для пожилых и людей с инвалидностью: гигиена, передвижение, помощь с лекарствами. Медсёстры говорят по-русски." },
+  uk: { title: "Домашній догляд у Празі | Щоденна допомога", description: "Щоденний домашній догляд у Празі для літніх людей та людей з інвалідністю: гігієна, пересування, допомога з ліками. Медсестри говорять українською." },
+};
+const { title: pageTitle, description: pageDescription } = seoCopy[lang];
+
+const services = [
+  t('disabledCare.services.hygiene'),
+  t('disabledCare.services.dressing'),
+  t('disabledCare.services.medication'),
+  t('disabledCare.services.suppository'),
+  t('disabledCare.services.mobility'),
+  t('disabledCare.services.meals'),
+  t('disabledCare.services.vitals'),
+  t('disabledCare.services.companionship')
+];
+
+const monthlyFeatures = t('disabledCare.pricing.monthlyFeatures', { returnObjects: true, defaultValue: ['20 hours of care monthly', 'Consistent caregiver', 'Flexible daily scheduling', 'Priority phone support', 'Save 10% vs single visits'] }) as unknown as string[];
+const whoWeHelpKeys = ['disabled', 'expats', 'chronic'] as const;
+const testimonials = t('disabledCare.testimonials.items', { returnObjects: true }) as unknown as { text: string; author: string; context: string }[];
+
+const faqKeys = ['1', '2', '3', '4', '5'] as const;
+const faqItems = faqKeys.map((key) => ({
+  question: t(`disabledCare.faq.q${key}`),
+  answer: t(`disabledCare.faq.a${key}`),
+}));
+
+const meta: PageMeta = {
+  title: pageTitle,
+  description: pageDescription,
+  ogImage: "https://www.nius.cz/og-disabled.jpg",
+  // One JSON-LD script with an array, as on the old page.
+  schema: [[
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Disabled Daily Care Prague - Home Nursing for Expats",
+      "description": pageDescription,
+      // The old page gives the Czech address in every language.
+      "url": absoluteUrl(pageUrl('disabled-care', 'cs')),
+      "telephone": "+420773629123",
+      "email": "info@nius.cz",
+      "image": "https://www.nius.cz/og-disabled.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Prague",
+        "addressCountry": "CZ"
+      },
+      "priceRange": "1650-4550 CZK",
+      "availableLanguage": ["en", "cs", "ru", "uk"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "50.0755",
+        "longitude": "14.4378"
+      },
+      "availableService": [
+        {
+          "@type": "Service",
+          "name": "Personal Hygiene Assistance",
+          "description": "Bathing, grooming, and personal care for disabled patients"
+        },
+        {
+          "@type": "Service",
+          "name": "Mobility Support",
+          "description": "Transfers and positioning assistance"
+        },
+        {
+          "@type": "Service",
+          "name": "Medication Management",
+          "description": "Help with medication as prescribed by the patient's doctor"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map((item) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    }
+  ]],
+};
+---
+
+<BaseLayout route={route} lang={lang} meta={meta}>
+  <div class="flex min-h-screen flex-col bg-background">
+    <Header route={route} lang={lang} />
+    <Breadcrumbs lang={lang} items={[
+      { label: "Services", href: pageUrl('home', lang) + '#services' },
+      { label: "Disabled Care" }
+    ]} />
+    <main class="flex-1" role="main">
+      {/* Hero Section */}
+      <section class="py-20 bg-bone">
+        <div class="container mx-auto px-4">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <div class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                {t('disabledCare.badge')}
+              </div>
+              <h1 class="text-4xl md:text-5xl font-bold text-secondary leading-tight md:leading-none" itemprop="headline">
+                {t('disabledCare.title')}
+              </h1>
+              <p class="text-lg text-muted-foreground">
+                {t('disabledCare.description')} We also offer specialized services including <a href={pageUrl('post-surgery', 'cs')} class="text-primary hover:underline font-medium">post-surgery care Prague</a> and <a href={pageUrl('iv-drips', lang)} class="text-primary hover:underline font-medium">IV vitamin therapy</a>.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <BookingLink>
+                  <Button size="lg" class="w-full sm:w-auto group">
+                    {t('disabledCare.bookVisit')}
+                    <ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </BookingLink>
+                <a href="tel:+420773629123">
+                  <Button size="lg" variant="outline" class="w-full sm:w-auto">
+                    <Phone class="mr-2 h-5 w-5" />
+                    {t('disabledCare.call')}
+                  </Button>
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <div class="flex flex-wrap gap-6 pt-6 border-t border-border">
+                <div class="flex items-center gap-2">
+                  <Heart class="h-5 w-5 text-primary" />
+                  <span class="text-sm font-medium">{t('disabledCare.compassionate')}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Calendar class="h-5 w-5 text-primary" />
+                  <span class="text-sm font-medium">{t('disabledCare.flexible')}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Check class="h-5 w-5 text-primary" />
+                  <span class="text-sm font-medium">{t('disabledCare.englishSpeaking')}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="relative rounded-xl overflow-hidden shadow-card bg-white p-8">
+                <img
+                  src={hygieneIcon}
+                  alt="Disabled care and hygiene assistance nurse in Prague"
+                  class="w-full h-auto object-contain"
+                  loading="eager"
+                  fetchpriority="high"
+                  width="500"
+                  height="500"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Included */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+            {t('disabledCare.servicesTitle')}
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {services.map((service) => (
+              <div class="flex gap-3">
+                <Check class="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                <p class="text-lg text-muted-foreground">{service}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section class="py-16 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
+              {t('disabledCare.pricing.title')}
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+              <Card class="p-8">
+                <h3 class="text-2xl font-bold text-secondary mb-2">{t('disabledCare.pricing.single')}</h3>
+                <div class="text-4xl font-bold text-primary mb-4">{t('disabledCare.pricing.singlePrice')}</div>
+                <p class="text-muted-foreground mb-6">
+                  {t('disabledCare.pricing.singleDesc')}
+                </p>
+                <a href="tel:+420773629123">
+                  <Button class="w-full">{t('disabledCare.pricing.subscribe')}</Button>
+                </a>
+              </Card>
+
+              <Card class="p-8 border-2 border-primary relative">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                  {t('disabledCare.pricing.bestValue')}
+                </div>
+                <h3 class="text-2xl font-bold text-secondary mb-2">{t('disabledCare.pricing.monthly')}</h3>
+                <div class="text-4xl font-bold text-primary mb-4">{t('disabledCare.pricing.monthlyPrice')}</div>
+                <p class="text-muted-foreground mb-6">
+                  {t('disabledCare.pricing.monthlyDesc')}
+                </p>
+                <ul class="space-y-3 mb-6">
+                  {monthlyFeatures.map((feature) => (
+                    <li class="flex gap-2">
+                      <Check class="h-5 w-5 text-primary flex-shrink-0" />
+                      <span class="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a href="tel:+420773629123">
+                  <Button class="w-full">{t('disabledCare.pricing.subscribe')}</Button>
+                </a>
+              </Card>
+            </div>
+
+            <div class="text-center mt-8 space-y-2">
+              <p class="text-muted-foreground">
+                <strong>{t('disabledCare.pricing.extended')}</strong>
+              </p>
+              <p class="text-sm text-muted-foreground">
+                {t('disabledCare.pricing.includes')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Help */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+            {t('disabledCare.whoWeHelp.title')}
+          </h2>
+          <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {whoWeHelpKeys.map((key) => (
+              <Card class="p-6">
+                <h3 class="text-xl font-semibold text-secondary mb-3">
+                  {t(`disabledCare.whoWeHelp.${key}.title`)}
+                </h3>
+                <p class="text-muted-foreground mb-4">
+                  {t(`disabledCare.whoWeHelp.${key}.description`)}
+                </p>
+                <ul class="space-y-2 text-sm text-muted-foreground">
+                  {(t(`disabledCare.whoWeHelp.${key}.items`, { returnObjects: true }) as unknown as string[]).map((item) => (
+                    <li>• {item}</li>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+            {t('disabledCare.testimonials.title')}
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {testimonials.map((item) => (
+              <Card class="p-6">
+                <div class="flex gap-1 mb-4">
+                  {[0, 1, 2, 3, 4].map(() => (
+                    <Star class="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p class="text-muted-foreground mb-4 italic">"{item.text}"</p>
+                <div>
+                  <p class="font-semibold text-secondary">{item.author}</p>
+                  <p class="text-sm text-muted-foreground">{item.context}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ: the cards write out the Card markup, Card.astro passes no data-faq-* attributes. */}
+      <section class="py-16 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+              {t('disabledCare.faq.title')}
+            </h2>
+            <div class="space-y-6" data-faq>
+              {faqItems.map((item) => (
+                <div class="rounded-lg border bg-card text-card-foreground shadow-xs p-6" data-faq-item>
+                  <h3 class="text-lg font-semibold text-secondary mb-2" data-faq-question>{item.question}</h3>
+                  <p class="text-muted-foreground" data-faq-answer>{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center bg-bone rounded-xl p-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              {t('disabledCare.cta.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground mb-8">
+              {t('disabledCare.cta.description')}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://wa.me/420773629123" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" class="w-full sm:w-auto">
+                  {t('disabledCare.bookVisit')}
+                  <ArrowRight class="ml-2 h-5 w-5" />
+                </Button>
+              </a>
+              <a href="tel:+420773629123">
+                <Button size="lg" variant="outline" class="w-full sm:w-auto">
+                  <Phone class="mr-2 h-5 w-5" />
+                  {t('disabledCare.call')}
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <RelatedServices lang={lang} currentId={route.id} />
+    <Footer route={route} lang={lang} />
+  </div>
+</BaseLayout>

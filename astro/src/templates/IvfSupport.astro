@@ -1,0 +1,530 @@
+---
+// Port of old:src/pages/IVFSupport.tsx.
+import {
+  ArrowRight,
+  Check,
+  CircleCheck,
+  Clock,
+  Heart,
+  Mail,
+  MessageCircle,
+  Phone,
+  Shield,
+  Star,
+  Syringe,
+} from '@lucide/astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import BookingLink from '@/components/BookingLink.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import RelatedServices from '@/components/RelatedServices.astro';
+import IvfFaq from '@/components/ivf-support/IvfFaq.astro';
+import ivDripIcon from '@old/assets/drp-2.webp';
+import { createT } from '@/i18n/t.ts';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+import type { PageMeta } from '@/seo/head.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const t = createT(lang);
+
+const phone = "+420773629123";
+const whatsappMessages: Record<string, string> = {
+  cs: "Dobrý den! Potřebuji podporu s IVF injekcemi v Praze.",
+  en: "Hi! I need IVF injection support in Prague.",
+  ru: "Здравствуйте! Мне нужна поддержка с инъекциями ЭКО в Праге.",
+  uk: "Доброго дня! Мені потрібна підтримка з ін'єкціями ЕКЗ у Празі.",
+};
+const whatsappLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+  whatsappMessages[lang] || whatsappMessages.en
+)}`;
+
+// Data from translations
+const faqItems = t('ivfSupport.faq.items', { returnObjects: true }) as unknown as { question: string; answer: string }[];
+const testimonialItems = t('ivfSupport.testimonials.items', { returnObjects: true }) as unknown as { text: string; author: string; context: string }[];
+const includedItems = t('ivfSupport.included.items', { returnObjects: true }) as unknown as string[];
+
+// Why Matters keyed items
+const whyMattersKeys = ['timing', 'expertise', 'comfort', 'safety'] as const;
+const whyMattersIcons = { timing: Clock, expertise: Syringe, comfort: Heart, safety: Shield };
+
+// Service keys
+const serviceKeys = ['medication', 'wellness'] as const;
+
+// Experience steps
+const experienceSteps = ['step1', 'step2', 'step3', 'step4'] as const;
+
+const homeUrl = pageUrl('home', lang);
+
+// The old page emits this array as one JSON-LD block: it is passed as one schema value.
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "IVF Support Prague | Nurse in Prague",
+    "description": t('ivfSupport.seo.description'),
+    "url": absoluteUrl(pageUrl('ivf-support', 'cs')),
+    "telephone": "+420773629123",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Praha",
+      "addressCountry": "CZ"
+    },
+    "areaServed": { "@type": "City", "name": "Prague" },
+    "priceRange": "1650-4550 CZK",
+    "availableLanguage": ["en", "cs", "ru", "uk"],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "50.0755",
+      "longitude": "14.4378"
+    },
+    "image": absoluteUrl('/og-ivf.jpg'),
+    "openingHours": "Mo-Su 08:00-21:00",
+    "availableService": [
+      {
+        "@type": "Service",
+        "name": "IVF Injection Administration",
+        "description": "We administer medication prescribed by your clinic, following their written instructions.",
+        "serviceType": "Home Healthcare"
+      },
+      {
+        "@type": "Service",
+        "name": "Vitamins and Hydration IV Drips",
+        "description": "Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price."
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "IVF Support Prague",
+    "provider": { "@type": "MedicalBusiness", "name": "NIUS (Nurse in Prague)" },
+    "areaServed": { "@type": "City", "name": "Prague" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "IVF Support Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "IVF Injection Administration, Single Visit" },
+          "price": "1900",
+          "priceCurrency": "CZK"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": absoluteUrl(homeUrl)
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": t('ivfSupport.breadcrumb'),
+        "item": absoluteUrl(pageUrl('ivf-support', lang))
+      }
+    ]
+  }
+];
+
+const meta: PageMeta = {
+  title: t('ivfSupport.seo.title'),
+  description: t('ivfSupport.seo.description'),
+  keywords: t('ivfSupport.seo.keywords'),
+  ogImage: absoluteUrl('/og-ivf.jpg'),
+  schema: [schema],
+};
+
+const outlineIndigo = "w-full sm:w-auto border-indigo/20 text-indigo hover:bg-bone";
+---
+
+<BaseLayout route={route} lang={lang} meta={meta}>
+  <div class="flex min-h-screen flex-col bg-background">
+    <Header route={route} lang={lang} />
+    <Breadcrumbs lang={lang} items={[
+      { label: "Services", href: homeUrl + '#services' },
+      { label: t('ivfSupport.breadcrumb') }
+    ]} />
+    <main class="flex-1" role="main">
+
+      {/* ========== SECTION 1: HERO ========== */}
+      <section class="py-20 bg-bone">
+        <div class="container mx-auto px-4">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              {/* Trust Badges */}
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-xs border border-indigo/20 rounded-full text-xs font-medium text-indigo">
+                  <Shield class="h-3.5 w-3.5" />
+                  {t('ivfSupport.trustBadges.nurses')}
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-xs border border-indigo/20 rounded-full text-xs font-medium text-indigo">
+                  <Star class="h-3.5 w-3.5 fill-indigo text-indigo" />
+                  {t('ivfSupport.trustBadges.rating')}
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-xs border border-indigo/20 rounded-full text-xs font-medium text-indigo">
+                  <Clock class="h-3.5 w-3.5" />
+                  {t('ivfSupport.trustBadges.available')}
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-xs border border-indigo/20 rounded-full text-xs font-medium text-indigo">
+                  <Heart class="h-3.5 w-3.5" />
+                  {t('ivfSupport.trustBadges.patients')}
+                </span>
+              </div>
+
+              <div class="inline-block px-4 py-2 bg-bone text-indigo rounded-full text-sm font-medium">
+                {t('ivfSupport.badge')}
+              </div>
+              <h1 class="text-4xl md:text-5xl font-bold text-secondary leading-tight md:leading-none">
+                {t('ivfSupport.title')}
+              </h1>
+              <p class="text-lg text-muted-foreground">
+                {t('ivfSupport.description')}
+              </p>
+
+              <div class="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
+                <BookingLink>
+                  <Button size="lg" class="w-full sm:w-auto group">
+                    {t('ivfSupport.bookNow')}
+                    <ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </BookingLink>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="outline" class={outlineIndigo}>
+                    <MessageCircle class="mr-2 h-5 w-5" />
+                    {t('ivfSupport.whatsapp')}
+                  </Button>
+                </a>
+                <a href={`tel:${phone}`}>
+                  <Button size="lg" variant="outline" class={outlineIndigo}>
+                    <Phone class="mr-2 h-5 w-5" />
+                    {t('ivfSupport.call247')}
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="relative rounded-xl overflow-hidden shadow-card bg-white p-8">
+                <img
+                  src={ivDripIcon.src}
+                  alt="IVF support nurse in Prague administering fertility injection"
+                  class="w-full h-auto object-contain"
+                  loading="eager"
+                  fetchpriority="high"
+                  width="500"
+                  height="500"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 2: WHY IVF SUPPORT MATTERS ========== */}
+      <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              {t('ivfSupport.whyMatters.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+              {t('ivfSupport.whyMatters.description')}
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {whyMattersKeys.map((key) => {
+              const Icon = whyMattersIcons[key];
+              return (
+                <Card class="p-6 border-indigo/20 hover:border-indigo/20 hover:shadow-lg hover:shadow-indigo/10 transition-all duration-300">
+                  <div class="flex gap-4">
+                    <div class="w-12 h-12 bg-bone rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon class="h-6 w-6 text-indigo" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-secondary mb-2">
+                        {t(`ivfSupport.whyMatters.items.${key}.title`)}
+                      </h3>
+                      <p class="text-sm text-muted-foreground">
+                        {t(`ivfSupport.whyMatters.items.${key}.description`)}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 3: SERVICE PACKAGES ========== */}
+      <section class="py-16 md:py-20 bg-bone">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+            {t('ivfSupport.services.title')}
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {serviceKeys.map((key) => {
+              const benefits = t(`ivfSupport.services.${key}.benefits`, { returnObjects: true }) as unknown as string[];
+              return (
+                <Card class="p-6 flex flex-col transition-all duration-300 hover:shadow-lg border-indigo/20 hover:border-indigo/20 hover:shadow-indigo/10">
+                  <h3 class="text-xl font-bold text-secondary mb-1">
+                    {t(`ivfSupport.services.${key}.name`)}
+                  </h3>
+                  <p class="text-sm text-indigo font-medium mb-3">
+                    {t(`ivfSupport.services.${key}.subtitle`)}
+                  </p>
+                  <p class="text-muted-foreground text-sm mb-4 flex-1">
+                    {t(`ivfSupport.services.${key}.description`)}
+                  </p>
+
+                  <div class="space-y-2 mb-6">
+                    {benefits.map((benefit) => (
+                      <div class="flex gap-2 text-sm">
+                        <Check class="h-4 w-4 text-indigo flex-shrink-0 mt-0.5" />
+                        <span class="text-muted-foreground">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div class="mt-auto">
+                    <div class="flex items-baseline gap-2 mb-3">
+                      <span class="text-2xl font-bold text-indigo">
+                        {t(`ivfSupport.services.${key}.price`)}
+                      </span>
+                      <span class="text-sm text-muted-foreground">
+                        {t(`ivfSupport.services.${key}.duration`)}
+                      </span>
+                    </div>
+                    {key === 'wellness' ? (
+                      <a href={pageUrl('iv-drips', lang)}>
+                        <Button variant="outline" class="w-full group border-indigo/20 text-indigo hover:bg-bone">
+                          {t(`ivfSupport.services.${key}.cta`)}
+                          <ArrowRight class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </a>
+                    ) : (
+                      <BookingLink>
+                        <Button class="w-full group">
+                          {t(`ivfSupport.services.${key}.cta`)}
+                          <ArrowRight class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </BookingLink>
+                    )}
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+          <p class="text-sm text-muted-foreground text-center mt-8 max-w-2xl mx-auto">
+            {t('ivfSupport.pricing.note')}
+          </p>
+        </div>
+      </section>
+
+      {/* ========== SECTION 4: WHAT'S INCLUDED ========== */}
+      <section id="included" class="py-16 md:py-20 scroll-mt-20">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+              <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                {t('ivfSupport.included.title')}
+              </h2>
+              <p class="text-lg text-muted-foreground">
+                {t('ivfSupport.included.subtitle')}
+              </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+              {includedItems.map((item) => (
+                <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-indigo/20">
+                  <CircleCheck class="h-5 w-5 text-indigo mt-0.5 flex-shrink-0" />
+                  <span class="text-secondary font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 5: THE IVF VISIT EXPERIENCE ========== */}
+      <section class="py-16 md:py-20 bg-bone">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              {t('ivfSupport.experience.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+              {t('ivfSupport.experience.subtitle')}
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {experienceSteps.map((step, index) => (
+              <div class="bg-bone rounded-xl p-6 border border-indigo/20">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-bone text-indigo flex items-center justify-center text-lg font-bold flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <h3 class="text-lg font-semibold text-secondary">
+                    {t(`ivfSupport.experience.steps.${step}.title`)}
+                  </h3>
+                </div>
+                <p class="text-muted-foreground text-sm pl-14">
+                  {t(`ivfSupport.experience.steps.${step}.description`)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 6: PRICING OVERVIEW ========== */}
+      <section id="pricing" class="py-16 md:py-20 scroll-mt-20">
+        <div class="container mx-auto px-4">
+          <div class="max-w-2xl mx-auto">
+            <Card class="p-8 md:p-12 border-2 border-indigo/20 bg-bone text-center">
+              <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-2">
+                {t('ivfSupport.pricingCard.title')}
+              </h2>
+              <p class="text-muted-foreground mb-8">
+                {t('ivfSupport.pricingCard.subtitle')}
+              </p>
+              <div class="mb-2">
+                <span class="text-5xl md:text-6xl font-bold text-indigo">
+                  {t('ivfSupport.pricingCard.price')}
+                </span>
+                <span class="text-2xl font-medium text-indigo ml-2">
+                  {t('ivfSupport.pricingCard.currency')}
+                </span>
+              </div>
+              <p class="text-sm text-muted-foreground mb-2">
+                {t('ivfSupport.pricingCard.perVisit')}
+              </p>
+              <p class="text-sm font-medium text-green-600 mb-4">
+                {t('ivfSupport.pricingCard.multiVisit')}
+              </p>
+              <p class="text-xs text-muted-foreground mb-8">
+                {t('ivfSupport.pricingCard.includes')}
+              </p>
+              <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" class="w-full sm:w-auto bg-green-600 hover:bg-green-700">
+                    <MessageCircle class="mr-2 h-5 w-5" />
+                    {t('ivfSupport.pricingCard.ctaWhatsApp')}
+                  </Button>
+                </a>
+                <a href={`tel:${phone}`}>
+                  <Button size="lg" variant="outline" class={outlineIndigo}>
+                    <Phone class="mr-2 h-5 w-5" />
+                    {t('ivfSupport.pricingCard.ctaCall')}
+                  </Button>
+                </a>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 8: TESTIMONIALS ========== */}
+      <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+            {t('ivfSupport.testimonials.title')}
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonialItems.map((item) => (
+              <Card class="p-6 border-indigo/20">
+                <div class="flex gap-1 mb-4">
+                  {[0, 1, 2, 3, 4].map(() => (
+                    <Star class="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p class="text-muted-foreground mb-4 italic">"{item.text}"</p>
+                <div>
+                  <p class="font-semibold text-secondary">{item.author}</p>
+                  <p class="text-sm text-muted-foreground">{item.context}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 9: FAQ ========== */}
+      <section class="py-16 md:py-20 bg-bone">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+              {t('ivfSupport.faq.title')}
+            </h2>
+            <IvfFaq items={faqItems} />
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 10: RELATED SERVICES ========== */}
+      <RelatedServices lang={lang} currentId={route.id} />
+
+      {/* ========== SECTION 11: FINAL CTA ========== */}
+      <section class="py-16 md:py-20 bg-bone">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              {t('ivfSupport.finalCta.title')}
+            </h2>
+            <p class="text-lg text-muted-foreground mb-8">
+              {t('ivfSupport.finalCta.description')}
+            </p>
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" class="w-full sm:w-auto bg-green-600 hover:bg-green-700 py-6">
+                  <MessageCircle class="mr-2 h-5 w-5" />
+                  {t('ivfSupport.finalCta.whatsapp')}
+                </Button>
+              </a>
+              <a href={`tel:${phone}`}>
+                <Button size="lg" variant="outline" class={`${outlineIndigo} py-6`}>
+                  <Phone class="mr-2 h-5 w-5" />
+                  {t('ivfSupport.finalCta.call')}
+                </Button>
+              </a>
+              <a href="mailto:info@nius.cz">
+                <Button size="lg" variant="outline" class={`${outlineIndigo} py-6`}>
+                  <Mail class="mr-2 h-5 w-5" />
+                  {t('ivfSupport.finalCta.email')}
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer route={route} lang={lang} />
+  </div>
+</BaseLayout>

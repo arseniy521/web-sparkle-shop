@@ -1,0 +1,56 @@
+---
+import { ChevronRight, Home } from '@lucide/astro';
+import { serializeJsonLd } from '@/seo/head.ts';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import type { Lang } from '@/routes/types.ts';
+
+interface Props {
+  lang: Lang;
+  items: Array<{ label: string; href?: string }>;
+}
+
+const { lang, items } = Astro.props;
+const homeUrl = pageUrl('home', lang);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: absoluteUrl(homeUrl),
+    },
+    ...items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 2,
+      name: item.label,
+      item: item.href ? absoluteUrl(item.href) : undefined,
+    })),
+  ],
+};
+---
+
+<nav aria-label="Breadcrumb" class="py-4">
+  <ol class="flex items-center gap-2 text-sm text-muted-foreground container mx-auto px-4">
+    <li>
+      <a href={homeUrl} class="flex items-center hover:text-primary transition-colors">
+        <Home class="h-4 w-4" />
+        <span class="sr-only">Home</span>
+      </a>
+    </li>
+    {items.map((item) => (
+      <li class="flex items-center gap-2">
+        <ChevronRight class="h-4 w-4" />
+        {item.href ? (
+          <a href={item.href} class="hover:text-primary transition-colors">{item.label}</a>
+        ) : (
+          <span class="text-foreground font-medium">{item.label}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+
+  <script type="application/ld+json" set:html={serializeJsonLd(schema)} />
+</nav>

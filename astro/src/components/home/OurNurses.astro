@@ -1,0 +1,57 @@
+---
+// Port of old:src/components/OurNurses.tsx. The old link to /our-team/ (a page that does not exist)
+// leads to this block (approved difference 14, owner decision of 2026-11-16, question 17).
+import { createT } from '@/i18n/t.ts';
+import type { Lang } from '@/routes/types.ts';
+import { PHOTO_FILTER } from './constants.ts';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = createT(lang);
+const teamUrl = '#our-nurses';
+---
+
+<section id="our-nurses" class="py-16 md:py-24" style="background-color: var(--color-bg);">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+    <div class="grid lg:grid-cols-[45%_55%] gap-12 items-center">
+      <div class="relative">
+        <img
+          src="/photos/nurse-portrait.jpg"
+          alt={t('ourNurses.imageAlt')}
+          width="1050"
+          height="1400"
+          loading="lazy"
+          decoding="async"
+          class="w-full rounded-lg object-cover"
+          style={`aspect-ratio: 3/4; max-height: 560px; filter: ${PHOTO_FILTER}; box-shadow: 0 16px 48px rgba(21,63,77,0.1);`}
+        />
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <span class="text-xs font-body font-medium tracking-[0.16em] uppercase" style="color: var(--color-indigo);">
+            {t('ourNurses.eyebrow')}
+          </span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl mt-3" style="color: var(--color-ink);">
+            {t('ourNurses.titleBase')} <span style="color: var(--color-indigo); font-weight: 700;">{t('ourNurses.titleAccent')}</span>
+          </h2>
+        </div>
+
+        <p class="font-body text-base leading-relaxed max-w-[520px]" style="color: var(--color-text-secondary);">
+          {t('ourNurses.description')}
+        </p>
+
+        <a
+          href={teamUrl}
+          class="inline-flex items-center font-body font-medium text-sm transition-colors hover:opacity-80"
+          style="color: var(--color-indigo);"
+        >
+          {t('ourNurses.cta')} →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

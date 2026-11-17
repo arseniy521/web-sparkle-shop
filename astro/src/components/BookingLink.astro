@@ -1,0 +1,22 @@
+---
+/**
+ * Port of the old site's `BookingLink`: opens the in-site order form, as the home page menu
+ * does. Without JavaScript the link goes to the order form in the NIUS app, the same
+ * address as in the old HTML. The click is bound by `form-bridge.ts` through
+ * `data-open-form` (value = analytics source); `data-service-code` preselects a service.
+ */
+import { APP_URL } from '@/scripts/env';
+
+interface Props {
+  class?: string;
+  /** A value of CONVERSION_SOURCES; the old component's default is `page_content`. */
+  source?: string;
+  serviceCode?: string;
+}
+
+const { class: className, source = 'page_content', serviceCode } = Astro.props;
+---
+
+<a href={`${APP_URL}/form`} class={className} data-open-form={source} data-service-code={serviceCode}>
+  <slot />
+</a>

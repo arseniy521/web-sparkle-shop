@@ -11,7 +11,7 @@ Marketing website for **NIUS** (www.nius.cz) — a home nursing and IV drip serv
 - `npm run typecheck` — check app and Node TypeScript projects; strictNullChecks enabled
 - `npm run lint` — ESLint
 - `npm run i18n:check` — validate i18n key consistency across locales
-- `npm run deploy` — build + deploy to GitHub Pages (gh-pages)
+- Publication to GitHub Pages goes through the "Publish NIUS" workflow (`.github/workflows/publish.yml`), started by hand and approved by the owner
 
 ## Architecture
 

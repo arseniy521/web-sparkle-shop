@@ -1,0 +1,186 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import type { FormModule } from './form-bridge';
+
+vi.mock('@/scripts/analytics', () => ({ track: vi.fn(), trackCtaClick: vi.fn() }));
+vi.mock('@/scripts/client-error', () => ({ reportClientError: vi.fn() }));
+
+let cart: typeof import('./cart-core').cart;
+let initFormBridge: typeof import('./form-bridge').initFormBridge;
+let reportClientError: typeof import('./client-error').reportClientError;
+let mount: ReturnType<typeof vi.fn<FormModule['mountOrderForm']>>;
+let mountTotal: ReturnType<typeof vi.fn<NonNullable<FormModule['mountStickyTotal']>>>;
+let load: ReturnType<typeof vi.fn<() => Promise<FormModule>>>;
+let resolveLoad: () => void;
+let rejectLoad: (error: Error) => void;
+const idle = vi.fn<(cb: () => void) => void>();
+
+const flushPromises = () => new Promise((resolve) => setTimeout(resolve, 0));
+
+function fallback() {
+  return document.getElementById('order-form-fallback')!;
+}
+
+beforeEach(async () => {
+  vi.resetModules();
+  sessionStorage.clear();
+  document.documentElement.lang = 'cs';
+  document.body.innerHTML = `
+    <button data-open-cart="header"></button>
+    <a href="https://app.nius.cz/form" data-open-form="page_content"></a>
+    <div id="order-form-root"></div>
+    <div id="order-form-fallback" role="alert" hidden></div>`;
+  ({ cart } = await import('./cart-core'));
+  ({ initFormBridge } = await import('./form-bridge'));
+  ({ reportClientError } = await import('./client-error'));
+  mount = vi.fn<FormModule['mountOrderForm']>().mockResolvedValue(undefined);
+  mountTotal = vi.fn<NonNullable<FormModule['mountStickyTotal']>>();
+  load = vi.fn(
+    () =>
+      new Promise<FormModule>((resolve, reject) => {
+        resolveLoad = () => resolve({ mountOrderForm: mount, mountStickyTotal: mountTotal });
+        rejectLoad = reject;
+      }),
+  );
+});
+
+describe('initFormBridge', () => {
+  it('does not load the form without intent', () => {
+    initFormBridge({ load, idle });
+    expect(load).not.toHaveBeenCalled();
+  });
+
+  it('preloads on pointerenter, touchstart and focus of a cart button, once', () => {
+    initFormBridge({ load, idle });
+    const button = document.querySelector('[data-open-cart]')!;
+    button.dispatchEvent(new Event('pointerenter'));
+    button.dispatchEvent(new Event('touchstart'));
+    button.dispatchEvent(new FocusEvent('focus'));
+    expect(load).toHaveBeenCalledTimes(1);
+  });
+
+  it('preloads on pointerenter of a booking link', () => {
+    initFormBridge({ load, idle });
+    document.querySelector('[data-open-form]')!.dispatchEvent(new Event('pointerenter'));
+    expect(load).toHaveBeenCalledTimes(1);
+  });
+
+  it('preloads when the catalog adds a service', () => {
+    initFormBridge({ load, idle });
+    window.dispatchEvent(new CustomEvent('nius:add-to-cart', { detail: { code: 'iv-immunity-lite' } }));
+    expect(load).toHaveBeenCalledTimes(1);
+  });
+
+  it('opens the form after a click that came before the code was loaded', async () => {
+    initFormBridge({ load, idle });
+    cart.openForm('header');
+    expect(mount).not.toHaveBeenCalled();
+    resolveLoad();
+    await flushPromises();
+    expect(mount).toHaveBeenCalledWith(document.getElementById('order-form-root'), 'cs');
+    expect(cart.getState().open).toBe(true);
+  });
+
+  it('mounts once for a double click', async () => {
+    initFormBridge({ load, idle });
+    cart.openForm('header');
+    cart.openForm('header');
+    resolveLoad();
+    await flushPromises();
+    expect(mount).toHaveBeenCalledTimes(1);
+  });
+
+  it('shows the fallback and reports client_error when loading fails, then retries', async () => {
+    initFormBridge({ load, idle });
+    cart.openForm('header');
+    rejectLoad(new Error('net'));
+    await flushPromises();
+    expect(fallback().hidden).toBe(false);
+    expect(reportClientError).toHaveBeenCalledWith('order_form', expect.any(Error));
+    expect(cart.getState().open).toBe(false);
+    cart.openForm('header');
+    expect(load).toHaveBeenCalledTimes(2);
+    resolveLoad();
+    await flushPromises();
+    expect(mount).toHaveBeenCalledWith(document.getElementById('order-form-root'), 'cs');
+    expect(fallback().hidden).toBe(true);
+    expect(cart.getState().open).toBe(true);
+  });
+
+  it('starts once when initialised twice', async () => {
+    initFormBridge({ load, idle });
+    initFormBridge({ load, idle });
+    cart.openForm('header');
+    resolveLoad();
+    await flushPromises();
+    expect(load).toHaveBeenCalledTimes(1);
+    expect(mount).toHaveBeenCalledTimes(1);
+  });
+
+  it('loads in idle time when the cart is not empty', () => {
+    cart.setCodes(['immunity_lite']);
+    initFormBridge({ load, idle: (cb) => cb() });
+    expect(load).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not load in idle time for an empty cart', () => {
+    initFormBridge({ load, idle: (cb) => cb() });
+    expect(load).not.toHaveBeenCalled();
+  });
+
+  describe('the cart total of the home page bottom bar', () => {
+    const total = () => document.querySelector<HTMLElement>('[data-sticky-total]');
+    beforeEach(() => {
+      document.body.insertAdjacentHTML('beforeend', '<span data-sticky-total class="contents"></span>');
+    });
+
+    it('is mounted in idle time when the page opens with a cart', async () => {
+      cart.setCodes(['immunity_lite']);
+      initFormBridge({ load, idle: (cb) => cb() });
+      expect(load).toHaveBeenCalledTimes(1);
+      resolveLoad();
+      await flushPromises();
+      expect(mountTotal).toHaveBeenCalledWith(total(), 'cs');
+      expect(mount).not.toHaveBeenCalled();
+    });
+
+    it('is mounted once, when the first service is added', async () => {
+      initFormBridge({ load, idle: (cb) => cb() });
+      expect(load).not.toHaveBeenCalled();
+      cart.add('immunity_lite');
+      cart.add('pure_hydrate');
+      resolveLoad();
+      await flushPromises();
+      expect(load).toHaveBeenCalledTimes(1);
+      expect(mountTotal).toHaveBeenCalledTimes(1);
+    });
+
+    it('is not loaded for an empty cart', () => {
+      initFormBridge({ load, idle: (cb) => cb() });
+      expect(load).not.toHaveBeenCalled();
+    });
+
+    it('is never mounted on a page without the bar', async () => {
+      total()!.remove();
+      cart.setCodes(['immunity_lite']);
+      initFormBridge({ load, idle: (cb) => cb() });
+      cart.add('pure_hydrate');
+      resolveLoad();
+      await flushPromises();
+      expect(load).toHaveBeenCalledTimes(1);
+      expect(mountTotal).not.toHaveBeenCalled();
+    });
+
+    it('tries again after a failed load', async () => {
+      cart.setCodes(['immunity_lite']);
+      initFormBridge({ load, idle: (cb) => cb() });
+      rejectLoad(new Error('net'));
+      await flushPromises();
+      expect(mountTotal).not.toHaveBeenCalled();
+      cart.add('pure_hydrate');
+      expect(load).toHaveBeenCalledTimes(2);
+      resolveLoad();
+      await flushPromises();
+      expect(mountTotal).toHaveBeenCalledTimes(1);
+    });
+  });
+});

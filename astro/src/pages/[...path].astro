@@ -1,0 +1,32 @@
+---
+import { allPageEntries, redirectTarget } from '@/routes/urls.ts';
+import { redirects } from '@/routes/manifest.ts';
+import { templates } from '@/templates/registry.ts';
+import RedirectPage from '@/templates/RedirectPage.astro';
+import type { Lang, PageRoute, RedirectRoute } from '@/routes/types.ts';
+
+type Props =
+  | { kind: 'page'; route: PageRoute; lang: Lang }
+  | { kind: 'redirect'; redirect: RedirectRoute };
+
+export function getStaticPaths() {
+  const toParam = (path: string) => path.replace(/^\/|\/$/g, '') || undefined;
+  const pageEntries = allPageEntries()
+    .filter((e) => templates[e.route.template])
+    .map((e) => ({
+      params: { path: toParam(e.path) },
+      props: { kind: 'page', route: e.route, lang: e.lang } satisfies Props,
+    }));
+  const redirectEntries = redirects.map((r) => ({
+    params: { path: toParam(r.from) },
+    props: { kind: 'redirect', redirect: r } satisfies Props,
+  }));
+  return [...pageEntries, ...redirectEntries];
+}
+
+const props = Astro.props as Props;
+const Template = props.kind === 'page' ? templates[props.route.template] : undefined;
+---
+
+{props.kind === 'page' && Template ? <Template route={props.route} lang={props.lang} /> : null}
+{props.kind === 'redirect' ? <RedirectPage target={redirectTarget(props.redirect)} /> : null}

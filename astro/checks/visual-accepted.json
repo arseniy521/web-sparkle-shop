@@ -1,0 +1,320 @@
+[
+  {
+    "path": "order-form cart",
+    "viewport": "phone",
+    "maxRatio": 0.017,
+    "note": "Old site's text raster is 1 px lower at 390×844; geometry and styles match. Accepted by the owner on 2026-11-12, question 2."
+  },
+  {
+    "path": "order-form address",
+    "viewport": "phone",
+    "maxRatio": 0.017,
+    "note": "Old site's text raster is 1 px lower at 390×844; geometry and styles match. Accepted by the owner on 2026-11-12, question 2."
+  },
+  {
+    "path": "order-form timing",
+    "viewport": "phone",
+    "maxRatio": 0.005,
+    "note": "Old site's text raster is 1 px lower at 390×844; geometry and styles match. Accepted by the owner on 2026-11-12, question 2."
+  },
+  {
+    "path": "order-form phone",
+    "viewport": "phone",
+    "maxRatio": 0.005,
+    "note": "Old site's text raster is 1 px lower at 390×844; geometry and styles match. Accepted by the owner on 2026-11-12, question 2."
+  },
+  {
+    "path": "order-form note",
+    "viewport": "phone",
+    "maxRatio": 0.005,
+    "note": "Old site's text raster is 1 px lower at 390×844; geometry and styles match. Accepted by the owner on 2026-11-12, question 2."
+  },
+  {
+    "path": "/blog/",
+    "viewport": "desktop",
+    "maxRatio": 0.068,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/",
+    "viewport": "phone",
+    "maxRatio": 0.094,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/elderly-care-nursing-services-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.037,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/elderly-care-nursing-services-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.039,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/iv-therapy-at-home-prague-guide/",
+    "viewport": "desktop",
+    "maxRatio": 0.037,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/iv-therapy-at-home-prague-guide/",
+    "viewport": "phone",
+    "maxRatio": 0.04,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/medical-injections-home-service-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.052,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/medical-injections-home-service-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.055,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/when-to-call-home-nurse-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.03,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/when-to-call-home-nurse-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.033,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/wound-care-dressing-changes-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.039,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/blog/wound-care-dressing-changes-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.036,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/",
+    "viewport": "desktop",
+    "maxRatio": 0.068,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/",
+    "viewport": "phone",
+    "maxRatio": 0.094,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/elderly-care-nursing-services-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.037,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/elderly-care-nursing-services-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.039,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/iv-therapy-at-home-prague-guide/",
+    "viewport": "desktop",
+    "maxRatio": 0.037,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/iv-therapy-at-home-prague-guide/",
+    "viewport": "phone",
+    "maxRatio": 0.041,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/medical-injections-home-service-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.052,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/medical-injections-home-service-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.055,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/when-to-call-home-nurse-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.03,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/when-to-call-home-nurse-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.033,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/wound-care-dressing-changes-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.039,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/en/blog/wound-care-dressing-changes-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.036,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/",
+    "viewport": "desktop",
+    "maxRatio": 0.068,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/",
+    "viewport": "phone",
+    "maxRatio": 0.093,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/elderly-care-nursing-services-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.037,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/elderly-care-nursing-services-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.038,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/iv-therapy-at-home-prague-guide/",
+    "viewport": "desktop",
+    "maxRatio": 0.037,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/iv-therapy-at-home-prague-guide/",
+    "viewport": "phone",
+    "maxRatio": 0.04,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/medical-injections-home-service-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.052,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/medical-injections-home-service-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.055,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/when-to-call-home-nurse-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.03,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/when-to-call-home-nurse-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.033,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/wound-care-dressing-changes-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.039,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/ru/blog/wound-care-dressing-changes-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.036,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/",
+    "viewport": "desktop",
+    "maxRatio": 0.068,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/",
+    "viewport": "phone",
+    "maxRatio": 0.094,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/elderly-care-nursing-services-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.037,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/elderly-care-nursing-services-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.039,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/iv-therapy-at-home-prague-guide/",
+    "viewport": "desktop",
+    "maxRatio": 0.037,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/iv-therapy-at-home-prague-guide/",
+    "viewport": "phone",
+    "maxRatio": 0.04,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/medical-injections-home-service-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.052,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/medical-injections-home-service-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.055,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/when-to-call-home-nurse-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.03,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/when-to-call-home-nurse-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.033,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/wound-care-dressing-changes-prague/",
+    "viewport": "desktop",
+    "maxRatio": 0.039,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  },
+  {
+    "path": "/uk/blog/wound-care-dressing-changes-prague/",
+    "viewport": "phone",
+    "maxRatio": 0.036,
+    "note": "Blog article images shown instead of the old broken images (approved difference 13, owner decision of 2026-11-17); only the image areas differ, sizes match."
+  }
+]

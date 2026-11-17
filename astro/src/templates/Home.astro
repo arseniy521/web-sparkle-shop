@@ -1,0 +1,261 @@
+---
+// Port of old:src/pages/Index.tsx (main f0d216d) and the components it renders, in its order.
+// The lazy parts of the old page (testimonials, service area, final call, FAQ) are plain HTML.
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Faq from '@/components/Faq.astro';
+import Hero from '@/components/home/Hero.astro';
+import TrustStrip from '@/components/home/TrustStrip.astro';
+import MenuSection from '@/components/home/MenuSection.astro';
+import WhatsIncluded from '@/components/home/WhatsIncluded.astro';
+import WhoWeServe from '@/components/home/WhoWeServe.astro';
+import HowItWorks from '@/components/home/HowItWorks.astro';
+import OurNurses from '@/components/home/OurNurses.astro';
+import Bundles from '@/components/home/Bundles.astro';
+import Subscription from '@/components/home/Subscription.astro';
+import Testimonials from '@/components/home/Testimonials.astro';
+import ServiceArea from '@/components/home/ServiceArea.astro';
+import FinalCta from '@/components/home/FinalCta.astro';
+import StickyBar from '@/components/home/StickyBar.astro';
+import { createT } from '@/i18n/t.ts';
+import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
+import type { Lang, PageRoute } from '@/routes/types.ts';
+import type { PageMeta } from '@/seo/head.ts';
+
+interface Props {
+  route: PageRoute;
+  lang: Lang;
+}
+
+const { route, lang } = Astro.props;
+const t = createT(lang);
+// The old page states the Czech home address in every language.
+const siteHome = absoluteUrl(pageUrl('home', 'cs'));
+
+const enhancedSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": t('schema.businessName'),
+  "alternateName": [t('schema.services.homeNurse.alternateName'), t('schema.services.ivDrip.alternateName')],
+  "legalName": t('schema.businessLegalName'),
+  "url": siteHome,
+  "description": t('schema.businessDescription'),
+  "slogan": t('schema.businessSlogan'),
+  "foundingDate": "2024",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Na Zámecké 1518/9",
+    "addressLocality": "Praha 4",
+    "postalCode": "140 00",
+    "addressCountry": "CZ"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": t('schema.areaServed'),
+      "containsPlace": [
+        {"@type": "Place", "name": "Prague 1"},
+        {"@type": "Place", "name": "Prague 2"},
+        {"@type": "Place", "name": "Prague 3"},
+        {"@type": "Place", "name": "Prague 4"},
+        {"@type": "Place", "name": "Prague 5"},
+        {"@type": "Place", "name": "Prague 6"},
+        {"@type": "Place", "name": "Prague 7"},
+        {"@type": "Place", "name": "Prague 8"},
+        {"@type": "Place", "name": "Prague 9"},
+        {"@type": "Place", "name": "Prague 10"},
+        {"@type": "Place", "name": "Vinohrady"},
+        {"@type": "Place", "name": "Žižkov"},
+        {"@type": "Place", "name": "Old Town Prague"},
+        {"@type": "Place", "name": "New Town Prague"}
+      ]
+    }
+  ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.0755,
+    "longitude": 14.4378
+  },
+  "telephone": "+420773629123",
+  "email": "info@nius.cz",
+  "priceRange": "1650-4550 CZK",
+  "currenciesAccepted": "CZK, EUR",
+  "paymentAccepted": ["Cash", "Bank Transfer", "Card"],
+  "openingHours": "Mo-Su 08:00-21:00",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "08:00",
+    "closes": "21:00"
+  },
+  "availableLanguage": ["en", "cs", "ru", "uk"],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteHome}#contacts`,
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": t('schema.bookingAction')
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Nursing Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": t('schema.services.ivDrip.name'),
+          "alternateName": t('schema.services.ivDrip.alternateName'),
+          "description": t('schema.services.ivDrip.description'),
+          "serviceType": t('schema.services.ivDrip.type'),
+          "areaServed": "Prague and surrounding areas"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": t('schema.services.homeNurse.name'),
+          "alternateName": t('schema.services.homeNurse.alternateName'),
+          "description": t('schema.services.homeNurse.description'),
+          "serviceType": t('schema.services.homeNurse.type'),
+          "areaServed": "Prague 1-10, Vinohrady, Old Town"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": t('schema.services.ivf.name'),
+          "description": t('schema.services.ivf.description')
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": t('schema.services.postSurgery.name'),
+          "description": t('schema.services.postSurgery.description')
+        }
+      }
+    ]
+  }
+};
+
+const faqItems = t('faqNew.items', { returnObjects: true }) as unknown as Array<{ q: string; a: string }>;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": Array.isArray(faqItems) ? faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.q ? item.a : '' }
+  })) : []
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "IV Drip Services Prague",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "item": { "@type": "Service", "name": "Immunity Lite", "description": "Vitamins and fluids IV drip", "offers": { "@type": "Offer", "price": "2900", "priceCurrency": "CZK" } } },
+    { "@type": "ListItem", "position": 2, "item": { "@type": "Service", "name": "Immunity Power", "description": "Vitamin C and fluids IV drip", "offers": { "@type": "Offer", "price": "3250", "priceCurrency": "CZK" } } },
+    { "@type": "ListItem", "position": 3, "item": { "@type": "Service", "name": "Vitamin & Mineral Classic", "description": "Vitamins, minerals and fluids IV drip", "offers": { "@type": "Offer", "price": "3750", "priceCurrency": "CZK" } } },
+    { "@type": "ListItem", "position": 4, "item": { "@type": "Service", "name": "Vitamin & Mineral Plus", "description": "Extended vitamin and mineral IV drip", "offers": { "@type": "Offer", "price": "4350", "priceCurrency": "CZK" } } },
+    { "@type": "ListItem", "position": 5, "item": { "@type": "Service", "name": "CEO Recharge", "description": "Vitamins, minerals and fluids IV drip", "offers": { "@type": "Offer", "price": "4550", "priceCurrency": "CZK" } } },
+    { "@type": "ListItem", "position": 6, "item": { "@type": "Service", "name": "Pure Hydrate", "description": "Hydration IV drip", "offers": { "@type": "Offer", "price": "2550", "priceCurrency": "CZK" } } }
+  ]
+};
+
+const schemaArray = [
+  enhancedSchema,
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nurse in Prague",
+    "legalName": "Nius Services s.r.o.",
+    "url": siteHome,
+    "logo": absoluteUrl('/brand/logo-mark-dark.svg'),
+    "foundingDate": "2024",
+    "founders": [{ "@type": "Person", "name": "Nigina Jebrak" }],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rybná 716/24",
+      "addressLocality": "Praha 1",
+      "postalCode": "110 00",
+      "addressCountry": "CZ"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+420773629123",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Czech", "Russian", "Ukrainian"],
+      "areaServed": "Prague"
+    },
+    "sameAs": [
+      "https://www.instagram.com/nius.prague/",
+      "https://t.me/nius_prague",
+      "https://g.page/r/Cb4BmqPTZRSSEBE"
+    ]
+  },
+  faqSchema,
+  serviceSchema
+];
+
+// The answers are plain text in the locale files: escaped for the FAQ markup.
+const escapeHtml = (text: string) =>
+  text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const faq = (Array.isArray(faqItems) ? faqItems : []).map((item) => ({
+  question: item.q,
+  answerHtml: escapeHtml(item.a),
+}));
+
+const meta: PageMeta = {
+  title: t('seo.home.title'),
+  description: t('seo.home.description'),
+  keywords: t('seo.home.keywords'),
+  ogImage: absoluteUrl('/og-image.jpg'),
+  // The old page emits the four blocks as one JSON-LD array.
+  schema: [schemaArray],
+};
+---
+
+<BaseLayout route={route} lang={lang} meta={meta}>
+  <script is:inline slot="head" src="/js/nius-menu.js" defer></script>
+  <div class="flex min-h-screen flex-col" style="background-color: var(--color-bg);">
+    <Header route={route} lang={lang} />
+    <main role="main" id="main-content">
+      <Hero lang={lang} />
+      <TrustStrip lang={lang} />
+      <MenuSection lang={lang} />
+      <WhatsIncluded lang={lang} />
+      <WhoWeServe lang={lang} />
+      <HowItWorks lang={lang} />
+      <OurNurses lang={lang} />
+      <Bundles lang={lang} />
+      <Subscription lang={lang} />
+      <Testimonials lang={lang} />
+      <ServiceArea lang={lang} />
+      <FinalCta lang={lang} />
+      <section class="py-16 md:py-24" style="background-color: var(--color-bg);">
+        <div class="max-w-[800px] mx-auto px-6 md:px-12">
+          <h2 class="font-display font-bold text-3xl md:text-4xl mb-10" style="color: var(--color-ink);">
+            {t('faqNew.title')}
+          </h2>
+          <Faq items={faq} />
+        </div>
+      </section>
+      <StickyBar lang={lang} />
+    </main>
+    <Footer route={route} lang={lang} />
+  </div>
+</BaseLayout>
