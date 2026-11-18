@@ -1,0 +1,1 @@
+import{d as e,l as t,r as n}from"./analytics.a1h6Nt6J.js";t();var r=document.referrer,i=r!==``&&new URL(r).origin===window.location.origin;e(`page_not_found`,{page_path:n(),...i?{referrer_path:n(r)}:{}});
