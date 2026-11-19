@@ -41,7 +41,7 @@ describe('consent', () => {
     expect(() => setConsent('rejected')).not.toThrow();
   });
 
-  it('stores a rejection for the current host on a preview address', () => {
+  it('stores a rejection for the current host on a host other than www.nius.cz', () => {
     const written: string[] = [];
     vi.spyOn(document, 'cookie', 'set').mockImplementation((value: string) => {
       written.push(value);

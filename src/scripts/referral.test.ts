@@ -81,7 +81,7 @@ describe('referral', () => {
     expect(() => captureReferral('?ref=ABCDEF')).not.toThrow();
   });
 
-  it('writes no domain attribute on a preview address', () => {
+  it('writes no domain attribute on a host other than www.nius.cz', () => {
     const written: string[] = [];
     vi.spyOn(document, 'cookie', 'set').mockImplementation((value: string) => {
       written.push(value);
