@@ -5,7 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
   {
-    ignores: ['dist', 'public', '.checks', '.preview', '.wrangler', '.astro'],
+    ignores: ['dist', 'public', '.checks', '.astro'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -57,10 +57,6 @@ export default [
     files: ['**/*.cjs'],
     languageOptions: { globals: { require: 'readonly', module: 'writable' } },
     rules: { '@typescript-eslint/no-require-imports': 'off' },
-  },
-  {
-    files: ['preview/functions/**/*.js'],
-    languageOptions: { globals: { Response: 'readonly', HTMLRewriter: 'readonly' } },
   },
   {
     files: ['src/islands/**'],

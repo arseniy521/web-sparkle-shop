@@ -14,7 +14,6 @@
     "test": "vitest run",
     "i18n:check": "node scripts/check-i18n-keys.mjs",
     "check:env": "node scripts/check-env.mjs",
-    "preview:assemble": "node scripts/preview/assemble.mjs",
     "check:seo": "node scripts/checks/seo-check.ts",
     "check:e2e": "playwright test --project=e2e",
     "check:lhci": "lhci autorun",
@@ -63,7 +62,6 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "jsdom": "^31.0.0",
     "typescript-eslint": "^8.72.2",
-    "vitest": "^5.1.0",
-    "wrangler": "^4.160.0"
+    "vitest": "^5.1.0"
   }
 }
