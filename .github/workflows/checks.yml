@@ -17,10 +17,12 @@ on:
         required: true
       VITE_GOOGLE_CLIENT_ID:
         required: true
-      # Optional: empty values build the site without the Google Ads conversion (check:env warns).
+      # Optional: empty values build the site without the Google Ads conversions (check:env warns).
       VITE_GOOGLE_ADS_ID:
         required: false
       VITE_GOOGLE_ADS_LEAD_LABEL:
+        required: false
+      VITE_GOOGLE_ADS_CONTACT_LABEL:
         required: false
 
 permissions:
@@ -35,6 +37,7 @@ jobs:
       VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
       VITE_GOOGLE_ADS_ID: ${{ secrets.VITE_GOOGLE_ADS_ID }}
       VITE_GOOGLE_ADS_LEAD_LABEL: ${{ secrets.VITE_GOOGLE_ADS_LEAD_LABEL }}
+      VITE_GOOGLE_ADS_CONTACT_LABEL: ${{ secrets.VITE_GOOGLE_ADS_CONTACT_LABEL }}
 
     steps:
       - name: Check out repository

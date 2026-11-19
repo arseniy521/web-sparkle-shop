@@ -1,6 +1,6 @@
 import { getConsent } from '@/scripts/consent';
 import { sharedCookieDomain } from '@/scripts/cookie-domain';
-import { trackGoogleEvent } from '@/scripts/ga';
+import { trackContactClick } from '@/scripts/ga';
 
 /**
  * Amplitude wrapper for the landing (www.nius.cz).
@@ -180,7 +180,8 @@ export type ConversionSource = (typeof CONVERSION_SOURCES)[number];
 /**
  * One normalized click event for the public conversion funnel.
  * Extra properties must remain non-PHI (for example service_code or cart_items_count).
- * A phone or WhatsApp click also goes to the Google tags as `contact` (old site, main f0d216d).
+ * A phone or WhatsApp click also goes to the Google tags as `contact` (old site, main f0d216d)
+ * and, with the contact label configured, as the Google Ads conversion.
  */
 export const trackCtaClick = (
   cta: ConversionCta,
@@ -188,5 +189,5 @@ export const trackCtaClick = (
   props?: Record<string, unknown>,
 ): void => {
   track('cta_clicked', { page_path: cleanPath(), ...props, cta, source });
-  if (cta === 'phone' || cta === 'whatsapp') trackGoogleEvent('contact', { method: cta, source });
+  if (cta === 'phone' || cta === 'whatsapp') trackContactClick(cta, source);
 };

@@ -25,6 +25,10 @@ declare global {
 
 const GOOGLE_ADS_ID = (import.meta.env.VITE_GOOGLE_ADS_ID as string | undefined)?.trim();
 const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.VITE_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim();
+const GOOGLE_ADS_CONTACT_LABEL = (import.meta.env.VITE_GOOGLE_ADS_CONTACT_LABEL as string | undefined)?.trim();
+
+/** Value of one phone or WhatsApp click, as set for the conversion action in Google Ads. */
+const CONTACT_CONVERSION_VALUE = 1;
 
 const DENIED = {
   ad_storage: 'denied',
@@ -86,6 +90,23 @@ export function disableGa(): void {
 export function trackGoogleEvent(name: string, params?: Record<string, unknown>): void {
   if (!window.gtag || !consented()) return;
   window.gtag('event', name, params);
+}
+
+/**
+ * A phone or WhatsApp click: the GA4 event `contact` and, when both the Ads id and the contact
+ * label are configured, the Ads conversion "Outbound click" (every click counts, 1 CZK each).
+ * Only the method and the place of the link are sent, never the number or the message text.
+ */
+export function trackContactClick(method: 'phone' | 'whatsapp', source: string): void {
+  if (!window.gtag || !consented()) return;
+  trackGoogleEvent('contact', { method, source });
+  if (GOOGLE_ADS_ID && GOOGLE_ADS_CONTACT_LABEL) {
+    trackGoogleEvent('conversion', {
+      send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_CONTACT_LABEL}`,
+      value: CONTACT_CONVERSION_VALUE,
+      currency: 'CZK',
+    });
+  }
 }
 
 /**

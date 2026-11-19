@@ -17,6 +17,7 @@ export default async function globalSetup() {
       VITE_MAPY_API_KEY: 'test-mapy-key',
       VITE_GOOGLE_ADS_ID: 'AW-0000000000',
       VITE_GOOGLE_ADS_LEAD_LABEL: 'test-lead-label',
+      VITE_GOOGLE_ADS_CONTACT_LABEL: 'test-contact-label',
     },
   });
   const server = await startStaticServer({ dir: E2E_DIST, port: E2E_PORT, notFoundFile: '404.html' });

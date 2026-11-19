@@ -34,11 +34,12 @@ describe('scripts/check-env.mjs', { timeout: 30_000 }, () => {
     rmSync(emptyRoot, { recursive: true, force: true });
   });
 
-  it('passes without a warning when both Google Ads values are set', () => {
+  it('passes without a warning when every Google Ads value is set', () => {
     const { status, output } = runCheck({
       ...REQUIRED,
       VITE_GOOGLE_ADS_ID: 'AW-0000000000',
       VITE_GOOGLE_ADS_LEAD_LABEL: 'fakeLeadLabel',
+      VITE_GOOGLE_ADS_CONTACT_LABEL: 'fakeContactLabel',
     });
 
     expect(status).toBe(0);
@@ -74,6 +75,30 @@ describe('scripts/check-env.mjs', { timeout: 30_000 }, () => {
 
     expect(status).toBe(0);
     expect(output).toContain('::warning title=Google Ads conversion is off::VITE_GOOGLE_ADS_ID and VITE_GOOGLE_ADS_LEAD_LABEL are empty.');
+  });
+
+  it('warns about the contact conversion when only its label is empty', () => {
+    const { status, output } = runCheck({
+      ...REQUIRED,
+      VITE_GOOGLE_ADS_ID: 'AW-0000000000',
+      VITE_GOOGLE_ADS_LEAD_LABEL: 'fakeLeadLabel',
+      VITE_GOOGLE_ADS_CONTACT_LABEL: '  ',
+    }, true);
+
+    expect(status).toBe(0);
+    expect(output).toContain(
+      '::warning title=Google Ads contact conversion is off::VITE_GOOGLE_ADS_CONTACT_LABEL is empty. ' +
+        'The site will be built without the Google Ads contact conversion',
+    );
+    expect(output).not.toContain('title=Google Ads conversion is off');
+    expect(output).toContain('Release env check passed');
+  });
+
+  it('does not repeat the contact warning when the Ads id itself is empty', () => {
+    const { output } = runCheck({ ...REQUIRED, VITE_GOOGLE_ADS_LEAD_LABEL: 'fakeLeadLabel' });
+
+    expect(output).toContain('Release warning: VITE_GOOGLE_ADS_ID is empty.');
+    expect(output).not.toContain('VITE_GOOGLE_ADS_CONTACT_LABEL');
   });
 
   it('still blocks the release when a required value is missing', () => {

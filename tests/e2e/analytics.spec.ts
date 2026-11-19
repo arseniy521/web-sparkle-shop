@@ -38,6 +38,13 @@ test('Phone link click', async ({ page }) => {
       return { method: params.get('ep.method'), source: params.get('ep.source') };
     }))
     .toEqual([{ method: 'phone', source: 'footer' }]);
+  // And the Google Ads conversion "Outbound click" with its own label, 1 CZK, nothing else.
+  await expect
+    .poll(() => ga.hits().filter((hit) => new URL(hit.url).searchParams.get('en') === 'conversion').map((hit) => {
+      const params = [...new URL(hit.url).searchParams].filter(([key]) => key.startsWith('ep.'));
+      return Object.fromEntries(params);
+    }))
+    .toEqual([{ 'ep.send_to': 'AW-0000000000/test-contact-label', 'ep.value': '1', 'ep.currency': 'CZK' }]);
 });
 
 test('Navigation between pages', async ({ page }) => {

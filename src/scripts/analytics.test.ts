@@ -222,6 +222,26 @@ describe('analytics', () => {
     }
   });
 
+  it.each(['phone', 'whatsapp'] as const)('a %s click also sends the Ads contact conversion when its label is set', async (cta) => {
+    vi.stubEnv('VITE_GOOGLE_ADS_ID', 'AW-0000000000');
+    vi.stubEnv('VITE_GOOGLE_ADS_CONTACT_LABEL', 'synthetic-contact-label');
+    const gtag = vi.fn();
+    window.gtag = gtag;
+    try {
+      const { trackCtaClick } = await load();
+      setConsent('accepted');
+      trackCtaClick(cta, 'hero');
+      trackCtaClick('order_service', 'hero');
+      expect(gtag.mock.calls).toEqual([
+        ['event', 'contact', { method: cta, source: 'hero' }],
+        ['event', 'conversion', { send_to: 'AW-0000000000/synthetic-contact-label', value: 1, currency: 'CZK' }],
+      ]);
+    } finally {
+      delete window.gtag;
+      vi.unstubAllEnvs();
+    }
+  });
+
   it('cleanPath returns the pathname only', async () => {
     const { cleanPath } = await load();
     history.pushState({}, '', '/ru/page/?a=1#b');
