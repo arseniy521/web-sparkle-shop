@@ -89,11 +89,10 @@ describe('seo-check CLI', () => {
     expect(r.status).toBe(1);
   });
 
-  it('--production fails on a preview artifact', () => {
+  it('--production fails on a build closed to crawlers', () => {
     const dist = tmp();
     writeGoodDist(dist);
-    fs.mkdirSync(path.join(dist, 'functions'));
-    expect(run(['--dist', dist]).status).toBe(0);
-    expect(run(['--dist', dist, '--production']).stdout).toContain('preview-artifact /functions/');
+    fs.writeFileSync(path.join(dist, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+    expect(run(['--dist', dist, '--production']).stdout).toContain('production-build /robots.txt');
   });
 });
