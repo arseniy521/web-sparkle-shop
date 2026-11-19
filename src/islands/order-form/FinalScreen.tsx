@@ -61,6 +61,10 @@ export const FinalScreen = ({
   const [loginError, setLoginError] = useState<string | null>(null);
   const [googleFlowStarted, setGoogleFlowStarted] = useState(false);
   const processingRef = useRef(false);
+  // The Google flow hands over the session it has just created. The auth status flips to
+  // authenticated in the same moment; checking that session a second time would lock the
+  // dialog again right after an error was shown (e.g. a superadmin), so Escape did nothing.
+  const googleFlowHandledRef = useRef(false);
   const linkedEventRef = useRef(false);
 
   const totalCzk = cart.reduce((sum, item) => sum + item.priceCzk * item.quantity, 0);
@@ -120,6 +124,7 @@ export const FinalScreen = ({
   }, [failLogin, orderAccessToken, orderId, orderLinked, participantCount]);
 
   useEffect(() => {
+    if (googleFlowHandledRef.current) return;
     if (orderLinked || authStatus === 'authenticated') {
       void ensureLinkedAndRedirect(null);
     }
@@ -220,7 +225,10 @@ export const FinalScreen = ({
                 if (state === 'popup') setGoogleFlowStarted(true);
                 setLoginState(state);
               }}
-              onAuthenticated={(user) => void ensureLinkedAndRedirect(user)}
+              onAuthenticated={(user) => {
+                googleFlowHandledRef.current = true;
+                void ensureLinkedAndRedirect(user);
+              }}
               onFailure={failLogin}
             />
           </Suspense>

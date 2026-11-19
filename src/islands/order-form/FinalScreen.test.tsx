@@ -49,17 +49,32 @@ vi.mock('./GoogleLoginAction', () => ({
   default: ({
     disabled,
     onStateChange,
+    onAuthenticated,
   }: {
     disabled: boolean;
     onStateChange: (state: 'popup') => void;
+    onAuthenticated: (user: { id: string; role: string; linked: boolean }) => void;
   }) => (
-    <button
-      type="button"
-      disabled={disabled}
-      onClick={() => onStateChange('popup')}
-    >
-      google-action
-    </button>
+    <>
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={() => onStateChange('popup')}
+      >
+        google-action
+      </button>
+      {/* As the real action: the session is marked authenticated, then the user is handed over. */}
+      <button
+        type="button"
+        onClick={() => {
+          onStateChange('popup');
+          testState.authStatus = 'authenticated';
+          onAuthenticated({ id: 'admin-1', role: 'SUPERADMIN', linked: false });
+        }}
+      >
+        google-superadmin
+      </button>
+    </>
   ),
 }));
 
@@ -175,5 +190,20 @@ describe('FinalScreen action exclusivity', () => {
     expect(
       screen.queryByRole('button', { name: 'onboarding.final.contactBtn' }),
     ).not.toBeInTheDocument();
+  });
+
+  it('checks a superadmin signed in through Google once and leaves the dialog unlocked', async () => {
+    testState.getPublicMe.mockResolvedValue({ authenticated: true, id: 'admin-1', role: 'SUPERADMIN' });
+    const onBusyChange = vi.fn();
+    render(<FinalScreen {...baseProps} onBusyChange={onBusyChange} />);
+
+    fireEvent.click(await screen.findByRole('button', { name: 'google-superadmin' }));
+
+    expect(await screen.findByRole('alert')).toBeInTheDocument();
+    // A second check of the same session locked the dialog while it ran (Escape did nothing).
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    expect(testState.getPublicMe).not.toHaveBeenCalled();
+    expect(onBusyChange).toHaveBeenLastCalledWith(false);
+    expect(onBusyChange).not.toHaveBeenCalledWith(true);
   });
 });
