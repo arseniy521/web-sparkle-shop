@@ -2,7 +2,7 @@
 
 ## What this repository is
 
-- The public site of NIUS (www.nius.cz), a home nursing and IV drip service in Prague: a static Astro 7 site (`output: 'static'`, `trailingSlash: 'always'`), Tailwind 4, React 19 only in the order form, Node >= 24. All commands run from the repository root. Published to GitHub Pages (`gh-pages`, custom domain from `dist/CNAME`).
+- The public site of NIUS (www.nius.cz), a home nursing and IV drip service in Prague: a static Astro 7 site (`output: 'static'`, `trailingSlash: 'always'`), Tailwind 4, React 19 only in the order form, Node >= 24. All commands run from the repository root. Published to GitHub Pages by the "Publish NIUS" workflow (custom domain `www.nius.cz` in the Pages settings).
 - Texts are in `src/i18n/locales/{cs,en,ru,uk}.json` (Czech is the default and the fallback), blog data in `src/data/blogPosts.ts`, static files in `public/` (copied to `dist/` as they are), env keys in root `.env*` files (only `.env.example` is tracked).
 - The old Vite + React site is kept only in the branch `backup/old-site` (= `main` `f0d216d`). The Astro site replaced it after a page-by-page comparison (content, screenshots, SEO), recorded in the commit that added it (NIU-17). "old:" in a comment names a file of that branch.
 - Specs live in the `nius` repository, OpenSpec change `openspec/changes/site-astro-migration/`: `design.md`, `specs/`, `plan.md`, `verification.md`, `test-cases.md`, `questions.md`. "Question N" below is a number in `questions.md`. `openspec/config.yaml` here points to the store `nius`. Read the change before changing behaviour.
@@ -17,39 +17,35 @@
 | `npm run dev` | dev server on port 8080, `/api` proxied to `NIUS_API_PROXY` (default `http://localhost:3002`) | — |
 | `npm run lint` | ESLint, including the React boundary | — |
 | `npm run typecheck` | `astro check` | — |
-| `npm test` | unit tests (vitest, jsdom) of `src/`, `scripts/`, `preview/`, `tests/` | — |
+| `npm test` | unit tests (vitest, jsdom) of `src/`, `scripts/`, `tests/`; release keys are empty there (`vitest.config.ts`) | — |
 | `npm run i18n:check` | the four locale files have the same keys (`scripts/check-i18n-keys.mjs`) | — |
-| `npm run check:env` | the release keys are set; fails on a work machine by design, CI only | keys |
+| `npm run check:env` | the release keys are set; runs in the publication only, fails on a work machine by design | keys |
 | `npm run build` | publishable build in `dist/` with `CNAME` and `.nojekyll`, every `<lastmod>` of `sitemap.xml` set to the build date | — |
 | `npm run check:seo -- --scope built` | head, canonical, hreflang, robots, links, images, JSON-LD, redirects, 404, `sitemap.xml` of the built pages | `build` |
 | `npm run check:e2e` | browser scenarios of `site-interactivity` on their own test build, API stubbed | — |
-| `npm run check:lhci` | Lighthouse, median of 3, control set of `lighthouserc.cjs`; SEO = 1, accessibility >= 0.95, performance >= 0.9 | `build` |
-| `npm run checks:report` | prints the page registry `.checks/registry.json` (columns `seo`, `e2e`, `lighthouse`) | any check |
-| `npm run checks` | lint, typecheck, unit tests, i18n, build, `check:seo -- --scope built`, `check:e2e`, `check:lhci` — the `checks` workflow without `check:env` | — |
-| `npm run preview:assemble` | preview build in `.preview/` (API stub, `noindex`, closed `robots.txt`) | — |
+| `npm run check:lhci` | manual, not part of the checks: Lighthouse, median of 3, control set of `lighthouserc.cjs`; SEO = 1, accessibility >= 0.95, performance >= 0.9; run on an idle machine | `build` |
+| `npm run checks` | lint, typecheck, unit tests, i18n, build, `check:seo -- --scope built`, `check:e2e` — what "Check the site" runs in a pull request | — |
 
 Minimum before a change is reported as done:
 
-- **Template, component, style or text:** `lint`, `typecheck`, `test`, `i18n:check` (texts), `build`, `check:seo -- --scope built`; `check:lhci` for a new template. Look at the changed pages in a browser at 390×844 and 1440×900.
+- **Template, component, style or text:** `lint`, `typecheck`, `test`, `i18n:check` (texts), `build`, `check:seo -- --scope built`; for a new template also `check:lhci` by hand. Look at the changed pages in a browser at 390×844 and 1440×900.
 - **Script or island (`src/scripts`, `src/islands`):** `lint`, `typecheck`, `test`, `build`, `check:e2e`. Follow the analytics rule below; cart, draft, consent and referral storage must stay readable for returning visitors.
 - **Check or tooling (`scripts/`, `tests/`, configs):** `lint`, `typecheck`, `test`, then run the changed check and show it failing on a deliberately broken site.
-- **Workflow (`.github/workflows/`):** cannot be run locally. Parse the YAML, replay the `run:` steps against a throwaway repo where possible, keep `${{ }}` out of `run:` (pass values through `env:`), and list what stays unverified.
+- **Workflow (`.github/workflows/`):** parse the YAML and keep `${{ }}` out of `run:` (pass values through `env:`); it is proved by its first run on GitHub.
 - **Before handing over a batch:** `npm run checks`.
 
-Exit code 1 means findings, 2 means wrong usage. `check:seo` without `--scope` requires every manifest page to be built and writes `fail` rows for the rest; the publication form is `npm run check:seo -- --production --dist dist` (`--production` also refuses preview artifacts: `functions/`, `_headers` with `X-Robots-Tag`, a bundle without the production API address).
+Exit code 1 means findings, 2 means wrong usage. `check:seo` without `--scope` requires every manifest page to be built; the publication form is `npm run check:seo -- --production --dist dist` (`--production` also refuses a `robots.txt` that closes the site and a bundle without the production API address).
 
 ## Environment quirks
 
 - Node 24 runs the `.ts` scripts directly (`node scripts/checks/seo-check.ts`). Anything such a script imports (`scripts/`, `tests/fixtures/`, `src/routes/`) must be erasable TypeScript (no enums, namespaces, parameter properties) with relative imports ending in `.ts`; the `@/` alias does not resolve there.
 - Windows, Git Bash: run vitest from a `C:/…` working directory or from PowerShell. With a lowercase `/c/…` directory it reports "failed to find the current suite".
 - Git Bash rewrites arguments that start with `/`: `MSYS_NO_PATHCONV=1 npm run check:e2e -- --grep /privacy/`.
-- `wrangler` looks for `functions/` in its working directory: `npm run preview:assemble`, then `cd .preview && npx wrangler pages dev dist`. Run from the root it finds no functions and leaves a stray `.wrangler/`.
 - Ports (`tests/fixtures/servers.ts`): 8090 for the e2e test server. `NIUS_PORT_OFFSET=100 npm run check:e2e` shifts it, for parallel git worktrees. `npm run dev` (8080) is not shifted.
-- Within one checkout run one check at a time: the checks share the port and `.checks/registry.json`.
-- Only `npm run build` writes `dist/`. Test and preview builds go to `.checks/dist-e2e` and `.preview/build`: a build with the relative `/api` address must never be publishable.
+- Within one checkout run one browser check at a time: the scenarios share the port.
+- Only `npm run build` writes `dist/`. The e2e build goes to `.checks/dist-e2e`: a build with the relative `/api` address must never be publishable.
 - There is no `.env` in the repo (`.env.example` only). Test builds get fake keys in `tests/e2e/global-setup.ts`, unit tests in `vitest.config.ts`. Never write a real key into a file, a test or a report.
 - `.gitattributes` forces LF (`* text=auto eol=lf`): with `core.autocrlf=true` a CRLF checkout breaks exact-text tests. Write new files with LF.
-- Run `check:lhci` on an idle machine, with no other build or browser check running: performance is a hard threshold and the score depends on machine load.
 - `@astrojs/react` is pinned to exactly 7.1.3: 7.1.4–7.1.6 failed to load the Astro config (question 23).
 - Under `astro dev` the order form needs the React refresh preamble injected by `astro.config.ts`; the warning `[react-refresh-preamble]` means the form will not open in dev. The build is not affected.
 
@@ -82,7 +78,7 @@ When behaviour changes, check the events it sends and the data that arrives: eve
 | `src/data/`, `src/assets/` | blog posts; images imported by templates (published under `_astro/`) | — |
 | `src/styles/global.css` | theme tokens, Tailwind 3 compatibility rules | — |
 | `public/` | files published as they are: `robots.txt`, `sitemap.xml`, `brand/`, `photos/`, `js/nius-menu.js` (the service catalog web component), OG images, `assets/` (three images of the old site kept at their old addresses for image search, question 108) | the 404 page is `src/pages/404.astro`, never a `public/404.html` |
-| `scripts/`, `tests/`, `preview/` | build helpers and checks; `e2e/`, `fixtures/`; preview functions and the API stub | — |
+| `scripts/`, `tests/` | build helpers and checks; `e2e/`, `fixtures/` (the API stub in `fixtures/api/`) | — |
 
 ESLint enforces the React rule (`eslint.config.js`, proved by `tests/lint-boundary.test.ts`): no React import and no `.tsx` outside `src/islands/`, no static import of an island from a script.
 
@@ -92,8 +88,8 @@ Adding a page:
 2. Template in `src/templates/`; pattern: `SestrickaPraha1.astro`.
 3. Register it in `src/templates/registry.ts`.
 4. A new template adds one of its pages to the control set in `lighthouserc.cjs`.
-5. Page behaviour goes to `src/scripts/` and `boot.ts`, with a scenario in `tests/e2e/`; the registry gets an `e2e` row only for the pages listed in `PAGES` of `tests/e2e/registry-reporter.ts`.
-6. Run the template minimum above and read the page's registry row.
+5. Page behaviour goes to `src/scripts/` and `boot.ts`, with a scenario in `tests/e2e/`.
+6. Run the template minimum above.
 
 Markup rules:
 
@@ -135,20 +131,17 @@ Markup rules:
 - Do not fix a lost click event with a beacon at `pagehide`: it bypasses the stubs and reaches the real service from tests. Deliver the event while the page is alive.
 - A randomly red test hides other failures: make it deterministic and annotate the gap it no longer covers (see `web_vital`).
 - Screenshots do not show DOM order: reading and Tab order need their own assertion.
-- A complete run of a check clears its registry column; a narrowed run (`--grep`, a file filter) records nothing for `e2e`. When the table looks stale, delete `.checks/registry.json` and rerun.
-- Parallel page work: one worktree per task, and the edits of `src/templates/registry.ts` and `lighthouserc.cjs` in separate last commits, so that integration does not conflict.
+- Parallel page work: one worktree per task, and the edits of `src/templates/registry.ts` in a separate last commit, so that integration does not conflict.
 
 ## Known issues
 
 - `web_vital` for LCP and CLS is lost when the tab closes or navigates; the scenario covers only a hidden live page and carries a `known gap` annotation (question 10).
 - Link tracker: a later handler that cancels a tracked click is overridden, the link is still followed (N2; nothing does that today). Links inside shadow roots are never held (N4). Links with `rel=noreferrer` are not held, their event may be lost (question 28).
-- The registry has no locking between processes and Playwright runs with `workers: 1`.
-- No workflow of this site has ever run on GitHub (questions 54, 58, 59). Workflows can be started by hand only from the default branch (question 32).
+- Playwright runs with `workers: 1`.
 - Check 3 compares `sitemap.xml` with the manifest, not with the build.
 - Two defects kept from the old pages: the phone layouts of `/narozeninovy-darek-praha/` (479 px) and `/ru/podatok-k-dnju-rozhdenija-praga/` (429 px) are wider than 390 px; on `/disabled-daily-care-prague/` the MedicalBusiness `url` and the post-surgery link lead to the Czech address in every language. The Women's Day countdown is decided at build time (expired after 2026-03-08).
 - Browser scenarios run in Chromium only; Safari 15 and older is not checked (owner decision). Scenarios use a stand-in for `gtag.js`. Manual Google sign-in was never checked.
 - `check:lhci` makes anonymous requests to the production API, as any page load does (question 31). The drips page scores exactly 0.95 for accessibility (question 43).
-- The preview is built with the production analytics keys and is open to anyone (questions 7, 27).
 - Header dropdowns are disclosures (Tab, Escape), without arrow-key navigation (question 15); choosing the current language reloads the page (question 30).
 - Deferred minors: `header-menu.test.ts` depends on test order (`initHeaderMenu` is not idempotent); `buttonLink()` in `IvDripTherapy.astro` repeats the classes of `Button.astro`; `background-color: revert` in `global.css` also reaches button-type inputs.
 
