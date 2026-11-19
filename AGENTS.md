@@ -101,6 +101,8 @@ Markup rules:
 - JSON-LD is emitted only through `serializeJsonLd` (it escapes `<`).
 - Phone and WhatsApp in shared components are literal text. `Breadcrumbs` does not rewrite `/#…` links: pass the final address.
 - `[data-open-cart]` buttons are bound once at start (`header-state.ts`, `form-bridge.ts`): a button created later gets no handler, the code that creates it subscribes it.
+- `BookingLink.astro` without `serviceCode` opens the order form only with a filled cart. With an empty cart it scrolls to `#menu` of the page, or goes to the home page menu when the page has none (`booking-link.ts`). A page that shows the service menu renders `MenuSection.astro` and loads `/js/nius-menu.js` in its `<head>` slot, as `Home.astro` does.
+- The bottom bar (`StickyBar.astro`, `sticky-bar.ts`) needs a hero with `id="home"`; it is on the home page and the drips page. The drips page's JSON-LD offers and its drip guide (`#drip-guide`, the composition of every drip as text in the HTML, under the catalog) come from `src/data/dripPrices.ts`, whose test compares names, codes and prices with `public/js/nius-menu.js`.
 - The header menu script lives in `Header.astro` so that it works before the rest of the code loads.
 - The stories card's photos (`Hero.astro`) are imported from `public/photos/` and turned into WebP `srcset` candidates by `astro:assets` (`getImage`, sharp) at build time; `src` keeps the original file (question 106). Do not copy derived images into `public/`.
 - On the home page (route id `home`) the header links to its sections by fragment only (`#menu`, …); `same-page-scroll.ts` scrolls to a section of the page and, for the header logo (`data-logo-link`), to the top, instead of following the link.
@@ -148,7 +150,7 @@ Markup rules:
 - `check:lhci` makes anonymous requests to the production API, as any page load does (question 31). The drips page scores exactly 0.95 for accessibility (question 43).
 - The preview is built with the production analytics keys and is open to anyone (questions 7, 27).
 - Header dropdowns are disclosures (Tab, Escape), without arrow-key navigation (question 15); choosing the current language reloads the page (question 30).
-- Deferred minors: `header-menu.test.ts` depends on test order (`initHeaderMenu` is not idempotent); `drip-filter.ts` queries generic `[data-filter]` / `[data-category]`; `buttonLink()` in `IvDripTherapy.astro` repeats the classes of `Button.astro`; `background-color: revert` in `global.css` also reaches button-type inputs.
+- Deferred minors: `header-menu.test.ts` depends on test order (`initHeaderMenu` is not idempotent); `buttonLink()` in `IvDripTherapy.astro` repeats the classes of `Button.astro`; `background-color: revert` in `global.css` also reaches button-type inputs.
 
 ## Publication and rollback
 

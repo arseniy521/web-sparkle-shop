@@ -3,6 +3,7 @@ import { ArrowRight, Clock, MapPin, Phone } from '@lucide/astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import MenuSection from '@/components/home/MenuSection.astro';
 import BookingLink from '@/components/BookingLink.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import Button from '@/components/ui/Button.astro';
@@ -90,6 +91,7 @@ const meta: PageMeta = {
 ---
 
 <BaseLayout route={route} lang={lang} meta={meta}>
+  <script is:inline slot="head" src="/js/nius-menu.js" defer></script>
   <div class="flex min-h-screen flex-col bg-background">
     <Header route={route} lang={lang} />
     <Breadcrumbs lang={lang} items={[
@@ -254,6 +256,8 @@ const meta: PageMeta = {
           </div>
         </div>
       </section>
+
+      <MenuSection lang={lang} />
 
       {/* CTA Section */}
       <section class="py-20 bg-bone">

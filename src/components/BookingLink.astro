@@ -2,10 +2,14 @@
 /**
  * Port of the old site's `BookingLink`: opens the in-site order form, as the home page menu
  * does. Without JavaScript the link goes to the order form in the NIUS app, the same
- * address as in the old HTML. The click is bound by `form-bridge.ts` through
+ * address as in the old HTML. The click is bound by `booking-link.ts` through
  * `data-open-form` (value = analytics source); `data-service-code` preselects a service.
+ * With an empty cart and no service the click leads to the service menu instead of an empty
+ * form: the menu of this page, or `data-menu-href` (the home page menu) when the page has none.
  */
 import { APP_URL } from '@/scripts/env';
+import { pageUrl } from '@/routes/urls.ts';
+import { LANGS, type Lang } from '@/routes/types.ts';
 
 interface Props {
   class?: string;
@@ -15,8 +19,17 @@ interface Props {
 }
 
 const { class: className, source = 'page_content', serviceCode } = Astro.props;
+// The language of the page is the first segment of its address; Czech has no prefix.
+const prefix = Astro.url.pathname.split('/')[1];
+const lang: Lang = LANGS.find((candidate) => candidate === prefix) ?? 'cs';
 ---
 
-<a href={`${APP_URL}/form`} class={className} data-open-form={source} data-service-code={serviceCode}>
+<a
+  href={`${APP_URL}/form`}
+  class={className}
+  data-open-form={source}
+  data-service-code={serviceCode}
+  data-menu-href={`${pageUrl('home', lang)}#menu`}
+>
   <slot />
 </a>

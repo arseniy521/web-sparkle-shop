@@ -2,7 +2,8 @@ import { trackCtaClick } from '@/scripts/analytics';
 import { cart } from '@/scripts/cart-core';
 
 /**
- * The home page's bottom bar on phones (port of old:src/components/MobileStickyBar.tsx).
+ * The bottom bar on phones of the home page and the drips page (port of
+ * old:src/components/MobileStickyBar.tsx).
  *
  * It slides in once the hero (#home) leaves the viewport and is not displayed while the order
  * form or a catalog service dialog (`nius:service-modal`) is open. With an empty cart its button
@@ -10,6 +11,10 @@ import { cart } from '@/scripts/cart-core';
  * number of services and opens the form. The total under the label is rendered by StickyTotal
  * from the order form code. Whether the bar is displayed at all is CSS (`--sticky-bar-display`).
  */
+// The fixed header covers this much of the top of the screen; MenuSection.astro leaves the same
+// room above the catalog (scroll-margin-top), so a hero left only under the header counts as gone.
+const HEADER_COVER_PX = 88;
+
 export function initStickyBar(): void {
   const bar = document.querySelector<HTMLElement>('[data-mobile-sticky]');
   const button = bar?.querySelector<HTMLButtonElement>('[data-sticky-main]');
@@ -43,7 +48,7 @@ export function initStickyBar(): void {
     new IntersectionObserver(([entry]) => {
       visible = !entry.isIntersecting;
       render();
-    }, { threshold: 0 }).observe(hero);
+    }, { threshold: 0, rootMargin: `-${HEADER_COVER_PX}px 0px 0px 0px` }).observe(hero);
     if (menu) {
       new IntersectionObserver(([entry]) => {
         inCatalog = entry.isIntersecting;
