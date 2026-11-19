@@ -7,7 +7,7 @@
   <!-- Homepage - Czech (Default) -->
   <url>
     <loc>https://www.nius.cz/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
@@ -20,7 +20,7 @@
   <!-- Homepage - English version -->
   <url>
     <loc>https://www.nius.cz/en/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
@@ -33,7 +33,7 @@
   <!-- Homepage - Russian version -->
   <url>
     <loc>https://www.nius.cz/ru/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
@@ -46,7 +46,7 @@
   <!-- Homepage - Ukrainian version -->
   <url>
     <loc>https://www.nius.cz/uk/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/"/>
@@ -59,7 +59,7 @@
   <!-- Neighborhood Landing Pages - Czech -->
   <url>
     <loc>https://www.nius.cz/sestricka-praha-vinohrady/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-vinohrady/"/>
@@ -69,7 +69,7 @@
   <!-- Prague 1 - Old Town Landing Page -->
   <url>
     <loc>https://www.nius.cz/sestricka-praha-1/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-1/"/>
@@ -79,7 +79,7 @@
   <!-- Zizkov Landing Page -->
   <url>
     <loc>https://www.nius.cz/sestricka-praha-zizkov/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/sestricka-praha-zizkov/"/>
@@ -89,7 +89,7 @@
   <!-- IV Kapačky Praha - Czech (localized slug) -->
   <url>
     <loc>https://www.nius.cz/iv-kapacky-praha/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-kapacky-praha/"/>
@@ -107,7 +107,7 @@
   <!-- IV Drips Prague - English -->
   <url>
     <loc>https://www.nius.cz/en/iv-drips-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-kapacky-praha/"/>
@@ -125,7 +125,7 @@
   <!-- Капельницы Прага - Russian (localized slug) -->
   <url>
     <loc>https://www.nius.cz/ru/kapelnitsy-praga/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-kapacky-praha/"/>
@@ -143,7 +143,7 @@
   <!-- IV Drips Prague - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/iv-drips-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/iv-kapacky-praha/"/>
@@ -161,7 +161,7 @@
   <!-- IV Drip Hotel Prague - English only (tourist landing page) -->
   <url>
     <loc>https://www.nius.cz/en/iv-drip-hotel-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.nius.cz/en/iv-drip-hotel-prague/"/>
@@ -170,7 +170,7 @@
   <!-- IVF Support Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/ivf-support-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-support-prague/"/>
@@ -187,7 +187,7 @@
   <!-- IVF Support Prague - English -->
   <url>
     <loc>https://www.nius.cz/en/ivf-support-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-support-prague/"/>
@@ -204,7 +204,7 @@
   <!-- IVF Support Prague - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/ivf-support-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-support-prague/"/>
@@ -221,7 +221,7 @@
   <!-- IVF Support Prague - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/ivf-support-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/ivf-support-prague/"/>
@@ -238,7 +238,7 @@
   <!-- Post-Surgery Recovery Care Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/post-surgery-recovery-care-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague/"/>
@@ -255,7 +255,7 @@
   <!-- Post-Surgery Recovery Care Prague - English -->
   <url>
     <loc>https://www.nius.cz/en/post-surgery-recovery-care-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague/"/>
@@ -272,7 +272,7 @@
   <!-- Post-Surgery Recovery Care Prague - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/post-surgery-recovery-care-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague/"/>
@@ -289,7 +289,7 @@
   <!-- Post-Surgery Recovery Care Prague - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/post-surgery-recovery-care-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/post-surgery-recovery-care-prague/"/>
@@ -306,7 +306,7 @@
   <!-- Disabled Daily Care Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/disabled-daily-care-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague/"/>
@@ -323,7 +323,7 @@
   <!-- Disabled Daily Care Prague - English -->
   <url>
     <loc>https://www.nius.cz/en/disabled-daily-care-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague/"/>
@@ -340,7 +340,7 @@
   <!-- Disabled Daily Care Prague - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/disabled-daily-care-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague/"/>
@@ -357,7 +357,7 @@
   <!-- Disabled Daily Care Prague - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/disabled-daily-care-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/disabled-daily-care-prague/"/>
@@ -374,7 +374,7 @@
   <!-- Women's Day Gift Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/darek-8-brezna/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/darek-8-brezna/"/>
@@ -386,7 +386,7 @@
   <!-- Women's Day Gift Prague - English -->
   <url>
     <loc>https://www.nius.cz/en/womens-day-gift-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/darek-8-brezna/"/>
@@ -398,7 +398,7 @@
   <!-- Women's Day Gift Prague - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/podarok-na-8-marta/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/darek-8-brezna/"/>
@@ -410,7 +410,7 @@
   <!-- Birthday Gift Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/narozeninovy-darek-praha/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/narozeninovy-darek-praha/"/>
@@ -422,7 +422,7 @@
   <!-- Birthday Gift Prague - English -->
   <url>
     <loc>https://www.nius.cz/en/birthday-gift-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/narozeninovy-darek-praha/"/>
@@ -434,7 +434,7 @@
   <!-- Birthday Gift Prague - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/podatok-k-dnju-rozhdenija-praga/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/narozeninovy-darek-praha/"/>
@@ -446,7 +446,7 @@
   <!-- Blog listing page - Czech (blog content is English-only, so only cs+en variants are indexed) -->
   <url>
     <loc>https://www.nius.cz/blog/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/"/>
@@ -461,7 +461,7 @@
   <!-- Blog listing page - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/"/>
@@ -476,7 +476,7 @@
   <!-- Blog Post: IV Therapy Guide - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/iv-therapy-at-home-prague-guide/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide/"/>
@@ -487,7 +487,7 @@
   <!-- Blog Post: IV Therapy Guide - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/iv-therapy-at-home-prague-guide/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/iv-therapy-at-home-prague-guide/"/>
@@ -498,7 +498,7 @@
   <!-- Blog Post: When to Call Home Nurse - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/when-to-call-home-nurse-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague/"/>
@@ -509,7 +509,7 @@
   <!-- Blog Post: When to Call Home Nurse - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/when-to-call-home-nurse-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/when-to-call-home-nurse-prague/"/>
@@ -520,7 +520,7 @@
   <!-- Blog Post: Wound Care - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/wound-care-dressing-changes-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague/"/>
@@ -531,7 +531,7 @@
   <!-- Blog Post: Wound Care - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/wound-care-dressing-changes-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/wound-care-dressing-changes-prague/"/>
@@ -542,7 +542,7 @@
   <!-- Blog Post: Elderly Care - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/elderly-care-nursing-services-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague/"/>
@@ -553,7 +553,7 @@
   <!-- Blog Post: Elderly Care - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/elderly-care-nursing-services-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/elderly-care-nursing-services-prague/"/>
@@ -564,7 +564,7 @@
   <!-- Blog Post: Medical Injections - Czech -->
   <url>
     <loc>https://www.nius.cz/blog/medical-injections-home-service-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague/"/>
@@ -575,7 +575,7 @@
   <!-- Blog Post: Medical Injections - English -->
   <url>
     <loc>https://www.nius.cz/en/blog/medical-injections-home-service-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/blog/medical-injections-home-service-prague/"/>
@@ -586,7 +586,7 @@
   <!-- Hangover IV Drip Prague - Czech -->
   <url>
     <loc>https://www.nius.cz/rehydratace-praha/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/rehydratace-praha/"/>
@@ -599,7 +599,7 @@
   <!-- Hangover IV Drip Prague - English -->
   <url>
     <loc>https://www.nius.cz/en/rehydration-iv-drip-prague/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/rehydratace-praha/"/>
@@ -612,7 +612,7 @@
   <!-- Hangover IV Drip Prague - Russian -->
   <url>
     <loc>https://www.nius.cz/ru/regidratatsiya-kapelnitsa-praga/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/rehydratace-praha/"/>
@@ -625,7 +625,7 @@
   <!-- Hangover IV Drip Prague - Ukrainian -->
   <url>
     <loc>https://www.nius.cz/uk/rehidratatsiia-krapelnytsia-praga/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/rehydratace-praha/"/>
@@ -638,7 +638,7 @@
   <!-- Privacy Policy - Czech (the same page for every language prefix) -->
   <url>
     <loc>https://www.nius.cz/privacy/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nius.cz/privacy/"/>
