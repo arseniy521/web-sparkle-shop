@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 import { handleStubRequest } from './stub.js';
-import { SERVICE_I18N, isOfferedOnWebsite } from '../src/scripts/cart-catalog';
+import { SERVICE_I18N, isOfferedOnWebsite } from '../../../src/scripts/cart-catalog';
 
 describe('handleStubRequest', () => {
   it('answers the seven form requests', () => {
