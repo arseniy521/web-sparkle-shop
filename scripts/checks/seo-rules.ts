@@ -157,16 +157,10 @@ function checkRedirects(ctx: Ctx): void {
 
 function checkRobotsAndRequiredFiles(ctx: Ctx): void {
   const { distDir } = ctx;
-  for (const file of ['.nojekyll', 'robots.txt', 'sitemap.xml', '404.html']) {
+  for (const file of ['robots.txt', 'sitemap.xml', '404.html']) {
     if (!fs.existsSync(path.join(distDir, file))) {
       ctx.add('required-files', `/${file}`, 'file is missing from the build');
     }
-  }
-  const cname = path.join(distDir, 'CNAME');
-  if (!fs.existsSync(cname)) {
-    ctx.add('required-files', '/CNAME', 'file is missing from the build');
-  } else if (fs.readFileSync(cname, 'utf8').trim() !== 'www.nius.cz') {
-    ctx.add('required-files', '/CNAME', 'CNAME must contain www.nius.cz');
   }
 
   const robots = path.join(distDir, 'robots.txt');

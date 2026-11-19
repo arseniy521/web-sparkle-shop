@@ -9,5 +9,3 @@ for (const required of ['dist/robots.txt', 'dist/sitemap.xml']) {
 }
 
 fs.writeFileSync('dist/sitemap.xml', stampLastmod(fs.readFileSync('dist/sitemap.xml', 'utf8'), buildDate()));
-fs.writeFileSync('dist/CNAME', 'www.nius.cz\n');
-fs.writeFileSync('dist/.nojekyll', '');

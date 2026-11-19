@@ -64,12 +64,12 @@ describe('seo-check CLI', () => {
   it('prints "rule path detail" and exits 1', () => {
     const dist = tmp();
     writeGoodDist(dist);
-    fs.rmSync(path.join(dist, 'CNAME'));
+    fs.rmSync(path.join(dist, '404.html'));
     fs.rmSync(path.join(dist, 'en/privacy'), { recursive: true });
     const r = run(['--dist', dist]);
     expect(r.status).toBe(1);
     expect(r.stdout).toMatch(/^manifest-page-missing \/en\/privacy\/ .+$/m);
-    expect(r.stdout).toMatch(/^required-files \/CNAME .+$/m);
+    expect(r.stdout).toMatch(/^required-files \/404\.html .+$/m);
   });
 
   it('--scope built does not report manifest pages that are not built', () => {

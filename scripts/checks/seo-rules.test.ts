@@ -199,7 +199,7 @@ describe('robots.txt and required files', () => {
     expect(checkDist({ distDir: dir })).toEqual([]);
   });
 
-  for (const file of ['CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml', '404.html']) {
+  for (const file of ['robots.txt', 'sitemap.xml', '404.html']) {
     it(`required-files: ${file} is missing`, () => {
       const dir = build((d) => remove(d, file));
       const findings = checkDist({ distDir: dir });
@@ -214,9 +214,13 @@ describe('robots.txt and required files', () => {
     expect(only(dir)).toEqual(['required-files']);
   });
 
-  it('required-files: CNAME with another host', () => {
-    const dir = build((d) => edit(d, 'CNAME', () => 'nius.cz\n'));
-    expect(only(dir)).toEqual(['required-files']);
+  // Pages deployed by a workflow ignores CNAME (the domain is in the settings) and runs no Jekyll.
+  it('required-files: a build needs neither CNAME nor .nojekyll', () => {
+    const dir = build((d) => {
+      fs.rmSync(path.join(d, 'CNAME'), { force: true });
+      fs.rmSync(path.join(d, '.nojekyll'), { force: true });
+    });
+    expect(checkDist({ distDir: dir })).toEqual([]);
   });
 });
 
