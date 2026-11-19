@@ -1,7 +1,6 @@
 import { initAnalyticsIfConsented } from '@/scripts/analytics';
 import { initBookingLinks } from '@/scripts/booking-link';
 import { initCookieBanner } from '@/scripts/cookie-banner';
-import { initDripFilter } from '@/scripts/drip-filter';
 import { initFloatingWhatsApp } from '@/scripts/floating-whatsapp';
 import { getConsent } from '@/scripts/consent';
 import { installGlobalErrorHandlers } from '@/scripts/client-error';
@@ -31,9 +30,9 @@ installCartBridge();
 initHeaderState();
 initBookingLinks();
 void authStatus.ensure();
-initDripFilter();
 initFloatingWhatsApp();
-// Home page only; each is a no-op on a page without its markup.
+// Each is a no-op on a page without its markup: the stories are on the home page, the bottom bar
+// and the same-page scroll on pages with a hero #home (home, drips).
 initHeroStories();
 initStickyBar();
 initSamePageScroll();

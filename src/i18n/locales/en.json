@@ -578,7 +578,7 @@
     "pricing": {
       "title": "Post-Surgery Recovery Packages",
       "escort": "Hospital Escort",
-      "escortPrice": "1,900 CZK",
+      "escortPrice": "2,190 CZK",
       "escortDesc": "Accompanied transport from hospital/clinic to your hotel with a registered nurse",
       "first48": "First 48 Hours",
       "first48Price": "6,280 CZK",
@@ -587,7 +587,7 @@
       "fiveDay": "5-Day Recovery",
       "fiveDayPrice": "28,900 CZK",
       "fiveDayDesc": "Daily visits, medication tracking, drain management if needed",
-      "singleVisit": "à la carte: Single visit 2,190 CZK | 2+ visits 1,970 CZK"
+      "singleVisit": "à la carte: wound dressing 1,890 CZK | hygiene assistance 1,690 CZK per hour"
     },
     "idealFor": {
       "title": "Ideal for Medical Tourists Having",
@@ -705,7 +705,7 @@
     "pricing": {
       "title": "Daily Care Pricing & Packages",
       "single": "Single Visit",
-      "singlePrice": "1,900 CZK",
+      "singlePrice": "1,690 CZK",
       "singleDesc": "Per hour for hygiene assistance, medication, or daily care needs",
       "package10": "10-Visit Package",
       "package10Price": "18,000 CZK",
@@ -1206,7 +1206,7 @@
       "socialProof": "Rated <strong>5.0★</strong> on Google",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "Book on WhatsApp",
-      "bookBtn": "Book Online",
+      "bookBtn": "Choose your drip",
       "menuBtn": "View Menu & Prices",
       "sessions": "45–60 minute sessions",
       "sameDay": "Same-day availability",
@@ -1254,6 +1254,8 @@
       "onRequest": "On Request",
       "medicalScreening": "<strong>Short Health Assessment:</strong> Every infusion is prescribed by a doctor after a short health assessment, and the consultation is included in the price.",
       "pricingNote": "<strong>Pricing:</strong> 10% discount on packages of 2+ visits. The doctor's consultation is included in the price.",
+      "guideTitle": "What's in each IV drip",
+      "guideSubtitle": "The composition and purpose of every drip on the menu. Every infusion is prescribed by a doctor after a short health assessment.",
       "categories": {
         "immunity": {
           "name": "Vitamins & Minerals",
@@ -1594,7 +1596,7 @@
       "description": "Serving Prague 1, Vinohrady, Old Town, and all Prague districts • Registered nurses • 5.0★ rating",
       "callBtn": "Call {{phone}}",
       "whatsappBtn": "WhatsApp Booking",
-      "bookBtn": "Book Online",
+      "bookBtn": "Choose your drip",
       "emailBtn": "Email Us",
       "hours": "Available every day 8:00–21:00 • NIUS is not an emergency service. In an emergency call 155/112."
     },

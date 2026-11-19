@@ -3,7 +3,6 @@ import { ArrowRight, Calendar, Check, Heart, Phone, Star } from '@lucide/astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-import BookingLink from '@/components/BookingLink.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import RelatedServices from '@/components/RelatedServices.astro';
 import Button from '@/components/ui/Button.astro';
@@ -137,12 +136,12 @@ const meta: PageMeta = {
               </p>
 
               <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                <BookingLink>
+                <a href="https://wa.me/420773629123?text=Hello%2C%20I%27d%20like%20to%20arrange%20daily%20care%20in%20Prague." target="_blank" rel="noopener noreferrer" data-analytics-source="page_content">
                   <Button size="lg" class="w-full sm:w-auto group">
                     {t('disabledCare.bookVisit')}
                     <ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
-                </BookingLink>
+                </a>
                 <a href="tel:+420773629123">
                   <Button size="lg" variant="outline" class="w-full sm:w-auto">
                     <Phone class="mr-2 h-5 w-5" />

@@ -138,7 +138,7 @@ const singleVisit = t('postSurgeryCare.pricing.singleVisit').split(':');
               </p>
 
               <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                <BookingLink>
+                <BookingLink serviceCode="post_op_wound_dressing">
                   <Button size="lg" class="w-full sm:w-auto group">
                     {t('postSurgeryCare.bookNow')}
                     <ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -233,7 +233,7 @@ const singleVisit = t('postSurgeryCare.pricing.singleVisit').split(':');
                     <span class="text-sm">Settling in at your hotel</span>
                   </li>
                 </ul>
-                <BookingLink>
+                <BookingLink serviceCode="nurse_escort">
                   <Button class="w-full">Book Escort</Button>
                 </BookingLink>
               </Card>
@@ -265,9 +265,9 @@ const singleVisit = t('postSurgeryCare.pricing.singleVisit').split(':');
                     <span class="text-sm">Medication assistance</span>
                   </li>
                 </ul>
-                <BookingLink>
+                <a href="https://wa.me/420773629123?text=Hello%2C%20I%27d%20like%20to%20book%20the%20first%2048%20hours%20post-surgery%20care%20package%20in%20Prague." target="_blank" rel="noopener noreferrer" data-analytics-source="page_content">
                   <Button class="w-full">Book Package</Button>
-                </BookingLink>
+                </a>
               </Card>
 
               <Card class="p-8">
@@ -298,9 +298,9 @@ const singleVisit = t('postSurgeryCare.pricing.singleVisit').split(':');
                     <span class="text-sm">Daily phone support</span>
                   </li>
                 </ul>
-                <BookingLink>
+                <a href="https://wa.me/420773629123?text=Hello%2C%20I%27d%20like%20to%20book%20the%205-day%20post-surgery%20care%20package%20in%20Prague." target="_blank" rel="noopener noreferrer" data-analytics-source="page_content">
                   <Button class="w-full">Book Package</Button>
-                </BookingLink>
+                </a>
               </Card>
             </div>
 
@@ -449,7 +449,7 @@ const singleVisit = t('postSurgeryCare.pricing.singleVisit').split(':');
               Book your post-operative care in advance for peace of mind. We're here to support your recovery.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <BookingLink>
+              <BookingLink serviceCode="post_op_wound_dressing">
                 <Button size="lg" class="w-full sm:w-auto">
                   Book Recovery Care
                   <ArrowRight class="ml-2 h-5 w-5" />

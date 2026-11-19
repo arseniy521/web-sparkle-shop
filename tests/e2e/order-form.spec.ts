@@ -282,17 +282,34 @@ test('Booking link on a service page', async ({ page }) => {
     await expect(link).toHaveAttribute('data-open-form', 'page_content');
     await expect(link).not.toHaveAttribute('target', /.+/);
   }
+  // Empty cart: the button leads to the service menu of the page, not to an empty order form.
+  const menuOnScreen = () =>
+    page.evaluate(() => {
+      const r = document.querySelector('#menu')!.getBoundingClientRect();
+      return r.bottom > 0 && r.top < window.innerHeight;
+    });
+  expect(await menuOnScreen()).toBe(false);
+  await pageBookingLinks(page).first().click();
+
+  await expect.poll(menuOnScreen).toBe(true);
+  await expect(dialog(page)).toHaveCount(0);
+  await expect(page).toHaveURL(PILOT);
+  await expect
+    .poll(() => events(amplitude, 'cta_clicked'))
+    .toEqual([expect.objectContaining({ language: 'cs', page_path: PILOT, cta: 'choose_service', source: 'page_content' })]);
+  expect(events(amplitude, 'order_form_opened')).toEqual([]);
+});
+
+test('Booking link with a cart opens the order form', async ({ page }) => {
+  const { amplitude } = await openPilot(page);
+
   await pageBookingLinks(page).first().click();
 
   await expect(dialog(page)).toBeVisible();
   await expect(page).toHaveURL(PILOT);
-  await expect(dialog(page).getByText(cs.onboarding.emptyCart.title)).toBeVisible();
-  await expect
-    .poll(() => events(amplitude, 'cta_clicked'))
-    .toEqual([expect.objectContaining({ language: 'cs', page_path: PILOT, cta: 'choose_service', source: 'page_content' })]);
   await expect
     .poll(() => events(amplitude, 'order_form_opened'))
-    .toEqual([expect.objectContaining({ source: 'page_content', services_in_cart: 0 })]);
+    .toEqual([expect.objectContaining({ source: 'page_content', services_in_cart: 1 })]);
 });
 
 test('Booking link with a service orders that service', async ({ page }) => {

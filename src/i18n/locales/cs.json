@@ -578,7 +578,7 @@
     "pricing": {
       "title": "Balíčky pooperační péče",
       "escort": "Doprovod do nemocnice",
-      "escortPrice": "1 900 Kč",
+      "escortPrice": "2 190 Kč",
       "escortDesc": "Sestra vás doprovází z nemocnice do vašeho hotelu po zákroku",
       "popular": "Oblíbená volba",
       "first48": "První 48 hodin",
@@ -587,7 +587,7 @@
       "fiveDay": "5denní zotavení",
       "fiveDayPrice": "28 900 Kč",
       "fiveDayDesc": "Doprovod + denní 2hodinové návštěvy po dobu 5 dnů",
-      "singleVisit": "Jednotlivé návštěvy: 1900 Kč za hodinu pro péči o rány, hygienu nebo jiné potřeby"
+      "singleVisit": "Jednotlivé návštěvy: převaz rány 1 890 Kč, pomoc s hygienou 1 690 Kč za hodinu"
     },
     "idealFor": {
       "title": "Ideální pro pacienty po",
@@ -704,7 +704,7 @@
     "pricing": {
       "title": "Ceny a balíčky denní péče",
       "single": "Jednotlivá návštěva",
-      "singlePrice": "2 190 Kč",
+      "singlePrice": "1 690 Kč",
       "singleDesc": "Za hodinu pomoci s hygienou, léky nebo potřebami denní péče",
       "package10": "Balíček 10 návštěv",
       "package10Price": "19 700 Kč",
@@ -1206,7 +1206,7 @@
       "socialProof": "Hodnocení <strong>5.0★</strong> na Google",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervovat přes WhatsApp",
-      "bookBtn": "Rezervovat online",
+      "bookBtn": "Vybrat kapačku",
       "menuBtn": "Zobrazit nabídku a ceník",
       "sessions": "45–60minutové procedury",
       "sameDay": "Dostupnost ve stejný den",
@@ -1254,6 +1254,8 @@
       "onRequest": "Na vyžádání",
       "medicalScreening": "<strong>Krátké zdravotní posouzení:</strong> Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně. Konečné složení určuje lékař.",
       "pricingNote": "<strong>Ceník:</strong> 10% sleva na balíčky 2 a více návštěv. Každou infuzi indikuje lékař po krátkém zdravotním posouzení, konzultace je v ceně.",
+      "guideTitle": "Co obsahuje každá kapačka",
+      "guideSubtitle": "Složení a určení všech kapaček z nabídky. Každou infuzi předepisuje lékař po krátkém zhodnocení zdravotního stavu.",
       "categories": {
         "immunity": {
           "name": "Vitamíny a minerály",
@@ -1594,7 +1596,7 @@
       "description": "Obsluhujeme Prahu 1, Vinohrady, Staré Město a všechny pražské obvody • Registrované sestry • Hodnocení 5.0★",
       "callBtn": "Volat {{phone}}",
       "whatsappBtn": "Rezervace přes WhatsApp",
-      "bookBtn": "Rezervovat online",
+      "bookBtn": "Vybrat kapačku",
       "emailBtn": "Napište nám",
       "hours": "K dispozici každý den 8:00–21:00 • NIUS není záchranná služba. V případě ohrožení volejte 155/112."
     },

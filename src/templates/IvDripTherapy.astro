@@ -2,7 +2,6 @@
 import {
   Activity,
   Award,
-  Calendar,
   CircleCheck,
   Clock,
   Droplets,
@@ -23,7 +22,9 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import BookingLink from '@/components/BookingLink.astro';
 import Card from '@/components/ui/Card.astro';
 import RelatedServices from '@/components/RelatedServices.astro';
-import FloatingWhatsApp from '@/components/FloatingWhatsApp.astro';
+import MenuSection from '@/components/home/MenuSection.astro';
+import StickyBar from '@/components/home/StickyBar.astro';
+import { DRIP_GUIDE_CATEGORIES, IV_DRIP_OFFERS } from '@/data/dripPrices.ts';
 import { createT } from '@/i18n/t.ts';
 import { absoluteUrl, pageUrl } from '@/routes/urls.ts';
 import { serializeJsonLd } from '@/seo/head.ts';
@@ -63,44 +64,30 @@ const pageTitle = t('ivDripTherapy.seo.title');
 const pageDescription = t('ivDripTherapy.seo.description');
 const pageAddress = absoluteUrl(pageUrl('iv-drips', lang));
 
-const categoryKeys = ['immunity', 'energy', 'hydration'] as const;
-const categoryItemKeys: Record<string, string[]> = {
-  immunity: ['immunityLite', 'immunityPower', 'defenseShield', 'glowPostFlu'],
-  energy: ['ceoRecharge', 'metabolicReset', 'bPowerShot'],
-  hydration: ['pureHydrate', 'electrolyteReset'],
-};
+// Offers of the JSON-LD catalog: one table, checked against the menu's prices by dripPrices.test.ts.
+const dripPrices = IV_DRIP_OFFERS.map((offer) => offer.priceCzk);
 
-// Base prices (CZK) from the API service list — single source of truth for page and schema.
-const apiPrices: Record<string, number> = {
-  immunityLite: 2900,
-  immunityPower: 3250,
-  glowPostFlu: 3750,
-  defenseShield: 4350,
-  ceoRecharge: 4550,
-  metabolicReset: 4050,
-  bPowerShot: 1650,
-  pureHydrate: 2550,
-  electrolyteReset: 3050,
-};
-
-const menu = categoryKeys.map(catKey => ({
-  category: t(`ivDripTherapy.menu.categories.${catKey}.name`),
-  catKey,
-  items: (categoryItemKeys[catKey] ?? []).map(itemKey => ({
-    name: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.name`),
-    priceCZK: apiPrices[itemKey] ?? Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.price`)),
-    durationMin: Number(t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.duration`)),
-    short: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.short`),
-    includes: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.includes`, { returnObjects: true }) as unknown as string[],
-    popular: false, // ads-compliance: no unverifiable "most popular" claims
-    bestFor: t(`ivDripTherapy.menu.categories.${catKey}.items.${itemKey}.bestFor`, { defaultValue: '' }),
-  })),
+// The drip guide under the menu: the catalog is drawn in the browser, so the composition and the
+// purpose of every drip stay readable text in the HTML. Its booking buttons order that drip.
+const priceFormat = new Intl.NumberFormat(lang === 'en' ? 'en-US' : lang);
+const formatPrice = (czk: number) => `${priceFormat.format(czk)} ${lang === 'cs' ? 'Kč' : 'CZK'}`;
+const guideIcons = { immunity: Shield, energy: Zap, hydration: Droplets };
+const dripGuide = DRIP_GUIDE_CATEGORIES.map((category) => ({
+  category,
+  icon: guideIcons[category],
+  name: t(`ivDripTherapy.menu.categories.${category}.name`),
+  drips: IV_DRIP_OFFERS.filter((offer) => offer.textPath?.startsWith(`${category}.`)).map((offer) => {
+    const path = `ivDripTherapy.menu.categories.${offer.textPath}`;
+    return {
+      name: offer.name,
+      code: offer.code,
+      price: formatPrice(offer.priceCzk),
+      short: t(`${path}.short`),
+      includes: t(`${path}.includes`, { returnObjects: true }) as unknown as string[],
+      bestFor: t(`${path}.bestFor`, { defaultValue: '' }),
+    };
+  }),
 }));
-
-const filters = [
-  { key: 'all', label: t('ivDripTherapy.menu.filterAll') },
-  ...categoryKeys.map(k => ({ key: k, label: t(`ivDripTherapy.menu.categories.${k}.name`) })),
-];
 
 const treatmentKeys = ['vitaminC', 'ceo', 'hydration', 'defense', 'glow'] as const;
 const treatmentIcons = { vitaminC: Shield, ceo: Zap, hydration: Droplets, defense: Activity, glow: Sparkles };
@@ -148,7 +135,7 @@ const meta: PageMeta = {
         "url": pageAddress,
         "image": "https://www.nius.cz/og-image.jpg",
         "telephone": phone,
-        "priceRange": "1650-4550 CZK",
+        "priceRange": `${Math.min(...dripPrices)}-${Math.max(...dripPrices)} CZK`,
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Praha",
@@ -174,27 +161,28 @@ const meta: PageMeta = {
       {
         "@type": "OfferCatalog",
         "name": "IV Drips Prague Menu",
-        "itemListElement": menu.flatMap((cat) =>
-          cat.items
-            .filter((i) => i.priceCZK && i.priceCZK > 0)
-            .map((i) => ({
-              "@type": "Offer",
-              "name": i.name,
-              "price": i.priceCZK,
-              "priceCurrency": "CZK",
-              "description": i.short,
-              "url": `${pageAddress}#menu`,
-              "availability": "https://schema.org/InStock",
-              "itemOffered": {
-                "@type": "Service",
-                "name": i.name,
-                "provider": {
-                  "@type": "MedicalBusiness",
-                  "name": "NIUS Prague"
-                }
+        "itemListElement": IV_DRIP_OFFERS.map((offer) => {
+          const description = offer.textPath
+            ? t(`ivDripTherapy.menu.categories.${offer.textPath}.short`, { defaultValue: '' })
+            : '';
+          return {
+            "@type": "Offer",
+            "name": offer.name,
+            "price": offer.priceCzk,
+            "priceCurrency": "CZK",
+            ...(description ? { "description": description } : {}),
+            "url": `${pageAddress}#menu`,
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": offer.name,
+              "provider": {
+                "@type": "MedicalBusiness",
+                "name": "NIUS Prague"
               }
-            }))
-        ),
+            }
+          };
+        }),
       },
     ],
   },
@@ -202,6 +190,7 @@ const meta: PageMeta = {
 ---
 
 <BaseLayout route={route} lang={lang} meta={meta}>
+  <script is:inline slot="head" src="/js/nius-menu.js" defer></script>
   <div class="min-h-screen flex flex-col">
     <Header route={route} lang={lang} />
 
@@ -211,8 +200,8 @@ const meta: PageMeta = {
         { label: t('ivDripTherapy.breadcrumbs.ivDripsPrague'), href: pageUrl('iv-drips', lang) },
       ]} />
 
-      {/* Hero Section */}
-      <section class="py-16 md:py-20 px-4 bg-bone">
+      {/* Hero Section; #home: the bottom bar (sticky-bar.ts) appears once it is scrolled away */}
+      <section id="home" class="py-16 md:py-20 px-4 bg-bone">
         <div class="container mx-auto max-w-6xl">
           <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 text-sm">
             <div class="flex items-center gap-2">
@@ -247,29 +236,24 @@ const meta: PageMeta = {
             </p>
 
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium">
-              <div class="flex -space-x-2">
-                <div class="w-8 h-8 rounded-full bg-primary/20 border-2 border-background" />
-                <div class="w-8 h-8 rounded-full bg-primary/30 border-2 border-background" />
-                <div class="w-8 h-8 rounded-full bg-primary/40 border-2 border-background" />
-              </div>
               <span class="text-muted-foreground" set:html={t('ivDripTherapy.hero.socialProof')} />
             </div>
 
-            <div class="flex flex-wrap gap-4 justify-center pt-4">
-              <a href={`tel:${phone}`} class={buttonLink('default', 'lg', 'text-lg px-8', 'flex items-center gap-2')}>
-                <Phone class="w-5 h-5" />
-                {t('ivDripTherapy.hero.callBtn', { phone })}
-              </a>
-              <a href={whatsappLink} class={buttonLink('default', 'lg', 'text-lg px-8', 'flex items-center gap-2')}>
+            <div class="flex flex-wrap gap-3 justify-center pt-4">
+              <BookingLink source="hero" class={buttonLink('default', 'lg', 'text-base px-8 bg-indigo hover:bg-indigo-deep')}>
+                {t('ivDripTherapy.hero.bookBtn')} ↓
+              </BookingLink>
+              <a href={whatsappLink} class={buttonLink('outline', 'lg', 'text-base px-8', 'flex items-center gap-2')}>
                 <MessageCircle class="w-5 h-5" />
                 {t('ivDripTherapy.hero.whatsappBtn')}
               </a>
-              <BookingLink class={buttonLink('default', 'lg', 'text-lg px-8 bg-indigo hover:bg-indigo-deep', 'flex items-center gap-2')}>
-                <Calendar class="w-5 h-5" />
-                {t('ivDripTherapy.hero.bookBtn')}
-              </BookingLink>
-              <a href="#menu" class={buttonLink('outline', 'lg', 'text-lg px-8')}>{t('ivDripTherapy.hero.menuBtn')}</a>
             </div>
+            <p class="text-sm text-muted-foreground">
+              <a href={`tel:${phone}`} class="inline-flex items-center gap-2 font-medium text-foreground underline-offset-4 hover:underline">
+                <Phone class="w-4 h-4" />
+                {t('ivDripTherapy.hero.callBtn', { phone })}
+              </a>
+            </p>
 
             <div class="flex flex-wrap gap-6 justify-center text-sm text-muted-foreground pt-2">
               <span class="flex items-center gap-2">
@@ -318,99 +302,80 @@ const meta: PageMeta = {
         </div>
       </section>
 
-      {/* Menu & Prices */}
-      <section id="menu" class="py-20 px-4 bg-muted/50">
+      {/* Menu & Prices: intro text for search engines, then the same menu as on the home page */}
+      <section id="menu-intro" class="pt-16 md:pt-20 px-4 bg-background">
+        <div class="container mx-auto max-w-6xl text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            {t('ivDripTherapy.menu.title')}
+          </h2>
+          <p class="text-lg text-muted-foreground max-w-3xl mx-auto" set:html={t('ivDripTherapy.menu.subtitle')} />
+        </div>
+      </section>
+      <MenuSection lang={lang} />
+      <section class="pb-16 px-4 bg-background">
+        <div class="container mx-auto max-w-6xl text-center space-y-4">
+          <p class="text-sm text-muted-foreground max-w-2xl mx-auto" set:html={t('ivDripTherapy.menu.medicalScreening')} />
+          <p class="text-sm text-muted-foreground" set:html={t('ivDripTherapy.menu.pricingNote')} />
+        </div>
+      </section>
+
+      {/* Drip guide: what each drip contains and who it suits, as text in the HTML */}
+      <section id="drip-guide" class="py-20 px-4 bg-muted/50">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">
-              {t('ivDripTherapy.menu.title')}
-            </h2>
-            <p class="text-lg text-muted-foreground max-w-3xl mx-auto" set:html={t('ivDripTherapy.menu.subtitle')} />
-
-            {/* Filter Buttons: src/scripts/drip-filter.ts */}
-            <div class="flex flex-wrap gap-3 justify-center mt-8">
-              {filters.map(f => (
-                <button
-                  data-filter={f.key}
-                  aria-pressed={f.key === 'all' ? 'true' : 'false'}
-                  class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    f.key === 'all'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted hover:bg-muted/80 text-muted-foreground'
-                  }`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">{t('ivDripTherapy.menu.guideTitle')}</h2>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">{t('ivDripTherapy.menu.guideSubtitle')}</p>
           </div>
 
-          <div class="space-y-12">
-            {menu.map((cat) => (
-              <div class="space-y-6" data-category={cat.catKey}>
-                <h3 class="text-2xl md:text-3xl font-semibold text-center">{cat.category}</h3>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {cat.items.map((item) => (
-                    <Card class={`p-6 relative hover:shadow-xl transition-all ${item.popular ? 'border-2 border-primary' : ''}`}>
-                      {item.popular && (
-                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
-                          {t('ivDripTherapy.menu.mostPopular')}
-                        </div>
-                      )}
-
-                      <div class="flex items-start justify-between gap-4 mb-4">
-                        <div>
-                          <h4 class="text-xl font-semibold">{item.name}</h4>
-                          <p class="text-sm text-muted-foreground mt-1">
-                            {item.durationMin < 45 ? `~${item.durationMin}` : item.durationMin === 60 ? '~60' : '45–60'} {t('ivDripTherapy.menu.minutes')}
-                          </p>
-                        </div>
-
-                        <div class="text-right">
-                          <div class="text-2xl font-bold text-primary">
-                            {item.priceCZK && item.priceCZK > 0 ? `${item.priceCZK} Kč` : t('ivDripTherapy.menu.onRequest')}
+          <div class="space-y-14">
+            {dripGuide.map((group) => {
+              const Icon = group.icon;
+              return (
+                <div data-drip-group={group.category}>
+                  <h3 class="flex items-center gap-3 text-2xl font-semibold mb-6">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Icon class="w-5 h-5" />
+                    </span>
+                    {group.name}
+                  </h3>
+                  {/* Three columns only for a group of three, so that no card is left alone in a row */}
+                  <div class={`grid md:grid-cols-2 gap-6 ${group.drips.length === 3 ? 'lg:grid-cols-3' : ''}`}>
+                    {group.drips.map((drip) => (
+                      <Card class="p-6 h-full flex flex-col bg-background hover:shadow-lg transition-shadow">
+                        <article data-drip={drip.code} class="h-full flex flex-col">
+                          <div class="flex items-baseline justify-between gap-4 mb-3">
+                            <h4 class="text-xl font-semibold">{drip.name}</h4>
+                            <span class="shrink-0 font-semibold text-primary whitespace-nowrap">{drip.price}</span>
                           </div>
-                          <div class="text-xs text-muted-foreground mt-1">
-                            ≈ €{Math.round(item.priceCZK / 25)}
-                          </div>
-                        </div>
-                      </div>
-
-                      <p class="text-muted-foreground mb-3 leading-relaxed">{item.short}</p>
-
-                      {item.bestFor && (
-                        <div class="mb-4">
-                          <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                            {t('ivDripTherapy.menu.bestForLabel')}: {item.bestFor}
-                          </span>
-                        </div>
-                      )}
-
-                      {item.includes?.length ? (
-                        <ul class="space-y-2 mb-6">
-                          {item.includes.map((x) => (
-                            <li class="flex items-start gap-2 text-sm">
-                              <CircleCheck class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                              <span>{x}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : null}
-
-                      <a href={`https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(t('ivDripTherapy.menu.bookMessage', { drip: item.name }))}`} class={buttonLink('default', 'lg', 'w-full')}>
-                        {t('ivDripTherapy.menu.book')} {item.name}
-                      </a>
-                    </Card>
-                  ))}
+                          <p class="text-muted-foreground mb-4">{drip.short}</p>
+                          <ul class="space-y-2 mb-5">
+                            {drip.includes.map((item) => (
+                              <li class="flex items-start gap-2 text-sm">
+                                <CircleCheck class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          {drip.bestFor && (
+                            <p class="text-sm mb-5">
+                              <span class="text-muted-foreground">{t('ivDripTherapy.menu.bestForLabel')}:</span>{' '}
+                              <span class="font-medium">{drip.bestFor}</span>
+                            </p>
+                          )}
+                          <BookingLink
+                            source="page_content"
+                            serviceCode={drip.code}
+                            class={buttonLink('outline', 'default', 'w-full mt-auto')}
+                          >
+                            {t('ivDripTherapy.menu.book')}
+                          </BookingLink>
+                        </article>
+                      </Card>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div class="text-center mt-12 space-y-4">
-            <p class="text-sm text-muted-foreground max-w-2xl mx-auto" set:html={t('ivDripTherapy.menu.medicalScreening')} />
-            <p class="text-sm text-muted-foreground" set:html={t('ivDripTherapy.menu.pricingNote')} />
+              );
+            })}
           </div>
         </div>
       </section>
@@ -654,20 +619,18 @@ const meta: PageMeta = {
             {t('ivDripTherapy.cta.description')}
           </p>
 
-          <div class="flex flex-wrap gap-4 justify-center mb-8">
-            <a href={`tel:${phone}`} class={buttonLink('default', 'lg', 'text-lg px-8', 'flex items-center gap-2')}>
-              <Phone class="w-5 h-5" />
-              {t('ivDripTherapy.cta.callBtn', { phone })}
-            </a>
-            <a href={whatsappLink} class={buttonLink('default', 'lg', 'text-lg px-8', 'flex items-center gap-2')}>
+          <div class="flex flex-wrap gap-3 justify-center mb-8">
+            <BookingLink source="page_content" class={buttonLink('default', 'lg', 'text-base px-8 bg-indigo hover:bg-indigo-deep')}>
+              {t('ivDripTherapy.cta.bookBtn')} ↑
+            </BookingLink>
+            <a href={whatsappLink} class={buttonLink('outline', 'lg', 'text-base px-8', 'flex items-center gap-2')}>
               <MessageCircle class="w-5 h-5" />
               {t('ivDripTherapy.cta.whatsappBtn')}
             </a>
-            <BookingLink class={buttonLink('default', 'lg', 'text-lg px-8 bg-indigo hover:bg-indigo-deep', 'flex items-center gap-2')}>
-              <Calendar class="w-5 h-5" />
-              {t('ivDripTherapy.cta.bookBtn')}
-            </BookingLink>
-            <a href="mailto:info@nius.cz" class={buttonLink('outline', 'lg', 'text-lg px-8')}>{t('ivDripTherapy.cta.emailBtn')}</a>
+            <a href={`tel:${phone}`} class={buttonLink('outline', 'lg', 'text-base px-8', 'flex items-center gap-2')}>
+              <Phone class="w-5 h-5" />
+              {t('ivDripTherapy.cta.callBtn', { phone })}
+            </a>
           </div>
 
           <p class="text-sm text-muted-foreground">
@@ -678,6 +641,6 @@ const meta: PageMeta = {
     </main>
 
     <Footer route={route} lang={lang} />
-    <FloatingWhatsApp />
+    <StickyBar lang={lang} />
   </div>
 </BaseLayout>
