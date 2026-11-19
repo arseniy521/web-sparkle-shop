@@ -23,6 +23,7 @@ jobs:
       VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
       VITE_GOOGLE_ADS_ID: ${{ secrets.VITE_GOOGLE_ADS_ID }}
       VITE_GOOGLE_ADS_LEAD_LABEL: ${{ secrets.VITE_GOOGLE_ADS_LEAD_LABEL }}
+      VITE_GOOGLE_ADS_CONTACT_LABEL: ${{ secrets.VITE_GOOGLE_ADS_CONTACT_LABEL }}
 
   build:
     needs: checks
@@ -36,6 +37,7 @@ jobs:
       # check:env warns.
       VITE_GOOGLE_ADS_ID: ${{ secrets.VITE_GOOGLE_ADS_ID }}
       VITE_GOOGLE_ADS_LEAD_LABEL: ${{ secrets.VITE_GOOGLE_ADS_LEAD_LABEL }}
+      VITE_GOOGLE_ADS_CONTACT_LABEL: ${{ secrets.VITE_GOOGLE_ADS_CONTACT_LABEL }}
     outputs:
       pages-head: ${{ steps.pages.outputs.head }}
 

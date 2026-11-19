@@ -21,6 +21,9 @@ const googleAdsId = (
 const googleAdsLeadLabel = (
   process.env.VITE_GOOGLE_ADS_LEAD_LABEL || env.VITE_GOOGLE_ADS_LEAD_LABEL || ''
 ).trim();
+const googleAdsContactLabel = (
+  process.env.VITE_GOOGLE_ADS_CONTACT_LABEL || env.VITE_GOOGLE_ADS_CONTACT_LABEL || ''
+).trim();
 
 // Google Ads is optional: the site must build without it, but a release that silently
 // measures no conversions should be visible (old site's scripts/check-release-env.mjs).
@@ -36,6 +39,17 @@ if (emptyAdsVariables.length > 0) {
   console.warn(`Release warning: ${message}`);
   if (process.env.GITHUB_ACTIONS === 'true') {
     console.log(`::warning title=Google Ads conversion is off::${message}`);
+  }
+}
+
+// The second conversion, "Outbound click": phone and WhatsApp clicks. Also optional.
+if (googleAdsId && !googleAdsContactLabel) {
+  const message =
+    'VITE_GOOGLE_ADS_CONTACT_LABEL is empty. ' +
+    'The site will be built without the Google Ads contact conversion: phone and WhatsApp clicks from ads are not measured.';
+  console.warn(`Release warning: ${message}`);
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    console.log(`::warning title=Google Ads contact conversion is off::${message}`);
   }
 }
 
