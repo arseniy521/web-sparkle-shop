@@ -152,26 +152,13 @@ Markup rules:
 - Header dropdowns are disclosures (Tab, Escape), without arrow-key navigation (question 15); choosing the current language reloads the page (question 30).
 - Deferred minors: `header-menu.test.ts` depends on test order (`initHeaderMenu` is not idempotent); `buttonLink()` in `IvDripTherapy.astro` repeats the classes of `Button.astro`; `background-color: revert` in `global.css` also reaches button-type inputs.
 
-## Publication and rollback
+## Publication
 
-**Neither workflow has run on GitHub yet; everything below is unproven until the first dry run.** An agent never starts a real publication or a rollback and never pushes to `gh-pages`.
-
-- Publication goes only through "Publish NIUS" (`.github/workflows/publish.yml`), started by hand from `main`, input `dry_run` (default `true`). Jobs: `checks` (calls `checks.yml`) → `build` (env check, `npm ci`, `build`, `check:seo -- --production --dist dist`, Lighthouse, `check:e2e`, required files, artifact `dist`) → `publish`.
-- `publish` runs only with `dry_run` unticked and on `main`, and waits for the owner's approval of the `production` environment. It refuses when `gh-pages` moved since the build or when the artifact has fewer pages than `gh-pages`, tags the previous head `published-YYYYMMDD-HHMM` (UTC), replaces the whole tree of `gh-pages` with `dist` in an ordinary commit and waits up to 10 minutes for GitHub Pages to build it.
-- Rollback: "Roll back NIUS to a published build" (`rollback.yml`), from `main`, input `tag` in the same format, same approval. It restores the tag's tree as an ordinary commit; no build, no checks. The tag must be a past state of `gh-pages` (an ancestor of its head): a tag pushed onto any other commit is refused, and a forced push to `gh-pages` makes every earlier tag unusable. If a publication is waiting for approval, reject it first.
-
-First run:
-
-1. Owner settings (question 55): environment `production` with the owner as required reviewer and `main` as the only deployment branch; rulesets for `gh-pages` (no force push, no deletion) and for tags `published-*`; the three required `VITE_*` secrets and the optional `VITE_GOOGLE_ADS_ID`, `VITE_GOOGLE_ADS_LEAD_LABEL`, `VITE_GOOGLE_ADS_CONTACT_LABEL`; Pages source `gh-pages` / root (question 54).
-2. The workflow files reach `main` (question 32). The push must start only "Check the site" and must not move `gh-pages`.
-3. Dry run from `main`. Expect `checks` and `build` green and `publish` skipped; the SEO step prints no finding. In the artifact `dist`: `.nojekyll`, `CNAME` = `www.nius.cz`, `_astro/`, `sitemap.xml`, `robots.txt`, `404.html`; 78 pages (62 pages and 16 redirect stubs), every page references `/_astro/`.
-4. Owner review: that the backend accepting `referralCode` is live.
-5. No rollback rehearsal: the owner dropped it on 2026-11-16 (questions 33, 62, 72); the publication is the last step of the release.
-6. Real run at a quiet hour: `dry_run` unticked, the owner approves. The summary names the tag and says that Pages deployed the commit.
-7. Within 10 minutes on www.nius.cz: every page loads its `/_astro/` files; `/robots.txt` and `/sitemap.xml` are as before (dates aside); an unknown address gives the 404 page of `src/pages/404.astro`; the custom domain is still set; a test order on test data goes through.
-8. If anything is wrong: run the rollback with the tag from the summary and confirm that Pages deployed it.
-
-Before a publication or a rollback, `node scripts/release/snapshot-live.mjs --origin https://www.nius.cz --out before.json`, and `--compare before.json after.json` after it, show what changed on the site.
+- `main` accepts only pull requests with "Check the site" green; the checks run there, once.
+- Publication is manual: Actions → "Publish NIUS" → Run workflow, branch `main`. It builds `main` with the release keys, runs `check:env` and `check:seo -- --production --dist dist`, and deploys the build to GitHub Pages (2–3 minutes). Merging publishes nothing. An agent never starts a publication.
+- Release keys are repository secrets: `VITE_AMPLITUDE_API_KEY`, `VITE_MAPY_API_KEY`, `VITE_GOOGLE_CLIENT_ID` (required), `VITE_GOOGLE_ADS_ID`, `VITE_GOOGLE_ADS_LEAD_LABEL`, `VITE_GOOGLE_ADS_CONTACT_LABEL` (optional, `check:env` warns). They are baked into the build, so a changed secret needs a new publication.
+- Rollback: Actions → "Publish NIUS" → the last good run → "Re-run all jobs" (it rebuilds that run's commit; possible for 30 days). Older than that: revert the pull request and publish.
+- After a publication check on www.nius.cz: the home page in four languages, the cookie banner, an order on test data.
 
 ## Domain
 
