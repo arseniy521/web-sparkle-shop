@@ -16,8 +16,8 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test-setup.ts'],
     clearMocks: true,
-    // The workflows run the unit tests with the real release keys in the environment. Tests
-    // must not depend on them: each key starts empty, and a test that needs one stubs it.
+    // Tests must not depend on release keys from the environment or a local .env file: each key
+    // starts empty, and a test that needs one stubs it.
     env: {
       VITE_AMPLITUDE_API_KEY: '',
       VITE_MAPY_API_KEY: '',

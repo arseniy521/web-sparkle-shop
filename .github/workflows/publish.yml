@@ -2,7 +2,8 @@ name: Publish NIUS
 
 # Started by hand, from main only. Builds main with the release keys and deploys that build to
 # GitHub Pages. The checks ran in the pull request: main accepts nothing else (repository ruleset).
-# Rollback: re-run the last good run of this workflow (it rebuilds its own commit).
+# Rollback: re-run the last good run of this workflow (it rebuilds its own commit). Runs from before
+# the switch to this deployment pushed to the gh-pages branch and roll nothing back.
 on:
   workflow_dispatch:
 
@@ -54,6 +55,8 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: dist
+          # A future .well-known/ or other dotfile in public/ must not be left out silently.
+          include-hidden-files: true
 
   deploy:
     needs: build

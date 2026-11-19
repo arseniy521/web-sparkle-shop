@@ -20,7 +20,7 @@
 | `npm test` | unit tests (vitest, jsdom) of `src/`, `scripts/`, `tests/`; release keys are empty there (`vitest.config.ts`) | — |
 | `npm run i18n:check` | the four locale files have the same keys (`scripts/check-i18n-keys.mjs`) | — |
 | `npm run check:env` | the release keys are set; runs in the publication only, fails on a work machine by design | keys |
-| `npm run build` | publishable build in `dist/` with `CNAME` and `.nojekyll`, every `<lastmod>` of `sitemap.xml` set to the build date | — |
+| `npm run build` | publishable build in `dist/`, every `<lastmod>` of `sitemap.xml` set to the build date | — |
 | `npm run check:seo -- --scope built` | head, canonical, hreflang, robots, links, images, JSON-LD, redirects, 404, `sitemap.xml` of the built pages | `build` |
 | `npm run check:e2e` | browser scenarios of `site-interactivity` on their own test build, API stubbed | — |
 | `npm run check:lhci` | manual, not part of the checks: Lighthouse, median of 3, control set of `lighthouserc.cjs`; SEO = 1, accessibility >= 0.95, performance >= 0.9; run on an idle machine | `build` |
@@ -137,7 +137,6 @@ Markup rules:
 
 - `web_vital` for LCP and CLS is lost when the tab closes or navigates; the scenario covers only a hidden live page and carries a `known gap` annotation (question 10).
 - Link tracker: a later handler that cancels a tracked click is overridden, the link is still followed (N2; nothing does that today). Links inside shadow roots are never held (N4). Links with `rel=noreferrer` are not held, their event may be lost (question 28).
-- Playwright runs with `workers: 1`.
 - Check 3 compares `sitemap.xml` with the manifest, not with the build.
 - Two defects kept from the old pages: the phone layouts of `/narozeninovy-darek-praha/` (479 px) and `/ru/podatok-k-dnju-rozhdenija-praga/` (429 px) are wider than 390 px; on `/disabled-daily-care-prague/` the MedicalBusiness `url` and the post-surgery link lead to the Czech address in every language. The Women's Day countdown is decided at build time (expired after 2026-03-08).
 - Browser scenarios run in Chromium only; Safari 15 and older is not checked (owner decision). Scenarios use a stand-in for `gtag.js`. Manual Google sign-in was never checked.
@@ -150,10 +149,10 @@ Markup rules:
 - `main` accepts only pull requests with "Check the site" green; the checks run there, once.
 - Publication is manual: Actions → "Publish NIUS" → Run workflow, branch `main`. It builds `main` with the release keys, runs `check:env` and `check:seo -- --production --dist dist`, and deploys the build to GitHub Pages (2–3 minutes). Merging publishes nothing. An agent never starts a publication.
 - Release keys are repository secrets: `VITE_AMPLITUDE_API_KEY`, `VITE_MAPY_API_KEY`, `VITE_GOOGLE_CLIENT_ID` (required), `VITE_GOOGLE_ADS_ID`, `VITE_GOOGLE_ADS_LEAD_LABEL`, `VITE_GOOGLE_ADS_CONTACT_LABEL` (optional, `check:env` warns). They are baked into the build, so a changed secret needs a new publication.
-- Rollback: Actions → "Publish NIUS" → the last good run → "Re-run all jobs" (it rebuilds that run's commit; possible for 30 days). Older than that: revert the pull request and publish.
+- Rollback: Actions → "Publish NIUS" → the last good run with the jobs `build` and `deploy` → "Re-run all jobs" (it rebuilds that run's commit; possible for 30 days). Older than that: revert the pull request and publish. Runs from before the switch to GitHub Actions deployment (jobs `checks`, `build`, `publish`) push to the `gh-pages` branch and roll nothing back; while `gh-pages` is kept, the old state comes back by pointing Settings → Pages → Source at the branch `gh-pages`.
 - After a publication check on www.nius.cz: the home page in four languages, the cookie banner, an order on test data.
 
 ## Domain
 
-- Production: www.nius.cz (GitHub Pages, `CNAME` written by `scripts/finalize-dist.mjs`). Backend: `https://app.nius.cz/api` unless `VITE_API_URL` is set (`src/scripts/env.ts`).
+- Production: www.nius.cz (GitHub Pages; the custom domain is set in the Pages settings — the `CNAME` file in the build is ignored there and stays only because the SEO check requires it). Backend: `https://app.nius.cz/api` unless `VITE_API_URL` is set (`src/scripts/env.ts`).
 - Google Business: g.page/r/Cb4BmqPTZRSSEBE/review
