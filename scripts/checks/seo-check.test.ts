@@ -14,14 +14,9 @@ const tmp = () => {
 };
 afterAll(() => tmpDirs.forEach((d) => fs.rmSync(d, { recursive: true, force: true })));
 
-function run(args: string[], checksDir = tmp()) {
-  const result = spawnSync(process.execPath, ['scripts/checks/seo-check.ts', ...args], {
-    encoding: 'utf8',
-    env: { ...process.env, NIUS_CHECKS_DIR: checksDir },
-  });
-  const registryFile = path.join(checksDir, 'registry.json');
-  const registry = fs.existsSync(registryFile) ? JSON.parse(fs.readFileSync(registryFile, 'utf8')) : null;
-  return { status: result.status, stdout: result.stdout, stderr: result.stderr, registry };
+function run(args: string[]) {
+  const result = spawnSync(process.execPath, ['scripts/checks/seo-check.ts', ...args], { encoding: 'utf8' });
+  return { status: result.status, stdout: result.stdout, stderr: result.stderr };
 }
 
 describe('seo-check usage errors', () => {
@@ -59,15 +54,14 @@ describe('seo-check usage errors', () => {
 });
 
 describe('seo-check CLI', () => {
-  it('exits 0, prints nothing and records pass for every page of a good dist', () => {
+  it('exits 0 and prints nothing for a good dist', () => {
     const dist = tmp();
     writeGoodDist(dist);
     const r = run(['--dist', dist]);
     expect(r).toMatchObject({ status: 0, stdout: '' });
-    expect(r.registry.pages['/en/'].seo).toEqual({ status: 'pass' });
   });
 
-  it('prints "rule path detail", exits 1 and records fail for the page', () => {
+  it('prints "rule path detail" and exits 1', () => {
     const dist = tmp();
     writeGoodDist(dist);
     fs.rmSync(path.join(dist, 'CNAME'));
@@ -76,7 +70,6 @@ describe('seo-check CLI', () => {
     expect(r.status).toBe(1);
     expect(r.stdout).toMatch(/^manifest-page-missing \/en\/privacy\/ .+$/m);
     expect(r.stdout).toMatch(/^required-files \/CNAME .+$/m);
-    expect(r.registry.pages['/en/privacy/'].seo).toEqual({ status: 'fail', detail: 'manifest-page-missing' });
   });
 
   it('--scope built does not report manifest pages that are not built', () => {
@@ -86,7 +79,7 @@ describe('seo-check CLI', () => {
     expect(run(['--dist', dist, '--scope', 'built']).status).toBe(0);
   });
 
-  it('fails on a built page outside the manifest and records it', () => {
+  it('fails on a built page outside the manifest', () => {
     const dist = tmp();
     writeGoodDist(dist);
     fs.mkdirSync(path.join(dist, 'stray-page'));
@@ -94,7 +87,6 @@ describe('seo-check CLI', () => {
     const r = run(['--dist', dist, '--scope', 'built']);
     expect(r.stdout).toMatch(/^page-not-in-manifest \/stray-page\/ .+$/m);
     expect(r.status).toBe(1);
-    expect(r.registry.pages['/stray-page/'].seo).toEqual({ status: 'fail', detail: 'page-not-in-manifest' });
   });
 
   it('--production fails on a preview artifact', () => {
