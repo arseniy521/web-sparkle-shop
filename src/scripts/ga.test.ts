@@ -20,6 +20,7 @@ vi.mock('@/scripts/cookie-domain', () => ({
 
 const ADS_ID = 'AW-0000000000';
 const LEAD_LABEL = 'synthetic-label';
+const CONTACT_LABEL = 'synthetic-contact-label';
 const GA4_ID = 'G-VNMLWF0XZG';
 const GA_DISABLE_FLAG = `ga-disable-${GA4_ID}`;
 const pageFlag = (name: string) => (window as unknown as Record<string, unknown>)[name];
@@ -44,6 +45,7 @@ beforeEach(() => {
   cookieScope.domain = undefined;
   vi.stubEnv('VITE_GOOGLE_ADS_ID', ADS_ID);
   vi.stubEnv('VITE_GOOGLE_ADS_LEAD_LABEL', LEAD_LABEL);
+  vi.stubEnv('VITE_GOOGLE_ADS_CONTACT_LABEL', CONTACT_LABEL);
 });
 
 afterEach(() => {
@@ -207,6 +209,7 @@ describe('Google events', () => {
     setConsent('rejected');
     ga.denyGoogle();
     ga.trackGoogleEvent('contact', { method: 'phone', source: 'footer' });
+    ga.trackContactClick('whatsapp', 'footer');
     ga.trackLeadConversion({ orderId: 'order-synthetic-1', value: 2900, serviceCodes: ['immunity_lite'] });
 
     expect(googleEvents()).toEqual([]);
@@ -284,5 +287,54 @@ describe('lead conversion', () => {
     ga.trackLeadConversion(ORDER);
 
     expect(googleEvents()).toEqual([['event', 'generate_lead', PAYLOAD]]);
+  });
+});
+
+describe('contact conversion (phone and WhatsApp clicks)', () => {
+  const CONVERSION = ['event', 'conversion', { send_to: `${ADS_ID}/${CONTACT_LABEL}`, value: 1, currency: 'CZK' }];
+
+  it.each(['phone', 'whatsapp'] as const)('a %s click sends contact and the Ads conversion, and nothing else', async (method) => {
+    const { ga } = await loadPage({ cookie: 'accepted' });
+
+    ga.trackContactClick(method, 'floating_contact');
+
+    // toEqual on the whole list: no extra event and no extra key (no number, no message text).
+    expect(googleEvents()).toEqual([['event', 'contact', { method, source: 'floating_contact' }], CONVERSION]);
+  });
+
+  it('counts every click', async () => {
+    const { ga } = await loadPage({ cookie: 'accepted' });
+
+    ga.trackContactClick('phone', 'footer');
+    ga.trackContactClick('phone', 'footer');
+
+    expect(googleEvents().filter((entry) => entry[1] === 'conversion')).toEqual([CONVERSION, CONVERSION]);
+  });
+
+  it.each([{ cookie: null }, { cookie: 'rejected' as const }])('sends nothing without consent (cookie=$cookie)', async (stored) => {
+    const { ga } = await loadPage(stored);
+
+    ga.trackContactClick('phone', 'footer');
+
+    expect(googleEvents()).toEqual([]);
+  });
+
+  it.each(['VITE_GOOGLE_ADS_CONTACT_LABEL', 'VITE_GOOGLE_ADS_ID'])('sends only contact when %s is empty', async (name) => {
+    vi.stubEnv(name, ' ');
+    const { ga } = await loadPage({ cookie: 'accepted' });
+
+    ga.trackContactClick('whatsapp', 'footer');
+
+    expect(googleEvents()).toEqual([['event', 'contact', { method: 'whatsapp', source: 'footer' }]]);
+  });
+
+  it('the lead conversion keeps its own label', async () => {
+    const { ga } = await loadPage({ cookie: 'accepted' });
+
+    ga.trackLeadConversion({ orderId: 'order-synthetic-1', value: 2900, serviceCodes: ['immunity_lite'] });
+
+    expect(googleEvents().filter((entry) => entry[1] === 'conversion').map((entry) => (entry[2] as { send_to: string }).send_to)).toEqual([
+      `${ADS_ID}/${LEAD_LABEL}`,
+    ]);
   });
 });
