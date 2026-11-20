@@ -33,3 +33,6 @@ test-results/
 *.njsproj
 *.sln
 *.sw?
+
+# Local Claude Code settings
+.claude/settings.local.json
