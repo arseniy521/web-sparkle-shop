@@ -5,7 +5,7 @@
 - Never promise "60-minute arrival": use "same-day" instead.
 - Operating hours: 8:00–21:00 daily (no 24/7).
 - Avoid Google Ads banned terms: "cure", "detox", "rapid relief", "100% bioavailability", "rejuvenation", "skin brightening". Use safe alternatives.
-- A new page gets a localized slug per language in `src/routes/manifest.ts`, with hreflang for every language it is published in and its entries in `public/sitemap.xml` (check 3 compares the sitemap with the manifest).
+- A new page gets a localized slug per language in `src/routes/manifest.ts`, with hreflang for every language it is published in and its entries in `public/sitemap.xml` (`check:seo` compares the sitemap with the manifest).
 
 ## Architecture in short
 

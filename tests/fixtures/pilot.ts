@@ -1,2 +1,2 @@
-/** The pilot page every browser check runs on; each later page task adds its own page next to it. */
+/** The page most browser scenarios run on: a service page with the header and the order form. */
 export const PILOT = '/sestricka-praha-1/';

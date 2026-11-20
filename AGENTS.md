@@ -84,7 +84,7 @@ ESLint enforces the React rule (`eslint.config.js`, proved by `tests/lint-bounda
 
 Adding a page:
 
-1. Entry in `src/routes/manifest.ts`, with a localized slug per language; hreflang and `sitemap.xml` follow from the manifest (check 3 compares `public/sitemap.xml` with it).
+1. Entry in `src/routes/manifest.ts`, with a localized slug per language; hreflang and `sitemap.xml` follow from the manifest (`check:seo` compares `public/sitemap.xml` with it).
 2. Template in `src/templates/`; pattern: `SestrickaPraha1.astro`.
 3. Register it in `src/templates/registry.ts`.
 4. A new template adds one of its pages to the control set in `lighthouserc.cjs`.
@@ -93,7 +93,7 @@ Adding a page:
 
 Markup rules:
 
-- FAQ markup carries `data-faq`, `data-faq-item`, `data-faq-question`, `data-faq-answer`; check 3 compares it with the `FAQPage` JSON-LD.
+- FAQ markup carries `data-faq`, `data-faq-item`, `data-faq-question`, `data-faq-answer`; `check:seo` compares it with the `FAQPage` JSON-LD.
 - JSON-LD is emitted only through `serializeJsonLd` (it escapes `<`).
 - Phone and WhatsApp in shared components are literal text. `Breadcrumbs` does not rewrite `/#…` links: pass the final address.
 - `[data-open-cart]` buttons are bound once at start (`header-state.ts`, `form-bridge.ts`): a button created later gets no handler, the code that creates it subscribes it.
@@ -137,7 +137,7 @@ Markup rules:
 
 - `web_vital` for LCP and CLS is lost when the tab closes or navigates; the scenario covers only a hidden live page and carries a `known gap` annotation (question 10).
 - Link tracker: a later handler that cancels a tracked click is overridden, the link is still followed (N2; nothing does that today). Links inside shadow roots are never held (N4). Links with `rel=noreferrer` are not held, their event may be lost (question 28).
-- Check 3 compares `sitemap.xml` with the manifest, not with the build.
+- `check:seo` compares `sitemap.xml` with the manifest, not with the build.
 - Two defects kept from the old pages: the phone layouts of `/narozeninovy-darek-praha/` (479 px) and `/ru/podatok-k-dnju-rozhdenija-praga/` (429 px) are wider than 390 px; on `/disabled-daily-care-prague/` the MedicalBusiness `url` and the post-surgery link lead to the Czech address in every language. The Women's Day countdown is decided at build time (expired after 2026-03-08).
 - Browser scenarios run in Chromium only; Safari 15 and older is not checked (owner decision). Scenarios use a stand-in for `gtag.js`. Manual Google sign-in was never checked.
 - `check:lhci` makes anonymous requests to the production API, as any page load does (question 31). The drips page scores exactly 0.95 for accessibility (question 43).
@@ -154,5 +154,5 @@ Markup rules:
 
 ## Domain
 
-- Production: www.nius.cz (GitHub Pages; the custom domain is set in the Pages settings — the `CNAME` file in the build is ignored there and stays only because the SEO check requires it). Backend: `https://app.nius.cz/api` unless `VITE_API_URL` is set (`src/scripts/env.ts`).
+- Production: www.nius.cz (GitHub Pages; the custom domain is set in the Pages settings). Backend: `https://app.nius.cz/api` unless `VITE_API_URL` is set (`src/scripts/env.ts`).
 - Google Business: g.page/r/Cb4BmqPTZRSSEBE/review
