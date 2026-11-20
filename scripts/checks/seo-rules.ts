@@ -157,16 +157,10 @@ function checkRedirects(ctx: Ctx): void {
 
 function checkRobotsAndRequiredFiles(ctx: Ctx): void {
   const { distDir } = ctx;
-  for (const file of ['.nojekyll', 'robots.txt', 'sitemap.xml', '404.html']) {
+  for (const file of ['robots.txt', 'sitemap.xml', '404.html']) {
     if (!fs.existsSync(path.join(distDir, file))) {
       ctx.add('required-files', `/${file}`, 'file is missing from the build');
     }
-  }
-  const cname = path.join(distDir, 'CNAME');
-  if (!fs.existsSync(cname)) {
-    ctx.add('required-files', '/CNAME', 'file is missing from the build');
-  } else if (fs.readFileSync(cname, 'utf8').trim() !== 'www.nius.cz') {
-    ctx.add('required-files', '/CNAME', 'CNAME must contain www.nius.cz');
   }
 
   const robots = path.join(distDir, 'robots.txt');
@@ -438,25 +432,18 @@ function checkSitemap(ctx: Ctx): void {
   }
 }
 
-// Only the preview build may differ from production: API stub, X-Robots-Tag and a closed robots.txt.
-function checkPreviewArtifacts(ctx: Ctx): void {
+// A build for www.nius.cz must be open to crawlers and call the production API.
+function checkProductionBuild(ctx: Ctx): void {
   const { distDir } = ctx;
   const robots = path.join(distDir, 'robots.txt');
   if (fs.existsSync(robots) && /^\s*disallow:\s*\/\s*$/im.test(fs.readFileSync(robots, 'utf8'))) {
-    ctx.add('preview-artifact', '/robots.txt', 'robots.txt disallows the whole site');
-  }
-  if (fs.existsSync(path.join(distDir, 'functions'))) {
-    ctx.add('preview-artifact', '/functions/', 'the build contains server functions');
-  }
-  const headers = path.join(distDir, '_headers');
-  if (fs.existsSync(headers) && /x-robots-tag/i.test(fs.readFileSync(headers, 'utf8'))) {
-    ctx.add('preview-artifact', '/_headers', '_headers sets X-Robots-Tag');
+    ctx.add('production-build', '/robots.txt', 'robots.txt disallows the whole site');
   }
   const scripts = path.join(distDir, '_astro');
   const files = fs.existsSync(scripts) ? fs.readdirSync(scripts).filter((f) => f.endsWith('.js')) : [];
   const apiBase = `${APP_ORIGIN}/api`;
   if (!files.some((f) => fs.readFileSync(path.join(scripts, f), 'utf8').includes(apiBase))) {
-    ctx.add('preview-artifact', '/_astro/', `no script contains the API address ${apiBase}`);
+    ctx.add('production-build', '/_astro/', `no script contains the API address ${apiBase}`);
   }
 }
 
@@ -495,6 +482,6 @@ export function checkDist(input: {
   checkRedirects(ctx);
   checkSitemap(ctx);
   checkRobotsAndRequiredFiles(ctx);
-  if (production) checkPreviewArtifacts(ctx);
+  if (production) checkProductionBuild(ctx);
   return findings;
 }

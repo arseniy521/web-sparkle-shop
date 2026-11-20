@@ -1,6 +1,6 @@
 import type { Page } from '@playwright/test';
 import cs from '../../src/i18n/locales/cs.json' with { type: 'json' };
-import stubData from '../../preview/stub-data.json' with { type: 'json' };
+import stubData from '../fixtures/api/stub-data.json' with { type: 'json' };
 import { captureAmplitude, visitorDataIn, VISITOR, type AmplitudeCapture, events } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa, stubGoogleIdentity, type GaCapture } from '../fixtures/google.ts';
