@@ -1,8 +1,8 @@
 import type { Page, Route } from '@playwright/test';
 import type { AuthUser, OnboardingOrder } from '../../src/islands/order-form/api/onboarding';
 import type { PublicServiceDto } from '../../src/islands/order-form/api/services';
-import { handleStubRequest } from '../../preview/stub.js';
-import stubData from '../../preview/stub-data.json' with { type: 'json' };
+import { handleStubRequest } from './api/stub.js';
+import stubData from './api/stub-data.json' with { type: 'json' };
 
 export interface StubData {
   services: PublicServiceDto[];

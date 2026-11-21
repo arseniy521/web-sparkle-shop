@@ -7,7 +7,7 @@ module.exports = {
       staticDistDir: './dist',
       chromePath: chromium.executablePath(),
       numberOfRuns: 3,
-      // Control set: one page of each migrated template.
+      // Control set: one page of each template.
       url: [
         '/',
         '/sestricka-praha-1/',

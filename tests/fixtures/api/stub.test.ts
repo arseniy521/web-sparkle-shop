@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 import { handleStubRequest } from './stub.js';
-import { SERVICE_I18N, isOfferedOnWebsite } from '../src/scripts/cart-catalog';
+import { SERVICE_I18N, isOfferedOnWebsite } from '../../../src/scripts/cart-catalog';
 
 describe('handleStubRequest', () => {
   it('answers the seven form requests', () => {
@@ -26,7 +26,7 @@ describe('handleStubRequest', () => {
   });
 
   // The order form lists only the cart services the catalog answer knows; a service missing
-  // here showed an empty cart on the preview after "Add to cart".
+  // here showed an empty cart after "Add to cart".
   it('serves every service the site offers', () => {
     const served = new Set(
       (handleStubRequest('GET', '/services').body as Array<{ code: string }>).map((s) => s.code),

@@ -209,7 +209,7 @@ test('Consent stored by the old site', async ({ page, context }) => {
   }
 });
 
-test('Preview address', async ({ page, context }) => {
+test('Host other than www.nius.cz', async ({ page, context }) => {
   await installApiStub(page);
   const requests = recordRequests(page);
   await page.goto(`${E2E_ORIGIN_IP}${PILOT}`);

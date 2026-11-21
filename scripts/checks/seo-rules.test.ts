@@ -199,7 +199,7 @@ describe('robots.txt and required files', () => {
     expect(checkDist({ distDir: dir })).toEqual([]);
   });
 
-  for (const file of ['CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml', '404.html']) {
+  for (const file of ['robots.txt', 'sitemap.xml', '404.html']) {
     it(`required-files: ${file} is missing`, () => {
       const dir = build((d) => remove(d, file));
       const findings = checkDist({ distDir: dir });
@@ -214,9 +214,13 @@ describe('robots.txt and required files', () => {
     expect(only(dir)).toEqual(['required-files']);
   });
 
-  it('required-files: CNAME with another host', () => {
-    const dir = build((d) => edit(d, 'CNAME', () => 'nius.cz\n'));
-    expect(only(dir)).toEqual(['required-files']);
+  // Pages deployed by a workflow ignores CNAME (the domain is in the settings) and runs no Jekyll.
+  it('required-files: a build needs neither CNAME nor .nojekyll', () => {
+    const dir = build((d) => {
+      fs.rmSync(path.join(d, 'CNAME'), { force: true });
+      fs.rmSync(path.join(d, '.nojekyll'), { force: true });
+    });
+    expect(checkDist({ distDir: dir })).toEqual([]);
   });
 });
 
@@ -655,49 +659,29 @@ describe('sitemap', () => {
   });
 });
 
-describe('preview artifacts in a production build', () => {
+describe('a build for www.nius.cz', () => {
   const production = (dir: string) => rulesOf(checkDist({ distDir: dir, production: true }));
-  const write = (dir: string, rel: string, content: string) => {
-    fs.mkdirSync(path.dirname(path.join(dir, rel)), { recursive: true });
-    fs.writeFileSync(path.join(dir, rel), content);
-  };
 
-  it('preview-artifact: robots.txt closes the whole site', () => {
+  it('production-build: robots.txt closes the whole site', () => {
     const dir = build((d) => edit(d, 'robots.txt', (t) => t.replace('Allow: /', 'Disallow: /')));
-    expect(production(dir)).toEqual(['preview-artifact', 'robots-txt']);
+    expect(production(dir)).toEqual(['production-build', 'robots-txt']);
   });
-  it('preview-artifact: a functions directory', () => {
-    const dir = build((d) => write(d, 'functions/api/[[path]].js', 'export {}'));
-    expect(production(dir)).toEqual(['preview-artifact']);
-  });
-  it('preview-artifact: a _headers file with X-Robots-Tag', () => {
-    const dir = build((d) => write(d, '_headers', '/*\n  X-Robots-Tag: noindex\n'));
-    expect(production(dir)).toEqual(['preview-artifact']);
-  });
-  it('preview-artifact: a _headers file without X-Robots-Tag is fine', () => {
-    const dir = build((d) => write(d, '_headers', '/*\n  Cache-Control: max-age=60\n'));
-    expect(production(dir)).toEqual([]);
-  });
-  it('preview-artifact: the code has a relative API address', () => {
+  it('production-build: the code has a relative API address', () => {
     const dir = build((d) => edit(d, '_astro/app.js', (t) => t.replace('https://app.nius.cz/api', '/api')));
-    expect(production(dir)).toEqual(['preview-artifact']);
+    expect(production(dir)).toEqual(['production-build']);
   });
-  it('preview-artifact: no script directory at all', () => {
+  it('production-build: no script directory at all', () => {
     const dir = build((d) => remove(d, '_astro'));
-    expect(production(dir)).toEqual(['preview-artifact']);
+    expect(production(dir)).toEqual(['production-build']);
   });
-  it('preview-artifact: a noindex page is reported once, as unexpected-noindex', () => {
+  it('production-build: a noindex page is reported once, as unexpected-noindex', () => {
     const dir = build((d) =>
       edit(d, 'en/iv-drip-hotel-prague/index.html', (t) => t.replace('<title>', '<meta name="robots" content="noindex, follow"><title>')),
     );
     expect(production(dir)).toEqual(['unexpected-noindex']);
   });
-  it('preview-artifact: is not checked without the production flag', () => {
-    const dir = build((d) => {
-      write(d, 'functions/api.js', 'export {}');
-      write(d, '_headers', 'X-Robots-Tag: noindex');
-      edit(d, '_astro/app.js', (t) => t.replace('https://app.nius.cz/api', '/api'));
-    });
+  it('production-build: is not checked without the production flag', () => {
+    const dir = build((d) => edit(d, '_astro/app.js', (t) => t.replace('https://app.nius.cz/api', '/api')));
     expect(checkDist({ distDir: dir })).toEqual([]);
   });
 });

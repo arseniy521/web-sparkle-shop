@@ -2,7 +2,7 @@
 
 ## What this repository is
 
-- The public site of NIUS (www.nius.cz), a home nursing and IV drip service in Prague: a static Astro 7 site (`output: 'static'`, `trailingSlash: 'always'`), Tailwind 4, React 19 only in the order form, Node >= 24. All commands run from the repository root. Published to GitHub Pages (`gh-pages`, custom domain from `dist/CNAME`).
+- The public site of NIUS (www.nius.cz), a home nursing and IV drip service in Prague: a static Astro 7 site (`output: 'static'`, `trailingSlash: 'always'`), Tailwind 4, React 19 only in the order form, Node >= 24. All commands run from the repository root. Published to GitHub Pages by the "Publish NIUS" workflow (custom domain `www.nius.cz` in the Pages settings).
 - Texts are in `src/i18n/locales/{cs,en,ru,uk}.json` (Czech is the default and the fallback), blog data in `src/data/blogPosts.ts`, static files in `public/` (copied to `dist/` as they are), env keys in root `.env*` files (only `.env.example` is tracked).
 - The old Vite + React site is kept only in the branch `backup/old-site` (= `main` `f0d216d`). The Astro site replaced it after a page-by-page comparison (content, screenshots, SEO), recorded in the commit that added it (NIU-17). "old:" in a comment names a file of that branch.
 - Specs live in the `nius` repository, OpenSpec change `openspec/changes/site-astro-migration/`: `design.md`, `specs/`, `plan.md`, `verification.md`, `test-cases.md`, `questions.md`. "Question N" below is a number in `questions.md`. `openspec/config.yaml` here points to the store `nius`. Read the change before changing behaviour.
@@ -17,39 +17,35 @@
 | `npm run dev` | dev server on port 8080, `/api` proxied to `NIUS_API_PROXY` (default `http://localhost:3002`) | — |
 | `npm run lint` | ESLint, including the React boundary | — |
 | `npm run typecheck` | `astro check` | — |
-| `npm test` | unit tests (vitest, jsdom) of `src/`, `scripts/`, `preview/`, `tests/` | — |
+| `npm test` | unit tests (vitest, jsdom) of `src/`, `scripts/`, `tests/`; release keys are empty there (`vitest.config.ts`) | — |
 | `npm run i18n:check` | the four locale files have the same keys (`scripts/check-i18n-keys.mjs`) | — |
-| `npm run check:env` | the release keys are set; fails on a work machine by design, CI only | keys |
-| `npm run build` | publishable build in `dist/` with `CNAME` and `.nojekyll`, every `<lastmod>` of `sitemap.xml` set to the build date | — |
+| `npm run check:env` | the release keys are set; runs in the publication only, fails on a work machine by design | keys |
+| `npm run build` | publishable build in `dist/`, every `<lastmod>` of `sitemap.xml` set to the build date | — |
 | `npm run check:seo -- --scope built` | head, canonical, hreflang, robots, links, images, JSON-LD, redirects, 404, `sitemap.xml` of the built pages | `build` |
 | `npm run check:e2e` | browser scenarios of `site-interactivity` on their own test build, API stubbed | — |
-| `npm run check:lhci` | Lighthouse, median of 3, control set of `lighthouserc.cjs`; SEO = 1, accessibility >= 0.95, performance >= 0.9 | `build` |
-| `npm run checks:report` | prints the page registry `.checks/registry.json` (columns `seo`, `e2e`, `lighthouse`) | any check |
-| `npm run checks` | lint, typecheck, unit tests, i18n, build, `check:seo -- --scope built`, `check:e2e`, `check:lhci` — the `checks` workflow without `check:env` | — |
-| `npm run preview:assemble` | preview build in `.preview/` (API stub, `noindex`, closed `robots.txt`) | — |
+| `npm run check:lhci` | manual, not part of the checks: Lighthouse, median of 3, control set of `lighthouserc.cjs`; SEO = 1, accessibility >= 0.95, performance >= 0.9; run on an idle machine | `build` |
+| `npm run checks` | lint, typecheck, unit tests, i18n, build, `check:seo -- --scope built`, `check:e2e` — what "Check the site" runs in a pull request | — |
 
 Minimum before a change is reported as done:
 
-- **Template, component, style or text:** `lint`, `typecheck`, `test`, `i18n:check` (texts), `build`, `check:seo -- --scope built`; `check:lhci` for a new template. Look at the changed pages in a browser at 390×844 and 1440×900.
+- **Template, component, style or text:** `lint`, `typecheck`, `test`, `i18n:check` (texts), `build`, `check:seo -- --scope built`; for a new template also `check:lhci` by hand. Look at the changed pages in a browser at 390×844 and 1440×900.
 - **Script or island (`src/scripts`, `src/islands`):** `lint`, `typecheck`, `test`, `build`, `check:e2e`. Follow the analytics rule below; cart, draft, consent and referral storage must stay readable for returning visitors.
 - **Check or tooling (`scripts/`, `tests/`, configs):** `lint`, `typecheck`, `test`, then run the changed check and show it failing on a deliberately broken site.
-- **Workflow (`.github/workflows/`):** cannot be run locally. Parse the YAML, replay the `run:` steps against a throwaway repo where possible, keep `${{ }}` out of `run:` (pass values through `env:`), and list what stays unverified.
+- **Workflow (`.github/workflows/`):** parse the YAML and keep `${{ }}` out of `run:` (pass values through `env:`); it is proved by its first run on GitHub.
 - **Before handing over a batch:** `npm run checks`.
 
-Exit code 1 means findings, 2 means wrong usage. `check:seo` without `--scope` requires every manifest page to be built and writes `fail` rows for the rest; the publication form is `npm run check:seo -- --production --dist dist` (`--production` also refuses preview artifacts: `functions/`, `_headers` with `X-Robots-Tag`, a bundle without the production API address).
+Exit code 1 means findings, 2 means wrong usage. `check:seo` without `--scope` requires every manifest page to be built; the publication form is `npm run check:seo -- --production --dist dist` (`--production` also refuses a `robots.txt` that closes the site and a bundle without the production API address).
 
 ## Environment quirks
 
 - Node 24 runs the `.ts` scripts directly (`node scripts/checks/seo-check.ts`). Anything such a script imports (`scripts/`, `tests/fixtures/`, `src/routes/`) must be erasable TypeScript (no enums, namespaces, parameter properties) with relative imports ending in `.ts`; the `@/` alias does not resolve there.
 - Windows, Git Bash: run vitest from a `C:/…` working directory or from PowerShell. With a lowercase `/c/…` directory it reports "failed to find the current suite".
 - Git Bash rewrites arguments that start with `/`: `MSYS_NO_PATHCONV=1 npm run check:e2e -- --grep /privacy/`.
-- `wrangler` looks for `functions/` in its working directory: `npm run preview:assemble`, then `cd .preview && npx wrangler pages dev dist`. Run from the root it finds no functions and leaves a stray `.wrangler/`.
 - Ports (`tests/fixtures/servers.ts`): 8090 for the e2e test server. `NIUS_PORT_OFFSET=100 npm run check:e2e` shifts it, for parallel git worktrees. `npm run dev` (8080) is not shifted.
-- Within one checkout run one check at a time: the checks share the port and `.checks/registry.json`.
-- Only `npm run build` writes `dist/`. Test and preview builds go to `.checks/dist-e2e` and `.preview/build`: a build with the relative `/api` address must never be publishable.
+- Within one checkout run one browser check at a time: the scenarios share the port.
+- Only `npm run build` writes `dist/`. The e2e build goes to `.checks/dist-e2e`: a build with the relative `/api` address must never be publishable.
 - There is no `.env` in the repo (`.env.example` only). Test builds get fake keys in `tests/e2e/global-setup.ts`, unit tests in `vitest.config.ts`. Never write a real key into a file, a test or a report.
 - `.gitattributes` forces LF (`* text=auto eol=lf`): with `core.autocrlf=true` a CRLF checkout breaks exact-text tests. Write new files with LF.
-- Run `check:lhci` on an idle machine, with no other build or browser check running: performance is a hard threshold and the score depends on machine load.
 - `@astrojs/react` is pinned to exactly 7.1.3: 7.1.4–7.1.6 failed to load the Astro config (question 23).
 - Under `astro dev` the order form needs the React refresh preamble injected by `astro.config.ts`; the warning `[react-refresh-preamble]` means the form will not open in dev. The build is not affected.
 
@@ -82,22 +78,22 @@ When behaviour changes, check the events it sends and the data that arrives: eve
 | `src/data/`, `src/assets/` | blog posts; images imported by templates (published under `_astro/`) | — |
 | `src/styles/global.css` | theme tokens, Tailwind 3 compatibility rules | — |
 | `public/` | files published as they are: `robots.txt`, `sitemap.xml`, `brand/`, `photos/`, `js/nius-menu.js` (the service catalog web component), OG images, `assets/` (three images of the old site kept at their old addresses for image search, question 108) | the 404 page is `src/pages/404.astro`, never a `public/404.html` |
-| `scripts/`, `tests/`, `preview/` | build helpers and checks; `e2e/`, `fixtures/`; preview functions and the API stub | — |
+| `scripts/`, `tests/` | build helpers and checks; `e2e/`, `fixtures/` (the API stub in `fixtures/api/`) | — |
 
 ESLint enforces the React rule (`eslint.config.js`, proved by `tests/lint-boundary.test.ts`): no React import and no `.tsx` outside `src/islands/`, no static import of an island from a script.
 
 Adding a page:
 
-1. Entry in `src/routes/manifest.ts`, with a localized slug per language; hreflang and `sitemap.xml` follow from the manifest (check 3 compares `public/sitemap.xml` with it).
+1. Entry in `src/routes/manifest.ts`, with a localized slug per language; hreflang and `sitemap.xml` follow from the manifest (`check:seo` compares `public/sitemap.xml` with it).
 2. Template in `src/templates/`; pattern: `SestrickaPraha1.astro`.
 3. Register it in `src/templates/registry.ts`.
 4. A new template adds one of its pages to the control set in `lighthouserc.cjs`.
-5. Page behaviour goes to `src/scripts/` and `boot.ts`, with a scenario in `tests/e2e/`; the registry gets an `e2e` row only for the pages listed in `PAGES` of `tests/e2e/registry-reporter.ts`.
-6. Run the template minimum above and read the page's registry row.
+5. Page behaviour goes to `src/scripts/` and `boot.ts`, with a scenario in `tests/e2e/`.
+6. Run the template minimum above.
 
 Markup rules:
 
-- FAQ markup carries `data-faq`, `data-faq-item`, `data-faq-question`, `data-faq-answer`; check 3 compares it with the `FAQPage` JSON-LD.
+- FAQ markup carries `data-faq`, `data-faq-item`, `data-faq-question`, `data-faq-answer`; `check:seo` compares it with the `FAQPage` JSON-LD.
 - JSON-LD is emitted only through `serializeJsonLd` (it escapes `<`).
 - Phone and WhatsApp in shared components are literal text. `Breadcrumbs` does not rewrite `/#…` links: pass the final address.
 - `[data-open-cart]` buttons are bound once at start (`header-state.ts`, `form-bridge.ts`): a button created later gets no handler, the code that creates it subscribes it.
@@ -135,45 +131,28 @@ Markup rules:
 - Do not fix a lost click event with a beacon at `pagehide`: it bypasses the stubs and reaches the real service from tests. Deliver the event while the page is alive.
 - A randomly red test hides other failures: make it deterministic and annotate the gap it no longer covers (see `web_vital`).
 - Screenshots do not show DOM order: reading and Tab order need their own assertion.
-- A complete run of a check clears its registry column; a narrowed run (`--grep`, a file filter) records nothing for `e2e`. When the table looks stale, delete `.checks/registry.json` and rerun.
-- Parallel page work: one worktree per task, and the edits of `src/templates/registry.ts` and `lighthouserc.cjs` in separate last commits, so that integration does not conflict.
+- Parallel page work: one worktree per task, and the edits of `src/templates/registry.ts` in a separate last commit, so that integration does not conflict.
 
 ## Known issues
 
 - `web_vital` for LCP and CLS is lost when the tab closes or navigates; the scenario covers only a hidden live page and carries a `known gap` annotation (question 10).
 - Link tracker: a later handler that cancels a tracked click is overridden, the link is still followed (N2; nothing does that today). Links inside shadow roots are never held (N4). Links with `rel=noreferrer` are not held, their event may be lost (question 28).
-- The registry has no locking between processes and Playwright runs with `workers: 1`.
-- No workflow of this site has ever run on GitHub (questions 54, 58, 59). Workflows can be started by hand only from the default branch (question 32).
-- Check 3 compares `sitemap.xml` with the manifest, not with the build.
+- `check:seo` compares `sitemap.xml` with the manifest, not with the build.
 - Two defects kept from the old pages: the phone layouts of `/narozeninovy-darek-praha/` (479 px) and `/ru/podatok-k-dnju-rozhdenija-praga/` (429 px) are wider than 390 px; on `/disabled-daily-care-prague/` the MedicalBusiness `url` and the post-surgery link lead to the Czech address in every language. The Women's Day countdown is decided at build time (expired after 2026-03-08).
 - Browser scenarios run in Chromium only; Safari 15 and older is not checked (owner decision). Scenarios use a stand-in for `gtag.js`. Manual Google sign-in was never checked.
 - `check:lhci` makes anonymous requests to the production API, as any page load does (question 31). The drips page scores exactly 0.95 for accessibility (question 43).
-- The preview is built with the production analytics keys and is open to anyone (questions 7, 27).
 - Header dropdowns are disclosures (Tab, Escape), without arrow-key navigation (question 15); choosing the current language reloads the page (question 30).
 - Deferred minors: `header-menu.test.ts` depends on test order (`initHeaderMenu` is not idempotent); `buttonLink()` in `IvDripTherapy.astro` repeats the classes of `Button.astro`; `background-color: revert` in `global.css` also reaches button-type inputs.
 
-## Publication and rollback
+## Publication
 
-**Neither workflow has run on GitHub yet; everything below is unproven until the first dry run.** An agent never starts a real publication or a rollback and never pushes to `gh-pages`.
-
-- Publication goes only through "Publish NIUS" (`.github/workflows/publish.yml`), started by hand from `main`, input `dry_run` (default `true`). Jobs: `checks` (calls `checks.yml`) → `build` (env check, `npm ci`, `build`, `check:seo -- --production --dist dist`, Lighthouse, `check:e2e`, required files, artifact `dist`) → `publish`.
-- `publish` runs only with `dry_run` unticked and on `main`, and waits for the owner's approval of the `production` environment. It refuses when `gh-pages` moved since the build or when the artifact has fewer pages than `gh-pages`, tags the previous head `published-YYYYMMDD-HHMM` (UTC), replaces the whole tree of `gh-pages` with `dist` in an ordinary commit and waits up to 10 minutes for GitHub Pages to build it.
-- Rollback: "Roll back NIUS to a published build" (`rollback.yml`), from `main`, input `tag` in the same format, same approval. It restores the tag's tree as an ordinary commit; no build, no checks. The tag must be a past state of `gh-pages` (an ancestor of its head): a tag pushed onto any other commit is refused, and a forced push to `gh-pages` makes every earlier tag unusable. If a publication is waiting for approval, reject it first.
-
-First run:
-
-1. Owner settings (question 55): environment `production` with the owner as required reviewer and `main` as the only deployment branch; rulesets for `gh-pages` (no force push, no deletion) and for tags `published-*`; the three required `VITE_*` secrets and the optional `VITE_GOOGLE_ADS_ID`, `VITE_GOOGLE_ADS_LEAD_LABEL`, `VITE_GOOGLE_ADS_CONTACT_LABEL`; Pages source `gh-pages` / root (question 54).
-2. The workflow files reach `main` (question 32). The push must start only "Check the site" and must not move `gh-pages`.
-3. Dry run from `main`. Expect `checks` and `build` green and `publish` skipped; the SEO step prints no finding. In the artifact `dist`: `.nojekyll`, `CNAME` = `www.nius.cz`, `_astro/`, `sitemap.xml`, `robots.txt`, `404.html`; 78 pages (62 pages and 16 redirect stubs), every page references `/_astro/`.
-4. Owner review: that the backend accepting `referralCode` is live.
-5. No rollback rehearsal: the owner dropped it on 2026-11-16 (questions 33, 62, 72); the publication is the last step of the release.
-6. Real run at a quiet hour: `dry_run` unticked, the owner approves. The summary names the tag and says that Pages deployed the commit.
-7. Within 10 minutes on www.nius.cz: every page loads its `/_astro/` files; `/robots.txt` and `/sitemap.xml` are as before (dates aside); an unknown address gives the 404 page of `src/pages/404.astro`; the custom domain is still set; a test order on test data goes through.
-8. If anything is wrong: run the rollback with the tag from the summary and confirm that Pages deployed it.
-
-Before a publication or a rollback, `node scripts/release/snapshot-live.mjs --origin https://www.nius.cz --out before.json`, and `--compare before.json after.json` after it, show what changed on the site.
+- `main` accepts only pull requests with "Check the site" green; the checks run there, once.
+- Publication is manual: Actions → "Publish NIUS" → Run workflow, branch `main`. It builds `main` with the release keys, runs `check:env` and `check:seo -- --production --dist dist`, and deploys the build to GitHub Pages (2–3 minutes). Merging publishes nothing. An agent never starts a publication.
+- Release keys are repository secrets: `VITE_AMPLITUDE_API_KEY`, `VITE_MAPY_API_KEY`, `VITE_GOOGLE_CLIENT_ID` (required), `VITE_GOOGLE_ADS_ID`, `VITE_GOOGLE_ADS_LEAD_LABEL`, `VITE_GOOGLE_ADS_CONTACT_LABEL` (optional, `check:env` warns). They are baked into the build, so a changed secret needs a new publication.
+- Rollback: Actions → "Publish NIUS" → the last good run with the jobs `build` and `deploy` → "Re-run all jobs" (it rebuilds that run's commit; possible for 30 days). Older than that: revert the pull request and publish. Runs from before the switch to GitHub Actions deployment (jobs `checks`, `build`, `publish`) push to the `gh-pages` branch and roll nothing back; while `gh-pages` is kept, the old state comes back by pointing Settings → Pages → Source at the branch `gh-pages`.
+- After a publication check on www.nius.cz: the home page in four languages, the cookie banner, an order on test data.
 
 ## Domain
 
-- Production: www.nius.cz (GitHub Pages, `CNAME` written by `scripts/finalize-dist.mjs`). Backend: `https://app.nius.cz/api` unless `VITE_API_URL` is set (`src/scripts/env.ts`).
+- Production: www.nius.cz (GitHub Pages; the custom domain is set in the Pages settings). Backend: `https://app.nius.cz/api` unless `VITE_API_URL` is set (`src/scripts/env.ts`).
 - Google Business: g.page/r/Cb4BmqPTZRSSEBE/review

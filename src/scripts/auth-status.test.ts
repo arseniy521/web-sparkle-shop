@@ -169,7 +169,7 @@ describe('accountHref', () => {
 
   it('account link: no returnTo from another origin', async () => {
     const { accountHref } = await load();
-    expect(accountHref('error', loc('https://nius-site-preview.pages.dev', '/en/blog/'))).toBe(
+    expect(accountHref('error', loc('https://nius.example.com', '/en/blog/'))).toBe(
       'https://app.nius.cz/login',
     );
   });

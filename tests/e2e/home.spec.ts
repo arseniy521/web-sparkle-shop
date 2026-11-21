@@ -3,7 +3,7 @@ import cs from '../../src/i18n/locales/cs.json' with { type: 'json' };
 import en from '../../src/i18n/locales/en.json' with { type: 'json' };
 import ru from '../../src/i18n/locales/ru.json' with { type: 'json' };
 import uk from '../../src/i18n/locales/uk.json' with { type: 'json' };
-import stubData from '../../preview/stub-data.json' with { type: 'json' };
+import stubData from '../fixtures/api/stub-data.json' with { type: 'json' };
 import { captureAmplitude, events, type AmplitudeCapture } from '../fixtures/amplitude.ts';
 import { installApiStub } from '../fixtures/api-stub.ts';
 import { captureGa } from '../fixtures/google.ts';

@@ -5,10 +5,10 @@ import { E2E_ORIGIN } from './tests/fixtures/servers.ts';
 // The port is shifted by NIUS_PORT_OFFSET, see tests/fixtures/servers.ts.
 export default defineConfig({
   testMatch: '**/*.spec.ts',
-  // The reporter writes .checks/registry.json; one worker keeps its read-modify-write safe.
+  // One worker: the scenarios share one static server and one port.
   workers: 1,
   globalSetup: ['./tests/e2e/global-setup.ts'],
-  reporter: [[process.env.CI ? 'dot' : 'list'], ['./tests/e2e/registry-reporter.ts']],
+  reporter: process.env.CI ? 'dot' : 'list',
   projects: [
     {
       name: 'e2e',

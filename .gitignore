@@ -12,13 +12,11 @@ dist
 dist-ssr
 *.local
 
-# Astro, checks and preview outputs
+# Astro and check outputs
 .astro/
 .checks/
-.preview/
 test-results/
 .lighthouseci/
-.wrangler/
 
 # Environment files — never commit secrets
 .env
@@ -35,3 +33,6 @@ test-results/
 *.njsproj
 *.sln
 *.sw?
+
+# Local Claude Code settings
+.claude/settings.local.json

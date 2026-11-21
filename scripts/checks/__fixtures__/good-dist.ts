@@ -83,8 +83,6 @@ export function writeGoodDist(dir: string): void {
     '404.html',
     '<!DOCTYPE html><html lang="en"><head><meta name="robots" content="noindex"><title>Not found</title></head><body><a href="/">Home</a></body></html>',
   );
-  write(dir, 'CNAME', 'www.nius.cz\n');
-  write(dir, '.nojekyll', '');
   write(dir, 'robots.txt', 'User-agent: *\nAllow: /\n\nSitemap: https://www.nius.cz/sitemap.xml\n');
   write(dir, 'sitemap.xml', sitemapXml());
   write(dir, 'og-image.jpg', 'jpg');

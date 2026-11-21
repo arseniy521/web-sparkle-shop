@@ -1,43 +1,23 @@
 name: Check the site
 
-# Runs on every change of the site's code, files, checks or configuration; documentation alone does not.
+# The only gate: main accepts pull requests with this check green (repository ruleset).
+# No path filter: a required check that does not run would block the pull request.
+# No secrets: the tests and the e2e build use fake keys, and a pull request from a fork gets none.
 on:
-  push:
-    branches: [main, astro, 'astro/**']
-    paths: ['src/**', 'public/**', 'scripts/**', 'tests/**', 'preview/**', 'package.json', 'package-lock.json', '*.config.ts', '*.config.js', 'tsconfig.json', 'lighthouserc.cjs', '.github/workflows/checks.yml']
   pull_request:
-    branches: [astro, main]
-    paths: ['src/**', 'public/**', 'scripts/**', 'tests/**', 'preview/**', 'package.json', 'package-lock.json', '*.config.ts', '*.config.js', 'tsconfig.json', 'lighthouserc.cjs', '.github/workflows/checks.yml']
-  # The publish workflow runs these checks before it builds the release.
-  workflow_call:
-    secrets:
-      VITE_AMPLITUDE_API_KEY:
-        required: true
-      VITE_MAPY_API_KEY:
-        required: true
-      VITE_GOOGLE_CLIENT_ID:
-        required: true
-      # Optional: empty values build the site without the Google Ads conversions (check:env warns).
-      VITE_GOOGLE_ADS_ID:
-        required: false
-      VITE_GOOGLE_ADS_LEAD_LABEL:
-        required: false
-      VITE_GOOGLE_ADS_CONTACT_LABEL:
-        required: false
+    branches: [main]
 
 permissions:
   contents: read
 
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   checks:
     runs-on: ubuntu-latest
-    env:
-      VITE_AMPLITUDE_API_KEY: ${{ secrets.VITE_AMPLITUDE_API_KEY }}
-      VITE_MAPY_API_KEY: ${{ secrets.VITE_MAPY_API_KEY }}
-      VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
-      VITE_GOOGLE_ADS_ID: ${{ secrets.VITE_GOOGLE_ADS_ID }}
-      VITE_GOOGLE_ADS_LEAD_LABEL: ${{ secrets.VITE_GOOGLE_ADS_LEAD_LABEL }}
-      VITE_GOOGLE_ADS_CONTACT_LABEL: ${{ secrets.VITE_GOOGLE_ADS_CONTACT_LABEL }}
+    timeout-minutes: 20
 
     steps:
       - name: Check out repository
@@ -51,12 +31,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-
-      - name: Check the build environment
-        run: npm run check:env
 
       - name: Lint
         run: npm run lint
@@ -76,31 +50,32 @@ jobs:
       - name: Check SEO of the built pages
         run: npm run check:seo -- --scope built
 
+      - name: Read the Playwright version
+        id: playwright
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Restore the Playwright browser
+        id: browser
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+      - name: Install Chromium and its system libraries
+        if: steps.browser.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install the system libraries of Chromium
+        if: steps.browser.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
       - name: Browser scenarios
         run: npm run check:e2e
 
-      # Ubuntu 24.04 blocks unprivileged user namespaces through AppArmor, so the Chrome that
-      # Lighthouse starts cannot create its sandbox and aborts ("No usable sandbox"). Playwright
-      # starts its browser without the sandbox; Lighthouse keeps it. The runner is discarded after
-      # the job.
-      - name: Let Chrome create its sandbox on the runner
-        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
-
-      - name: Lighthouse
-        run: npm run check:lhci
-
       - name: Upload the traces of failed browser scenarios
-        if: always()
+        if: failure()
         uses: actions/upload-artifact@v6
         with:
           name: playwright-results
           path: test-results
-          if-no-files-found: ignore
-
-      - name: Upload the check results
-        if: always()
-        uses: actions/upload-artifact@v6
-        with:
-          name: checks
-          path: .checks
           if-no-files-found: ignore

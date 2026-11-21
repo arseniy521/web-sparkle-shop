@@ -1,5 +1,5 @@
-// The single stand-in for the NIUS API: used by the Playwright stub and by the preview's
-// Cloudflare Pages Function. Plain ES module without dependencies. Never echoes the request.
+// The stand-in for the NIUS API used by the browser scenarios (tests/fixtures/api-stub.ts).
+// Plain ES module without dependencies. Never echoes the request.
 import stubData from './stub-data.json' with { type: 'json' };
 
 const UNAUTHORIZED = { message: 'Unauthorized' };
